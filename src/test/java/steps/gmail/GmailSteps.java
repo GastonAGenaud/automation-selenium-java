@@ -1,5 +1,6 @@
 package steps.gmail;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.base.BasePage;
@@ -21,4 +22,9 @@ public class GmailSteps extends BasePage {
     @Then("Verify incorrect login")
     public void verifyIncorrectLogin() {
     }
+    @Given("Navigate to {string} page")
+    public void navigate_to_page(String url) {
+        navigateTo(url);
+    }
+
 }

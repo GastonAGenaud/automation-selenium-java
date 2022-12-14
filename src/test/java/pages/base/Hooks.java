@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.AfterSuite;
 
 import java.sql.Timestamp;
 
@@ -31,6 +32,7 @@ public class Hooks {
     }
 
     @After
+    @AfterSuite
     public void tearDown() {
         cleanupDriver();
     }

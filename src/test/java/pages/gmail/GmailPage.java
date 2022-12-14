@@ -1,7 +1,6 @@
 package pages.gmail;
 
 
-import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,8 +20,5 @@ public class GmailPage extends BasePage {
 
     }
 
-    @Given("Navigate to {string} page")
-    public void navigateToPage(String url) {
-    }
 
 }
