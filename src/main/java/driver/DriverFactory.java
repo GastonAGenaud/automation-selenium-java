@@ -57,6 +57,32 @@ public class DriverFactory {
         }
         return browserType;
     }
+    public static String getEmail() {
+        String email = null;
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
+            properties.load(file);
+            email = properties.getProperty("email").toLowerCase().trim();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return email;
+    }
+    public static String getPassword() {
+        String password = null;
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
+            properties.load(file);
+            password = properties.getProperty("password");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return password;
+    }
 
     public static void cleanupDriver() {
         webDriver.get().quit();
