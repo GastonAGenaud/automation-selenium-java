@@ -4,20 +4,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BasePage;
 import pages.EbayPage;
+import pages.GmailPage;
 
 public class EbaySteps  extends BasePage {
-    private EbayPage _page;
+    private EbayPage ebayPage;
 
-    public EbaySteps(EbayPage page) {
-        _page = page;
+    public EbaySteps() {
+        this.ebayPage = new EbayPage();
     }
 
     @When("Search for {string}")
-    public void loginUsingCredentials(String search) {
+    public void searchForText(String search) {
+        ebayPage.testSearch(search);
     }
 
     @Then("Open first result and output item price")
     public void verifySuccessLoginByUserProfileIcon() {
+        ebayPage.clickOnFistResult();
+        ebayPage.showFirstPrice();
 
     }
 }

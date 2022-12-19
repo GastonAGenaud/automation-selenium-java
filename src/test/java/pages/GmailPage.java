@@ -1,16 +1,15 @@
 package pages;
 
 
-import org.openqa.selenium.Cookie;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import driver.DriverFactory;
 import org.testng.Assert;
 
-import java.util.List;
-
 public class GmailPage extends BasePage {
+
     public GmailPage() {
         super();
     }
@@ -26,7 +25,7 @@ public class GmailPage extends BasePage {
     WebElement emailNextBtn;
     private @FindBy(xpath = "//*[@id=\"gb\"]/div[2]/div[1]/div[4]/div/a/img")
     WebElement gmailIcon;
-    private @FindBy(xpath = "//a[starts-with(text(), 'Gmail')]")
+    private @FindBy(xpath = "//a[@title='Gmail']")
     WebElement gmailBtn;
 
 
@@ -36,6 +35,7 @@ public class GmailPage extends BasePage {
         sendKeys(passwordTxt, DriverFactory.getPassword());
         waitForWebElementAndClick(passwordNextBtn);
     }
+
 
     public void IncorrectPasswordLogin() {
         sendKeys(emailTxt, DriverFactory.getEmail());
@@ -47,21 +47,25 @@ public class GmailPage extends BasePage {
     public void AccountNotFound() {
         sendKeys(emailTxt, generateRandomString(12) + "@gmail.com");
         waitForWebElementAndClick(emailNextBtn);
-        sendKeys(passwordTxt, generateRandomString(10));
-        waitForWebElementAndClick(passwordNextBtn);
     }
 
     public void IncorrectDomainLogin() {
         sendKeys(emailTxt, generateRandomString(5) + "@.com");
         waitForWebElementAndClick(emailNextBtn);
     }
+
     public void ValidateSuccessLogin() {
-        navigateTo("https://mail.google.com/mail/u/0/#inbox");
-        String url = getDriver().getCurrentUrl();
-        Assert.assertEquals(url, "https://mail.google.com/mail/u/0/#inbox");
+        String expectedUrl = "https://mail.google.com/mail/u/0/#inbox";
+        String actualUrl = getDriver().getCurrentUrl();
+        if (expectedUrl.equals(actualUrl)) {
+            System.out.println("Se ha redirigido correctamente al inbox de Gmail");
+        } else {
+            System.out.println("No se ha redirigido al inbox de Gmail");
+        }
     }
 
     public void ValidateIncorrectLogin(String message) {
-            Assert.assertEquals(findSpanByText(message).getText(), message);
+        wait(10);
+        Assert.assertEquals(findSpanByText(message).getText(), message);
     }
 }

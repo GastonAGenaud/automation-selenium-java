@@ -57,7 +57,7 @@ public class BasePage {
 
     public WebElement findSpanByText(String text) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        By messageLocator = By.xpath(String.format("//span[starts-with(text(), '%s')]", text));
+        By messageLocator = By.xpath(String.format("//*[starts-with(text(), '%s')]", text));
         wait.until(ExpectedConditions.presenceOfElementLocated(messageLocator));
         return getDriver().findElement(messageLocator);
     }
@@ -72,11 +72,17 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
-    public void waitForAlert_And_ValidateText(String text) {
+
+    public void wait(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public WebDriverWait getWait() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.alertIsPresent());
-        String alert_Message_Text = getDriver().switchTo().alert().getText();
-        Assert.assertEquals(alert_Message_Text, text);
+        return wait;
     }
 
 }
