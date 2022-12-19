@@ -1,15 +1,15 @@
 package pages;
 
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
 import java.util.List;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
+import static io.restassured.RestAssured.given;
 
 public class EbayPage extends BasePage {
     public EbayPage() {
@@ -46,6 +46,17 @@ public class EbayPage extends BasePage {
     public void showFirstPrice(){
         priceText = price.getText();
         System.out.println("Price: " + priceText);
+    }
+
+    public void testSearchElectricGuitar() {
+        given()
+                .queryParam("q", "Electric Guitar")
+                .when()
+                .get("https://www.ebay.com/api/v1/search")
+                .then()
+                .statusCode(200)
+                .assertThat()
+                .body("items[0].name", containsString("Electric Guitar"));
     }
 
 }

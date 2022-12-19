@@ -15,6 +15,7 @@ public class EbaySteps  extends BasePage {
 
     @When("Search for {string}")
     public void searchForText(String search) {
+        ebayPage.testSearchElectricGuitar();
         ebayPage.testSearch(search);
     }
 
