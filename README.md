@@ -36,6 +36,12 @@ En cuanto a las dependencias del proyecto:
 
 > Commons-lang3: versión 3.12.0. Esta dependencia es una biblioteca de clases utilitarias de Apache Commons, que proporciona una serie de métodos útiles para trabajar con cadenas, números, fechas y otros tipos de datos
 
+## Reporte
+> target/cucumber.html
+# CONTACTO
+> email : gastongenaudar@gmail.com
+> linkedin: https://www.linkedin.com/in/gaston-genaud/
+
 ___
 # English version
 
@@ -73,4 +79,10 @@ As for the project dependencies:
 > TestNG: version 7.1.0. This dependency is a test execution framework designed to be used with Java. It allows running unit and integration tests, and provides a variety of configuration options and annotations to customize test execution.
 
 > Commons-lang3: version 3.12.0. This dependency is a library of Apache Commons utility classes, which provides a number of useful methods for working with strings, numbers, dates and other data types.
+
+## Report
+> target/cucumber.html
+# CONTACT
+> email : gastongenaudar@gmail.com
+> linkedin: https://www.linkedin.com/in/gaston-genaud/
 
