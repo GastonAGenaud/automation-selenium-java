@@ -1,4 +1,6 @@
 # lamansys-selenium-java
+# Spanish version
+
 Selenium test automation for lamansys.
 
 Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags @ebay y @gmail, puedes seguir los siguientes pasos:
@@ -33,3 +35,42 @@ En cuanto a las dependencias del proyecto:
 > TestNG: versión 7.1.0. Esta dependencia es un framework de ejecución de pruebas diseñado para ser utilizado con Java. Permite ejecutar pruebas unitarias y de integración, y proporciona una variedad de opciones de configuración y anotaciones para personalizar la ejecución de pruebas.
 
 > Commons-lang3: versión 3.12.0. Esta dependencia es una biblioteca de clases utilitarias de Apache Commons, que proporciona una serie de métodos útiles para trabajar con cadenas, números, fechas y otros tipos de datos
+
+___
+# English version
+
+Selenium test automation for lamansys.
+
+To run the Runner.java file and execute the test cases marked with the @ebay and @gmail tags, you can follow the steps below:
+
+## Requirements
+
+```
+
+➔ Make sure you have Apache Maven installed on your system. If you don't have it, you can download it from the following link: https://maven.apache.org/download.cgi
+➔ Make sure you have all the necessary dependencies installed in the project. You can check the dependencies being used in the pom.xml file.
+➔ Make sure you have the features and steps files in their respective places in the project. The features files should be in the "features" folder and the steps files should be in the "steps" folder.
+➔ Make sure that the Runner.java file is in the "runner" folder.
+➔ In the Runner.java file, you can specify the tags of the test cases you want to run by using the "tags" attribute in the @CucumberOptions annotation. For example, if you want to run only the test cases with the tag @ebay, you should write: tags = "@ebay". If you want to run the test cases with the @ebay tag and the @gmail tag, you should write: tags = "(@ebay or @gmail)".
+➔Once you have specified the tags you want to use, you can run the Runner.java like any other Java class. You can do this from your IDE or from the command line.
+```
+## How to run the tests
+If you opted for the command line:
+
+    mvn test
+
+## Stack
+As for the project dependencies:
+
+> Cucumber-java: version 7.8.1. This dependency allows you to use the Cucumber test case writing syntax, which allows you to write test cases in natural language and use regular expressions to map them to Java methods.
+
+> Cucumber-testng: version 7.8.1. This dependency allows integrating Cucumber with the TestNG test execution framework.
+
+> Selenium-java: version 4.6.0. This dependency is the core of Selenium, a tool that allows automating tests in web browsers.
+
+> Selenium-support: version 4.0.0. This dependency provides additional support classes for Selenium.
+
+> TestNG: version 7.1.0. This dependency is a test execution framework designed to be used with Java. It allows running unit and integration tests, and provides a variety of configuration options and annotations to customize test execution.
+
+> Commons-lang3: version 3.12.0. This dependency is a library of Apache Commons utility classes, which provides a number of useful methods for working with strings, numbers, dates and other data types.
+
