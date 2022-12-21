@@ -58,15 +58,12 @@ public class GmailSteps extends BasePage {
 
     @Given("I want to access the Google Home Page")
     public void iWantToAccessTheGoogleHomePage() {
-    
-    
     }
 
     @When("I make a GET request to the URL {string}")
     public void iMakeAGETRequestToTheURL(String url) {
          this.url=url;
         response = RestAssured.get(this.url);
-
     }
 
     @Then("the status of the response should be {int} OK")
