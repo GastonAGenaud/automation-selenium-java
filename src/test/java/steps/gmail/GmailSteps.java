@@ -3,8 +3,12 @@ package steps.gmail;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import pages.BasePage;
 import pages.GmailPage;
+
+import static org.testng.Assert.assertEquals;
 
 
 public class GmailSteps extends BasePage {
@@ -16,6 +20,8 @@ public class GmailSteps extends BasePage {
         this.gmailPage = new GmailPage();
 
     }
+    String url = "";
+    Response response;
 
     @When("Login using {string} credentials")
     public void loginUsingCredentials(String typeOfCredentials)  {
@@ -48,6 +54,21 @@ public class GmailSteps extends BasePage {
     @Given("Navigate to {string} page")
     public void navigate_to_page(String url) {
         navigateTo(url);
+    }
+
+    @Given("I want to access the Google Home Page")
+    public void iWantToAccessTheGoogleHomePage() {
+    }
+
+    @When("I make a GET request to the URL {string}")
+    public void iMakeAGETRequestToTheURL(String url) {
+         this.url=url;
+        response = RestAssured.get(this.url);
+    }
+
+    @Then("the status of the response should be {int} OK")
+    public void theStatusOfTheResponseShouldBeOK(int status) {
+        assertEquals(status, response.getStatusCode());
     }
 
 }

@@ -24,3 +24,9 @@ Feature: Gmail
     Given Navigate to "https://accounts.google.com/signin/v2/identifier?hl=en-US&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin" page
     When Login using "random" credentials
     Then Verify incorrect login message 'Couldn’t find your Google Account'
+
+  @gmail @smoke
+  Scenario: Validate that google is responding correctly
+    Given I want to access the Google Home Page
+    When I make a GET request to the URL "https://www.google.com"
+    Then the status of the response should be 200 OK
