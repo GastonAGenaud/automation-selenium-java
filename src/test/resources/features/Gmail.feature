@@ -25,8 +25,8 @@ Feature: Gmail
     When Login using "random" credentials
     Then Verify incorrect login message 'Couldn’t find your Google Account'
 
-  @gmail
-  Scenario: Sign in to the Google home page
+  @gmail @smoke
+  Scenario: Validate that google is responding correctly
     Given I want to access the Google Home Page
     When I make a GET request to the URL "https://www.google.com"
     Then the status of the response should be 200 OK
