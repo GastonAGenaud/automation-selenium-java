@@ -1,4 +1,4 @@
-# lamansys-selenium-java
+# automation-selenium-java
 # Spanish version
 
 Selenium test automation for lamansys.
