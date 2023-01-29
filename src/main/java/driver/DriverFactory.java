@@ -26,17 +26,11 @@ public class DriverFactory {
 
         switch (getBrowserType()) {
             case "chrome" -> {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/main/java/driver/drivers/chromedriver.exe" );
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-                driver = new ChromeDriver(chromeOptions);
+                driver = new ChromeDriver();
                 break;
             }
             case "firefox" -> {
-                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/main/java/driver/drivers/geckodriver.exe");
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-                driver = new FirefoxDriver(firefoxOptions);
+                driver = new FirefoxDriver();
                 break;
             }
         }
