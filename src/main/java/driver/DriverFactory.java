@@ -35,7 +35,7 @@ public class DriverFactory {
         return driver;
     }
 
-    private static String getBrowserType() {
+    public static String getBrowserType() {
         String browserType = null;
 
         try {

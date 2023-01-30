@@ -1,6 +1,5 @@
 package pages;
 
-import driver.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -155,16 +154,16 @@ public class HomePage extends BasePage {
         emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
         passwordLoginInput.click();
         passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
-        logInBtn.click();
+        waitForWebElementAndClick(logInBtn);
     }
     //HOME PAGE
 
     public void setHomePage() {
-        driver.navigate().to(DriverFactory.getUrl());
+        driver.navigate().to(url);
     }
 
     public void goToHome() {
-        driver.navigate().to(DriverFactory.getUrl());
+        driver.navigate().to(url);
     }
 
     //Header

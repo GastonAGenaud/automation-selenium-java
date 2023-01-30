@@ -1,0 +1,34 @@
+<extentreports>
+    <configuration>
+        <documentTitle>Reporte de pruebas</documentTitle>
+        <reportName>Reporte de pruebas</reportName>
+        <encoding>UTF-8</encoding>
+        <protocol>http</protocol>
+        <host>localhost</host>
+        <port>8080</port>
+        <theme>standard</theme>
+        <reportHeadline>Reporte de pruebas</reportHeadline>
+        <jsResourcePath>target/extent-reports/js</jsResourcePath>
+        <cssResourcePath>target/extent-reports/css</cssResourcePath>
+        <resourcePath>target/extent-reports/resources</resourcePath>
+        <chartVisibilityOnOpen>true</chartVisibilityOnOpen>
+        <logo>target/extent-reports/img/logo.png</logo>
+        <startFullScreen>false</startFullScreen>
+        <displayCallerClass>false</displayCallerClass>
+        <autoCreateSymlink>false</autoCreateSymlink>
+        <includeCoverage>false</includeCoverage>
+        <multiWindowOpen>false</multiWindowOpen>
+        <provideSymbolization>false</provideSymbolization>
+        <flushEachTest>false</flushEachTest>
+        <highChartsEnabled>false</highChartsEnabled>
+        <highChartsTheme>default</highChartsTheme>
+        <jsonReportMaxSizeInMb>50</jsonReportMaxSizeInMb>
+        <browserWidth>1366</browserWidth>
+        <browserHeight>768</browserHeight>
+        <extentXServerUrl>http://localhost:1337</extentXServerUrl>
+        <extentXReportName>Test Execution Report</extentXReportName>
+        <extentXProjectName>Default</extentXProjectName>
+        <extentXEncryptionKey>mykey</extentXEncryptionKey>
+        <attachmentsPattern>.*</attachmentsPattern>
+    </configuration>
+</extentreports>

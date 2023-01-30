@@ -1,6 +1,5 @@
 package steps.home;
 
-import SessionManager.SessionManager;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -351,14 +350,15 @@ public class homeSteps extends BasePage {
     public void iValidateTheMoreRugsSection() {
         _page.moreRugsBtn();
     }
-    SessionManager sessionManager = new SessionManager(getDriver());
+
 
     @Before
     public void test() throws IOException {
         _page.setHomePage();
         _page.headerLogIn();
         _page.login();
-        sessionManager.storeSessionFile("sesionPrueba");
+        wait(5);
+        sessionManager.storeSessionFile("data-session");
         _page.homeBack();
 
     }
@@ -366,7 +366,7 @@ public class homeSteps extends BasePage {
     @Given("login bypass")
     public void iLoginBypass() {
         wait(10);
-        sessionManager.usePreviousLoggedInSession("sesionPrueba");
+        sessionManager.usePreviousLoggedInSession("data-session");
         wait(4);
         getDriver().navigate().refresh();
         wait(10);

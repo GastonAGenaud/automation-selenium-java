@@ -1,11 +1,9 @@
 package pages;
 
 
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import driver.DriverFactory;
 import org.testng.Assert;
 
 public class GmailPage extends BasePage {
@@ -30,15 +28,15 @@ public class GmailPage extends BasePage {
 
 
     public void SignIn() {
-        sendKeys(emailTxt, DriverFactory.getEmail());
+        sendKeys(emailTxt, email);
         waitForWebElementAndClick(emailNextBtn);
-        sendKeys(passwordTxt, DriverFactory.getPassword());
+        sendKeys(passwordTxt, password);
         waitForWebElementAndClick(passwordNextBtn);
     }
 
 
     public void IncorrectPasswordLogin() {
-        sendKeys(emailTxt, DriverFactory.getEmail());
+        sendKeys(emailTxt, email);
         waitForWebElementAndClick(emailNextBtn);
         sendKeys(passwordTxt, generateRandomString(10));
         waitForWebElementAndClick(passwordNextBtn);

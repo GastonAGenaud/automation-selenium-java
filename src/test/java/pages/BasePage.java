@@ -1,5 +1,6 @@
 package pages;
 
+import SessionManager.SessionManager;
 import driver.DriverFactory;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import EnvironmentManager.Environment;
 
 import java.time.Duration;
 
@@ -18,6 +20,12 @@ public class BasePage {
     public WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
+    public SessionManager sessionManager = new SessionManager(getDriver());
+    String password = Environment.getProperty("password");
+    String email = Environment.getProperty("email");
+    String url = Environment.getProperty("url");
+
+
 
     public void navigateTo(String url) {
         getDriver().get(url);
@@ -99,7 +107,6 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
-
     public void wait(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -111,6 +118,8 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         return wait;
     }
+
+
 
 }
 
