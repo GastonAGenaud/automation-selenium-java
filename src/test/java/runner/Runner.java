@@ -6,11 +6,11 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(features = {"classpath:features"}, glue = {"steps"},
-        tags = "(@ebay or @gmail)", monochrome = true, dryRun = false,
+        tags = "(@Bypass)", monochrome = true, dryRun = false,
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"})
 public class Runner extends AbstractTestNGCucumberTests {
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }

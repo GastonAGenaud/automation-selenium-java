@@ -2,15 +2,11 @@ package pages;
 
 import driver.DriverFactory;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -25,6 +21,37 @@ public class BasePage {
 
     public void navigateTo(String url) {
         getDriver().get(url);
+    }
+    public void waitForInvisibility(WebElement element) {
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        WebDriverWait wait = getWait();
+        wait.until(d -> {
+            try {
+                return !element.isDisplayed();
+            } catch (StaleElementReferenceException | NoSuchElementException e) {
+                return true;
+            }
+        });
+    }
+
+    public void waitForVisibility(WebElement element) {
+        try {
+            getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+            getWait().until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    try {
+                        return element.isDisplayed();
+                    } catch (NoSuchElementException | StaleElementReferenceException ignored) {
+                        return false;
+                    }
+                }
+
+                public String toString() {
+                    return "visibility of " + element;
+                }
+            });
+        } finally {
+        }
     }
 
     public String generateRandomNumber(int length) {

@@ -1,11 +1,8 @@
 package driver;
 
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -77,7 +74,19 @@ public class DriverFactory {
         }
         return password;
     }
+    public static String getUrl() {
+        String url = null;
 
+        try {
+            Properties properties = new Properties();
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
+            properties.load(file);
+            url = properties.getProperty("url");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return url;
+    }
     public static void cleanupDriver() {
         webDriver.get().quit();
         webDriver.remove();
