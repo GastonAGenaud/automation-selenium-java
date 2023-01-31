@@ -1,5 +1,6 @@
 package pages;
 
+import EnvironmentManager.Environment;
 import SessionManager.SessionManager;
 import driver.DriverFactory;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,9 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import EnvironmentManager.Environment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -109,6 +107,17 @@ public class BasePage {
 
         wait.until(webDriver -> element.isDisplayed());
     }
+
+    public void fluentWaitElementDisappears(WebDriver driver, WebElement element) {
+        FluentWait wait = new FluentWait(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(TimeoutException.class);
+
+        wait.until(webDriver -> !element.isDisplayed());
+    }
+
     public void fluentWaitStrict(WebDriver driver, WebElement element) {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(60))
@@ -118,6 +127,7 @@ public class BasePage {
                 .ignoring(TimeoutException.class);
 
         wait.until(webDriver -> element.isDisplayed() && element.isEnabled());
+
     }
 
 
@@ -318,45 +328,57 @@ public class BasePage {
         getDriver().navigate().to(url);
 
         waitForVisibility(signUpNowBtn);
+        fluentWaitStrict(getDriver(), signUpNowBtn);
         fluentWait(getDriver(), signUpNowBtn);
         waitForWebElementAndClick(signUpNowBtn);
 
+        fluentWaitStrict(getDriver(), newEmailBtn);
         fluentWait(getDriver(), newEmailBtn);
         waitForWebElementAndClick(newEmailBtn);
 
+        fluentWaitStrict(getDriver(), newUsernameBtn);
         fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.sendKeys(randomStr);
 
+        fluentWaitStrict(getDriver(), newEmailBtn);
         waitForWebElementAndClick(newEmailBtn);
         newEmailBtn.sendKeys(text + randomEmail + "auto@trick.com");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.clear();
         newUsernameBtn.sendKeys(randomStr);
-        //newUsernameBtn.sendKeys(randomStr);
 
+        fluentWaitStrict(getDriver(), newPasswordBtn);
         fluentWait(getDriver(), newPasswordBtn);
         waitForWebElementAndClick(newPasswordBtn);
         newPasswordBtn.click();
 
+        fluentWaitStrict(getDriver(), newPasswordBtn);
         fluentWait(getDriver(), newPasswordBtn);
         waitForWebElementAndClick(newPasswordBtn);
         newPasswordBtn.sendKeys("asdasdasq21231@A");
         newPasswordBtn.clear();
         newPasswordBtn.sendKeys("asdasdasq21231@A");
 
+        fluentWaitStrict(getDriver(), newUsernameBtn);
         fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.sendKeys(randomStr);
 
+        fluentWaitStrict(getDriver(), signUpBtn);
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
+        fluentWaitStrict(getDriver(), newUsernameBtn);
         fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.clear();
         newUsernameBtn.sendKeys(randomStr);
 
+        fluentWaitStrict(getDriver(), signUpBtn);
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 

@@ -1,6 +1,5 @@
 package pages.makeanoffer;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -73,6 +72,8 @@ public class makeAnOfferPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#imSellerSelector > div > label > div > div")
     public WebElement imSellerBtn;
+    @FindBy(xpath = "//div[@class='iziToast-texts']")
+    public WebElement errorMessageSignUp;
 
     @FindBy(how = How.CSS, using = "#seller-buyer-button")
     public WebElement nextBtn;
@@ -112,7 +113,7 @@ public class makeAnOfferPage extends BasePage {
     public void howMuchSell() {
         waitForVisibility(howMuch);
         waitForClickability(howMuch);
-        fluentWaitStrict(getDriver(),howMuch);
+        fluentWaitStrict(getDriver(), howMuch);
         waitForWebElementAndClick(howMuch);
         howMuch.sendKeys("test");
     }
@@ -121,7 +122,6 @@ public class makeAnOfferPage extends BasePage {
         fluentWaitStrict(getDriver(), howOld);
         waitForWebElementAndClick(howOld);
         howOld.sendKeys("18");
-        wait(4);
     }
 
     public void nextButton() {
@@ -130,9 +130,10 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void imSellerButton() {
+        fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
         fluentWaitStrict(getDriver(), imSellerBtn);
+        fluentWait(getDriver(), imSellerBtn);
         waitForWebElementAndClick(imSellerBtn);
-
     }
 
     public void setWelcomeClose() {
