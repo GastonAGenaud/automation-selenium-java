@@ -5,16 +5,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BasePage;
-import pages.HomePage;
+import pages.home.HomePage;
 
 public class homeSteps extends BasePage {
 
     private HomePage _page;
 
     public homeSteps() {
+
         this._page = new HomePage();
+
     }
 
+
+    //Main header
     @Given("I go to home page")
     public void iGoToHomePage() {
         ////_driver.manage().window().setSize(new Dimension(2560, 1440));
@@ -29,6 +33,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse Request button")
     public void iValidateTheBrowseRequestButton() {
+        wait(2);
         _page.headerRequest();
         _page.homeBack();
     }
@@ -47,6 +52,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse by seller button")
     public void iValidateTheBrowseBySellerButton() {
+        wait(2);
         _page.headerBrowseBySeller();
         _page.homeBack();
     }
@@ -142,6 +148,7 @@ public class homeSteps extends BasePage {
     @When("I validate the Start Now button")
     public void iValidateTheStartNowButton() {
         _page.startNow();
+        wait(2);
         _page.homeBack();
     }
 
@@ -187,6 +194,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse Request")
     public void iValidateTheBrowseRequest() {
+        wait(2);
         _page.footerBrowseRequest();
         _page.homeBack();
     }
@@ -254,12 +262,14 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links")
     public void iValidateTheSocialWithAccounts() {
     }
-
     //Main header
     @Given("I go to Home With Account")
     public void IgoToHomePage() {
         ////_driver.manage().window().setSize(new Dimension(2560, 1440));
-
+        _page.setHomePage();
+        _page.headerLogIn();
+        _page.login();
+        _page.homeBack();
     }
 
     @Then("I validate the Header Section with account")
@@ -275,7 +285,6 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links section with account")
     public void iValidateTheSocialLinksSectionWithAccount() {
     }
-
     @Then("I validate the Body with account")
     public void iValidateTheBodyWithAccount() {
     }

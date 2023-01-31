@@ -34,9 +34,9 @@ public class BasePage {
     }
 
     public SessionManager sessionManager = new SessionManager(getDriver());
-    String password = Environment.getProperty("password");
-    String email = Environment.getProperty("email");
-    String url = Environment.getProperty("url");
+   public String password = Environment.getProperty("password");
+   public String email = Environment.getProperty("email");
+   public String url = Environment.getProperty("url");
 
     ///// Selector ////
 

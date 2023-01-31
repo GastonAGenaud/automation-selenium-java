@@ -1,22 +1,24 @@
-package pages;
+package pages.home;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import pages.BasePage;
 
 
 public class HomePage extends BasePage {
     public HomePage() {
         super();
     }
+
     WebDriver driver = getDriver();
     Actions actions = new Actions(driver);
 
     String rdm = Long.toString(System.currentTimeMillis());
 
-    
+
     @FindBy(how = How.CSS, using = "#menu-item-6447 > a")
     public WebElement pricingBtn;
     //LOG IN
@@ -44,7 +46,7 @@ public class HomePage extends BasePage {
     @FindBy(how = How.CSS, using = "#dropdown-nav-7 > li > a")
     public WebElement moreAccessoriesBtn;
     //Clothing
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(3) > span")
+    @FindBy(how = How.CSS, using = "#\\32 6-tab")
     public WebElement clothingBtn;
 
     @FindBy(xpath = "/html/body/header/div/div/div[3]/div/div/div/div[1]/ul/li")
