@@ -1,11 +1,10 @@
-@todos
 Feature: Home
 
   Principal Page
 
   @home @smoke  @MTR-1441 @MTR @Bypass
   Scenario: MTR - Validate the home header with account
-    Given login bypass
+    Given I login with Make An offer
     When I validate the Browse button
     And I validate the Browse Request button
     And I validate the Browse by seller button
@@ -13,7 +12,7 @@ Feature: Home
 
   @home @smoke  @MTR-1442 @MTR @Bypass
   Scenario: MTR - Validate the home Header Section with account
-    Given login bypass
+    Given I login with Gaston User
     When I validate the accessories section
     And I validate the More Accessories Button
     And I validate the Jewelry section
@@ -26,7 +25,7 @@ Feature: Home
 
   @home @smoke  @MTR-1443 @MTR @Bypass
   Scenario: MTR - Validate the home - body section with account
-    Given login bypass
+    Given I login with Dev user
     #And I validate the Start Now button
     And I validate the For Buyers Header section
     And I validate the For Sellers section

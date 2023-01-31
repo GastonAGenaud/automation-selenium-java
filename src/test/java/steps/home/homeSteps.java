@@ -1,14 +1,11 @@
 package steps.home;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BasePage;
 import pages.HomePage;
-
-import java.io.IOException;
 
 public class homeSteps extends BasePage {
 
@@ -257,6 +254,7 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links")
     public void iValidateTheSocialWithAccounts() {
     }
+
     //Main header
     @Given("I go to Home With Account")
     public void IgoToHomePage() {
@@ -277,6 +275,7 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links section with account")
     public void iValidateTheSocialLinksSectionWithAccount() {
     }
+
     @Then("I validate the Body with account")
     public void iValidateTheBodyWithAccount() {
     }
@@ -352,24 +351,66 @@ public class homeSteps extends BasePage {
     }
 
 
-    @Before
-    public void test() throws IOException {
-        _page.setHomePage();
-        _page.headerLogIn();
-        _page.login();
-        wait(5);
-        sessionManager.storeSessionFile("data-session");
-        _page.homeBack();
+//    @Before
+//    public void test() throws IOException {
+//        loginWithDev();
+//        loginWithMakeAnOffer();
+//        loginWithGastonUser();
+//    }
 
-    }
-
-    @Given("login bypass")
-    public void iLoginBypass() {
-        wait(10);
-        sessionManager.usePreviousLoggedInSession("data-session");
+    @Given("I login with Make An offer")
+    public void loginWithMakeAnOfferSteps() {
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        sessionManager.usePreviousLoggedInSession("makeAnOffer");
         wait(4);
         getDriver().navigate().refresh();
-        wait(10);
+        sessionManager.usePreviousLoggedInSession("makeAnOffer");
+
     }
 
+    @Given("I login with Gaston User")
+    public void loginWithGastonUserSteps() {
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        sessionManager.usePreviousLoggedInSession("GastonUser");
+        wait(5);
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession("GastonUser");
+    }
+
+    @Given("I login with Dev user")
+    public void loginWithDevSteps() {
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        sessionManager.usePreviousLoggedInSession("DevUser");
+        wait(4);
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession("DevUser");
+    }
+
+    @Given("I login with GoodWill User")
+    public void loginWithGoodWillUserSteps() {
+        getDriver().manage().deleteAllCookies();
+        sessionManager.usePreviousLoggedInSession("GoodWillUser");
+        wait(4);
+        getDriver().navigate().refresh();
+    }
+
+
+    @Given("I login with Matias Owl")
+    public void loginWithMatiasOwlSteps() {
+        sessionManager.usePreviousLoggedInSession("MatiasUser");
+        wait(4);
+        getDriver().navigate().refresh();
+    }
+
+    @Given("I login with Gaton No Borrar")
+    public void loginWithGastonNoBorrarSteps() {
+        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
+        wait(4);
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
+
+    }
 }

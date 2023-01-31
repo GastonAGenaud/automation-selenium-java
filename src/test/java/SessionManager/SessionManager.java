@@ -139,7 +139,6 @@ public class SessionManager {
 
         // Apply Session storage
         applySessionStorage(sessionData);
-
         // Page Refresh
         driver.navigate().refresh();
     }

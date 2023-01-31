@@ -88,7 +88,9 @@ public class DriverFactory {
         return url;
     }
     public static void cleanupDriver() {
+        webDriver.get().close();
         webDriver.get().quit();
         webDriver.remove();
+
     }
 }

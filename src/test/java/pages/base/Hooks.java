@@ -33,7 +33,14 @@ public class Hooks {
 
     @After
     @AfterSuite
-    public void tearDown() {
-        cleanupDriver();
+    public void tearDown(Scenario scenario) {
+        try {
+            captureExceptionImage(scenario);
+        }catch (Exception e) {
+        } finally {
+
+            cleanupDriver();
+            System.out.println("Browser is closed!!!---------------------------------------------------------------");
+        }
     }
 }
