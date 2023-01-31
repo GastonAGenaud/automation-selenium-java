@@ -12,15 +12,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import EnvironmentManager.Environment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.Duration;
+
+import static java.lang.Math.random;
 
 public class BasePage {
     public BasePage() {
         PageFactory.initElements(getDriver(), this);
     }
-
 
     @FindBy(how = How.CSS, using = "#e-mail")
     public WebElement emailLoginInput;
@@ -28,21 +31,42 @@ public class BasePage {
     public WebElement passwordLoginInput;
     @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
     public WebElement logInBtn;
+    @FindBy(id = "loader")
+    public WebElement loader;
+
+    @FindBy(how = How.CSS, using = "#signup-header-text-customize")
+    public WebElement signUpNowBtn;
+    @FindBy(how = How.CSS, using = "#e-mail")
+    public WebElement newEmailBtn;
+    @FindBy(how = How.CSS, using = "#username")
+    public WebElement newUsernameBtn;
+    @FindBy(how = How.CSS, using = "#password")
+    public WebElement newPasswordBtn;
+    @FindBy(how = How.CSS, using = "#signup-button")
+    public WebElement signUpBtn;
+    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button")
+    public WebElement welcomeClose;
+
 
     public WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
 
     public SessionManager sessionManager = new SessionManager(getDriver());
-   public String password = Environment.getProperty("password");
-   public String email = Environment.getProperty("email");
-   public String url = Environment.getProperty("url");
+    public String password = Environment.getProperty("password");
+    public String email = Environment.getProperty("email");
+    public String url = Environment.getProperty("url");
+    String randomStr = RandomStringUtils.randomAlphabetic(20);
+    public String rdm = Long.toString(System.currentTimeMillis());
+
+    String randomEmail = rdm + Long.toString((int) random() * 1200);
 
     ///// Selector ////
 
     public void navigateTo(String url) {
         getDriver().get(url);
     }
+
 
     public void waitForInvisibility(WebElement element) {
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
@@ -80,9 +104,32 @@ public class BasePage {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class)
+                .ignoring(TimeoutException.class);
 
         wait.until(webDriver -> element.isDisplayed());
+    }
+    public void fluentWaitStrict(WebDriver driver, WebElement element) {
+        FluentWait wait = new FluentWait(driver)
+                .withTimeout(Duration.ofSeconds(60))
+                .pollingEvery(Duration.ofSeconds(3))
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(NoSuchElementException.class)
+                .ignoring(TimeoutException.class);
+
+        wait.until(webDriver -> element.isDisplayed() && element.isEnabled());
+    }
+
+
+
+    public void waitForClickability(WebElement element) {
+        // TODO: change access modifier to private or throw exception because in now is hiding wrong behavior with wrongs locators
+        WebDriverWait wait = getWait();
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+            System.out.println("Element is not ready to be clicked" + e.getMessage());
+        }
     }
 
     public String generateRandomNumber(int length) {
@@ -151,6 +198,7 @@ public class BasePage {
         getDriver().navigate().to(url + "Account/Login");
     }
 
+    public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
     public void loginWithMakeAnOffer() throws IOException {
         getHomePage();
@@ -266,7 +314,53 @@ public class BasePage {
 
     }
 
-    public void CreateAnAccountListingDetails() {
+    public void CreateAnAccountListingDetails(String text) {
+        getDriver().navigate().to(url);
+
+        waitForVisibility(signUpNowBtn);
+        fluentWait(getDriver(), signUpNowBtn);
+        waitForWebElementAndClick(signUpNowBtn);
+
+        fluentWait(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        waitForWebElementAndClick(newEmailBtn);
+        newEmailBtn.sendKeys(text + randomEmail + "auto@trick.com");
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.clear();
+        newUsernameBtn.sendKeys(randomStr);
+        //newUsernameBtn.sendKeys(randomStr);
+
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.click();
+
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+        newPasswordBtn.clear();
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWait(getDriver(), signUpBtn);
+        waitForWebElementAndClick(signUpBtn);
+
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.clear();
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWait(getDriver(), signUpBtn);
+        waitForWebElementAndClick(signUpBtn);
+
+        //welcomeClose.click();
 
     }
 
