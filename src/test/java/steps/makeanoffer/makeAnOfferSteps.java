@@ -30,11 +30,11 @@ public class makeAnOfferSteps extends BasePage {
         _page.CreateAnAccountListingDetails(text);
         _page.imSellerButton();
         _page.nextButton();
-        _page.howOldAreYou();
-        _page.howMuchSell();
-        _page.termsAndConditions();
-        _page.whereAreYouFrom();
-        _page.submitButton();
+        _page.completeFormSignUp();
+//        _page.howMuchSell();
+//        _page.termsAndConditions();
+//        _page.whereAreYouFrom();
+//        _page.submitButton();
     }
 
 

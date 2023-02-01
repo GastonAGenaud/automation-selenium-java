@@ -1,5 +1,7 @@
 package pages.makeanoffer;
 
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -44,7 +46,7 @@ public class makeAnOfferPage extends BasePage {
     @FindBy(how = How.CSS, using = "#deliver-date")
     public WebElement deliverDateTextField;
 
-    @FindBy(how = How.CSS, using = "#offer-submit")
+    @FindBy(xpath = "/html/body/div[3]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
     public WebElement makeAnOfferSendBtn;
 
     @FindBy(how = How.CSS, using = "#wants-header-text-customize")
@@ -74,6 +76,9 @@ public class makeAnOfferPage extends BasePage {
     public WebElement imSellerBtn;
     @FindBy(xpath = "//div[@class='iziToast-texts']")
     public WebElement errorMessageSignUp;
+
+    @FindBy(xpath = "//div[@class='iziToast-body']")
+    public WebElement errorMessage2;
 
     @FindBy(how = How.CSS, using = "#seller-buyer-button")
     public WebElement nextBtn;
@@ -118,10 +123,16 @@ public class makeAnOfferPage extends BasePage {
         howMuch.sendKeys("test");
     }
 
-    public void howOldAreYou() {
+    public void completeFormSignUp() {
         fluentWaitStrict(getDriver(), howOld);
         waitForWebElementAndClick(howOld);
+        fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
         howOld.sendKeys("18");
+        howMuch.sendKeys("test");
+        agreeTerms.sendKeys("Yes");
+        whereAreYou.sendKeys("test");
+        fluentWait(getDriver(), submitBtn);
+        waitForWebElementAndClick(submitBtn);
     }
 
     public void nextButton() {
@@ -167,6 +178,7 @@ public class makeAnOfferPage extends BasePage {
 
 
     public void selectMakeAnOfferBtn() {
+        getDriver().navigate().refresh();
         fluentWait(getDriver(), makeAnOfferBtn);
         waitForWebElementAndClick(makeAnOfferBtn);
     }
@@ -191,17 +203,27 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void selectDeliverDateTextField() {
-        fluentWait(getDriver(), deliverDateTextField);
+        fluentWaitStrict(getDriver(), deliverDateTextField);
         waitForWebElementAndClick(deliverDateTextField);
         deliverDateTextField.clear();
-        deliverDateTextField.sendKeys("05052022");
+        deliverDateTextField.sendKeys("05052023");
+        deliverDateTextField.sendKeys(Keys.ENTER);
     }
 
     public void selectMakeAnOfferSendButton() {
-        waitForVisibility(makeAnOfferSendBtn);
-        waitForClickability(makeAnOfferSendBtn);
-        fluentWait(getDriver(), makeAnOfferSendBtn);
+        actions.moveToElement(makeAnOfferSendBtn);
+        fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
         waitForWebElementAndClick(makeAnOfferSendBtn);
+//        while(makeAnOfferSendBtn.isDisplayed()){
+//            //waitForWebElementAndClick(makeAnOfferSendBtn);
+//            try{
+//                waitForWebElementAndClick(makeAnOfferMessageTextField);
+//                wait(4);
+//                waitForWebElementAndClick(makeAnOfferSendBtn);
+//            }catch (ElementClickInterceptedException e){
+//
+//            }
+//        };
 
     }
 
@@ -257,6 +279,7 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public boolean offerChatVerify() {
+        fluentWait(getDriver(), chatVerify);
         boolean result = chatVerify.isDisplayed();
         return result;
     }

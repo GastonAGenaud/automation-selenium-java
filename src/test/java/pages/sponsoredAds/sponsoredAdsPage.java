@@ -1,0 +1,316 @@
+package pages.sponsoredAds;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import pages.BasePage;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Math.random;
+
+public class sponsoredAdsPage extends BasePage {
+
+
+    public sponsoredAdsPage() {
+        super();
+    }
+
+
+    Actions actions = new Actions(getDriver());
+
+    String rdm = Long.toString(System.currentTimeMillis());
+
+
+    //LOG IN
+    @FindBy(how = How.CSS, using = "#e-mail")
+    public WebElement emailLoginInput;
+    @FindBy(how = How.CSS, using = "#password")
+    public WebElement passwordLoginInput;
+    @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
+    public WebElement logInBtn;
+
+    @FindBy(how = How.CSS, using = "#sponsored-tab > span")
+    public WebElement sponsoredAdsBtn;
+    @FindBy(xpath = "//*[ text() = 'Add New' ]")
+    public WebElement addNewBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div[3]/div/div/form/div/div[2]/div/input")
+    public WebElement adsTextSector;
+    @FindBy(how = How.CSS, using = "#adsLink")
+    public WebElement adsLinkSector;
+    @FindBy(how = How.CSS, using = "#img-0")
+    public WebElement addImageBtn;
+    @FindBy(how = How.CSS, using = "#start-date")
+    public WebElement startDateSector;
+    @FindBy(how = How.CSS, using = "#end-date")
+    public WebElement endDateSector;
+    @FindBy(how = How.CSS, using = "#ads-publish > span")
+    public WebElement publishAddBtn;
+    @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > button")
+    public WebElement tabDotBtnTWO;
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(3) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a:nth-child(2)")
+    public WebElement reactivateBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/div/a[2]")
+    public WebElement deactivateBtn;
+
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(49) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a.dropdown-item.pending-pay")
+    public WebElement pendingPayBtn;
+    @FindBy(how = How.CSS, using = "#card-number")
+    public WebElement cardNumberTextField;
+    @FindBy(how = How.CSS, using = "#card-name")
+    public WebElement cardNameTextField;
+    @FindBy(how = How.CSS, using = "#expiry-date")
+    public WebElement expirationDateTextField;
+    @FindBy(how = How.CSS, using = "#\\#card-cvc")
+    public WebElement cvvCodeTextField;
+    @FindBy(how = How.CSS, using = ".btn > span:nth-child(2)")
+    public WebElement submitPaymentBtn;
+    @FindBy(how = How.CSS, using = ".chevron-primary")
+    public WebElement sortByBtn;
+    @FindBy(how = How.CSS, using = "a.secondary-font:nth-child(2)")
+    public WebElement expiresLastBtn;
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a:nth-child(1)")
+    public WebElement editBtn;
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a.dropdown-item.text-danger")
+    public WebElement deleteBtn;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight")
+    public WebElement payingErrorMSG;
+
+    @FindBy(how = How.CSS, using = "#ads-containter > div > div.row.mt-2 > div > div > div > div > a:nth-child(1)")
+    public WebElement expiresFirstBtn;
+
+    @FindBy(how = How.CSS, using = "#end-date")
+    public WebElement endDate2;
+
+    @FindBy(how = How.CSS, using = "#btn-crop")
+    public WebElement cropBtn;
+
+    @FindBy(xpath = "//*[@id=\"inactive\"]/div[49]/div/div/div[2]/div[1]/div/div/div/a[2]")
+    public WebElement tabBtn;
+
+    @FindBy(how = How.CSS, using = "#active-head > h5 > a")
+    public WebElement activeTab;
+
+    public void getActiveTab() {
+        fluentWait(getDriver(), activeTab);
+        waitForWebElementAndClick(activeTab);
+    }
+
+//    public void tabButton() {
+//        fluentWaitStrict(getDriver(), tabBtn);
+//        waitForWebElementAndClick(tabBtn);
+//    }
+
+    public void login2() {
+        getDriver().navigate().to(url + "Account/Login");
+        wait(4);
+        actions.moveToElement(emailLoginInput);
+        fluentWaitStrict(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("makeanoffer@automation.com");
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("Automation123@");
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+    }
+
+    public void setHomePage() {
+        getDriver().navigate().to(url);
+    }
+
+    public void goToLoginPage() {
+        getDriver().navigate().to(url + "/Account/Login");
+    }
+
+
+    public void goToDashboard() {
+        getDriver().navigate().to(url + "/dashboard");
+    }
+
+    public void goToSponsoredAds() {
+        fluentWait(getDriver(), sponsoredAdsBtn);
+        waitForWebElementAndClick(sponsoredAdsBtn);
+    }
+
+    public boolean validateSponsoredPage() {
+        boolean result = sponsoredAdsBtn.isDisplayed();
+        return result;
+    }
+
+    public void addNewButton() {
+        wait(4);
+        fluentWaitStrict(getDriver(), addNewBtn);
+        waitForWebElementAndClick(addNewBtn);
+    }
+
+    public void adInformationTextField() {
+        actions.moveToElement(adsTextSector);
+        fluentWait(getDriver(), adsTextSector);
+        waitForWebElementAndClick(adsTextSector);
+        adsTextSector.sendKeys("Automation");
+        adsTextSector.clear();
+        adsTextSector.sendKeys("Automation");
+    }
+
+    public void urlTextField() {
+        fluentWait(getDriver(), adsLinkSector);
+        waitForWebElementAndClick(adsLinkSector);
+        adsLinkSector.sendKeys("https://www.webpagetest.org");
+    }
+
+    public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
+
+    public void addAnImage() {
+        addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
+    }
+
+
+    public void cropButton() {
+        fluentWait(getDriver(), cropBtn);
+        waitForWebElementAndClick(cropBtn);
+    }
+
+    public void adStartDateTextField() {
+        fluentWait(getDriver(), startDateSector);
+        waitForWebElementAndClick(startDateSector);
+        startDateSector.sendKeys(Keys.ARROW_LEFT);
+        startDateSector.sendKeys("12-25-2023");
+        waitForWebElementAndClick(startDateSector);
+    }
+
+    public void adEndDateTextField() {
+        fluentWait(getDriver(), endDateSector);
+        waitForWebElementAndClick(endDateSector);
+        startDateSector.sendKeys(Keys.ARROW_LEFT);
+        startDateSector.sendKeys("09252025");
+        waitForWebElementAndClick(startDateSector);
+    }
+
+    public void iSelectPublish() {
+        waitForVisibility(publishAddBtn);
+        waitForClickability(publishAddBtn);
+        fluentWait(getDriver(), publishAddBtn);
+        waitForWebElementAndClick(publishAddBtn);
+    }
+
+
+    public void iSelectTabDotsONE() {
+        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        for (WebElement dot : tabDotsBtns) {
+            waitForWebElementAndClick(dot);
+            if (reactivateBtn.getText() == "Reactivate") {
+                waitForWebElementAndClick(reactivateBtn);
+                break;
+            }
+
+        }
+    }
+
+    public void tabButton() {
+        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        for (WebElement payDot : tabDotsBtns) {
+            waitForWebElementAndClick(payDot);
+            if (tabBtn.getText() == "Pay") {
+                waitForWebElementAndClick(tabBtn);
+                break;
+            }
+
+        }
+    }
+
+
+//    public void reactivateAd() {
+//        fluentWait(getDriver(), reactivateBtn);
+//        waitForWebElementAndClick(reactivateBtn);
+//    }
+
+    public void iSelectTabDotsTWO() {
+        fluentWait(getDriver(), tabDotBtnTWO);
+        waitForWebElementAndClick(tabDotBtnTWO);
+    }
+
+    public void deactivateAd() {
+        waitForClickability(deactivateBtn);
+        fluentWait(getDriver(), deactivateBtn);
+        waitForWebElementAndClick(deactivateBtn);
+    }
+
+    public void payOption() {
+        fluentWait(getDriver(), pendingPayBtn);
+        waitForWebElementAndClick(pendingPayBtn);
+    }
+
+
+    public void cardNumberTXT() {
+        fluentWait(getDriver(), cardNumberTextField);
+        waitForWebElementAndClick(cardNumberTextField);
+        cardNumberTextField.sendKeys("1111111111111111");
+    }
+
+    public void nameOnCardTXT() {
+        fluentWait(getDriver(), cardNameTextField);
+        waitForWebElementAndClick(cardNameTextField);
+        cardNameTextField.sendKeys("Automation");
+    }
+
+    public void expirationDateTXT() {
+        fluentWait(getDriver(), expirationDateTextField);
+        waitForWebElementAndClick(expirationDateTextField);
+        expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
+        expirationDateTextField.sendKeys("01/25");
+    }
+
+    public void cvvCodeTXT() {
+        fluentWait(getDriver(), cvvCodeTextField);
+        waitForWebElementAndClick(cvvCodeTextField);
+        cvvCodeTextField.sendKeys("111");
+    }
+
+    public void iSubmitPendingPayment() {
+        fluentWait(getDriver(), submitPaymentBtn);
+        waitForWebElementAndClick(submitPaymentBtn);
+    }
+
+    public void sortByButton() {
+        actions.moveToElement(sortByBtn).perform();
+    }
+
+
+    public void expiresLastOption() {
+        fluentWait(getDriver(), expiresLastBtn);
+        waitForWebElementAndClick(expiresLastBtn);
+        actions.moveToElement(sortByBtn).perform();
+        waitForWebElementAndClick(expiresLastBtn);
+    }
+
+    public void editAd() {
+        fluentWait(getDriver(), editBtn);
+        waitForWebElementAndClick(editBtn);
+    }
+
+    public void deleteAd() {
+        fluentWait(getDriver(), deleteBtn);
+        waitForWebElementAndClick(deleteBtn);
+    }
+
+    public boolean payingErrorMSG() {
+        boolean result = payingErrorMSG.isDisplayed();
+        return result;
+    }
+
+
+    public void endDateField2() {
+        fluentWait(getDriver(), endDate2);
+        waitForWebElementAndClick(endDate2);
+        endDate2.sendKeys(Keys.ARROW_LEFT);
+        endDate2.sendKeys("12-26-2024");
+    }
+}
+

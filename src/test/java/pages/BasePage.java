@@ -205,6 +205,7 @@ public class BasePage {
     }
 
     public void getLoginPage() {
+        wait(2);
         getDriver().navigate().to(url + "Account/Login");
     }
 
