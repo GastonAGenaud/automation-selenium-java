@@ -94,20 +94,10 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[1]/h5/a/i")
     public WebElement activeTab;
 
-    public void getActiveTab() {
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-//        getDriver().manage().window().maximize();
-//        js.executeScript("window.scrollBy(0,2000)");
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-//        actions.moveToElement(activeTab);
-//        fluentWait(getDriver(), activeTab);
-//        waitForWebElementAndClick(activeTab);
-    }
+    @FindBy (xpath = "/html/body/div[3]/main/div[2]/form/div/div[3]/div[1]/div[1]/div/span")
+    public WebElement validationPrice;
 
-//    public void tabButton() {
-//        fluentWaitStrict(getDriver(), tabBtn);
-//        waitForWebElementAndClick(tabBtn);
-//    }
+
 
     public void login2() {
         getDriver().navigate().to(url + "Account/Login");
@@ -216,17 +206,17 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void tabButton() {
-        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//button[@class='btn dropdown-icon pt-0']"));
-        for (WebElement payDot : tabDotsBtns) {
-            wait(5);
-            retryingFindClick(payDot);
-            wait(2);
-            if (pendingPayBtn.getText() == "Pay") {
-                waitForWebElementAndClick(pendingPayBtn);
+        List<WebElement> PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
+        for (WebElement pay : PendingPay) {
+            getDriver().navigate().to(url + pay.getDomAttribute("href"));
+            if (getDriver().getCurrentUrl().contains("/ad/checkout/")) {
+                fluentWaitStrict(getDriver(), validationPrice);
                 break;
             }
+            getDriver().navigate().refresh();
         }
     }
+
 
 
 //    public void reactivateAd() {
