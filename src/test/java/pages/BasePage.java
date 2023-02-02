@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -385,6 +386,20 @@ public class BasePage {
 
         //welcomeClose.click();
 
+    }
+    public boolean retryingFindClick(WebElement element) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                element.click();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
+        return result;
     }
 
 

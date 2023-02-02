@@ -121,7 +121,7 @@ public class sponsoredAdsSteps extends BasePage {
     public void iSelectTheTabDotsPENDINGPAY() {
         //_page.sortByButton();
         //_page.expiresLastOption();
-        _page.getActiveTab();
+//        _page.getActiveTab();
         _page.tabButton();
 //       _page.iSelectTabDotsTwo();
     }

@@ -1,9 +1,6 @@
 package pages.sponsoredAds;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -58,7 +55,7 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/div/a[2]")
     public WebElement deactivateBtn;
 
-    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(49) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a.dropdown-item.pending-pay")
+    @FindBy(xpath = "//*[contains(text(), 'Pay')]")
     public WebElement pendingPayBtn;
     @FindBy(how = How.CSS, using = "#card-number")
     public WebElement cardNumberTextField;
@@ -91,15 +88,20 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#btn-crop")
     public WebElement cropBtn;
 
-    @FindBy(xpath = "//*[@id=\"inactive\"]/div[49]/div/div/div[2]/div[1]/div/div/div/a[2]")
+    @FindBy(xpath = "//*[@id='dropdown-item pending-pay']")
     public WebElement tabBtn;
 
-    @FindBy(how = How.CSS, using = "#active-head > h5 > a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[1]/h5/a/i")
     public WebElement activeTab;
 
     public void getActiveTab() {
-        fluentWait(getDriver(), activeTab);
-        waitForWebElementAndClick(activeTab);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//        getDriver().manage().window().maximize();
+//        js.executeScript("window.scrollBy(0,2000)");
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+//        actions.moveToElement(activeTab);
+//        fluentWait(getDriver(), activeTab);
+//        waitForWebElementAndClick(activeTab);
     }
 
 //    public void tabButton() {
@@ -214,14 +216,15 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void tabButton() {
-        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//button[@class='btn dropdown-icon pt-0']"));
         for (WebElement payDot : tabDotsBtns) {
-            waitForWebElementAndClick(payDot);
-            if (tabBtn.getText() == "Pay") {
-                waitForWebElementAndClick(tabBtn);
+            wait(5);
+            retryingFindClick(payDot);
+            wait(2);
+            if (pendingPayBtn.getText() == "Pay") {
+                waitForWebElementAndClick(pendingPayBtn);
                 break;
             }
-
         }
     }
 
