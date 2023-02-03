@@ -48,7 +48,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1604
   Scenario: MTR - User able to sort ads
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select Sponsored Ads section
     And I select the Sort By option
@@ -57,19 +57,19 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1605
   Scenario: MTR - User able to Edit ads
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select the Sponsored Ads section
-    And I select the tab dots ONE
+    And I select the tab dots EDIT
     And I select the Edit option
     And i click the Publish button
     Then I validate the Edit ads
 
   @sponsoredAds @smoke @MTR  @MTR-1606
   Scenario: MTR - User able to Delete ads
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select the Sponsored Ads section
-    And I select the tab dots
+    And I select the tab dots DELETE
     And I select the Delete option
     Then I validate the Delete ads

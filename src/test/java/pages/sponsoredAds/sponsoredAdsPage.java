@@ -67,13 +67,13 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = ".btn > span:nth-child(2)")
     public WebElement submitPaymentBtn;
-    @FindBy(how = How.CSS, using = ".chevron-primary")
+    @FindBy(how = How.CSS, using = "#ads-containter > div > div.row.mt-2 > div > div > div")
     public WebElement sortByBtn;
-    @FindBy(how = How.CSS, using = "a.secondary-font:nth-child(2)")
+    @FindBy(xpath = "//*[contains(text(), 'Expires last')]")
     public WebElement expiresLastBtn;
-    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a:nth-child(1)")
+    @FindBy(xpath = "//a[contains(text(), 'Edit')]")
     public WebElement editBtn;
-    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a.dropdown-item.text-danger")
+    @FindBy(xpath = "//a[contains(text(), 'Delete')]")
     public WebElement deleteBtn;
 
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight")
@@ -94,10 +94,22 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[1]/h5/a/i")
     public WebElement activeTab;
 
-    @FindBy (xpath = "/html/body/div[3]/main/div[2]/form/div/div[3]/div[1]/div[1]/div/span")
+    @FindBy(xpath = "/html/body/div[3]/main/div[2]/form/div/div[3]/div[1]/div[1]/div/span")
     public WebElement validationPrice;
 
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
+    public WebElement tabEdit;
 
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
+    public WebElement tabDelete;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
+    public WebElement deleteConfirm;
+
+    public void deleteConfirmButton(){
+        fluentWait(getDriver(), deleteConfirm);
+        waitForWebElementAndClick(deleteConfirm);
+    }
 
     public void login2() {
         getDriver().navigate().to(url + "Account/Login");
@@ -217,12 +229,35 @@ public class sponsoredAdsPage extends BasePage {
         }
     }
 
+    public void iSelectTabDotsEdit() {
+        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        fluentWait(getDriver(), tabEdit);
+        waitForWebElementAndClick(tabEdit);
+        for (WebElement dot : tabDotsBtns) {
+            waitForWebElementAndClick(dot);
+
+            if (editBtn.getText() == "Edit") {
+                waitForWebElementAndClick(editBtn);
+                break;
+            }
+        }
+    }
+
+    public void iSelectTabDotsDelete() {
+        List<WebElement> tabDotsDelete = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        fluentWait(getDriver(), tabDelete);
+        waitForWebElementAndClick(tabDelete);
+        for (WebElement dot : tabDotsDelete) {
+            waitForWebElementAndClick(dot);
+
+            if (tabDelete.getText() == "Delete") {
+                waitForWebElementAndClick(tabDelete);
+                break;
+            }
+        }
+    }
 
 
-//    public void reactivateAd() {
-//        fluentWait(getDriver(), reactivateBtn);
-//        waitForWebElementAndClick(reactivateBtn);
-//    }
 
     public void iSelectTabDotsTWO() {
         fluentWait(getDriver(), tabDotBtnTWO);
@@ -272,7 +307,9 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void sortByButton() {
-        actions.moveToElement(sortByBtn).perform();
+        fluentWait(getDriver(), sortByBtn);
+        waitForWebElementAndClick(sortByBtn);
+        waitForWebElementAndClick(sortByBtn);
     }
 
 
@@ -284,6 +321,7 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void editAd() {
+        actions.moveToElement(editBtn);
         fluentWait(getDriver(), editBtn);
         waitForWebElementAndClick(editBtn);
     }

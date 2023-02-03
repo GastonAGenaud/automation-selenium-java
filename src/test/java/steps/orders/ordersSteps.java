@@ -26,12 +26,8 @@ public class ordersSteps extends BasePage {
         this._page = new ordersPage();
     }
 
-    @Given("I go to orders page")
+    @And("I go to orders page")
     public void iGoToOrdersPage() {
-        //_driver.manage().window().setSize(new Dimension(1920, 1080));
-        _page.setHomePage();
-        _page.goToDashboard();
-        //_page.login();
         _page.goToOrders();
         _page.selectSoldBtn();
 

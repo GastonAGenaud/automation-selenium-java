@@ -4,14 +4,16 @@ Feature: Orders
 
   @orders @smoke @MTR @MTR-1446
   Scenario: MTR - Orders - Sold - Open Section
-    Given I go to orders page
+    Given I login with Gaston User
+    And I go to orders page
     When I validate sold orders details
     And I validate send message to buyer
     Then I validate the sold open section
 
   @orders @smoke @MTR  @MTR-1447
   Scenario: MTR - Orders - Sold - shipped orders
-    Given I go to orders page
+    Given I login with Gaston User
+    And I go to orders page
     When I validate the cancel button
     Then I validate the shipping orders section
 

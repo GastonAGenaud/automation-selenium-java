@@ -84,8 +84,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("I select the tab dots ONE")
     public void iSelectTheTabDotsOne() {
-
-        _page.sortByButton();
+        //_page.sortByButton();
         //_page.expiresLastOption();
         _page.iSelectTabDotsONE();
     }
@@ -183,9 +182,9 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("I select the tab dots")
     public void iSelectTheTabDots() {
-//        _page.sortByButton();
-//        _page.expiresLastOption();
-        _page.tabButton();
+        _page.sortByButton();
+        _page.expiresLastOption();
+        _page.iSelectTabDotsONE();
     }
 
     @And("I select the Edit option")
@@ -206,6 +205,7 @@ public class sponsoredAdsSteps extends BasePage {
     @And("I select the Delete option")
     public void iSelectTheDeleteOption() {
         _page.deleteAd();
+        _page.deleteConfirmButton();
     }
 
     @Then("I validate the Delete ads")
@@ -228,6 +228,16 @@ public class sponsoredAdsSteps extends BasePage {
         //_page.login();
         //page.goToDashboard();
         //_page.goToSponsoredAds();
+    }
+
+    @And("I select the tab dots EDIT")
+    public void iSelectTheTabDotsEDIT() {
+        _page.iSelectTabDotsEdit();
+    }
+
+    @And("I select the tab dots DELETE")
+    public void iSelectTheTabDotsDELETE() {
+        _page.iSelectTabDotsDelete();
     }
 }
 
