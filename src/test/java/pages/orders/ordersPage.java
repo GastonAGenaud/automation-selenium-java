@@ -1,16 +1,11 @@
 package pages.orders;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Math.random;
 
 public class ordersPage extends BasePage {
 
@@ -234,7 +229,7 @@ public class ordersPage extends BasePage {
 
     public void ordersShowMenu() {
 
-        var element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
+        WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
         Actions action  = new Actions(getDriver());
         action.moveToElement(ordersShowBtn).perform();
 

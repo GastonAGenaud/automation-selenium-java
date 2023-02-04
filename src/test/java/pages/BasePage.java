@@ -12,17 +12,20 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.StaleElementReferenceException;
 
 import java.io.IOException;
 import java.time.Duration;
 
 import static java.lang.Math.random;
 
-public class BasePage {
+public class BasePage{
     public BasePage() {
         PageFactory.initElements(getDriver(), this);
     }
+
+    public WebDriver getDriver(){
+        return DriverFactory.getDriver();
+    };
 
     @FindBy(how = How.CSS, using = "#e-mail")
     public WebElement emailLoginInput;
@@ -47,9 +50,7 @@ public class BasePage {
     public WebElement welcomeClose;
 
 
-    public WebDriver getDriver() {
-        return DriverFactory.getDriver();
-    }
+
 
     public SessionManager sessionManager = new SessionManager(getDriver());
     public String password = Environment.getProperty("password");

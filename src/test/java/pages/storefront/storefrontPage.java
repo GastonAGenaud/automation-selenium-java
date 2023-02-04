@@ -1,14 +1,10 @@
 package pages.storefront;
 
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
-
-import static java.lang.Math.random;
 
 public class storefrontPage extends BasePage {
 

@@ -1,8 +1,0 @@
-<spark-config>
-    <configurations>
-        <configuration name="images">
-            <path>${base.path}/target/screenshots</path>
-            <encoding>base64</encoding>
-        </configuration>
-    </configurations>
-</spark-config>
