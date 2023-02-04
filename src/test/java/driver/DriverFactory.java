@@ -1,10 +1,10 @@
 package driver;
 
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.util.Properties;
 public class DriverFactory {
     public static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     static WebDriver driver;
-    @BeforeAll
+    @BeforeSuite
     @Before
     public static void setup() {
         if (webDriver.get() == null) {

@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 import java.util.List;
 
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
-import static io.restassured.RestAssured.given;
 
 public class EbayPage extends BasePage {
     public EbayPage() {

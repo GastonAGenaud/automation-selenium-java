@@ -1,15 +1,14 @@
 package pages.sponsoredAds;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Math.random;
 
 public class sponsoredAdsPage extends BasePage {
 

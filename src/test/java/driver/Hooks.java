@@ -5,25 +5,26 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import java.io.IOException;
+import static driver.DriverFactory.cleanupDriver;
+import static driver.DriverFactory.getDriver;
 
-public class Hooks extends DriverFactory {
+public class Hooks {
 
 
-    @After(order = 2)
-    public void takeScreenShotOnFailedScenario(Scenario scenario) throws IOException {
-       final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-        //byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
-        scenario.attach(screenshot, "image/png", scenario.getName());
-        getDriver().quit();
-    }
+//    @After
+//    public void takeScreenShotOnFailedScenario(Scenario scenario) throws IOException {
+//
+//        getDriver().quit();
+//    }
 
-    @After(order = 1)
+    @After
     public static void tearDown(Scenario scenario) {
         try {
-            cleanupDriver();
+            final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName());
         } catch (Exception e) {
         } finally {
+            cleanupDriver();
             System.out.println("Browser is closed!!!---------------------------------------------------------------");
         }
     }
