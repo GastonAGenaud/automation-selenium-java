@@ -74,15 +74,15 @@ public class SessionManager {
     // Store Session Data in a File If login success for each time
     public void storeSessionFile(String fileName) throws IOException {
         // TODO: Need to handle for multiple users
-        if (Files.exists(Paths.get(System.getProperty("user.dir") + "/"+fileName+".json"))) {
-            Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "/"+fileName+".json"));
+        if (Files.exists(Paths.get(System.getProperty("user.dir") + "/cookies/"+fileName+".json"))) {
+            Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "/cookies/"+fileName+".json"));
         }
 
         JSONObject sessionObj = new JSONObject();
         sessionObj.put("session_data", getSessionData());
 
         System.out.println(" JSON Obj : " + sessionObj);
-        JSONUtils.writeJSONObjectToFile(sessionObj, "./"+fileName+".json");
+        JSONUtils.writeJSONObjectToFile(sessionObj, "./cookies/"+fileName+".json");
     }
 
     private void applyCookiesToCurrentSession(JSONObject jsonObject) {
@@ -126,7 +126,7 @@ public class SessionManager {
         driver.manage().getCookies().clear();
         // Read Json file
         JSONObject jsonObj = null;
-        jsonObj = JSONUtils.parseJsonFile(System.getProperty("user.dir") + "/"+fileName+".json");
+        jsonObj = JSONUtils.parseJsonFile(System.getProperty("user.dir") + "/cookies/"+fileName+".json");
         // jsonObj = (JSONObject) TestDataHelper.getDataInSuiteScope("user_session");
 
         JSONObject sessionData = jsonObj.getJSONObject("session_data");
