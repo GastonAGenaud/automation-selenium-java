@@ -30,7 +30,7 @@ public class listingPage extends BasePage {
     public WebElement listingNameTextField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement listingCategoryBtn;
-    @FindBy(how = How.CSS, using = "#category-selector > option:nth-child(2)")
+    @FindBy(xpath = "//option[contains(text(), 'Shoes')]")
     public WebElement categoryJewelry;
     @FindBy(how = How.CSS, using = "#listing-description")
     public WebElement listingDescriptionTextField;
@@ -141,6 +141,9 @@ public class listingPage extends BasePage {
     @FindBy(how = How.CSS, using = "#custom-2")
     public WebElement mandatoryTextfield;
 
+    @FindBy(how = How.CSS, using = "#custom-3")
+    public WebElement sizeText;
+    
 
     public void getMandatoryTextfield() {
         fluentWait(getDriver(), mandatoryTextfield);
@@ -170,6 +173,12 @@ public class listingPage extends BasePage {
         departmentTab.sendKeys(Keys.ENTER);
     }
 
+    public void sizeTextField(){
+        fluentWait(getDriver(), sizeText);
+        waitForWebElementAndClick(sizeText);
+        sizeText.sendKeys("3");
+    }
+
 
     public void setGotoDetailsButton() {
         fluentWait(getDriver(),gotoDetailsButton);
@@ -177,6 +186,7 @@ public class listingPage extends BasePage {
     }
 
     public String GreatText() {
+        fluentWait(getDriver(), greatJobText);
         String result = greatJobText.getText();
         return result;
     }
@@ -220,8 +230,6 @@ public class listingPage extends BasePage {
 
 
     public void addListingBtn() {
-        waitForVisibility(addListingsBtn);
-        waitForClickability(addListingsBtn);
         fluentWait(getDriver(), addListingsBtn);
         waitForWebElementAndClick(addListingsBtn);
     }
@@ -233,12 +241,13 @@ public class listingPage extends BasePage {
     }
 
     public void categoryBtn() {
-        fluentWait(getDriver(), listingCategoryBtn);
+        fluentWaitStrict(getDriver(), listingCategoryBtn);
         waitForWebElementAndClick(listingCategoryBtn);
     }
 
     public void categoryJewelryBtn() {
-        fluentWait(getDriver(), categoryJewelry);
+        fluentWaitStrict(getDriver(), categoryJewelry);
+        wait(2);
         waitForWebElementAndClick(categoryJewelry);
     }
 
@@ -260,7 +269,7 @@ public class listingPage extends BasePage {
         waitForWebElementAndClick(listingQuantityTextField);
         fluentWait(getDriver(), listingQuantityTextField);
         listingQuantityTextField.sendKeys(Keys.ARROW_LEFT);
-        listingQuantityTextField.sendKeys("1");
+        listingQuantityTextField.sendKeys("44");
         listingQuantityTextField.sendKeys(Keys.ENTER);
     }
 
@@ -271,7 +280,7 @@ public class listingPage extends BasePage {
     }
 
     public void cropButton() {
-        fluentWait(getDriver(), cropBtn);
+        fluentWaitStrict(getDriver(), cropBtn);
         waitForWebElementAndClick(cropBtn);
     }
 
@@ -478,7 +487,7 @@ public class listingPage extends BasePage {
     }
 
     public void pickUpCheckbox() {
-        fluentWait(getDriver(), shippingPickUpCheckbox);
+        fluentWaitStrict(getDriver(), shippingPickUpCheckbox);
         waitForWebElementAndClick(shippingPickUpCheckbox);
     }
 

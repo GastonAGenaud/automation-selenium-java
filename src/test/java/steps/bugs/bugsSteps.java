@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.bugs.bugsPage;
 
+import java.io.IOException;
+
 public class bugsSteps extends BasePage {
 
     private bugsPage _page;
@@ -32,9 +34,8 @@ public class bugsSteps extends BasePage {
 
     @And("I select the Flat Rate button")
     public void iSelectTheFlatRateButton() {
-        _page.sleep(4000);
         _page.setFlatButton();
-        _page.sleep(4000);
+        
     }
 
     @When("I select tracking number TextField")
@@ -53,10 +54,10 @@ public class bugsSteps extends BasePage {
     }
 
     @Given("I go to orders page BUGS")
-    public void iGoToOrdersPageBUGS() {
-        //_driver.manage().window().setSize(new Dimension(1920, 1080));
+    public void iGoToOrdersPageBUGS() throws IOException {
+        //getDriver().manage().window().setSize(new Dimension(1920, 1080));
         _page.setHomePageBUG();
-        _page.loginGastonUser();
+        _page.loginWithGastonUser();
         _page.goToDashboard();
         _page.goToOrders();
     }
@@ -69,7 +70,7 @@ public class bugsSteps extends BasePage {
     @When("select My Listings button BUG")
     public void selectMyListingsButtonBUG() {
         _page.setMyListingsBtn();
-        _page.sleep(3000);
+        
     }
 
     @And("select item tab")
@@ -99,16 +100,16 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Feature Listing")
     public void iValidateFeatureListing() {
-        _page.sleep(4000);
+        
         Assert.assertEquals(true, _page.setApprovedText());
     }
 
     @Given("I login and I go to Dashboard BUG")
-    public void loginAndGoToDashboardPageBUG() {
+    public void loginAndGoToDashboardPageBUG() throws IOException {
         _page.setHomePageBUG();
         //_page.goToDashboard();
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUser();
         _page.goToDashboard();
     }
 
@@ -130,7 +131,7 @@ public class bugsSteps extends BasePage {
     @And("I select Publish button BUG")
     public void iSelectPublishButtonBUG() {
         _page.setPublishButton();
-        _page.sleep(4000);
+        
         _page.goBackToDashboard();
     }
 
@@ -153,40 +154,40 @@ public class bugsSteps extends BasePage {
     @Then("I validate the sign up with Google BUG")
     public void iValidateTheSignUpWithGoogleBUG() {
         _page.signUpWithGoogle();
-        _page.sleep(3000);
+        
         Assert.assertEquals(true, _page.setGoogleLoginText());
     }
 
     @When("select Publish button BUG")
     public void selectPublishButtonBUG() {
         _page.setPublishButton();
-        _page.sleep(4000);
+        
         _page.goBackToDashboard();
     }
 
     @Then("I validate Publish Listing")
     public void iValidatePublishListing() {
-        _page.sleep(7000);
+        
         Assert.assertEquals(_page.listingActiveTab(), true);
     }
 
     @And("I validate the listing image BUG")
     public void iValidateTheListingImageBUG() {
         _page.listingImageLoad();
-        _page.sleep(2000);
+        
         _page.cropButton();
     }
 
     @And("I validate the listing image BUG IMAGE")
     public void iValidateTheListingImageBUGIMAGE() {
         //_page.listingImageLoad();
-        //_page.sleep(2000);
+        
     }
 
     @And("select Download file")
     public void selectDownloadFile() {
         _page.ordersPurchasedButton();
-        _page.sleep(3000);
+        
         _page.downloadFileButton();
     }
 
@@ -200,14 +201,14 @@ public class bugsSteps extends BasePage {
         _page.goToItemBUG();
         System.out.println("selectAddToCart");
         _page.selectAddToCartBUG();
-        _page.sleep(4000);
+        
         System.out.println("selectCartIcon");
         _page.selectCartIconBUG();
     }
 
     @And("I add an Address BUGS")
     public void iAddAnAddressBUGS() {
-        _page.sleep(2000);
+        
         _page.selectAddShippingAddress();
         _page.selectPreviousAddress();
     }
@@ -215,7 +216,7 @@ public class bugsSteps extends BasePage {
     @And("I validate the listing image BUGS")
     public void iValidateTheListingImageBUGS() {
         _page.listingImageLoad();
-        _page.sleep(4000);
+        
     }
 
     @Given("I go to Sign Up Page BUG")
@@ -223,7 +224,7 @@ public class bugsSteps extends BasePage {
         _page.setHomePage();
         _page.goToSignUp();
         _page.signUpWithGoogle();
-        _page.sleep(3000);
+        
         Assert.assertEquals(true, _page.setGoogleLoginText());
     }
 
@@ -244,9 +245,9 @@ public class bugsSteps extends BasePage {
 
     @And("select Settings button")
     public void selectSettingsButton() {
-        _page.sleep(5000);
+        
         _page.setSettingsTabButton();
-        _page.sleep(5000);
+        
     }
 
     @When("complete First Name TextField")
@@ -286,9 +287,9 @@ public class bugsSteps extends BasePage {
     }
 
     @Given("Admin Reports OHE")
-    public void adminReportsOHE() {
+    public void adminReportsOHE() throws IOException {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUser();
         _page.setAdminButton();
     }
 
@@ -305,7 +306,7 @@ public class bugsSteps extends BasePage {
     @And("I select an item BUG")
     public void iSelectAnItemBUG() {
         _page.goToItemBUG();
-        _page.sleep(2000);
+        
     }
 
     @And("I select Reviews sector")
@@ -315,9 +316,9 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Reviews in item page")
     public void iValidateReviewsInItemPage() {
-        _page.sleep(4000);
+        
         Assert.assertEquals(_page.setCoolTxt(), "Leave a Review");
-        _page.sleep(4000);
+        
     }
 
     @And("I select Leave a Review Button")
@@ -328,9 +329,9 @@ public class bugsSteps extends BasePage {
     @And("complete Both Reviews TextFields")
     public void completeBothReviewsTextFields() {
         _page.setFiveStars();
-        _page.sleep(2000);
+        
         _page.setFiveStarsTWO();
-        _page.sleep(2000);
+        
         _page.setYourReviewONE();
         _page.setYourReviewTWO();
         _page.setSendBtn();
@@ -338,15 +339,15 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Browse Listing without Login")
     public void iValidateBrowseListingWithoutLogin() {
-        _page.sleep(3000);
+        
         Assert.assertEquals("Send message", _page.setGreatCarTxt());
     }
 
     @Given("I sign up and I go to Listing Page")
     public void iSignUpAndIGoToListingPage() {
-        _page.sleep(5000);
+        
         _page.createAndLogin();
-        _page.sleep(5000);
+        
     }
 
     @And("I select Logo and Favicon")
@@ -367,7 +368,7 @@ public class bugsSteps extends BasePage {
     @Then("I validate Refresh Cache in Step 6")
     public void iValidateRefreshCacheInStep() {
         _page.refreshCache();
-        _page.sleep(7000);
+        
         Assert.assertEquals("Step 6: Connect Domain", _page.getConnectDomainTxt());
     }
 
@@ -397,7 +398,7 @@ public class bugsSteps extends BasePage {
     @And("select Delete button")
     public void selectDeleteButton() {
         _page.setDeleteBtn();
-        _page.sleep(2000);
+        
         _page.setGreenDeleteBtn();
     }
 
@@ -432,7 +433,7 @@ public class bugsSteps extends BasePage {
     @And("complete Variants TextField")
     public void completeVariantsTextField() {
         _page.setVariantsTextField();
-        _page.sleep(2000);
+        
 
     }
 
@@ -521,20 +522,20 @@ public class bugsSteps extends BasePage {
     @Then("I validate create a listing Staging BUG")
     public void iValidateCreateAListingStagingBUG() {
         _page.setPublishButton();
-        _page.sleep(3000);
+        
         Assert.assertEquals("You must select at least one of the options of the custom field", _page.getErrorTextPublish());
     }
 
     @Given("I login BUG")
-    public void iLoginBugGiven() {
+    public void iLoginBugGiven() throws IOException {
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUser();
     }
 
     @And("I go to Landing Page")
     public void iGoToLandingPage() {
         _page.goToAdminPanel();
-        _driver.navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LandingCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LandingCustomize");
     }
 
     @Then("I validate the Visual Editor Button is hidden")
@@ -549,7 +550,7 @@ public class bugsSteps extends BasePage {
     @When("I select Add New")
     public void iSelectAddNew() {
         _page.addNewListing();
-        _page.sleep(3000);
+        
     }
 
     @Then("I validate Can finish listing creation")
@@ -579,13 +580,13 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Seen times")
     public void iValidateSeenTimes() {
-        _page.sleep(3000);
+        
         Assert.assertEquals("Seen 0 times in the last hour", _page.seenTimesText());
     }
 
     @Given("I go to Signup")
     public void iGoToLoginAndSignup() {
-        _driver.navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Account/Login");
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Account/Login");
     }
 
 
@@ -612,13 +613,13 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate \"Minimum 6 characters\" message does appear")
     public void iValidateMessageDoesAppear() {
-        _page.sleep(3000);
+        
         Assert.assertEquals("Minimum 6 characters", _page.minimumPasswordText());
     }
 
     @Then("I validate Newest Listings images are not blurred")
     public void iValidateNewestListingsImagesAreNotBlurred() {
-        _page.sleep(3500);
+        
         Assert.assertEquals("Sort By", _page.notBlurredText());
     }
 
@@ -627,19 +628,19 @@ public class bugsSteps extends BasePage {
         _page.goToListingPage();
         _page.sortByDateNewerToOlder();
         _page.newerToOlderButton();
-        _page.sleep(3500);
+        
     }
 
     @Given("I login and go to Landing page")
-    public void iLoginAndGoToLandingPage() {
-        _page.login();
+    public void iLoginAndGoToLandingPage() throws IOException {
+        _page.loginWithGastonUser();
 
     }
 
     @Given("I login and go to Admin")
-    public void iLoginAndGoToAdmin() {
+    public void iLoginAndGoToAdmin() throws IOException {
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUser();
         _page.goToAdminPanel();
     }
 
@@ -675,11 +676,11 @@ public class bugsSteps extends BasePage {
 
     @Given("I login with pending Stripe account")
     public void ILoginWithPendingStripeAccount() {
-        //_driver.manage().window().setSize(new Dimension(1920, 1080));
+        //getDriver().manage().window().setSize(new Dimension(1920, 1080));
         _page.setHomePage();
         _page.loginPendingStripeUser();
         _page.goToDashboard();
-        _page.sleep(2000);
+        
     }
 
     @When("I select Settings button")
@@ -718,19 +719,19 @@ public class bugsSteps extends BasePage {
     }
 
     @Given("I go setting page")
-    public void iGoSettingPage() {
+    public void iGoSettingPage() throws IOException {
         _page.setHomePage();
         _page.goToDashboard();
-        _page.loginGastonUser();
+        _page.loginWithGastonUser();
         _page.goToSiteWording();
-        _page.sleep(2000);
+        
         //_page.getCloseChat();
 
     }
 
     @When("input changes in the field SIGNUP_WELCOME_TITLE")
     public void inputChangesInTheFieldSIGNUP_WELCOME_TITLE() {
-        _page.sleep(5000);
+        
         //_page.getCloseChat();
         _page.SIGNUP_WELCOME_TITLE();
     }
@@ -766,10 +767,10 @@ public class bugsSteps extends BasePage {
     }
 
     @And("I log in and go setting page")
-    public void iLogInAndGoSettingPage() {
+    public void iLogInAndGoSettingPage() throws IOException {
         _page.setHomePage();
         _page.goToDashboard();
-        _page.loginGastonUser();
+        _page.loginWithGastonUser();
         _page.goToSiteWording();
     }
 

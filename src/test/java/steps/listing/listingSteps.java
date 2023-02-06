@@ -54,7 +54,6 @@ public class listingSteps extends BasePage {
     @And("I validate the listing category")
     public void iValidateTheListingCategory() {
         _page.categoryBtn();
-        
         _page.categoryJewelryBtn();
     }
 
@@ -77,7 +76,7 @@ public class listingSteps extends BasePage {
     @And("I validate the listing image")
     public void iValidateTheListingImage() {
         _page.listingImageLoad();
-//        _page.cropButton();
+        _page.cropButton();
     }
 
     @And("I validate the listing image (RELEASE)")
@@ -155,7 +154,6 @@ public class listingSteps extends BasePage {
 
     @Then("I validate create a listing (RELEASE)")
     public void iValidateCreateAListingRELEASE() {
-        
         Assert.assertEquals(true, _page.GreatText());
     }
 
@@ -193,11 +191,8 @@ public class listingSteps extends BasePage {
         //_page.setConditionOfItemTextField();
         _page.setDepartmentTab();
         //_page.setDepartmentMenOption();
-        
         _page.goldCheckbox();
-        
         _page.getMandatoryTextfield();
-        
-
+        _page.sizeTextField();
     }
 }

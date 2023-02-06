@@ -3,7 +3,8 @@ Feature: Listing
   @listing @smoke @MTR-1345 @MTR
   Scenario: MTR - Buyer able to create a listing STAGING
     Given I login with Gaston User
-    And I login and go to listing page
+    And I go to dashboard
+    And select My Listings button
     When I validate the add new listing button
     And I validate the listing name text field
     And I validate the listing category
