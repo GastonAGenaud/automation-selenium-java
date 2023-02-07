@@ -32,7 +32,7 @@ public class BrowsePage extends BasePage {
     public WebElement headerBrowseBtn;
     @FindBy(how = How.CSS, using = "#search")
     public WebElement browseSearchTextField;
-    @FindBy(how = How.CSS, using = "#filters-selected > a > span")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[2]/div[1]/div/a/span")
     public WebElement browseClearFilters;
     @FindBy(how = How.CSS, using = "#block-tab")
     public WebElement browseViewBlockFormBtn;
@@ -40,13 +40,13 @@ public class BrowsePage extends BasePage {
     public WebElement browseViewListFormBtn;
     @FindBy(how = How.CSS, using = "#map-tab")
     public WebElement browseMapBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(1) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(3) > span > label")
     public WebElement browseCategoryAccesoriesBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(2) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(3) > span > label")
     public WebElement browseCategoryHairProductsBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(3) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(4) > span > label")
     public WebElement browseCategoryHomeAndLivingBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(4) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
     public WebElement browseCategoryJewelryBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(5) > span > label")
     public WebElement browseCategoryMakeUpBtn;
@@ -54,7 +54,7 @@ public class BrowsePage extends BasePage {
     public WebElement browseCategoryPetAccessoriesBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(7) > span > label")
     public WebElement browseCategoryRingsBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(8) > span > label")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[1]/div[2]/div/ul/li[2]/span/label")
     public WebElement browseCategoryShoesBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(9) > span > label")
     public WebElement browseCategorySportsEquipmentBtn;
@@ -94,7 +94,7 @@ public class BrowsePage extends BasePage {
     public WebElement categoryAccessoriesBtn;
     @FindBy(how = How.CSS, using = "#tags > div > input[type=text]")
     public WebElement tagsTextField;
-    @FindBy(how = How.CSS, using = "#form-create > div > div.d-flex.justify-content-end.align-items-center > button")
+    @FindBy(xpath = "/html/body/form/div/div[7]/button")
     public WebElement nextBtn;
     @FindBy(xpath = "/html/body/form/div/div[4]/div/div[1]/input")
     public WebElement requestNameTextField;
@@ -116,7 +116,7 @@ public class BrowsePage extends BasePage {
 
     public void addAnImage() {
         addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
-        fluentWait(getDriver(), nextBtn);
+        fluentWaitStrict(getDriver(), nextBtn);
         waitForWebElementAndClick(nextBtn);
     }
 
@@ -169,7 +169,6 @@ public class BrowsePage extends BasePage {
 
 
     public void browseClearFilters() {
-        waitForVisibility(browseAmountFilterBtn);
         fluentWait(getDriver(), browseClearFilters);
         waitForWebElementAndClick(browseClearFilters);
     }
@@ -187,19 +186,23 @@ public class BrowsePage extends BasePage {
     }
 
     public void browseCategoryAccesoriesBtn() {
+        fluentWait(getDriver(), browseCategoryAccesoriesBtn);
         waitForWebElementAndClick(browseCategoryAccesoriesBtn);
     }
 
     public void browseCategoryHairProductsBtn() {
+        fluentWait(getDriver(), browseCategoryHairProductsBtn);
         waitForWebElementAndClick(browseCategoryHairProductsBtn);
 
     }
 
     public void browseCategoryHomeAndLivingBtn() {
+        fluentWait(getDriver(), browseCategoryHomeAndLivingBtn);
         waitForWebElementAndClick(browseCategoryHomeAndLivingBtn);
     }
 
     public void browseCategoryJewelryBtn() {
+        fluentWait(getDriver(), browseCategoryJewelryBtn);
         waitForWebElementAndClick(browseCategoryJewelryBtn);
     }
 
@@ -216,6 +219,7 @@ public class BrowsePage extends BasePage {
     }
 
     public void browseCategoryShoesBtn() {
+        fluentWaitStrict(getDriver(), browseCategoryShoesBtn);
         waitForWebElementAndClick(browseCategoryShoesBtn);
     }
 
@@ -310,6 +314,7 @@ public class BrowsePage extends BasePage {
     }
 
     public void next() {
+        action.moveToElement(nextBtn).build().perform();
         fluentWait(getDriver(), nextBtn);
         waitForWebElementAndClick(nextBtn);
     }

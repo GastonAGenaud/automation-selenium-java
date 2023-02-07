@@ -143,7 +143,7 @@ public class listingPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#custom-3")
     public WebElement sizeText;
-    
+
 
     public void getMandatoryTextfield() {
         fluentWait(getDriver(), mandatoryTextfield);

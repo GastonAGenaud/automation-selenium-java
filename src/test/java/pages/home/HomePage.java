@@ -1,5 +1,6 @@
 package pages.home;
 
+import jdk.internal.org.jline.utils.WCWidth;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -41,37 +42,37 @@ public class HomePage extends BasePage {
     public WebElement headerBrowseBySellerBtn;
     //Menu
     //Accessories
-    @FindBy(xpath = "/html/body/header/div/ul/li[1]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[3]/a")
     public WebElement accessoriesBtn;
-    @FindBy(how = How.CSS, using = "#dropdown-nav-7 > li > a")
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[3]/div/div/div/div[1]/ul/li/a")
     public WebElement moreAccessoriesBtn;
     //Clothing
-    @FindBy(how = How.CSS, using = "#\\32 6-tab")
+    @FindBy(xpath = "//a[contains(text(), 'Clothing')]")
     public WebElement clothingBtn;
 
-    @FindBy(xpath = "/html/body/header/div/div/div[3]/div/div/div/div[1]/ul/li")
+    @FindBy(xpath = "//li[contains(text(), 'More')]")
     public WebElement moreClothingBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[4]/a")
+    @FindBy(xpath = "//li[contains(text(), 'More')]")
     public WebElement homeLivingBtn;
 
     @FindBy(xpath = "/html/body/header/div/div/div[4]/div/div/div/div[1]/ul/li/a")
     public WebElement moreHomeAndLivingBtn;
-    @FindBy(how = How.CSS, using = "#\\31 -tab")
+    @FindBy(xpath = "//a[contains(text(), 'Jewelry')]")
     public WebElement jewelryBtn;
-    @FindBy(how = How.CSS, using = "#dropdown-nav-1 > li > a")
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[1]/div/div/div/div[1]/ul/li/a")
     public WebElement moreJewelryBtn;
-    @FindBy(how = How.CSS, using = "#\\33 -tab")
+    @FindBy(xpath = "/html/body/header/div/ul/li[2]/a")
     public WebElement shoesBtn;
 
     @FindBy(how = How.CSS, using = "#dropdown-nav-3 > li:nth-child(3) > a")
     public WebElement moreShoesBtn;
-    @FindBy(how = How.CSS, using = "#\\38 4-tab")
+    @FindBy(xpath = "/html/body/header/div/ul/li[6]/a")
     public WebElement outdoorStuffBtn;
-    @FindBy(how = How.CSS, using = "#dropdown-nav-84 > li > a")
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[6]/div/div/div/div[1]/ul/li/a")
     public WebElement moreOutdoorStuffBtn;
-    @FindBy(how = How.CSS, using = "#\\33 16-tab")
+    @FindBy(xpath = "/html/body/header/div/ul/li[8]/a")
     public WebElement artAndCollectablesBtn;
-    @FindBy(how = How.CSS, using = "#dropdown-nav-316 > li > a")
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[8]/div/div/div/div[1]/ul/li/a")
     public WebElement moreArtAndCollectablesBtn;
     @FindBy(how = How.CSS, using = "#more-tab")
     public WebElement moreBtn;
@@ -84,16 +85,16 @@ public class HomePage extends BasePage {
     public WebElement buySearchTextField;
     @FindBy(how = How.CSS, using = "#nav-buy-carousel > div > div.d-flex.align-items-center.justify-content-between.mb-4 > button")
     public WebElement buySearchBtn;
-    @FindBy(how = How.CSS, using = "#nav-buy-carousel > div > div:nth-child(2) > a")
+    @FindBy(xpath = "//div[contains(text(), 'Search today')]")
     public WebElement buyAdvancedSearch;
     @FindBy(xpath = "/html/body/div[3]/main/div[1]/div[2]/div/div[3]/div/div/nav/div/a[2]")
     public WebElement sellBtn;
     @FindBy(how = How.CSS, using = "#nav-sell-carousel > button")
     public WebElement startTodayBtn;
 
-    @FindBy(xpath = "/html/body/div[3]/main/div[2]/div/div[3]/div/div/nav/div/a[1]")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div[3]/div/div/nav/div/a[1]")
     public WebElement forBuyersBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div[2]/div/div[3]/div/div/nav/div/a[2]")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div[3]/div/div/nav/div/a[2]")
     public WebElement forSellersBtn;
 
     @FindBy(how = How.CSS, using = "#whole-container > main > div.section-img-bg > div.container-fluid.px-sm-5 > div > div.offset-lg-5.col-lg-2 > a")
@@ -138,13 +139,13 @@ public class HomePage extends BasePage {
     @FindBy(how = How.CSS, using = "#dropdown-nav-451 > li > a")
     public WebElement moreMensBtn;
 
-    @FindBy(how = How.CSS, using = "#\\33 20-tab")
+    @FindBy(xpath = "/html/body/header/div/ul/li[7]/a")
     public WebElement hottestItemsBtn;
 
     @FindBy(how = How.CSS, using = "#dropdown-nav-320 > li:nth-child(2) > a")
     public WebElement moreHottestItemsBtn;
 
-    @FindBy(how = How.CSS, using = "#\\32 32-tab")
+    @FindBy(xpath = "/html/body/header/div/ul/li[7]/a")
     public WebElement rugsHomeBtn;
 
     @FindBy(how = How.CSS, using = "#dropdown-nav-232 > li > a")
@@ -152,9 +153,11 @@ public class HomePage extends BasePage {
 
     //LOG IN
     public void login() {
-        emailLoginInput.click();
+        fluentWait(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
-        passwordLoginInput.click();
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
         passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
         waitForWebElementAndClick(logInBtn);
     }
@@ -170,234 +173,281 @@ public class HomePage extends BasePage {
 
     //Header
     public void headerBrowse() {
-        headerBrowseBtn.click();
+        fluentWait(getDriver(), headerBrowseBtn);
+        waitForWebElementAndClick(headerBrowseBtn);
     }
 
     public void headerRequest() {
-        headerRequestBtn.click();
+        fluentWait(getDriver(), headerRequestBtn);
+        waitForWebElementAndClick(headerRequestBtn);
     }
 
     public void headerLogIn() {
-        headerLogInBtn.click();
+        fluentWait(getDriver(), headerLogInBtn);
+        waitForWebElementAndClick(headerLogInBtn);
     }
 
     public void headerSignUp() {
-        headerSignUpBtn.click();
+        fluentWait(getDriver(), headerSignUpBtn);
+        waitForWebElementAndClick(headerSignUpBtn);
     }
 
     public void headerBrowseBySeller() {
-        headerBrowseBySellerBtn.click();
+        fluentWait(getDriver(), headerBrowseBySellerBtn);
+        waitForWebElementAndClick(headerBrowseBySellerBtn);
     }
 
     //Menu
     public void accessoriesMenuTab() {
         goToHome();
-        accessoriesBtn.click();
-    }
+        fluentWait(getDriver(), accessoriesBtn);
+        waitForWebElementAndClick(accessoriesBtn);}
 
 
     public void mensHomeBtn() {
-        mensHomeBtn.click();
+        fluentWait(getDriver(), mensHomeBtn);
+        waitForWebElementAndClick(mensHomeBtn);
     }
 
     public void moreMensBtn() {
-        actions.moveToElement(mensHomeBtn).perform();
+        fluentWait(getDriver(), moreMensBtn);
+        waitForWebElementAndClick(moreMensBtn);
         moreMensBtn.click();
     }
 
     public void hottestItemsBtn() {
-        hottestItemsBtn.click();
+        fluentWait(getDriver(), hottestItemsBtn);
+        waitForWebElementAndClick(hottestItemsBtn);
     }
 
     public void moreHottestItemsBtn() {
+        fluentWait(getDriver(), moreHottestItemsBtn);
         moreHottestItemsBtn.click();
     }
 
     public void rugsHomeBtn() {
-        rugsHomeBtn.click();
+        fluentWait(getDriver(), rugsHomeBtn);
+        waitForWebElementAndClick(rugsHomeBtn);
     }
 
     public void moreRugsBtn() {
-        moreRugsBtn.click();
+        fluentWait(getDriver(), moreRugsBtn);
+        waitForWebElementAndClick(moreRugsBtn);
     }
 
     public void moreAccessories() {
-        actions.moveToElement(accessoriesBtn).perform();
-        moreAccessoriesBtn.click();
+        fluentWait(getDriver(), accessoriesBtn);
+        actions.moveToElement(accessoriesBtn).build().perform();
+        fluentWaitStrict(getDriver(), moreAccessoriesBtn);
+        waitForWebElementAndClick(moreAccessoriesBtn);
     }
 
     public void clothing() {
-        clothingBtn.click();
+        fluentWait(getDriver(), clothingBtn);
+        waitForWebElementAndClick(clothingBtn);
     }
 
 
     public void moreClothing() {
-        actions.moveToElement(clothingBtn).perform();
-        moreClothingBtn.click();
+        fluentWait(getDriver(), moreClothingBtn);
+        waitForWebElementAndClick(moreClothingBtn);
     }
 
     public void homeLiving() {
-        waitForVisibility(homeLivingBtn);
-        homeLivingBtn.click();
+        fluentWait(getDriver(), homeLivingBtn);
+        waitForWebElementAndClick(homeLivingBtn);
     }
 
 
     public void moreHomeAndLiving() {
-        actions.moveToElement(homeLivingBtn).perform();
-        moreHomeAndLivingBtn.click();
+        fluentWait(getDriver(), moreHomeAndLivingBtn);
+        waitForWebElementAndClick(moreHomeAndLivingBtn);
     }
 
     public void jewelry() {
-        jewelryBtn.click();
+        fluentWait(getDriver(), jewelryBtn);
+        waitForWebElementAndClick(jewelryBtn);
     }
 
     public void moreJewelry() {
-        actions.moveToElement(jewelryBtn).perform();
-        moreJewelryBtn.click();
+        fluentWait(getDriver(), jewelryBtn);
+        actions.moveToElement(jewelryBtn).build().perform();
+        fluentWait(getDriver(), moreJewelryBtn);
+        waitForWebElementAndClick(moreJewelryBtn);
+
     }
 
     public void shoes() {
-        shoesBtn.click();
+        fluentWait(getDriver(), shoesBtn);
+        waitForWebElementAndClick(shoesBtn);
     }
 
 
     public void moreShoes() {
-        actions.moveToElement(shoesBtn).perform();
-        moreShoesBtn.click();
+        fluentWait(getDriver(), moreShoesBtn);
+        waitForWebElementAndClick(moreShoesBtn);
     }
 
     public void outdoorStuff() {
-        outdoorStuffBtn.click();
+        fluentWait(getDriver(), outdoorStuffBtn);
+        waitForWebElementAndClick(outdoorStuffBtn);
     }
 
     public void moreOutdoorStuff() {
-        actions.moveToElement(outdoorStuffBtn).perform();
-        moreOutdoorStuffBtn.click();
+        fluentWait(getDriver(), outdoorStuffBtn);
+        actions.moveToElement(outdoorStuffBtn).build().perform();
+        fluentWait(getDriver(), moreOutdoorStuffBtn);
+        waitForWebElementAndClick(moreOutdoorStuffBtn);
     }
 
     public void artAndCollectables() {
-        artAndCollectablesBtn.click();
+        fluentWait(getDriver(), artAndCollectablesBtn);
+        waitForWebElementAndClick(artAndCollectablesBtn);
     }
 
     public void moreArtAndCollectables() {
-        actions.moveToElement(artAndCollectablesBtn).perform();
-        moreArtAndCollectablesBtn.click();
+        fluentWait(getDriver(), artAndCollectablesBtn);
+        actions.moveToElement(artAndCollectablesBtn).build().perform();
+        fluentWait(getDriver(), moreArtAndCollectablesBtn);
+        waitForWebElementAndClick(moreArtAndCollectablesBtn);
     }
 
     public void moreCategories() {
         waitForVisibility(moreBtn);
-        moreBtn.click();
+        fluentWait(getDriver(), moreBtn);
+        waitForWebElementAndClick(moreBtn);
     }
 
     //Image
     public void buy() {
+        fluentWait(getDriver(), buyBtn);
+        waitForWebElementAndClick(buyBtn);
         buyBtn.click();
     }
 
     public void buySearchTextField() {
-        buySearchTextField.click();
+        fluentWait(getDriver(), buySearchTextField);
+        waitForWebElementAndClick(buySearchTextField);
         buySearchTextField.sendKeys("Test Search");
     }
 
     public void buySearchBtn() {
-        buySearchBtn.click();
+        fluentWait(getDriver(), buySearchBtn);
+        waitForWebElementAndClick(buySearchBtn);
     }
 
     public void buyAdvancedSearch() {
-        buyAdvancedSearch.click();
+        fluentWait(getDriver(), buyAdvancedSearch);
+        waitForWebElementAndClick(buyAdvancedSearch);
     }
 
     public void sellBtn() {
         actions.moveToElement(sellBtn);
-        sellBtn.click();
-        sellBtn.click();
-        sellBtn.click();
+        fluentWait(getDriver(), sellBtn);
+        waitForWebElementAndClick(sellBtn);
     }
 
     public void startTodayBtn() {
+        fluentWait(getDriver(), startTodayBtn);
+        waitForWebElementAndClick(startTodayBtn);
         startTodayBtn.click();
     }
 
     public void homeBack() {
-        homeBackBtn.click();
+        fluentWait(getDriver(), homeBackBtn);
+        waitForWebElementAndClick(homeBackBtn);
     }
 
     public void forBuyers() {
-        wait(2);
-        actions.moveToElement(forBuyersBtn).build().perform();
-        forBuyersBtn.click();
+        fluentWait(getDriver(), forBuyersBtn);
+        waitForWebElementAndClick(forBuyersBtn);
     }
 
     public void forSellers() {
-        actions.moveToElement(forSellersBtn).build().perform();
-        forSellersBtn.click();
-        waitForVisibility(forSellersBtn);
+        fluentWait(getDriver(), forSellersBtn);
+        waitForWebElementAndClick(forSellersBtn);
     }
 
     public void startNow() {
-        startNowBtn.click();
+        fluentWait(getDriver(), startNowBtn);
+        waitForWebElementAndClick(startNowBtn);
     }
 
     //Footer
     public void footerSell() {
-        footerSellBtn.click();
+        fluentWait(getDriver(), footerSellBtn);
+        waitForWebElementAndClick(footerSellBtn);
     }
 
     public void footerBrowseListing() {
-        footerBrowseListBtn.click();
+        fluentWait(getDriver(), footerBrowseListBtn);
+        waitForWebElementAndClick(footerBrowseListBtn);
     }
 
     public void footerBrowseRequest() {
-        footerBrowseRequestBtn.click();
+        fluentWait(getDriver(), footerBrowseRequestBtn);
+        waitForWebElementAndClick(footerBrowseRequestBtn);
     }
 
     public void footerLogIn() {
-        footerLogInBtn.click();
+        fluentWait(getDriver(), footerLogInBtn);
+        waitForWebElementAndClick(footerLogInBtn);
     }
 
     public void footerSignUp() {
-        footerSignUpBtn.click();
+        fluentWait(getDriver(), footerSignUpBtn);
+        waitForWebElementAndClick(footerSignUpBtn);
     }
 
     public void footerFAQS() {
+        fluentWait(getDriver(), footerFAQSBtn);
         footerFAQSBtn.click();
     }
 
     public void footerTermsAndConditions() {
-        footerTermsAndConditionsBtn.click();
+        fluentWait(getDriver(), footerTermsAndConditionsBtn);
+        waitForWebElementAndClick(footerTermsAndConditionsBtn);
     }
 
     public void footerPrivacyPolicy() {
-        footerPrivacyPolicyBtn.click();
+        fluentWait(getDriver(), footerPrivacyPolicyBtn);
+        waitForWebElementAndClick(footerPrivacyPolicyBtn);
     }
 
     public void footerAboutUs() {
-        footerAboutUsBtn.click();
+        fluentWait(getDriver(), footerAboutUsBtn);
+        waitForWebElementAndClick(footerAboutUsBtn);
     }
 
     public void footerContactUs() {
-        footerContactUsBtn.click();
+        fluentWait(getDriver(), footerContactUsBtn);
+        waitForWebElementAndClick(footerContactUsBtn);
     }
 
     //Social links
     public void footerFacebookIcon() {
-        footerFacebookPageBtn.click();
+        fluentWait(getDriver(), footerFacebookPageBtn);
+        waitForWebElementAndClick(footerFacebookPageBtn);
     }
 
     public void footerInstagramIcon() {
-        footerInstagramPageBtn.click();
+        fluentWait(getDriver(), footerInstagramPageBtn);
+        waitForWebElementAndClick(footerInstagramPageBtn);
     }
 
     public void footerLinkedin() {
-        footerLinkedinPageBtn.click();
+        fluentWait(getDriver(), footerLinkedinPageBtn);
+        waitForWebElementAndClick(footerLinkedinPageBtn);
     }
 
     public void footerTwitter() {
-        footerTwitterPageBtn.click();
+        fluentWait(getDriver(), footerTwitterPageBtn);
+        waitForWebElementAndClick(footerTwitterPageBtn);
     }
 
     public void footerYoutube() {
-        footerYoutubePageBtn.click();
+        fluentWait(getDriver(), footerYoutubePageBtn);
+        waitForWebElementAndClick(footerYoutubePageBtn);
     }
     //Browse
 

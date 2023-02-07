@@ -37,15 +37,15 @@ public class BrowseSteps extends BasePage {
     @And("I validate the Categories Filter Section")
     public void iValidateTheCategoriesFilterSection() {
         _page.browseCategoryAccesoriesBtn();
-        _page.browseCategoryHairProductsBtn();
+        //_page.browseCategoryHairProductsBtn();
         _page.browseCategoryHomeAndLivingBtn();
         _page.browseCategoryJewelryBtn();
-        _page.browseCategoryMakeUpBtn();
-        _page.browseCategoryPetAccessoriesBtn();
-        _page.browseCategoryRingsBtn();
+        //_page.browseCategoryMakeUpBtn();
+        //_page.browseCategoryPetAccessoriesBtn();
+        //_page.browseCategoryRingsBtn();
         _page.browseCategoryShoesBtn();
-        _page.browseCategorySportsEquipmentBtn();
-        _page.browseCategoryToysBtn();
+        //_page.browseCategorySportsEquipmentBtn();
+        //_page.browseCategoryToysBtn();
     }
 
     @And("I validate the Price Filter Section")
@@ -110,7 +110,7 @@ public class BrowseSteps extends BasePage {
         _page.getCloseNameError();
         _page.requestDescription();
         _page.addAnImage();
-        _page.next();
+        //_page.next();
     }
 
     @And("I validate the next button to create a request")

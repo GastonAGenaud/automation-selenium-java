@@ -33,7 +33,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse Request button")
     public void iValidateTheBrowseRequestButton() {
-        wait(2);
+
         _page.headerRequest();
         _page.homeBack();
     }
@@ -52,7 +52,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse by seller button")
     public void iValidateTheBrowseBySellerButton() {
-        wait(2);
+
         _page.headerBrowseBySeller();
         _page.homeBack();
     }
@@ -148,7 +148,7 @@ public class homeSteps extends BasePage {
     @When("I validate the Start Now button")
     public void iValidateTheStartNowButton() {
         _page.startNow();
-        wait(2);
+
         _page.homeBack();
     }
 
@@ -194,7 +194,7 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse Request")
     public void iValidateTheBrowseRequest() {
-        wait(2);
+
         _page.footerBrowseRequest();
         _page.homeBack();
     }
@@ -262,6 +262,7 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links")
     public void iValidateTheSocialWithAccounts() {
     }
+
     //Main header
     @Given("I go to Home With Account")
     public void IgoToHomePage() {
@@ -285,6 +286,7 @@ public class homeSteps extends BasePage {
     @Then("I validate the social links section with account")
     public void iValidateTheSocialLinksSectionWithAccount() {
     }
+
     @Then("I validate the Body with account")
     public void iValidateTheBodyWithAccount() {
     }
@@ -372,7 +374,7 @@ public class homeSteps extends BasePage {
         getDriver().manage().deleteAllCookies();
         getHomePage();
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
-        wait(4);
+
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
 
@@ -383,7 +385,7 @@ public class homeSteps extends BasePage {
         getDriver().manage().deleteAllCookies();
         getHomePage();
         sessionManager.usePreviousLoggedInSession("GastonUser");
-        wait(5);
+
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("GastonUser");
     }
@@ -393,7 +395,7 @@ public class homeSteps extends BasePage {
         getDriver().manage().deleteAllCookies();
         getHomePage();
         sessionManager.usePreviousLoggedInSession("DevUser");
-        wait(4);
+
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("DevUser");
     }
@@ -402,7 +404,7 @@ public class homeSteps extends BasePage {
     public void loginWithGoodWillUserSteps() {
         getDriver().manage().deleteAllCookies();
         sessionManager.usePreviousLoggedInSession("GoodWillUser");
-        wait(4);
+
         getDriver().navigate().refresh();
     }
 
@@ -410,14 +412,14 @@ public class homeSteps extends BasePage {
     @Given("I login with Matias Owl")
     public void loginWithMatiasOwlSteps() {
         sessionManager.usePreviousLoggedInSession("MatiasUser");
-        wait(4);
+
         getDriver().navigate().refresh();
     }
 
     @Given("I login with Gaton No Borrar")
     public void loginWithGastonNoBorrarSteps() {
         sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
-        wait(4);
+
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
 
