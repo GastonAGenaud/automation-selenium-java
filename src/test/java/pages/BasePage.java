@@ -213,6 +213,16 @@ public class BasePage{
 
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
+
+    public void login() {
+        fluentWait(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+        waitForWebElementAndClick(logInBtn);
+    }
     public void loginWithMakeAnOffer() throws IOException {
         getHomePage();
         getLoginPage();

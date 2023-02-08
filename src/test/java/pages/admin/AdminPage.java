@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 
 public class AdminPage extends BasePage {
@@ -34,16 +35,16 @@ public class AdminPage extends BasePage {
     public WebElement transactionFee;
     @FindBy(how = How.CSS, using = "#action-form > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > label > div > span.fake-radio")
     public WebElement noPaymentsMonetization;
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > header > div.row.py-4 > div > div > div > div > button")
+    @FindBy(how = How.CSS, using = "#addCategoryBtn")
     public WebElement categoriesImportData;
     @FindBy(how = How.CSS, using = "#modal-import-data1 > div > div > div.modal-header.border-bottom-0 > button")
     public WebElement closeCategoriesImportData;
-    @FindBy(how = How.CSS, using = "#CategoryName")
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[2]/div/input")
     public WebElement categoryNameField;
-    @FindBy(how = How.CSS, using = "#btnAddCategory")
+    @FindBy(how = How.CSS, using = "#addCategoryBtn")
     public WebElement addCategorybtn;
 
-    @FindBy(how = How.CSS, using = "#Q29uZmlybSUyMHRoYXQlMjB5b3UlMjB3YW50JTIwdG8lMjBkZWxldGUlMjB0aGUlMjBjYXRlZ29yeSUzRg > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deleteCategoryConfirmBtn;
     //Step 1
     @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(1) > a")
@@ -63,7 +64,7 @@ public class AdminPage extends BasePage {
     public WebElement createCategories;
 
     //Step 5
-    @FindBy(how = How.CSS, using = "#toggler")
+    @FindBy(how = How.CSS, using = "#faCaret")
     public WebElement createCustomFieldsHideShowBtn;
     @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(5) > a:nth-child(1)")
     public WebElement createCustomFields;
@@ -262,17 +263,17 @@ public class AdminPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#Embed > div > div > div > div > div > div > header > div > button:nth-child(4) > svg")
     public WebElement minimizeChat;
-    @FindBy(xpath = "/html/body/div[2]/div/aside/nav[1]/ul[2]/li[9]/a")
+    @FindBy(how = How.CSS, using = "#li-settings > span")
     public WebElement settingsBtn;
     //Wording Site(Language)
     @FindBy(how = How.CSS, using = "#admin-sidebar > ul.items.list-unstyled.my-4.px-3 > li.dropright.show > div > a:nth-child(1)")
     public WebElement siteWordingBtn;
     @FindBy(how = How.CSS, using = "#search")
     public WebElement siteWordingFilterTextBar;
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > section > div.row.no-gutters.bg-white.border-b-gray > div > div > div.col-lg-9 > div > div > div.col-lg-2 > button")
+    @FindBy(how = How.CSS, using = "#main-admin > section > div.row.no-gutters.bg-white.border-b-gray > div > div > div.col-lg-9 > div > div > div.col-lg-2 > button")
     public WebElement siteWordingFilterBtn;
     //Company info
-    @FindBy(how = How.CSS, using = "#admin-sidebar > ul.items.list-unstyled.my-4.px-3 > li.dropright.show > div > a:nth-child(2)")
+    @FindBy(xpath = "//a[contains(text(), 'Company Info')]")
     public WebElement settingsCompanyInfoBtn;
     @FindBy(how = How.CSS, using = "#company-tab")
     public WebElement selectCompanyInfoBtn;
@@ -375,7 +376,7 @@ public class AdminPage extends BasePage {
     @FindBy(how = How.CSS, using = "#admin-sidebar > ul.items.list-unstyled.my-4.px-3 > li.dropup.show > div > a:nth-child(4)")
     public WebElement reportsUserTransactions;
     //Add-Ons
-    @FindBy(how = How.CSS, using = "#admin-sidebar > ul.items.list-unstyled.my-4.px-3 > li:nth-child(11) > a > span")
+    @FindBy(how = How.CSS, using = "#admin-sidebar > ul.items.list-unstyled.my-4.px-3 > li:nth-child(9) > a")
     public WebElement addonBtn;
     @FindBy(how = How.CSS, using = "#product-tab")
     public WebElement selectAddOnsProductSectionBtn;
@@ -458,10 +459,38 @@ public class AdminPage extends BasePage {
     @FindBy(how = How.CSS, using = "#login-header-text-customize")
     public WebElement headerLogInBtn;
 
+    @FindBy(xpath = "//a[contains(text(), 'Delete')]")
+    public WebElement deleteXpath;
+
+    @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[3]/a/span")
+    public WebElement MandatoryCheckboxCustomFields;
+
+    @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[4]/a/span")
+    public WebElement ShowInBrowseCheckboxCustomFields;
+
+
+    public void ShowInBrowseCheckboxCustomFields() {
+        fluentWait(getDriver(),ShowInBrowseCheckboxCustomFields);
+        waitForWebElementAndClick(ShowInBrowseCheckboxCustomFields);
+
+    }
+    public void MandatoryCheckboxCustomFields() {
+        fluentWait(getDriver(), MandatoryCheckboxCustomFields);
+        waitForWebElementAndClick(MandatoryCheckboxCustomFields);
+    }
+
     public void setHomePage() {
         getDriver().navigate().to(url);
+        fluentWait(getDriver(), headerLogInBtn);
+        waitForWebElementAndClick(headerLogInBtn);
+    }
 
-        headerLogInBtn.click();
+    public void deleteCategory() {
+        fluentWait(getDriver(), deleteXpath);
+        waitForWebElementAndClick(deleteXpath);
+
+        fluentWait(getDriver(), deleteCategoryConfirmBtn);
+        waitForWebElementAndClick(deleteCategoryConfirmBtn);
     }
 
     public void goToAdminPanel() {
@@ -474,9 +503,16 @@ public class AdminPage extends BasePage {
     }
 
     public void getCloseChat() {
-        getDriver().switchTo().frame(2);
-        getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
-        //getDriver().findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/header/div[1]/button")).click();
+        try {
+            getDriver().switchTo().frame("webWidget");
+            getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
+        }
+        catch(Exception e){
+            wait(6);
+            getDriver().switchTo().frame("webWidget");
+            getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
+        }
+
     }
 
 
@@ -570,7 +606,7 @@ public class AdminPage extends BasePage {
     }
 
     public void categoriesImportData() {
-        fluentWait(getDriver(), categoriesImportData);
+        fluentWaitStrict(getDriver(), categoriesImportData);
         waitForWebElementAndClick(categoriesImportData);
     }
 
@@ -690,6 +726,11 @@ public class AdminPage extends BasePage {
     }
 
     public void templatesTabEmails() {
+        try {
+            getCloseChat();
+        }
+        catch(Exception e){}
+
         fluentWait(getDriver(), templatesEmails);
         waitForWebElementAndClick(templatesEmails);
     }
@@ -849,7 +890,7 @@ public class AdminPage extends BasePage {
         waitForWebElementAndClick(customizeContactPagePhoneTextBar);
         customizeContactPagePhoneTextBar.sendKeys("11111111111");
 
-        fluentWait(getDriver(),customizeContactPageNameCheckBox);
+        fluentWait(getDriver(), customizeContactPageNameCheckBox);
         waitForWebElementAndClick(customizeContactPageNameCheckBox);
 
         fluentWait(getDriver(), customizeContactPageEmailCheckBox);
@@ -887,169 +928,331 @@ public class AdminPage extends BasePage {
     }
 
     public void customizeAboutUsHowItWorks() {
-        customizeAboutUsPageHowItWorksBtn.click();
-        customizeAboutUsPageHowItWorksFirstTitleTextBar.click();
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksBtn);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksBtn);
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksBtn);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksBtn);
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksFirstTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksFirstTitleTextBar);
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksFirstTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksFirstTitleTextBar);
         customizeAboutUsPageHowItWorksFirstTitleTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksFirstParagraphTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksFirstParagraphTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksFirstParagraphTextBar);
         customizeAboutUsPageHowItWorksFirstParagraphTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksSecondTitleTextBar.click();
-        customizeAboutUsPageHowItWorksSecondParagraphTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksSecondTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksSecondTitleTextBar);
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksSecondParagraphTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksSecondParagraphTextBar);
         customizeAboutUsPageHowItWorksSecondParagraphTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksThirdTitleTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksThirdTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksThirdTitleTextBar);
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksThirdTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksThirdTitleTextBar);
         customizeAboutUsPageHowItWorksThirdTitleTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksThirdParagraphTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksThirdParagraphTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksThirdParagraphTextBar);
         customizeAboutUsPageHowItWorksThirdParagraphTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksFourthTitleTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksFourthTitleTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksFourthTitleTextBar);
         customizeAboutUsPageHowItWorksFourthTitleTextBar.sendKeys("Test Automation");
-        customizeAboutUsPageHowItWorksFourthParagraphTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPageHowItWorksFourthParagraphTextBar);
+        waitForWebElementAndClick(customizeAboutUsPageHowItWorksFourthParagraphTextBar);
         customizeAboutUsPageHowItWorksFourthParagraphTextBar.sendKeys("Test Automation");
     }
 
     public void customizeAboutUsPreFooter() {
-        customizeAboutUsPagePreFooterBtn.click();
-        customizeAboutUsPagePreFooterHeadLineTextBar.click();
+        fluentWait(getDriver(), customizeAboutUsPagePreFooterBtn);
+        waitForWebElementAndClick(customizeAboutUsPagePreFooterBtn);
+
+        fluentWait(getDriver(), customizeAboutUsPagePreFooterHeadLineTextBar);
+        waitForWebElementAndClick(customizeAboutUsPagePreFooterHeadLineTextBar);
         customizeAboutUsPagePreFooterHeadLineTextBar.sendKeys("Test Automation");
-        customizeAboutUsPagePreFooterSubHeadLineTextBar.click();
+
+
+        fluentWait(getDriver(), customizeAboutUsPagePreFooterSubHeadLineTextBar);
+        waitForWebElementAndClick(customizeAboutUsPagePreFooterSubHeadLineTextBar);
         customizeAboutUsPagePreFooterSubHeadLineTextBar.sendKeys("Test Automation");
-        customizeAboutUsPagePreFooterParagraphTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPagePreFooterParagraphTextBar);
+        waitForWebElementAndClick(customizeAboutUsPagePreFooterParagraphTextBar);
         customizeAboutUsPagePreFooterParagraphTextBar.sendKeys("Test Automation");
-        customizeAboutUsPagePreFooterButtonTextBar.click();
+
+        fluentWait(getDriver(), customizeAboutUsPagePreFooterButtonTextBar);
+        waitForWebElementAndClick(customizeAboutUsPagePreFooterButtonTextBar);
         customizeAboutUsPagePreFooterButtonTextBar.sendKeys("Test Automation");
     }
 
     public void customizeFAQ() {
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/FAQCustomize");
         //customizeFAQBtn.click();
-        customizeFAQPageTitleTextBar.click();
+        fluentWait(getDriver(), customizeFAQPageTitleTextBar);
+        waitForWebElementAndClick(customizeFAQPageTitleTextBar);
         customizeFAQPageTitleTextBar.sendKeys("Test Automation");
-        customizeFAQPageAddNewQuestionBtn.click();
-        customizeFAQPageWriteQuestionTextBar.click();
+
+        fluentWait(getDriver(), customizeFAQPageAddNewQuestionBtn);
+        waitForWebElementAndClick(customizeFAQPageAddNewQuestionBtn);
+
+        fluentWait(getDriver(), customizeFAQPageWriteQuestionTextBar);
+        waitForWebElementAndClick(customizeFAQPageWriteQuestionTextBar);
         customizeFAQPageWriteQuestionTextBar.sendKeys("Test Automation");
-        customizeFAQPageWriteAnswerTextBar.click();
+
+        fluentWait(getDriver(), customizeFAQPageWriteAnswerTextBar);
+        waitForWebElementAndClick(customizeFAQPageWriteAnswerTextBar);
         customizeFAQPageWriteAnswerTextBar.sendKeys("Test Automation");
     }
 
     public void customizeTermsAndConditions() {
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/TermsOfUseCustomize");
         //customizeTermsAndConditionsBtn.click();
-        customizeTermsAndConditionsPageTitleTextBar.click();
+
+        fluentWait(getDriver(), customizeTermsAndConditionsPageTitleTextBar);
+        waitForWebElementAndClick(customizeTermsAndConditionsPageTitleTextBar);
         customizeTermsAndConditionsPageTitleTextBar.sendKeys("Test Automation");
-        customizeTermsAndConditionsPageAddNewFieldBtn.click();
-        customizeTermsAndConditionsPageNewFieldTitleTextBar.click();
+
+        fluentWait(getDriver(), customizeTermsAndConditionsPageAddNewFieldBtn);
+        waitForWebElementAndClick(customizeTermsAndConditionsPageAddNewFieldBtn);
+
+        fluentWait(getDriver(), customizeTermsAndConditionsPageNewFieldTitleTextBar);
+        waitForWebElementAndClick(customizeTermsAndConditionsPageNewFieldTitleTextBar);
         customizeTermsAndConditionsPageNewFieldTitleTextBar.sendKeys("Test Automation");
-        customizeTermsAndConditionsPageDescriptionTextBar.click();
+
+        fluentWait(getDriver(), customizeTermsAndConditionsPageDescriptionTextBar);
+        waitForWebElementAndClick(customizeTermsAndConditionsPageDescriptionTextBar);
         customizeTermsAndConditionsPageDescriptionTextBar.sendKeys("Test Automation");
     }
 
     public void customizePrivacyPolicy() {
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/PrivacyCustomize");
         //customizePrivacyPolicyBtn.click();
-        customizePrivacyPolicyPageTitleTextBar.click();
+        fluentWait(getDriver(), customizePrivacyPolicyPageTitleTextBar);
+        waitForWebElementAndClick(customizePrivacyPolicyPageTitleTextBar);
         customizePrivacyPolicyPageTitleTextBar.sendKeys("Test Automation");
-        customizePrivacyPolicyPageAddNewFieldBtn.click();
-        customizePrivacyPolicyPageNewFieldTitleTextBar.click();
+
+
+        fluentWait(getDriver(), customizePrivacyPolicyPageAddNewFieldBtn);
+        waitForWebElementAndClick(customizePrivacyPolicyPageAddNewFieldBtn);
+
+        fluentWait(getDriver(), customizePrivacyPolicyPageNewFieldTitleTextBar);
+        waitForWebElementAndClick(customizePrivacyPolicyPageNewFieldTitleTextBar);
         customizePrivacyPolicyPageNewFieldTitleTextBar.sendKeys("Test Automation");
-        customizePrivacyPolicyPageDescriptionTextBar.click();
+
+
+        fluentWait(getDriver(), customizePrivacyPolicyPageDescriptionTextBar);
+        waitForWebElementAndClick(customizePrivacyPolicyPageDescriptionTextBar);
         customizePrivacyPolicyPageDescriptionTextBar.sendKeys("Test Automation");
     }
 
     //Settings
     public void settings() {
+        fluentWaitStrict(getDriver(), settingsBtn);
         actions.moveToElement(settingsBtn).build().perform();
     }
 
     public void siteWording() {
         settings();
-        siteWordingBtn.click();
-        siteWordingFilterTextBar.click();
-        siteWordingFilterTextBar.sendKeys("Test Automation");
-        siteWordingFilterBtn.click();
 
+        try {
+            getCloseChat();
+        }
+        catch(Exception e){}
+
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/GlobalSettings");
+//        fluentWait(getDriver(), siteWordingBtn);
+//        waitForWebElementAndClick(siteWordingBtn);
+
+        settings();
+
+        try {
+            getCloseChat();
+        }
+        catch(Exception e){}
+
+        fluentWait(getDriver(), siteWordingFilterTextBar);
+        waitForWebElementAndClick(siteWordingFilterTextBar);
+        siteWordingFilterTextBar.sendKeys("Test Automation");
+
+        fluentWait(getDriver(), siteWordingFilterBtn);
+        waitForWebElementAndClick(siteWordingFilterBtn);
     }
 
     public void settingsCompanyInfo() {
         settings();
-        settingsCompanyInfoBtn.click();
-        selectCompanyInfoBtn.click();
-        companyInfoTitleTextBar.click();
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/companyinfo");
+//        fluentWaitStrict(getDriver(), settingsCompanyInfoBtn);
+//        waitForWebElementAndClick(settingsCompanyInfoBtn);
+
+
+        fluentWaitStrict(getDriver(), selectCompanyInfoBtn);
+        waitForWebElementAndClick(selectCompanyInfoBtn);
+
+        fluentWait(getDriver(), companyInfoTitleTextBar);
+        waitForWebElementAndClick(companyInfoTitleTextBar);
         companyInfoTitleTextBar.sendKeys("Test Automation");
-        companyInfoCompanyNameTextBar.click();
+
+
+        fluentWait(getDriver(), companyInfoCompanyNameTextBar);
+        waitForWebElementAndClick(companyInfoCompanyNameTextBar);
         companyInfoCompanyNameTextBar.sendKeys("Test Automation");
+
+
+        fluentWait(getDriver(), companyInfoCompanySiteDescriptionTextBar);
+        waitForWebElementAndClick(companyInfoCompanySiteDescriptionTextBar);
         companyInfoCompanySiteDescriptionTextBar.click();
         companyInfoCompanySiteDescriptionTextBar.sendKeys("Test Automation");
-        companyInfoContactNameTextBar.click();
+
+
+        fluentWait(getDriver(), companyInfoContactNameTextBar);
+        waitForWebElementAndClick(companyInfoContactNameTextBar);
         companyInfoContactNameTextBar.sendKeys("Test Automation");
-        companyInfoPhoneNumberTextField.click();
+
+        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
+        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
+
+        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
+        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
         companyInfoPhoneNumberTextField.sendKeys("Test Automation");
-        companyInfoPostProdKeyTextField.click();
+
+
+        fluentWait(getDriver(), companyInfoPostProdKeyTextField);
+        waitForWebElementAndClick(companyInfoPostProdKeyTextField);
         companyInfoPostProdKeyTextField.sendKeys("Test Automation");
-        companyInfoUSPSCarrierAccountIdTextField.click();
+
+        fluentWait(getDriver(), companyInfoUSPSCarrierAccountIdTextField);
+        waitForWebElementAndClick(companyInfoUSPSCarrierAccountIdTextField);
         companyInfoUSPSCarrierAccountIdTextField.sendKeys("Test Automation");
 
-        companyInfoGoogleLocationApiKeyTextField.click();
-        companyInfoGoogleLocationApiKeyTextField.sendKeys("Test Automation");
-        companyInfoFaviconURLTextField.click();
-        companyInfoFaviconURLTextField.sendKeys("https://test.automation");
-        companyInfoGoogleLocationApiSecondKeyTextField.click();
-        companyInfoGoogleLocationApiSecondKeyTextField.sendKeys("Test Automation");
-        companyInfoFacebookOAuthIDTextField.click();
-        companyInfoFacebookOAuthIDTextField.sendKeys("111111111");
-        companyInfoGoogleAuthIDTextField.click();
-        companyInfoGoogleAuthIDTextField.sendKeys("111111111");
-        companyInfoGoogleCaptchaKeyTextField.click();
-        companyInfoGoogleCaptchaKeyTextField.sendKeys("Test Automation");
-        companyInfoGoogleAnalyticsTrackingIdTextField.click();
-        companyInfoGoogleAnalyticsTrackingIdTextField.sendKeys("Test Automation");
-        companyInfoCommissionTextField.click();
-        companyInfoCommissionTextField.sendKeys("11");
-        selectSubscriptionInfoBtn.click();
 
+        fluentWait(getDriver(), companyInfoGoogleLocationApiKeyTextField);
+        waitForWebElementAndClick(companyInfoGoogleLocationApiKeyTextField);
+        companyInfoGoogleLocationApiKeyTextField.sendKeys("Test Automation");
+
+
+        fluentWait(getDriver(), companyInfoFaviconURLTextField);
+        waitForWebElementAndClick(companyInfoFaviconURLTextField);
+        companyInfoFaviconURLTextField.sendKeys("https://test.automation");
+
+
+        fluentWait(getDriver(), companyInfoGoogleLocationApiSecondKeyTextField);
+        waitForWebElementAndClick(companyInfoGoogleLocationApiSecondKeyTextField);
+        companyInfoGoogleLocationApiSecondKeyTextField.sendKeys("Test Automation");
+
+
+        fluentWait(getDriver(), companyInfoFacebookOAuthIDTextField);
+        waitForWebElementAndClick(companyInfoFacebookOAuthIDTextField);
+        companyInfoFacebookOAuthIDTextField.sendKeys("111111111");
+
+
+        fluentWait(getDriver(), companyInfoGoogleAuthIDTextField);
+        waitForWebElementAndClick(companyInfoGoogleAuthIDTextField);
+        companyInfoGoogleAuthIDTextField.sendKeys("111111111");
+
+
+        fluentWait(getDriver(), companyInfoGoogleCaptchaKeyTextField);
+        waitForWebElementAndClick(companyInfoGoogleCaptchaKeyTextField);
+        companyInfoGoogleCaptchaKeyTextField.sendKeys("Test Automation");
+
+        fluentWait(getDriver(), companyInfoGoogleAnalyticsTrackingIdTextField);
+        waitForWebElementAndClick(companyInfoGoogleAnalyticsTrackingIdTextField);
+        companyInfoGoogleAnalyticsTrackingIdTextField.sendKeys("Test Automation");
+
+
+        fluentWait(getDriver(), companyInfoCommissionTextField);
+        waitForWebElementAndClick(companyInfoCommissionTextField);
+        companyInfoCommissionTextField.sendKeys("11");
+
+        fluentWait(getDriver(), selectSubscriptionInfoBtn);
+        waitForWebElementAndClick(selectSubscriptionInfoBtn);
     }
 
     public void paymentInfo() {
         settings();
-        settingsPaymentInfoBtn.click();
-        selectPaymentInfoBtn.click();
-        selectSitePaymentService.click();
-        paymentInfoStripeSecretApiKeyTextField.click();
-        paymentInfoStripeSecretApiKeyTextField.sendKeys("Test Automation");
-        paymentInfoStripePublishableApiKeyTextField.click();
-        paymentInfoStripePublishableApiKeyTextField.sendKeys("Test Automation");
-        paymentInfoStripeConnectClientIdTextField.click();
-        paymentInfoStripeConnectClientIdTextField.sendKeys("Test Automation");
 
+        fluentWait(getDriver(), settingsPaymentInfoBtn);
+        waitForWebElementAndClick(settingsPaymentInfoBtn);
+
+        fluentWait(getDriver(), selectPaymentInfoBtn);
+        waitForWebElementAndClick(selectPaymentInfoBtn);
+
+        fluentWait(getDriver(), selectSitePaymentService);
+        waitForWebElementAndClick(selectSitePaymentService);
+
+        fluentWait(getDriver(), paymentInfoStripeSecretApiKeyTextField);
+        waitForWebElementAndClick(paymentInfoStripeSecretApiKeyTextField);
+        paymentInfoStripeSecretApiKeyTextField.sendKeys("Test Automation");
+
+        fluentWait(getDriver(), paymentInfoStripePublishableApiKeyTextField);
+        waitForWebElementAndClick(paymentInfoStripePublishableApiKeyTextField);
+        paymentInfoStripePublishableApiKeyTextField.sendKeys("Test Automation");
+
+        fluentWait(getDriver(), paymentInfoStripeConnectClientIdTextField);
+        waitForWebElementAndClick(paymentInfoStripeConnectClientIdTextField);
+        paymentInfoStripeConnectClientIdTextField.sendKeys("Test Automation");
     }
 
     public void settingsOrdersSetup() {
         settings();
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/OrdersSetup");
-
         //settingsOrdersSetupBtn.click();
-        autoAcceptOrdersCheckBox.click();
-        autoAcceptOrdersCheckBox.click();
+
+        fluentWait(getDriver(), autoAcceptOrdersCheckBox);
+        waitForWebElementAndClick(autoAcceptOrdersCheckBox);
+
+        fluentWait(getDriver(), autoAcceptOrdersCheckBox);
+        waitForWebElementAndClick(autoAcceptOrdersCheckBox);
     }
 
     public void settingsRequestSetup() {
         settings();
-        settingsRequestSetupBtn.click();
-        enableRequestsOnMySiteCheckBox.click();
-        enableRequestsOnMySiteCheckBox.click();
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/RequestsSetup");
+//        fluentWait(getDriver(), settingsRequestSetupBtn);
+//        waitForWebElementAndClick(settingsRequestSetupBtn);
+
+        fluentWait(getDriver(), enableRequestsOnMySiteCheckBox);
+        waitForWebElementAndClick(enableRequestsOnMySiteCheckBox);
     }
 
     public void settingsDiscount() {
         settings();
-        settingsDiscountBtn.click();
-        discountCodeTextField.click();
-        discountCodeTextField.sendKeys("Test Automation");
-        discountDescriptionTextField.click();
-        discountDescriptionTextField.sendKeys("Test Automation");
-        discountExpiryDateTextField.click();
-        discountExpiryDateTextField.sendKeys("20062023");
-        discountAmountTextField.click();
-        discountAmountTextField.sendKeys("111");
-        discountAddCodeBtn.click();
 
-        discountEliminate.click();
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/BrowseConfig");
+//        fluentWait(getDriver(), settingsDiscountBtn);
+//        waitForWebElementAndClick(settingsDiscountBtn);
+
+        fluentWait(getDriver(), discountCodeTextField);
+        waitForWebElementAndClick(discountCodeTextField);
+        discountCodeTextField.sendKeys("Test Automation");
+
+        fluentWait(getDriver(), discountDescriptionTextField);
+        waitForWebElementAndClick(discountDescriptionTextField);
+        discountDescriptionTextField.sendKeys("Test Automation");
+
+
+        fluentWait(getDriver(), discountExpiryDateTextField);
+        waitForWebElementAndClick(discountExpiryDateTextField);
+        discountExpiryDateTextField.sendKeys("20062023");
+
+
+        fluentWait(getDriver(), discountAmountTextField);
+        waitForWebElementAndClick(discountAmountTextField);
+        discountAmountTextField.sendKeys("111");
+
+        fluentWait(getDriver(), discountAddCodeBtn);
+        waitForWebElementAndClick(discountAddCodeBtn);
+
+        fluentWait(getDriver(), discountEliminate);
+        waitForWebElementAndClick(discountEliminate);
     }
 
     //Reports
@@ -1059,60 +1262,83 @@ public class AdminPage extends BasePage {
 
     public void contactMessages() {
         actions.moveToElement(reportsBtn).perform();
-        contactMessagesBtn.click();
-        contactMessagesEmailForwardingCheckBox.click();
-        contactMessagesEmailForwardingCheckBox.click();
+
+        fluentWait(getDriver(), contactMessagesBtn);
+        waitForWebElementAndClick(contactMessagesBtn);
+
+        fluentWait(getDriver(), contactMessagesEmailForwardingCheckBox);
+        waitForWebElementAndClick(contactMessagesEmailForwardingCheckBox);
     }
 
     public void userReviews() {
-        reports();
-        userReviewsBtn.click();
-        userReviewsSearchFilterTextField.click();
-        userReviewsSearchFilterTextField.sendKeys("Test");
+     //   reports();
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Application/UserReviews");
+//        fluentWait(getDriver(), userReviewsBtn);
+//        waitForWebElementAndClick(userReviewsBtn);
 
+        fluentWait(getDriver(), userReviewsSearchFilterTextField);
+        waitForWebElementAndClick(userReviewsSearchFilterTextField);
+        userReviewsSearchFilterTextField.sendKeys("Test");
     }
 
     public void listingReviews() {
-        reports();
-        listingReviewsBtn.click();
-        listingReviewsSearchFilterTextField.click();
+        //reports();
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Application/ListingsReviews");
+
+//        fluentWait(getDriver(), listingReviewsBtn);
+//        waitForWebElementAndClick(listingReviewsBtn);
+
+        fluentWait(getDriver(), listingReviewsSearchFilterTextField);
+        waitForWebElementAndClick(listingReviewsSearchFilterTextField);
         listingReviewsSearchFilterTextField.sendKeys("Test");
 
     }
 
     public void userTransactions() {
-        reports();
-        reportsUserTransactions.click();
+        //reports();
+
+        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Transaction");
+//        fluentWait(getDriver(), reportsUserTransactions);
+//        waitForWebElementAndClick(reportsUserTransactions);
+
+
     }
 
     //Add-ons
 
     public void addonBtnFromPanel() {
-        addonBtn.click();
+        fluentWait(getDriver(), addonBtn);
+        waitForWebElementAndClick(addonBtn);
     }
 
     public void addNewAddOns() {
-        addNewAddOnsBtn.click();
+        fluentWait(getDriver(), addNewAddOnsBtn);
+        waitForWebElementAndClick(addNewAddOnsBtn);
     }
 
     public void backToAddOns() {
-        backToAddOnsBtn.click();
+        fluentWait(getDriver(), backToAddOnsBtn);
+        waitForWebElementAndClick(backToAddOnsBtn);
     }
 
     public void selectAddOnsProductSections() {
-        selectAddOnsProductSectionBtn.click();
+        fluentWait(getDriver(), selectAddOnsProductSectionBtn);
+        waitForWebElementAndClick(selectAddOnsProductSectionBtn);
     }
 
     public void addOnsEdit() {
-        addOnsEditBtn.click();
+        fluentWait(getDriver(), addOnsEditBtn);
+        waitForWebElementAndClick(addOnsEditBtn);
     }
 
     public void backToAddOnsAgain() {
-        backToAddOnsAgainBtn.click();
+        fluentWait(getDriver(), backToAddOnsAgainBtn);
+        waitForWebElementAndClick(backToAddOnsAgainBtn);
     }
 
     public void addOnsFilterTextField() {
-        addOnsFilterTextField.click();
+        fluentWait(getDriver(), addOnsFilterTextField);
+        waitForWebElementAndClick(addOnsFilterTextField);
     }
 
     public void addOnsFilterTextFieldType() {
@@ -1120,50 +1346,84 @@ public class AdminPage extends BasePage {
     }
 
     public void addOnsFilterBtn() {
-
-        addOnsFilterBtn.click();
+        fluentWait(getDriver(), addOnsFilterBtn);
+        waitForWebElementAndClick(addOnsFilterBtn);
     }
 
 
     //Extensions
 
     public void extensions() {
-        addonBtn.click();
-        extensionsBtn.click();
-        addExtensionBtn.click();
-        backToExtensionsBtn.click();
-        extensionsFilterAllSectionsBtn.click();
-        extensionsFilterLandingPageSectionBtn.click();
-        extensionsFilterSignUpSectionBtn.click();
-        extensionsFilterAddListingSectionBtn.click();
-        extensionsFilterBrowsePageSectionBtn.click();
-        extensionsFilterListingPageSectionBtn.click();
-        extensionsFilterTextField.click();
+        fluentWait(getDriver(), addonBtn);
+        waitForWebElementAndClick(addonBtn);
+
+        fluentWait(getDriver(), extensionsBtn);
+        waitForWebElementAndClick(extensionsBtn);
+
+        fluentWait(getDriver(), addExtensionBtn);
+        waitForWebElementAndClick(addExtensionBtn);
+
+        fluentWait(getDriver(), backToExtensionsBtn);
+        waitForWebElementAndClick(backToExtensionsBtn);
+
+
+        fluentWait(getDriver(), extensionsFilterAllSectionsBtn);
+        waitForWebElementAndClick(extensionsFilterAllSectionsBtn);
+
+
+        fluentWait(getDriver(), extensionsFilterAllSectionsBtn);
+        waitForWebElementAndClick(extensionsFilterAllSectionsBtn);
+
+        fluentWait(getDriver(), extensionsFilterLandingPageSectionBtn);
+        waitForWebElementAndClick(extensionsFilterLandingPageSectionBtn);
+
+
+        fluentWait(getDriver(), extensionsFilterSignUpSectionBtn);
+        waitForWebElementAndClick(extensionsFilterSignUpSectionBtn);
+
+        fluentWait(getDriver(), extensionsFilterAddListingSectionBtn);
+        waitForWebElementAndClick(extensionsFilterAddListingSectionBtn);
+
+        fluentWait(getDriver(), extensionsFilterBrowsePageSectionBtn);
+        waitForWebElementAndClick(extensionsFilterBrowsePageSectionBtn);
+
+        fluentWait(getDriver(), extensionsFilterListingPageSectionBtn);
+        waitForWebElementAndClick(extensionsFilterListingPageSectionBtn);
+
+        fluentWait(getDriver(), extensionsFilterTextField);
+        waitForWebElementAndClick(extensionsFilterTextField);
         extensionsFilterTextField.sendKeys("Test");
-        extensionsFilterBtn.click();
+
+        fluentWait(getDriver(), extensionsFilterBtn);
+        waitForWebElementAndClick(extensionsFilterBtn);
     }
 
     //Step 7 and forward
 
     public void connectDomain() {
-        connectDomain.click();
+        fluentWait(getDriver(), connectDomain);
+        waitForWebElementAndClick(connectDomain);
     }
 
     public void socialLogin() {
-        socialLogin.click();
+        fluentWait(getDriver(), socialLogin);
+        waitForWebElementAndClick(socialLogin);
     }
 
     public void createTestUsers() {
-        createTestUsers.click();
+        fluentWait(getDriver(), createTestUsers);
+        waitForWebElementAndClick(createTestUsers);
     }
 
     public void inviteUsers() {
-        inviteUsers.click();
+        fluentWait(getDriver(), inviteUsers);
+        waitForWebElementAndClick(inviteUsers);
     }
 
 
     public void marketingTips() {
-        marketingTips.click();
+        fluentWait(getDriver(), marketingTips);
+        waitForWebElementAndClick(marketingTips);
     }
 
 }

@@ -6,9 +6,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pages.BasePage;
 import pages.admin.AdminPage;
 
+import java.io.IOException;
 
 
 public class AdminSteps extends BasePage {
@@ -21,10 +23,8 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Get started steps")
-    public void getStartedSteps() {
-        //_driver.manage().window().maximize();
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
+    public void getStartedSteps() throws IOException {
+        ////_driver.manage().window().maximize();
         _page.goToAdminPanel();
         _page.getCloseChat();
 
@@ -32,7 +32,7 @@ public class AdminSteps extends BasePage {
 
     @When("I validate step 1 Create your marketplace")
     public void iValidateStepCreateYourMarketplace() {
-        _page.sleep(3000);
+
         _page.createMarketplace();
     }
 
@@ -145,16 +145,8 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Step 10: Monetization")
-    public void stepMonetization() {
-        //_driver.manage().window().maximize();
-        _page.setHomePage();
-        _page.sleep(1500);
-        _page.loginMakeAnOffer();
+    public void stepMonetization() throws IOException {
         _page.goToAdminPanel();
-        //
-//        _page.loginMakeAnOffer();
-//        _page.goToAdminPanel();
-        _page.sleep(3000);
         _page.monetization();
     }
 
@@ -202,12 +194,9 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Step 3: Select your landing page layout")
-    public void stepSelectYourLandingPageLayout() {
-        _driver.manage().window().maximize();
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
+    public void stepSelectYourLandingPageLayout() throws IOException {
+        //_driver.manage().window().maximize();
         _page.goToAdminPanel();
-        _page.sleep(2000);
         _page.getCloseChat();
         _page.goToAdminPanel();
     }
@@ -232,10 +221,8 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Step 4: Create Categories")
-    public void stepCreateCategories() {
+    public void stepCreateCategories() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.createCategories();
@@ -274,21 +261,16 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Step 5: Create Custom Fields and Filters")
-    public void stepCreateCustomFieldsAndFilters() {
+    public void stepCreateCustomFieldsAndFilters() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
         _page.getCloseChat();
-        //_page.sleep(3000);
-        _page.sleep(3000);
         _page.createCustomFields();
         //_page.getCloseChat();
     }
 
     @When("I validate the hide button")
     public void iValidateTheHideButton() {
-        _page.sleep(1500);
         _page.CustomFieldsHideHowItWorks();
     }
 
@@ -447,10 +429,8 @@ public class AdminSteps extends BasePage {
     }
 
     @Given("Step 8: E-mails")
-    public void stepEMails() {
+    public void stepEMails() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginAdmin();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.emailStep();
@@ -507,12 +487,9 @@ public class AdminSteps extends BasePage {
     //Design  STEPS
 
     @Given("Admin design")
-    public void adminDesign() {
+    public void adminDesign() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
-        _page.sleep(5000);
         _page.getCloseChat();
     }
 
@@ -586,19 +563,15 @@ public class AdminSteps extends BasePage {
     //Settings
 
     @Given("Admin settings")
-    public void adminSettings() {
+    public void adminSettings() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
         _page.getCloseChat();
-        _page.sleep(3000);
         _page.settings();
     }
 
     @When("I validate settings Site Wording")
     public void iValidateSettingsSiteWording() {
-        _page.sleep(8000);
         _page.siteWording();
     }
 
@@ -635,18 +608,15 @@ public class AdminSteps extends BasePage {
     //Reports
 
     @Given("Admin Reports")
-    public void adminReports() {
+    public void adminReports() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
-        _page.sleep(5000);
         _page.getCloseChat();
     }
 
     @When("I validate Contact Messages")
     public void iValidateContactMessages() {
-        _page.sleep(3000);
+
         _page.contactMessages();
     }
 
@@ -673,25 +643,21 @@ public class AdminSteps extends BasePage {
     //Add ons and extensions
 
     @Given("Admin Add-ons")
-    public void adminAddOns() {
+    public void adminAddOns() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.setHomePage();
-        _page.loginMakeAnOffer();
         _page.goToAdminPanel();
-        //_page.sleep(5000);
         _page.getCloseChat();
-        _page.sleep(5000);
+
     }
 
     @When("I validate Add-Ons Section")
     public void iValidateAddOnsSection() {
-        _page.sleep(6000);
         _page.addonBtnFromPanel();
-        _page.addNewAddOns();
-        _page.backToAddOns();
+        //_page.addNewAddOns();
+        //_page.backToAddOns();
         _page.selectAddOnsProductSections();
-        _page.addOnsEdit();
-        _page.backToAddOnsAgain();
+        //_page.addOnsEdit();
+        //_page.backToAddOnsAgain();
         _page.addOnsFilterTextField();
         _page.addOnsFilterTextFieldType();
         _page.addOnsFilterBtn();

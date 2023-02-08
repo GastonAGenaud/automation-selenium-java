@@ -1,0 +1,1752 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Extent </title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c43b89d03a7c43dae8bb8f0f078bad1997af6b3b/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary"> Grasshopper Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">feb. 8, 2023 05:16:09 p. m.</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>feb. 8, 2023 05:16:09 p. m.</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>feb. 8, 2023 05:21:30 p. m.</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='88%'><b>8</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='11%'><b>1</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='94%'><b>85</b> steps passed</small></div>
+<div>
+<small data-tooltip='1%'><b>1</b> steps failed,
+<b>4</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Admin":320.646
+};
+</script>
+<div class="row">
+<div class="col-md-4 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@MTR-1304</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@admin</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>88,889%</td>
+</tr>
+<tr>
+<td>@MTR-1301</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR-1306</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@MTR-1307</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@test</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>88,889%</td>
+</tr>
+<tr>
+<td>@MTR-1297</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR-1305</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR-1299</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@admin1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR-1303</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@MTR-1298</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-md-4 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>os</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 8,
+failChild: 1,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 85,
+failGrandChild: 1,
+warningGrandChild: 0,
+skipGrandChild: 4,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@MTR-1304</a><a class="dropdown-item" href="#">@admin</a><a class="dropdown-item" href="#">@MTR-1301</a><a class="dropdown-item" href="#">@MTR-1306</a><a class="dropdown-item" href="#">@MTR-1307</a><a class="dropdown-item" href="#">@test</a><a class="dropdown-item" href="#">@MTR</a><a class="dropdown-item" href="#">@MTR-1297</a><a class="dropdown-item" href="#">@MTR-1305</a><a class="dropdown-item" href="#">@MTR-1299</a><a class="dropdown-item" href="#">@admin1</a><a class="dropdown-item" href="#">@MTR-1303</a><a class="dropdown-item" href="#">@MTR-1298</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Admin</p>
+            <p class="text-sm">
+              <span>17:16:10 p. m.</span> / <span>05:20:646</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Admin</h5>
+<span class='badge badge-success'>02.08.2023 17:16:10</span>
+<span class='badge badge-danger'>02.08.2023 17:21:30</span>
+<span class='badge badge-default'>05:20:646</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+</div>
+<div class="m-t-10 m-l-5"> Admin Account</div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>MTR - Login and validate the elements on Admin Panel</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.getStartedSteps()">
+                <span>And Get started steps</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepCreateYourMarketplace()">
+                <span>When I validate step 1 Create your marketplace</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepSelectYourLandingPageLayout()">
+                <span>And I validate step 2 Select your landing page layout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeTo()">
+                <span>And I see that the step 2 redirect me to How do you want to make money on your site?</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepDesignYourHomepage()">
+                <span>And I validate step 3 design your homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToSelectTemplateOptions()">
+                <span>And I see that the step 3 redirect me to Select template options</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepCreateCategories()">
+                <span>And I validate step 4 create categories</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToCategoriesCreationAndEditing()">
+                <span>And I see that the step 4 redirect me to Categories creation and editing</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepCreateCustomFieldsFilters()">
+                <span>And I validate step 5 create custom fields & filters</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToCreateCustomFieldsAndFilters()">
+                <span>And I see that the step 5 redirect me to Create Custom Fields and Filters</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepEmails()">
+                <span>And I validate step 8 emails</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToSetUpTheMarketplaceEmail()">
+                <span>And I see that the step 8 redirect me to Set up the marketplace email</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepConnectDomain()">
+                <span>And I validate step 6 connect domain</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToConnectDomain()">
+                <span>And I see that the step 6 redirect me to Connect Domain</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepGoogleLocationsAndSocialLogin()">
+                <span>And I validate step 7 Google Locations and Social Login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheStepRedirectMeToGoogleLocationsAndSocialLogin()">
+                <span>And I see that the step 7 redirect me to Google Locations and Social Login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepCreateARequestOrAddAUser()">
+                <span>And I validate step 9 create a request or add a user</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepMonetization()">
+                <span>And I validate step 10 monetization</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepCreateTestUsers()">
+                <span>And I validate step 11 create test users</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepInviteUsers()">
+                <span>And I validate step 12 invite users</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateStepMarketTips()">
+                <span>And I validate step 13 marking tips</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeAllTheFunctionalities()">
+                <span>Then I see all the functionalities in the administration panel for the user</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>MTR - Login and validate the elements on Admin Panel
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="28"><span class="badge log pass-bg mr-2">Pass</span>Validate Monetization Step - transaction fee%</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.stepMonetization()">
+                <span>And Step 10: Monetization</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheContactUsButton()">
+                <span>When I validate the Contact us button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheTransactionFeeOption()">
+                <span>And I validate the transaction fee% option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheContactUsButtonRedirectMeToACalendar()">
+                <span>Then I see that the contact us button redirect me to a calendar</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheNextButtonSendMeToStep()">
+                <span>And I see that the next button send me to step 3</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Validate Monetization Step - transaction fee%
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded2.png' src="../screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="37"><span class="badge log pass-bg mr-2">Pass</span>Validate Monetization Step - No payments</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.stepMonetization()">
+                <span>And Step 10: Monetization</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheContactUsButton()">
+                <span>When I validate the Contact us button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheNoPaymentsOption()">
+                <span>And I validate the No payments option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheContactUsButtonRedirectMeToACalendar()">
+                <span>Then I see that the contact us button redirect me to a calendar</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheNextButtonSendMeToStep()">
+                <span>And I see that the next button send me to step 3</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Validate Monetization Step - No payments
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded3.png' src="../screenshots/embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="46"><span class="badge log pass-bg mr-2">Pass</span>validate Create Categories</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.stepCreateCategories()">
+                <span>And Step 4: Create Categories</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheImportDataButton()">
+                <span>When I validate the Import data button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iTypeOnCategoryNameField()">
+                <span>And I type on category name field</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheAddCategory()">
+                <span>And I validate the Add Category</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheCategoryName()">
+                <span>And I validate the category name</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheNextButton()">
+                <span>And I validate the next button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheAddCategoryButtonAddsTheCategoryWithTheNameSetInTheTextBar()">
+                <span>Then I see that the add category button adds the category with the name set in the text bar</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>validate Create Categories
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded4.png' src="../screenshots/embedded4.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="57"><span class="badge log pass-bg mr-2">Pass</span>Validate Step 8 E-mails - SMTP Settings</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.stepEMails()">
+                <span>And Step 8: E-mails</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateSMTPSettings()">
+                <span>When I validate SMTP Settings</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateHereButton()">
+                <span>And I validate here button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Validate Step 8 E-mails - SMTP Settings
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded5.png' src="../screenshots/embedded5.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="64"><span class="badge log pass-bg mr-2">Pass</span>Validate Step 8 E-mails - templates</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.stepEMails()">
+                <span>And Step 8: E-mails</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTemplates()">
+                <span>When I validate templates</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheWatchVideoButton()">
+                <span>And I validate the watch video button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheTable()">
+                <span>And I validate the table</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheActionsSection()">
+                <span>And I validate the actions section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateTheStatusSection()">
+                <span>And I validate the status section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iSeeThatTheNextButtonRedirectMeToStepEmail()">
+                <span>Then I see that the verify credentials button verify the mail & I see that the next button redirect me to step 7</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Validate Step 8 E-mails - templates
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded6.png' src="../screenshots/embedded6.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="75"><span class="badge log pass-bg mr-2">Pass</span>Admin design page</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.adminDesign()">
+                <span>And Admin design</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeLandingPageOption()">
+                <span>When I validate customize landing page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeMenuOption()">
+                <span>And I validate customize menu option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeLoginPageOption()">
+                <span>And I validate customize login page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeSignUpPageOption()">
+                <span>And I validate customize sign up page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeContactUsPageOption()">
+                <span>And I validate customize contact us page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeAboutUsPageOption()">
+                <span>And I validate customize about us page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeFAQPageOption()">
+                <span>And I validate customize FAQ page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizeTermsConditionsPageOption()">
+                <span>And I validate customize Terms & conditions page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateCustomizePrivacyPolicyPageOption()">
+                <span>And I validate customize Privacy Policy page option</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateAdminDesign()">
+                <span>Then I validate Admin Design</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Admin design page
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded7.png' src="../screenshots/embedded7.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="90"><span class="badge log fail-bg mr-2">Fail</span>Validate Admin settings</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.adminSettings()">
+                <span>And Admin settings</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="steps.admin.AdminSteps.iValidateSettingsSiteWording()">
+                <span>When I validate settings Site Wording</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button class="btn btn-primary btn-lg btn-block" onclick="searchByWord()">...</button> is not clickable at point (1262, 359). Other element would receive the click: <iframe title="Hay más información aquí" id="webWidget" tabindex="0" style="color-scheme: light; width: 374px; max-height: calc(100vh - 32px); height: 572px; position: fixed; opacity: 1; border: 0px; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); transition-property: opacity, top, bottom; z-index: 999999; right: 0px; bottom: 0px;"></iframe>
+  (Session info: chrome=109.0.5414.120)
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3b3885fc1cfa301fa1d2f28171b005d6, clickElement {id=4a37f00b-f588-40d4-931f-0754f5c97a47}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Rodri\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52555}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52555/devtoo..., se:cdpVersion: 109.0.5414.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (3b3885fc1cfa301fa1d2f28171b005d6)] -> css selector: #main-admin > section > div.row.no-gutters.bg-white.border-b-gray > div > div > div.col-lg-9 > div > div > div.col-lg-2 > button]
+Session ID: 3b3885fc1cfa301fa1d2f28171b005d6
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy30.click(Unknown Source)
+	at pages.BasePage.waitForWebElementAndClick(BasePage.java:189)
+	at pages.admin.AdminPage.siteWording(AdminPage.java:1080)
+	at steps.admin.AdminSteps.iValidateSettingsSiteWording(AdminSteps.java:575)
+	at ✽.I validate settings Site Wording(classpath:features/admin/Admin.feature:132)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" title="steps.admin.AdminSteps.iValidateSettingsCompanyInfo()">
+                <span>And I validate settings Company Info</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="steps.admin.AdminSteps.iValidateSettingsOrdersSetup()">
+                <span>And I validate settings Orders Setup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="steps.admin.AdminSteps.iValidateRequestSetup()">
+                <span>And I validate Request Setup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="steps.admin.AdminSteps.iValidateAdminSettings()">
+                <span>Then I validate Admin Settings</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Validate Admin settings
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded8.png' src="../screenshots/embedded8.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="100"><span class="badge log pass-bg mr-2">Pass</span>Admin panel Reports validate page</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="steps.home.homeSteps.loginWithGastonUserSteps()">
+                <span>Given I login with Gaston User</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.adminReports()">
+                <span>And Admin Reports</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateContactMessages()">
+                <span>When I validate Contact Messages</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateUserReviews()">
+                <span>And I validate User Reviews</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateListingReviews()">
+                <span>And I validate Listing Reviews</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateUserTransactions()">
+                <span>And I validate User Transactions</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.admin.AdminSteps.iValidateAdminReports()">
+                <span>Then I validate Admin Reports</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Admin panel Reports validate page
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded9.png' src="../screenshots/embedded9.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">13</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1304</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1304</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:15 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='64'>Validate Step 8 E-mails - templates</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - templates</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>8</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@admin</p>
+<p class="duration text-sm">9 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@admin</h4>
+<span status="pass" class='badge log pass-bg'>8 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:16:10 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>MTR - Login and validate the elements on Admin Panel</a>
+<div class="">
+<span class="badge badge-default">Admin.MTR - Login and validate the elements on Admin Panel</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:13 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>Validate Monetization Step - transaction fee%</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - transaction fee%</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:45 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='37'>Validate Monetization Step - No payments</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - No payments</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:14 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='46'>validate Create Categories</a>
+<div class="">
+<span class="badge badge-default">Admin.validate Create Categories</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:39 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='57'>Validate Step 8 E-mails - SMTP Settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - SMTP Settings</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:15 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='64'>Validate Step 8 E-mails - templates</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - templates</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:46 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='75'>Admin design page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin design page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:20:34 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='90'>Validate Admin settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Admin settings</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:21:03 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='100'>Admin panel Reports validate page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin panel Reports validate page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1301</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1301</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:14 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='46'>validate Create Categories</a>
+<div class="">
+<span class="badge badge-default">Admin.validate Create Categories</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@MTR-1306</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1306</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:20:34 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='90'>Validate Admin settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Admin settings</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1307</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1307</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:21:03 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='100'>Admin panel Reports validate page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin panel Reports validate page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@test</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@test</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:46 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='75'>Admin design page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin design page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>8</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@MTR</p>
+<p class="duration text-sm">9 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR</h4>
+<span status="pass" class='badge log pass-bg'>8 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:16:10 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>MTR - Login and validate the elements on Admin Panel</a>
+<div class="">
+<span class="badge badge-default">Admin.MTR - Login and validate the elements on Admin Panel</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:13 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>Validate Monetization Step - transaction fee%</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - transaction fee%</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:45 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='37'>Validate Monetization Step - No payments</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - No payments</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:14 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='46'>validate Create Categories</a>
+<div class="">
+<span class="badge badge-default">Admin.validate Create Categories</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:39 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='57'>Validate Step 8 E-mails - SMTP Settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - SMTP Settings</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:15 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='64'>Validate Step 8 E-mails - templates</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - templates</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:46 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='75'>Admin design page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin design page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:20:34 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='90'>Validate Admin settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Admin settings</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:21:03 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='100'>Admin panel Reports validate page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin panel Reports validate page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1297</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1297</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:16:10 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>MTR - Login and validate the elements on Admin Panel</a>
+<div class="">
+<span class="badge badge-default">Admin.MTR - Login and validate the elements on Admin Panel</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1305</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1305</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:19:46 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='75'>Admin design page</a>
+<div class="">
+<span class="badge badge-default">Admin.Admin design page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1299</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1299</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:45 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='37'>Validate Monetization Step - No payments</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - No payments</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@admin1</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@admin1</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:14 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='46'>validate Create Categories</a>
+<div class="">
+<span class="badge badge-default">Admin.validate Create Categories</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1303</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1303</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:18:39 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='57'>Validate Step 8 E-mails - SMTP Settings</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Step 8 E-mails - SMTP Settings</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@MTR-1298</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@MTR-1298</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:17:13 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>Validate Monetization Step - transaction fee%</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Monetization Step - transaction fee%</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.ElementClickInterceptedException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.ElementClickInterceptedException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:20:53 p. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='94'>When I validate settings Site Wording</a>
+<div class="">
+<span class="badge badge-default">Admin.Validate Admin settings.When I validate settings Site Wording</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@14e9bb345ef7e2ed3a102f271d84e9f0267c88e7/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

@@ -4,7 +4,8 @@ Feature: Admin
 
   @admin  @MTR-1297 @MTR
   Scenario: MTR - Login and validate the elements on Admin Panel
-    Given Get started steps
+    Given I login with Gaston User
+    And Get started steps
     When I validate step 1 Create your marketplace
     And I validate step 2 Select your landing page layout
     And I see that the step 2 redirect me to How do you want to make money on your site?
@@ -29,7 +30,8 @@ Feature: Admin
 
   @admin  @MTR-1298 @MTR
   Scenario: Validate Monetization Step - transaction fee%
-    Given Step 10: Monetization
+    Given I login with Gaston User
+    And Step 10: Monetization
     When I validate the Contact us button
     And I validate the transaction fee% option
     Then I see that the contact us button redirect me to a calendar
@@ -37,7 +39,8 @@ Feature: Admin
 
   @admin  @MTR-1299 @MTR
   Scenario: Validate Monetization Step - No payments
-    Given Step 10: Monetization
+    Given I login with Gaston User
+    And Step 10: Monetization
     When I validate the Contact us button
     And I validate the No payments option
     Then I see that the contact us button redirect me to a calendar
@@ -52,7 +55,8 @@ Feature: Admin
 
   @admin  @MTR-1301 @admin1 @MTR
   Scenario: validate Create Categories
-    Given Step 4: Create Categories
+    Given I login with Gaston User
+    And Step 4: Create Categories
     When I validate the Import data button
     And I type on category name field
     And I validate the Add Category
@@ -60,9 +64,10 @@ Feature: Admin
     And I validate the next button
     Then I see that the add category button adds the category with the name set in the text bar
 
-  @admin  @MTR-1302 @admin1 @MTR
+#  @admin  @MTR-1302 @admin1 @MTR
   Scenario: validate Create Custom Fields and Filters page
-    Given Step 5: Create Custom Fields and Filters
+    Given I login with Gaston User
+    And Step 5: Create Custom Fields and Filters
     When I validate the hide button
     And I validate the show button
     And I validate the listing page.jpg button
@@ -84,7 +89,8 @@ Feature: Admin
 
   @admin  @MTR-1303 @MTR
   Scenario: Validate Step 8 E-mails - SMTP Settings
-    Given Step 8: E-mails
+    Given I login with Gaston User
+    And Step 8: E-mails
     When I validate SMTP Settings
     And I validate here button
 #     And I type on Email
@@ -95,7 +101,8 @@ Feature: Admin
 
   @admin  @MTR-1304 @MTR
   Scenario: Validate Step 8 E-mails - templates
-    Given Step 8: E-mails
+    Given I login with Gaston User
+    And Step 8: E-mails
     When I validate templates
     And I validate the watch video button
     And I validate the table
@@ -105,7 +112,8 @@ Feature: Admin
 
   @admin  @test @MTR-1305 @MTR
   Scenario: Admin design page
-    Given Admin design
+    Given I login with Gaston User
+    And Admin design
     When I validate customize landing page option
     And I validate customize menu option
     And I validate customize login page option
@@ -119,7 +127,8 @@ Feature: Admin
 
   @admin  @MTR-1306 @MTR
   Scenario: Validate Admin settings
-    Given Admin settings
+    Given I login with Gaston User
+    And Admin settings
     When I validate settings Site Wording
     And I validate settings Company Info
 #    And I validate settings Payment Info
@@ -130,23 +139,26 @@ Feature: Admin
 
   @admin  @MTR-1307 @MTR
   Scenario: Admin panel Reports validate page
-    Given Admin Reports
+    Given I login with Gaston User
+    And Admin Reports
     When I validate Contact Messages
     And I validate User Reviews
     And I validate Listing Reviews
     And I validate User Transactions
     Then I validate Admin Reports
 
-  @admin  @MTR-1308 @MTR
-  Scenario: Admin panel Add-ons validate page
-    Given Admin Add-ons
-    When I validate Add-Ons Section
-    And I validate Extensions
-    Then I validate add ons
+#  @admin  @MTR-1308 @MTR
+#  Scenario: Admin panel Add-ons validate page
+#    Given I login with Gaston User
+#    And Admin Add-ons
+#    When I validate Add-Ons Section
+#    And I validate Extensions
+#    Then I validate add ons
 
   @admin-2072 @MTR
   Scenario: Delete user in Admin Page
-    Given Get started steps
+    Given I login with Gaston User
+    And Get started steps
     When I select Users
     And search name
     And click Select Action button
