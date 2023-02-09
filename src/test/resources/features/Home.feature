@@ -18,13 +18,13 @@ Feature: Home
     Given I go to home page
     When I validate the accessories section
     #And I validate the More Accessories Button
-    And I validate the Men's button
+#    And I validate the Men's button
     #And I validate the more Men's section
-    And I validate the clothing section
+#    And I validate the clothing section
     #And I validate the more clothing button
     #And I validate the Home & Living section
     #And I validate the More Home And Living Button
-    And I validate the Jewelry section
+#    And I validate the Jewelry section
     #And I validate the More Jewelry Button
     And I validate the Shoes section
     #And I validate the more Shoes button

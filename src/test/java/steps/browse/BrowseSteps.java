@@ -110,11 +110,12 @@ public class BrowseSteps extends BasePage {
         _page.getCloseNameError();
         _page.requestDescription();
         _page.addAnImage();
-        //_page.next();
+        _page.next();
     }
 
     @And("I validate the next button to create a request")
     public void iValidateTheNextButtonToCreateARequest() {
+        _page.next();
         _page.minimumBudget();
         _page.maximumBudget();
         //_page.endDate();

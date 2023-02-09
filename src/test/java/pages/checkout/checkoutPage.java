@@ -1,10 +1,12 @@
 package pages.checkout;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
 public class checkoutPage extends BasePage {
@@ -29,11 +31,11 @@ public class checkoutPage extends BasePage {
     public WebElement listingItemBtn;
     @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnBuyNow")
     public WebElement buyNowBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
     public WebElement flatRateBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[3]/button")
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
     public WebElement goToSecureCheckoutBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnAddToCart")
+    @FindBy(xpath = "//button[contains(text(), 'Add to Cart')]")
     public WebElement addToCartBtn;
     @FindBy(xpath = "/html/body/header/nav/div/div[2]/ul/li[6]/a")
     public WebElement cartIconBtn;
@@ -41,13 +43,13 @@ public class checkoutPage extends BasePage {
     public WebElement clearCartBtn;
     @FindBy(how = How.CSS, using = "button.mt-2:nth-child(1)")
     public WebElement acceptClearCartBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/form/div[1]/div/div[2]/div[2]/div/div[1]/a")
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/div/div[1]/a")
     public WebElement addShippingAddressBtn;
     @FindBy(how = How.CSS, using = "#minus > svg")
     public WebElement minusIconBtn;
     @FindBy(how = How.CSS, using = "#more > svg")
     public WebElement plusIconBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/div/div/div/div/div[2]/div/div[1]/div")
+    @FindBy(xpath = "//p[contains(text(), 'Alabama ')]")
     public WebElement reUseAddressBtn;
     @FindBy(how = How.CSS, using = "#location-shoppingcart")
     public WebElement address1TextField;
@@ -61,7 +63,7 @@ public class checkoutPage extends BasePage {
     public WebElement zipCodeTextField;
     @FindBy(how = How.CSS, using = "#PhoneNumber-location-shoppingcart")
     public WebElement phoneNumberTextField;
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/div/div/div/div/form/div[1]/div/div[2]/div[1]/div/label[1]/span")
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/div/div/div/div/form/div[1]/div/div[2]/div[1]/div/label[1]/span")
     public WebElement saveAddressCheckBox;
     @FindBy(how = How.CSS, using = "#name")
     public WebElement nameTextField;
@@ -77,13 +79,13 @@ public class checkoutPage extends BasePage {
     public WebElement nameOnCardTextField;
     @FindBy(how = How.CSS, using = "#expiry-date")
     public WebElement expirationDateTextField;
-    @FindBy(how = How.CSS, using = "#card-cvc")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[2]/div/div[3]/div[3]/div/input")
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = "#left-column > div:nth-child(2) > div.card.card-shopping > div > div.d-flex.align-items-center.mt-2 > label.switch.mr-2 > span")
     public WebElement saveCreditCardBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div[2]/div/div/div[3]/div[5]/button")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[3]/div[5]/button/span")
     public WebElement submitPaymentBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input")
     public WebElement preLoadedCreditCardBtn;
     @FindBy(how = How.CSS, using = "#container-items > div.d-flex.flex-wrap.justify-content-between > div:nth-child(2) > a.mr-3.text-decoration-none.d-inline-block > img")
     public WebElement shareFacebookBtn;
@@ -112,6 +114,35 @@ public class checkoutPage extends BasePage {
     @FindBy(how = How.CSS, using = "#U3VjY2Vzc0FkZGVkJTIwdG8lMjBjYXJ0IWdyZWVu > button")
     public WebElement closeAddedToCart;
 
+    @FindBy(how = How.CSS, using = "#whole-container > main > div > div > div > div.col-lg-4 > p")
+    public WebElement summaryTextValidate;
+
+    @FindBy(how = How.CSS, using = "#U3VjY2Vzc0FkZGVkJTIwdG8lMjBjYXJ0IWdyZWVu > div.iziToast-body > div.iziToast-texts > p")
+    public WebElement addtoCartMessage;
+
+    @FindBy(xpath = "//p[contains(text(), 'Shipping Address')]")
+    public WebElement shippingAddressText;
+
+    @FindBy(xpath = "//span[contains(text(), 'CVV Code')]")
+    public WebElement validateCVVText;
+
+
+    public boolean validateCVVTextField() {
+        fluentWaitStrict(getDriver(), validateCVVText);
+        boolean result = validateCVVText.isDisplayed();
+        return result;
+    }
+    public boolean shippingAddressTextValidate(){
+        getDriver().navigate().refresh();
+        fluentWait(getDriver(), shippingAddressText);
+        boolean result = shippingAddressText.isDisplayed();
+        return result;
+    }
+    public boolean addedToCartMessage() {
+        fluentWaitStrict(getDriver(), addtoCartMessage);
+        boolean result = addtoCartMessage.isDisplayed();
+        return result;
+    }
 
     public boolean purchasedConfirm() {
         boolean result = ordersPurchasedBtn.isDisplayed();
@@ -119,11 +150,13 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean congratulationsMessageConfirm() {
+        fluentWait(getDriver(),congratulationsMessage);
         boolean result = congratulationsMessage.isDisplayed();
         return result;
     }
 
     public String validateSecureCheckout() {
+        fluentWait(getDriver(), validateSecureCheckoutText);
         String result = validateSecureCheckoutText.getText();
         return result;
     }
@@ -140,7 +173,14 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean cartCheckoutConfirm() {
+        fluentWait(getDriver(), goToSecureCheckoutBtn);
         boolean result = goToSecureCheckoutBtn.isDisplayed();
+        return result;
+    }
+
+    public String summaryText() {
+        fluentWaitStrict(getDriver(), summaryTextValidate);
+        String result = summaryTextValidate.getText();
         return result;
     }
 
@@ -150,6 +190,7 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean submitPaymentConfirm() {
+        fluentWait(getDriver(), submitPaymentBtn);
         boolean result = submitPaymentBtn.isDisplayed();
         return result;
     }
@@ -183,22 +224,13 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToSecureCheckout() {
-        waitForVisibility(goToSecureCheckoutBtn);
-        waitForClickability(goToSecureCheckoutBtn);
         fluentWait(getDriver(), goToSecureCheckoutBtn);
         waitForWebElementAndClick(goToSecureCheckoutBtn);
     }
 
     public void selectAddToCart() {
-        waitForVisibility(addToCartBtn);
-        waitForClickability(addToCartBtn);
         fluentWait(getDriver(), addToCartBtn);
-        waitForWebElementAndClick(addToCartBtn);
-        fluentWait(getDriver(), plusIconBtn);
-        waitForWebElementAndClick(plusIconBtn);
-        fluentWait(getDriver(), minusIconBtn);
-
-    }
+        waitForWebElementAndClick(addToCartBtn);}
 
     public void selectCartIcon() {
         getDriver().navigate().to(url + "/order/ShoppingCart");
@@ -218,13 +250,10 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectAddShippingAddress() {
-        getDriver().get(url + "/order/ShoppingCart");
-        getDriver().get(url + "/order/ShoppingCart");
-        waitForVisibility(addShippingAddressBtn);
-        waitForClickability(addShippingAddressBtn);
-        fluentWait(getDriver(), addShippingAddressBtn);
         waitForWebElementAndClick(addShippingAddressBtn);
     }
+
+
 
     public void selectMinusButton() {
         fluentWait(getDriver(), minusIconBtn);
@@ -237,10 +266,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreviousAddress() {
-        waitForVisibility(reUseAddressBtn);
-        waitForClickability(reUseAddressBtn);
-        actions.moveToElement(reUseAddressBtn).build().perform();
-        fluentWait(getDriver(), reUseAddressBtn);
+        fluentWaitStrict(getDriver(), reUseAddressBtn);
         waitForWebElementAndClick(reUseAddressBtn);
     }
 
@@ -316,13 +342,16 @@ public class checkoutPage extends BasePage {
     public void selectExpirationDateTextField() {
         fluentWait(getDriver(), expirationDateTextField);
         waitForWebElementAndClick(expirationDateTextField);
-        expirationDateTextField.sendKeys("0528");
+        expirationDateTextField.sendKeys("05-28");
+        expirationDateTextField.clear();
+        expirationDateTextField.sendKeys("05-28");
     }
 
     public void selectCvvCodeTextField() {
-        fluentWait(getDriver(), cvvCodeTextField);
+        fluentWaitStrict(getDriver(), cvvCodeTextField);
         waitForWebElementAndClick(cvvCodeTextField);
-        cvvCodeTextField.sendKeys(Keys.ARROW_LEFT);
+        //cvvCodeTextField.sendKeys(Keys.ARROW_LEFT);
+        waitForClickability(cvvCodeTextField);
         cvvCodeTextField.sendKeys("333");
     }
 
@@ -363,6 +392,7 @@ public class checkoutPage extends BasePage {
         fluentWait(getDriver(), yourOrdersBtn);
         waitForWebElementAndClick(yourOrdersBtn);
     }
+
     public void selectBackToBrowse() {
         fluentWait(getDriver(), backToBrowseBtn);
         waitForWebElementAndClick(backToBrowseBtn);

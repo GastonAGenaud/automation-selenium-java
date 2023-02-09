@@ -42,11 +42,8 @@ public class checkoutSteps extends BasePage {
     @When("I add an item to the Shopping Cart for shipping")
     public void iAddAnItemToTheShoppingCartForShipping() {
         _page.goToItemForShipping();
-        _page.goToItemForShipping();
-
         _page.selectAddToCart();
-
-        _page.selectCartIcon();
+        _page.addedToCartMessage();
         _page.selectCartIcon();
     }
 
@@ -73,13 +70,14 @@ public class checkoutSteps extends BasePage {
 
     @Then("I Validate quantity functioning")
     public void iValidateQuantityFunctioning() {
-        Assert.assertEquals(true, _page.cartCheckoutConfirm());
+        Assert.assertEquals("Summary", _page.summaryText());
     }
 
 
     @And("I select the add a Shipping Address button")
     public void iSelectTheAddAShippingAddressButton() {
         //System.out.println("AntesShipping");
+        _page.shippingAddressTextValidate();
         _page.selectAddShippingAddress();
         //System.out.println("DespuesShipping");
     }
@@ -127,17 +125,15 @@ public class checkoutSteps extends BasePage {
 
     @Then("I see the shipping address added and saved")
     public void iSeeTheShippingAddressAddedAndSaved() {
-
+        fluentWait(getDriver(), _page.addressErrorText);
         Assert.assertEquals(true, _page.addressErrorMessage());
     }
 
     @And("I add an Address")
     public void iAddAnAddress() {
-
+        _page.shippingAddressTextValidate();
         _page.selectAddShippingAddress();
-
         _page.selectPreviousAddress();
-
         _page.selectFlatRate();
 
     }
@@ -174,6 +170,7 @@ public class checkoutSteps extends BasePage {
 
     @Then("I validate the Back to my cart button")
     public void iValidateTheBackToMyCartButton() {
+        wait(5);
         Assert.assertEquals(true, _page.cartCheckoutConfirm());
     }
 
@@ -205,6 +202,7 @@ public class checkoutSteps extends BasePage {
 
     @And("i complete the CVV Code text field")
     public void iCompleteTheCVVCodeTextField() {
+        _page.validateCVVTextField();
         _page.selectCvvCodeTextField();
     }
 
@@ -302,6 +300,7 @@ public class checkoutSteps extends BasePage {
     @And("I clear the cart3")
     public void iClearTheCart3() {
         _page.selectAcceptClearCart();
+        getDriver().navigate().to(url + "/Listing/Detail/619");
     }
 
     @When("I clear the cart")

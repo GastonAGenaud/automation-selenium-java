@@ -243,7 +243,8 @@ public class HomePage extends BasePage {
     }
 
     public void clothing() {
-        fluentWait(getDriver(), clothingBtn);
+        wait(5);
+        fluentWaitStrict(getDriver(), clothingBtn);
         waitForWebElementAndClick(clothingBtn);
     }
 

@@ -116,8 +116,6 @@ public class BrowsePage extends BasePage {
 
     public void addAnImage() {
         addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
-        fluentWaitStrict(getDriver(), nextBtn);
-        waitForWebElementAndClick(nextBtn);
     }
 
     public void getCloseNameError() {
@@ -314,8 +312,7 @@ public class BrowsePage extends BasePage {
     }
 
     public void next() {
-        action.moveToElement(nextBtn).build().perform();
-        fluentWait(getDriver(), nextBtn);
+        fluentWaitStrict(getDriver(), nextBtn);
         waitForWebElementAndClick(nextBtn);
     }
 
@@ -332,6 +329,7 @@ public class BrowsePage extends BasePage {
     }
 
     public void minimumBudget() {
+
         fluentWait(getDriver(), minimumBudgetTextField);
         waitForWebElementAndClick(minimumBudgetTextField);
         minimumBudgetTextField.sendKeys("10");

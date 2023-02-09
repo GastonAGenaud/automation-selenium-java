@@ -241,7 +241,7 @@ public class AdminSteps extends BasePage {
     @And("I validate the Add Category")
     public void iValidateTheAddCategory() {
         _page.addCategory();
-        _page.deleteCategory();
+        //_page.deleteCategory();
     }
 
     @And("I validate the category name")
