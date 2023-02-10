@@ -16,6 +16,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.sponsoredAds.sponsoredAdsPage;
 
+import java.io.IOException;
+
 
 public class sponsoredAdsSteps extends BasePage {
 
@@ -27,10 +29,10 @@ public class sponsoredAdsSteps extends BasePage {
     }
 
     @Given("I login with another account")
-    public void iLoginWithAnotherAccount() {
+    public void iLoginWithAnotherAccount() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.getLoginPage();
-        _page.login2();
+        _page.loginWithGastonNoBorrar();
         _page.goToDashboard();
 
     }

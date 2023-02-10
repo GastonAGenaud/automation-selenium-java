@@ -13,6 +13,7 @@ public class ordersPage extends BasePage {
     public ordersPage() {
         super();
     }
+
     Actions actions = new Actions(getDriver());
 
     Actions action = new Actions(getDriver());
@@ -125,112 +126,125 @@ public class ordersPage extends BasePage {
 
 
     public void selectSoldBtn() {
-        fluentWait(getDriver(),soldBtn);
+        fluentWait(getDriver(), soldBtn);
         waitForWebElementAndClick(soldBtn);
     }
 
     public void ordersSoldDetails() {
-        waitForVisibility(ordersSoldDetailsBtn);
-        waitForClickability(ordersSoldDetailsBtn);
+//        waitForVisibility(ordersSoldDetailsBtn);
+//        waitForClickability(ordersSoldDetailsBtn);
         fluentWait(getDriver(), ordersSoldDetailsBtn);
         waitForWebElementAndClick(ordersSoldDetailsBtn);
-        ordersSoldDetailsBtn.click();
     }
 
     public void ordersSoldMessage() {
-        waitForVisibility(ordersSoldMessageBtn);
-        waitForClickability(ordersSoldMessageBtn);
-        action.moveToElement(ordersSoldMessageBtn).build();
-        ordersSoldMessageBtn.click();
-        ordersSoldMessageTextField.click();
+        fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
+        waitForWebElementAndClick(ordersSoldMessageBtn);
+
+        fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+        waitForWebElementAndClick(ordersSoldMessageTextField);
         ordersSoldMessageTextField.sendKeys("Test Automation");
-        ordersSoldSendMessageBtn.click();
+
+        fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
+        waitForWebElementAndClick(ordersSoldSendMessageBtn);
+
     }
 
     public void ordersSoldOpenMenuTab() {
-        ordersSoldOpenMenuTabBtn.click();
+        fluentWait(getDriver(), ordersSoldOpenMenuTabBtn);
+        waitForWebElementAndClick(ordersSoldOpenMenuTabBtn);
     }
 
     public void ordersSoldCancelBtn() {
         ordersSoldOpenMenuTab();
-        waitForVisibility(ordersSoldOpenCancelBtn);
-        waitForClickability(ordersSoldOpenCancelBtn);
-        ordersSoldOpenCancelBtn.click();
+        fluentWait(getDriver(), ordersSoldOpenCancelBtn);
+        waitForWebElementAndClick(ordersSoldOpenCancelBtn);
 
     }
 
     public void ordersPurchasedButton() {
-        goToOrders();
-
-        ordersPurchasedBtn.click();
-        ordersPurchasedBtn.click();
-
+        fluentWaitStrict(getDriver(), ordersPurchasedBtn);
+        waitForWebElementAndClick(ordersPurchasedBtn);
+        retryingFindClick(ordersPurchasedBtn);
+//        retryingFindClick(ordersPurchasedBtn);
     }
 
     public void ordersPurchasedMessage() {
-        waitForVisibility(ordersPurchasedMessageBtn);
-        waitForClickability(ordersPurchasedMessageBtn);
-        ordersPurchasedMessageBtn.click();
-        messageBeforeChat.click();
+        fluentWait(getDriver(), ordersPurchasedMessageBtn);
+        waitForWebElementAndClick(ordersPurchasedMessageBtn);
+
+        fluentWait(getDriver(), messageBeforeChat);
+        waitForWebElementAndClick(messageBeforeChat);
+
         messageBeforeChat.sendKeys("Testing");
-        sendBeforeChat.click();
+
+        fluentWait(getDriver(), sendBeforeChat);
+        waitForWebElementAndClick(sendBeforeChat);
+
         goToOrders();
 
-        ordersPurchasedBtn.click();
+        fluentWait(getDriver(), ordersPurchasedBtn);
+        waitForWebElementAndClick(ordersPurchasedBtn);
     }
 
     public void ordersPurchasedTrack() {
-        ordersPurchasedTrackBtn.click();
+        fluentWait(getDriver(), ordersPurchasedTrackBtn);
+        waitForWebElementAndClick(ordersPurchasedTrackBtn);
         String window = getDriver().getWindowHandle();
         getDriver().switchTo().window(window);
     }
 
 
     public void ordersPurchasedTab2Button() {
-
-        action.moveToElement(ordersPurchasedTab2Button);
-        ordersPurchasedTab2Button.click();
+        fluentWait(getDriver(), ordersPurchasedTab2Button);
+        waitForWebElementAndClick(ordersPurchasedMessageBtn);
     }
 
     public void ordersBuyAgain() {
-        ordersPurchasedTab2Button.click();
+        fluentWait(getDriver(), ordersPurchasedTab2Button);
+        waitForWebElementAndClick(ordersPurchasedMenuTabButton);
 
-        waitForVisibility(ordersBuyAgainBtn);
-        waitForClickability(ordersBuyAgainBtn);
-        ordersBuyAgainBtn.click();
+
+        fluentWait(getDriver(), ordersBuyAgainBtn);
+        waitForWebElementAndClick(ordersBuyAgainBtn);
     }
 
     public void ordersShare() {
-        ordersPurchasedMenuTabButton.click();
+        fluentWait(getDriver(), ordersPurchasedMenuTabButton);
+        waitForWebElementAndClick(ordersPurchasedMenuTabButton);
 
-        waitForVisibility(ordersPurchasedShareBtn);
-        waitForClickability(ordersPurchasedShareBtn);
-        action.moveToElement(ordersPurchasedShareBtn);
-        ordersPurchasedShareBtn.click();
+        fluentWait(getDriver(), ordersPurchasedShareBtn);
+        waitForWebElementAndClick(ordersPurchasedShareBtn);
 
         action.moveToElement(ordersPurchasedShareBtn);
     }
 
     public void ordersRequestRefund() {
-
         action.moveToElement(requestTabButton).build();
-        requestTabButton.click();
+        fluentWait(getDriver(), requestTabButton);
+        waitForWebElementAndClick(requestTabButton);
+
+
         action.moveToElement(ordersPurchasedRequestRefundBtn).build();
-        ordersPurchasedRequestRefundBtn.click();
+        fluentWait(getDriver(), ordersPurchasedRequestRefundBtn);
+        waitForWebElementAndClick(ordersPurchasedRequestRefundBtn);
+
     }
 
     public void ordersConfirmPickUp() {
-        ordersConfirmPickUpBtn.click();
+        fluentWait(getDriver(), ordersConfirmPickUpBtn);
+        waitForWebElementAndClick(ordersConfirmPickUpBtn);
     }
 
     public void ordersLeaveAReview() {
-        ordersLeaveAReviewBtn.click();
+        fluentWait(getDriver(), ordersLeaveAReviewBtn);
+        waitForWebElementAndClick(ordersLeaveAReviewBtn);
     }
 
     public void ordersShowMenu() {
 
         WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
-        Actions action  = new Actions(getDriver());
+        Actions action = new Actions(getDriver());
         action.moveToElement(ordersShowBtn).perform();
 
 
@@ -244,31 +258,40 @@ public class ordersPage extends BasePage {
 
     public void ordersShowShipmentPending() {
         ordersShowMenu();
-        ordersShowShipmentPendingBtn.click();
+        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
+        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
+
+        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
+        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
 
         goToOrders();
     }
 
     public void ordersShowShipped() {
         ordersShowMenu();
-        ordersShowShippedBtn.click();
+        fluentWait(getDriver(), ordersShowShippedBtn);
+        waitForWebElementAndClick(ordersShowShippedBtn);
     }
 
     public void ordersShowDelivered() {
         ordersShowMenu();
-        ordersShowDeliveredBtn.click();
+        fluentWait(getDriver(), ordersShowDeliveredBtn);
+        waitForWebElementAndClick(ordersShowDeliveredBtn);
     }
 
     public void ordersShowCompleted() {
         System.out.println("Antes");
         ordersShowMenu();
         System.out.println("Despues");
-        ordersShowCompletedBtn.click();
+
+        fluentWait(getDriver(), ordersShowCompletedBtn);
+        waitForWebElementAndClick(ordersShowCompletedBtn);
     }
 
     public void ordersCancelled() {
         ordersShowMenu();
-        ordersShowCancelledBtn.click();
+        fluentWait(getDriver(), ordersShowCancelledBtn);
+        waitForWebElementAndClick(ordersShowCancelledBtn);
     }
 
     public String showMenu() {
@@ -282,6 +305,7 @@ public class ordersPage extends BasePage {
     }
 
     public boolean purchasedOpenSection() {
+        fluentWait(getDriver(), purchasedOpenSection);
         boolean result = purchasedOpenSection.isDisplayed();
         return result;
 

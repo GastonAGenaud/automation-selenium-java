@@ -49,6 +49,14 @@ public class BasePage{
     @FindBy(how = How.CSS, using = "#welcome > div > div > div > button")
     public WebElement welcomeClose;
 
+    @FindBy(how = How.CSS, using = "#buyer > div > div:nth-child(1) > div.card.card-dashboard.min-h-16.mb-3 > div > div.flex-column.text-center > a")
+    public WebElement mySettingsValidateText;
+
+    public boolean validatingSettingsText() {
+        fluentWait(getDriver(), mySettingsValidateText);
+        boolean result = mySettingsValidateText.isDisplayed();
+        return result;
+    }
 
 
 
@@ -214,6 +222,18 @@ public class BasePage{
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
 
+
+    public void login3() {
+        getDriver().navigate().to(url + "/Account/Login");
+        fluentWaitStrict(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("Gaston2NoBorrar@hotmail.com");
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+    }
     public void login() {
         fluentWait(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
@@ -314,7 +334,7 @@ public class BasePage{
     }
 
     public void loginWithGastonNoBorrar() throws IOException {
-        getHomePage();
+      //  getHomePage();
         getLoginPage();
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("Gaston2NoBorrar@hotmail.com");
@@ -405,6 +425,7 @@ public class BasePage{
         int attempts = 0;
         while(attempts < 2) {
             try {
+                wait(5);
                 element.click();
                 result = true;
                 break;

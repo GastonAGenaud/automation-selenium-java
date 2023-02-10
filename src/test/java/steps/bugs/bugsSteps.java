@@ -56,9 +56,9 @@ public class bugsSteps extends BasePage {
     @Given("I go to orders page BUGS")
     public void iGoToOrdersPageBUGS() throws IOException {
         //getDriver().manage().window().setSize(new Dimension(1920, 1080));
-        _page.setHomePageBUG();
-        _page.loginWithGastonUser();
-        _page.goToDashboard();
+        //_page.setHomePageBUG();
+        _page.login3();
+        validatingSettingsText();
         _page.goToOrders();
     }
 

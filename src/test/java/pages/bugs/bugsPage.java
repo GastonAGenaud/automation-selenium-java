@@ -1099,7 +1099,7 @@ public class bugsPage extends BasePage {
     }
 
     public void goToOrders() {
-        getDriver().navigate().to(url + "/order/MyOrders?");
+        getDriver().navigate().to(url + "/order/MyOrders");
     }
 
     public boolean listingActiveTab() {
