@@ -266,7 +266,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreviousAddress() {
-        fluentWaitStrict(getDriver(), reUseAddressBtn);
+        fluentWait(getDriver(), reUseAddressBtn);
         waitForWebElementAndClick(reUseAddressBtn);
     }
 

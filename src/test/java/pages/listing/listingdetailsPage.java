@@ -1,5 +1,8 @@
 package pages.listing;
 
+import org.json.XML;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +33,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement sendMessageBtn;
     @FindBy(how = How.CSS, using = "#message-text")
     public WebElement messageTextField;
-    @FindBy(how = How.CSS, using = "#message > div > div > div > div.justify-content-end.d-flex > div > button")
+    @FindBy(xpath = "/html/body/div[4]/main/div[7]/div/div/div/div[3]/div/button")
     public WebElement sendBtn;
     @FindBy(how = How.CSS, using = "#colors-father > span:nth-child(1) > label > span")
     public WebElement redBtn;
@@ -84,7 +87,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement moreFromThisSellerSeeAllBtn;
     @FindBy(how = How.CSS, using = "#profile-img-storefront")
     public WebElement profileImage;
-    @FindBy(xpath = "/html/body/div[3]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
+    @FindBy(xpath = "//*[@id='inbox-container']")
     public WebElement sellerMessage;
     @FindBy(how = How.CSS, using = "#refunds-tab")
     public WebElement itemImage;
@@ -115,6 +118,11 @@ public class listingdetailsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#submit-button")
     public WebElement submitBtn;
+
+    @FindBy(xpath = "/html/body/div[4]/main/div[7]/div/div/div/div[2]/p")
+    public WebElement validateMessageText;
+
+
 
     public void submitButton() {
         fluentWait(getDriver(), submitBtn);
@@ -188,12 +196,21 @@ public class listingdetailsPage extends BasePage {
         getDriver().navigate().to(url + "/Listing/Detail/619");
     }
 
+
+
+    public boolean messageTexActivate(){
+        boolean result = validateMessageText.isDisplayed();
+        return result;
+    }
+
     public boolean sellerConfirm() {
+        fluentWait(getDriver(), profileImage);
         boolean result = profileImage.isDisplayed();
         return result;
     }
 
     public boolean sellerMessageConfirm() {
+        fluentWait(getDriver(), sellerMessage);
         boolean result = sellerMessage.isDisplayed();
         return result;
     }
@@ -221,17 +238,28 @@ public class listingdetailsPage extends BasePage {
     public void iSelectSellerName() {
         fluentWait(getDriver(), sellerNameBtn);
         waitForWebElementAndClick(sellerNameBtn);
-        sellerNameBtn.click();
     }
 
     public void iSelectSendMessage() {
         fluentWait(getDriver(), sendMessageBtn);
         waitForWebElementAndClick(sendMessageBtn);
-        fluentWait(getDriver(),messageTextField);
+        fluentWait(getDriver(), messageTextField);
         waitForWebElementAndClick(messageTextField);
         messageTextField.sendKeys("Automation message");
-        fluentWait(getDriver(), sendBtn);
-        waitForWebElementAndClick(sendBtn);
+        messageTextField.clear();
+        messageTextField.sendKeys("Automation message");
+        //fluentWait(getDriver(), sendBtn);
+        messageTexActivate();
+        try {
+            actions.moveToElement(sendBtn).doubleClick().build().perform();
+        } catch (Exception e) {
+            while(!sendBtn.isDisplayed()){
+                wait(5);
+                actions.moveToElement(sendBtn).doubleClick().build().perform();
+                fluentWaitElementDisappears(getDriver(), sendBtn);
+            }
+        }
+//        waitForWebElementAndClick(sendBtn);
     }
 
     public void iSelectVariant() {
@@ -275,7 +303,7 @@ public class listingdetailsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void iTypeAnOffer() {
-        fluentWait(getDriver(),offerTextField);
+        fluentWait(getDriver(), offerTextField);
         waitForWebElementAndClick(offerTextField);
         offerTextField.sendKeys("test automation");
         addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
@@ -332,7 +360,7 @@ public class listingdetailsPage extends BasePage {
 
 
         getDriver().navigate().to(url + "/Listing/Detail/619");
-        fluentWait(getDriver(),clothingBtn);
+        fluentWait(getDriver(), clothingBtn);
         waitForWebElementAndClick(clothingBtn);
 
     }
@@ -353,7 +381,7 @@ public class listingdetailsPage extends BasePage {
         waitForClickability(moreFromThisSellerSeeAllBtn);
         fluentWait(getDriver(), moreFromThisSellerSeeAllBtn);
         waitForWebElementAndClick(moreFromThisSellerSeeAllBtn);
-        
+
     }
 
 

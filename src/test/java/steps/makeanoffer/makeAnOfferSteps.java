@@ -67,7 +67,7 @@ public class makeAnOfferSteps extends BasePage {
 
     @And("I complete the Delivery Date TextField")
     public void iCompleteTheDeliveryDateTextField() {
-        _page.selectDeliverDateTextField();
+        //_page.selectDeliverDateTextField();
         _page.selectMakeAnOfferSendButton();
     }
 

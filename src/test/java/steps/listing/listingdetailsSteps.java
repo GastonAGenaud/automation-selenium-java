@@ -64,7 +64,7 @@ public class listingdetailsSteps extends BasePage {
 
     @Then("I see that it redirects me to the chat page")
     public void iSeeThatItRedirectsMeToTheChatPage() {
-        Assert.assertEquals(_page.sellerMessageConfirm(), false);
+        Assert.assertEquals(_page.sellerMessageConfirm(), true);
 
     }
 

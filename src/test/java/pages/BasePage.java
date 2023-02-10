@@ -395,6 +395,8 @@ public class BasePage{
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
+
+        wait(4);
         //welcomeClose.click();
 
     }

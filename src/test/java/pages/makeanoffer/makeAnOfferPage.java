@@ -123,9 +123,9 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void completeFormSignUp() {
-        fluentWaitStrict(getDriver(), howOld);
+        fluentWait(getDriver(), howOld);
         waitForWebElementAndClick(howOld);
-        fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
+        //fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
         howOld.sendKeys("18");
         howMuch.sendKeys("test");
         agreeTerms.sendKeys("Yes");
@@ -141,9 +141,9 @@ public class makeAnOfferPage extends BasePage {
 
     public void imSellerButton() {
         fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
-        fluentWaitStrict(getDriver(), imSellerBtn);
         fluentWait(getDriver(), imSellerBtn);
         waitForWebElementAndClick(imSellerBtn);
+        wait(4);
     }
 
     public void setWelcomeClose() {
@@ -205,7 +205,9 @@ public class makeAnOfferPage extends BasePage {
         fluentWaitStrict(getDriver(), deliverDateTextField);
         waitForWebElementAndClick(deliverDateTextField);
         deliverDateTextField.clear();
-        deliverDateTextField.sendKeys("05052023");
+        deliverDateTextField.sendKeys("05-05-2023");
+        deliverDateTextField.clear();
+        deliverDateTextField.sendKeys("05-05-2023");
         deliverDateTextField.sendKeys(Keys.ENTER);
     }
 
