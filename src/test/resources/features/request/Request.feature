@@ -3,7 +3,7 @@ Feature: Request
   @request @smoke @MTR-1455
   Scenario: MTR - Create a request in browse page
     Given I login with Gaston User
-    And I go to Request Page
+    And I go to Browse Request Page
     When I select create a request button
     Then I validate the Create a Request in browse section
 
@@ -17,7 +17,7 @@ Feature: Request
   @request @smoke @MTR  @MTR-1457
   Scenario: MTR - Success pop up
     Given I login with Gaston User
-    And I go to Request Page
+    And I go to Browse Request Page
     When I select create a request
     And I select request URL
     And I validate the request social share
@@ -39,6 +39,7 @@ Feature: Request
   @request @smoke @MTR  @MTR-1459
   Scenario: MTR - Requests matched
     Given I login with Gaston User
+    And I go to dashboard
     And I go to Request Page
     When I validate open section details
     And I validate the apply button

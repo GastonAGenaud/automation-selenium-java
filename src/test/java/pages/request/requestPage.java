@@ -123,11 +123,11 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(5)")
     public WebElement requestsDeleteBtn;
 
-    @FindBy(how = How.CSS, using = "#matched-open-items > div > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div/div[1]/div[2]/a")
     public WebElement requestsMatchedDetailsBtn;
     @FindBy(how = How.CSS, using = "#matched-open-items > div > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > button")
     public WebElement requestsMatchedMenuBtn;
-    @FindBy(how = How.CSS, using = "#matched-open-items > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#btn-apply")
     public WebElement requestsMatchedApplyBtn;
     @FindBy(how = How.CSS, using = "#matched-open-items > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(2)")
     public WebElement requestsMatchedCloseBtn;
@@ -169,7 +169,8 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#wants-tab > span > span:nth-child(1)")
     public WebElement requestFromDashboard;
 
-    public void goToRequestFromDashboard(){
+
+    public void goToRequestFromDashboard() {
         fluentWait(getDriver(), requestFromDashboard);
         waitForWebElementAndClick(requestFromDashboard);
     }
@@ -364,8 +365,8 @@ public class requestPage extends BasePage {
     }
 
     public void publishRequest() {
-       fluentWait(getDriver(), publishRequestBtn);
-       waitForWebElementAndClick(publishRequestBtn);
+        fluentWait(getDriver(), publishRequestBtn);
+        waitForWebElementAndClick(publishRequestBtn);
     }
 
     public void requestDetailsSuccessPopUp() {
@@ -488,15 +489,17 @@ public class requestPage extends BasePage {
         getDriver().navigate().refresh();
         fluentWait(getDriver(), requestsCreatedByMeBtn);
         waitForWebElementAndClick(requestsCreatedByMeBtn);
-        fluentWait(getDriver(), requestsMatchedDetailsBtn);
+
+        fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+        actions.moveToElement(requestsMatchedDetailsBtn);
         waitForWebElementAndClick(requestsMatchedDetailsBtn);
     }
 
     public void requestsMatchedMenu() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
-        fluentWait(getDriver(), requestsMatchedMenuBtn);
+//        fluentWait(getDriver(), requestsCreatedByMeBtn);
+//        waitForWebElementAndClick(requestsCreatedByMeBtn);
+        fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
         waitForWebElementAndClick(requestsMatchedMenuBtn);
     }
 
@@ -504,6 +507,10 @@ public class requestPage extends BasePage {
         getDriver().navigate().refresh();
         fluentWait(getDriver(), requestsCreatedByMeBtn);
         waitForWebElementAndClick(requestsCreatedByMeBtn);
+
+        fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+        waitForWebElementAndClick(requestsMatchedDetailsBtn);
+
         fluentWait(getDriver(), requestsMatchedApplyBtn);
         waitForWebElementAndClick(requestsMatchedApplyBtn);
     }
@@ -512,6 +519,11 @@ public class requestPage extends BasePage {
         getDriver().navigate().refresh();
         fluentWait(getDriver(), requestsCreatedByMeBtn);
         waitForWebElementAndClick(requestsCreatedByMeBtn);
+
+        fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+        waitForWebElementAndClick(requestsMatchedMenuBtn);
+//        retryingFindClick(requestsMatchedMenuBtn);
+
         fluentWait(getDriver(), requestsMatchedCloseBtn);
         waitForWebElementAndClick(requestsMatchedCloseBtn);
     }
@@ -533,17 +545,11 @@ public class requestPage extends BasePage {
     }
 
     public void requestsMatchedSendMessage() {
-        getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
         fluentWait(getDriver(), requestsMatchedSendMessageBtn);
         waitForWebElementAndClick(requestsMatchedSendMessageBtn);
     }
 
     public void requestsMatchedShare() {
-        getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
         fluentWait(getDriver(), requestsMatchedShareBtn);
         waitForWebElementAndClick(requestsMatchedShareBtn);
     }

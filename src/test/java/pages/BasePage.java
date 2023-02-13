@@ -129,6 +129,7 @@ public class BasePage{
     }
 
     public void fluentWaitStrict(WebDriver driver, WebElement element) {
+        wait(5);
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(60))
                 .pollingEvery(Duration.ofSeconds(3))
@@ -425,7 +426,7 @@ public class BasePage{
         int attempts = 0;
         while(attempts < 2) {
             try {
-                wait(5);
+                wait(7);
                 element.click();
                 result = true;
                 break;
