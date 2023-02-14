@@ -43,7 +43,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement yellowBtn;
     @FindBy(how = How.CSS, using = "#quantity")
     public WebElement quantityTextField;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnBuyNow")
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
     public WebElement buyNowBtn;
     @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnAddToCart")
     public WebElement addToCartBtn;
@@ -83,7 +83,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement wristBandCoolBtn;
     @FindBy(xpath = "/html/body/div[3]/main/div[5]/div/div[2]/div/a/div/img")
     public WebElement testPickupBtn;
-    @FindBy(xpath = "/html/body/div[3]/main/div[5]/div/div[1]/a/span")
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[1]/div/a")
     public WebElement moreFromThisSellerSeeAllBtn;
     @FindBy(how = How.CSS, using = "#profile-img-storefront")
     public WebElement profileImage;
@@ -91,7 +91,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement sellerMessage;
     @FindBy(how = How.CSS, using = "#refunds-tab")
     public WebElement itemImage;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > a")
+    @FindBy(how = How.CSS, using = "#listingDetailPriceContainer > p")
     public WebElement priceText;
     @FindBy(how = How.CSS, using = "#go-checkout")
     public WebElement shoppingCartButton;
@@ -121,7 +121,6 @@ public class listingdetailsPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[4]/main/div[7]/div/div/div/div[2]/p")
     public WebElement validateMessageText;
-
 
 
     public void submitButton() {
@@ -197,8 +196,7 @@ public class listingdetailsPage extends BasePage {
     }
 
 
-
-    public boolean messageTexActivate(){
+    public boolean messageTexActivate() {
         boolean result = validateMessageText.isDisplayed();
         return result;
     }
@@ -222,7 +220,14 @@ public class listingdetailsPage extends BasePage {
 
     public String priceTextConfirm() {
         String result = priceText.getText();
-        return result;
+        try {
+            result = priceText.getText();
+        } catch (Exception e) {
+            wait(4);
+            result = priceText.getText();
+        } finally {
+            return result;
+        }
     }
 
     public boolean shoppingCartConfirm() {
@@ -253,7 +258,7 @@ public class listingdetailsPage extends BasePage {
         try {
             actions.moveToElement(sendBtn).doubleClick().build().perform();
         } catch (Exception e) {
-            while(!sendBtn.isDisplayed()){
+            while (!sendBtn.isDisplayed()) {
                 wait(5);
                 actions.moveToElement(sendBtn).doubleClick().build().perform();
                 fluentWaitElementDisappears(getDriver(), sendBtn);
@@ -280,8 +285,9 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void iSelectBuyNow() {
-        fluentWait(getDriver(), buyNowBtn);
+        fluentWaitStrict(getDriver(), buyNowBtn);
         waitForWebElementAndClick(buyNowBtn);
+        retryingFindClick(buyNowBtn);
     }
 
     public void iSelectAddToCart() {

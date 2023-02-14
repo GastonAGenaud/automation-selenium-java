@@ -30,10 +30,12 @@ public class sponsoredAdsSteps extends BasePage {
 
     @Given("I login with another account")
     public void iLoginWithAnotherAccount() throws IOException {
-        //_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.getLoginPage();
-        _page.loginWithGastonNoBorrar();
-        _page.goToDashboard();
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser-data-session");
+
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser-data-session");
 
     }
 
@@ -119,12 +121,8 @@ public class sponsoredAdsSteps extends BasePage {
     }
 
     @And("I select the tab dots PENDING PAY")
-    public void iSelectTheTabDotsPENDINGPAY() {
-        //_page.sortByButton();
-        //_page.expiresLastOption();
-//        _page.getActiveTab();
+    public void iSelectTheTabDotsCheckout() {
         _page.tabButton();
-//       _page.iSelectTabDotsTwo();
     }
 
     @And("I select the Pay option")
@@ -182,9 +180,10 @@ public class sponsoredAdsSteps extends BasePage {
         _page.goToSponsoredAds();
     }
 
+
     @And("I select the tab dots")
     public void iSelectTheTabDots() {
-        _page.sortByButton();
+        //_page.sortByButton();
         _page.expiresLastOption();
         _page.iSelectTabDotsONE();
     }
@@ -228,8 +227,8 @@ public class sponsoredAdsSteps extends BasePage {
         //_page.logOut();
         //_page.loginHeaderButton();
         //_page.login();
-        //page.goToDashboard();
-        //_page.goToSponsoredAds();
+        _page.goToDashboard();
+        _page.goToSponsoredAds();
     }
 
     @And("I select the tab dots EDIT")

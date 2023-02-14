@@ -37,27 +37,27 @@ public class requestPage extends BasePage {
     public WebElement requestSearchTextField;
     @FindBy(how = How.CSS, using = "#searchButton")
     public WebElement requestSearchBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(1) > span > label")
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(7) > span > label")
     public WebElement filterAccessoriesBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(2) > span > label")
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(8) > span > label")
     public WebElement filterArtAndCollectablesBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(3) > span > label")
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(5) > span > label")
     public WebElement filterClothingBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(4) > span > label")
     public WebElement filterHomeAndLivingBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(5) > span > label")
-    public WebElement filterHottestItemsBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(6) > span > label")
-    public WebElement filterJewelryBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(7) > span > label")
-    public WebElement filterOutdoorStuffBtn;
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(8) > span > label")
-    public WebElement filterRugsBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(9) > span > label")
+    public WebElement filterHottestItemsBtn;
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(1) > span > label")
+    public WebElement filterJewelryBtn;
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(3) > span > label")
+    public WebElement filterOutdoorStuffBtn;
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(4) > span > label")
+    public WebElement filterRugsBtn;
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(2) > span > label")
     public WebElement filterShoesBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(10) > span > label")
+    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(6) > span > label")
     public WebElement filterSkinCareBtn;
     @FindBy(how = How.CSS, using = "#manual-min")
     public WebElement filterMinusPriceTextField;
@@ -549,7 +549,7 @@ public class requestPage extends BasePage {
     }
 
     public void sortByDropdown() {
-        actions.moveToElement(requestsSortByMenuBtn).perform();
+        actions.moveToElement(requestsSortByMenuBtn).build().perform();
     }
 
     public void sortNewestToOldest() {
@@ -560,7 +560,7 @@ public class requestPage extends BasePage {
 
     public void sortOldToNewest() {
         sortByDropdown();
-        fluentWait(getDriver(), requestsSortOldToNewestBtn);
+        fluentWaitStrict(getDriver(), requestsSortOldToNewestBtn);
         waitForWebElementAndClick(requestsSortOldToNewestBtn);
     }
 
@@ -572,7 +572,7 @@ public class requestPage extends BasePage {
 
     public void sortExpiresLast() {
         sortByDropdown();
-        fluentWait(getDriver(), requestsExpiresLastBtn);
+        fluentWaitStrict(getDriver(), requestsExpiresLastBtn);
         waitForWebElementAndClick(requestsExpiresLastBtn);
     }
 

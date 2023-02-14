@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 import pages.BasePage;
 
 import java.util.List;
@@ -53,7 +54,8 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement reactivateBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/div/a[2]")
     public WebElement deactivateBtn;
-
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a.dropdown-item.pending-pay")
+    public WebElement payBtn;
     @FindBy(xpath = "//*[contains(text(), 'Pay')]")
     public WebElement pendingPayBtn;
     @FindBy(how = How.CSS, using = "#card-number")
@@ -68,6 +70,8 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement submitPaymentBtn;
     @FindBy(how = How.CSS, using = "#ads-containter > div > div.row.mt-2 > div > div > div")
     public WebElement sortByBtn;
+    @FindBy(how = How.CSS, using = "#ads-containter > div > div.row.mt-2 > div > div > div > div > a:nth-child(2)")
+    public WebElement expireSLastBtn;
     @FindBy(xpath = "//*[contains(text(), 'Expires last')]")
     public WebElement expiresLastBtn;
     @FindBy(xpath = "//a[contains(text(), 'Edit')]")
@@ -105,7 +109,7 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deleteConfirm;
 
-    public void deleteConfirmButton(){
+    public void deleteConfirmButton() {
         fluentWait(getDriver(), deleteConfirm);
         waitForWebElementAndClick(deleteConfirm);
     }
@@ -207,17 +211,32 @@ public class sponsoredAdsPage extends BasePage {
     public void iSelectTabDotsONE() {
         List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
         for (WebElement dot : tabDotsBtns) {
-            waitForWebElementAndClick(dot);
+            try {
+                waitForWebElementAndClick(dot);
+            } catch (Exception e) {
+                wait(4);
+                actions.moveToElement(dot).click().build().perform();
+            }
             if (reactivateBtn.getText() == "Reactivate") {
                 waitForWebElementAndClick(reactivateBtn);
                 break;
             }
+            dot.sendKeys(Keys.ESCAPE);
 
         }
     }
 
     public void tabButton() {
         List<WebElement> PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
+        try {
+            if (PendingPay.size() == 0) {
+                throw new Exception("the size is 0");
+            }
+        } catch (Exception e) {
+            wait(3);
+            PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
+        }
+
         for (WebElement pay : PendingPay) {
             getDriver().navigate().to(url + pay.getDomAttribute("href"));
             if (getDriver().getCurrentUrl().contains("/ad/checkout/")) {
@@ -228,9 +247,10 @@ public class sponsoredAdsPage extends BasePage {
         }
     }
 
+
     public void iSelectTabDotsEdit() {
         List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
-        fluentWait(getDriver(), tabEdit);
+         fluentWait(getDriver(), tabEdit);
         waitForWebElementAndClick(tabEdit);
         for (WebElement dot : tabDotsBtns) {
             waitForWebElementAndClick(dot);
@@ -255,7 +275,6 @@ public class sponsoredAdsPage extends BasePage {
             }
         }
     }
-
 
 
     public void iSelectTabDotsTWO() {
@@ -305,6 +324,10 @@ public class sponsoredAdsPage extends BasePage {
         waitForWebElementAndClick(submitPaymentBtn);
     }
 
+    public void ScortBy() {
+        actions.moveToElement(sortByBtn).perform();
+    }
+
     public void sortByButton() {
         fluentWait(getDriver(), sortByBtn);
         waitForWebElementAndClick(sortByBtn);
@@ -313,10 +336,11 @@ public class sponsoredAdsPage extends BasePage {
 
 
     public void expiresLastOption() {
-        fluentWait(getDriver(), expiresLastBtn);
-        waitForWebElementAndClick(expiresLastBtn);
-        actions.moveToElement(sortByBtn).perform();
-        waitForWebElementAndClick(expiresLastBtn);
+        ScortBy();
+        fluentWait(getDriver(), expireSLastBtn);
+        waitForWebElementAndClick(expireSLastBtn);
+       // actions.moveToElement(sortByBtn).perform();
+        //waitForWebElementAndClick(expiresLastBtn);
     }
 
     public void editAd() {

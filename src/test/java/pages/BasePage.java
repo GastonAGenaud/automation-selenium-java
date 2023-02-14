@@ -46,6 +46,7 @@ public class BasePage{
     public WebElement newPasswordBtn;
     @FindBy(how = How.CSS, using = "#signup-button")
     public WebElement signUpBtn;
+
     @FindBy(how = How.CSS, using = "#welcome > div > div > div > button")
     public WebElement welcomeClose;
 
