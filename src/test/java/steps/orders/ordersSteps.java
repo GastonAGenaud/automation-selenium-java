@@ -92,8 +92,12 @@ public class ordersSteps extends BasePage {
 
     @And("I validate the buy again button")
     public void iValidateTheBuyAgainButton() {
+        getDriver().navigate().refresh();
         _page.ordersPurchasedButton();
         _page.ordersBuyAgain();
+        _page.shippingAddressTextValidate();
+        _page.goToOrders();
+        _page.ordersPurchasedButton();
     }
 
     @And("I validate the share button")
@@ -109,7 +113,6 @@ public class ordersSteps extends BasePage {
     @And("I validate the request refund button")
     public void iValidateTheRequestRefundButton() {
         _page.ordersPurchasedButton();
-        
         _page.requestTabBtn();
         _page.ordersRequestRefund();
     }
@@ -129,35 +132,39 @@ public class ordersSteps extends BasePage {
     @And("I validate the leave a review button")
     public void iValidateTheLeaveAReviewButton() {
         //_page.ordersShowCompleted();
-        
+
         _page.ordersPurchasedButton();
-        
+        _page.purchasedOpenSection();
         _page.ordersLeaveAReview();
     }
 
     @And("I validate the buy again button in completed status")
     public void iValidateTheBuyAgainButtonInCompletedStatus() {
-        
+        _page.ordersShowCompleted();
         _page.ordersPurchasedButton();
+        _page.seeDetailsValidateText();
         _page.ordersBuyAgain();
+        _page.goToOrders();
     }
 
     @And("I validate the share button in complete status")
     public void iValidateTheShareButtonInCompleteStatus() {
         _page.goToOrders();
-        
+        _page.ordersShowCompleted();
         _page.ordersPurchasedButton();
-        
+        _page.seeDetailsValidateText();
         _page.ordersShare();
         
     }
 
     @And("I validate the request refund button in complete status")
     public void iValidateTheRequestRefundButtonInCompleteStatus() {
+        _page.goToOrders();
         _page.ordersPurchasedButton();
+        _page.seeDetailsValidateText();
         //_page.ordersShowCompleted();
-        _page.ordersPurchasedTab2Button();
-        _page.ordersPurchasedTab2Button();
+        //_page.ordersPurchasedTab2Button();
+        //_page.ordersPurchasedTab2Button();
         _page.ordersRequestRefund();
         
     }
@@ -171,8 +178,8 @@ public class ordersSteps extends BasePage {
 
     @And("I select the show menu button")
     public void iSelectTheShowMenuButton() {
+        _page.ordersPurchasedButton();
         _page.ordersShowAll();
-        
         //_page.ordersPendingResponse();
         _page.ordersShowShipmentPending();
         _page.ordersShowShipped();

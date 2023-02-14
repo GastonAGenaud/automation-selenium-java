@@ -7,12 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
 
+import java.util.ArrayList;
+
 public class ordersPage extends BasePage {
 
 
     public ordersPage() {
         super();
     }
+
+    String windowHandle = getDriver().getWindowHandle();
+
 
     Actions actions = new Actions(getDriver());
 
@@ -44,13 +49,13 @@ public class ordersPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[3]/div/div/a")
     public WebElement ordersPurchasedMessageBtn;
-    @FindBy(xpath = "//*[@id=\"closed-purchased\"]/div[14]/div/div/div/div[2]/div/div[4]/button")
+    @FindBy(xpath = "//button[contains(text(), 'Track')]")
     public WebElement ordersPurchasedTrackBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[1]/div[2]/div/button")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button")
     public WebElement ordersPurchasedMenuTabButton;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/a[1]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div/a[1]")
     public WebElement ordersBuyAgainBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/a[2]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div/a[2]")
     public WebElement ordersPurchasedShareBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[18]/div[1]/div/div/div[1]/div[2]/div/div/a[3]")
     public WebElement ordersPurchasedRequestRefundBtn;
@@ -106,6 +111,25 @@ public class ordersPage extends BasePage {
     @FindBy(how = How.CSS, using = "#cancel-message")
     public WebElement cancelMessage;
 
+    @FindBy(xpath = "//p[contains(text(), 'Shipping Address')]")
+    public WebElement shippingAddressText;
+
+    @FindBy(xpath = "//a[contains(text(), 'See details')]")
+    public WebElement seeDetailsText;
+
+    public boolean seeDetailsValidateText() {
+        boolean result = false;
+
+        try {
+            fluentWaitStrict(getDriver(), seeDetailsText);
+        } catch (Exception e) {
+            getDriver().navigate().refresh();
+            fluentWaitStrict(getDriver(), seeDetailsText);
+        } finally {
+            result = seeDetailsText.isDisplayed();
+        }
+        return result;
+    }
 
     public void setCancelMessage() {
         cancelMessage.sendKeys("I dont want it");
@@ -163,6 +187,7 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersPurchasedButton() {
+        getDriver().navigate().refresh();
         fluentWaitStrict(getDriver(), ordersPurchasedBtn);
         waitForWebElementAndClick(ordersPurchasedBtn);
         retryingFindClick(ordersPurchasedBtn);
@@ -196,17 +221,24 @@ public class ordersPage extends BasePage {
 
 
     public void ordersPurchasedTab2Button() {
-        fluentWait(getDriver(), ordersPurchasedTab2Button);
-        waitForWebElementAndClick(ordersPurchasedMessageBtn);
+        fluentWaitStrict(getDriver(), ordersPurchasedTab2Button);
+        waitForWebElementAndClick(ordersPurchasedTab2Button);
     }
 
     public void ordersBuyAgain() {
-        fluentWait(getDriver(), ordersPurchasedTab2Button);
+        fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
         waitForWebElementAndClick(ordersPurchasedMenuTabButton);
 
 
         fluentWait(getDriver(), ordersBuyAgainBtn);
         waitForWebElementAndClick(ordersBuyAgainBtn);
+    }
+
+
+    public boolean shippingAddressTextValidate() {
+        fluentWait(getDriver(), shippingAddressText);
+        boolean result = shippingAddressText.isDisplayed();
+        return result;
     }
 
     public void ordersShare() {
@@ -225,7 +257,7 @@ public class ordersPage extends BasePage {
         waitForWebElementAndClick(requestTabButton);
 
 
-        action.moveToElement(ordersPurchasedRequestRefundBtn).build();
+//        action.moveToElement(ordersPurchasedRequestRefundBtn).build();
         fluentWait(getDriver(), ordersPurchasedRequestRefundBtn);
         waitForWebElementAndClick(ordersPurchasedRequestRefundBtn);
 
@@ -239,12 +271,17 @@ public class ordersPage extends BasePage {
     public void ordersLeaveAReview() {
         fluentWait(getDriver(), ordersLeaveAReviewBtn);
         waitForWebElementAndClick(ordersLeaveAReviewBtn);
+        ArrayList tabs = new ArrayList(getDriver().getWindowHandles());
+        System.out.println(tabs.size());
+        getDriver().switchTo().window(windowHandle);
+        getDriver().navigate().refresh();
     }
 
     public void ordersShowMenu() {
 
         WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
         Actions action = new Actions(getDriver());
+        fluentWaitStrict(getDriver(), ordersShowBtn);
         action.moveToElement(ordersShowBtn).perform();
 
 
@@ -261,10 +298,9 @@ public class ordersPage extends BasePage {
         fluentWait(getDriver(), ordersShowShipmentPendingBtn);
         waitForWebElementAndClick(ordersShowShipmentPendingBtn);
 
-        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
-        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
+//        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
+//        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
 
-        goToOrders();
     }
 
     public void ordersShowShipped() {
@@ -322,6 +358,7 @@ public class ordersPage extends BasePage {
     }
 
     public boolean requestTabBtn() {
+        fluentWait(getDriver(), requestTabButton);
         boolean result = requestTabButton.isDisplayed();
         return result;
     }

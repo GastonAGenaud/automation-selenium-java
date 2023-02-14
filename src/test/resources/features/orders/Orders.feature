@@ -45,6 +45,7 @@ Feature: Orders
 
   @orders @smoke @MTR  @MTR-1451
   Scenario: MTR - Orders - Show Menu
-    Given I go to orders page
+    Given I login with Gaston User
+    And I go to orders page
     And I select the show menu button
     Then I validate the show menu

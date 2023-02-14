@@ -21,8 +21,9 @@ public class requestSteps extends BasePage {
     @And("I go to Request Page")
     public void iGoToRequestPage() {
         ////_driver.manage().window().setSize(new Dimension(2560, 1440));
-        _page.headerRequest();
+        _page.request();
     }
+
     @And("I go to Request Page from Dashboard")
     public void iGoToRequestPageFromDashboard() {
         ////_driver.manage().window().setSize(new Dimension(2560, 1440));
@@ -42,8 +43,6 @@ public class requestSteps extends BasePage {
     }
 
 
-
-
     @When("I select create a request button in dashboard")
     public void iSelectCreateARequestButtonInDashboard() {
         _page.requestDashboardCreateARequest();
@@ -56,7 +55,7 @@ public class requestSteps extends BasePage {
 
     @When("I select create a request")
     public void iSelectCreateARequest() {
-        
+
         _page.browseCreateRequestBtn();
         _page.categoryButton();
         _page.categoryAccessories();
@@ -77,7 +76,7 @@ public class requestSteps extends BasePage {
 
     @And("I select request details")
     public void iSelectRequestDetails() {
-        
+
         System.out.println("MENSAJE IMPORTANTE _page.requestDetailsSuccessPopUp();");
         _page.requestDetailsSuccessPopUp();
     }
@@ -96,16 +95,16 @@ public class requestSteps extends BasePage {
 
     @And("I validate the back to home button")
     public void iValidateTheBackToHomeButton() {
-        
+
         System.out.println("VALIDACION BACK TO HOME");
         _page.requestBackToHomeButton();
     }
 
     @Then("I validate the request pop up")
     public void iValidateTheRequestPopUp() {
-        
+
         System.out.println("VALIDACION ASSERT");
-        Assert.assertEquals(_page.logoPage(),true);
+        Assert.assertEquals(_page.logoPage(), true);
     }
 
 
@@ -185,8 +184,8 @@ public class requestSteps extends BasePage {
         _page.request();
         _page.requestsMatchedMenu();
         _page.requestsMatchedClose();
-        _page.closedMenu();
-        _page.reOpen();
+//        _page.closedMenu();
+        //_page.reOpen();
     }
 
     @And("I validate the send message button")

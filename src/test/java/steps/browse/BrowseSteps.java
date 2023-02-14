@@ -89,7 +89,7 @@ public class BrowseSteps extends BasePage {
     @And("I go to Browse Request Page")
     public void iGoToBrowseRequestPage() {
         _page.goToBrowseRequest();
-        _page.browseCreateRequestBtn();
+        //_page.browseCreateRequestBtn();
     }
 
     @And("I validate the Category")
