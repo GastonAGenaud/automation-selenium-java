@@ -416,7 +416,7 @@ public class homeSteps extends BasePage {
         getDriver().navigate().refresh();
     }
 
-    @Given("I login with Gaton No Borrar")
+    @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {
         sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
 

@@ -259,7 +259,7 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(),addShippingAddressBtn);
             waitForWebElementAndClick(addShippingAddressBtn);
-            retryingFindClick(addShippingAddressBtn);
+//            retryingFindClick(addShippingAddressBtn);
             boolean result= modalShippingAddress.isDisplayed();
             Assert.assertTrue(result);
 
@@ -268,6 +268,7 @@ public class checkoutPage extends BasePage {
             wait(4);
             fluentWait(getDriver(),addShippingAddressBtn);
             waitForWebElementAndClick(addShippingAddressBtn);
+//            retryingFindClick(addShippingAddressBtn);
         }
     }
 

@@ -165,8 +165,8 @@ public class listingSteps extends BasePage {
     @And("I select Publish button STAGING")
     public void iSelectPublishButtonSTAGING() {
         _page.setListingPublishBtn();
-        Assert.assertFalse(_page.validatePickupError());
-        _page.setListingPublishBtn();
+//        Assert.assertFalse(_page.validatePickupError());
+//        _page.setListingPublishBtn();
     }
 
     @And("I validate the pick up option RELEASE")

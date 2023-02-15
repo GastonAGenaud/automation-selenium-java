@@ -84,7 +84,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @Then("I validate Create an Ad")
     public void iValidateCreateAnAd() {
-        Assert.assertEquals(true, _page.validateSponsoredPage());
+        Assert.assertEquals(true, _page.successPublishAdText());
     }
 
     @And("I select the tab dots ONE")
@@ -96,7 +96,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("I select the Reactivate option")
     public void iSelectTheReactivateOption() {
-//        _page.reactivateAd();
+        _page.validateReactivateTextMessage();
     }
 
     @Then("I validate the change status to Active")
@@ -185,7 +185,7 @@ public class sponsoredAdsSteps extends BasePage {
     @And("I select the tab dots")
     public void iSelectTheTabDots() {
         //_page.sortByButton();
-        _page.expiresLastOption();
+        //_page.expiresLastOption();
         _page.iSelectTabDotsONE();
     }
 

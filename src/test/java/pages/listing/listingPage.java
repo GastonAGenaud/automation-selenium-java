@@ -123,7 +123,7 @@ public class listingPage extends BasePage {
     public WebElement listingPublishBtn;
 
 
-    @FindBy(how = How.CSS, using = "body > div > div.card.card-vertical.mb-3 > div > div > h3")
+    @FindBy(xpath = "//h3[contains(text(), 'Great job! Your listing is under review and will be published soon.')]")
     public WebElement greatJobText;
 
     @FindBy(how = How.CSS, using = "#basic > div.d-flex.justify-content-between.align-items-center > button > span")
@@ -149,7 +149,7 @@ public class listingPage extends BasePage {
     public WebElement pickupError;
 
     public boolean validatePickupError() {
-        fluentWait(getDriver(), pickupError);
+//        fluentWaitElementDisappears(getDriver(), pickupError);
         boolean result = pickupError.isDisplayed();
         return result;
     }
@@ -195,7 +195,7 @@ public class listingPage extends BasePage {
     }
 
     public String GreatText() {
-        fluentWait(getDriver(), greatJobText);
+        fluentWaitStrict(getDriver(), greatJobText);
         String result = greatJobText.getText();
         return result;
     }

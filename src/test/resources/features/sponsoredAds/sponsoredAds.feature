@@ -2,7 +2,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1600
   Scenario: MTR - User able to create an Ad
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select Sponsored Ads section
     And I select the Add New button
@@ -25,7 +25,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1602
   Scenario: MTR - User able to change status to Inactive
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select Sponsored Ads section
     And I select the tab dots DEACTIVATE
@@ -68,7 +68,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1606
   Scenario: MTR - User able to Delete ads
-    Given I login with Make An offer
+    Given I login with Gaston User
     And I go to dashboard
     When I select the Sponsored Ads section
     And I select the tab dots DELETE

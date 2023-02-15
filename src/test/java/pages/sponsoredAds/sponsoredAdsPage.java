@@ -50,7 +50,7 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement publishAddBtn;
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > button")
     public WebElement tabDotBtnTWO;
-    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(3) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a:nth-child(2)")
+    @FindBy(how = How.CSS, using = "#inactive > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > div > a:nth-child(2)")
     public WebElement reactivateBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/div/a[2]")
     public WebElement deactivateBtn;
@@ -109,6 +109,28 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deleteConfirm;
 
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > strong")
+    public WebElement successPublishAdTxt;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body")
+    public WebElement validateReactivateMessage;
+
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
+    public WebElement tabReactivate;
+
+    public boolean validateReactivateTextMessage(){
+        fluentWait(getDriver(), validateReactivateMessage);
+        boolean result = validateReactivateMessage.isDisplayed();
+        return result;
+    }
+
+    public boolean successPublishAdText() {
+        fluentWait(getDriver(), successPublishAdTxt);
+        boolean result = successPublishAdTxt.isDisplayed();
+        return result;
+
+    }
+
     public void deleteConfirmButton() {
         fluentWait(getDriver(), deleteConfirm);
         waitForWebElementAndClick(deleteConfirm);
@@ -147,6 +169,7 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public boolean validateSponsoredPage() {
+        fluentWait(getDriver(), sponsoredAdsBtn);
         boolean result = sponsoredAdsBtn.isDisplayed();
         return result;
     }
@@ -188,16 +211,16 @@ public class sponsoredAdsPage extends BasePage {
         fluentWait(getDriver(), startDateSector);
         waitForWebElementAndClick(startDateSector);
         startDateSector.sendKeys(Keys.ARROW_LEFT);
-        startDateSector.sendKeys("12-25-2023");
+        startDateSector.sendKeys("04-25-2023");
         waitForWebElementAndClick(startDateSector);
     }
 
     public void adEndDateTextField() {
         fluentWait(getDriver(), endDateSector);
         waitForWebElementAndClick(endDateSector);
-        startDateSector.sendKeys(Keys.ARROW_LEFT);
-        startDateSector.sendKeys("09252025");
-        waitForWebElementAndClick(startDateSector);
+        endDateSector.sendKeys(Keys.ARROW_LEFT);
+        endDateSector.sendKeys("04-25-2025");
+        waitForWebElementAndClick(endDateSector);
     }
 
     public void iSelectPublish() {
@@ -208,22 +231,32 @@ public class sponsoredAdsPage extends BasePage {
     }
 
 
-    public void iSelectTabDotsONE() {
-        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
-        for (WebElement dot : tabDotsBtns) {
-            try {
-                waitForWebElementAndClick(dot);
-            } catch (Exception e) {
-                wait(4);
-                actions.moveToElement(dot).click().build().perform();
-            }
-            if (reactivateBtn.getText() == "Reactivate") {
-                waitForWebElementAndClick(reactivateBtn);
-                break;
-            }
-            dot.sendKeys(Keys.ESCAPE);
+//    public void iSelectTabDotsONE() {
+//        List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button"));
+//        for (WebElement dot : tabDotsBtns) {
+//            try {
+//                fluentWait(getDriver(), dot);
+//                waitForWebElementAndClick(dot);
+//            } catch (Exception e) {
+//                wait(4);
+//                actions.moveToElement(dot).click().build().perform();
+//                wait(4);
+//            }
+//            if (reactivateBtn.getText() == "Reactivate") {
+//                waitForWebElementAndClick(reactivateBtn);
+//                break;
+//            }
+//            dot.sendKeys(Keys.ESCAPE);
+//
+//        }
+//    }
 
-        }
+    public void iSelectTabDotsONE(){
+        fluentWait(getDriver(), tabReactivate);
+        waitForWebElementAndClick(tabReactivate);
+
+        fluentWait(getDriver(), reactivateBtn);
+        waitForWebElementAndClick(reactivateBtn);
     }
 
     public void tabButton() {
@@ -250,7 +283,7 @@ public class sponsoredAdsPage extends BasePage {
 
     public void iSelectTabDotsEdit() {
         List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
-         fluentWait(getDriver(), tabEdit);
+        fluentWait(getDriver(), tabEdit);
         waitForWebElementAndClick(tabEdit);
         for (WebElement dot : tabDotsBtns) {
             waitForWebElementAndClick(dot);
@@ -339,7 +372,7 @@ public class sponsoredAdsPage extends BasePage {
         ScortBy();
         fluentWait(getDriver(), expireSLastBtn);
         waitForWebElementAndClick(expireSLastBtn);
-       // actions.moveToElement(sortByBtn).perform();
+        // actions.moveToElement(sortByBtn).perform();
         //waitForWebElementAndClick(expiresLastBtn);
     }
 
