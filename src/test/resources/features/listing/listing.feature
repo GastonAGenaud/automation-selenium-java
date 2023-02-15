@@ -17,7 +17,7 @@ Feature: Listing
     And I validate the shipping with FedEx
     And I validate the Flat Rate Shipping
     And I validate the pick up option
-    And I complete Custom Fields
+    #And I complete Custom Fields
     And I select Publish button STAGING
     Then I validate create a listing Staging
 

@@ -42,37 +42,37 @@ public class HomePage extends BasePage {
     public WebElement headerBrowseBySellerBtn;
     //Menu
     //Accessories
-    @FindBy(xpath = "/html/body/header/div/ul/li[3]/a")
+    @FindBy(xpath = "//a[contains(text(), 'Accessories')]")
     public WebElement accessoriesBtn;
-    @FindBy(xpath = "/html/body/header/div/div[2]/div[3]/div/div/div/div[1]/ul/li/a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=580']")
     public WebElement moreAccessoriesBtn;
     //Clothing
     @FindBy(xpath = "//a[contains(text(), 'Clothing')]")
     public WebElement clothingBtn;
 
-    @FindBy(xpath = "//li[contains(text(), 'More')]")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=578']")
     public WebElement moreClothingBtn;
     @FindBy(xpath = "//li[contains(text(), 'More')]")
     public WebElement homeLivingBtn;
 
-    @FindBy(xpath = "/html/body/header/div/div/div[4]/div/div/div/div[1]/ul/li/a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat']")
     public WebElement moreHomeAndLivingBtn;
     @FindBy(xpath = "//a[contains(text(), 'Jewelry')]")
     public WebElement jewelryBtn;
-    @FindBy(xpath = "/html/body/header/div/div[2]/div[1]/div/div/div/div[1]/ul/li/a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=573']")
     public WebElement moreJewelryBtn;
     @FindBy(xpath = "/html/body/header/div/ul/li[2]/a")
     public WebElement shoesBtn;
 
-    @FindBy(how = How.CSS, using = "#dropdown-nav-3 > li:nth-child(3) > a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=574']")
     public WebElement moreShoesBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[6]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[3]/a")
     public WebElement outdoorStuffBtn;
-    @FindBy(xpath = "/html/body/header/div/div[2]/div[6]/div/div/div/div[1]/ul/li/a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=576']")
     public WebElement moreOutdoorStuffBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[8]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[6]/a")
     public WebElement artAndCollectablesBtn;
-    @FindBy(xpath = "/html/body/header/div/div[2]/div[8]/div/div/div/div[1]/ul/li/a")
+    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=316']")
     public WebElement moreArtAndCollectablesBtn;
     @FindBy(how = How.CSS, using = "#more-tab")
     public WebElement moreBtn;
@@ -139,13 +139,13 @@ public class HomePage extends BasePage {
     @FindBy(how = How.CSS, using = "#dropdown-nav-451 > li > a")
     public WebElement moreMensBtn;
 
-    @FindBy(xpath = "/html/body/header/div/ul/li[7]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[9]/a")
     public WebElement hottestItemsBtn;
 
     @FindBy(how = How.CSS, using = "#dropdown-nav-320 > li:nth-child(2) > a")
     public WebElement moreHottestItemsBtn;
 
-    @FindBy(xpath = "/html/body/header/div/ul/li[7]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[4]/a")
     public WebElement rugsHomeBtn;
 
     @FindBy(how = How.CSS, using = "#dropdown-nav-232 > li > a")
@@ -238,6 +238,7 @@ public class HomePage extends BasePage {
     public void moreAccessories() {
         fluentWait(getDriver(), accessoriesBtn);
         actions.moveToElement(accessoriesBtn).build().perform();
+
         fluentWaitStrict(getDriver(), moreAccessoriesBtn);
         waitForWebElementAndClick(moreAccessoriesBtn);
     }
@@ -297,6 +298,7 @@ public class HomePage extends BasePage {
     public void moreOutdoorStuff() {
         fluentWait(getDriver(), outdoorStuffBtn);
         actions.moveToElement(outdoorStuffBtn).build().perform();
+
         fluentWait(getDriver(), moreOutdoorStuffBtn);
         waitForWebElementAndClick(moreOutdoorStuffBtn);
     }

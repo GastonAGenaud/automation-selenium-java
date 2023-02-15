@@ -162,7 +162,6 @@ public class listingdetailsPage extends BasePage {
     public void imSellerButton() {
         fluentWait(getDriver(), imSellerBtn);
         waitForWebElementAndClick(imSellerBtn);
-        imSellerBtn.click();
     }
 
 

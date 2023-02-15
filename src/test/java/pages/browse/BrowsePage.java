@@ -32,7 +32,7 @@ public class BrowsePage extends BasePage {
     public WebElement headerBrowseBtn;
     @FindBy(how = How.CSS, using = "#search")
     public WebElement browseSearchTextField;
-    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[2]/div[1]/div/a/span")
+    @FindBy(xpath = "//span[contains(text(), 'Clear Filters')]")
     public WebElement browseClearFilters;
     @FindBy(how = How.CSS, using = "#block-tab")
     public WebElement browseViewBlockFormBtn;

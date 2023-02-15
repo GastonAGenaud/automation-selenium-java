@@ -13,6 +13,7 @@ public class listingPage extends BasePage {
     public listingPage() {
         super();
     }
+
     Actions actions = new Actions(getDriver());
 
 
@@ -144,6 +145,14 @@ public class listingPage extends BasePage {
     @FindBy(how = How.CSS, using = "#custom-3")
     public WebElement sizeText;
 
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
+    public WebElement pickupError;
+
+    public boolean validatePickupError() {
+        fluentWait(getDriver(), pickupError);
+        boolean result = pickupError.isDisplayed();
+        return result;
+    }
 
     public void getMandatoryTextfield() {
         fluentWait(getDriver(), mandatoryTextfield);
@@ -194,7 +203,7 @@ public class listingPage extends BasePage {
     public void setListingPublishBtn() {
         fluentWait(getDriver(), listingPublishBtn);
         waitForWebElementAndClick(listingPublishBtn);
-        
+        retryingFindClick(listingPublishBtn);
     }
 
 

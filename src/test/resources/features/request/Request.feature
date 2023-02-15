@@ -51,7 +51,7 @@ Feature: Request
   @request @smoke @MTR  @MTR-1460
   Scenario: MTR - Request Browse
     Given I login with Gaston User
-    And I go to Request Page
+    And I go to Browse Request Page
     When I validate search a request
     And I validate the category filters
     And I validate the price filter

@@ -3,7 +3,7 @@ Feature: browse
   Validate Browse & Browse Requests Pages
 
   @browse @smoke @MTR-1309 @MTR
-  Scenario: 1MTR - Log in and Validate the Browse Section
+  Scenario: MTR - Log in and Validate the Browse Section
     Given I login with Gaston User
     And I go to Browse Page
     When I validate the Search text Bar
@@ -18,6 +18,7 @@ Feature: browse
   Scenario: MTR - Log in and Validate the Browse Request Section
     Given I login with Gaston User
     And I go to Browse Request Page
+    And I select create a request button
     And I validate the Category
     And I validate the Skills
     And I validate the Text bar

@@ -45,6 +45,7 @@ public class makeAnOfferSteps extends BasePage {
 
     @And("I press the Make an Offer Button")
     public void iPressTheMakeAnOfferButton() {
+        getDriver().navigate().refresh();
         _page.selectMakeAnOfferBtn();
     }
 

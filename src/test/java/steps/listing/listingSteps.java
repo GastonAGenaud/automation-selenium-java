@@ -65,7 +65,7 @@ public class listingSteps extends BasePage {
     @And("I validate the listing price")
     public void iValidateTheListingPrice() {
         _page.listingPrice();
-        
+
     }
 
     @And("I validate the listing quantity")
@@ -102,7 +102,7 @@ public class listingSteps extends BasePage {
         _page.USPSLength();
         _page.USPSWidth();
         _page.USPSHeight();
-        
+
     }
 
     @And("I validate the shipping with FedEx")
@@ -128,22 +128,22 @@ public class listingSteps extends BasePage {
         _page.flatRateState();
         _page.flatRateZip();
         _page.flatRateCountry();
-        
+
         _page.flatRatePrice();
-        
+
     }
 
     @And("I validate the pick up option")
     public void iValidateThePickUpOption() {
         _page.noShipping();
-        
+
         _page.pickUpCheckbox();
         _page.pickUpAddress1();
         _page.pickUpCity();
         _page.pickUpState();
         _page.pickUpZip();
         _page.pickUpCountry();
-        
+
         //_page.setSameAddressPickupBtn();
     }
 
@@ -165,19 +165,21 @@ public class listingSteps extends BasePage {
     @And("I select Publish button STAGING")
     public void iSelectPublishButtonSTAGING() {
         _page.setListingPublishBtn();
+        Assert.assertFalse(_page.validatePickupError());
+        _page.setListingPublishBtn();
     }
 
     @And("I validate the pick up option RELEASE")
     public void iValidateThePickUpOptionRELEASE() {
         _page.noShipping();
-        
+
         _page.pickUpCheckbox();
         _page.pickUpAddress1();
         _page.pickUpCity();
         _page.pickUpState();
         _page.pickUpZip();
         _page.pickUpCountry();
-        
+
         //_page.setSameAddressPickupBtn();
     }
 

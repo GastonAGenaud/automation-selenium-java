@@ -45,7 +45,7 @@ public class makeAnOfferPage extends BasePage {
     @FindBy(how = How.CSS, using = "#deliver-date")
     public WebElement deliverDateTextField;
 
-    @FindBy(xpath = "/html/body/div[3]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
+    @FindBy(xpath = "/html/body/div[4]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
     public WebElement makeAnOfferSendBtn;
 
     @FindBy(how = How.CSS, using = "#wants-header-text-customize")
@@ -215,6 +215,7 @@ public class makeAnOfferPage extends BasePage {
         actions.moveToElement(makeAnOfferSendBtn);
         fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
         waitForWebElementAndClick(makeAnOfferSendBtn);
+        retryingFindClick(makeAnOfferSendBtn);
 //        while(makeAnOfferSendBtn.isDisplayed()){
 //            //waitForWebElementAndClick(makeAnOfferSendBtn);
 //            try{

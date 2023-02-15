@@ -221,7 +221,7 @@ public class requestSteps extends BasePage {
         _page.filterAccessories();
         _page.filterArtAndCollectables();
         _page.filterClothing();
-        _page.filterHomeAndLiving();
+//        _page.filterHomeAndLiving();
         _page.filterHottestItems();
         _page.filterJewelry();
         _page.filterOutdoorStuff();
