@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 import pages.BasePage;
 
 
@@ -110,7 +111,8 @@ public class BrowsePage extends BasePage {
     public WebElement publishRequestBtn;
     @FindBy(how = How.CSS, using = "#img-0")
     public WebElement addImageBtn;
-
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > h3")
+    public WebElement categoryButton;
     @FindBy(how = How.CSS, using = "#RXJyb3JZb3UlMjBtdXN0JTIwY2hvb3NlJTIwYSUyMG5hbWUucmVk")
     public WebElement closeNameError;
 
@@ -145,7 +147,15 @@ public class BrowsePage extends BasePage {
     //Browse
 
     public void headerBrowse() {
-        headerBrowseBtn.click();
+        try {
+            fluentWait(getDriver(), headerBrowseBtn);
+            waitForWebElementAndClick(headerBrowseBtn);
+        } catch (Exception e) {
+            wait(4);
+            fluentWait(getDriver(), headerBrowseBtn);
+            waitForWebElementAndClick(headerBrowseBtn);
+        }
+
     }
 
     public void headerRequest() {
@@ -154,6 +164,11 @@ public class BrowsePage extends BasePage {
 
     public void goToBrowseRequest() {
         getDriver().navigate().to(url + "/Want/browse");
+    }
+
+    public void validateBrowseSection() {
+        boolean result = categoryButton.isDisplayed();
+        Assert.assertTrue(result);
     }
 
     public void browseSearchTextField() {
@@ -342,7 +357,7 @@ public class BrowsePage extends BasePage {
 
 
     public void locationCheckBox() {
-        fluentWait(getDriver(),locationCheckBoxBtn);
+        fluentWait(getDriver(), locationCheckBoxBtn);
         waitForWebElementAndClick(locationCheckBoxBtn);
     }
 

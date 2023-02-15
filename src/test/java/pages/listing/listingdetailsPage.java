@@ -2,6 +2,7 @@ package pages.listing;
 
 import org.json.XML;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -35,6 +36,8 @@ public class listingdetailsPage extends BasePage {
     public WebElement messageTextField;
     @FindBy(xpath = "/html/body/div[4]/main/div[7]/div/div/div/div[3]/div/button")
     public WebElement sendBtn;
+    @FindBy(xpath = "/html/body/div[4]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
+    public WebElement sendBtnMakeAndOffer;
     @FindBy(how = How.CSS, using = "#colors-father > span:nth-child(1) > label > span")
     public WebElement redBtn;
     @FindBy(how = How.CSS, using = "#colors-father > span:nth-child(2) > label > span")
@@ -55,7 +58,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement addImageBtn;
     @FindBy(how = How.CSS, using = "#offer-submit")
     public WebElement proposedPriceTextField;
-    @FindBy(xpath = "/html/body/div[3]/main/div[6]/div/div/div/div[3]/div[2]/div/div/div/input")
+    @FindBy(xpath = "/html/body/div[4]/main/div[6]/div/div/div/div[3]/div[2]/div/div/div/input")
     public WebElement deliveryDate;
     @FindBy(how = How.CSS, using = "#info-tab")
     public WebElement productInformationBtn;
@@ -153,9 +156,16 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void nextButton() {
-        fluentWait(getDriver(), nextBtn);
-        waitForWebElementAndClick(nextBtn);
-        nextBtn.click();
+        try {
+            fluentWait(getDriver(), nextBtn);
+            waitForWebElementAndClick(nextBtn);
+
+        } catch (Exception e) {
+            wait(4);
+            fluentWait(getDriver(), nextBtn);
+            waitForWebElementAndClick(nextBtn);
+        }
+
     }
 
     public void imSellerButton() {
@@ -318,7 +328,11 @@ public class listingdetailsPage extends BasePage {
         fluentWait(getDriver(), deliveryDate);
         waitForWebElementAndClick(deliveryDate);
         deliveryDate.sendKeys("10102023");
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("document.querySelector('#offer-submit').click();");
+        wait(10);
     }
+
 
     public void iSelectTheProductInformation() {
         waitForVisibility(productInformationBtn);

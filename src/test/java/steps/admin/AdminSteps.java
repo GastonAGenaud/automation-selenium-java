@@ -22,7 +22,7 @@ public class AdminSteps extends BasePage {
         this._page = new AdminPage();
     }
 
-    @Given("Get started steps")
+    @And("Get started steps")
     public void getStartedSteps() throws IOException {
         ////_driver.manage().window().maximize();
         _page.goToAdminPanel();

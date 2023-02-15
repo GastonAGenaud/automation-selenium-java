@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import pages.BasePage;
 
 public class checkoutPage extends BasePage {
@@ -119,6 +120,8 @@ public class checkoutPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#U3VjY2Vzc0FkZGVkJTIwdG8lMjBjYXJ0IWdyZWVu > div.iziToast-body > div.iziToast-texts > p")
     public WebElement addtoCartMessage;
+    @FindBy(how = How.CSS, using = "#edit-address > div > div > div")
+    public WebElement modalShippingAddress;
 
     @FindBy(xpath = "//p[contains(text(), 'Shipping Address')]")
     public WebElement shippingAddressText;
@@ -132,12 +135,14 @@ public class checkoutPage extends BasePage {
         boolean result = validateCVVText.isDisplayed();
         return result;
     }
-    public boolean shippingAddressTextValidate(){
+
+    public boolean shippingAddressTextValidate() {
         getDriver().navigate().refresh();
         fluentWait(getDriver(), shippingAddressText);
         boolean result = shippingAddressText.isDisplayed();
         return result;
     }
+
     public boolean addedToCartMessage() {
         fluentWaitStrict(getDriver(), addtoCartMessage);
         boolean result = addtoCartMessage.isDisplayed();
@@ -150,7 +155,7 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean congratulationsMessageConfirm() {
-        fluentWait(getDriver(),congratulationsMessage);
+        fluentWait(getDriver(), congratulationsMessage);
         boolean result = congratulationsMessage.isDisplayed();
         return result;
     }
@@ -230,7 +235,8 @@ public class checkoutPage extends BasePage {
 
     public void selectAddToCart() {
         fluentWait(getDriver(), addToCartBtn);
-        waitForWebElementAndClick(addToCartBtn);}
+        waitForWebElementAndClick(addToCartBtn);
+    }
 
     public void selectCartIcon() {
         getDriver().navigate().to(url + "/order/ShoppingCart");
@@ -250,9 +256,20 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectAddShippingAddress() {
-        waitForWebElementAndClick(addShippingAddressBtn);
-    }
+        try {
+            fluentWait(getDriver(),addShippingAddressBtn);
+            waitForWebElementAndClick(addShippingAddressBtn);
+            retryingFindClick(addShippingAddressBtn);
+            boolean result= modalShippingAddress.isDisplayed();
+            Assert.assertTrue(result);
 
+        }
+        catch (Exception e){
+            wait(4);
+            fluentWait(getDriver(),addShippingAddressBtn);
+            waitForWebElementAndClick(addShippingAddressBtn);
+        }
+    }
 
 
     public void selectMinusButton() {
