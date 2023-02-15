@@ -24,6 +24,7 @@ public class BrowseSteps extends BasePage {
 
     @And("I go to Browse Page")
     public void iGoToBrowsePage() {
+        getHomePage();
         _page.headerBrowse();
     }
 
@@ -82,6 +83,7 @@ public class BrowseSteps extends BasePage {
 
     @Then("I validate the Browse Section")
     public void iValidateTheBrowseSection() {
+        _page.validateBrowseSection();
     }
 
     //Request

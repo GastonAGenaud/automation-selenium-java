@@ -70,6 +70,7 @@ public class listingdetailsSteps extends BasePage {
 
     @Then("I see that it redirects me to the chat page again")
     public void iSeeThatItRedirectsMeToTheChatPageAgain() {
+        wait(10);
         Assert.assertEquals(_page.sellerMessageConfirm(), true);
 
     }

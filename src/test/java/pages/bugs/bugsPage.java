@@ -117,7 +117,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnAddToCart")
     public WebElement addToCartBtn;
 
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/form/div[1]/div/div[2]/div[2]/div/div[1]/a")
+    @FindBy(how =How.CSS, using = "#item-4891 > div > div.row > div:nth-child(2) > div > div.col-lg-6 > a")
     public WebElement addShippingAddressBtn;
 
     @FindBy(how = How.CSS, using = "#readed-holder > div:nth-child(1)")
@@ -901,10 +901,20 @@ public class bugsPage extends BasePage {
 
     public void selectAddShippingAddress() {
         getDriver().get(url + "/order/ShoppingCart");
-        waitForVisibility(addShippingAddressBtn);
-        waitForClickability(addShippingAddressBtn);
-        fluentWait(getDriver(), addShippingAddressBtn);
-        waitForWebElementAndClick(addShippingAddressBtn);
+
+        try {
+            waitForVisibility(addShippingAddressBtn);
+            waitForClickability(addShippingAddressBtn);
+            fluentWait(getDriver(), addShippingAddressBtn);
+            waitForWebElementAndClick(addShippingAddressBtn);
+        } catch (Exception e) {
+            wait(5);
+            waitForVisibility(addShippingAddressBtn);
+            waitForClickability(addShippingAddressBtn);
+            fluentWait(getDriver(), addShippingAddressBtn);
+            waitForWebElementAndClick(addShippingAddressBtn);
+        }
+
     }
 
     public void goToItemBUG() {
@@ -912,11 +922,19 @@ public class bugsPage extends BasePage {
     }
 
     public void selectAddToCartBUG() {
-        waitForVisibility(addToCartBtn);
-        waitForClickability(addToCartBtn);
-
-        fluentWait(getDriver(), addToCartBtn);
-        waitForWebElementAndClick(addToCartBtn);
+        try {
+            waitForVisibility(addToCartBtn);
+            waitForClickability(addToCartBtn);
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+            retryingFindClick(addToCartBtn);
+        } catch (Exception e) {
+            wait(5);
+            waitForVisibility(addToCartBtn);
+            waitForClickability(addToCartBtn);
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+        }
     }
 
     public void selectCartIconBUG() {
