@@ -13,6 +13,7 @@ public class listingPage extends BasePage {
     public listingPage() {
         super();
     }
+
     Actions actions = new Actions(getDriver());
 
 
@@ -162,7 +163,7 @@ public class listingPage extends BasePage {
         fluentWait(getDriver(), departmentMenOption);
         waitForWebElementAndClick(departmentMenOption);
 
-        
+
     }
 
     public void setDepartmentTab() {
@@ -173,7 +174,7 @@ public class listingPage extends BasePage {
         departmentTab.sendKeys(Keys.ENTER);
     }
 
-    public void sizeTextField(){
+    public void sizeTextField() {
         fluentWait(getDriver(), sizeText);
         waitForWebElementAndClick(sizeText);
         sizeText.sendKeys("3");
@@ -181,7 +182,7 @@ public class listingPage extends BasePage {
 
 
     public void setGotoDetailsButton() {
-        fluentWait(getDriver(),gotoDetailsButton);
+        fluentWait(getDriver(), gotoDetailsButton);
         waitForWebElementAndClick(gotoDetailsButton);
     }
 
@@ -191,10 +192,12 @@ public class listingPage extends BasePage {
         return result;
     }
 
+
     public void setListingPublishBtn() {
         fluentWait(getDriver(), listingPublishBtn);
         waitForWebElementAndClick(listingPublishBtn);
-        
+        retryingFindClick(listingPublishBtn);
+
     }
 
 
@@ -355,9 +358,9 @@ public class listingPage extends BasePage {
     }
 
     public void USPSHeight() {
-        fluentWait(getDriver(),USPSHeightTextField );
+        fluentWait(getDriver(), USPSHeightTextField);
         waitForWebElementAndClick(USPSHeightTextField);
-        fluentWait(getDriver(),USPSHeightTextField );
+        fluentWait(getDriver(), USPSHeightTextField);
         USPSHeightTextField.sendKeys("10");
     }
 

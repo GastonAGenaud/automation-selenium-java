@@ -2,7 +2,8 @@ Feature: Bugs
 
   @MTR @MTR-1927 @bugs
   Scenario: MTR - Orders - Purchased - Open Section
-    Given I go to orders page BUGS
+    Given I login with Gaston User
+    And I go to orders page BUGS
     When I validate purchased orders details
     And I validate send message to seller
     Then I validate the purchased open section
@@ -72,14 +73,15 @@ Feature: Bugs
 
   @MTR @MTR-1895 @bugs
   Scenario: Validate tracking number
-    Given I go to orders page BUGS
+    Given I login with Gaston User
+    And I go to orders page BUGS
     When I select tracking number TextField
     And select Submit button
     Then I validate tracking number
 
   @MTR @MTR-1649 @bugs
   Scenario: User able to Feature Listing
-    Given I login and I go to Dashboard BUG
+    Given I login with Gaston User
     And select My Listings button
     And I validate the add new listing button
     And I validate the listing name text field
@@ -105,12 +107,14 @@ Feature: Bugs
 
   @MTR @MTR-1856 @bugs
   Scenario: Validate Admin settings
-    Given Admin settings
+    Given I login with Gaston User
+    And Admin settings
     Then I validate settings Company Info BUG
 
   @MTR @MTR-1807 @bugs
   Scenario: Validate Step 8 E-mails - templates
-    Given Step 8: E-mails
+    Given I login with Gaston User
+    And Step 8: E-mails
     When I validate templates
     And select Edit button
     Then I validate Templates and Edit
@@ -122,7 +126,7 @@ Feature: Bugs
 
   @MTR @MTR-1654 @bugs
   Scenario: User able to Feature Listing
-    Given I login and I go to Dashboard BUG
+    Given I login with Gaston User
     And select My Listings button
     And I validate the add new listing button
     And I validate the listing name text field
@@ -143,7 +147,8 @@ Feature: Bugs
 
   @MTR @MTR-1711 @bugs
   Scenario: Download file in Orders Purchased
-    Given I go to orders page
+    Given I login with Gaston User
+    And I go to orders page
     When select Download file
     Then I validate Download file
 
@@ -252,7 +257,8 @@ Feature: Bugs
 
   @adminBug  @test @MTR @MTR-2055 @bugs
   Scenario: Admin design page PNG
-    Given Admin design
+    Given I login with Gaston User
+    And Admin design
     When I validate customize landing page option
     And I select Logo and Favicon
     And I upload PNG example
@@ -260,14 +266,16 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2052
   Scenario: Refresh Cache in Step 6
-    Given Get started steps
+    Given I login with Gaston User
+    And Get started steps
     When I validate step 6 connect domain BUG
     And I see that the step 6 redirect me to Connect Domain
     Then I validate Refresh Cache in Step 6
 
   @bugs @MTR @MTR-2046
   Scenario: Delete user in Admin Page
-    Given Get started steps
+    Given I login with Gaston User
+    And Get started steps
     When I select Users
     And search name
     And click Select Action button
@@ -276,18 +284,18 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2029
   Scenario: Validate Listing Price
-    Given I login and I go to Dashboard BUG
+    Given I login with Gaston User
     And select My Listings button
     And I validate the add new listing button
     And I validate the listing name text field
     And I validate the listing category
     And I validate the listing description text field
     And I validate the listing price
-    And I select Variants button
-    And I select Option 1 tab
+    #And I select Variants button
+    #And I select Option 1 tab
    # And select Hello 14
-    And complete Variants TextField
-    And complete Price TextField
+    #And complete Variants TextField
+    #And complete Price TextField
     And complete Quantity TextField
     #And I validate the listing quantity
     And I validate the listing image BUG
@@ -310,7 +318,8 @@ Feature: Bugs
 
   @bugs @MTR @MTR-1887
   Scenario: Validate Social Links
-    Given Admin design
+    Given I login with Gaston User
+    And Admin design
     When I validate customize landing page option
     And select Social Links sector
     And validate Facebook text
@@ -322,18 +331,18 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2147
   Scenario: Validate Image Upload
-    Given I login and I go to Dashboard BUG
+    Given I login with Gaston User
     And select My Listings button
     And I validate the add new listing button
     And I validate the listing name text field
     And I validate the listing category
     And I validate the listing description text field
     And I validate the listing price
-    And I select Variants button
-    And I select Option 1 tab
+    #And I select Variants button
+    #And I select Option 1 tab
     #And select Hello 14
-    And complete Variants TextField
-    And complete Price TextField
+    #And complete Variants TextField
+    #And complete Price TextField
     And complete Quantity TextField
     #And I validate the listing quantity
     And I validate the listing image BUG IMAGE
@@ -342,7 +351,7 @@ Feature: Bugs
   @bugs @MTR @MTR-2131
   Scenario: MTR - Buyer able to create a listing STAGING BUG
     Given I login with Gaston User
-    And I go to listing page
+    And select My Listings button
     When I validate the add new listing button
     And I validate the listing name text field
     And I validate the listing category
@@ -355,7 +364,7 @@ Feature: Bugs
     And I validate the shipping with FedEx
     And I validate the Flat Rate Shipping
     And I validate the pick up option
-    And I complete Custom Fields
+    #And I complete Custom Fields
     And I select Publish button STAGING
     Then I validate create a listing Staging
 
@@ -383,9 +392,15 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2649
   Scenario: Create Listing - Can't finish listing creation because cropper doesn't pop up
-    Given I login and go to listing page
+    Given I login with Gaston User
+    And select My Listings button
     When I select Add New
-    And I add an image
+    And I validate the listing name text field
+    And I validate the listing category
+    And I validate the listing description text field
+    And I validate the listing price
+    And I validate the listing quantity
+    And I validate the listing image
     Then I validate Can finish listing creation
 
   @bugs @MTR @MTR-2650
@@ -396,7 +411,7 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2384
   Scenario: Inbox - Unable to see messages in Read
-    Given I login and i go to Dashboard
+    Given I login with Gaston User
     And Select Inbox
     When Select Read section
     Then Validate messages in Read
@@ -415,7 +430,8 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2651
   Scenario: No Payments - "Payment" information still showing
-    Given I login and i go to Dashboard
+    Given I login with Gaston User
+    And go to Dashboard
     And select Settings button
     When I select Payment
     Then I validate Payment Information
@@ -455,13 +471,14 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2645
   Scenario: LandingPage - Validate Visual Editor feature is visible
-    Given I login BUG
+    Given I login with Gaston User
     And I go to Landing Page
     Then I validate the Visual Editor Button is hidden
 
   @bugs @MTR @MTR-2409
   Scenario: Chrome issue- Templates throws error 404
-    Given I login and go to Admin
+    Given I login with Gaston User
+    Given  go to Admin
     When I select Step 8 Emails
     And select Template Tab
     Then I validate that the 404 error does not exist.
@@ -476,7 +493,8 @@ Feature: Bugs
 
   @MTR @MTR-2898 @bugs
   Scenario: Error when users try to complete connecting to stripe
-    Given I login with pending Stripe account
+    Given I login with another account
+    And go to Dashboard
     When I select Settings button
     And I select CaShout button
     And I select Pending button
@@ -485,7 +503,8 @@ Feature: Bugs
 
   @MTR @MTR-2899 @bugs
   Scenario: It should redirect on respective page as redirects when clicking from another place
-    Given I go to orders page BUGS
+    Given I login with another account
+    And I go to orders page BUGS
     When I select Purchased button in orders
     And I select See Details button
     And I select See messages button

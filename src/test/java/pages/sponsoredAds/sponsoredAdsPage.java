@@ -175,6 +175,7 @@ public class sponsoredAdsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
     public void addAnImage() {
+        fluentWait(getDriver(),addImageBtn);
         addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
     }
 
