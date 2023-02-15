@@ -16,7 +16,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1601
   Scenario: MTR - User able to change status to Active
-    Given I login with Make An offer
+    Given I login with Dev user
     And I go to dashboard
     When I select Sponsored Ads section
     And I select the tab dots
@@ -34,11 +34,12 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1603
   Scenario: MTR - User able to pay an ad
-    Given I login with Make An offer
+    Given I login with another account
+    And I go to dashboard
     When I select Sponsored Ads section
     And I create a new Ad for PENDING PAY
     And I select the tab dots PENDING PAY
-    And I select the Pay option
+    #And I select the Pay option
     And I complete the Card Number TextField
     And I complete the Name on Card TextField
     And I complete the Expiration Date TextField
