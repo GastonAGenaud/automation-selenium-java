@@ -29,7 +29,7 @@ public class ordersSteps extends BasePage {
     @And("I go to orders page")
     public void iGoToOrdersPage() {
         _page.goToOrders();
-        _page.selectSoldBtn();
+        _page.ordersPurchasedButton();
 
     }
 

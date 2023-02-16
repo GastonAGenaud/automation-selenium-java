@@ -218,12 +218,11 @@ public class requestPage extends BasePage {
     }
 
     public void requestSearchText() {
-        fluentWaitStrict(getDriver(), requestSearchTextField);
+        fluentWait(getDriver(), requestSearchTextField);
         waitForWebElementAndClick(requestSearchTextField);
-
         requestSearchTextField.sendKeys("test");
         waitForWebElementAndClick(requestSearchTextField);
-//        requestSearchTextField.clear();
+        requestSearchTextField.clear();
     }
 
     public void filterAccessories() {

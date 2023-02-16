@@ -1,7 +1,7 @@
-# lamansys-selenium-java
+# trick-selenium-java
 # Spanish version
 
-Selenium test automation for lamansys.
+Selenium test automation for trick.
 
 Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags @ebay y @gmail, puedes seguir los siguientes pasos:
 
@@ -45,7 +45,7 @@ En cuanto a las dependencias del proyecto:
 ___
 # English version
 
-Selenium test automation for lamansys.
+Selenium test automation for trick.
 
 To run the Runner.java file and execute the test cases marked with the @ebay and @gmail tags, you can follow the steps below:
 

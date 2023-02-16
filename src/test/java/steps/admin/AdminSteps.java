@@ -266,7 +266,7 @@ public class AdminSteps extends BasePage {
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.createCustomFields();
-        //_page.getCloseChat();
+        _page.getCloseChat();
     }
 
     @When("I validate the hide button")
@@ -428,7 +428,7 @@ public class AdminSteps extends BasePage {
         Assert.assertEquals(true, _page.emailConfirm());
     }
 
-    @Given("Step 8: E-mails")
+    @And("Step 8: E-mails")
     public void stepEMails() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.goToAdminPanel();
@@ -486,7 +486,7 @@ public class AdminSteps extends BasePage {
 
     //Design  STEPS
 
-    @Given("Admin design")
+    @And("Admin design")
     public void adminDesign() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.goToAdminPanel();
@@ -562,7 +562,7 @@ public class AdminSteps extends BasePage {
     }
     //Settings
 
-    @Given("Admin settings")
+    @And("Admin settings")
     public void adminSettings() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.goToAdminPanel();

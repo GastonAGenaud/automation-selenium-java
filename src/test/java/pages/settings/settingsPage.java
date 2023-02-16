@@ -49,7 +49,8 @@ public class settingsPage extends BasePage {
     public WebElement passwordInformation;
     @FindBy(how = How.CSS, using = "#address > h5")
     public WebElement addressesInformation;
-
+    @FindBy(how = How.CSS, using = "#creditCards > h5")
+    public WebElement validatePaymentText;
 
     public String settingsConfirm() {
         String result = settingsInformation.getText();
@@ -106,8 +107,16 @@ public class settingsPage extends BasePage {
     }
 
     public void selectPayment() {
-        fluentWait(getDriver(), paymentBtn);
-        waitForWebElementAndClick(paymentBtn);
+        try {
+            fluentWait(getDriver(), paymentBtn);
+            waitForWebElementAndClick(paymentBtn);
+            fluentWait(getDriver(), validatePaymentText);
+
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), validatePaymentText);
+        }
+
     }
 
     public void selectCashOut() {
