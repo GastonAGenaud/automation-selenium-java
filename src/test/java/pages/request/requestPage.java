@@ -218,11 +218,12 @@ public class requestPage extends BasePage {
     }
 
     public void requestSearchText() {
-        fluentWait(getDriver(), requestSearchTextField);
+        fluentWaitStrict(getDriver(), requestSearchTextField);
         waitForWebElementAndClick(requestSearchTextField);
+
         requestSearchTextField.sendKeys("test");
         waitForWebElementAndClick(requestSearchTextField);
-        requestSearchTextField.clear();
+//        requestSearchTextField.clear();
     }
 
     public void filterAccessories() {
@@ -555,7 +556,7 @@ public class requestPage extends BasePage {
     }
 
     public void sortByDropdown() {
-        fluentWait(getDriver(), requestsSortByMenuBtn);
+        fluentWaitStrict(getDriver(), requestsSortByMenuBtn);
         actions.moveToElement(requestsSortByMenuBtn).perform();
     }
 
@@ -567,7 +568,7 @@ public class requestPage extends BasePage {
 
     public void sortOldToNewest() {
         sortByDropdown();
-        fluentWait(getDriver(), requestsSortOldToNewestBtn);
+        fluentWaitStrict(getDriver(), requestsSortOldToNewestBtn);
         waitForWebElementAndClick(requestsSortOldToNewestBtn);
     }
 
@@ -603,6 +604,7 @@ public class requestPage extends BasePage {
 
 
     public String validateCreateRequestDashboard() {
+        fluentWait(getDriver(),validateRequestDashboard);
         String result = validateRequestDashboard.getText();
         return result;
     }

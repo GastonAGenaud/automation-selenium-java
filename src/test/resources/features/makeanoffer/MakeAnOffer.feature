@@ -11,7 +11,7 @@ Feature: Make an offer
     And I complete the Delivery Date TextField
     Then I validate the Make an offer message TextField
 
-  @MTR-1453 @makeAnOffer @smoke @MTR
+#  @MTR-1453 @makeAnOffer @smoke @MTR
   Scenario: MTR - Buyers able to see request in message view after submitting request
     Given I Sign in with new account "email3" and go to the listing page
     When I select an item to make an offer

@@ -229,7 +229,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToSecureCheckout() {
-        fluentWait(getDriver(), goToSecureCheckoutBtn);
+        fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
         waitForWebElementAndClick(goToSecureCheckoutBtn);
     }
 

@@ -132,6 +132,8 @@ public class makeAnOfferPage extends BasePage {
         whereAreYou.sendKeys("test");
         fluentWait(getDriver(), submitBtn);
         waitForWebElementAndClick(submitBtn);
+        retryingFindClick(submitBtn);
+
     }
 
     public void nextButton() {
@@ -143,7 +145,6 @@ public class makeAnOfferPage extends BasePage {
         fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
         fluentWait(getDriver(), imSellerBtn);
         waitForWebElementAndClick(imSellerBtn);
-        wait(4);
     }
 
     public void setWelcomeClose() {
@@ -281,7 +282,7 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public boolean offerChatVerify() {
-        fluentWait(getDriver(), chatVerify);
+        fluentWaitStrict(getDriver(), chatVerify);
         boolean result = chatVerify.isDisplayed();
         return result;
     }

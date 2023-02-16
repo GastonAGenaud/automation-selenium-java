@@ -96,7 +96,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement itemImage;
     @FindBy(how = How.CSS, using = "#listingDetailPriceContainer > p")
     public WebElement priceText;
-    @FindBy(how = How.CSS, using = "#go-checkout")
+    @FindBy(how = How.CSS, using = "#shopping-cart-mobile > a")
     public WebElement shoppingCartButton;
     @FindBy(how = How.CSS, using = "#searchButton")
     public WebElement browseSearchBtn;
@@ -217,7 +217,7 @@ public class listingdetailsPage extends BasePage {
     }
 
     public boolean sellerMessageConfirm() {
-        fluentWait(getDriver(), sellerMessage);
+        fluentWaitStrict(getDriver(), sellerMessage);
         boolean result = sellerMessage.isDisplayed();
         return result;
     }
@@ -240,6 +240,7 @@ public class listingdetailsPage extends BasePage {
     }
 
     public boolean shoppingCartConfirm() {
+        fluentWait(getDriver(), shoppingCartButton);
         boolean result = shoppingCartButton.isDisplayed();
         return result;
     }
@@ -296,7 +297,6 @@ public class listingdetailsPage extends BasePage {
     public void iSelectBuyNow() {
         fluentWaitStrict(getDriver(), buyNowBtn);
         waitForWebElementAndClick(buyNowBtn);
-        retryingFindClick(buyNowBtn);
     }
 
     public void iSelectAddToCart() {
@@ -327,10 +327,10 @@ public class listingdetailsPage extends BasePage {
         proposedPriceTextField.sendKeys("10");
         fluentWait(getDriver(), deliveryDate);
         waitForWebElementAndClick(deliveryDate);
-        deliveryDate.sendKeys("10102023");
+        deliveryDate.sendKeys("10-10-2023");
+
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("document.querySelector('#offer-submit').click();");
-        wait(10);
     }
 
 

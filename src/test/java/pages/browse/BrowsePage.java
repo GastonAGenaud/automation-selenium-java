@@ -182,7 +182,7 @@ public class BrowsePage extends BasePage {
 
 
     public void browseClearFilters() {
-        fluentWait(getDriver(), browseClearFilters);
+        fluentWaitStrict(getDriver(), browseClearFilters);
         waitForWebElementAndClick(browseClearFilters);
     }
 

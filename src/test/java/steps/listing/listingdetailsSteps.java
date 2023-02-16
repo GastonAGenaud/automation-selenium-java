@@ -70,7 +70,6 @@ public class listingdetailsSteps extends BasePage {
 
     @Then("I see that it redirects me to the chat page again")
     public void iSeeThatItRedirectsMeToTheChatPageAgain() {
-        wait(10);
         Assert.assertEquals(_page.sellerMessageConfirm(), true);
 
     }
@@ -105,7 +104,6 @@ public class listingdetailsSteps extends BasePage {
 
     @Then("I see that it redirects me to the shopping cart page")
     public void iSeeThatItRedirectsMeToTheShoppingCartPage() {
-        wait(5);
         Assert.assertEquals(true, _page.shoppingCartConfirm());
     }
 
