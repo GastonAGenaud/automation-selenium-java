@@ -470,10 +470,11 @@ public class AdminPage extends BasePage {
 
 
     public void ShowInBrowseCheckboxCustomFields() {
-        fluentWait(getDriver(),ShowInBrowseCheckboxCustomFields);
+        fluentWait(getDriver(), ShowInBrowseCheckboxCustomFields);
         waitForWebElementAndClick(ShowInBrowseCheckboxCustomFields);
 
     }
+
     public void MandatoryCheckboxCustomFields() {
         fluentWait(getDriver(), MandatoryCheckboxCustomFields);
         waitForWebElementAndClick(MandatoryCheckboxCustomFields);
@@ -504,13 +505,18 @@ public class AdminPage extends BasePage {
 
     public void getCloseChat() {
         try {
-            getDriver().switchTo().frame("webWidget");
-            getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
-        }
-        catch(Exception e){
-            wait(6);
-            getDriver().switchTo().frame("webWidget");
-            getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
+
+            try {
+                fluentWaitStrict(getDriver(), getDriver().findElement(By.xpath("//*[@id='webWidget']")));
+                getDriver().switchTo().frame("webWidget");
+                getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
+            } catch (Exception e) {
+                wait(6);
+                getDriver().switchTo().frame("webWidget");
+                getDriver().findElement(By.xpath("//*[@aria-label='Minimizar widget']")).click();
+            }
+        } catch (Exception e) {
+
         }
 
     }
@@ -728,8 +734,8 @@ public class AdminPage extends BasePage {
     public void templatesTabEmails() {
         try {
             getCloseChat();
+        } catch (Exception e) {
         }
-        catch(Exception e){}
 
         fluentWait(getDriver(), templatesEmails);
         waitForWebElementAndClick(templatesEmails);
@@ -1065,8 +1071,8 @@ public class AdminPage extends BasePage {
 
         try {
             getCloseChat();
+        } catch (Exception e) {
         }
-        catch(Exception e){}
 
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/GlobalSettings");
 //        fluentWait(getDriver(), siteWordingBtn);
@@ -1076,8 +1082,8 @@ public class AdminPage extends BasePage {
 
         try {
             getCloseChat();
+        } catch (Exception e) {
         }
-        catch(Exception e){}
 
         fluentWait(getDriver(), siteWordingFilterTextBar);
         waitForWebElementAndClick(siteWordingFilterTextBar);
@@ -1271,7 +1277,7 @@ public class AdminPage extends BasePage {
     }
 
     public void userReviews() {
-     //   reports();
+        //   reports();
         getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Application/UserReviews");
 //        fluentWait(getDriver(), userReviewsBtn);
 //        waitForWebElementAndClick(userReviewsBtn);

@@ -207,7 +207,7 @@ public class bugsSteps extends BasePage {
     @And("I add an Address BUGS")
     public void iAddAnAddressBUGS() {
 
-        _page.selectAddShippingAddress();
+        //_page.selectAddShippingAddress();
         _page.selectPreviousAddress();
     }
 

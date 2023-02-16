@@ -46,7 +46,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts")
     public WebElement successMessage;
 
-    @FindBy(xpath = "/html/body/div[3]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th")
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
     public WebElement flatRateButton;
 
     @FindBy(how = How.CSS, using = "#listings-tab > span > span:nth-child(1)")
@@ -127,6 +127,8 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#address-2087")
     public WebElement reUseAddressBtn;
+    @FindBy(how = How.CSS,using = "#address-2851 > div")
+    public WebElement reUseAddressTwoBtn;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
     public WebElement inboxAboutText;
@@ -911,10 +913,10 @@ public class bugsPage extends BasePage {
 
     public void selectPreviousAddress() {
 
-        waitForVisibility(reUseAddressBtn);
-        waitForClickability(reUseAddressBtn);
-        fluentWait(getDriver(), reUseAddressBtn);
-        waitForWebElementAndClick(reUseAddressBtn);
+        waitForVisibility(reUseAddressTwoBtn);
+        waitForClickability(reUseAddressTwoBtn);
+        fluentWait(getDriver(), reUseAddressTwoBtn);
+        waitForWebElementAndClick(reUseAddressTwoBtn);
     }
 
     public void selectAddShippingAddress() {
@@ -970,8 +972,16 @@ public class bugsPage extends BasePage {
     public void ordersPurchasedButton() {
         // goToOrders();
 
-        fluentWait(getDriver(), ordersPurchasedBtn);
-        waitForWebElementAndClick(ordersPurchasedBtn);
+       try {
+           fluentWait(getDriver(), ordersPurchasedBtn);
+           waitForWebElementAndClick(ordersPurchasedBtn);
+           fluentWait(getDriver(), SeeDetails);
+       }catch (Exception e) {
+           wait(3);
+           fluentWait(getDriver(), ordersPurchasedBtn);
+           waitForWebElementAndClick(ordersPurchasedBtn);
+       }
+
     }
 
     public void downloadFileButton() {
@@ -1183,7 +1193,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#hv-root > div > div > main > div.db-ConsumerUIWrapper-left > div.db-ConsumerUIWrapper-left--sidebarCopy > span")
     public WebElement VerificationForm;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/a")
+    @FindBy(how =How.CSS,using = "#transaction-4977 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
     public WebElement SeeDetails;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -1278,20 +1288,27 @@ public class bugsPage extends BasePage {
     }
 
     public void SeeDetails() {
-        //actions.moveToElement(SeeDetails).build().perform();
-        fluentWait(getDriver(), SeeDetails);
-        waitForWebElementAndClick(SeeDetails);
+       try {
+           //actions.moveToElement(SeeDetails).build().perform();
+           fluentWaitStrict(getDriver(), SeeDetails);
+           waitForWebElementAndClick(SeeDetails);
+       }
+        catch (Exception e){
+           wait(3);
+            //actions.moveToElement(SeeDetails).build().perform();
+            fluentWaitStrict(getDriver(), SeeDetails);
+            waitForWebElementAndClick(SeeDetails);
+        }
     }
 
     public void SeeMesSages() {
         try {
-            actions.moveToElement(SeeMesSages).build().perform();
-            fluentWait(getDriver(), SeeMesSages);
+            fluentWaitStrict(getDriver(), SeeMesSages);
             waitForWebElementAndClick(SeeMesSages);
         } catch (Exception e) {
-            wait(3);
+            wait(4);
             actions.moveToElement(SeeMesSages).build().perform();
-            fluentWait(getDriver(), SeeMesSages);
+            fluentWaitStrict(getDriver(), SeeMesSages);
             waitForWebElementAndClick(SeeMesSages);
         }
 

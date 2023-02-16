@@ -107,7 +107,7 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#buyer > div > div:nth-child(3) > div.card.card-dashboard.mb-3.mb-lg-0.min-h-12 > div > div > a")
     public WebElement requestDashboardCreateARequestBtn;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/a/span")
+    @FindBy(how =How.CSS, using = "#created-tab > span > span:nth-child(1)")
     public WebElement requestsCreatedByMeBtn;
 
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > a.cl-primary.fz-13.mx-2.a_hover")
@@ -123,11 +123,11 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(5)")
     public WebElement requestsDeleteBtn;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div/div[1]/div[2]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div/a")
     public WebElement requestsMatchedDetailsBtn;
     @FindBy(how = How.CSS, using = "#matched-open-items > div > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > button")
     public WebElement requestsMatchedMenuBtn;
-    @FindBy(how = How.CSS, using = "#btn-apply")
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[2]/div[4]/div/button")
     public WebElement requestsMatchedApplyBtn;
     @FindBy(how = How.CSS, using = "#matched-open-items > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(2)")
     public WebElement requestsMatchedCloseBtn;
@@ -487,12 +487,31 @@ public class requestPage extends BasePage {
 
     public void matchedDetails() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
+        //fluentWait(getDriver(), requestsCreatedByMeBtn);
+        //waitForWebElementAndClick(requestsCreatedByMeBtn);
+       // retryingFindClick(requestsCreatedByMeBtn);
+        try {
+            fluentWait(getDriver(), requestsCreatedByMeBtn);
+            waitForWebElementAndClick(requestsCreatedByMeBtn);
+            fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+        }
+        catch (Exception e){
+            getDriver().navigate().refresh();
+            wait(2);
+            fluentWait(getDriver(), requestsCreatedByMeBtn);
+            waitForWebElementAndClick(requestsCreatedByMeBtn);
+            retryingFindClick(requestsCreatedByMeBtn);
+        }
+       try {
+           fluentWait(getDriver(), requestsMatchedDetailsBtn);
+           actions.moveToElement(requestsMatchedDetailsBtn);
+           waitForWebElementAndClick(requestsMatchedDetailsBtn);
+       }catch (Exception e){
+           wait(4);
+           fluentWait(getDriver(), requestsMatchedDetailsBtn);
+           waitForWebElementAndClick(requestsMatchedDetailsBtn);
+       }
 
-        fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
-        actions.moveToElement(requestsMatchedDetailsBtn);
-        waitForWebElementAndClick(requestsMatchedDetailsBtn);
     }
 
     public void requestsMatchedMenu() {
@@ -505,11 +524,22 @@ public class requestPage extends BasePage {
 
     public void requestsMatchedApply() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
+
+        try {
+            fluentWait(getDriver(), requestsCreatedByMeBtn);
+            waitForWebElementAndClick(requestsCreatedByMeBtn);
+            fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+        }
+        catch (Exception e){
+            getDriver().navigate().refresh();
+            wait(2);
+            fluentWait(getDriver(), requestsCreatedByMeBtn);
+            waitForWebElementAndClick(requestsCreatedByMeBtn);
+        }
 
         fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
         waitForWebElementAndClick(requestsMatchedDetailsBtn);
+
 
         fluentWait(getDriver(), requestsMatchedApplyBtn);
         waitForWebElementAndClick(requestsMatchedApplyBtn);

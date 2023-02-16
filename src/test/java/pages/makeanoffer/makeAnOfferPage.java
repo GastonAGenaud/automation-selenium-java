@@ -45,7 +45,7 @@ public class makeAnOfferPage extends BasePage {
     @FindBy(how = How.CSS, using = "#deliver-date")
     public WebElement deliverDateTextField;
 
-    @FindBy(xpath = "/html/body/div[3]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
+    @FindBy(xpath = "/html/body/div[4]/main/div[6]/div/div/div/div[3]/div[3]/div/button")
     public WebElement makeAnOfferSendBtn;
 
     @FindBy(how = How.CSS, using = "#wants-header-text-customize")
@@ -140,10 +140,17 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void imSellerButton() {
-        fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
-        fluentWait(getDriver(), imSellerBtn);
-        waitForWebElementAndClick(imSellerBtn);
-        wait(4);
+        try {
+            actions.moveToElement(errorMessageSignUp).build().perform();
+            fluentWaitElementDisappears(getDriver(), errorMessageSignUp);
+            fluentWait(getDriver(), imSellerBtn);
+            waitForWebElementAndClick(imSellerBtn);
+        } catch (Exception e) {
+            wait(4);
+            fluentWait(getDriver(), imSellerBtn);
+            waitForWebElementAndClick(imSellerBtn);
+            retryingFindClick(imSellerBtn);
+        }
     }
 
     public void setWelcomeClose() {
@@ -178,8 +185,16 @@ public class makeAnOfferPage extends BasePage {
 
     public void selectMakeAnOfferBtn() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), makeAnOfferBtn);
-        waitForWebElementAndClick(makeAnOfferBtn);
+       try {
+           fluentWait(getDriver(), makeAnOfferBtn);
+           waitForWebElementAndClick(makeAnOfferBtn);
+           fluentWait(getDriver(), makeAnOfferMessageTextField);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(), makeAnOfferBtn);
+           waitForWebElementAndClick(makeAnOfferBtn);
+       }
+
     }
 
     public void selectMakeAnOfferMessageTextField() {
@@ -212,9 +227,21 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void selectMakeAnOfferSendButton() {
-        actions.moveToElement(makeAnOfferSendBtn);
-        fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
-        waitForWebElementAndClick(makeAnOfferSendBtn);
+        try {
+            actions.moveToElement(makeAnOfferSendBtn);
+            fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
+            waitForWebElementAndClick(makeAnOfferSendBtn);
+            waitForWebElementAndClick(makeAnOfferSendBtn);
+            waitForWebElementAndClick(makeAnOfferSendBtn);
+            retryingFindClick(makeAnOfferSendBtn);
+            fluentWait(getDriver(), chatVerify);
+        }catch(Exception e){
+            wait(3);
+            fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
+            waitForWebElementAndClick(makeAnOfferSendBtn);
+            retryingFindClick(makeAnOfferSendBtn);
+        }
+
 //        while(makeAnOfferSendBtn.isDisplayed()){
 //            //waitForWebElementAndClick(makeAnOfferSendBtn);
 //            try{

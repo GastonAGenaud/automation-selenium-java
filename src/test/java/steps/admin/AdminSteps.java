@@ -266,7 +266,7 @@ public class AdminSteps extends BasePage {
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.createCustomFields();
-        //_page.getCloseChat();
+        _page.getCloseChat();
     }
 
     @When("I validate the hide button")

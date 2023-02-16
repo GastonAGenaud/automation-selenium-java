@@ -503,7 +503,7 @@ Feature: Bugs
 
   @MTR @MTR-2899 @bugs
   Scenario: It should redirect on respective page as redirects when clicking from another place
-    Given I login with another account
+    Given I login with Gaston User
     And I go to orders page BUGS
     When I select Purchased button in orders
     And I select See Details button
