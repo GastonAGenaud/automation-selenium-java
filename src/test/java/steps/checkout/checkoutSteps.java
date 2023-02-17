@@ -134,7 +134,7 @@ public class checkoutSteps extends BasePage {
         _page.shippingAddressTextValidate();
         _page.selectAddShippingAddress();
         _page.selectPreviousAddress();
-        _page.selectFlatRate();
+       // _page.selectFlatRate();
 
     }
 

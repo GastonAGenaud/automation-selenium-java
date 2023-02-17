@@ -42,6 +42,8 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement adsLinkSector;
     @FindBy(how = How.CSS, using = "#img-0")
     public WebElement addImageBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div[3]/div/div/form/div/div[4]/div/label/img")
+    public WebElement addImageSponsoredAdsBtn;
     @FindBy(how = How.CSS, using = "#start-date")
     public WebElement startDateSector;
     @FindBy(how = How.CSS, using = "#end-date")
@@ -100,7 +102,7 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[3]/main/div[2]/form/div/div[3]/div[1]/div[1]/div/span")
     public WebElement validationPrice;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/div/a[1]")
     public WebElement tabEdit;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
@@ -118,7 +120,7 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
     public WebElement tabReactivate;
 
-    public boolean validateReactivateTextMessage(){
+    public boolean validateReactivateTextMessage() {
         fluentWait(getDriver(), validateReactivateMessage);
         boolean result = validateReactivateMessage.isDisplayed();
         return result;
@@ -198,8 +200,14 @@ public class sponsoredAdsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
     public void addAnImage() {
-        fluentWait(getDriver(),addImageBtn);
-        addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
+        try {
+            fluentWait(getDriver(), addImageBtn);
+            addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
+        } catch (Exception e) {
+            wait(3);
+            addImageBtn.sendKeys(EV_RESULT_FILE_PATH);
+        }
+
     }
 
 
@@ -252,7 +260,7 @@ public class sponsoredAdsPage extends BasePage {
 //        }
 //    }
 
-    public void iSelectTabDotsONE(){
+    public void iSelectTabDotsONE() {
         fluentWait(getDriver(), tabReactivate);
         waitForWebElementAndClick(tabReactivate);
 

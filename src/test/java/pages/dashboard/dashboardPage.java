@@ -75,7 +75,8 @@ public class dashboardPage extends BasePage {
         getDriver().navigate().to(url);
     }
 
-    public void goToDashboard() {getDriver().navigate().to(url + "/dashboard");
+    public void goToDashboard() {
+        getDriver().navigate().to(url + "/dashboard");
     }
 
     public void mySettings() {
@@ -88,7 +89,14 @@ public class dashboardPage extends BasePage {
     }
 
     public void buyersMyOrders() {
-        waitForWebElementAndClick(myOrdersBtn);
+        try {
+            waitForWebElementAndClick(myOrdersBtn);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), myOrdersBtn);
+            waitForWebElementAndClick(myOrdersBtn);
+        }
+
     }
 
     public void buyersMessage() {
