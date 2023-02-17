@@ -66,7 +66,7 @@ public class makeAnOfferPage extends BasePage {
     @FindBy(how = How.CSS, using = "#signup-button")
     public WebElement signUpBtn;
 
-    @FindBy(how = How.CSS, using = "#dashboard > div > div > div:nth-child(2) > div.card-header.pb-3.px-0 > h5 > a > span")
+    @FindBy(how = How.CSS, using = "#rowchat-container > section.d-none.d-lg-block.col-lg-3 > div")
     public WebElement chatVerify;
     @FindBy(how = How.CSS, using = "#welcome > div > div > div > button")
     public WebElement welcomeClose;
@@ -96,6 +96,28 @@ public class makeAnOfferPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#submit-button")
     public WebElement submitBtn;
+
+    @FindBy(how = How.CSS, using = "#RXJyb3JQbGVhc2UlMjByZW1vdmUlMjBhbnklMjBzcGVjaWFsJTIwY2hhcmFjdGVycyUyMGZyb20lMjB5b3VyJTIwdXNlcm5hbWUucmVk > div.iziToast-body > div.iziToast-texts")
+    public WebElement lastErrorValidate;
+
+    @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
+    public WebElement validateFirstText;
+
+    public boolean validateTextFirst(){
+        fluentWait(getDriver(), validateFirstText);
+        boolean result = validateFirstText.isDisplayed();
+        return result;
+    }
+
+
+
+
+    public boolean validateLastError() {
+        fluentWaitElementDisappears(getDriver(), lastErrorValidate);
+        boolean result = lastErrorValidate.isDisplayed();
+        return result;
+    }
+
 
     public void submitButton() {
         fluentWait(getDriver(), submitBtn);
@@ -132,7 +154,10 @@ public class makeAnOfferPage extends BasePage {
         whereAreYou.sendKeys("test");
         fluentWait(getDriver(), submitBtn);
         waitForWebElementAndClick(submitBtn);
-        retryingFindClick(submitBtn);
+//        retryingFindClick(submitBtn);
+        validateTextFirst();
+        getDriver().navigate().to(url + "/Listing/Detail/619");
+
 
     }
 
@@ -236,12 +261,12 @@ public class makeAnOfferPage extends BasePage {
             waitForWebElementAndClick(makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
             retryingFindClick(makeAnOfferSendBtn);
-            fluentWait(getDriver(), chatVerify);
+//            fluentWait(getDriver(), chatVerify);
         }catch(Exception e){
             wait(3);
             fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
-            retryingFindClick(makeAnOfferSendBtn);
+            //retryingFindClick(makeAnOfferSendBtn);
         }
 
 //        while(makeAnOfferSendBtn.isDisplayed()){
@@ -309,7 +334,7 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public boolean offerChatVerify() {
-        fluentWaitStrict(getDriver(), chatVerify);
+        fluentWait(getDriver(), chatVerify);
         boolean result = chatVerify.isDisplayed();
         return result;
     }

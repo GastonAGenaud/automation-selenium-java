@@ -45,10 +45,14 @@ Feature: Listing details
 
   @smoke  @details @MTR-1378 @MTR
   Scenario: MTR - Making an offer
-    Given I create an account and go to Make an offer "email1"
-    When I select the make an offer button
-    And I type on the Describe what you expect from the seller text field
-    Then I see that it redirects me to the chat page again
+    Given I Sign in with new account "email2" and go to the listing page
+    When I select an item to make an offer
+    And I press the Make an Offer Button
+    And I complete Make an Offer message TextField
+    And I upload an example image in the Add Images section
+    And I complete the Proposed TextField
+    And I complete the Delivery Date TextField
+    Then I validate the Make an offer message TextField
 
   @smoke  @details @MTR-1379 @MTR
   Scenario: MTR - Viewing listing tabs

@@ -90,7 +90,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement moreFromThisSellerSeeAllBtn;
     @FindBy(how = How.CSS, using = "#profile-img-storefront")
     public WebElement profileImage;
-    @FindBy(xpath = "//*[@id='inbox-container']")
+    @FindBy(how = How.CSS, using = "#rowchat-container > section.d-none.d-lg-block.col-lg-3 > div")
     public WebElement sellerMessage;
     @FindBy(how = How.CSS, using = "#refunds-tab")
     public WebElement itemImage;
@@ -124,6 +124,16 @@ public class listingdetailsPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[4]/main/div[7]/div/div/div/div[2]/p")
     public WebElement validateMessageText;
+
+    @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
+    public WebElement validateFirstText;
+
+    public boolean validateTextFirst(){
+        fluentWait(getDriver(), validateFirstText);
+        boolean result = validateFirstText.isDisplayed();
+        return result;
+    }
+
 
 
     public void submitButton() {
@@ -329,8 +339,21 @@ public class listingdetailsPage extends BasePage {
         waitForWebElementAndClick(deliveryDate);
         deliveryDate.sendKeys("10-10-2023");
 
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("document.querySelector('#offer-submit').click();");
+        try {
+            actions.moveToElement(sendBtnMakeAndOffer);
+            fluentWaitStrict(getDriver(), sendBtnMakeAndOffer);
+            waitForWebElementAndClick(sendBtnMakeAndOffer);
+            waitForWebElementAndClick(sendBtnMakeAndOffer);
+            waitForWebElementAndClick(sendBtnMakeAndOffer);
+            retryingFindClick(sendBtnMakeAndOffer);
+//            fluentWait(getDriver(), chatVerify);
+        }catch(Exception e){
+            wait(3);
+            fluentWaitStrict(getDriver(), sendBtnMakeAndOffer);
+            waitForWebElementAndClick(sendBtnMakeAndOffer);
+//            retryingFindClick(sendBtnMakeAndOffer);
+        }
+
     }
 
 

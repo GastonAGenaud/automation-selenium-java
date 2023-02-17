@@ -333,7 +333,7 @@ public class requestPage extends BasePage {
     }
 
     public void minimumBudget() {
-        fluentWait(getDriver(), minimumBudgetTextField);
+        fluentWaitStrict(getDriver(), minimumBudgetTextField);
         waitForWebElementAndClick(minimumBudgetTextField);
         minimumBudgetTextField.sendKeys("10");
         minimumBudgetTextField.clear();
