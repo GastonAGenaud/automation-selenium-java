@@ -246,16 +246,16 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectClearCart() {
-       try{
-           fluentWait(getDriver(), clearCartBtn);
-           waitForWebElementAndClick(clearCartBtn);
-           fluentWait(getDriver(), acceptClearCartBtn);
-       }catch (Exception e){
-           wait(3);
-           fluentWait(getDriver(), clearCartBtn);
-           waitForWebElementAndClick(clearCartBtn);
-       }
-
+        try {
+            fluentWait(getDriver(), clearCartBtn);
+            waitForWebElementAndClick(clearCartBtn);
+            fluentWait(getDriver(), acceptClearCartBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), clearCartBtn);
+            waitForWebElementAndClick(clearCartBtn);
+        }
+    }
     public void selectAcceptClearCart() {
         fluentWait(getDriver(), acceptClearCartBtn);
         waitForWebElementAndClick(acceptClearCartBtn);

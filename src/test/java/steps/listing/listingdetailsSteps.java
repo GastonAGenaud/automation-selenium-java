@@ -36,6 +36,7 @@ public class listingdetailsSteps extends BasePage {
         _page.termsAndConditions();
         _page.whereAreYouFrom();
         _page.submitButton();
+        _page.validateTextFirst();
     }
 
 

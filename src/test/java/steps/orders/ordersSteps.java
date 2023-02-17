@@ -52,6 +52,7 @@ public class ordersSteps extends BasePage {
 
     @When("I validate the cancel button")
     public void iValidateTheCancelButton() {
+        _page.selectSoldBtn();
         _page.ordersSoldCancelBtn();
         _page.setCancelMessage();
     }
@@ -132,7 +133,6 @@ public class ordersSteps extends BasePage {
     @And("I validate the leave a review button")
     public void iValidateTheLeaveAReviewButton() {
         //_page.ordersShowCompleted();
-
         _page.ordersPurchasedButton();
         _page.purchasedOpenSection();
         _page.ordersLeaveAReview();

@@ -61,7 +61,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersPurchasedRequestRefundBtn;
     @FindBy(how = How.CSS, using = "#transaction-521 > div > div > div:nth-child(2) > div > div.col.d-flex.justify-content-end.align-items-end > button")
     public WebElement ordersConfirmPickUpBtn;
-    @FindBy(how = How.CSS, using = "#closed-purchased > div:nth-child(1) > div > div > div > div:nth-child(2) > div > div.col.d-flex.justify-content-end.align-items-end > button")
+    @FindBy(xpath = "//button[contains(text(), 'Leave a review')]")
     public WebElement ordersLeaveAReviewBtn;
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div")
     public WebElement ordersShowBtn;
@@ -269,7 +269,8 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersLeaveAReview() {
-        fluentWait(getDriver(), ordersLeaveAReviewBtn);
+
+        fluentWaitStrict(getDriver(), ordersLeaveAReviewBtn);
         waitForWebElementAndClick(ordersLeaveAReviewBtn);
         ArrayList tabs = new ArrayList(getDriver().getWindowHandles());
         System.out.println(tabs.size());
