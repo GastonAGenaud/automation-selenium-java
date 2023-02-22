@@ -128,12 +128,11 @@ public class listingdetailsPage extends BasePage {
     @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
     public WebElement validateFirstText;
 
-    public boolean validateTextFirst(){
+    public boolean validateTextFirst() {
         fluentWait(getDriver(), validateFirstText);
         boolean result = validateFirstText.isDisplayed();
         return result;
     }
-
 
 
     public void submitButton() {
@@ -238,13 +237,15 @@ public class listingdetailsPage extends BasePage {
     }
 
     public String priceTextConfirm() {
-        String result = priceText.getText();
+
         try {
+            String result = priceText.getText();
             result = priceText.getText();
+            return result;
         } catch (Exception e) {
             wait(4);
+            String result = priceText.getText();
             result = priceText.getText();
-        } finally {
             return result;
         }
     }
@@ -347,7 +348,7 @@ public class listingdetailsPage extends BasePage {
             waitForWebElementAndClick(sendBtnMakeAndOffer);
             retryingFindClick(sendBtnMakeAndOffer);
 //            fluentWait(getDriver(), chatVerify);
-        }catch(Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), sendBtnMakeAndOffer);
             waitForWebElementAndClick(sendBtnMakeAndOffer);
