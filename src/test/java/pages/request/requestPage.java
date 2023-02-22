@@ -169,6 +169,35 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#wants-tab > span > span:nth-child(1)")
     public WebElement requestFromDashboard;
 
+    @FindBy(xpath = "//p[contains(text(), 'Add Images')]")
+    public WebElement validateAddImagesTxt;
+
+    @FindBy(xpath = "//a[contains(text(), 'See detail')]")
+    public WebElement detailTextValidate;
+
+    @FindBy(xpath = "//h3[contains(text(), 'Excellent!')]")
+    public WebElement validatingExcellentTxt;
+
+    public boolean ExcellentTxt(){
+        fluentWait(getDriver(), validatingExcellentTxt);
+        boolean result = validatingExcellentTxt.isDisplayed();
+        return result;
+    }
+
+
+    public boolean validatingDetailText(){
+        fluentWait(getDriver(), detailTextValidate);
+        boolean result = detailTextValidate.isDisplayed();
+        return result;
+    }
+
+
+    public boolean validatingAddImagesTxt(){
+        fluentWait(getDriver(), validateAddImagesTxt);
+    boolean result = validateAddImagesTxt.isDisplayed();
+    return result;
+
+}
 
     public void goToRequestFromDashboard() {
         fluentWait(getDriver(), requestFromDashboard);
@@ -487,8 +516,8 @@ public class requestPage extends BasePage {
 
     public void matchedDetails() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
+//        fluentWait(getDriver(), requestsCreatedByMeBtn);
+//        waitForWebElementAndClick(requestsCreatedByMeBtn);
 
         fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
         actions.moveToElement(requestsMatchedDetailsBtn);
