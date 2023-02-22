@@ -28,7 +28,7 @@ public class settingsPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div/div[2]/a")
     public WebElement mySettingsBtn;
-    @FindBy(how = How.CSS, using = "#social-tab > span > span:nth-child(1)")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div[1]/div/ul/li[2]/a/span/span[1]")
     public WebElement socialBtn;
     @FindBy(how = How.CSS, using = "#payment-tab > span > span:nth-child(1)")
     public WebElement paymentBtn;
@@ -58,8 +58,15 @@ public class settingsPage extends BasePage {
     }
 
     public String socialConfirm() {
-        String result = socialInformation.getText();
-        return result;
+        try {
+            String result = socialInformation.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = socialInformation.getText();
+            return result;
+        }
+
     }
 
     public boolean paymentConfirm() {
@@ -96,14 +103,19 @@ public class settingsPage extends BasePage {
     }
 
     public void selectMySettings() {
-        fluentWait(getDriver(), mySettingsBtn);
-        waitForWebElementAndClick(mySettingsBtn);
-
+            fluentWait(getDriver(), mySettingsBtn);
+            waitForWebElementAndClick(mySettingsBtn);
     }
 
     public void selectSocial() {
-        fluentWait(getDriver(), socialBtn);
-        waitForWebElementAndClick(socialBtn);
+        try {
+            fluentWait(getDriver(), socialBtn);
+            waitForWebElementAndClick(socialBtn);
+            fluentWait(getDriver(), socialInformation);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), socialInformation);
+        }
     }
 
     public void selectPayment() {
@@ -130,7 +142,14 @@ public class settingsPage extends BasePage {
     }
 
     public void selectAddresses() {
-        fluentWait(getDriver(), addressesBtn);
-        waitForWebElementAndClick(addressesBtn);
+       try {
+           fluentWait(getDriver(), addressesBtn);
+           waitForWebElementAndClick(addressesBtn);
+           fluentWait(getDriver(),addressesInformation);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(),addressesInformation);
+       }
+
     }
 }

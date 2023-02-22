@@ -138,9 +138,10 @@ public class checkoutPage extends BasePage {
 
     public boolean shippingAddressTextValidate() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), shippingAddressText);
-        boolean result = shippingAddressText.isDisplayed();
-        return result;
+            fluentWait(getDriver(), shippingAddressText);
+            boolean result = shippingAddressText.isDisplayed();
+            return result;
+
     }
 
     public boolean addedToCartMessage() {
@@ -267,9 +268,7 @@ public class checkoutPage extends BasePage {
             fluentWait(getDriver(),addShippingAddressBtn);
             waitForWebElementAndClick(addShippingAddressBtn);
             //retryingFindClick(addShippingAddressBtn);
-            //boolean result = modalShippingAddress.isDisplayed();
-            //Assert.assertTrue(result);
-
+            fluentWait(getDriver(), modalShippingAddress);
         }
         catch (Exception e){
             wait(4);

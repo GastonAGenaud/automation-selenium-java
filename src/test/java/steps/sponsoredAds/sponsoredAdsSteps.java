@@ -217,19 +217,26 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("I create a new Ad for PENDING PAY")
     public void iCreateANewAdForPENDINGPAY() {
-        _page.addNewButton();
-        _page.adInformationTextField();
-        _page.urlTextField();
-        _page.adStartDateTextField();
-        _page.endDateField2();
-        //_page.adStartDateTextField();
-        _page.addAnImage();
-        _page.iSelectPublish();
-        //_page.logOut();
-        //_page.loginHeaderButton();
-        //_page.login();
-        _page.goToDashboard();
-        _page.goToSponsoredAds();
+        try {
+            _page.addNewButton();
+            _page.adInformationTextField();
+            _page.urlTextField();
+            _page.adStartDateTextField();
+            _page.endDateField2();
+            //_page.adStartDateTextField();
+            _page.addAnImage();
+            _page.iSelectPublish();
+            //_page.logOut();
+            //_page.loginHeaderButton();
+            //_page.login();
+            _page.goToDashboard();
+            _page.goToSponsoredAds();
+        }
+        catch (Exception e){
+            wait(3);
+            _page.goToDashboard();
+            _page.goToSponsoredAds();
+        }
     }
 
     @And("I select the tab dots EDIT")

@@ -193,7 +193,7 @@ public class AdminSteps extends BasePage {
     public void iSeeThatTheSubscriptionOptionShowMeOptionalAddons() {
     }
 
-    @Given("Step 3: Select your landing page layout")
+    @And("Step 3: Select your landing page layout")
     public void stepSelectYourLandingPageLayout() throws IOException {
         //_driver.manage().window().maximize();
         _page.goToAdminPanel();
@@ -670,12 +670,38 @@ public class AdminSteps extends BasePage {
 
     @Then("I validate add ons")
     public void iValidateAddOns() {
-        Assert.assertEquals("Extensions", _page.extensionsConfirm());
+       _page.validateExtension();
+       // Assert.assertEquals("Extensions", _page.extensionsConfirm());
     }
 
     @And("I validate step 3 design your homepage")
     public void iValidateStepDesignYourHomepage() {
         _page.goToAdminPanel();
         _page.designYourHomePage();
+    }
+
+    @And("I go to create Custom Fields button")
+    public void iGoToCreateCustomFieldsButton() {
+        _page.goToCreateCustomFieldsBtn();
+    }
+
+    @And("I validate the Field Name")
+    public void iValidateTheFieldName() {
+        Assert.assertEquals("Field Name", _page.validateFieldNameTest());
+    }
+
+    @And("I validate the Field Description")
+    public void iValidateTheFieldDescription() {
+        Assert.assertEquals("Field Description", _page.validateFieldDescription());
+    }
+
+    @And("I validate the Field Type")
+    public void iValidateTheFieldType() {
+        Assert.assertEquals("Field Type",_page.validateFieldType());
+    }
+
+    @Then("I validate Save Button")
+    public void iValidateSaveButton() {
+        Assert.assertEquals("Save",_page.validateSaveButton());
     }
 }

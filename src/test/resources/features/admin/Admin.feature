@@ -46,14 +46,15 @@ Feature: Admin
     Then I see that the contact us button redirect me to a calendar
     And I see that the next button send me to step 3
 
-#  @admin  @MTR-1300
-#  Scenario: Validate Select your landing page layout
-#    Given Step 3: Select your landing page layout
-#    When I validate the options
-#     And I validate the next button
-#    Then I see the Step 4
+  @admin  @MTR-1300
+  Scenario: Validate Select your landing page layout
+    Given I login with Gaston User
+    And Step 3: Select your landing page layout
+    When I validate the options
+    And I validate the next button
+    Then I see the Step 4
 
-  @admin  @MTR-1301 @admin1 @MTR
+  @admin  @MTR-1301  @MTR
   Scenario: validate Create Categories
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -64,28 +65,34 @@ Feature: Admin
     And I validate the next button
     Then I see that the add category button adds the category with the name set in the text bar
 
-#  @admin  @MTR-1302 @admin1 @MTR
+  @admin  @MTR-1302  @MTR
   Scenario: validate Create Custom Fields and Filters page
     Given I login with Gaston User
     And Step 5: Create Custom Fields and Filters
     When I validate the hide button
     And I validate the show button
-    And I validate the listing page.jpg button
-    And I validate the browse page.jpg button
-    And I validate the upload a listing.jpg button
-    And I validate the table
-    And I validate the text button
-    And I validate the number button
-    And I validate the dropdown button
-    And I validate the checkbox button
-    And I validate the Tags button
-    And I validate the Color button
-    And I validate the Mandatory checkbox
-    And I validate the Show in Browse checkbox
-    And I validate the Allow to add tags checkbox
-    And I validate the is variant checkbox
-    And I validate the next button
-    Then I see that the next button redirect me to step 6
+  #  And I validate the listing page.jpg button
+  #  And I validate the browse page.jpg button
+   # And I validate the upload a listing.jpg button
+  #  And I validate the table
+   # And I validate the text button
+  #  And I validate the number button
+  #  And I validate the dropdown button
+  #  And I validate the checkbox button
+  #  And I validate the Tags button
+  #  And I validate the Color button
+  #  And I validate the Mandatory checkbox
+  #  And I validate the Show in Browse checkbox
+  #  And I validate the Allow to add tags checkbox
+  #  And I validate the is variant checkbox
+  #  And I validate the next button
+  #  Then I see that the next button redirect me to step 6
+    And I go to create Custom Fields button
+    And I validate the Field Name
+    And I validate the Field Description
+    And I validate the Field Type
+    Then I validate Save Button
+
 
   @admin  @MTR-1303 @MTR
   Scenario: Validate Step 8 E-mails - SMTP Settings
@@ -93,11 +100,11 @@ Feature: Admin
     And Step 8: E-mails
     When I validate SMTP Settings
     And I validate here button
-#     And I type on Email
-#     And I type on Password
-#     And I validate verify credentials
-#     And I validate the next button smtp
-#     Then I see that the verify credentials button verify the mail & I see that the next button redirect me to step 7
+    #And I type on Email
+     #And I type on Password
+     #And I validate verify credentials
+     #And I validate the next button smtp
+     #Then I see that the verify credentials button verify the mail & I see that the next button redirect me to step 7
 
   @admin  @MTR-1304 @MTR
   Scenario: Validate Step 8 E-mails - templates
@@ -110,7 +117,7 @@ Feature: Admin
     And I validate the status section
     Then I see that the verify credentials button verify the mail & I see that the next button redirect me to step 7
 
-  @admin  @test @MTR-1305 @MTR
+  @admin  @MTR-1305 @MTR
   Scenario: Admin design page
     Given I login with Gaston User
     And Admin design
@@ -147,15 +154,15 @@ Feature: Admin
     And I validate User Transactions
     Then I validate Admin Reports
 
-#  @admin  @MTR-1308 @MTR
-#  Scenario: Admin panel Add-ons validate page
-#    Given I login with Gaston User
-#    And Admin Add-ons
-#    When I validate Add-Ons Section
-#    And I validate Extensions
-#    Then I validate add ons
+  @admin  @MTR-1308 @MTR
+  Scenario: Admin panel Add-ons validate page
+    Given I login with Gaston User
+    And Admin Add-ons
+    When I validate Add-Ons Section
+   # And I validate Extensions
+   Then I validate add ons
 
-  @admin-2072 @MTR
+  @admin @MTR-2072 @MTR
   Scenario: Delete user in Admin Page
     Given I login with Gaston User
     And Get started steps

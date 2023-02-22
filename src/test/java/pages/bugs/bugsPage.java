@@ -37,11 +37,11 @@ public class bugsPage extends BasePage {
     public WebElement passwordLoginInput;
     @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
     public WebElement logInBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[2]/div/div[4]/div[2]/input")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[13]/div/div/div/div[2]/div/div[4]/div[2]/input")
     public WebElement trackingTextField;
-    @FindBy(how = How.CSS, using = "#tracking-set-4855 > a > svg")
+    @FindBy(how = How.CSS, using = "#tracking-set-5074 > a > svg")
     public WebElement trackingSet;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[2]/div/div[4]/div[2]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[13]/div/div/div/div[2]/div/div[4]/div[2]/a")
     public WebElement submitBtn;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts")
     public WebElement successMessage;
@@ -127,7 +127,7 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#address-2087")
     public WebElement reUseAddressBtn;
-    @FindBy(how = How.CSS,using = "#address-2851 > div")
+    @FindBy(how = How.CSS, using = "#address-2851 > div")
     public WebElement reUseAddressTwoBtn;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -939,7 +939,7 @@ public class bugsPage extends BasePage {
 
     public void goToItemBUG() {
         goToListingPage();
-        getDriver().navigate().to(url + "/listing/detail/531");
+        getDriver().navigate().to(url + "/listing/detail/619");
     }
 
     public void selectAddToCartBUG() {
@@ -972,15 +972,15 @@ public class bugsPage extends BasePage {
     public void ordersPurchasedButton() {
         // goToOrders();
 
-       try {
-           fluentWait(getDriver(), ordersPurchasedBtn);
-           waitForWebElementAndClick(ordersPurchasedBtn);
-           fluentWait(getDriver(), SeeDetails);
-       }catch (Exception e) {
-           wait(3);
-           fluentWait(getDriver(), ordersPurchasedBtn);
-           waitForWebElementAndClick(ordersPurchasedBtn);
-       }
+        try {
+            fluentWait(getDriver(), ordersPurchasedBtn);
+            waitForWebElementAndClick(ordersPurchasedBtn);
+            fluentWait(getDriver(), SeeDetails);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersPurchasedBtn);
+            waitForWebElementAndClick(ordersPurchasedBtn);
+        }
 
     }
 
@@ -1083,10 +1083,19 @@ public class bugsPage extends BasePage {
     }
 
     public void setTrackingTextField() {
-        fluentWait(getDriver(), trackingSet);
-        waitForWebElementAndClick(trackingSet);
-        fluentWait(getDriver(), trackingTextField);
-        trackingTextField.sendKeys("12345");
+        try {
+            fluentWait(getDriver(), trackingSet);
+            waitForWebElementAndClick(trackingSet);
+            fluentWait(getDriver(), trackingTextField);
+        } catch (Exception e) {
+            wait(4);
+            fluentWait(getDriver(), trackingSet);
+            waitForWebElementAndClick(trackingSet);
+            fluentWait(getDriver(), trackingTextField);
+        } finally {
+            trackingTextField.sendKeys("12345");
+        }
+
     }
 
     public void setSubmitBtn() {
@@ -1112,8 +1121,14 @@ public class bugsPage extends BasePage {
     }
 
     public void setFlatButton() {
-        fluentWait(getDriver(), flatRateButton);
-        waitForWebElementAndClick(flatRateButton);
+        try {
+            fluentWait(getDriver(), flatRateButton);
+            waitForWebElementAndClick(flatRateButton);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), flatRateButton);
+            waitForWebElementAndClick(flatRateButton);
+        }
     }
 
     public void goBackToDashboard() {
@@ -1193,7 +1208,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#hv-root > div > div > main > div.db-ConsumerUIWrapper-left > div.db-ConsumerUIWrapper-left--sidebarCopy > span")
     public WebElement VerificationForm;
 
-    @FindBy(how =How.CSS,using = "#transaction-4977 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
+    @FindBy(how = How.CSS, using = "#transaction-4977 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
     public WebElement SeeDetails;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -1288,13 +1303,12 @@ public class bugsPage extends BasePage {
     }
 
     public void SeeDetails() {
-       try {
-           //actions.moveToElement(SeeDetails).build().perform();
-           fluentWaitStrict(getDriver(), SeeDetails);
-           waitForWebElementAndClick(SeeDetails);
-       }
-        catch (Exception e){
-           wait(3);
+        try {
+            //actions.moveToElement(SeeDetails).build().perform();
+            fluentWaitStrict(getDriver(), SeeDetails);
+            waitForWebElementAndClick(SeeDetails);
+        } catch (Exception e) {
+            wait(3);
             //actions.moveToElement(SeeDetails).build().perform();
             fluentWaitStrict(getDriver(), SeeDetails);
             waitForWebElementAndClick(SeeDetails);

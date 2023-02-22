@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import pages.BasePage;
 
 public class AdminPage extends BasePage {
@@ -388,6 +389,8 @@ public class AdminPage extends BasePage {
     public WebElement addOnsFilterTextField;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div/section/div/div[2]/button")
     public WebElement addOnsFilterBtn;
+    @FindBy(how =How.CSS,using = "#listingAddon > div > div > div")
+    public WebElement explainerVideoBtn;
     @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(1) > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
     public WebElement addOnsEditBtn;
     @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > header > div > div > div > a")
@@ -467,6 +470,18 @@ public class AdminPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[4]/a/span")
     public WebElement ShowInBrowseCheckboxCustomFields;
+
+    @FindBy (how = How.CSS,using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
+    public WebElement CreateCustomFieldBtn;
+
+    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(4) > label")
+    public WebElement FieldNameBtn;
+    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(5) > label")
+    public WebElement FieldDescriptionBtn;
+    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(6) > label")
+    public WebElement FieldTypeBtn;
+    @FindBy(how = How.CSS,using = "#submit-form")
+    public WebElement SaveBtn;
 
 
     public void ShowInBrowseCheckboxCustomFields() {
@@ -585,6 +600,38 @@ public class AdminPage extends BasePage {
         fluentWait(getDriver(), designHomePageBtn);
         waitForWebElementAndClick(designHomePageBtn);
     }
+
+    public void goToCreateCustomFieldsBtn(){
+       try {
+           fluentWait(getDriver(),CreateCustomFieldBtn);
+           waitForWebElementAndClick(CreateCustomFieldBtn);
+           fluentWait(getDriver(),FieldNameBtn);
+       }
+       catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(),FieldNameBtn);
+       }
+
+    }
+
+    public String validateFieldNameTest() {
+        String result = FieldNameBtn.getText();
+        return result;
+    }
+
+    public String validateFieldDescription(){
+        String result = FieldDescriptionBtn.getText();
+        return result;
+    }
+
+    public String validateFieldType(){
+        String result = FieldTypeBtn.getText();
+        return result;
+    }
+public String validateSaveButton(){
+        String result = SaveBtn.getText();
+        return result;
+}
 
     public void next() {
         fluentWait(getDriver(), nextSteps);
@@ -1348,15 +1395,17 @@ public class AdminPage extends BasePage {
     }
 
     public void addOnsFilterTextFieldType() {
-        addOnsFilterTextField.sendKeys("Test");
+        addOnsFilterTextField.sendKeys("Explainer Video");
     }
 
     public void addOnsFilterBtn() {
         fluentWait(getDriver(), addOnsFilterBtn);
         waitForWebElementAndClick(addOnsFilterBtn);
     }
-
-
+    public void validateExtension() {
+        boolean result = explainerVideoBtn.isDisplayed();
+        Assert.assertTrue(result);
+    }
     //Extensions
 
     public void extensions() {

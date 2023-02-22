@@ -16,7 +16,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds @smoke @MTR  @MTR-1601
   Scenario: MTR - User able to change status to Active
-    Given I login with Dev user
+    Given I login with Gaston User
     And I go to dashboard
     When I select Sponsored Ads section
     And I select the tab dots

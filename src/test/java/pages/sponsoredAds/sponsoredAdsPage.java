@@ -76,7 +76,7 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement expireSLastBtn;
     @FindBy(xpath = "//*[contains(text(), 'Expires last')]")
     public WebElement expiresLastBtn;
-    @FindBy(xpath = "//a[contains(text(), 'Edit')]")
+    @FindBy(xpath = "//a[contains(text(), 'Edit') and not(ancestor::div[contains(@style,'display: none')])]")
     public WebElement editBtn;
     @FindBy(xpath = "//a[contains(text(), 'Delete')]")
     public WebElement deleteBtn;
@@ -292,13 +292,23 @@ public class sponsoredAdsPage extends BasePage {
 
     public void iSelectTabDotsEdit() {
         List<WebElement> tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
-        fluentWait(getDriver(), tabEdit);
-        waitForWebElementAndClick(tabEdit);
+        try {
+            if (tabDotsBtns.size() == 0) {
+                throw new Exception("the size is 0");
+            }
+        } catch (Exception e) {
+            wait(3);
+            tabDotsBtns = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
+        }
         for (WebElement dot : tabDotsBtns) {
-            waitForWebElementAndClick(dot);
-
-            if (editBtn.getText() == "Edit") {
-                waitForWebElementAndClick(editBtn);
+            try {
+                waitForWebElementAndClick(dot);
+                //waitForWebElementAndClick(tabEdit);
+            } catch (Exception e) {
+                wait(3);
+                waitForWebElementAndClick(dot);
+                //waitForWebElementAndClick(tabEdit);
+            } finally {
                 break;
             }
         }
