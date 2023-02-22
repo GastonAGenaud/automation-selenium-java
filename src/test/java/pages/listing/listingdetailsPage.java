@@ -94,8 +94,8 @@ public class listingdetailsPage extends BasePage {
     public WebElement sellerMessage;
     @FindBy(how = How.CSS, using = "#refunds-tab")
     public WebElement itemImage;
-    @FindBy(how = How.CSS, using = "#listingDetailPriceContainer > p")
-    public WebElement priceText;
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div:nth-child(2) > div.mb-3 > a")
+    public WebElement shoesText;
     @FindBy(how = How.CSS, using = "#shopping-cart-mobile > a")
     public WebElement shoppingCartButton;
     @FindBy(how = How.CSS, using = "#searchButton")
@@ -127,6 +127,16 @@ public class listingdetailsPage extends BasePage {
 
     @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
     public WebElement validateFirstText;
+
+    @FindBy(xpath = "//p[contains(text(), 'Message')]")
+    public WebElement validateTextFromSendMessage;
+
+    public boolean validateMessageText(){
+        fluentWait(getDriver(), validateTextFromSendMessage);
+        boolean result = validateTextFromSendMessage.isDisplayed();
+        return result;
+    }
+
 
     public boolean validateTextFirst(){
         fluentWait(getDriver(), validateFirstText);
@@ -203,8 +213,9 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void goToItem() {
-        getDriver().navigate().to(url + "/Listing/Detail/619");
+        getDriver().navigate().to(url + "/Listing/Detail/676");
     }
+
 
     public void goToListingItem() {
         getDriver().navigate().to(url + "/Listing/Detail/619");
@@ -237,13 +248,14 @@ public class listingdetailsPage extends BasePage {
         return result;
     }
 
-    public String priceTextConfirm() {
-        String result = priceText.getText();
+    public String shoesTextConfirm() {
+        String result = shoesText.getText();
         try {
-            result = priceText.getText();
+            result = shoesText.getText();
         } catch (Exception e) {
-            wait(4);
-            result = priceText.getText();
+            wait(6);
+            fluentWaitStrict(getDriver(), shoesText);
+            result = shoesText.getText();
         } finally {
             return result;
         }
@@ -274,14 +286,19 @@ public class listingdetailsPage extends BasePage {
         messageTextField.clear();
         messageTextField.sendKeys("Automation message");
         //fluentWait(getDriver(), sendBtn);
-        messageTexActivate();
+        //messageTexActivate();
         try {
             actions.moveToElement(sendBtn).doubleClick().build().perform();
         } catch (Exception e) {
             while (!sendBtn.isDisplayed()) {
                 wait(5);
+                validateMessageText();
                 actions.moveToElement(sendBtn).doubleClick().build().perform();
-                fluentWaitElementDisappears(getDriver(), sendBtn);
+                //fluentWaitElementDisappears(getDriver(), sendBtn);
+                retryingFindClick(sendBtn);
+                retryingFindClick(sendBtn);
+                retryingFindClick(sendBtn);
+                retryingFindClick(sendBtn);
             }
         }
 //        waitForWebElementAndClick(sendBtn);

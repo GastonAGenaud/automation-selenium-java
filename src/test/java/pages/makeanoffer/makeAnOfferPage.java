@@ -260,10 +260,10 @@ public class makeAnOfferPage extends BasePage {
             waitForWebElementAndClick(makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
-            retryingFindClick(makeAnOfferSendBtn);
+            //retryingFindClick(makeAnOfferSendBtn);
 //            fluentWait(getDriver(), chatVerify);
         }catch(Exception e){
-            wait(3);
+            wait(4);
             fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
             //retryingFindClick(makeAnOfferSendBtn);
