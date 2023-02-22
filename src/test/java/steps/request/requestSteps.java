@@ -64,11 +64,13 @@ public class requestSteps extends BasePage {
         _page.requestName();
         _page.requestDescription();
         _page.next2();
+        _page.validatingAddImagesTxt();
         _page.next2();
         _page.minimumBudget();
         _page.maximumBudget();
         //_page.endDate();
         _page.locationCheckBox();
+        _page.ExcellentTxt();
         System.out.println("MENSAJE IMPORTANTE");
         _page.publishRequest();
         System.out.println("MENSAJE IMPORTANTE");
@@ -182,6 +184,7 @@ public class requestSteps extends BasePage {
     public void iValidateTheCloseButton() {
         _page.goToDashboard();
         _page.request();
+        _page.validatingDetailText();
         _page.requestsMatchedMenu();
         _page.requestsMatchedClose();
 //        _page.closedMenu();
