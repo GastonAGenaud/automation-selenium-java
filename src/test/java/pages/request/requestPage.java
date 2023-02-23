@@ -193,9 +193,17 @@ public class requestPage extends BasePage {
 
 
     public boolean validatingAddImagesTxt(){
-        fluentWait(getDriver(), validateAddImagesTxt);
-    boolean result = validateAddImagesTxt.isDisplayed();
-    return result;
+        try {
+            fluentWait(getDriver(), validateAddImagesTxt);
+            boolean result = validateAddImagesTxt.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), validateAddImagesTxt);
+            boolean result = validateAddImagesTxt.isDisplayed();
+            return result;
+        }
+
 
 }
 

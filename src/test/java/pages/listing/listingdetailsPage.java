@@ -226,9 +226,17 @@ public class listingdetailsPage extends BasePage {
     }
 
     public boolean sellerMessageConfirm() {
-        fluentWaitStrict(getDriver(), sellerMessage);
-        boolean result = sellerMessage.isDisplayed();
-        return result;
+        try {
+            fluentWaitStrict(getDriver(), sellerMessage);
+            boolean result = sellerMessage.isDisplayed();
+            return result;
+        }
+        catch (Exception e){
+            wait(3);
+            fluentWaitStrict(getDriver(), sellerMessage);
+            boolean result = sellerMessage.isDisplayed();
+            return result;
+        }
     }
 
     public boolean itemImageConfirm() {
