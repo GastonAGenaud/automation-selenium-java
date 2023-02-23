@@ -65,6 +65,7 @@ public class BasePage{
     public String password = Environment.getProperty("password");
     public String email = Environment.getProperty("email");
     public String url = Environment.getProperty("url");
+    public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
 
@@ -237,12 +238,15 @@ public class BasePage{
         waitForWebElementAndClick(logInBtn);
     }
     public void login() {
-        fluentWait(getDriver(), emailLoginInput);
+        getDriver().navigate().to(baseUrlOHE + "Account/Login");
+        fluentWaitStrict(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+
         fluentWait(getDriver(), passwordLoginInput);
         waitForWebElementAndClick(passwordLoginInput);
         passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+
         waitForWebElementAndClick(logInBtn);
     }
     public void loginWithMakeAnOffer() throws IOException {

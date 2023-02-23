@@ -121,6 +121,7 @@ Feature: Admin
   Scenario: Admin design page
     Given I login with Gaston User
     And Admin design
+    And Admin design
     When I validate customize landing page option
     And I validate customize menu option
     And I validate customize login page option
@@ -131,7 +132,6 @@ Feature: Admin
     And I validate customize Terms & conditions page option
     And I validate customize Privacy Policy page option
     Then I validate Admin Design
-
   @admin  @MTR-1306 @MTR
   Scenario: Validate Admin settings
     Given I login with Gaston User
