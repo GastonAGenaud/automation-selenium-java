@@ -265,7 +265,7 @@ public class BrowsePage extends BasePage {
     }
 
     public void browseSortByBtn() {
-        fluentWait(getDriver(), browseSortByBtn);
+        fluentWaitStrict(getDriver(), browseSortByBtn);
         action.moveToElement(browseSortByBtn).perform();
     }
 

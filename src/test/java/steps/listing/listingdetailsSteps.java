@@ -94,7 +94,7 @@ public class listingdetailsSteps extends BasePage {
 
     @Then("I see that the price adjusts to the quantity")
     public void iSeeThatThePriceAdjustToTheQuantity() {
-        Assert.assertEquals("Price", _page.priceTextConfirm());
+        Assert.assertEquals("Shoes", _page.shoesTextConfirm());
     }
 
     @When("I select the buy now button")
@@ -129,7 +129,7 @@ public class listingdetailsSteps extends BasePage {
 
     @When("I select the product Information button")
     public void iSelectTheProductInformationButton() {
-        _page.goToListingItem();
+        _page.goToItem();
         _page.iSelectTheProductInformation();
     }
 

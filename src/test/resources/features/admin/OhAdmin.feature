@@ -8,9 +8,9 @@ Feature: OHE Admin
     And OHE I validate step 3 design your homepage
     And OHE I validate step 4 create categories
     And OHE I validate step 5 create custom fields & filters
-    And OHE I validate step 6 emails
-    And OHE I validate step 7 connect domain
-    And OHE I validate step 8 Google Locations
+    And OHE I validate step 6 connect domain
+    And OHE I validate step 7 Google Locations
+    And OHE I validate step 8 emails
     And OHE I validate step 9 create a request or add a listing
     Then OHE I see all the functionalities in the administration panel for the user
 
