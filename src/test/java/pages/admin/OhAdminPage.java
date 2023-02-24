@@ -1360,8 +1360,9 @@ public class OhAdminPage extends BasePage {
     //Add-ons
 
     public void addonBtnFromPanel() {
-        fluentWait(getDriver(), addonBtn);
-        waitForWebElementAndClick(addonBtn);
+        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons" );
+//        fluentWait(getDriver(), addonBtn);
+//        waitForWebElementAndClick(addonBtn);
     }
 
     public void addNewAddOns() {

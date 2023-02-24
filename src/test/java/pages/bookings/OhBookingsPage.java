@@ -63,7 +63,8 @@ public class OhBookingsPage extends BasePage {
 
     public void bookingsButton() {
         waitForClickability(bookingsBtn);
-        bookingsBtn.click();
+        fluentWait(getDriver(), bookingsBtn);
+        waitForWebElementAndClick(bookingsBtn);
     }
 
     public void reloadBookings() {
@@ -72,15 +73,15 @@ public class OhBookingsPage extends BasePage {
 
     public void calendarButton() {
         waitForClickability(calendarBtn);
-        calendarBtn.click();
+        fluentWait(getDriver(),calendarBtn);
+        waitForWebElementAndClick(calendarBtn);
     }
 
     public void allCalendarButton() {
         getDriver().navigate().to(baseUrlOHE+"/dashboard/bookings");
         //driver.manage().window().maximize();
-        
-        getDriver().navigate().to(baseUrlOHE+"/dashboard/bookings");
-        allCalendarsBtn.click();
+        fluentWaitStrict(getDriver(), allCalendarsBtn);
+        waitForWebElementAndClick(allCalendarsBtn);
     }
 
     public void mathClassesCalendarButton(){

@@ -178,7 +178,7 @@ public class HomePage extends BasePage {
     }
 
     public void headerRequest() {
-        fluentWait(getDriver(), headerRequestBtn);
+        fluentWaitStrict(getDriver(), headerRequestBtn);
         waitForWebElementAndClick(headerRequestBtn);
     }
 

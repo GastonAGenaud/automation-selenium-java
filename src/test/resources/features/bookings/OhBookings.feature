@@ -1,6 +1,6 @@
 Feature: OHE - Bookings
 
-  @OHE @Bookings
+  @OHE @Bookings @testingCalendar
   Scenario: OHE - Calendar
     Given I go to dashboard page
     When I select bookings
