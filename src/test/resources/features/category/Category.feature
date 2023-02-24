@@ -191,3 +191,27 @@ Feature: Category
     When Valid to be viewed Hottest Items categories
     And delete Subcategory Hottest Items
     Then Valid that the subcategory Hottest Items was delete
+
+  @MTR @MTR-4465 @category
+  Scenario: MTR - valid that you can add a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And Add Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was created
+
+  @MTR @MTR-4466 @category
+  Scenario: MTR - valid that you can edit a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And edit Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was edit
+
+  @MTR @MTR-4467 @category
+  Scenario: MTR - valid that you can delete a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And delete Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was delete
