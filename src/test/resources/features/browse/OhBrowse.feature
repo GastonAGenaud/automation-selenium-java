@@ -1,6 +1,6 @@
 Feature: Browse Page
 
-  @OHE-315 @OH2 @OHE @smoke
+  @OHE-315 @OhBrowse @OHE @smoke
   Scenario: OHE - Validate browse services category filters
     Given I go to browse services page
     When I select ages 12 to 14 category filter
@@ -9,7 +9,7 @@ Feature: Browse Page
     And I select ages 9 to 11 category filter
     Then I validate categories filters
 
-  @OHE-316 @OH2 @OHE @smoke
+  @OHE-316 @OhBrowse @OHE @smoke
   Scenario: OHE - Validate browse by price and location
     Given I go to browse services page
     When I type in the minimum price text field
@@ -18,14 +18,14 @@ Feature: Browse Page
     And I type in the location text field
     Then I validate the browse services price and location
 
-  @OHE-317 @OH2 @OHE @smoke
+  @OHE-317 @OhBrowse @OHE @smoke
   Scenario: OHE - Validate browse services search
     Given I go to browse services page
     When I type the browse search text field
     And I select the browse search button
     Then I validate the browse search
 
-  @OHE-319 @OH2 @OHE @smoke
+  @OHE-319 @OhBrowse @OHE @smoke
   Scenario: OHE - Validate browse services view
     Given I go to browse services page
     When I select block view
@@ -33,7 +33,7 @@ Feature: Browse Page
     And I select map view
     Then I validate the browse view
 
-  @OHE-318 @OH2 @OHE @smoke
+  @OHE-318 @OhBrowse @OHE @smoke
   Scenario: OHE - Validate browse services sort by
     Given I go to browse services page
     When I select sort by most relevant

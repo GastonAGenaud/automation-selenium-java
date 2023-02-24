@@ -33,7 +33,6 @@ public class homeSteps extends BasePage {
 
     @And("I validate the Browse Request button")
     public void iValidateTheBrowseRequestButton() {
-
         _page.headerRequest();
         _page.homeBack();
     }

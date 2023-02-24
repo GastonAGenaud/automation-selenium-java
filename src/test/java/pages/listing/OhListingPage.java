@@ -1,0 +1,283 @@
+package pages.listing;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import pages.BasePage;
+
+public class OhListingPage extends BasePage {
+
+
+    public OhListingPage() {
+        super();
+    }
+
+    Actions actions = new Actions(getDriver());
+
+    String rdm = Long.toString(System.currentTimeMillis());
+    //LOGIN
+    @FindBy(how = How.CSS, using = "#e-mail")
+    public WebElement emailLoginInput;
+    @FindBy(how = How.CSS, using = "#password")
+    public WebElement passwordLoginInput;
+    @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
+    public WebElement logInBtn;
+    //Listing
+    @FindBy(how = How.CSS, using = "#listings-tab > span > span:nth-child(1)")
+    public WebElement myListingBtn;
+    @FindBy(how = How.CSS, using = "#dashboard > div.row > div > div.row > div.col-lg-6.text-right > div > div.col-auto.ml-auto > a")
+    public WebElement addListingsBtn;
+    @FindBy(how = How.CSS, using = "#name")
+    public WebElement listingNameTextField;
+    @FindBy(how = How.CSS, using = "#category-selector")
+    public WebElement listingCategoryBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/select/option[2]")
+    public WebElement listingCategoryOption;
+    @FindBy(how = How.CSS, using = "#description")
+    public WebElement listingDescriptionTextField;
+    @FindBy(how = How.CSS, using = "#hourlyPrice")
+    public WebElement listingPriceTextField;
+    @FindBy(how = How.CSS, using = "#img-0")
+    public WebElement listingImageUpload;
+    @FindBy(how = How.CSS, using = "#url-0")
+    public WebElement listingVideoTextField;
+    @FindBy(how = How.CSS, using = "#go-detail-button")
+    public WebElement goToDetailsBtn;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(1) > div:nth-child(1) > div > div > div:nth-child(1) > span > label")
+    public WebElement selectSubject;
+    @FindBy(how = How.CSS, using = "#checkbox-1-0")
+    public WebElement WorkModelOnlineCheckbox;
+    @FindBy(how = How.CSS, using = "#checkbox-2-0")
+    public WebElement listingLanguageCheckbox;
+    @FindBy(how = How.CSS, using = "#policy")
+    public WebElement cancellationTextField;
+    @FindBy(how = How.CSS, using = "#go-availability-button")
+    public WebElement goToAvailabilityBtn;
+    @FindBy(how = How.CSS, using = "#multi-select-button")
+    public WebElement availableDayTab;
+    @FindBy(how = How.CSS, using = "#weekday-options-container > li:nth-child(1) > a")
+    public WebElement saturdayTab;
+    @FindBy(how = How.CSS, using = "#availableTimeFrom")
+    public WebElement timeFromTab;
+    @FindBy(how = How.CSS, using = "#availableTimeFrom > option:nth-child(2)")
+    public WebElement timeTwelve;
+    @FindBy(how = How.CSS, using = "#availableTimeTo")
+    public WebElement timeToTab;
+    @FindBy(how = How.CSS, using = "#availableTimeTo > option:nth-child(20)")
+    public WebElement timeFour;
+    @FindBy(how = How.CSS, using = "#availability-tab-pane > div.d-flex.justify-content-between.align-items-center > div > button")
+    public WebElement listingPublishBtn;
+    @FindBy(how = How.CSS, using = "#approved > a:nth-child(1) > span:nth-child(1)")
+    public WebElement listingActive;
+
+    @FindBy(how = How.CSS, using = "#dates-form > div.col-4.mb-3.d-flex.justify-content-end.align-items-center > a")
+    public WebElement addTimeSlotBtn;
+
+    @FindBy(how = How.CSS, using = "#supply-117 > div > div.row.pt-2 > div.col-auto.text-right.pr-0 > a")
+    public WebElement editBtn;
+
+    @FindBy(how = How.CSS, using = "#approved > a:nth-child(1) > span")
+    public WebElement editActive;
+
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[1]/div[2]/div/button")
+    public WebElement tabDots;
+
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[1]/div[2]/div/div/a[1]")
+    public WebElement shareBtn;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div")
+    public WebElement successfullShare;
+
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[1]/div[2]/div/div/a[2]")
+    public WebElement deleteClassButton;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
+    public WebElement deleteConfirm;
+
+    public void setDeleteConfirm() {
+        fluentWait(getDriver(), deleteConfirm);
+        waitForWebElementAndClick(deleteConfirm);
+    }
+
+    public void setDeleteClassButton() {
+        waitForVisibility(deleteClassButton);
+        waitForClickability(deleteClassButton);
+        actions.moveToElement(deleteClassButton).build();
+        fluentWait(getDriver(), deleteClassButton);
+        waitForWebElementAndClick(deleteClassButton);
+    }
+
+    public void shareButton() {
+        waitForVisibility(shareBtn);
+        waitForClickability(shareBtn);
+        actions.moveToElement(shareBtn);
+        fluentWait(getDriver(), shareBtn);
+        waitForWebElementAndClick(shareBtn);
+    }
+
+    public void setTabDots() {
+        fluentWait(getDriver(), tabDots);
+        waitForWebElementAndClick(tabDots);
+    }
+
+    public void setEditBtn() {
+        fluentWait(getDriver(), editBtn);
+        waitForWebElementAndClick(editBtn);
+    }
+
+    public void addTimeSlotButton() {
+        fluentWait(getDriver(), addTimeSlotBtn);
+        waitForWebElementAndClick(addTimeSlotBtn);
+    }
+
+
+    public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
+
+    public void setHomePage() {
+        getDriver().navigate().to(baseUrlOHE);
+    }
+
+    public void goToListingPage() {
+        getDriver().navigate().to(baseUrlOHE + "/dashboard/MyListings");
+    }
+
+    public void goToLoginPage() {
+        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+    }
+
+    public void goToDashboardPage() {
+        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+    }
+
+    public void myListingButton() {
+        fluentWait(getDriver(), myListingBtn);
+        waitForWebElementAndClick(myListingBtn);
+    }
+
+    public void addNewListing() {
+        fluentWait(getDriver(), addListingsBtn);
+        waitForWebElementAndClick(addListingsBtn);
+    }
+
+    public void listingNameTextField() {
+        fluentWait(getDriver(), listingNameTextField);
+        waitForWebElementAndClick(listingNameTextField);
+        listingNameTextField.sendKeys("Test Automation");
+
+    }
+
+    public void categoryBtn() {
+        fluentWait(getDriver(), listingCategoryBtn);
+        waitForWebElementAndClick(listingCategoryBtn);
+    }
+
+    public void listingCategoryOption() {
+        fluentWait(getDriver(), listingCategoryOption);
+        waitForWebElementAndClick(listingCategoryOption);
+    }
+
+    public void listingDescriptionTextField() {
+        fluentWait(getDriver(), listingDescriptionTextField);
+        waitForWebElementAndClick(listingDescriptionTextField);
+        listingDescriptionTextField.sendKeys("Test Automation");
+
+    }
+
+    public void listingHourlyPriceTextField() {
+        fluentWait(getDriver(), listingPriceTextField);
+        waitForWebElementAndClick(listingPriceTextField);
+        listingPriceTextField.sendKeys("22");
+        listingPriceTextField.sendKeys(Keys.ENTER);
+    }
+
+    public void listingImageUploadButton() {
+        listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+    }
+
+    public void listingVideoURLTextField() {
+        fluentWait(getDriver(), listingVideoTextField);
+        waitForWebElementAndClick(listingVideoTextField);
+        listingVideoTextField.sendKeys("https://www.youtube.com/watch?v=59_usZm0HRg&ab_channel=PatrickFarrington");
+    }
+
+    public void selectGoToDetailsButton() {
+        fluentWait(getDriver(),goToDetailsBtn);
+        waitForWebElementAndClick(goToDetailsBtn);
+    }
+
+    public void selectSubjectTag() {
+        fluentWait(getDriver(), selectSubject);
+        waitForWebElementAndClick(selectSubject);
+    }
+
+    public void workModelCheckboxOnline() {
+        fluentWait(getDriver(), WorkModelOnlineCheckbox);
+        waitForWebElementAndClick(WorkModelOnlineCheckbox);
+    }
+
+    public void languageCheckboxEnglish() {
+        listingLanguageCheckbox.click();
+    }
+
+    public void listingCancellationTextField() {
+        cancellationTextField.click();
+        cancellationTextField.sendKeys("Test");
+    }
+
+    public void goToAvailabilityButton() {
+        fluentWait(getDriver(), goToAvailabilityBtn);
+        waitForWebElementAndClick(goToAvailabilityBtn);
+    }
+
+    public void selectAvailableDaysTab() {
+        fluentWait(getDriver(), availableDayTab);
+        waitForWebElementAndClick(availableDayTab);
+    }
+
+    public void selectSaturdayOption() {
+        fluentWait(getDriver(), saturdayTab);
+        waitForWebElementAndClick(saturdayTab);
+    }
+
+    public void selectTimeFrom() {
+        fluentWait(getDriver(), timeFromTab);
+        waitForWebElementAndClick(timeFromTab);
+    }
+
+    public void setTimeTwelve() {
+        fluentWait(getDriver(),timeTwelve );
+        waitForWebElementAndClick(timeTwelve);
+    }
+
+    public void setTimeToTab() {
+        fluentWait(getDriver(),timeToTab);
+        waitForWebElementAndClick(timeToTab);
+    }
+
+    public void setTimeFour() {
+        fluentWait(getDriver(), timeFour);
+        waitForWebElementAndClick(timeFour);
+    }
+
+    public void selectPublishButton() {
+        listingPublishBtn.click();
+    }
+
+    public boolean listingActiveTab() {
+        boolean result = listingActive.isDisplayed();
+        return result;
+    }
+
+    public boolean editActive() {
+        boolean result = editActive.isDisplayed();
+        return result;
+    }
+
+    public boolean shareMessage() {
+        waitForVisibility(successfullShare);
+        boolean result = successfullShare.isDisplayed();
+        return result;
+    }
+}
