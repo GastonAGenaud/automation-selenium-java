@@ -142,8 +142,14 @@ public class BasePage{
         wait.until(webDriver -> element.isDisplayed() && element.isEnabled());
 
     }
-
-
+    protected boolean loaded(WebElement element) {
+        WebDriverWait wait = getWait();
+        return wait.until((ExpectedCondition<Boolean>) wd ->
+                element.isDisplayed());
+    }
+    public void waitToLoad() {
+        getWait().until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+    }
 
     public void waitForClickability(WebElement element) {
         // TODO: change access modifier to private or throw exception because in now is hiding wrong behavior with wrongs locators

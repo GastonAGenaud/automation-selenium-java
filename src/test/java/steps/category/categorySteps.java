@@ -310,4 +310,40 @@ public class categorySteps extends BasePage {
     public void validThatTheSubcategoryHottestItemsWasDelete() {
         Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
     }
+
+    @When("Valid to be viewed Jewelry categories")
+    public void validToBeViewedJewelryCategories() {
+        _page.getCloseChat();
+        Assert.assertEquals("Jewelry", _page.jewelryCategory());
+    }
+
+    @And("Add Subcategory Jewelry")
+    public void addSubcategoryJewelry() {
+        _page.addJewelrySubcategory();
+    }
+
+    @Then("Valid that the subcategory Jewelry was created")
+    public void validThatTheSubcategoryJewelryWasCreated() {
+        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+    }
+
+    @And("edit Subcategory Jewelry")
+    public void editSubcategoryJewelry() {
+        _page.editJewelrySubcategory();
+    }
+
+    @Then("Valid that the subcategory Jewelry was edit")
+    public void validThatTheSubcategoryJewelryWasEdit() {
+        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+    }
+
+    @And("delete Subcategory Jewelry")
+    public void deleteSubcategoryJewelry() {
+        _page.deleteJewelrySubcategory();
+    }
+
+    @Then("Valid that the subcategory Jewelry was delete")
+    public void validThatTheSubcategoryJewelryWasDelete() {
+        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+    }
 }

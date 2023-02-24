@@ -1,6 +1,6 @@
 Feature: Category
 
-  @MTR @MTR-4441 @category
+  @MTR @MTR-3195 @category
   Scenario: MTR - valid that you can add a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -8,7 +8,7 @@ Feature: Category
     And Add Subcategory Shoes
     Then Valid that the subcategory Shoes was created
 
-  @MTR @MTR-4442 @category
+  @MTR @MTR-3196 @category
   Scenario: MTR - valid that you can edit a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -16,7 +16,7 @@ Feature: Category
     And Edit Subcategory Shoes
     Then Valid that the subcategory Shoes was edit
 
-  @MTR @MTR-4443 @category
+  @MTR @MTR-3197 @category
   Scenario: MTR - valid that you can delete a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -24,7 +24,7 @@ Feature: Category
     And Delete Subcategory Shoes
     Then Valid that the subcategory Shoes was delete
 
-  @MTR @MTR-4444 @category
+  @MTR @MTR-3198 @category
   Scenario: MTR - valid that you can add a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -32,7 +32,7 @@ Feature: Category
     And Add Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was created
 
-  @MTR @MTR-4445 @category
+  @MTR @MTR-3199 @category
   Scenario: MTR - valid that you can edit a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -40,7 +40,7 @@ Feature: Category
     And edit Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was edit
 
-  @MTR @MTR-4446 @category
+  @MTR @MTR-3200 @category
   Scenario: MTR - valid that you can delete a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -48,7 +48,7 @@ Feature: Category
     And delete Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was delete
 
-  @MTR @MTR-4447 @category
+  @MTR @MTR-3201 @category
   Scenario: MTR - valid that you can add a subcategory in Rugs
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -56,7 +56,7 @@ Feature: Category
     And Add Subcategory Rugs
     Then Valid that the subcategory Rugs was created
 
-  @MTR @MTR-4448 @category
+  @MTR @MTR-3202 @category
   Scenario: MTR - valid that you can edit a subcategory in Rugs
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -64,7 +64,7 @@ Feature: Category
     And edit Subcategory Rugs
     Then Valid that the subcategory Rugs was edit
 
-  @MTR @MTR-4449 @category
+  @MTR @MTR-3203 @category
   Scenario: MTR - valid that you can delete a subcategory in Rugs
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -72,7 +72,7 @@ Feature: Category
     And delete Subcategory Rugs
     Then Valid that the subcategory Rugs was delete
 
-  @MTR @MTR-4450 @category
+  @MTR @MTR-3204 @category
   Scenario: MTR - valid that you can add a subcategory in Clothing
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -80,7 +80,7 @@ Feature: Category
     And Add Subcategory Clothing
     Then Valid that the subcategory Clothing was created
 
-  @MTR @MTR-4451 @category
+  @MTR @MTR-3205 @category
   Scenario: MTR - valid that you can edit a subcategory in Clothing
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -88,7 +88,7 @@ Feature: Category
     And edit Subcategory Clothing
     Then Valid that the subcategory Clothing was edit
 
-  @MTR @MTR-4452 @category
+  @MTR @MTR-3206 @category
   Scenario: MTR - valid that you can delete a subcategory in Clothing
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -96,7 +96,7 @@ Feature: Category
     And delete Subcategory Clothing
     Then Valid that the subcategory Clothing was delete
 
-  @MTR @MTR-4453 @category
+  @MTR @MTR-3207 @category
   Scenario: MTR - valid that you can add a subcategory in Skin Care
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -104,7 +104,7 @@ Feature: Category
     And Add Subcategory Skin Care
     Then Valid that the subcategory Skin Care was created
 
-  @MTR @MTR-4454 @category
+  @MTR @MTR-3208 @category
   Scenario: MTR - valid that you can edit a subcategory in Skin Care
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -112,7 +112,7 @@ Feature: Category
     And edit Subcategory Skin Care
     Then Valid that the subcategory Skin Care was edit
 
-  @MTR @MTR-4455 @category
+  @MTR @MTR-3209 @category
   Scenario: MTR - valid that you can delete a subcategory in Skin Care
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -120,7 +120,7 @@ Feature: Category
     And delete Subcategory Skin Care
     Then Valid that the subcategory Skin Care was delete
 
-  @MTR @MTR-4456 @category
+  @MTR @MTR-3210 @category
   Scenario: MTR - valid that you can add a subcategory in Accessories
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -128,7 +128,7 @@ Feature: Category
     And Add Subcategory Accessories
     Then Valid that the subcategory Accessories was created
 
-  @MTR @MTR-4457 @category
+  @MTR @MTR-3211 @category
   Scenario: MTR - valid that you can edit a subcategory in Accessories
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -136,7 +136,7 @@ Feature: Category
     And edit Subcategory Accessories
     Then Valid that the subcategory Accessories was edit
 
-  @MTR @MTR-4458 @category
+  @MTR @MTR-3212 @category
   Scenario: MTR - valid that you can delete a subcategory in Accessories
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -144,7 +144,7 @@ Feature: Category
     And delete Subcategory Accessories
     Then Valid that the subcategory Accessories was delete
 
-  @MTR @MTR-4459 @category
+  @MTR @MTR-3213 @category
   Scenario: MTR - valid that you can add a subcategory in Art & Collectables
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -152,7 +152,7 @@ Feature: Category
     And Add Subcategory Art & Collectables
     Then Valid that the subcategory Art & Collectables was created
 
-  @MTR @MTR-4460 @category
+  @MTR @MTR-3214 @category
   Scenario: MTR - valid that you can edit a subcategory in Art & Collectables
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -160,7 +160,7 @@ Feature: Category
     And edit Subcategory Art & Collectables
     Then Valid that the subcategory Art & Collectables was edit
 
-  @MTR @MTR-4461 @category
+  @MTR @MTR-3215 @category
   Scenario: MTR - valid that you can delete a subcategory in Art & Collectables
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -168,7 +168,7 @@ Feature: Category
     And delete Subcategory Art & Collectables
     Then Valid that the subcategory Art & Collectables was delete
 
-  @MTR @MTR-4462 @category
+  @MTR @MTR-3216 @category
   Scenario: MTR - valid that you can add a subcategory in Hottest Items
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -176,7 +176,7 @@ Feature: Category
     And Add Subcategory Hottest Items
     Then Valid that the subcategory Hottest Items was created
 
-  @MTR @MTR-4463 @category
+  @MTR @MTR-3217 @category
   Scenario: MTR - valid that you can edit a subcategory in Hottest Items
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -184,10 +184,34 @@ Feature: Category
     And edit Subcategory Hottest Items
     Then Valid that the subcategory Hottest Items was edit
 
-  @MTR @MTR-4464 @category
+  @MTR @MTR-3218 @category
   Scenario: MTR - valid that you can delete a subcategory in Hottest Items
     Given I login with Gaston User
     And Step 4: Create Categories
     When Valid to be viewed Hottest Items categories
     And delete Subcategory Hottest Items
     Then Valid that the subcategory Hottest Items was delete
+
+  @MTR @MTR-3219 @category
+  Scenario: MTR - valid that you can add a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And Add Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was created
+
+  @MTR @MTR-3220 @category
+  Scenario: MTR - valid that you can edit a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And edit Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was edit
+
+  @MTR @MTR-3221 @category
+  Scenario: MTR - valid that you can delete a subcategory in Jewelry
+    Given I login with Gaston User
+    And Step 4: Create Categories
+    When Valid to be viewed Jewelry categories
+    And delete Subcategory Jewelry
+    Then Valid that the subcategory Jewelry was delete

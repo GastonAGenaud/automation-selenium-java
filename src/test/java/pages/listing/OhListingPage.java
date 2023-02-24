@@ -262,21 +262,25 @@ public class OhListingPage extends BasePage {
     }
 
     public void selectPublishButton() {
-        listingPublishBtn.click();
+        fluentWait(getDriver(), listingPublishBtn);
+        waitForWebElementAndClick(listingPublishBtn);
     }
 
     public boolean listingActiveTab() {
+        fluentWait(getDriver(), listingActive);
         boolean result = listingActive.isDisplayed();
         return result;
     }
 
     public boolean editActive() {
+        fluentWait(getDriver(), editActive);
         boolean result = editActive.isDisplayed();
         return result;
     }
 
     public boolean shareMessage() {
         waitForVisibility(successfullShare);
+        fluentWait(getDriver(), successfullShare);
         boolean result = successfullShare.isDisplayed();
         return result;
     }

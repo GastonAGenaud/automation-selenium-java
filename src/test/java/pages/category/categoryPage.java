@@ -48,6 +48,8 @@ public class categoryPage extends BasePage {
     public WebElement ArtAndCollectablesCategory;
     @FindBy(how = How.CSS, using = "#category-320 > div.d-flex.align-items-center.br-sm.bg-white.px-4.py-3 > label")
     public WebElement HottestItemsCategory;
+    @FindBy(how = How.CSS, using = "#category-573 > div.d-flex.align-items-center.br-sm.bg-white.px-4.py-3 > label")
+    public WebElement JewelryCategory;
     @FindBy(how = How.CSS, using = "#category-name-574")
     public WebElement addShoesSubcategory;
     @FindBy(how = How.CSS, using = "#collapse-574 > button")
@@ -66,6 +68,8 @@ public class categoryPage extends BasePage {
     public WebElement addArtAndCollectablesSubcategoryBtn;
     @FindBy(how = How.CSS, using = "#collapse-320 > button")
     public WebElement addHottestItemsSubcategoryBtn;
+    @FindBy(how = How.CSS, using = "#collapse-573 > button")
+    public WebElement addJewelrySubcategoryBtn;
     @FindBy(how = How.CSS, using = "#category-name-576")
     public WebElement addOutdoorStaffSubcategory;
     @FindBy(how = How.CSS, using = "#category-name-577")
@@ -80,6 +84,8 @@ public class categoryPage extends BasePage {
     public WebElement addArtAndCollectablesSubcategory;
     @FindBy(how = How.CSS, using = "#category-name-320")
     public WebElement addHottestItemsSubcategory;
+    @FindBy(how = How.CSS, using = "#category-name-573")
+    public WebElement addJewelrySubcategory;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topRight > div > div > div.iziToast-body > div.iziToast-texts > strong")
     public WebElement SuccessSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/i[2]")
@@ -96,8 +102,6 @@ public class categoryPage extends BasePage {
     public WebElement editAccessoriesSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editArtAndCollectablesSubcategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[9]/div[2]/div[1]/div[4]/div[1]/i[2]")
-    public WebElement editHottestItemsSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/input")
     public WebElement editShoesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/input")
@@ -112,8 +116,6 @@ public class categoryPage extends BasePage {
     public WebElement editAccessoriesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/input")
     public WebElement editArtAndCollectablesSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[9]/div[2]/div[1]/div[4]/div[1]/label")
-    public WebElement editHottestItemsSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/a")
     public WebElement deleteShoesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/a")
@@ -128,6 +130,10 @@ public class categoryPage extends BasePage {
     public WebElement deleteAccessoriesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/a")
     public WebElement deleteArtAndCollectablesSubcategory;
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='test Hottest Items Edit']")
+    public WebElement deleteHottestItemsSubcategory;
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='algo Jewelry Edit']")
+    public WebElement deleteJewelrySubcategory;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deleteSubcategory;
 
@@ -155,8 +161,15 @@ public class categoryPage extends BasePage {
     }
 
     public String validationSuccesSubcategory() {
-        String result = SuccessSubcategory.getText();
-        return result;
+       try {
+           String result = SuccessSubcategory.getText();
+           return result;
+       }catch (Exception e){
+          wait(2);
+           String result = SuccessSubcategory.getText();
+           return result;
+       }
+
 
     }
 
@@ -481,7 +494,7 @@ public class categoryPage extends BasePage {
             waitForWebElementAndClick(addArtAndCollectablesSubcategoryBtn);
             fluentWait(getDriver(), addArtAndCollectablesSubcategory);
             waitForWebElementAndClick(addArtAndCollectablesSubcategory);
-            addArtAndCollectablesSubcategory.sendKeys("Test Art and Collectables");
+            addArtAndCollectablesSubcategory.sendKeys("Test Art");
             addArtAndCollectablesSubcategory.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
@@ -501,7 +514,7 @@ public class categoryPage extends BasePage {
             editArtAndCollectablesSubcategory.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
-            wait(3);
+            wait(2);
         }
     }
 
@@ -532,7 +545,7 @@ public class categoryPage extends BasePage {
             waitForWebElementAndClick(addHottestItemsSubcategoryBtn);
             fluentWait(getDriver(), addHottestItemsSubcategory);
             waitForWebElementAndClick(addHottestItemsSubcategory);
-            addHottestItemsSubcategory.sendKeys("Test Hottest Items");
+            addHottestItemsSubcategory.sendKeys("test Hottest Items");
             addHottestItemsSubcategory.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
@@ -541,15 +554,29 @@ public class categoryPage extends BasePage {
     }
 
     public void editHottestItemsSubcategory() {
+        fluentWait(getDriver(), HottestItemsCategory);
+        waitForWebElementAndClick(HottestItemsCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), HottestItemsCategory);
-            waitForWebElementAndClick(HottestItemsCategory);
-            fluentWait(getDriver(), editHottestItemsSubcategoryBtn);
-            waitForWebElementAndClick(editHottestItemsSubcategoryBtn);
-            fluentWait(getDriver(), editHottestItemsSubcategory);
-            waitForWebElementAndClick(editHottestItemsSubcategory);
-            editHottestItemsSubcategory.sendKeys(" Edit");
-            editHottestItemsSubcategory.sendKeys(Keys.ENTER);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'test Hottest Items')]"));
+            if (subCategoryEdit.isDisplayed()){
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'test Hottest Items')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
@@ -560,8 +587,60 @@ public class categoryPage extends BasePage {
         try {
             fluentWait(getDriver(), HottestItemsCategory);
             waitForWebElementAndClick(HottestItemsCategory);
-            fluentWait(getDriver(), deleteArtAndCollectablesSubcategory);
-            waitForWebElementAndClick(deleteArtAndCollectablesSubcategory);
+            fluentWait(getDriver(), deleteHottestItemsSubcategory);
+            waitForWebElementAndClick(deleteHottestItemsSubcategory);
+            fluentWait(getDriver(), deleteSubcategory);
+            waitForWebElementAndClick(deleteSubcategory);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public String jewelryCategory() {
+        String result = JewelryCategory.getText();
+        return result;
+    }
+
+    public void addJewelrySubcategory() {
+        try {
+            fluentWait(getDriver(), addJewelrySubcategoryBtn);
+            waitForWebElementAndClick(addJewelrySubcategoryBtn);
+            fluentWait(getDriver(), addJewelrySubcategory);
+            waitForWebElementAndClick(addJewelrySubcategory);
+            addJewelrySubcategory.sendKeys("algo Jewelry");
+            addJewelrySubcategory.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (
+                Exception e) {
+            wait(3);
+        }
+
+    }
+
+    public void editJewelrySubcategory() {
+        WebElement subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'algo Jewelry')]"));
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+
+    }
+
+    public void deleteJewelrySubcategory() {
+        try {
+            fluentWait(getDriver(), deleteJewelrySubcategory);
+            waitForWebElementAndClick(deleteJewelrySubcategory);
             fluentWait(getDriver(), deleteSubcategory);
             waitForWebElementAndClick(deleteSubcategory);
             fluentWait(getDriver(), SuccessSubcategory);
