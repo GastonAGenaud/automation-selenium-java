@@ -2,7 +2,7 @@ Feature: Reviews
 
   @reviews @smoke @MTR  @MTR-1409
   Scenario: MTR - Logged users post Review to Both seller & Listing clicking "Leave a Review" when viewing Reviews tab in listing details view
-    Given I login with Gaston User
+    Given I login with another account
     And I go to listing page
     When I select an item
     And I select the Reviews button

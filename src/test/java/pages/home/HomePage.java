@@ -70,7 +70,7 @@ public class HomePage extends BasePage {
     public WebElement outdoorStuffBtn;
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=576']")
     public WebElement moreOutdoorStuffBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[6]/a")
+    @FindBy(xpath = "/html/body/header/div/ul/li[4]/a")
     public WebElement artAndCollectablesBtn;
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=316']")
     public WebElement moreArtAndCollectablesBtn;
@@ -311,7 +311,8 @@ public class HomePage extends BasePage {
     public void moreArtAndCollectables() {
         fluentWait(getDriver(), artAndCollectablesBtn);
         actions.moveToElement(artAndCollectablesBtn).build().perform();
-        fluentWait(getDriver(), moreArtAndCollectablesBtn);
+
+        fluentWaitStrict(getDriver(), moreArtAndCollectablesBtn);
         waitForWebElementAndClick(moreArtAndCollectablesBtn);
     }
 

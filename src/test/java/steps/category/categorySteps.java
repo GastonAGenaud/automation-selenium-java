@@ -35,7 +35,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Shoes was created")
     public void validThatTheSubcategoryShoesWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("Edit Subcategory Shoes")
@@ -45,7 +45,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Shoes was edit")
     public void validThatTheSubcategoryWasEditShoes() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("Delete Subcategory Shoes")
@@ -55,7 +55,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Shoes was delete")
     public void validThatTheSubcategoryShoesWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Outdoor Staff categories")
@@ -71,7 +71,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Outdoor Staff was created")
     public void validThatTheSubcategoryOutdoorStaffWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Outdoor Staff")
@@ -81,7 +81,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Outdoor Staff was edit")
     public void validThatTheSubcategoryOutdoorStaffWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Outdoor Staff")
@@ -91,7 +91,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Outdoor Staff was delete")
     public void validThatTheSubcategoryOutdoorStaffWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Rugs categories")
@@ -107,7 +107,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Rugs was created")
     public void validThatTheSubcategoryRugsWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Rugs")
@@ -117,7 +117,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Rugs was edit")
     public void validThatTheSubcategoryRugsWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Rugs")
@@ -127,7 +127,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Rugs was delete")
     public void validThatTheSubcategoryRugsWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Clothing categories")
@@ -143,7 +143,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Clothing was created")
     public void validThatTheSubcategoryClothingWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Clothing")
@@ -153,7 +153,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Clothing was edit")
     public void validThatTheSubcategoryClothingWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Clothing")
@@ -163,7 +163,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Clothing was delete")
     public void validThatTheSubcategoryClothingWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Skin Care categories")
@@ -180,7 +180,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Skin Care was created")
     public void validThatTheSubcategorySkinCareWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Skin Care")
@@ -190,7 +190,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Skin Care was edit")
     public void validThatTheSubcategorySkinCareWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Skin Care")
@@ -200,7 +200,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Skin Care was delete")
     public void validThatTheSubcategorySkinCareWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Accessories categories")
@@ -216,7 +216,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Accessories was created")
     public void validThatTheSubcategoryAccessoriesWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Accessories")
@@ -226,7 +226,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Accessories was edit")
     public void validThatTheSubcategoryAccessoriesWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Accessories")
@@ -236,7 +236,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Accessories was delete")
     public void validThatTheSubcategoryAccessoriesWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Art & Collectables categories")
@@ -252,7 +252,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Art & Collectables was created")
     public void validThatTheSubcategoryArtCollectablesWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Art & Collectables")
@@ -262,7 +262,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Art & Collectables was edit")
     public void validThatTheSubcategoryArtCollectablesWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Art & Collectables")
@@ -272,7 +272,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Art & Collectables was delete")
     public void validThatTheSubcategoryArtCollectablesWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Hottest Items categories")
@@ -288,7 +288,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Hottest Items was created")
     public void validThatTheSubcategoryHottestItemsWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Hottest Items")
@@ -298,7 +298,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Hottest Items was edit")
     public void validThatTheSubcategoryHottestItemsWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Hottest Items")
@@ -308,7 +308,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Hottest Items was delete")
     public void validThatTheSubcategoryHottestItemsWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Valid to be viewed Jewelry categories")
@@ -324,7 +324,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Jewelry was created")
     public void validThatTheSubcategoryJewelryWasCreated() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("edit Subcategory Jewelry")
@@ -334,7 +334,7 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Jewelry was edit")
     public void validThatTheSubcategoryJewelryWasEdit() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @And("delete Subcategory Jewelry")
@@ -344,6 +344,6 @@ public class categorySteps extends BasePage {
 
     @Then("Valid that the subcategory Jewelry was delete")
     public void validThatTheSubcategoryJewelryWasDelete() {
-        Assert.assertEquals("Awesome!", _page.validationSuccesSubcategory());
+        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 }

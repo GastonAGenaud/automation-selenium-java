@@ -117,6 +117,16 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'See details')]")
     public WebElement seeDetailsText;
 
+    @FindBy(xpath = "//span[contains(text(), 'Shipment pending')]")
+    public WebElement shipmentValidateText;
+
+    public boolean shipmentValidatingTxt(){
+        fluentWait(getDriver(), shipmentValidateText);
+        boolean result = shipmentValidateText.isDisplayed();
+        return result;
+    }
+
+
     public boolean seeDetailsValidateText() {
         boolean result = false;
 

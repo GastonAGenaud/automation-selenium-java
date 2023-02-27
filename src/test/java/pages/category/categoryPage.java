@@ -86,7 +86,7 @@ public class categoryPage extends BasePage {
     public WebElement addHottestItemsSubcategory;
     @FindBy(how = How.CSS, using = "#category-name-573")
     public WebElement addJewelrySubcategory;
-    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topRight > div > div > div.iziToast-body > div.iziToast-texts > strong")
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topRight > div:nth-child(1) > div > div.iziToast-body > div.iziToast-texts > p")
     public WebElement SuccessSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editShoesSubcategoryBtn;
@@ -100,7 +100,7 @@ public class categoryPage extends BasePage {
     public WebElement editSkinCareSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[7]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editAccessoriesSubcategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/i[2]")
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[6]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editArtAndCollectablesSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/input")
     public WebElement editShoesSubcategory;
@@ -503,20 +503,53 @@ public class categoryPage extends BasePage {
     }
 
     public void editArtAndCollectablesSubcategory() {
+
         try {
             fluentWait(getDriver(), ArtAndCollectablesCategory);
             waitForWebElementAndClick(ArtAndCollectablesCategory);
-            fluentWait(getDriver(), editArtAndCollectablesSubcategoryBtn);
-            waitForWebElementAndClick(editArtAndCollectablesSubcategoryBtn);
-            fluentWait(getDriver(), editArtAndCollectablesSubcategory);
-            waitForWebElementAndClick(editArtAndCollectablesSubcategory);
-            editArtAndCollectablesSubcategory.sendKeys(" Edit");
-            editArtAndCollectablesSubcategory.sendKeys(Keys.ENTER);
+
+            wait(3);
+            WebElement editSubcategory = getDriver().findElement(By.xpath("//label[contains(text(), 'edit')]"));
+            wait(3);
+            String subCategoryId = editSubcategory.getAttribute("data-id");
+            String editId = "edit-" + subCategoryId;
+            String nameId = "name-" + subCategoryId;
+            String xpathSubCategory = "//i[@id=" + "\"" + editId + "\"" + "]";
+            WebElement editButtonFromSubCategory = getDriver().findElement(By.xpath(xpathSubCategory));
+
+            String xpathSubCategoryName = "//input[@id=" + "\"" + nameId  + "\"" + "]";
+            WebElement editNameButton = getDriver().findElement(By.xpath(xpathSubCategoryName));
+
+            fluentWaitStrict(getDriver(), editButtonFromSubCategory);
+            waitForWebElementAndClick(editButtonFromSubCategory);
+            fluentWait(getDriver(), editNameButton);
+            waitForWebElementAndClick(editNameButton);
+            editNameButton.sendKeys(" Edit");
+            editNameButton.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
-            wait(2);
+            wait(3);
+            WebElement editSubcategory = getDriver().findElement(By.xpath("//label[contains(text(), 'edit')]"));
+            wait(3);
+            String subCategoryId = editSubcategory.getAttribute("data-id");
+            String editId = "edit-" + subCategoryId;
+            String nameId = "name-" + subCategoryId;
+            String xpathSubCategory = "//i[@id=" + "\"" + editId + "\"" + "]";
+            WebElement editButtonFromSubCategory = getDriver().findElement(By.xpath(xpathSubCategory));
+
+            String xpathSubCategoryName = "//input[@id=" + "\"" + nameId  + "\"" + "]";
+            WebElement editNameButton = getDriver().findElement(By.xpath(xpathSubCategoryName));
+
+            fluentWaitStrict(getDriver(), editButtonFromSubCategory);
+            waitForWebElementAndClick(editButtonFromSubCategory);
+            fluentWait(getDriver(), editNameButton);
+            waitForWebElementAndClick(editNameButton);
+            editNameButton.sendKeys(" Edit");
+            editNameButton.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
         }
     }
+
 
     public void deleteArtAndCollectablesSubcategory() {
         try {

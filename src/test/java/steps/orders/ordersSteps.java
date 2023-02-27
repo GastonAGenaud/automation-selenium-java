@@ -36,6 +36,7 @@ public class ordersSteps extends BasePage {
     @When("I validate sold orders details")
     public void iValidateSoldOrdersDetails() {
         _page.goToOrders();
+        _page.shipmentValidatingTxt();
         _page.ordersSoldDetails();
     }
 

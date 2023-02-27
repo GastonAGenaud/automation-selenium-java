@@ -653,6 +653,7 @@ public class AdminSteps extends BasePage {
     @When("I validate Add-Ons Section")
     public void iValidateAddOnsSection() {
         _page.addonBtnFromPanel();
+        _page.getCloseChat();
         //_page.addNewAddOns();
         //_page.backToAddOns();
         _page.selectAddOnsProductSections();
