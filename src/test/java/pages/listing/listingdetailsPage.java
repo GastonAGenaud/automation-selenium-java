@@ -301,12 +301,13 @@ public class listingdetailsPage extends BasePage {
             while (!sendBtn.isDisplayed()) {
                 wait(5);
                 validateMessageText();
-                actions.moveToElement(sendBtn).doubleClick().build().perform();
+                //actions.moveToElement(sendBtn).doubleClick().build().perform();
                 //fluentWaitElementDisappears(getDriver(), sendBtn);
-                retryingFindClick(sendBtn);
-                retryingFindClick(sendBtn);
-                retryingFindClick(sendBtn);
-                retryingFindClick(sendBtn);
+                wait(2);
+                messageTextField.clear();
+                messageTextField.sendKeys("Automation message");
+                fluentWait(getDriver(), sendBtn);
+                waitForWebElementAndClick(sendBtn);
             }
         }
 //        waitForWebElementAndClick(sendBtn);

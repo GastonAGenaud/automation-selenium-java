@@ -250,6 +250,15 @@ public class requestPage extends BasePage {
 
 
     public void requestSearch() {
+        try {
+            fluentWait(getDriver(), requestSearchBtn);
+            waitForWebElementAndClick(requestSearchBtn);
+        }
+        catch (Exception e){
+            wait(2);
+            fluentWait(getDriver(), requestSearchBtn);
+            waitForWebElementAndClick(requestSearchBtn);
+        }
         fluentWait(getDriver(), requestSearchBtn);
         waitForWebElementAndClick(requestSearchBtn);
     }
@@ -364,6 +373,18 @@ public class requestPage extends BasePage {
     }
 
     public void requestDescription() {
+        try {
+            fluentWait(getDriver(), requestDescriptionTextField);
+            waitForWebElementAndClick(requestDescriptionTextField);
+            requestDescriptionTextField.sendKeys("test automation");
+        }
+        catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), requestDescriptionTextField);
+            waitForWebElementAndClick(requestDescriptionTextField);
+            requestDescriptionTextField.sendKeys("test automation");
+
+        }
         fluentWait(getDriver(), requestDescriptionTextField);
         waitForWebElementAndClick(requestDescriptionTextField);
         requestDescriptionTextField.sendKeys("test automation");
