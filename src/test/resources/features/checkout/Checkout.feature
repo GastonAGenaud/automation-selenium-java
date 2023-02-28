@@ -1,6 +1,6 @@
 Feature: Checkout
 
-  @checkout  @MTR-1421 @smoke
+  @checkout  @MTR-1421 @smoke @MTR
   Scenario: Buyer able to clear cart
     Given I login with Gaston User
     And I go to the Shopping Cart

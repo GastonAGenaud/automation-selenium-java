@@ -93,3 +93,14 @@ Feature: Listing details
     And I go to the listing details page
     When I select see all redirect button
     Then I see that redirects me to the seller profile
+
+  @smoke  @details @MTR-9999 @MTR
+  Scenario: MTR - Viewing the category and subcategory
+    Given I login with Gaston User
+    And select My Listings button
+    When valid to show the product category
+    And select the product
+    And valid if the category is shown on the product page
+    And select the category
+    Then valid if the category is selected
+

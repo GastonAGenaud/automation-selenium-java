@@ -1,5 +1,6 @@
 package pages.checkout;
 
+import io.cucumber.java.an.E;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -138,16 +139,23 @@ public class checkoutPage extends BasePage {
 
     public boolean shippingAddressTextValidate() {
         getDriver().navigate().refresh();
-            fluentWait(getDriver(), shippingAddressText);
-            boolean result = shippingAddressText.isDisplayed();
-            return result;
+        fluentWait(getDriver(), shippingAddressText);
+        boolean result = shippingAddressText.isDisplayed();
+        return result;
 
     }
 
     public boolean addedToCartMessage() {
-        fluentWaitStrict(getDriver(), addtoCartMessage);
-        boolean result = addtoCartMessage.isDisplayed();
-        return result;
+        try {
+            fluentWaitStrict(getDriver(), addtoCartMessage);
+            boolean result = addtoCartMessage.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(2);
+            boolean result = addtoCartMessage.isDisplayed();
+            return result;
+        }
+
     }
 
     public boolean purchasedConfirm() {
@@ -221,8 +229,15 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectFlatRate() {
-        fluentWait(getDriver(), flatRateBtn);
-        waitForWebElementAndClick(flatRateBtn);
+       try {
+           fluentWait(getDriver(), flatRateBtn);
+           waitForWebElementAndClick(flatRateBtn);
+       }
+        catch (Exception e){
+           wait(3);
+            fluentWait(getDriver(), flatRateBtn);
+            waitForWebElementAndClick(flatRateBtn);
+        }
     }
 
     public void goToItemForShipping() {
@@ -237,6 +252,7 @@ public class checkoutPage extends BasePage {
     public void selectAddToCart() {
         fluentWait(getDriver(), addToCartBtn);
         waitForWebElementAndClick(addToCartBtn);
+
     }
 
     public void selectCartIcon() {
@@ -265,12 +281,11 @@ public class checkoutPage extends BasePage {
 
     public void selectAddShippingAddress() {
         try {
-            fluentWait(getDriver(),addShippingAddressBtn);
+            fluentWait(getDriver(), addShippingAddressBtn);
             waitForWebElementAndClick(addShippingAddressBtn);
             //retryingFindClick(addShippingAddressBtn);
             fluentWait(getDriver(), modalShippingAddress);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(4);
             fluentWait(getDriver(), addShippingAddressBtn);
             waitForWebElementAndClick(addShippingAddressBtn);
@@ -289,8 +304,16 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreviousAddress() {
-        fluentWait(getDriver(), reUseAddressBtn);
-        waitForWebElementAndClick(reUseAddressBtn);
+        try {
+            fluentWait(getDriver(), reUseAddressBtn);
+            waitForWebElementAndClick(reUseAddressBtn);
+            fluentWait(getDriver(), flatRateBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), reUseAddressBtn);
+            waitForWebElementAndClick(reUseAddressBtn);
+        }
+
     }
 
     public void selectAddressField1() {
