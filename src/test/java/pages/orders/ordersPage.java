@@ -120,7 +120,7 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "//span[contains(text(), 'Shipment pending')]")
     public WebElement shipmentValidateText;
 
-    public boolean shipmentValidatingTxt(){
+    public boolean shipmentValidatingTxt() {
         fluentWait(getDriver(), shipmentValidateText);
         boolean result = shipmentValidateText.isDisplayed();
         return result;
@@ -190,10 +190,14 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersSoldCancelBtn() {
-        ordersSoldOpenMenuTab();
-        fluentWait(getDriver(), ordersSoldOpenCancelBtn);
-        waitForWebElementAndClick(ordersSoldOpenCancelBtn);
-
+        try {
+            ordersSoldOpenMenuTab();
+            fluentWait(getDriver(), ordersSoldOpenCancelBtn);
+            waitForWebElementAndClick(ordersSoldOpenCancelBtn);
+            fluentWait(getDriver(), cancelMessage);
+        } catch (Exception e) {
+            wait(3);
+        }
     }
 
     public void ordersPurchasedButton() {

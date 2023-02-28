@@ -113,9 +113,16 @@ public class makeAnOfferPage extends BasePage {
 
 
     public boolean validateLastError() {
-        fluentWaitElementDisappears(getDriver(), lastErrorValidate);
-        boolean result = lastErrorValidate.isDisplayed();
-        return result;
+        try {
+            fluentWaitElementDisappears(getDriver(), lastErrorValidate);
+            boolean result = lastErrorValidate.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(4);
+
+            boolean result = lastErrorValidate.isDisplayed();
+            return result;
+        }
     }
 
 

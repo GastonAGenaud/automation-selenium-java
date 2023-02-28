@@ -90,6 +90,14 @@ public class listingdetailsPage extends BasePage {
     public WebElement moreFromThisSellerSeeAllBtn;
     @FindBy(how = How.CSS, using = "#profile-img-storefront")
     public WebElement profileImage;
+    @FindBy(how = How.CSS, using = "#\\39 91-cat")
+    public WebElement hottestItemsCat;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
+    public WebElement hottestItemsCategory;
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div:nth-child(2) > div.mb-3 > a")
+    public WebElement hottestItemsDetail;
+    @FindBy(how = How.CSS, using = "#\\39 91 > div > div.col-7.col-md-8.col-lg-9 > div")
+    public WebElement productHottestItems;
     @FindBy(how = How.CSS, using = "#rowchat-container > section.d-none.d-lg-block.col-lg-3 > div")
     public WebElement sellerMessage;
     @FindBy(how = How.CSS, using = "#refunds-tab")
@@ -131,19 +139,18 @@ public class listingdetailsPage extends BasePage {
     @FindBy(xpath = "//p[contains(text(), 'Message')]")
     public WebElement validateTextFromSendMessage;
 
-    public boolean validateMessageText(){
+    public boolean validateMessageText() {
         fluentWait(getDriver(), validateTextFromSendMessage);
         boolean result = validateTextFromSendMessage.isDisplayed();
         return result;
     }
 
 
-    public boolean validateTextFirst(){
+    public boolean validateTextFirst() {
         fluentWait(getDriver(), validateFirstText);
         boolean result = validateFirstText.isDisplayed();
         return result;
     }
-
 
 
     public void submitButton() {
@@ -237,13 +244,49 @@ public class listingdetailsPage extends BasePage {
         return result;
     }
 
+    public String HottestItemsCat() {
+        try {
+            String result = hottestItemsCat.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = hottestItemsCat.getText();
+            return result;
+        }
+
+    }
+
+    public void selectProductHottestItems() {
+        try {
+            fluentWait(getDriver(), productHottestItems);
+            waitForWebElementAndClick(productHottestItems);
+            fluentWait(getDriver(), hottestItemsDetail);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public String HottestItemsDetail() {
+        String result = hottestItemsDetail.getText();
+        return result;
+    }
+
+    public String HottestItemsCategory() {
+        String result = hottestItemsCategory.getText();
+        return result;
+    }
+
+    public void selectHottestItemsDetail() {
+        fluentWait(getDriver(), hottestItemsDetail);
+        waitForWebElementAndClick(hottestItemsDetail);
+    }
+
     public boolean sellerMessageConfirm() {
         try {
             fluentWaitStrict(getDriver(), sellerMessage);
             boolean result = sellerMessage.isDisplayed();
             return result;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), sellerMessage);
             boolean result = sellerMessage.isDisplayed();
@@ -373,7 +416,7 @@ public class listingdetailsPage extends BasePage {
             waitForWebElementAndClick(sendBtnMakeAndOffer);
             retryingFindClick(sendBtnMakeAndOffer);
 //            fluentWait(getDriver(), chatVerify);
-        }catch(Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), sendBtnMakeAndOffer);
             waitForWebElementAndClick(sendBtnMakeAndOffer);
