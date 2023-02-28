@@ -64,117 +64,139 @@ public class OhListingDetailsPage extends BasePage {
     public WebElement availabilityText;
     @FindBy(how = How.CSS, using = "#package > h4")
     public WebElement flatRateServicesText;
-    @FindBy(how = How.CSS,using = "#media > h4")
+    @FindBy(how = How.CSS, using = "#media > h4")
     public WebElement mediaText;
     @FindBy(how = How.CSS, using = "#reviews > div.d-flex.justify-content-between.align-items-center.mb-2 > h4")
     public WebElement reviewText;
 
 
-
-    public void setHomePage(){
+    public void setHomePage() {
 
         getDriver().navigate().to(baseUrlOHE);
     }
 
-    public void goToLoginPage () {
-        getDriver().navigate().to(baseUrlOHE+"/Account/Login");
+    public void goToLoginPage() {
+        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
 
     }
-        public void BrowseClassesButton() {
-            browseClassesBtn.click();
-        }
 
-        public void exampleItemButton(){
-        exampleItem.click();
-        }
+    public void BrowseClassesButton() {
+        fluentWait(getDriver(), browseClassesBtn);
+        waitForWebElementAndClick(browseClassesBtn);
+    }
 
-        public boolean providerText(){
-        boolean result= selectProviderText.isDisplayed();
+    public void exampleItemButton() {
+        fluentWait(getDriver(), exampleItem);
+        waitForWebElementAndClick(exampleItem);
+    }
+
+    public boolean providerText() {
+        fluentWait(getDriver(), selectProviderText);
+        boolean result = selectProviderText.isDisplayed();
         return result;
-        }
+    }
 
-        public void sendMessageButton(){
-        sendMessageBtn.click();
-        }
+    public void sendMessageButton() {
+        fluentWait(getDriver(), sendMessageBtn);
+        waitForWebElementAndClick(sendMessageBtn);
+    }
 
-        public void sendMessageTextBox(){
-        sendMessageTextField.click();
-        }
+    public void sendMessageTextBox() {
+        fluentWait(getDriver(), sendMessageTextField);
+        waitForWebElementAndClick(sendMessageTextField);
+    }
 
-        public boolean fromBoxSend(){
+    public boolean fromBoxSend() {
+        fluentWait(getDriver(), sendMessageBtn);
         boolean result = sendFromBoxBtn.isDisplayed();
         return result;
-        }
+    }
 
-        public void hireButton(){
-        hireBtn.click();
+    public void hireButton() {
+        fluentWait(getDriver(), hireBtn);
+        waitForWebElementAndClick(hireBtn);
 
-        }
+    }
 
-        public void serviceInfoButton(){
-        serviceInfoBtn.click();
-        }
+    public void serviceInfoButton() {
+        fluentWait(getDriver(), serviceInfoBtn);
+        waitForWebElementAndClick(serviceInfoBtn);
+    }
 
-        public void availabilityButton(){
-        availabilityBtn.click();
-        }
+    public void availabilityButton() {
+        fluentWait(getDriver(), availabilityBtn);
+        waitForWebElementAndClick(availabilityBtn);
+    }
 
-        public void flatRateServicesButton(){
-        flatRateServicesBtn.click();
-        }
+    public void flatRateServicesButton() {
+        fluentWait(getDriver(), flatRateServicesBtn);
+        waitForWebElementAndClick(flatRateServicesBtn);
+    }
 
-        public void mediaButton(){
-        mediaBtn.click();
-        }
+    public void mediaButton() {
+        fluentWait(getDriver(), mediaBtn);
+        waitForWebElementAndClick(mediaBtn);
+    }
 
-        public void reviewsButton(){
-        reviewsBtn.click();
-        }
+    public void reviewsButton() {
+        fluentWait(getDriver(), reviewsBtn);
+        waitForWebElementAndClick(reviewsBtn);
+    }
 
-        public boolean workTxt(){
+    public boolean workTxt() {
+        fluentWait(getDriver(), workText);
         boolean result = workText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean educationTxt(){
+    public boolean educationTxt() {
+        fluentWait(getDriver(), educationText);
         boolean result = educationText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean bioTxt(){
+    public boolean bioTxt() {
+        fluentWait(getDriver(), bioText);
         boolean result = bioText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean hireTxt(){
+    public boolean hireTxt() {
+        fluentWait(getDriver(), hireNameText);
         boolean result = hireNameText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean serviceInfoTxt(){
+    public boolean serviceInfoTxt() {
+        fluentWait(getDriver(), serviceInfoText);
         boolean result = serviceInfoText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean availabilityTxt(){
+    public boolean availabilityTxt() {
+        fluentWait(getDriver(), availabilityBtn);
         boolean result = availabilityText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean flatRateServicesTxt(){
+    public boolean flatRateServicesTxt() {
+        fluentWait(getDriver(), flatRateServicesText);
         boolean result = flatRateServicesText.isDisplayed();
         return result;
-        }
+    }
 
-        public boolean reviewTxt(){
+    public boolean reviewTxt() {
+        fluentWait(getDriver(), reviewsBtn);
         boolean result = reviewText.isDisplayed();
         return result;
-        }
-        public boolean mediaTxt(){
+    }
+
+    public boolean mediaTxt() {
+        fluentWait(getDriver(), mediaText);
         boolean result = mediaText.isDisplayed();
         return result;
-        }
     }
+}
 
 
 

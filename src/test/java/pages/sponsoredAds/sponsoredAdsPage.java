@@ -120,6 +120,13 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
     public WebElement tabReactivate;
 
+    @FindBy(xpath = "//span[ text() = 'PROFILE' ]")
+    public WebElement profileTextValidate;
+    public boolean validateProfileText(){
+        boolean result = profileTextValidate.isDisplayed();
+        return result;
+    }
+
     public boolean validateReactivateTextMessage() {
         fluentWait(getDriver(), validateReactivateMessage);
         boolean result = validateReactivateMessage.isDisplayed();

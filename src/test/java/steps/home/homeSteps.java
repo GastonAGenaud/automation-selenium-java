@@ -376,7 +376,6 @@ public class homeSteps extends BasePage {
 
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
-
     }
 
     @Given("I login with Gaston User")

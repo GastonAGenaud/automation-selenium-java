@@ -95,7 +95,7 @@ public class SessionManager {
                             .path(cookies.get("path").toString())
                             .domain(cookies.get("domain").toString())
                             .expiresOn(
-                                    !cookies.has("expiry") ? null : new Date(new Date().getTime() + 3600 * 1000))
+                                    !cookies.has("expiry") ? null : new Date(new Date().getTime() + 3600 * 10000))
                             .isSecure((Boolean) cookies.get("isSecure"))
                             .isHttpOnly((Boolean) cookies.get("isHttpOnly"))
                             .build();

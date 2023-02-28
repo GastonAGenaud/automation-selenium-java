@@ -1,5 +1,6 @@
 package steps.sponsoredAds;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,9 +29,11 @@ public class sponsoredAdsSteps extends BasePage {
         this._page = new sponsoredAdsPage();
     }
 
+
     @Given("I login with another account")
     public void iLoginWithAnotherAccount() throws IOException {
         getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
         getHomePage();
         sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser-data-session");
 
@@ -231,8 +234,7 @@ public class sponsoredAdsSteps extends BasePage {
             //_page.login();
             _page.goToDashboard();
             _page.goToSponsoredAds();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             _page.goToDashboard();
             _page.goToSponsoredAds();

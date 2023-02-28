@@ -37,11 +37,11 @@ public class bugsPage extends BasePage {
     public WebElement passwordLoginInput;
     @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
     public WebElement logInBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[13]/div/div/div/div[2]/div/div[4]/div[2]/input")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/div/input[1]")
     public WebElement trackingTextField;
     @FindBy(how = How.CSS, using = "#tracking-set-5074 > a > svg")
     public WebElement trackingSet;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div[13]/div/div/div/div[2]/div/div[4]/div[2]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/div/a")
     public WebElement submitBtn;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts")
     public WebElement successMessage;
@@ -52,10 +52,10 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#listings-tab > span > span:nth-child(1)")
     public WebElement myListingsBtn;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/div/button/i")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[2]/div/button")
     public WebElement itemDots;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/div/div/a[5]")
+    @FindBy(xpath = "//a[contains(text(), 'Feature')]")
     public WebElement featureBtn;
 
     @FindBy(how = How.CSS, using = "#start-date")
@@ -357,7 +357,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#openReadMessages > span")
     public WebElement validateRead;
 
-    @FindBy(how = How.CSS, using = "#container-block > div:nth-child(2) > a > div > div.card-body.position-relative > span.badge.badge-warning.badge-absolute-card.position-absolute")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/div/span[1]")
     public WebElement seenTimesTxt;
 
     @FindBy(how = How.CSS, using = "#facebook")
@@ -396,7 +396,14 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(3) > a")
     public WebElement emailStep;
+    @FindBy(xpath = "//th[contains(text(), 'Action')]")
+    public WebElement actionText;
 
+    public boolean validateActionText() {
+        fluentWait(getDriver(), actionText);
+        boolean result = actionText.isDisplayed();
+        return result;
+    }
 
     LogEntries logEntries = getDriver().manage().logs().get("browser");
 
@@ -1073,7 +1080,7 @@ public class bugsPage extends BasePage {
     }
 
     public void setItemDots() {
-        fluentWait(getDriver(), itemDots);
+        fluentWaitStrict(getDriver(), itemDots);
         waitForWebElementAndClick(itemDots);
     }
 
@@ -1084,13 +1091,13 @@ public class bugsPage extends BasePage {
 
     public void setTrackingTextField() {
         try {
-            fluentWait(getDriver(), trackingSet);
-            waitForWebElementAndClick(trackingSet);
+            fluentWait(getDriver(), trackingTextField);
+            waitForWebElementAndClick(trackingTextField);
             fluentWait(getDriver(), trackingTextField);
         } catch (Exception e) {
             wait(4);
-            fluentWait(getDriver(), trackingSet);
-            waitForWebElementAndClick(trackingSet);
+            fluentWait(getDriver(), trackingTextField);
+            waitForWebElementAndClick(trackingTextField);
             fluentWait(getDriver(), trackingTextField);
         } finally {
             trackingTextField.sendKeys("12345");

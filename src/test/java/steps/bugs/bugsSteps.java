@@ -109,7 +109,7 @@ public class bugsSteps extends BasePage {
         _page.setHomePageBUG();
         //_page.goToDashboard();
         _page.goToLoginPage();
-        _page.loginWithGastonUser();
+        _page.login3();
         _page.goToDashboard();
     }
 
@@ -247,11 +247,13 @@ public class bugsSteps extends BasePage {
         _page.setSettingsTabButton();
 
     }
+
     @And("go to Dashboard")
     public void goToDashboard() {
         _page.goToDashboard();
 
     }
+
     @When("complete First Name TextField")
     public void completeFirstNameTextField() {
         _page.setFirstNameTextField();
@@ -392,6 +394,7 @@ public class bugsSteps extends BasePage {
     @And("click Select Action button")
     public void clickSelectActionButton() {
         //_page.getCloseChat();
+        _page.validateActionText();
         _page.setSelectActionBtn();
     }
 
@@ -609,7 +612,7 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Payment Information")
     public void iValidatePaymentInformation() {
-           Assert.assertEquals("Saved Credit Cards", _page.validatePaymentTxt());
+        Assert.assertEquals("Saved Credit Cards", _page.validatePaymentTxt());
     }
 
     @When("I type password {string}")
