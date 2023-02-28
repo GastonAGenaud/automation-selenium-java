@@ -1,5 +1,6 @@
 package pages.storefront;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -62,12 +63,18 @@ public class storefrontPage extends BasePage {
     public WebElement profileAvatar;
     @FindBy(how = How.CSS, using = "#social-tab-content > div > div > h5")
     public WebElement socialText;
-    @FindBy(how = How.CSS, using = "body")
-    public WebElement frameText;
 
     public void setFrameText() {
         getDriver().switchTo().frame(0);
-        frameText.sendKeys("Test");
+        try {
+            WebElement textFieldBio=getDriver().findElement(By.cssSelector("body"));
+            textFieldBio.sendKeys("Test");
+        }
+        catch (Exception e) {
+            wait(2);
+            WebElement textFieldBio=getDriver().findElement(By.cssSelector("body"));
+            textFieldBio.sendKeys("Test");
+        }
         getDriver().switchTo().defaultContent();
     }
 

@@ -83,7 +83,6 @@ public class storefrontSteps extends BasePage {
     @And("I validate the profile bio text field")
     public void iValidateTheProfileBioTextField() {
         _page.setFrameText();
-        // _page.bioEdition();
     }
 
 
