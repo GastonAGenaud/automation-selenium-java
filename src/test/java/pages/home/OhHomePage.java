@@ -109,7 +109,7 @@ public class OhHomePage extends BasePage {
     public WebElement owlHomeIconBtn;
 
     public void goToOwlHomePage() {
-        driver.navigate().to(baseUrlOHE);
+        getDriver().navigate().to(baseUrlOHE);
     }
 
     public void goToLoginPage() {
