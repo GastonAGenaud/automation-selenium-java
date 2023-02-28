@@ -120,15 +120,15 @@ public class categoryPage extends BasePage {
     public WebElement deleteShoesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/a")
     public WebElement deleteOutdoorStaffSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/a")
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Rugs Edit']")
     public WebElement deleteRugsSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div/div[1]/a")
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Clothing Edit']")
     public WebElement deleteClothingSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[6]/div[2]/div[1]/div/div[1]/a")
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Skin Care Edit']")
     public WebElement deleteSkinCareSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[7]/div[2]/div[1]/div/div[1]/a")
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Accessories Edit']")
     public WebElement deleteAccessoriesSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/a")
+    @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Art Edit']")
     public WebElement deleteArtAndCollectablesSubcategory;
     @FindBy(xpath = "//a[text()='Delete'][@data-name='test Hottest Items Edit']")
     public WebElement deleteHottestItemsSubcategory;
@@ -161,14 +161,14 @@ public class categoryPage extends BasePage {
     }
 
     public String validationSuccesSubcategory() {
-       try {
-           String result = SuccessSubcategory.getText();
-           return result;
-       }catch (Exception e){
-          wait(2);
-           String result = SuccessSubcategory.getText();
-           return result;
-       }
+        try {
+            String result = SuccessSubcategory.getText();
+            return result;
+        } catch (Exception e) {
+            wait(2);
+            String result = SuccessSubcategory.getText();
+            return result;
+        }
 
 
     }
@@ -297,20 +297,33 @@ public class categoryPage extends BasePage {
     }
 
     public void editRugsSubcategory() {
+        fluentWait(getDriver(), RugsCategory);
+        waitForWebElementAndClick(RugsCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), RugsCategory);
-            waitForWebElementAndClick(RugsCategory);
-            fluentWait(getDriver(), editRugsSubcategoryBtn);
-            waitForWebElementAndClick(editRugsSubcategoryBtn);
-            fluentWait(getDriver(), editRugsSubcategory);
-            waitForWebElementAndClick(editRugsSubcategory);
-            editRugsSubcategory.sendKeys(" Edit");
-            editRugsSubcategory.sendKeys(Keys.ENTER);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Rugs')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Rugs')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
         }
-
     }
 
     public void deleteRugsSubcategory() {
@@ -349,20 +362,33 @@ public class categoryPage extends BasePage {
     }
 
     public void editClothingSubcategory() {
+        fluentWait(getDriver(), ClothingCategory);
+        waitForWebElementAndClick(ClothingCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), ClothingCategory);
-            waitForWebElementAndClick(ClothingCategory);
-            fluentWait(getDriver(), editClothingSubcategoryBtn);
-            waitForWebElementAndClick(editClothingSubcategoryBtn);
-            fluentWait(getDriver(), editClothingSubcategory);
-            waitForWebElementAndClick(editClothingSubcategory);
-            editClothingSubcategory.sendKeys(" Edit");
-            editClothingSubcategory.sendKeys(Keys.ENTER);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Clothing')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Clothing')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
         }
-
     }
 
     public void deleteClothingSubcategory() {
@@ -401,15 +427,29 @@ public class categoryPage extends BasePage {
     }
 
     public void editSkinCareSubcategory() {
+        fluentWait(getDriver(), SkinCareCategory);
+        waitForWebElementAndClick(SkinCareCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), SkinCareCategory);
-            waitForWebElementAndClick(SkinCareCategory);
-            fluentWait(getDriver(), editSkinCareSubcategoryBtn);
-            waitForWebElementAndClick(editSkinCareSubcategoryBtn);
-            fluentWait(getDriver(), editSkinCareSubcategory);
-            waitForWebElementAndClick(editSkinCareSubcategory);
-            editSkinCareSubcategory.sendKeys(" Edit");
-            editSkinCareSubcategory.sendKeys(Keys.ENTER);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Skin Care')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Skin Care')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
@@ -452,15 +492,29 @@ public class categoryPage extends BasePage {
     }
 
     public void editAccessoriesSubcategory() {
+        fluentWait(getDriver(), AccessoriesCategory);
+        waitForWebElementAndClick(AccessoriesCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), AccessoriesCategory);
-            waitForWebElementAndClick(AccessoriesCategory);
-            fluentWait(getDriver(), editAccessoriesSubcategoryBtn);
-            waitForWebElementAndClick(editAccessoriesSubcategoryBtn);
-            fluentWait(getDriver(), editAccessoriesSubcategory);
-            waitForWebElementAndClick(editAccessoriesSubcategory);
-            editAccessoriesSubcategory.sendKeys(" Edit");
-            editAccessoriesSubcategory.sendKeys(Keys.ENTER);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Accessories')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Accessories')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
@@ -503,51 +557,34 @@ public class categoryPage extends BasePage {
     }
 
     public void editArtAndCollectablesSubcategory() {
-
+        fluentWait(getDriver(), ArtAndCollectablesCategory);
+        waitForWebElementAndClick(ArtAndCollectablesCategory);
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), ArtAndCollectablesCategory);
-            waitForWebElementAndClick(ArtAndCollectablesCategory);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Art')]"));
+            if (subCategoryEdit.isDisplayed()) {
 
-            wait(3);
-            WebElement editSubcategory = getDriver().findElement(By.xpath("//label[contains(text(), 'edit')]"));
-            wait(3);
-            String subCategoryId = editSubcategory.getAttribute("data-id");
-            String editId = "edit-" + subCategoryId;
-            String nameId = "name-" + subCategoryId;
-            String xpathSubCategory = "//i[@id=" + "\"" + editId + "\"" + "]";
-            WebElement editButtonFromSubCategory = getDriver().findElement(By.xpath(xpathSubCategory));
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Test Art')]"));
 
-            String xpathSubCategoryName = "//input[@id=" + "\"" + nameId  + "\"" + "]";
-            WebElement editNameButton = getDriver().findElement(By.xpath(xpathSubCategoryName));
-
-            fluentWaitStrict(getDriver(), editButtonFromSubCategory);
-            waitForWebElementAndClick(editButtonFromSubCategory);
-            fluentWait(getDriver(), editNameButton);
-            waitForWebElementAndClick(editNameButton);
-            editNameButton.sendKeys(" Edit");
-            editNameButton.sendKeys(Keys.ENTER);
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
-            WebElement editSubcategory = getDriver().findElement(By.xpath("//label[contains(text(), 'edit')]"));
-            wait(3);
-            String subCategoryId = editSubcategory.getAttribute("data-id");
-            String editId = "edit-" + subCategoryId;
-            String nameId = "name-" + subCategoryId;
-            String xpathSubCategory = "//i[@id=" + "\"" + editId + "\"" + "]";
-            WebElement editButtonFromSubCategory = getDriver().findElement(By.xpath(xpathSubCategory));
-
-            String xpathSubCategoryName = "//input[@id=" + "\"" + nameId  + "\"" + "]";
-            WebElement editNameButton = getDriver().findElement(By.xpath(xpathSubCategoryName));
-
-            fluentWaitStrict(getDriver(), editButtonFromSubCategory);
-            waitForWebElementAndClick(editButtonFromSubCategory);
-            fluentWait(getDriver(), editNameButton);
-            waitForWebElementAndClick(editNameButton);
-            editNameButton.sendKeys(" Edit");
-            editNameButton.sendKeys(Keys.ENTER);
-            fluentWait(getDriver(), SuccessSubcategory);
         }
+
     }
 
 
@@ -592,7 +629,7 @@ public class categoryPage extends BasePage {
         WebElement subCategoryEdit = null;
         try {
             subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'test Hottest Items')]"));
-            if (subCategoryEdit.isDisplayed()){
+            if (subCategoryEdit.isDisplayed()) {
 
             }
         } catch (Exception e) {

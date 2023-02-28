@@ -1,5 +1,6 @@
 package steps.listing;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -55,6 +56,14 @@ public class listingSteps extends BasePage {
     public void iValidateTheListingCategory() {
         _page.categoryBtn();
         _page.categoryJewelryBtn();
+    }
+
+    @And("I validate the listing category and Subcategory")
+    public void iValidateTheListingCategoryandSubcategory() {
+        _page.categoryBtn();
+        _page.categoryHottestItemsBtn();
+        _page.subcategoryBtn();
+        _page.subcategoryMensClothing();
     }
 
     @And("I validate the listing description text field")
@@ -192,6 +201,7 @@ public class listingSteps extends BasePage {
     public void iCompleteCustomFields() {
         //_page.setConditionOfItemTextField();
         _page.setDepartmentTab();
+        _page.ColorOptionsAT();
         //_page.setDepartmentMenOption();
         _page.goldCheckbox();
         _page.getMandatoryTextfield();

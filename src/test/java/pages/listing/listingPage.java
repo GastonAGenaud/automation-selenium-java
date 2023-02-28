@@ -33,6 +33,12 @@ public class listingPage extends BasePage {
     public WebElement listingCategoryBtn;
     @FindBy(xpath = "//option[contains(text(), 'Shoes')]")
     public WebElement categoryJewelry;
+    @FindBy(xpath = "//option[contains(text(), 'Hottest Items')]")
+    public WebElement categoryHottestItems;
+    @FindBy(how = How.CSS, using = "#sub-category-selector")
+    public WebElement subcategoryBtn;
+    @FindBy(how = How.CSS, using = "#sub-category-selector > option:nth-child(4)")
+    public WebElement subcategoryMensClothing;
     @FindBy(how = How.CSS, using = "#listing-description")
     public WebElement listingDescriptionTextField;
     @FindBy(how = How.CSS, using = "#price")
@@ -132,14 +138,16 @@ public class listingPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#custom-0")
     public WebElement departmentTab;
+    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(2) > div.form-group > div > div > div:nth-child(1) > span > label > span")
+    public WebElement greenOptionsBtn;
 
     @FindBy(how = How.CSS, using = "#custom-1 > option:nth-child(3)")
     public WebElement departmentMenOption;
 
-    @FindBy(how = How.CSS, using = "#checkbox-1-0")
+    @FindBy(how = How.CSS, using = "#checkbox-2-1")
     public WebElement goldButtonCheckbox;
 
-    @FindBy(how = How.CSS, using = "#custom-2")
+    @FindBy(how = How.CSS, using = "#custom-3")
     public WebElement mandatoryTextfield;
 
     @FindBy(how = How.CSS, using = "#custom-3")
@@ -171,7 +179,7 @@ public class listingPage extends BasePage {
         fluentWait(getDriver(), departmentMenOption);
         waitForWebElementAndClick(departmentMenOption);
 
-        
+
     }
 
     public void setDepartmentTab() {
@@ -182,7 +190,12 @@ public class listingPage extends BasePage {
         departmentTab.sendKeys(Keys.ENTER);
     }
 
-    public void sizeTextField(){
+    public void ColorOptionsAT() {
+        fluentWait(getDriver(), greenOptionsBtn);
+        waitForWebElementAndClick(greenOptionsBtn);
+    }
+
+    public void sizeTextField() {
         fluentWait(getDriver(), sizeText);
         waitForWebElementAndClick(sizeText);
         sizeText.sendKeys("3");
@@ -190,7 +203,7 @@ public class listingPage extends BasePage {
 
 
     public void setGotoDetailsButton() {
-        fluentWait(getDriver(),gotoDetailsButton);
+        fluentWait(getDriver(), gotoDetailsButton);
         waitForWebElementAndClick(gotoDetailsButton);
     }
 
@@ -201,9 +214,14 @@ public class listingPage extends BasePage {
     }
 
     public void setListingPublishBtn() {
-        fluentWait(getDriver(), listingPublishBtn);
-        waitForWebElementAndClick(listingPublishBtn);
-        retryingFindClick(listingPublishBtn);
+        try {
+            fluentWait(getDriver(), listingPublishBtn);
+            waitForWebElementAndClick(listingPublishBtn);
+            retryingFindClick(listingPublishBtn);
+            fluentWait(getDriver(), greatJobText);
+        } catch (Exception e) {
+            wait(2);
+        }
     }
 
 
@@ -259,6 +277,34 @@ public class listingPage extends BasePage {
         wait(2);
         waitForWebElementAndClick(categoryJewelry);
     }
+
+    public void categoryHottestItemsBtn() {
+        try {
+            fluentWaitStrict(getDriver(), categoryHottestItems);
+            waitForWebElementAndClick(categoryHottestItems);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), categoryHottestItems);
+            waitForWebElementAndClick(categoryHottestItems);
+        }
+    }
+
+    public void subcategoryBtn() {
+        fluentWait(getDriver(), subcategoryBtn);
+        waitForWebElementAndClick(subcategoryBtn);
+    }
+
+    public void subcategoryMensClothing() {
+        try {
+            fluentWaitStrict(getDriver(), subcategoryMensClothing);
+            waitForWebElementAndClick(subcategoryMensClothing);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), subcategoryMensClothing);
+            waitForWebElementAndClick(subcategoryMensClothing);
+        }
+    }
+
 
     public void listingDescription() {
         fluentWait(getDriver(), listingDescriptionTextField);
@@ -364,9 +410,9 @@ public class listingPage extends BasePage {
     }
 
     public void USPSHeight() {
-        fluentWait(getDriver(),USPSHeightTextField );
+        fluentWait(getDriver(), USPSHeightTextField);
         waitForWebElementAndClick(USPSHeightTextField);
-        fluentWait(getDriver(),USPSHeightTextField );
+        fluentWait(getDriver(), USPSHeightTextField);
         USPSHeightTextField.sendKeys("10");
     }
 

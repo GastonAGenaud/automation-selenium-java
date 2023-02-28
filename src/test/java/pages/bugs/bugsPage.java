@@ -919,11 +919,16 @@ public class bugsPage extends BasePage {
 
 
     public void selectPreviousAddress() {
-
-        waitForVisibility(reUseAddressTwoBtn);
-        waitForClickability(reUseAddressTwoBtn);
-        fluentWait(getDriver(), reUseAddressTwoBtn);
-        waitForWebElementAndClick(reUseAddressTwoBtn);
+        try {
+            waitForVisibility(reUseAddressTwoBtn);
+            waitForClickability(reUseAddressTwoBtn);
+            fluentWait(getDriver(), reUseAddressTwoBtn);
+            waitForWebElementAndClick(reUseAddressTwoBtn);
+            fluentWait(getDriver(),flatRateButton);
+        } catch (Exception e) {
+            wait(2);
+            waitForWebElementAndClick(reUseAddressTwoBtn);
+        }
     }
 
     public void selectAddShippingAddress() {
