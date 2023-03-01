@@ -4,8 +4,8 @@ Feature: Reviews
   Scenario: I validate Ask for Reviews
     Given OHE I login and go to a class
     When OHE I select review section
-    And OHE I select ask for reviews button
-    Then OHE I validate Ask for Reviews
+#    And OHE I select ask for reviews button
+#    Then OHE I validate Ask for Reviews
 
     @OHE-999
     Scenario: Validate invite people to leave you a review

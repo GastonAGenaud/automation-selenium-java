@@ -1,5 +1,6 @@
 package pages.listing;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -193,17 +194,25 @@ public class OhListingPage extends BasePage {
     }
 
     public void listingImageUploadButton() {
-        listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollBy(0,250)", "");
+        try {
+            fluentWait(getDriver(), listingImageUpload);
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        } catch (Exception e) {
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        }
     }
 
     public void listingVideoURLTextField() {
+        waitForVisibility(listingVideoTextField);
         fluentWait(getDriver(), listingVideoTextField);
         waitForWebElementAndClick(listingVideoTextField);
         listingVideoTextField.sendKeys("https://www.youtube.com/watch?v=59_usZm0HRg&ab_channel=PatrickFarrington");
     }
 
     public void selectGoToDetailsButton() {
-        fluentWait(getDriver(),goToDetailsBtn);
+        fluentWait(getDriver(), goToDetailsBtn);
         waitForWebElementAndClick(goToDetailsBtn);
     }
 
@@ -218,11 +227,13 @@ public class OhListingPage extends BasePage {
     }
 
     public void languageCheckboxEnglish() {
-        listingLanguageCheckbox.click();
+        fluentWait(getDriver(), listingLanguageCheckbox);
+        waitForWebElementAndClick(listingLanguageCheckbox);
     }
 
     public void listingCancellationTextField() {
-        cancellationTextField.click();
+        fluentWait(getDriver(), cancellationTextField);
+        waitForWebElementAndClick(cancellationTextField);
         cancellationTextField.sendKeys("Test");
     }
 
@@ -247,12 +258,12 @@ public class OhListingPage extends BasePage {
     }
 
     public void setTimeTwelve() {
-        fluentWait(getDriver(),timeTwelve );
+        fluentWait(getDriver(), timeTwelve);
         waitForWebElementAndClick(timeTwelve);
     }
 
     public void setTimeToTab() {
-        fluentWait(getDriver(),timeToTab);
+        fluentWait(getDriver(), timeToTab);
         waitForWebElementAndClick(timeToTab);
     }
 
@@ -262,8 +273,15 @@ public class OhListingPage extends BasePage {
     }
 
     public void selectPublishButton() {
-        fluentWait(getDriver(), listingPublishBtn);
-        waitForWebElementAndClick(listingPublishBtn);
+        try {
+            fluentWait(getDriver(), listingPublishBtn);
+            waitForWebElementAndClick(listingPublishBtn);
+        } catch (Exception e) {
+            wait(5);
+            fluentWait(getDriver(), listingPublishBtn);
+            waitForWebElementAndClick(listingPublishBtn);
+            retryingFindClick(listingPublishBtn);
+        }
     }
 
     public boolean listingActiveTab() {

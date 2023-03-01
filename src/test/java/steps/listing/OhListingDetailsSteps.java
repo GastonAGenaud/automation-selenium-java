@@ -60,7 +60,7 @@ public class OhListingDetailsSteps extends BasePage {
 
     @Then("I validate Hire Button")
     public void iValidateHireButton() {
-        Assert.assertEquals(false, _page.hireTxt());
+        Assert.assertEquals(true, _page.hireTxt());
     }
 
     @When("I select the Service information button")

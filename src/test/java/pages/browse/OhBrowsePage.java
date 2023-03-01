@@ -206,6 +206,7 @@ public class OhBrowsePage extends BasePage {
     }
 
     public boolean owlVerify() {
+        fluentWait(getDriver(), owlIcon);
         boolean result = owlIcon.isDisplayed();
         return result;
     }

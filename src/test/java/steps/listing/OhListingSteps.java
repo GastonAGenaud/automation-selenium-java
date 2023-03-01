@@ -110,13 +110,11 @@ public class OhListingSteps extends BasePage {
     @And("I select Publish button")
     public void iSelectPublishButton() {
         _page.selectPublishButton();
-        
     }
 
 
     @Then("I validate create a listing")
     public void iValidateCreateAListing() {
-        
         Assert.assertEquals(_page.listingActiveTab(), true);
     }
 
