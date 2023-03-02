@@ -18,14 +18,16 @@ import java.time.Duration;
 
 import static java.lang.Math.random;
 
-public class BasePage{
+public class BasePage {
     public BasePage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         return DriverFactory.getDriver();
-    };
+    }
+
+    ;
 
     @FindBy(how = How.CSS, using = "#e-mail")
     public WebElement emailLoginInput;
@@ -47,9 +49,6 @@ public class BasePage{
     @FindBy(how = How.CSS, using = "#signup-button")
     public WebElement signUpBtn;
 
-    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button")
-    public WebElement welcomeClose;
-
     @FindBy(how = How.CSS, using = "#buyer > div > div:nth-child(1) > div.card.card-dashboard.min-h-16.mb-3 > div > div.flex-column.text-center > a")
     public WebElement mySettingsValidateText;
 
@@ -60,12 +59,12 @@ public class BasePage{
     }
 
 
-
     public SessionManager sessionManager = new SessionManager(getDriver());
     public String password = Environment.getProperty("password");
     public String email = Environment.getProperty("email");
     public String url = Environment.getProperty("url");
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
+    public String UrlProduct = "https://mtreborn-staging-auto-products.azurewebsites.net/listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
 
@@ -142,11 +141,13 @@ public class BasePage{
         wait.until(webDriver -> element.isDisplayed() && element.isEnabled());
 
     }
+
     protected boolean loaded(WebElement element) {
         WebDriverWait wait = getWait();
         return wait.until((ExpectedCondition<Boolean>) wd ->
                 element.isDisplayed());
     }
+
     public void waitToLoad() {
         getWait().until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
     }
@@ -231,7 +232,6 @@ public class BasePage{
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
 
 
-
     public void login3() {
         getDriver().navigate().to(url + "/Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
@@ -243,6 +243,7 @@ public class BasePage{
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
     }
+
     public void login() {
         getDriver().navigate().to(baseUrlOHE + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
@@ -255,6 +256,7 @@ public class BasePage{
 
         waitForWebElementAndClick(logInBtn);
     }
+
     public void loginWithMakeAnOffer() throws IOException {
         getHomePage();
         getLoginPage();
@@ -346,7 +348,7 @@ public class BasePage{
     }
 
     public void loginWithGastonNoBorrar() throws IOException {
-      //  getHomePage();
+        //  getHomePage();
         getLoginPage();
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("Gaston2NoBorrar@hotmail.com");
@@ -432,16 +434,17 @@ public class BasePage{
         //welcomeClose.click();
 
     }
+
     public boolean retryingFindClick(WebElement element) {
         boolean result = false;
         int attempts = 0;
-        while(attempts < 2) {
+        while (attempts < 2) {
             try {
                 wait(7);
                 element.click();
                 result = true;
                 break;
-            } catch(StaleElementReferenceException e) {
+            } catch (StaleElementReferenceException e) {
             }
             attempts++;
         }

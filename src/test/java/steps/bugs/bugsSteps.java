@@ -40,7 +40,13 @@ public class bugsSteps extends BasePage {
 
     @When("I select tracking number TextField")
     public void iSelectTrackingNumberTextField() {
-        _page.setTrackingTextField();
+        try {
+            _page.setTrackingTextField();
+        } catch (Exception e) {
+            wait(3);
+           _page.acceptField();
+            _page.setTrackingTextField();
+        }
     }
 
     @And("select Submit button")
@@ -792,4 +798,15 @@ public class bugsSteps extends BasePage {
         _page.CreateAnAccountListingDetails("test");
     }
 
+    @When("buy the product")
+    public void buyTheProduct() {
+        navigateTo(UrlProduct);
+        _page.buyProduct();
+    }
+
+
+    @And("I add an Address Fields")
+    public void iAddAnAddressFields() {
+        _page.reUsePreviousAddress();
+    }
 }

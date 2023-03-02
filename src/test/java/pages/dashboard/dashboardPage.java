@@ -108,7 +108,15 @@ public class dashboardPage extends BasePage {
     }
 
     public void sellerOption() {
-        waitForWebElementAndClick(sellerBtn);
+        try {
+            fluentWait(getDriver(), sellerBtn);
+            waitForWebElementAndClick(sellerBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), sellerBtn);
+            waitForWebElementAndClick(sellerBtn);
+        }
+
     }
 
     public void lastDays() {

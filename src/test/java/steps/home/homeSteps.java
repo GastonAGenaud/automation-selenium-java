@@ -1,11 +1,14 @@
 package steps.home;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BasePage;
 import pages.home.HomePage;
+
+import java.io.IOException;
 
 public class homeSteps extends BasePage {
 
@@ -377,6 +380,7 @@ public class homeSteps extends BasePage {
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
     }
+
 
     @Given("I login with Gaston User")
     public void loginWithGastonUserSteps() {

@@ -39,6 +39,8 @@ public class bugsPage extends BasePage {
     public WebElement logInBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/div/input[1]")
     public WebElement trackingTextField;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/a[1]")
+    public WebElement acceptBtn;
     @FindBy(how = How.CSS, using = "#tracking-set-5074 > a > svg")
     public WebElement trackingSet;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/div/a")
@@ -924,7 +926,7 @@ public class bugsPage extends BasePage {
             waitForClickability(reUseAddressTwoBtn);
             fluentWait(getDriver(), reUseAddressTwoBtn);
             waitForWebElementAndClick(reUseAddressTwoBtn);
-            fluentWait(getDriver(),flatRateButton);
+            fluentWait(getDriver(), flatRateButton);
         } catch (Exception e) {
             wait(2);
             waitForWebElementAndClick(reUseAddressTwoBtn);
@@ -1094,6 +1096,19 @@ public class bugsPage extends BasePage {
         waitForWebElementAndClick(featureBtn);
     }
 
+    public void acceptField(){
+       try {
+           fluentWait(getDriver(), acceptBtn);
+           waitForWebElementAndClick(acceptBtn);
+           fluentWait(getDriver(), trackingTextField);
+       }
+        catch (Exception e){
+           wait(3);
+            waitForWebElementAndClick(acceptBtn);
+            fluentWait(getDriver(), acceptBtn);
+        }
+    }
+
     public void setTrackingTextField() {
         try {
             fluentWait(getDriver(), trackingTextField);
@@ -1259,6 +1274,14 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#text-15")
     public WebElement siteWordingContentTwo;
+
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
+    public WebElement buyBtn;
+    @FindBy(xpath= "//p[contains(text(), 'Shipping Address')]")
+    public WebElement shippingAddressText;
+    @FindBy(how = How.CSS, using = "#address-3607 > div > div")
+    public WebElement getReUseAddressBtn;
+
 
 
     public void downloadFileXpath() {
@@ -1469,5 +1492,23 @@ public class bugsPage extends BasePage {
         String result = valideWelcomeText.getText();
         Assert.assertEquals(result, "Welcome!!!");
     }
+
+    public void buyProduct() {
+       try {
+           fluentWait(getDriver(),buyBtn);
+           waitForWebElementAndClick(buyBtn);
+           retryingFindClick(buyBtn);
+           fluentWait(getDriver(), shippingAddressText);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(),buyBtn);
+           waitForWebElementAndClick(buyBtn);
+       }
+
+    }
+public void reUsePreviousAddress(){
+        fluentWait(getDriver(),getReUseAddressBtn);
+        waitForWebElementAndClick(getReUseAddressBtn);
+}
 
 }

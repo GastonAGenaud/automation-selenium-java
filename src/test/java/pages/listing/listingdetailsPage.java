@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
 
+import java.util.List;
+
 public class listingdetailsPage extends BasePage {
 
 
@@ -90,13 +92,18 @@ public class listingdetailsPage extends BasePage {
     public WebElement moreFromThisSellerSeeAllBtn;
     @FindBy(how = How.CSS, using = "#profile-img-storefront")
     public WebElement profileImage;
-    @FindBy(how = How.CSS, using = "#\\39 91-cat")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[1]/label")
     public WebElement hottestItemsCat;
+    @FindBy(how = How.CSS, using = "#active-pagination > nav > ul > li:nth-child(10) > a")
+    public WebElement nextPageBtn;
+    @FindBy(how = How.CSS, using = "#pending-tab > span")
+    public WebElement pendingBtn;
+
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
     public WebElement hottestItemsCategory;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div:nth-child(2) > div.mb-3 > a")
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[2]/div[1]/a")
     public WebElement hottestItemsDetail;
-    @FindBy(how = How.CSS, using = "#\\39 91 > div > div.col-7.col-md-8.col-lg-9 > div")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
     public WebElement productHottestItems;
     @FindBy(how = How.CSS, using = "#rowchat-container > section.d-none.d-lg-block.col-lg-3 > div")
     public WebElement sellerMessage;
@@ -244,6 +251,37 @@ public class listingdetailsPage extends BasePage {
         return result;
     }
 
+    String urlProduct = null;
+
+    public void selectHottestItemsProduct() {
+        try {
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            for (WebElement category : hottestItemsList) {
+                if (category.getText().equals("Hottest Items")) {
+                    category.click();
+                    break;
+
+                }
+            }
+        } catch (Exception e) {
+            fluentWait(getDriver(), nextPageBtn);
+            waitForWebElementAndClick(nextPageBtn);
+            wait(4);
+            fluentWait(getDriver(), pendingBtn);
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            for (WebElement category : hottestItemsList) {
+                if (category.getText().equals("Hottest Items")) {
+                    category.click();
+                    break;
+                }
+            }
+        } finally {
+            urlProduct = getDriver().navigate().to();
+
+        }
+    }
+
+
     public String HottestItemsCat() {
         try {
             String result = hottestItemsCat.getText();
@@ -254,6 +292,10 @@ public class listingdetailsPage extends BasePage {
             return result;
         }
 
+    }
+
+    public void goToProductHottestItems() {
+        getDriver().navigate().to(url + "/Listing/Detail/991");
     }
 
     public void selectProductHottestItems() {
@@ -272,13 +314,32 @@ public class listingdetailsPage extends BasePage {
     }
 
     public String HottestItemsCategory() {
-        String result = hottestItemsCategory.getText();
-        return result;
+        try {
+            String result = hottestItemsCategory.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = hottestItemsCategory.getText();
+            return result;
+        }
+
     }
 
     public void selectHottestItemsDetail() {
-        fluentWait(getDriver(), hottestItemsDetail);
-        waitForWebElementAndClick(hottestItemsDetail);
+        try {
+            fluentWait(getDriver(), hottestItemsDetail);
+            waitForWebElementAndClick(hottestItemsDetail);
+            fluentWait(getDriver(), hottestItemsCategory);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), hottestItemsDetail);
+            waitForWebElementAndClick(hottestItemsDetail);
+        }
+
+    }
+
+    public void goToHottestItemsDetail() {
+        getDriver().navigate().to(url + "/Listing/Browse?CategoryId=320");
     }
 
     public boolean sellerMessageConfirm() {
