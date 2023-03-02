@@ -98,8 +98,7 @@ Feature: Listing details
   Scenario: MTR - Viewing the category and subcategory
     Given I login with Gaston User
     And select My Listings button
-    When valid to show the product category
-    And select the product
+    When valid to show the product category and select it
     And valid if the category is shown on the product page
     And select the category
     Then valid if the category is selected

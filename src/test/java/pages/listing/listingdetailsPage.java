@@ -251,14 +251,15 @@ public class listingdetailsPage extends BasePage {
         return result;
     }
 
-    String urlProduct = null;
 
     public void selectHottestItemsProduct() {
         try {
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//label[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().equals("Hottest Items")) {
-                    category.click();
+                    fluentWait(getDriver(),category);
+                    waitForWebElementAndClick(category);
+                    retryingFindClick(category);
                     break;
 
                 }
@@ -271,12 +272,14 @@ public class listingdetailsPage extends BasePage {
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().equals("Hottest Items")) {
-                    category.click();
+                    fluentWait(getDriver(),category);
+                    waitForWebElementAndClick(category);
+                    retryingFindClick(category);
                     break;
                 }
             }
         } finally {
-            urlProduct = getDriver().navigate().to();
+            getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
 
         }
     }
@@ -309,8 +312,15 @@ public class listingdetailsPage extends BasePage {
     }
 
     public String HottestItemsDetail() {
-        String result = hottestItemsDetail.getText();
-        return result;
+        try {
+            String result = hottestItemsDetail.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = hottestItemsDetail.getText();
+            return result;
+        }
+
     }
 
     public String HottestItemsCategory() {
