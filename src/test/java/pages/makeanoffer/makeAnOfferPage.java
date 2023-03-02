@@ -102,6 +102,9 @@ public class makeAnOfferPage extends BasePage {
 
     @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
     public WebElement validateFirstText;
+    @FindBy(how = How.CSS, using = "#seller-buyer-section > p")
+    public WebElement validateText;
+
 
     public boolean validateTextFirst(){
         fluentWait(getDriver(), validateFirstText);
@@ -119,7 +122,7 @@ public class makeAnOfferPage extends BasePage {
             return result;
         }catch (Exception e){
             wait(4);
-
+            waitForWebElementAndClick(validateText);
             boolean result = lastErrorValidate.isDisplayed();
             return result;
         }

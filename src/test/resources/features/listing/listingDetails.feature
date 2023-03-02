@@ -94,7 +94,7 @@ Feature: Listing details
     When I select see all redirect button
     Then I see that redirects me to the seller profile
 
-  @smoke  @details @MTR-9999 @MTR
+  @smoke  @details @MTR-3262 @MTR
   Scenario: MTR - Viewing the category and subcategory
     Given I login with Gaston User
     And select My Listings button

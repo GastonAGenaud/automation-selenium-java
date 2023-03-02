@@ -29,7 +29,7 @@ Feature: Bugs
   @MTR @MTR-1815 @bugs
   Scenario: MTR - Login and validate the elements on Admin Panel
     Given I login with Gaston User
-     And Get started steps
+    And Get started steps
     When I validate step 1 Create your marketplace
     And I validate step 2 Select your landing page layout
     And I see that the step 2 redirect me to How do you want to make money on your site?
@@ -70,6 +70,19 @@ Feature: Bugs
   Scenario: MTR - Log in and Validate the Browse Section
     Given I go to Browse Page
     Then I validate the Browse Section
+
+  @MTR @MTR-3261 @bugs
+  Scenario: Create tracking number
+    Given I login and I go to Dashboard BUG
+    When buy the product
+    And I select the add a Shipping Address button
+    And I add an Address Fields
+    And I select the Flat Rate button
+    And I select the Go To Secure Checkout button
+    And I select the preloaded Credit Card button
+    And I select the Submit Payment button
+    Then I validate the Submit Payment
+
 
   @MTR @MTR-1895 @bugs
   Scenario: Validate tracking number

@@ -381,6 +381,7 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
     }
 
+
     @Given("I login with Gaston User")
     public void loginWithGastonUserSteps() {
         getDriver().manage().deleteAllCookies();

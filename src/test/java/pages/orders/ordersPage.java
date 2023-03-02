@@ -121,9 +121,17 @@ public class ordersPage extends BasePage {
     public WebElement shipmentValidateText;
 
     public boolean shipmentValidatingTxt() {
-        fluentWait(getDriver(), shipmentValidateText);
-        boolean result = shipmentValidateText.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), shipmentValidateText);
+            boolean result = shipmentValidateText.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), shipmentValidateText);
+            boolean result = shipmentValidateText.isDisplayed();
+            return result;
+        }
+
     }
 
 
@@ -227,10 +235,19 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersPurchasedTrack() {
-        fluentWait(getDriver(), ordersPurchasedTrackBtn);
-        waitForWebElementAndClick(ordersPurchasedTrackBtn);
-        String window = getDriver().getWindowHandle();
-        getDriver().switchTo().window(window);
+       try {
+           fluentWait(getDriver(), ordersPurchasedTrackBtn);
+           waitForWebElementAndClick(ordersPurchasedTrackBtn);
+           String window = getDriver().getWindowHandle();
+           getDriver().switchTo().window(window);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(), ordersPurchasedTrackBtn);
+           waitForWebElementAndClick(ordersPurchasedTrackBtn);
+           String window = getDriver().getWindowHandle();
+           getDriver().switchTo().window(window);
+       }
+
     }
 
 

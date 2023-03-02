@@ -336,7 +336,7 @@ public class categoryPage extends BasePage {
             waitForWebElementAndClick(deleteSubcategory);
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
-            wait(3);
+            wait(4);
         }
     }
 

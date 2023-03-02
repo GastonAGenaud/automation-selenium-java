@@ -597,8 +597,15 @@ public class AdminPage extends BasePage {
     }
 
     public void designYourHomePage() {
-        fluentWait(getDriver(), designHomePageBtn);
-        waitForWebElementAndClick(designHomePageBtn);
+       try {
+           fluentWait(getDriver(), designHomePageBtn);
+           waitForWebElementAndClick(designHomePageBtn);
+       }
+        catch (Exception e){
+           wait(3);
+            fluentWait(getDriver(), designHomePageBtn);
+            waitForWebElementAndClick(designHomePageBtn);
+        }
     }
 
     public void goToCreateCustomFieldsBtn(){
