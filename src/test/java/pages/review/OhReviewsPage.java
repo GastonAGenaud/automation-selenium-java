@@ -101,8 +101,7 @@ public class OhReviewsPage extends BasePage {
     }
 
     public void setSelectClass(){
-        fluentWait(getDriver(), selectClass);
-        waitForWebElementAndClick(selectClass);
+        getDriver().navigate().to( "https://owlhome-stage.azurewebsites.net/Listing/DetailService/3");
     }
     public void setBrowseClassesBtn() {
         fluentWait(getDriver(), browseClassesBtn);

@@ -49,4 +49,11 @@ public class OhSignupSteps extends BasePage {
     public void iValidateCreateAnAccount() {
         Assert.assertEquals(_page.welcomeText(), true);
     }
+
+    @Given("I Sign in with new account {string}")
+    public void iSignInWithNewAccount(String text) {
+        _page.CreateAnAccountListingDetailsOHE(text);
+//        _page.validateLastError();
+    }
+
 }

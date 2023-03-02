@@ -97,6 +97,14 @@ public class OhListingPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deleteConfirm;
 
+    @FindBy(xpath = "//label[contains(text(), 'Stripe Connect')]")
+    public WebElement validateStripeText;
+
+    public boolean validatingStripeTxtM(){
+        boolean result = validateStripeText.isDisplayed();
+        return  result;
+    }
+
     public void setDeleteConfirm() {
         fluentWait(getDriver(), deleteConfirm);
         waitForWebElementAndClick(deleteConfirm);
@@ -273,14 +281,24 @@ public class OhListingPage extends BasePage {
     }
 
     public void selectPublishButton() {
+
         try {
-            fluentWait(getDriver(), listingPublishBtn);
-            waitForWebElementAndClick(listingPublishBtn);
-        } catch (Exception e) {
-            wait(5);
-            fluentWait(getDriver(), listingPublishBtn);
-            waitForWebElementAndClick(listingPublishBtn);
+            try {
+                validatingStripeTxtM();
+                fluentWaitStrict(getDriver(), listingPublishBtn);
+                waitForWebElementAndClick(listingPublishBtn);
+            } catch (Exception e) {
+                validatingStripeTxtM();
+                wait(5);
+                fluentWait(getDriver(), listingPublishBtn);
+                waitForWebElementAndClick(listingPublishBtn);
+                retryingFindClick(listingPublishBtn);
+            }
+        }
+        catch (Exception e){
+            wait(4);
             retryingFindClick(listingPublishBtn);
+
         }
     }
 

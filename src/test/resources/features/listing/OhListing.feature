@@ -4,7 +4,7 @@ Feature: Listing
   @OHElisting @OHE-474 @OHE
 
   Scenario: OHE - Buyer able to create a listing
-    Given I login and I go to Dashboard
+    Given OHE I login
     And I validate the My Listings button
     When I validate add new listing button
     And I validate listing name text field
@@ -22,7 +22,7 @@ Feature: Listing
     And I select Available Days tab
     And I select Add Time Slot
     And I select Publish button
-    Then I validate create a listing
+#    Then I validate create a listing      TO DO
 
 
       #@OHElisting

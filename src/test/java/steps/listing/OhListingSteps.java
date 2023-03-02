@@ -109,6 +109,12 @@ public class OhListingSteps extends BasePage {
 
     @And("I select Publish button")
     public void iSelectPublishButton() {
+//        _page.selectAvailableDaysTab();
+//        _page.selectSaturdayOption();
+//        _page.selectTimeFrom();
+//        _page.setTimeTwelve();
+//        _page.setTimeToTab();
+//        _page.setTimeFour();
         _page.selectPublishButton();
     }
 

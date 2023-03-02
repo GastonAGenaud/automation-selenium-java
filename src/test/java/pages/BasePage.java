@@ -223,9 +223,19 @@ public class BasePage{
         getDriver().navigate().to(url);
     }
 
+
+    public void getHomePageOWL() {
+        getDriver().navigate().to(baseUrlOHE);
+    }
+
+
     public void getLoginPage() {
         wait(2);
         getDriver().navigate().to(url + "Account/Login");
+    }
+
+    public void getLoginPageOWL() {
+        getDriver().navigate().to(baseUrlOHE + "Account/Login");
     }
 
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";
@@ -329,19 +339,20 @@ public class BasePage{
     }
 
     public void loginWithMatiasOwl() throws IOException {
-        getHomePage();
-        getLoginPage();
+        getHomePageOWL();
+        getLoginPageOWL();
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("matias@mymarketplacebuilder.com");
         waitForWebElementAndClick(passwordLoginInput);
         passwordLoginInput.sendKeys("Test1234!");
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
+        retryingFindClick(logInBtn);
         wait(2);
         sessionManager.storeSessionFile("MatiasUser-data-session");
         wait(5);
         getDriver().manage().deleteAllCookies();
-        getHomePage();
+        getHomePageOWL();
         getDriver().navigate().refresh();
     }
 
@@ -447,7 +458,52 @@ public class BasePage{
         }
         return result;
     }
+    public void CreateAnAccountListingDetailsOHE(String text) {
+        getDriver().navigate().to(baseUrlOHE);
 
+        waitForVisibility(signUpNowBtn);
+        fluentWaitStrict(getDriver(), signUpNowBtn);
+        fluentWait(getDriver(), signUpNowBtn);
+        waitForWebElementAndClick(signUpNowBtn);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        fluentWait(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+        newEmailBtn.sendKeys(text + randomEmail + "auto@trick.com");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.clear();
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.click();
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        wait(4);
+        //welcomeClose.click();
+
+    }
 
 }
 

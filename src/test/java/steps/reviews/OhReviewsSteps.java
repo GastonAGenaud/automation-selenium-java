@@ -23,7 +23,7 @@ public class OhReviewsSteps extends BasePage {
     public void iLoginAndGoToClass() throws IOException {
         _page.goToOwlPage();
         _page.goToLoginPage();
-        _page.loginWithMatiasOwl();
+        _page.login();
         _page.goToOwlPage();
         _page.setBrowseClassesBtn();
         _page.setSelectClass();
