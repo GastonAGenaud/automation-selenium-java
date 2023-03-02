@@ -177,7 +177,7 @@ public class SessionManager {
                     new Cookie.Builder(k, value) // cookies name , value
                             .path("/")
                             .domain(domain)
-                            .expiresOn(new Date(new Date().getTime() + 3600 * 1000))
+                            .expiresOn(new Date(new Date().getTime() + 3600 * 10000))
                             .isSecure(false)
                             .isHttpOnly(false)
                             .build();
