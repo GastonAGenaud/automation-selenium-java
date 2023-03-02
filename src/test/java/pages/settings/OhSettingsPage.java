@@ -53,31 +53,37 @@ public class OhSettingsPage extends BasePage {
 
 
     public String settingsConfirm() {
+        fluentWait(getDriver(), settingsInformation);
         String result = settingsInformation.getText();
         return result;
     }
 
     public String socialConfirm() {
+        fluentWait(getDriver(), socialInformation);
         String result = socialInformation.getText();
         return result;
     }
 
     public boolean paymentConfirm() {
+        fluentWait(getDriver(), paymentBtn);
         boolean result = paymentBtn.isDisplayed();
         return result;
     }
 
     public String cashOutConfirm() {
+        fluentWait(getDriver(), cashOutInformation);
         String result = cashOutInformation.getText();
         return result;
     }
 
     public String securityConfirm() {
+        fluentWait(getDriver(),securityInformation);
         String result = securityInformation.getText();
         return result;
     }
 
     public String experienceConfirm() {
+        fluentWait(getDriver(), educationInformation);
         String result = educationInformation.getText();
         return result;
     }
@@ -117,8 +123,8 @@ public class OhSettingsPage extends BasePage {
     }
 
     public void selectCashOut() {
-        fluentWait(getDriver(), paymentBtn);
-        waitForWebElementAndClick(paymentBtn);
+        fluentWait(getDriver(), cashOutBtn);
+        waitForWebElementAndClick(cashOutBtn);
     }
 
     public void selectSecurity() {

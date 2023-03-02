@@ -109,15 +109,20 @@ public class OhRequestSteps extends BasePage {
         _page.login();
         _page.goToDashboard();
         _page.request();
+        _page.noAcceptedText();
     }
 
     @When("OHE I validate created by me active requests")
     public void oheIValidateCreatedByMeActiveRequests() {
+        //_page.noAcceptedText();
         _page.requestsCreatedByMeButton();
     }
 
     @And("OHE I select edit button")
     public void oheISelectEditButton() {
+        //_page.browseRequestPage();
+        //_page.noAcceptedText();
+        //_page.requestsCreatedByMeButton();
         _page.requestsEdit();
     }
 
@@ -125,11 +130,9 @@ public class OhRequestSteps extends BasePage {
     public void oheIValidatePauseTheRequestButton() {
         _page.goToDashboard();
         _page.request();
-
+        _page.noAcceptedText();
         _page.requestsCreatedByMeButton();
-
         _page.requestsActiveMenu();
-
         _page.requestsPause();
     }
 
@@ -137,6 +140,7 @@ public class OhRequestSteps extends BasePage {
     public void oheIValidateDuplicateTheRequestButton() {
         _page.goToDashboard();
         _page.request();
+        _page.noAcceptedText();
         _page.requestsCreatedByMeButton();
         _page.requestsActiveMenu();
         _page.requestsDuplicate();
@@ -146,10 +150,9 @@ public class OhRequestSteps extends BasePage {
     public void oheIValidateShareTheRequestButton() {
         _page.goToDashboard();
         _page.request();
+        _page.noAcceptedText();
         _page.requestsCreatedByMeButton();
-
         _page.requestsActiveMenu();
-
         _page.requestsShare();
     }
 
@@ -157,10 +160,9 @@ public class OhRequestSteps extends BasePage {
     public void oheIValidateDeleteTheRequestButton() {
         _page.goToDashboard();
         _page.request();
+        _page.noAcceptedText();
         _page.requestsCreatedByMeButton();
-
         _page.requestsActiveMenu();
-
         _page.requestsDelete();
     }
 
@@ -247,7 +249,6 @@ public class OhRequestSteps extends BasePage {
         _page.requestName();
         _page.requestDescription();
         _page.next();
-
         _page.next2();
         _page.minimumBudget();
         _page.maximumBudget();

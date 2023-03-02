@@ -14,7 +14,7 @@ Feature: storefront
 
   @OH6 @OHE @smoke
   Scenario: OHE - Validate settings profile page
-    Given I go to user profile
+    Given I login
     When I validate the settings button OHE
     And I validate the profile first name text field
     And I validate the profile last name text field

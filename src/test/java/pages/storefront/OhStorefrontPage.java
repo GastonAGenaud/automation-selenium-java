@@ -178,42 +178,54 @@ public class OhStorefrontPage extends BasePage {
         fluentWait(getDriver(), webSiteTextField);
         waitForWebElementAndClick(webSiteTextField);
         webSiteTextField.sendKeys("Test Automation");
-        webSiteTextField.click();
+        fluentWait(getDriver(), webSiteTextField);
+        waitForWebElementAndClick(webSiteTextField);
         webSiteTextField.clear();
     }
 
     public void facebook() {
-        facebookTextField.click();
+        fluentWait(getDriver(), facebookTextField);
+        waitForWebElementAndClick(facebookTextField);
         facebookTextField.clear();
-        facebookTextField.click();
+        fluentWait(getDriver(), facebookTextField);
+        waitForWebElementAndClick(facebookTextField);
         facebookTextField.sendKeys("https://www.facebook.com/ashley.mcgroder/");
     }
 
     public void twitter() {
-        twitterTextField.click();
+        fluentWait(getDriver(), twitterTextField);
+        waitForWebElementAndClick(twitterTextField);
         twitterTextField.sendKeys("Test automation");
-        twitterTextField.click();
+        fluentWait(getDriver(), twitterTextField);
+        waitForWebElementAndClick(twitterTextField);
         twitterTextField.clear();
     }
 
     public void instagram() {
-        instagramTextField.click();
+        fluentWait(getDriver(), instagramTextField);
+        waitForWebElementAndClick(instagramTextField);
         instagramTextField.clear();
-        instagramTextField.click();
+        fluentWait(getDriver(), instagramTextField);
+        waitForWebElementAndClick(instagramTextField);
         instagramTextField.sendKeys("https://www.instagram.com/asheeley123/");
     }
 
     public void linkedin() {
-        linkedinTextField.click();
+        fluentWait(getDriver(), linkedinTextField);
+        waitForWebElementAndClick(linkedinTextField);
         linkedinTextField.sendKeys("Test Automation");
-        linkedinTextField.click();
-        linkedinTextField.clear();
+        fluentWait(getDriver(), linkedinTextField);
+        waitForWebElementAndClick(linkedinTextField);
+        fluentWait(getDriver(),linkedinTextField);
+        waitForWebElementAndClick(linkedinTextField);
     }
 
     public void youtube() {
-        youtubeTextField.click();
+        fluentWait(getDriver(), youtubeTextField);
+        waitForWebElementAndClick(youtubeTextField);
         youtubeTextField.sendKeys("Test Automation");
-        youtubeTextField.click();
+        fluentWait(getDriver(), youtubeTextField);
+        waitForWebElementAndClick(youtubeTextField);
         youtubeTextField.clear();
     }
 }

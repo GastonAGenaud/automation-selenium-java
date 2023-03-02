@@ -82,7 +82,7 @@ Feature: OHE Admin
     When OHE I validate customize landing page option
     And OHE I validate customize menu option
     And OHE I validate customize login page option
-    And OHE I validate customize sign up pagcce option
+    And OHE I validate customize sign up page option
     #And OHE I validate customize contact us page option
     #And OHE I validate customize about us page option
     #And OHE I validate customize FAQ page option

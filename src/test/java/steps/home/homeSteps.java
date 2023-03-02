@@ -411,12 +411,7 @@ public class homeSteps extends BasePage {
     }
 
 
-    @Given("I login with Matias Owl")
-    public void loginWithMatiasOwlSteps() {
-        sessionManager.usePreviousLoggedInSession("MatiasUser");
 
-        getDriver().navigate().refresh();
-    }
 
     @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {

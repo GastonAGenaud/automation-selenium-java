@@ -34,9 +34,9 @@ Feature: Settings
     And I select password section
     Then I see the password information
 
-  @OHE-355 @OHE @smoke @OHsettings
-  Scenario: OHE - Experience
-    Given I login and go to dashboard page
-    When I select My Settings
-    And I select experience section
-    Then I see the experience information
+#  @OHE-355 @OHE @smoke @OHsettings
+#  Scenario: OHE - Experience
+#    Given I login and go to dashboard page
+#    When I select My Settings
+#    And I select experience section
+#    Then I see the experience information

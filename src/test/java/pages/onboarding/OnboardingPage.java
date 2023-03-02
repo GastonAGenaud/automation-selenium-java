@@ -90,30 +90,33 @@ public class OnboardingPage extends BasePage {
     public WebElement marketPlaceCreateBtn;
 
     public void setCardNameField() {
-        cardNameField.click();
+        fluentWait(getDriver(), cardNameField);
+        waitForWebElementAndClick(cardNameField);
         cardNameField.sendKeys("Testing Card");
     }
 
     public String visualizeResult() {
-        String result =
-                letsCreateYourMarketplace.getText();
+        fluentWait(getDriver(), letsCreateYourMarketplace);
+        String result = letsCreateYourMarketplace.getText();
         return result;
     }
 
     public String calendar() {
-        String result =
-                bookYourMeeting.getText();
+        fluentWait(getDriver(),bookYourMeeting);
+        String result = bookYourMeeting.getText();
         return result;
     }
 
 
     public boolean congratsTitleConfirm() {
+        fluentWait(getDriver(), bookYourMeeting);
         boolean result = congratsTitle.isDisplayed();
         return result;
     }
 
 
     public boolean marketPlaceCreateConfirm() {
+        fluentWait(getDriver(), bookYourMeeting);
         boolean result = marketPlaceCreateBtn.isDisplayed();
         return result;
     }

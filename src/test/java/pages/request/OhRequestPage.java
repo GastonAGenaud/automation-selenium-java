@@ -167,6 +167,15 @@ public class OhRequestPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > header > nav > div > a > img")
     public WebElement pageLogo;
 
+    @FindBy(xpath = "//span[contains(text(), 'No accepted requests yet.')]")
+    public WebElement noAcceptRequestsYetText;
+
+    public boolean noAcceptedText() {
+        fluentWaitStrict(getDriver(), noAcceptRequestsYetText);
+        boolean result = noAcceptRequestsYetText.isDisplayed();
+        return result;
+    }
+
     public void filterAges12to14() {
         fluentWait(getDriver(), filterAges12to14Btn);
         waitForWebElementAndClick(filterAges12to14Btn);
@@ -213,7 +222,6 @@ public class OhRequestPage extends BasePage {
         waitForClickability(requestBtn);
         fluentWait(getDriver(), requestBtn);
         waitForWebElementAndClick(requestBtn);
-
     }
 
     public void browseCreateRequestBtn() {
@@ -332,9 +340,14 @@ public class OhRequestPage extends BasePage {
     }
 
     public void publishRequest() {
-        actions.moveToElement(publishRequestBtn).build().perform();
-        fluentWait(getDriver(), publishRequestBtn);
-        waitForWebElementAndClick(publishRequestBtn);
+        try {
+            fluentWait(getDriver(), publishRequestBtn);
+            waitForWebElementAndClick(publishRequestBtn);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), publishRequestBtn);
+            waitForWebElementAndClick(publishRequestBtn);
+        }
     }
 
     public void requestDetailsSuccessPopUp() {
@@ -402,6 +415,7 @@ public class OhRequestPage extends BasePage {
     public void requestsCreatedByMeButton() {
         fluentWait(getDriver(), requestsCreatedByMeBtn);
         waitForWebElementAndClick(requestsCreatedByMeBtn);
+
     }
 
     public void requestsSeeBids() {
@@ -501,8 +515,8 @@ public class OhRequestPage extends BasePage {
 
     public void sortNewestToOldest() {
         sortByDropdown();
-        fluentWait(getDriver(), requestsMatchedSendMessageBtn);
-        waitForWebElementAndClick(requestsMatchedSendMessageBtn);
+        fluentWait(getDriver(), requestsSortNewestToOldestBtn);
+        waitForWebElementAndClick(requestsSortNewestToOldestBtn);
     }
 
     public void sortOldToNewest() {

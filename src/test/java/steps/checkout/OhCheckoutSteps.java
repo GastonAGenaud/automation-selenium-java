@@ -1,5 +1,6 @@
 package steps.checkout;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,6 +9,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.checkout.OhCheckoutPage;
 
+import java.io.IOException;
+
 public class OhCheckoutSteps extends BasePage {
 
     private OhCheckoutPage _page;
@@ -15,6 +18,17 @@ public class OhCheckoutSteps extends BasePage {
     public OhCheckoutSteps() {
 
         this._page = new OhCheckoutPage();
+    }
+
+
+    @Given("I login with Matias Owl")
+    public void loginWithMatiasOwlSteps() {
+        getDriver().manage().deleteAllCookies();
+        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        getDriver().navigate().refresh();
+        wait(3);
+        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        getDriver().navigate().refresh();
     }
 
     @Given("OHE I login")

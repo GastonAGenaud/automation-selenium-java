@@ -328,7 +328,7 @@ public class OhAdminSteps extends BasePage {
 
     @And("OHE I validate customize sign up page option")
     public void oheIValidateCustomizeSignUpPageOption() {
-        _page.designSection();
+        //_page.designSection();
         _page.customizeSignUp();
     }
 

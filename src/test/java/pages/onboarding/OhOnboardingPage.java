@@ -135,8 +135,8 @@ public class OhOnboardingPage extends BasePage {
 
     public void goToPricing() {
         fluentWait(getDriver(), pricingBtn);
+        waitForWebElementAndClick(pricingBtn);
         waitForVisibility(pricingBtn);
-        pricingBtn.click();
         waitToLoad();
     }
 

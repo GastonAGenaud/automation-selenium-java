@@ -56,7 +56,7 @@ public class OhListingDetailsPage extends BasePage {
     public WebElement educationText;
     @FindBy(how = How.CSS, using = "#whole-container > main > section.px-sm-3.px-md-4.px-lg-5.pt-lg-5.py-4.primary-font > div > div > section.col-lg-3.col-12 > section:nth-child(3) > h4")
     public WebElement bioText;
-    @FindBy(how = How.CSS, using = "#hire-name")
+    @FindBy(how = How.CSS, using = "#profileName")
     public WebElement hireNameText;
     @FindBy(how = How.CSS, using = "#sidebar > li:nth-child(1) > a > span > span.fz-20")
     public WebElement serviceInfoText;
@@ -162,6 +162,7 @@ public class OhListingDetailsPage extends BasePage {
     }
 
     public boolean hireTxt() {
+        waitForVisibility(hireNameText);
         fluentWait(getDriver(), hireNameText);
         boolean result = hireNameText.isDisplayed();
         return result;
@@ -186,7 +187,8 @@ public class OhListingDetailsPage extends BasePage {
     }
 
     public boolean reviewTxt() {
-        fluentWait(getDriver(), reviewsBtn);
+        waitForVisibility(reviewText);
+        fluentWait(getDriver(), reviewText);
         boolean result = reviewText.isDisplayed();
         return result;
     }

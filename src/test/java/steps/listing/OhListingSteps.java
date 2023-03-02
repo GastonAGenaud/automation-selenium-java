@@ -109,14 +109,18 @@ public class OhListingSteps extends BasePage {
 
     @And("I select Publish button")
     public void iSelectPublishButton() {
+//        _page.selectAvailableDaysTab();
+//        _page.selectSaturdayOption();
+//        _page.selectTimeFrom();
+//        _page.setTimeTwelve();
+//        _page.setTimeToTab();
+//        _page.setTimeFour();
         _page.selectPublishButton();
-        
     }
 
 
     @Then("I validate create a listing")
     public void iValidateCreateAListing() {
-        
         Assert.assertEquals(_page.listingActiveTab(), true);
     }
 

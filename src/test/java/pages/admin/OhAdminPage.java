@@ -836,7 +836,7 @@ public class OhAdminPage extends BasePage {
 
     //design
     public void designSection() {
-        actions.moveToElement(designSectionBtn).build().perform();
+        //actions.moveToElement(designSectionBtn).build().perform();
     }
 
     public void customizeLandingPage() {

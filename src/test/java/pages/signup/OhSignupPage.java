@@ -39,6 +39,38 @@ public class OhSignupPage extends BasePage {
     @FindBy(how = How.CSS, using = "#navbar-nav > ul > li:nth-child(5)")
     public WebElement headerSignUpBtn;
 
+    @FindBy(how = How.CSS, using = "#RXJyb3JQbGVhc2UlMjByZW1vdmUlMjBhbnklMjBzcGVjaWFsJTIwY2hhcmFjdGVycyUyMGZyb20lMjB5b3VyJTIwdXNlcm5hbWUucmVk > div.iziToast-body > div.iziToast-texts")
+    public WebElement lastErrorValidate;
+
+    @FindBy(how = How.CSS, using = "#imSellerSelector > div > label > div > div")
+    public WebElement imSellerBtn;
+    @FindBy(xpath = "//div[@class='iziToast-texts']")
+    public WebElement errorMessageSignUp;
+
+    @FindBy(xpath = "//div[@class='iziToast-body']")
+    public WebElement errorMessage2;
+
+    @FindBy(how = How.CSS, using = "#seller-buyer-button")
+    public WebElement nextBtn;
+
+    @FindBy(how = How.CSS, using = "#\\35 4")
+    public WebElement howOld;
+
+    @FindBy(how = How.CSS, using = "#\\35 5")
+    public WebElement howMuch;
+
+    @FindBy(how = How.CSS, using = "#\\35 6")
+    public WebElement agreeTerms;
+
+    @FindBy(how = How.CSS, using = "#\\35 7")
+    public WebElement whereAreYou;
+
+    @FindBy(how = How.CSS, using = "#submit-button")
+    public WebElement submitBtn;
+
+    @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
+    public WebElement validateFirstText;
+
 
     public void goToSignUp() {
         getDriver().navigate().to(baseUrlOHE);
@@ -83,4 +115,91 @@ public class OhSignupPage extends BasePage {
         fluentWait(getDriver(), headerSignUpBtn);
         waitForWebElementAndClick(headerSignUpBtn);
     }
+    public boolean validateTextFirst(){
+        fluentWait(getDriver(), validateFirstText);
+        boolean result = validateFirstText.isDisplayed();
+        return result;
+    }
+
+
+
+
+
+    public boolean validateLastError() {
+        try {
+            fluentWaitElementDisappears(getDriver(), lastErrorValidate);
+            boolean result = lastErrorValidate.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(4);
+
+            boolean result = lastErrorValidate.isDisplayed();
+            return result;
+        }
+    }
+
+
+    public void submitButton() {
+        fluentWait(getDriver(), submitBtn);
+        waitForWebElementAndClick(submitBtn);
+    }
+
+    public void whereAreYouFrom() {
+        fluentWaitStrict(getDriver(), whereAreYou);
+        waitForWebElementAndClick(whereAreYou);
+        whereAreYou.sendKeys("test");
+    }
+
+    public void termsAndConditions() {
+        fluentWait(getDriver(), agreeTerms);
+        waitForWebElementAndClick(agreeTerms);
+        agreeTerms.sendKeys("Yes");
+    }
+
+    public void howMuchSell() {
+        waitForVisibility(howMuch);
+        waitForClickability(howMuch);
+        fluentWaitStrict(getDriver(), howMuch);
+        waitForWebElementAndClick(howMuch);
+        howMuch.sendKeys("test");
+    }
+
+    public void completeFormSignUp() {
+        fluentWait(getDriver(), howOld);
+        waitForWebElementAndClick(howOld);
+        //fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
+        howOld.sendKeys("18");
+        howMuch.sendKeys("test");
+        agreeTerms.sendKeys("Yes");
+        whereAreYou.sendKeys("test");
+        fluentWait(getDriver(), submitBtn);
+        waitForWebElementAndClick(submitBtn);
+//        retryingFindClick(submitBtn);
+        validateTextFirst();
+        getDriver().navigate().to(url + "/Listing/Detail/619");
+
+
+    }
+
+    public void nextButton() {
+        fluentWaitStrict(getDriver(), nextBtn);
+        waitForWebElementAndClick(nextBtn);
+    }
+
+    public void imSellerButton() {
+        try {
+            actions.moveToElement(errorMessageSignUp).build().perform();
+            fluentWaitElementDisappears(getDriver(), errorMessageSignUp);
+            fluentWait(getDriver(), imSellerBtn);
+            waitForWebElementAndClick(imSellerBtn);
+        } catch (Exception e) {
+            wait(4);
+            fluentWait(getDriver(), imSellerBtn);
+            waitForWebElementAndClick(imSellerBtn);
+            retryingFindClick(imSellerBtn);
+        }
+    }
+
+
+
 }
