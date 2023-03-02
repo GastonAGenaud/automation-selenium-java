@@ -264,7 +264,7 @@ public class listingPage extends BasePage {
     public void listingName() {
         fluentWait(getDriver(), listingCategoryBtn);
         waitForWebElementAndClick(listingNameTextField);
-        listingNameTextField.sendKeys("Test Automation Listing");
+        listingNameTextField.sendKeys("Listing HI");
     }
 
     public void categoryBtn() {

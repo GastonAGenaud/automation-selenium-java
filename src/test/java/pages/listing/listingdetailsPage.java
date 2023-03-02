@@ -145,6 +145,8 @@ public class listingdetailsPage extends BasePage {
 
     @FindBy(xpath = "//p[contains(text(), 'Message')]")
     public WebElement validateTextFromSendMessage;
+    @FindBy(xpath = "//h5[contains(text(), 'Listing HI')]")
+    public WebElement HottestItemsCat;
 
     public boolean validateMessageText() {
         fluentWait(getDriver(), validateTextFromSendMessage);
@@ -251,14 +253,12 @@ public class listingdetailsPage extends BasePage {
         return result;
     }
 
-    String urlProduct = null;
-
-    public void selectHottestItemsProduct() {
+    public void validHottestItemsCategory() {
         try {
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//label[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().equals("Hottest Items")) {
-                    category.click();
+                    category.isDisplayed();
                     break;
 
                 }
@@ -271,14 +271,27 @@ public class listingdetailsPage extends BasePage {
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().equals("Hottest Items")) {
-                    category.click();
+                    category.isDisplayed();
                     break;
                 }
             }
-        } finally {
-            urlProduct = getDriver().navigate().to();
-
         }
+
+    }
+
+    public void selectHottestItemsProduct() {
+       try {
+           fluentWait(getDriver(), HottestItemsCat);
+           waitForWebElementAndClick(HottestItemsCat);
+       }
+        catch (Exception e){
+           wait(3);
+            fluentWait(getDriver(), HottestItemsCat);
+            waitForWebElementAndClick(HottestItemsCat);
+        }
+       finally {
+           getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
+       }
     }
 
 
@@ -309,8 +322,15 @@ public class listingdetailsPage extends BasePage {
     }
 
     public String HottestItemsDetail() {
-        String result = hottestItemsDetail.getText();
-        return result;
+        try {
+            String result = hottestItemsDetail.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = hottestItemsDetail.getText();
+            return result;
+        }
+
     }
 
     public String HottestItemsCategory() {
