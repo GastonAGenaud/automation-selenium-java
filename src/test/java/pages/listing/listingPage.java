@@ -250,6 +250,7 @@ public class listingPage extends BasePage {
     }
 
 
+
     public boolean listingConfirm() {
         boolean result = goToDetailsBtn.isDisplayed();
         return result;
