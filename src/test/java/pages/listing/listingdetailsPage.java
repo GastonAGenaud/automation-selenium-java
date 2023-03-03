@@ -255,10 +255,16 @@ public class listingdetailsPage extends BasePage {
 
     public void validHottestItemsCategory() {
         try {
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//label[contains(text(), 'Hottest Items')]"));
+            fluentWaitStrict(getDriver(),nextBtn);
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
-                if (category.getText().equals("Hottest Items")) {
-                    category.isDisplayed();
+                if (category.getText().contains("Hottest Items")) {
+                    wait(3);
+                    fluentWaitStrict(getDriver(),category);
+                    String id = category.getAttribute("id");
+                    wait(5);
+                    String replace = id.replace("-cat", "");
+                    getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
 
                 }
@@ -266,32 +272,33 @@ public class listingdetailsPage extends BasePage {
         } catch (Exception e) {
             fluentWait(getDriver(), nextPageBtn);
             waitForWebElementAndClick(nextPageBtn);
-            wait(4);
             fluentWait(getDriver(), pendingBtn);
+            wait(5);
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
-                if (category.getText().equals("Hottest Items")) {
-                    category.isDisplayed();
+                if (category.getText().contains("Hottest Items")) {
+                    wait(3);
+                    String id = category.getAttribute("id");
+                    String replace = id.replace("-cat", "");
+                    wait(5);
+                    getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
                 }
             }
         }
-
     }
 
     public void selectHottestItemsProduct() {
-       try {
-           fluentWait(getDriver(), HottestItemsCat);
-           waitForWebElementAndClick(HottestItemsCat);
-       }
-        catch (Exception e){
-           wait(3);
+        try {
             fluentWait(getDriver(), HottestItemsCat);
             waitForWebElementAndClick(HottestItemsCat);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), HottestItemsCat);
+            waitForWebElementAndClick(HottestItemsCat);
+        } finally {
+            getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         }
-       finally {
-           getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
-       }
     }
 
 

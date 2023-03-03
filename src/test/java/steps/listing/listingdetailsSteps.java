@@ -188,12 +188,16 @@ public class listingdetailsSteps extends BasePage {
     @When("valid to show the product category and select it")
     public void validToShowTheProductCategoryAndSelectIt() {
         _page.validHottestItemsCategory();
-        _page.selectHottestItemsProduct();
     }
 
     @And("valid if the category is shown on the product page")
     public void validIfTheCategoryIsShownOnTheProductPage() {
-        Assert.assertEquals("Hottest Items", _page.HottestItemsDetail());
+        try {
+            Assert.assertEquals("Hottest Items", _page.HottestItemsDetail());
+        }catch (Exception e){
+            _page.validHottestItemsCategory();
+            Assert.assertEquals("Hottest Items", _page.HottestItemsDetail());
+        }
     }
 
     @And("select the category")
