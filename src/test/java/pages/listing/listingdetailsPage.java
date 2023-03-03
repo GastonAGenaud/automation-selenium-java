@@ -255,10 +255,15 @@ public class listingdetailsPage extends BasePage {
 
     public void validHottestItemsCategory() {
         try {
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//label[contains(text(), 'Hottest Items')]"));
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
+                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + category.getText());
                 if (category.getText().equals("Hottest Items")) {
-                    category.isDisplayed();
+                    wait(2);
+                    String id = category.getAttribute("id");
+                    String replace = id.replace("-cat", "");
+                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + replace);
+                    getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
 
                 }
@@ -270,28 +275,33 @@ public class listingdetailsPage extends BasePage {
             fluentWait(getDriver(), pendingBtn);
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
+                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + category.getText());
                 if (category.getText().equals("Hottest Items")) {
-                    category.isDisplayed();
+                    wait(2);
+                    String id = category.getAttribute("id");
+                    String replace = id.replace("-cat", "");
+                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + replace);
+                    getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
+
                 }
             }
         }
 
+
     }
 
     public void selectHottestItemsProduct() {
-       try {
-           fluentWait(getDriver(), HottestItemsCat);
-           waitForWebElementAndClick(HottestItemsCat);
-       }
-        catch (Exception e){
-           wait(3);
+        try {
             fluentWait(getDriver(), HottestItemsCat);
             waitForWebElementAndClick(HottestItemsCat);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), HottestItemsCat);
+            waitForWebElementAndClick(HottestItemsCat);
+        } finally {
+            getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         }
-       finally {
-           getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
-       }
     }
 
 

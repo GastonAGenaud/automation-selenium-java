@@ -1,6 +1,5 @@
 package pages.home;
 
-import jdk.internal.org.jline.utils.WCWidth;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;

@@ -79,7 +79,7 @@ public class OnboardingSteps extends BasePage {
     @Then("I create my marketplace products page")
     public void iCreateMyMarketPlaceProductsPage() {
         //Assert.assertEquals(false, _page.productsErrorText());
-        Assert.assertEquals(false, _page.marketPlaceCreateConfirm());
+        Assert.assertEquals(true, _page.marketPlaceCreateConfirm());
     }
 
     @Then("I create my marketplace service page")

@@ -188,7 +188,6 @@ public class listingdetailsSteps extends BasePage {
     @When("valid to show the product category and select it")
     public void validToShowTheProductCategoryAndSelectIt() {
         _page.validHottestItemsCategory();
-        _page.selectHottestItemsProduct();
     }
 
     @And("valid if the category is shown on the product page")
