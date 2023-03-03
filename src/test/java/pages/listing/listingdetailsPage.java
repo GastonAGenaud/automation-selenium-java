@@ -255,14 +255,15 @@ public class listingdetailsPage extends BasePage {
 
     public void validHottestItemsCategory() {
         try {
+            fluentWaitStrict(getDriver(),nextBtn);
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
-                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + category.getText());
-                if (category.getText().equals("Hottest Items")) {
-                    wait(2);
+                if (category.getText().contains("Hottest Items")) {
+                    wait(3);
+                    fluentWaitStrict(getDriver(),category);
                     String id = category.getAttribute("id");
+                    wait(5);
                     String replace = id.replace("-cat", "");
-                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + replace);
                     getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
 
@@ -271,24 +272,20 @@ public class listingdetailsPage extends BasePage {
         } catch (Exception e) {
             fluentWait(getDriver(), nextPageBtn);
             waitForWebElementAndClick(nextPageBtn);
-            wait(4);
             fluentWait(getDriver(), pendingBtn);
+            wait(5);
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
-                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + category.getText());
-                if (category.getText().equals("Hottest Items")) {
-                    wait(2);
+                if (category.getText().contains("Hottest Items")) {
+                    wait(3);
                     String id = category.getAttribute("id");
                     String replace = id.replace("-cat", "");
-                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + replace);
+                    wait(5);
                     getDriver().navigate().to(url + "listing/detail/" + replace);
                     break;
-
                 }
             }
         }
-
-
     }
 
     public void selectHottestItemsProduct() {

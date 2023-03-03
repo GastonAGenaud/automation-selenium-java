@@ -287,11 +287,10 @@ public class sponsoredAdsPage extends BasePage {
         }
 
         for (WebElement pay : PendingPay) {
-            getDriver().navigate().to(url + pay.getDomAttribute("href"));
-            if (getDriver().getCurrentUrl().contains("/ad/checkout/")) {
-                fluentWaitStrict(getDriver(), validationPrice);
-                break;
-            }
+            String id = pay.getDomAttribute("id");
+            String replace = id.replace("-cat", "");
+            getDriver().navigate().to(url + "/listing/detail/" + replace);
+
             getDriver().navigate().refresh();
         }
     }
