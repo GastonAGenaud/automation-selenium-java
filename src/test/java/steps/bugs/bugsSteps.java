@@ -776,7 +776,7 @@ public class bugsSteps extends BasePage {
 
     @And("I log out")
     public void iLogOut() {
-        _page.LogOut();
+        _page.logOutSession();
     }
 
     @And("I log in and go setting page")
@@ -808,5 +808,11 @@ public class bugsSteps extends BasePage {
     @And("I add an Address Fields")
     public void iAddAnAddressFields() {
         _page.reUsePreviousAddress();
+    }
+
+    @And("I will purchase the digital product")
+    public void iWillPurchaseTheDigitalProduct() {
+        _page.goToProductDownloadFile();
+        _page.buyProduct();
     }
 }
