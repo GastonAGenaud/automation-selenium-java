@@ -210,4 +210,15 @@ public class listingdetailsSteps extends BasePage {
     public void validIfTheCategoryIsSelected() {
         Assert.assertEquals("Hottest Items", _page.HottestItemsCategory());
     }
+
+    @And("I add a name text field")
+    public void iAddANameTextField() {
+        _page.nameTheProduct();
+    }
+
+    @And("Activate option and add pdf")
+    public void activateOptionAndAddPdf() {
+        _page.activePdf();
+        _page.listingPdfLoad();
+    }
 }

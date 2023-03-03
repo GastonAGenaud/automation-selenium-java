@@ -147,7 +147,14 @@ public class listingdetailsPage extends BasePage {
     public WebElement validateTextFromSendMessage;
     @FindBy(xpath = "//h5[contains(text(), 'Listing HI')]")
     public WebElement HottestItemsCat;
-
+    @FindBy(how = How.CSS, using = "#category-selector")
+    public WebElement listingCategoryBtn;
+    @FindBy(how = How.CSS, using = "#listing-name")
+    public WebElement listingNameTextField;
+    @FindBy(how = How.CSS, using = "#basic > div.d-flex.align-items-center.mb-3 > label > span")
+    public WebElement activePdfBtn;
+    @FindBy(how = How.CSS, using = "#img-7")
+    public WebElement PdfFieldLoad;
     public boolean validateMessageText() {
         fluentWait(getDriver(), validateTextFromSendMessage);
         boolean result = validateTextFromSendMessage.isDisplayed();
@@ -255,12 +262,12 @@ public class listingdetailsPage extends BasePage {
 
     public void validHottestItemsCategory() {
         try {
-            fluentWaitStrict(getDriver(),nextBtn);
+            fluentWaitStrict(getDriver(), nextBtn);
             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().contains("Hottest Items")) {
                     wait(3);
-                    fluentWaitStrict(getDriver(),category);
+                    fluentWaitStrict(getDriver(), category);
                     String id = category.getAttribute("id");
                     wait(5);
                     String replace = id.replace("-cat", "");
@@ -512,6 +519,29 @@ public class listingdetailsPage extends BasePage {
         }
 
     }
+
+    public void nameTheProduct() {
+        fluentWait(getDriver(), listingCategoryBtn);
+        waitForWebElementAndClick(listingNameTextField);
+        listingNameTextField.sendKeys("Test Download File");
+    }
+    public void activePdf(){
+        try {
+            fluentWait(getDriver(),activePdfBtn);
+            waitForWebElementAndClick(activePdfBtn);
+            fluentWait(getDriver(),PdfFieldLoad);
+        }catch (Exception e){
+            wait(3);
+
+        }
+
+    }
+    public static final String EV_RESULT_PDF_PATH = System.getProperty("user.dir") + "/src/test/resources/media/Doc1.pdf";
+
+    public void listingPdfLoad() {
+        PdfFieldLoad.sendKeys(EV_RESULT_PDF_PATH);
+    }
+
 
 
     public void iSelectTheProductInformation() {
