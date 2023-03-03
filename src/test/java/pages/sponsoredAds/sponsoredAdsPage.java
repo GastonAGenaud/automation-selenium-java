@@ -276,23 +276,28 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void tabButton() {
-        List<WebElement> PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
-        try {
-            if (PendingPay.size() == 0) {
-                throw new Exception("the size is 0");
-            }
-        } catch (Exception e) {
-            wait(3);
-            PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
-        }
+        fluentWait(getDriver(), tabReactivate);
+        waitForWebElementAndClick(tabReactivate);
 
-        for (WebElement pay : PendingPay) {
-            String id = pay.getDomAttribute("id");
-            String replace = id.replace("-cat", "");
-            getDriver().navigate().to(url + "/listing/detail/" + replace);
-
-            getDriver().navigate().refresh();
-        }
+        fluentWait(getDriver(), pendingPayBtn);
+        waitForWebElementAndClick(pendingPayBtn);
+//        List<WebElement> PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
+//        try {
+//            if (PendingPay.size() == 0) {
+//                throw new Exception("the size is 0");
+//            }
+//        } catch (Exception e) {
+//            wait(3);
+//            PendingPay = getDriver().findElements(By.xpath("//a[contains(text(), 'Pay')]"));
+//        }
+//
+//        for (WebElement pay : PendingPay) {
+//            String id = pay.getDomAttribute("id");
+//            String replace = id.replace("-cat", "");
+//            getDriver().navigate().to(url + "/listing/detail/" + replace);
+//
+//            getDriver().navigate().refresh();
+//        }
     }
 
 

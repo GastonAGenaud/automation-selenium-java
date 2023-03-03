@@ -44,7 +44,7 @@ public class bugsSteps extends BasePage {
             _page.setTrackingTextField();
         } catch (Exception e) {
             wait(3);
-           _page.acceptField();
+            _page.acceptField();
             _page.setTrackingTextField();
         }
     }
@@ -394,12 +394,16 @@ public class bugsSteps extends BasePage {
 
     @And("search name")
     public void searchName() {
+        try {
+            _page.getCloseChat();
+        }catch (Exception e){
+
+        }
         _page.setFilterSearchTextField();
     }
 
     @And("click Select Action button")
     public void clickSelectActionButton() {
-        //_page.getCloseChat();
         _page.validateActionText();
         _page.setSelectActionBtn();
     }
@@ -407,7 +411,6 @@ public class bugsSteps extends BasePage {
     @And("select Delete button")
     public void selectDeleteButton() {
         _page.setDeleteBtn();
-
         _page.setGreenDeleteBtn();
     }
 

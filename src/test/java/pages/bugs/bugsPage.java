@@ -721,6 +721,10 @@ public class bugsPage extends BasePage {
         } catch (ElementNotInteractableException e) {
             System.out.println("The support chat trow the next error: " + e);
         }
+        finally {
+            wait(2);
+            getDriver().switchTo().defaultContent();
+        }
     }
 
     public void setFilterSearchTextField() {

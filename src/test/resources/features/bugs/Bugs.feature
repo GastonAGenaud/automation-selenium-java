@@ -537,8 +537,7 @@ Feature: Bugs
 #    And I create a new user
 #    Then Valid to save the new texts entered
 
-
-  @MTR @MTR-7777 @bugs
+  @MTR-7777 #@bugs
   Scenario: Browse by Seller/Downloadable Files as Products - Not showing any seller profiles
     #Given I login with Gaston User
     #And I go to dashboard
