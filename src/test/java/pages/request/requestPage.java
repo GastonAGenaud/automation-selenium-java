@@ -255,7 +255,7 @@ public class requestPage extends BasePage {
             waitForWebElementAndClick(requestSearchBtn);
         }
         catch (Exception e){
-            wait(2);
+            wait(5);
             fluentWait(getDriver(), requestSearchBtn);
             waitForWebElementAndClick(requestSearchBtn);
         }
@@ -264,13 +264,23 @@ public class requestPage extends BasePage {
     }
 
     public void requestSearchText() {
-        fluentWait(getDriver(), requestSearchTextField);
-        waitForWebElementAndClick(requestSearchTextField);
-        requestSearchTextField.sendKeys("test");
-        waitForWebElementAndClick(requestSearchTextField);
-        requestSearchTextField.clear();
-    }
 
+        try {
+            fluentWait(getDriver(), requestSearchTextField);
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.sendKeys("test");
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.clear();
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), requestSearchTextField);
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.sendKeys("test");
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.clear();
+        }
+
+    }
     public void filterAccessories() {
         fluentWait(getDriver(), filterAccessoriesBtn);
         waitForWebElementAndClick(filterAccessoriesBtn);

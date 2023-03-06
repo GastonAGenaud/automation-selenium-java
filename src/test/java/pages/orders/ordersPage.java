@@ -120,6 +120,15 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "//span[contains(text(), 'Shipment pending')]")
     public WebElement shipmentValidateText;
 
+    @FindBy(xpath = "//p[contains(text(), 'Message')]")
+    public WebElement validateTextFromSendMessage;
+
+    public boolean validateMessageText() {
+        fluentWait(getDriver(), validateTextFromSendMessage);
+        boolean result = validateTextFromSendMessage.isDisplayed();
+        return result;
+    }
+
     public boolean shipmentValidatingTxt() {
         try {
             fluentWait(getDriver(), shipmentValidateText);
@@ -180,16 +189,46 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersSoldMessage() {
-        fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
-        waitForWebElementAndClick(ordersSoldMessageBtn);
+        try {
 
-        fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
-        waitForWebElementAndClick(ordersSoldMessageTextField);
-        ordersSoldMessageTextField.sendKeys("Test Automation");
 
-        fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
-        waitForWebElementAndClick(ordersSoldSendMessageBtn);
+            fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
+            waitForWebElementAndClick(ordersSoldMessageBtn);
 
+            validateMessageText();
+
+            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+            waitForWebElementAndClick(ordersSoldMessageTextField);
+            ordersSoldMessageTextField.sendKeys("Test Automation");
+
+            ordersSoldMessageTextField.clear();
+
+            validateMessageText();
+
+            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+            waitForWebElementAndClick(ordersSoldMessageTextField);
+            ordersSoldMessageTextField.sendKeys("Test Automation");
+
+
+            fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
+            waitForWebElementAndClick(ordersSoldSendMessageBtn);
+        } catch (Exception e) {
+
+            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+            waitForWebElementAndClick(ordersSoldMessageTextField);
+            ordersSoldMessageTextField.sendKeys("Test Automation");
+
+            ordersSoldMessageTextField.clear();
+
+
+            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+            waitForWebElementAndClick(ordersSoldMessageTextField);
+            ordersSoldMessageTextField.sendKeys("Test Automation");
+
+
+            fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
+            waitForWebElementAndClick(ordersSoldSendMessageBtn);
+        }
     }
 
     public void ordersSoldOpenMenuTab() {
