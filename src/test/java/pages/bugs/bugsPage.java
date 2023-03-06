@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.BasePage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -274,7 +275,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#collapse-social-links > div > form > div:nth-child(2) > h4")
     public WebElement socialLinksText;
 
-    @FindBy(how = How.CSS, using = "#basic > div:nth-child(3) > div.card-body > p.title.requiredField")
+    @FindBy(how = How.CSS, using = "#basic > div:nth-child(5) > div.card-body > p.title.requiredField")
     public WebElement mediaText;
 
     @FindBy(how = How.CSS, using = "#custom-0")
@@ -327,7 +328,7 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#modal-cropper > div > div > div.modal-body")
     public WebElement cropAreaSector;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/form/div/div[1]/div[3]/div[1]/div/ul/li[1]/div/label/img")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/form/div/div[1]/div[5]/div[1]/div/ul/li[1]/div/label/img")
     public WebElement imageCover;
     @FindBy(how = How.CSS, using = "#imSellerSelector > div > label > div > div > p")
     public WebElement imSellerBtn;
@@ -398,12 +399,25 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(3) > a")
     public WebElement emailStep;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/a[1]")
+    public WebElement acceptSoldBtn;
+    @FindBy(how = How.CSS, using = "#transaction-5305 > div > div > div:nth-child(2) > div > div.col.d-flex.justify-content-end.align-items-end > button")
+    public WebElement askForReviewBtn;
     @FindBy(xpath = "//th[contains(text(), 'Action')]")
     public WebElement actionText;
-
+    @FindBy(how = How.CSS, using = "#active-head > h5 > a > span")
+    public WebElement OpenSection;
+    @FindBy(how = How.CSS, using = "#closed-purchased > div:nth-child(1) > div > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.d-flex.align-items-center.ml-auto.mb-2.justify-content-end > a:nth-child(1)")
+    public WebElement DownloadFileSelectorBtn;
+    @FindBy(how = How.CSS, using = "body > div > p > a")
+    public WebElement YoursListingBtn;
+    @FindBy(how = How.CSS, using = "#approved-tab > span")
+    public WebElement approvedBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
+    public WebElement NewProduct;
 
     public void goToProductDownloadFile() {
-        getDriver().navigate().to(url + "/listing/detail/1015");
+        getDriver().navigate().to(newProductUrl);
     }
 
     public boolean validateActionText() {
@@ -1266,10 +1280,13 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#text-27")
     public WebElement SIGNUP_WELCOME_BUTTON_BUYER_DESCRIPTION;
 
-    @FindBy(how = How.CSS, using = "#profile-img-loginbar")
+    @FindBy(xpath = "/html/body/header/nav/div/div[2]/ul/li[7]/a/span")
     public WebElement logOut;
     @FindBy(xpath = "/html/body/header/nav/div/div[2]/ul/li[7]/div/a[5]")
     public WebElement LogOutBtn;
+
+    @FindBy(xpath = "/html/body/header/nav/div/div[2]/ul/li[7]/div/a[4]")
+    public WebElement LogOutBtnTwo;
     @FindBy(how = How.CSS, using = "#welcomeUsername")
     public WebElement valideWelcomeText;
 
@@ -1281,6 +1298,8 @@ public class bugsPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
     public WebElement buyBtn;
+    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[5]/button[1]")
+    public WebElement buyProductDigitalBtn;
     @FindBy(xpath = "//p[contains(text(), 'Shipping Address')]")
     public WebElement shippingAddressText;
     @FindBy(how = How.CSS, using = "#address-3607 > div > div")
@@ -1484,15 +1503,10 @@ public class bugsPage extends BasePage {
         //SaveBtn.click();
     }
 
-    public void LogOut() {
-        actions.moveToElement(logOut).build().perform();
-
-    }
-
     public void logOutSession() {
-        LogOut();
-        fluentWait(getDriver(), LogOutBtn);
-        waitForWebElementAndClick(LogOutBtn);
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
+
     }
 
     public void valideWelcomeText() {
@@ -1514,9 +1528,108 @@ public class bugsPage extends BasePage {
 
     }
 
+    public void buyProductDigital() {
+        try {
+            fluentWait(getDriver(), buyProductDigitalBtn);
+            waitForWebElementAndClick(buyProductDigitalBtn);
+            retryingFindClick(buyProductDigitalBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), buyProductDigitalBtn);
+            waitForWebElementAndClick(buyProductDigitalBtn);
+        }
+
+    }
+
+    public void soldProduct() {
+        try {
+            fluentWait(getDriver(), acceptSoldBtn);
+            waitForWebElementAndClick(acceptSoldBtn);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), acceptSoldBtn);
+            waitForWebElementAndClick(acceptSoldBtn);
+        }
+    }
+
+    public String askForReview() {
+        try {
+            fluentWait(getDriver(), askForReviewBtn);
+            String result = askForReviewBtn.getText();
+            return result;
+        } catch (Exception e) {
+            String result = askForReviewBtn.getText();
+            return result;
+        }
+    }
+
     public void reUsePreviousAddress() {
         fluentWait(getDriver(), getReUseAddressBtn);
         waitForWebElementAndClick(getReUseAddressBtn);
     }
 
+    public void openSection() {
+        try {
+            fluentWait(getDriver(), OpenSection);
+            waitForWebElementAndClick(OpenSection);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), OpenSection);
+            waitForWebElementAndClick(OpenSection);
+        }
+
+    }
+
+    public void downloadFile() {
+        try {
+            fluentWait(getDriver(), DownloadFileSelectorBtn);
+            waitForWebElementAndClick(DownloadFileSelectorBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), DownloadFileSelectorBtn);
+            waitForWebElementAndClick(DownloadFileSelectorBtn);
+        }
+
+    }
+
+    public void myListing() {
+        try {
+            fluentWait(getDriver(), YoursListingBtn);
+            waitForWebElementAndClick(YoursListingBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), YoursListingBtn);
+            waitForWebElementAndClick(YoursListingBtn);
+        }
+    }
+
+    public void goToApproved() {
+        try {
+            fluentWait(getDriver(), approvedBtn);
+            waitForWebElementAndClick(approvedBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), approvedBtn);
+            waitForWebElementAndClick(approvedBtn);
+        }
+    }
+
+    public void selectMyNewlyProduct() {
+        try {
+            fluentWait(getDriver(), NewProduct);
+            waitForWebElementAndClick(NewProduct);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), NewProduct);
+            waitForWebElementAndClick(NewProduct);
+        }
+    }
+
+    String newProductUrl = null;
+    String windowHandle = getDriver().getWindowHandle();
+
+    public void saveTheUrlProduct() {
+        getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
+        newProductUrl = getDriver().getCurrentUrl();
+    }
 }

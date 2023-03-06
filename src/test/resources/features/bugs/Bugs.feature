@@ -538,31 +538,45 @@ Feature: Bugs
 #    Then Valid to save the new texts entered
 
 
-  @MTR @MTR-7777 @bugs
+  @MTR @MTR-3279 @bugs
   Scenario: Browse by Seller/Downloadable Files as Products - Not showing any seller profiles
-    #Given I login with Gaston User
-    #And I go to dashboard
-    #And select My Listings button
-    #When I validate the add new listing button
-    #And I add a name text field
-    #And I validate the listing category
-    #And I validate the listing description text field
-    #And I validate the listing price
-    #And I validate the listing quantity
-    #And Activate option and add pdf
-    #And I validate the listing image
-    #And I select Publish button STAGING
-    #And I validate create a listing Staging
-    #And I log out
-    And I login and I go to Dashboard BUG
+    Given I login with Gaston User
+    And I go to dashboard
+    And select My Listings button
+    When I validate the add new listing button
+    And I add a name text field
+    And I validate the listing category
+    And I validate the listing description text field
+    And I validate the listing price
+    And I validate the listing quantity
+    And Activate option and add pdf
+    And I validate the listing image
+    And I select Publish button STAGING
+    And I validate create a listing Staging
+    And I go to my Listing
+    And select my newly created product
+    And I log out
+    And I login with another account
+    And I go to dashboard
     And I will purchase the digital product
-    And I select the add a Shipping Address button
-    And I add an Address Fields
-    And I select the Flat Rate button
     And I select the Go To Secure Checkout button
     And I select the preloaded Credit Card button
     And I select the Submit Payment button
     Then I validate the Submit Payment
+    And I go to dashboard
+    And I log out
+    Given I login with Gaston User
+    And I go to orders page BUGS
+    And Sold the product
+    And Valid that sold the product
+    And I log out
+    And I login with another account
+    And I go to dashboard
+    And I go to orders page
+    And file selection or download file
+
+
+
 
 
 
