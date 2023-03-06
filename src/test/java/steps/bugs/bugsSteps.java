@@ -393,12 +393,16 @@ public class bugsSteps extends BasePage {
 
     @And("search name")
     public void searchName() {
+        try {
+            _page.getCloseChat();
+        }catch (Exception e){
+
+        }
         _page.setFilterSearchTextField();
     }
 
     @And("click Select Action button")
     public void clickSelectActionButton() {
-        //_page.getCloseChat();
         _page.validateActionText();
         _page.setSelectActionBtn();
     }
@@ -406,7 +410,6 @@ public class bugsSteps extends BasePage {
     @And("select Delete button")
     public void selectDeleteButton() {
         _page.setDeleteBtn();
-
         _page.setGreenDeleteBtn();
     }
 

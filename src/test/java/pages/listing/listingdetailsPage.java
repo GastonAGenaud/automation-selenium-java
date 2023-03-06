@@ -94,7 +94,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement profileImage;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[1]/label")
     public WebElement hottestItemsCat;
-    @FindBy(how = How.CSS, using = "#active-pagination > nav > ul > li:nth-child(10) > a")
+    @FindBy(xpath = "//a[contains(text(), 'Next >')]")
     public WebElement nextPageBtn;
     @FindBy(how = How.CSS, using = "#pending-tab > span")
     public WebElement pendingBtn;
@@ -281,7 +281,7 @@ public class listingdetailsPage extends BasePage {
             waitForWebElementAndClick(nextPageBtn);
             fluentWait(getDriver(), pendingBtn);
             wait(5);
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().contains("Hottest Items")) {
                     wait(3);
@@ -424,6 +424,7 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void iSelectSendMessage() {
+        messageTexActivate();
         fluentWait(getDriver(), sendMessageBtn);
         waitForWebElementAndClick(sendMessageBtn);
         fluentWait(getDriver(), messageTextField);
@@ -431,10 +432,35 @@ public class listingdetailsPage extends BasePage {
         messageTextField.sendKeys("Automation message");
         messageTextField.clear();
         messageTextField.sendKeys("Automation message");
+
+        fluentWait(getDriver(), messageTextField);
+        waitForWebElementAndClick(messageTextField);
+        messageTextField.sendKeys("Automation message");
+        messageTextField.clear();
+        messageTextField.sendKeys("Automation message");
+        messageTexActivate();
+        fluentWait(getDriver(), messageTextField);
+        waitForWebElementAndClick(messageTextField);
+        messageTextField.sendKeys("Automation message");
+        messageTextField.clear();
+        messageTextField.sendKeys("Automation message");
+//        fluentWait(getDriver(), sendBtn);
+//        waitForWebElementAndClick(sendBtn);
         //fluentWait(getDriver(), sendBtn);
-        //messageTexActivate();
         try {
-            actions.moveToElement(sendBtn).doubleClick().build().perform();
+            fluentWait(getDriver(), messageTextField);
+            waitForWebElementAndClick(messageTextField);
+            messageTextField.sendKeys("Automation message");
+            messageTextField.clear();
+            messageTextField.sendKeys("Automation message");
+            messageTexActivate();
+            fluentWait(getDriver(), messageTextField);
+            waitForWebElementAndClick(messageTextField);
+            messageTextField.sendKeys("Automation message");
+            messageTextField.clear();
+            messageTextField.sendKeys("Automation message");
+            fluentWait(getDriver(), sendBtn);
+            waitForWebElementAndClick(sendBtn);
         } catch (Exception e) {
             while (!sendBtn.isDisplayed()) {
                 wait(5);

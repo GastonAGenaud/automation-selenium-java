@@ -381,15 +381,26 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
     }
 
-
     @Given("I login with Gaston User")
     public void loginWithGastonUserSteps() {
-        getDriver().manage().deleteAllCookies();
-        getHomePage();
-        sessionManager.usePreviousLoggedInSession("GastonUser");
+        try {
+            wait(10);
+            getDriver().manage().deleteAllCookies();
+            getHomePage();
+            sessionManager.usePreviousLoggedInSession("GastonUser");
 
-        getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("GastonUser");
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession("GastonUser");
+        } catch (Exception e) {
+            wait(3);
+
+            getDriver().manage().deleteAllCookies();
+            getHomePage();
+            sessionManager.usePreviousLoggedInSession("GastonUser");
+
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession("GastonUser");
+        }
     }
 
     @Given("I login with Dev user")

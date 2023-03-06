@@ -53,6 +53,7 @@ public class settingsPage extends BasePage {
     public WebElement validatePaymentText;
 
     public String settingsConfirm() {
+        fluentWait(getDriver(), settingsInformation);
         String result = settingsInformation.getText();
         return result;
     }
