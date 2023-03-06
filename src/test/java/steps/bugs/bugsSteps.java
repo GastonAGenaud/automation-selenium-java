@@ -187,7 +187,6 @@ public class bugsSteps extends BasePage {
     @And("I validate the listing image BUG IMAGE")
     public void iValidateTheListingImageBUGIMAGE() {
         //_page.listingImageLoad();
-
     }
 
     @And("select Download file")
@@ -816,6 +815,34 @@ public class bugsSteps extends BasePage {
     @And("I will purchase the digital product")
     public void iWillPurchaseTheDigitalProduct() {
         _page.goToProductDownloadFile();
-        _page.buyProduct();
+        _page.buyProductDigital();
+    }
+
+    @And("Sold the product")
+    public void soldTheProduct() {
+        _page.soldProduct();
+    }
+
+    @And("Valid that sold the product")
+    public void validThatSoldTheProduct() {
+        Assert.assertEquals("Ask for review", _page.askForReview());
+    }
+
+    @And("file selection or download file")
+    public void fileSelectionOrDownloadFile() {
+        _page.openSection();
+        _page.downloadFile();
+    }
+
+    @And("I go to my Listing")
+    public void iGoToMyListing() {
+        _page.myListing();
+        _page.goToApproved();
+    }
+
+    @And("select my newly created product")
+    public void selectMyNewlyCreatedProduct() {
+        _page.selectMyNewlyProduct();
+        _page.saveTheUrlProduct();
     }
 }

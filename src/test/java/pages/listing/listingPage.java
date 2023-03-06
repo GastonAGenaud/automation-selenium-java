@@ -208,9 +208,18 @@ public class listingPage extends BasePage {
     }
 
     public String GreatText() {
-        fluentWaitStrict(getDriver(), greatJobText);
-        String result = greatJobText.getText();
-        return result;
+       try {
+           fluentWaitStrict(getDriver(), greatJobText);
+           String result = greatJobText.getText();
+           return result;
+       }
+       catch (Exception e){
+           wait(3);
+           fluentWaitStrict(getDriver(), greatJobText);
+           String result = greatJobText.getText();
+           return result;
+       }
+
     }
 
     public void setListingPublishBtn() {
