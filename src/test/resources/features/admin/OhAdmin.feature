@@ -76,7 +76,7 @@ Feature: OHE Admin
     And OHE I validate the next button smtp
     Then OHE I see that the next button redirect me to step 7
 
-  @OHE-398 @OhAdmin @OHE
+  @1 @OhAdmin @OHE
   Scenario: Admin design page
     Given OHE I go to Admin design
     When OHE I validate customize landing page option

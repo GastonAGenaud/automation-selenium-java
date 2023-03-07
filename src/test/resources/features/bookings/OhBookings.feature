@@ -1,6 +1,6 @@
 Feature: OHE - Bookings
 
-  @OHE @Bookings @testingCalendar
+  @OHE @OHE-347  @Bookings @testingCalendar
   Scenario: OHE - Calendar
     Given I go to dashboard page
     When I select bookings
@@ -12,7 +12,8 @@ Feature: OHE - Bookings
     And I select the forward button
     Then I validate the bookings calendar section
 
-  @OHE @Bookings
+
+  @OHE @Bookings @OHE-348
   Scenario: OHE - My bookings
     Given I go to dashboard page
     When I select bookings

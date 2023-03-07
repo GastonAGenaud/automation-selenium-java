@@ -1,6 +1,6 @@
 Feature: Reviews
 
-  @OHE-382 @OHE
+  @OHE-569 @OHE
   Scenario: I validate Ask for Reviews
     Given OHE I login and go to a class
     When OHE I select review section

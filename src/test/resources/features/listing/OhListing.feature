@@ -1,7 +1,7 @@
 Feature: Listing
 
 
-  @OHElisting @OHE-474 @OHE
+  @OHElisting @OHE-578 @OHE
 
   Scenario: OHE - Buyer able to create a listing
     Given OHE I login

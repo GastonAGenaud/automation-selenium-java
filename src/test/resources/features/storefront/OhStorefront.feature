@@ -12,7 +12,7 @@ Feature: storefront
     #When I select the Change cover picture button
     #Then I see the new cover image
 
-  @OH6 @OHE @smoke
+  @OH6 @OHE @OHE-356 @smoke
   Scenario: OHE - Validate settings profile page
     Given I login
     When I validate the settings button OHE

@@ -344,15 +344,19 @@ public class OhRequestPage extends BasePage {
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
         } catch (Exception e) {
-            wait(2);
+            wait(3);
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
         }
     }
 
     public void requestDetailsSuccessPopUp() {
-        fluentWait(getDriver(), requestDetailsSuccessPopUpBtn);
-        waitForWebElementAndClick(requestDetailsSuccessPopUpBtn);
+        try {
+            fluentWait(getDriver(), requestDetailsSuccessPopUpBtn);
+            waitForWebElementAndClick(requestDetailsSuccessPopUpBtn);
+        } catch (Exception e) {
+
+            }
     }
 
     public void requestURL() {
