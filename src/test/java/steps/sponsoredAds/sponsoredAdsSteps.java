@@ -250,5 +250,49 @@ public class sponsoredAdsSteps extends BasePage {
     public void iSelectTheTabDotsDELETE() {
         _page.iSelectTabDotsDelete();
     }
+
+    @And("I validate Start Date")
+    public void iValidateStartDate() {
+        _page.validateStartDateField();
+    }
+
+    @And("I validate End Date")
+    public void iValidateEndDate() {
+        _page.validateEndDateField();
+    }
+
+    @And("validating the display of the price of an aggregated advertisement")
+    public void validatingTheDisplayOfThePriceOfAnAggregatedAdvertisement() {
+        Assert.assertEquals(true, _page.validateThePriceOfAnAdvertisement());
+    }
+
+
+    @And("valid to display the Active text of the created ad")
+    public void validToDisplayTheActiveTextOfTheCreatedAd() {
+        Assert.assertEquals("Active", _page.activeAds());
+    }
+
+    @And("validate the user name in the preview screen")
+    public void validateTheUserNameInThePreviewScreen() {
+        Assert.assertEquals("gastongenaud_AutomationTest", _page.validateUserName());
+    }
+
+
+    @And("valid that only one hundred characters can be entered in the text field")
+    public void validThatOnlyOneHundredCharactersCanBeEnteredInTheTextField() {
+        _page.validNumberOfCharacters();
+
+    }
+
+
+    @And("I complete the Ad information Text")
+    public void iCompleteTheAdInformationText() {
+        _page.completeTextField();
+    }
+
+    @And("Valid that when adding the text in Text it is displayed in the preview section")
+    public void validThatWhenAddingTheTextInTextItIsDisplayedInThePreviewSection() {
+        _page.textItIsDisplayedInThePtreview();
+    }
 }
 

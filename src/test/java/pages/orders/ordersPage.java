@@ -404,8 +404,15 @@ public class ordersPage extends BasePage {
     }
 
     public boolean soldOpenSection() {
-        boolean result = soldOpenSection.isDisplayed();
-        return result;
+        try {
+            boolean result = soldOpenSection.isDisplayed();
+            return result;
+        }
+        catch (Exception e){
+            wait(3);
+            boolean result = soldOpenSection.isDisplayed();
+            return result;
+        }
     }
 
     public boolean requestTabBtn() {

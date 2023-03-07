@@ -845,4 +845,6 @@ public class bugsSteps extends BasePage {
         _page.selectMyNewlyProduct();
         _page.saveTheUrlProduct();
     }
+
+
 }
