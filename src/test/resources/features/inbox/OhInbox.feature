@@ -1,6 +1,7 @@
 
  Feature: OhInbox
 
+   @OHE-555
    @testingInbox
    Scenario: User able to enter a chat
      Given I login and I go to Dashboard
@@ -10,6 +11,7 @@
      And Select Send button
      Then I validate enter a chat
 
+     @OHEOHE-556
    @testingInbox
    Scenario: User able to search a chat
      Given I login and I go to Dashboard

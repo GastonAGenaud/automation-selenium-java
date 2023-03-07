@@ -1,6 +1,6 @@
 Feature: OhOnlineClasses
 
-
+  @smoke @OHE @OHE-565
   Scenario: User able to suscribe to online classes
     Given OHE I login
     When OHE I go to a class

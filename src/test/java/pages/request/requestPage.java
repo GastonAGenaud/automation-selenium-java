@@ -253,8 +253,9 @@ public class requestPage extends BasePage {
         try {
             fluentWait(getDriver(), requestSearchBtn);
             waitForWebElementAndClick(requestSearchBtn);
-        } catch (Exception e) {
-            wait(2);
+        }
+        catch (Exception e){
+            wait(5);
             fluentWait(getDriver(), requestSearchBtn);
             waitForWebElementAndClick(requestSearchBtn);
         }
@@ -263,13 +264,23 @@ public class requestPage extends BasePage {
     }
 
     public void requestSearchText() {
-        fluentWait(getDriver(), requestSearchTextField);
-        waitForWebElementAndClick(requestSearchTextField);
-        requestSearchTextField.sendKeys("test");
-        waitForWebElementAndClick(requestSearchTextField);
-        requestSearchTextField.clear();
-    }
 
+        try {
+            fluentWait(getDriver(), requestSearchTextField);
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.sendKeys("test");
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.clear();
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), requestSearchTextField);
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.sendKeys("test");
+            waitForWebElementAndClick(requestSearchTextField);
+            requestSearchTextField.clear();
+        }
+
+    }
     public void filterAccessories() {
         fluentWait(getDriver(), filterAccessoriesBtn);
         waitForWebElementAndClick(filterAccessoriesBtn);
@@ -376,7 +387,8 @@ public class requestPage extends BasePage {
             fluentWait(getDriver(), requestDescriptionTextField);
             waitForWebElementAndClick(requestDescriptionTextField);
             requestDescriptionTextField.sendKeys("test automation");
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             wait(3);
             fluentWait(getDriver(), requestDescriptionTextField);
             waitForWebElementAndClick(requestDescriptionTextField);
@@ -433,10 +445,12 @@ public class requestPage extends BasePage {
 
     public void requestCopyURL() {
         String window = getDriver().getWindowHandle();
+
         fluentWait(getDriver(), requestCopyURLBtn);
         waitForWebElementAndClick(requestCopyURLBtn);
 
         getDriver().switchTo().window(window);
+
     }
 
     public void requestFacebookShare() {
@@ -657,7 +671,7 @@ public class requestPage extends BasePage {
 
 
     public String validateCreateRequestDashboard() {
-        fluentWait(getDriver(), validateRequestDashboard);
+        fluentWait(getDriver(),validateRequestDashboard);
         String result = validateRequestDashboard.getText();
         return result;
     }
