@@ -13,7 +13,7 @@ Feature: Services Storefront
     #Then I see the new cover image
 
   @SVC @SvcStorefront
-  Scenario: OHE - Validate settings profile page
+  Scenario: SVC - Validate settings profile page
     Given SVC I login
     When SVC I validate the settings button OHE
     And  I validate the profile first name text field

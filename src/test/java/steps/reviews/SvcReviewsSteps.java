@@ -56,17 +56,17 @@ public class SvcReviewsSteps extends BasePage {
         Assert.assertEquals(_page.successInviteText(), "The invite emails have been sent successfully.");
     }
 
-    @And("complete Email and Message TextField")
-    public void completeEmailAndMessageTextField() {
-
-        _page.setEmailTextField();
-
-        _page.setMessageTextField();
-    }
-
-    @And("complete Email with Import")
-    public void completeEmailWithImport() {
-        _page.setImportCsv();
-        _page.setMessageTextField();
-    }
+//    @And("SVC complete Email and Message TextField")
+//    public void SVCcompleteEmailAndMessageTextField() {
+//
+//        _page.setEmailTextField();
+//
+//        _page.setMessageTextField();
+//    }
+//
+//    @And("SVC complete Email with Import")
+//    public void SVCcompleteEmailWithImport() {
+//        _page.setImportCsv();
+//        _page.setMessageTextField();
+//    }
 }
