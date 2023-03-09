@@ -51,6 +51,34 @@ public class SvcSettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#education > h5")
     public WebElement educationInformation;
 
+    @FindBy(how = How.CSS, using = "#notifications-tab > span > span:nth-child(1)")
+    public WebElement notificationsBtn;
+
+    @FindBy(how = How.CSS, using = "#notifications-tab-content > div:nth-child(1) > div > div > div > h5")
+    public WebElement emailTextConfirm;
+
+    @FindBy(how = How.CSS, using = "#addresses-tab-content > div.card.card-settings.mt-4.work-experience.px-3.px-sm-3.px-md-4.px-lg-5 > div > h5")
+    public WebElement addressesConfirm;
+    @FindBy(how = How.CSS, using = "#addresses-tab > span > span:nth-child(1)")
+    public WebElement addressesBtn;
+
+
+
+    public String notificationsConfirm() {
+        fluentWait(getDriver(), emailTextConfirm);
+        String result = emailTextConfirm.getText();
+        return result;
+
+    }
+    public void notificationsTab () {
+        fluentWait(getDriver(), notificationsBtn);
+        waitForWebElementAndClick(notificationsBtn);
+    }
+    public String addressesConfirm () {
+        fluentWait(getDriver(), addressesConfirm);
+        String result = addressesConfirm.getText();
+        return result;
+    }
 
     public String settingsConfirm() {
         fluentWait(getDriver(), settingsInformation);
@@ -135,6 +163,12 @@ public class SvcSettingsPage extends BasePage {
     public void selectExperience() {
         fluentWait(getDriver(), securityBtn);
         waitForWebElementAndClick(securityBtn);
+
+    }
+
+    public void selectAddresses () {
+        fluentWait(getDriver(), addressesBtn);
+        waitForWebElementAndClick(addressesBtn);
 
     }
 }

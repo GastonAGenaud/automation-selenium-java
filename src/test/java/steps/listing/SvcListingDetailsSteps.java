@@ -70,36 +70,41 @@ public class SvcListingDetailsSteps extends BasePage {
         _page.exampleItemButton();
         _page.serviceInfoButton();
     }
-
-    @Then("I validate Service information sector")
+*/
+    @Then("SVC I validate Service information sector")
     public void iValidateServiceInformationSector() {
         Assert.assertEquals(true, _page.serviceInfoTxt());
     }
-
+/*
     @When("I select the Availability button")
     public void iSelectTheAvailabilityButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.availabilityButton();
     }
-
-    @Then("I validate Availability sector")
+*/
+    @Then("SVC I validate Availability sector")
     public void iValidateAvailabilitySector() {
         Assert.assertEquals(true, _page.availabilityTxt());
     }
+/*
 
-    @When("I select the Flat rate services button")
+*/
+    @When("SVC I select the Flat rate services button")
     public void iSelectTheFlatRateServicesButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.flatRateServicesButton();
     }
 
-    @Then("I validate Flat rate services sector")
+    /*
+
+    */
+    @Then("SVC I validate Flat rate services sector")
     public void iValidateFlatRateServicesSector() {
         Assert.assertEquals(true, _page.flatRateServicesTxt());
     }
-
+/*
     @When("I select the Media button")
     public void iSelectTheMediaButton() {
         _page.BrowseClassesButton();

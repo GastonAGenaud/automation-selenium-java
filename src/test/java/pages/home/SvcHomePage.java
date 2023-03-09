@@ -75,7 +75,7 @@ public class SvcHomePage extends BasePage {
     @FindBy(how = How.CSS, using = "#whole-container > main > div.section-img-bg > div.container-fluid.px-sm-5 > div > div.offset-lg-5.col-lg-2 > a")
     public WebElement signUpNowBtn;
     //Footer
-    @FindBy(how = How.CSS, using = "#browse-footer-text-customize")
+    @FindBy(how = How.CSS, using = "#wants-header-text-customize")
     public WebElement footerBrowseRequestsBtn;
     @FindBy(how = How.CSS, using = "#login-footer-text-customize")
     public WebElement footerLoginBtn;

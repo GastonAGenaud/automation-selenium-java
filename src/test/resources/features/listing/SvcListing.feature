@@ -6,7 +6,7 @@ Feature: Listing
   Scenario: SVC - Buyer able to create a listing
     Given SVC I login
     And I validate the My Listings button
-    When I validate add new listing button
+    When SVC I validate add new listing button
     And I validate listing name text field
     And I validate listing category
     And I validate listing description text field

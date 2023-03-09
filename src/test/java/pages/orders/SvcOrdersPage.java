@@ -220,6 +220,7 @@ public class SvcOrdersPage extends BasePage {
     }
 
     public void ordersShowMenu() {
+        //fluentWait(getDriver(), ordersShowBtn);
         action.moveToElement(ordersShowBtn).build().perform();
     }
 
@@ -237,6 +238,9 @@ public class SvcOrdersPage extends BasePage {
 
     public void ordersShowShipmentPending() {
         ordersShowMenu();
+        getDriver().navigate().refresh();
+        ordersShowMenu();
+        //waitForWebElementAndClick(ordersShowBtn);
         fluentWait(getDriver(), ordersShowShipmentPendingBtn);
         waitForWebElementAndClick(ordersShowShipmentPendingBtn);
     }

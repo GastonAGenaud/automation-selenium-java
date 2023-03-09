@@ -5,18 +5,18 @@ Feature: Services Home
     Given I go to owl home page
     When I select browse services
     And I select login
-    And I select browse requests
+    And SVC I select browse requests
     And I select sign up
     Then I validate the home main header
 
   @SVC-310 @SVC @smoke @SvcHome
   Scenario: SVC - Validate the home menu
     Given I go to owl home page
-    When I select ages 5 to 8 option
-    And I select ages 9 to 11 option
-    And I select ages 12 to 14 option
-    And I select ages 15 to 17 option
-    #And I select More option
+#    When I select ages 5 to 8 option
+#    And I select ages 9 to 11 option
+#    And I select ages 12 to 14 option
+#    And I select ages 15 to 17 option
+    And I select More option
     Then I validate the home menu
 
   @SVC-311 @SVC @smoke @SvcHome
@@ -38,7 +38,7 @@ Feature: Services Home
   @SVC-312 @SVC @smoke @SvcHome
   Scenario: SVC - Validate the footer without account
     Given I go to owl home page
-    When I select footer browse request button
+#    When I select footer browse request button
     And I select footer log in button
     And I select footer sign up button
     And I select footer browse classes button

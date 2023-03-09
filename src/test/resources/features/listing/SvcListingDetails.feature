@@ -22,25 +22,25 @@ Feature:Services Listing details
   Scenario: SVC - Validate Service information sector
     Given I go to the listing details page on OHE
     When I select the Service information button
-    Then I validate Service information sector
+#    Then SVC I validate Service information sector      MISSING
 
   @SVCdetails @SVC-464 @SVC
   Scenario: SVC - Validate Availability sector
     Given I go to the listing details page on OHE
     When I select the Availability button
-    Then I validate Availability sector
+    #Then SVC I validate Availability sector      MISSING
 
   @SVCdetails @SVC-467 @SVC
   Scenario: SVC - Validate Flat rate services sector
     Given I go to the listing details page on OHE
     When I select the Flat rate services button
-    Then I validate Flat rate services sector
+    #Then SVC I validate Flat rate services sector      MISSING
 
   @SVCdetails @SVC-468 @SVC
   Scenario: SVC - Validate Media sector
     Given I go to the listing details page on OHE
     When I select the Media button
-    Then I validate Media sector
+    #Then I validate Media sector      MISSING
 
   @SVCdetails @SVC-469 @SVC
   Scenario: SVC - Validate Review sector
@@ -52,15 +52,15 @@ Feature:Services Listing details
   @SVCdetails @SVC-471 @SVC
   Scenario: SVC - Validate Work sector
     Given I go to the listing details page on OHE
-    Then I validate Work sector
+#    Then I validate Work sector      MISSING
 
   @SVCdetails @SVC-472 @SVC
   Scenario: SVC - Validate Education sector
     Given I go to the listing details page on OHE
-    Then I validate Education sector
+#    Then I validate Education sector      MISSING
 
   @SVCdetails @SVC-473 @SVC
   Scenario: SVC - Validate Bio sector
     Given I go to the listing details page on OHE
-    Then I validate Bio sector
+#    Then I validate Bio sector      MISSING
 

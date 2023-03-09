@@ -34,10 +34,10 @@ public class SvcHomeSteps extends BasePage {
 //        _page.headerLogin();
 //    }
 //
-//    @And("I select browse requests")
-//    public void iSelectBrowseRequests() {
-//        _page.footerBrowseRequests();
-//    }
+   @And("SVC I select browse requests")
+    public void iSelectBrowseRequests() {
+        _page.footerBrowseRequests();
+    }
 //
 //    @And("I select sign up")
 //    public void iSelectSignUp() {

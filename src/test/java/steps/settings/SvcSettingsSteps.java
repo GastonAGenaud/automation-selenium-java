@@ -22,7 +22,7 @@ public class SvcSettingsSteps extends BasePage {
 
         this._page = new SvcSettingsPage();
     }
-  /*  }
+
     @Given("I login and go to dashboard page")
     public void iLoginAndGoToDashboardPage(){
         _page.setHomePage();
@@ -31,7 +31,7 @@ public class SvcSettingsSteps extends BasePage {
         _page.goToDashboard();
     }
 
-    @When("I select My Settings")
+    @When("SVC I select My Settings")
     public void iSelectMySettings() {
         _page.selectMySettings();
     }
@@ -91,7 +91,29 @@ public class SvcSettingsSteps extends BasePage {
     public void iSeeTheExperienceInformation() {
         Assert.assertEquals(_page.experienceConfirm(), "Education");
     }
-}
-   */
 
+    @And("SVC I select Addresses section")
+    public void SVCiSelectExperienceSection() {
+        _page.settingsReload();
+        _page.selectAddresses();
     }
+
+    @Then("SVC I see the Addresses information")
+    public void iSeeTheAddressesInformation() {
+        Assert.assertEquals(_page.addressesConfirm(), "Add new Address");
+    }
+
+
+    @And("I select Notifications section")
+    public void iSelectNotificationsSection() {
+        _page.settingsReload();
+        _page.notificationsTab();
+    }
+
+    @Then("I see the Notifications information")
+    public void iSeeTheNotificationsInformation() {
+        Assert.assertEquals(_page.notificationsConfirm(), "Email Notifications");
+    }
+}
+
+

@@ -30,7 +30,7 @@ public class SvcListingSteps extends BasePage {
         _page.myListingButton();
     }
 */
-    @When("I validate add new listing button")
+    @When("SVC I validate add new listing button")
     public void SVCiValidateTheAddNewListingButton() {
         _page.addNewListing();
     }

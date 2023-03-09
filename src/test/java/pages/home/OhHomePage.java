@@ -46,36 +46,36 @@ public class OhHomePage extends BasePage {
     public WebElement ages12CategoryBtn;
     @FindBy(how = How.CSS, using = "#\\35 -tab")
     public WebElement ages15CategoryBtn;
-    @FindBy(how = How.CSS, using = "#more-tab")
+    @FindBy(how = How.CSS, using = "#dropdown-nav > li > a")
     public WebElement moreCategoriesBtn;
     //Image
     @FindBy(how = How.CSS, using = "#nav-buy-tab")
     public WebElement hireBtn;
     @FindBy(how = How.CSS, using = "#search")
     public WebElement hireSearchTextField;
-    @FindBy(how = How.CSS, using = "#nav-buy > div > div.d-flex.align-items-center.justify-content-between.mb-4 > button")
+    @FindBy(how = How.CSS, using = "#nav-buy > div.input-nav.mb-5 > a")
     public WebElement hireSearchBtn;
     @FindBy(how = How.CSS, using = "#nav-buy > div > div:nth-child(2) > a")
     public WebElement hireAdvancedSearchBtn;
     @FindBy(how = How.CSS, using = "#nav-sell-tab")
     public WebElement provideBtn;
-    @FindBy(how = How.CSS, using = "#nav-sell > button")
+    @FindBy(how = How.CSS, using = "#nav-sell > a")
     public WebElement provideStartNowBtn;
     //Body
-    @FindBy(how = How.CSS, using = "#whole-container > main > div:nth-child(3) > div > div > div.d-flex.justify-content-between > a")
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white > div.more-categories > div > div.py-5 > a")
     public WebElement browseByCategorySeeAllBtn;
     @FindBy(how = How.CSS, using = "#featuredListings-section > div > div.d-flex.justify-content-between > a")
     public WebElement featuredProvidersSeeAllBtn;
-    @FindBy(how = How.CSS, using = ".newest-items > div:nth-child(1) > div:nth-child(1) > a:nth-child(2)")
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white > div.newest-items > div > div.d-flex.justify-content-between > a")
     public WebElement newestProvidersSeeAllBtn;
     @FindBy(how = How.CSS, using = "#nav-buyer-tab")
     public WebElement forSeekersBtn;
     @FindBy(how = How.CSS, using = "#nav-seller-tab")
     public WebElement forProvidersBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.section-img-bg > div.container-fluid.px-sm-5 > div > div.offset-lg-5.col-lg-2 > a")
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white > div:nth-child(7) > div.container-fluid.px-sm-5 > div > div > button")
     public WebElement signUpNowBtn;
     //Footer
-    @FindBy(how = How.CSS, using = "#browse-footer-text-customize")
+    @FindBy(how = How.CSS, using = "#wants-header-text-customize")
     public WebElement footerBrowseRequestsBtn;
     @FindBy(how = How.CSS, using = "#login-footer-text-customize")
     public WebElement footerLoginBtn;

@@ -1,4 +1,5 @@
 package steps.settings;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +14,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.settings.settingsPage;
 
+import java.io.IOException;
+
 
 public class settingsSteps extends BasePage {
 
@@ -23,7 +26,13 @@ public class settingsSteps extends BasePage {
         this._page = new settingsPage();
 
     }
-
+//    @Before
+//    public void testSignup() throws IOException {
+//        _page.loginWithGastonUser();
+//        _page.loginWithDev();
+//        _page.loginWithGastonNoBorrar();
+//        _page.loginWithMakeAnOffer();
+//        _page.loginWithMatiasOwl();}
     @When("I select my settings")
     public void iSelectMySettings() {
         _page.selectMySettings();
