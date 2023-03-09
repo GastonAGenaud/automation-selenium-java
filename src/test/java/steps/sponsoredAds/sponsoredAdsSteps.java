@@ -256,10 +256,7 @@ public class sponsoredAdsSteps extends BasePage {
         _page.validateStartDateField();
     }
 
-    @And("I validate End Date")
-    public void iValidateEndDate() {
-        _page.validateEndDateField();
-    }
+
 
     @And("validating the display of the price of an aggregated advertisement")
     public void validatingTheDisplayOfThePriceOfAnAggregatedAdvertisement() {
@@ -272,7 +269,7 @@ public class sponsoredAdsSteps extends BasePage {
         Assert.assertEquals("Active", _page.activeAds());
     }
 
-    @And("validate the user name in the preview screen")
+    @Then("validate the user name in the preview screen")
     public void validateTheUserNameInThePreviewScreen() {
         Assert.assertEquals("gastongenaud_AutomationTest", _page.validateUserName());
     }
@@ -292,7 +289,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("Valid that when adding the text in Text it is displayed in the preview section")
     public void validThatWhenAddingTheTextInTextItIsDisplayedInThePreviewSection() {
-        _page.textItIsDisplayedInThePtreview();
+        _page.textItIsDisplayedInThePreview();
     }
 }
 

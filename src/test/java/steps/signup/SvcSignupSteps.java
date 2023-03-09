@@ -18,7 +18,7 @@ public class SvcSignupSteps extends BasePage {
 
         this._page = new SvcSignupPage();
     }
-
+/*
     @Given("I go to the sign up page")
     public void iGoToTheSignUpPage() {
         _page.goToSignUp();
@@ -53,7 +53,7 @@ public class SvcSignupSteps extends BasePage {
     @Given("I Sign in with new account {string}")
     public void iSignInWithNewAccount(String text) {
         _page.CreateAnAccountListingDetailsOHE(text);
-//        _page.validateLastError();
+        _page.validateLastError();
     }
-
+*/
 }

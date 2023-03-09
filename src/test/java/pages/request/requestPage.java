@@ -585,15 +585,31 @@ public class requestPage extends BasePage {
 
     public void requestsMatchedClose() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
+       try {
+           //fluentWait(getDriver(), requestsCreatedByMeBtn);
+           //waitForWebElementAndClick(requestsCreatedByMeBtn);
 
-        fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
-        waitForWebElementAndClick(requestsMatchedMenuBtn);
+           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+           waitForWebElementAndClick(requestsMatchedMenuBtn);
 //        retryingFindClick(requestsMatchedMenuBtn);
 
-        fluentWait(getDriver(), requestsMatchedCloseBtn);
-        waitForWebElementAndClick(requestsMatchedCloseBtn);
+           fluentWait(getDriver(), requestsMatchedCloseBtn);
+           waitForWebElementAndClick(requestsMatchedCloseBtn);
+       }catch (Exception e){
+           wait(3);
+           //fluentWait(getDriver(), requestsCreatedByMeBtn);
+
+           //waitForWebElementAndClick(requestsCreatedByMeBtn);
+
+           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+           waitForWebElementAndClick(requestsMatchedMenuBtn);
+//        retryingFindClick(requestsMatchedMenuBtn);
+
+           fluentWait(getDriver(), requestsMatchedCloseBtn);
+           waitForWebElementAndClick(requestsMatchedCloseBtn);
+       }
+
+
     }
 
     public void closedMenu() {

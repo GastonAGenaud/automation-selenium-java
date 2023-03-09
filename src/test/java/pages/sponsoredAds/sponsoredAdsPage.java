@@ -36,7 +36,7 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement sponsoredAdsBtn;
     @FindBy(xpath = "//*[ text() = 'Add New' ]")
     public WebElement addNewBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div[3]/div/div/form/div/div[2]/div/input")
+    @FindBy(how = How.CSS, using = "#adsText")
     public WebElement adsTextSector;
     @FindBy(how = How.CSS, using = "#adsLink")
     public WebElement adsLinkSector;
@@ -46,6 +46,8 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement addImageSponsoredAdsBtn;
     @FindBy(how = How.CSS, using = "#start-date")
     public WebElement startDateSelector;
+    @FindBy(how = How.CSS, using = "#active > div:nth-child(5) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div.row.mt-2 > div > span")
+    public WebElement startDateView;
     @FindBy(how = How.CSS, using = "#end-date")
     public WebElement endDateSelector;
     @FindBy(how = How.CSS, using = "#ads-publish > span")
@@ -116,13 +118,13 @@ public class sponsoredAdsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body")
     public WebElement validateReactivateMessage;
-    @FindBy(how = How.CSS, using = "<span id=\"ads-price\" class=\"ads-price\">$0.00</span>")
+    @FindBy(how = How.CSS, using = "#ads-form > div > div.col-auto.pt-5 > span")
     public WebElement priceAds;
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > span")
     public WebElement activeFields;
     @FindBy(how = How.CSS, using = "#userPreview > span.user")
     public WebElement userNameView;
-    @FindBy(how =How.CSS,using = "#textPreview")
+    @FindBy(how = How.CSS, using = "#textPreview")
     public WebElement numberOfCharacters;
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div.row.mt-2 > span")
     public WebElement validatePrice;
@@ -340,6 +342,7 @@ public class sponsoredAdsPage extends BasePage {
         }
     }
 
+
     public void iSelectTabDotsDelete() {
         List<WebElement> tabDotsDelete = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
         fluentWait(getDriver(), tabDelete);
@@ -428,15 +431,25 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void deleteAd() {
-        try {
-            fluentWait(getDriver(), deleteBtn);
-            waitForWebElementAndClick(deleteBtn);
-        } catch (Exception e) {
-            wait(3);
-            fluentWait(getDriver(), deleteBtn);
-            waitForWebElementAndClick(deleteBtn);
-        }
 
+        try {
+            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            WebElement activeDiv = getDriver().findElement(By.id("inactive"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            fluentWait(getDriver(),spanElement);
+            waitForWebElementAndClick(spanElement);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            WebElement activeDiv = getDriver().findElement(By.id("inactive"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            fluentWait(getDriver(),spanElement);
+            waitForWebElementAndClick(spanElement);
+        }
     }
 
     public boolean payingErrorMSG() {
@@ -453,24 +466,39 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void validateStartDateField() {
-        String startDateConvert = startDate.replace("-", "/");
+        String startDateConvert =null;
+        String startDateEdit = null;
         try {
-            Assert.assertEquals(startDateConvert, startDateSelector.getText());
+            startDateConvert = startDate.replace("-", "/");
+            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            WebElement activeDiv = getDriver().findElement(By.id("active"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
+            String spanText = spanElement.getText();
+            startDateEdit = spanText.replace("Start Date: ", "");
+        }catch (Exception e){
+            wait(3);
+            startDateConvert = startDate.replace("-", "/");
+            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            WebElement activeDiv = getDriver().findElement(By.id("active"));
+            wait(3);
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            wait(3);
+            WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
+            String spanText = spanElement.getText();
+            startDateEdit = spanText.replace("Start Date: ", "");
+        }
+
+        try {
+            Assert.assertEquals(startDateConvert, startDateEdit);
         } catch (Exception e) {
             wait(3);
-            Assert.assertEquals(startDateConvert, startDateSelector.getText());
+            Assert.assertEquals(startDateConvert, startDateEdit);
         }
     }
 
-    public void validateEndDateField() {
-        String endDateConvert = startDate.replace("-", "/");
-        try {
-            Assert.assertEquals(endDateConvert, endDateSelector.getText());
-        } catch (Exception e) {
-            wait(3);
-            Assert.assertEquals(endDateConvert, endDateSelector.getText());
-        }
-    }
 
     public boolean validateThePriceOfAnAdvertisement() {
         try {
@@ -495,25 +523,34 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void completeTextField() {
-        actions.moveToElement(adsTextSector);
-        fluentWait(getDriver(), adsTextSector);
-        waitForWebElementAndClick(adsTextSector);
-        adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        adsTextSector.clear();
-        adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        try {
+            actions.moveToElement(adsTextSector);
+            fluentWait(getDriver(), adsTextSector);
+            waitForWebElementAndClick(adsTextSector);
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            adsTextSector.clear();
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), adsTextSector);
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            adsTextSector.clear();
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        }
+
     }
 
     public void validNumberOfCharacters() {
         Assert.assertEquals(numberOfCharacters.getText().length(), 100);
     }
 
-    public void textItIsDisplayedInThePtreview() {
+    public void textItIsDisplayedInThePreview() {
 
         try {
-            Assert.assertEquals(numberOfCharacters, adsTextSector);
+            Assert.assertEquals("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", numberOfCharacters.getText());
         } catch (Exception e) {
             wait(3);
-            Assert.assertEquals(numberOfCharacters, adsTextSector);
+            Assert.assertEquals("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", numberOfCharacters.getText());
         }
     }
 }

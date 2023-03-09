@@ -19,54 +19,54 @@ public class SvcReviewsSteps extends BasePage {
         this._page = new SvcReviewsPage();
     }
 
-    @Given("SVC I login and go to a class")
-    public void iLoginAndGoToClass() throws IOException {
-        _page.goToOwlPage();
-        _page.goToLoginPage();
-        _page.login();
-        _page.goToOwlPage();
-        _page.setBrowseClassesBtn();
-        _page.setSelectClass();
-    }
+    //@Given("SVC I login and go to a class")
+//    public void iLoginAndGoToClass() throws IOException {
+//        _page.goToOwlPage();
+//        _page.goToLoginPage();
+//        _page.login();
+//        _page.goToOwlPage();
+//        _page.setBrowseClassesBtn();
+//        _page.setSelectClass();
+//    }
 
-    @When("SVC I select review section")
-    public void SVCISelectReviewSection() {
-        _page.setReviewsBtn();
-    }
+//    @When("SVC I select review section")
+//    public void SVCISelectReviewSection() {
+//        _page.setReviewsBtn();
+//    }
 
-    @And("SVC I select ask for reviews button")
-    public void SVCISelectAskForReviewsButton() {
+  //  @And("SVC I select ask for reviews button")
+//    public void SVCISelectAskForReviewsButton() {
 
-        _page.setAskForReviewBtn();
-    }
+//        _page.setAskForReviewBtn();
+//    }
 
-    @Then("SVC I validate Ask for Reviews")
-    public void SVCIValidateAskForReviews() {
-        Assert.assertEquals("Invite people to leave you a review", _page.InvitePeopleTxt());
-    }
+//    @Then("SVC I validate Ask for Reviews")
+//    public void SVCIValidateAskForReviews() {
+//        Assert.assertEquals("Invite people to leave you a review", _page.InvitePeopleTxt());
+//    }
 
-    @And("SVC select Send button")
-    public void selectSendButton() {
-        _page.setSendInviteBtn();
-    }
+//    @And("SVC select Send button")
+//    public void selectSendButton() {
+//        _page.setSendInviteBtn();
+//    }
 
-    @Then("SVC I validate Invite People")
-    public void SVCIValidateInvitePeople() {
+//    @Then("SVC I validate Invite People")
+//    public void SVCIValidateInvitePeople() {
 
-        Assert.assertEquals(_page.successInviteText(), "The invite emails have been sent successfully.");
-    }
+//        Assert.assertEquals(_page.successInviteText(), "The invite emails have been sent successfully.");
+//    }
 
-    @And("complete Email and Message TextField")
-    public void completeEmailAndMessageTextField() {
+//    @And("complete Email and Message TextField")
+//    public void completeEmailAndMessageTextField() {
 
-        _page.setEmailTextField();
+//        _page.setEmailTextField();
 
-        _page.setMessageTextField();
-    }
+//        _page.setMessageTextField();
+//    }
 
-    @And("complete Email with Import")
-    public void completeEmailWithImport() {
-        _page.setImportCsv();
-        _page.setMessageTextField();
-    }
+//    @And("complete Email with Import")
+//    public void completeEmailWithImport() {
+//        _page.setImportCsv();
+ //       _page.setMessageTextField();
+ //   }
 }

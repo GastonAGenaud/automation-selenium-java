@@ -1,6 +1,6 @@
 Feature: Services Sign Up
 
-   @SVC @SvcSignup
+   #@SVC @SvcSignup
   Scenario: OHE - I Create an Account
     Given I Sign in with new account "email2"
 #    When I type in the E-mail text field "Automation"

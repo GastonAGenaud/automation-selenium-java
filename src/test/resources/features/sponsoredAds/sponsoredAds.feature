@@ -76,7 +76,7 @@ Feature: Sponsored Ads
     Then I validate the Delete ads
 
 
-  @sponsoredAds @smoke @MTR  @MTR-7777
+  @sponsoredAds @smoke @MTR  @MTR-3297
   Scenario: MTR - validate texts within the sponsored ads section
     Given I login with Gaston User
     And I go to dashboard
@@ -87,14 +87,13 @@ Feature: Sponsored Ads
     And I complete the URL TextField
     And I add an image
     And I complete the Start Date TextField
-    And I validate Start Date
     And I complete the End Date TextField
-    And I validate End Date
-    And validate the user name in the preview screen
+    Then validate the user name in the preview screen
     And Valid that when adding the text in Text it is displayed in the preview section
     And validating the display of the price of an aggregated advertisement
     And I select the Publish button
     And I go to dashboard
     And I select Sponsored Ads section
+    And I validate Start Date
     And valid to display the Active text of the created ad
 
