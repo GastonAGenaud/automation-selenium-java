@@ -18,11 +18,11 @@ public class SvcStorefrontSteps extends BasePage {
 
         this._page = new SvcStorefrontPage();
     }
-    @Given("SVC I login")
-    public void iLogin() {
-        _page.goToLoginPage();
-        _page.login();
-    }
+//    @Given("SVC I login")
+//    public void SvCiLogin() {
+//        _page.goToLoginPage();
+//        _page.login();
+//    }
 
     @Given("SVC I login and go to user profile")
     public void SvcILoginAndGoToUserProfile(){

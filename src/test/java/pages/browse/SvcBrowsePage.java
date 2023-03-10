@@ -60,16 +60,25 @@ public class SvcBrowsePage extends BasePage {
     public WebElement sortByDropdown;
     @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(1)")
     public WebElement sortByMostRelevantBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(2)")
+    @FindBy(xpath = "//a[contains(text(), 'Price: Higher to Lower')]")
     public WebElement sortByPriceHigherToLowerBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(3)")
+    @FindBy(xpath = "//a[contains(text(), 'Price: Lower to Higher')]")
     public WebElement sortByPriceLowerToHigherBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(4)")
+    @FindBy(xpath = "//a[contains(text(), 'Date: Newer to Older')]")
     public WebElement sortByDateNewerToOlderBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(5)")
+    @FindBy(xpath = "//a[contains(text(), 'Date: Older to Newer')]")
     public WebElement sortByDateOlderToNewerBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.d-flex.justify-content-between.align-items-center.mb-3 > div.d-flex.align-items-center.justify-content-end.flex-wrap > div > div > div > a:nth-child(6)")
+    @FindBy(xpath = "//a[contains(text(), 'Rating: Higher to Lower')]")
     public WebElement ratingHigherToLowerBtn;
+    @FindBy(xpath = "//span[contains(text(), 'Clear Filters')]")
+    public WebElement clearFiltersText;
+
+    public boolean clearFilterTxt() {
+        fluentWait(getDriver(), clearFiltersText);
+        boolean result = clearFiltersText.isDisplayed();
+        return result;
+    }
+
 
     @FindBy(how = How.CSS, using = "body > header > nav > div > a > img")
     public WebElement owlIcon;
@@ -94,6 +103,7 @@ public class SvcBrowsePage extends BasePage {
 
     public void goToBrowseServices() {
         getDriver().navigate().to(baseUrlOHE + "/Listing/Browse");
+        getDriver().navigate().refresh();
     }
 
     public void ages12to14Category() {
@@ -166,6 +176,8 @@ public class SvcBrowsePage extends BasePage {
     }
 
     public void sortBy() {
+        getDriver().navigate().refresh();
+        clearFilterTxt();
         actions.moveToElement(sortByDropdown).perform();
     }
 
@@ -176,30 +188,46 @@ public class SvcBrowsePage extends BasePage {
     }
 
     public void sortByPriceHigher() {
-        sortBy();
-        fluentWait(getDriver(), sortByPriceHigherToLowerBtn);
-        waitForWebElementAndClick(sortByPriceHigherToLowerBtn);
+        try {
+            fluentWait(getDriver(), clearFiltersText);
+            sortBy();
+            fluentWait(getDriver(), sortByPriceHigherToLowerBtn);
+            waitForWebElementAndClick(sortByPriceHigherToLowerBtn);
+        }
+        catch(Exception e){
+            getDriver().navigate().refresh();
+            wait(3);
+            sortBy();
+            fluentWait(getDriver(), sortByPriceHigherToLowerBtn);
+            waitForWebElementAndClick(sortByPriceHigherToLowerBtn);
+        }
+
+
     }
 
     public void sortByPriceLower() {
+        getDriver().navigate().refresh();
         sortBy();
         fluentWait(getDriver(), sortByPriceLowerToHigherBtn);
         waitForWebElementAndClick(sortByPriceLowerToHigherBtn);
     }
 
     public void sortByDateNewer() {
+        getDriver().navigate().refresh();
         sortBy();
         fluentWait(getDriver(), sortByDateNewerToOlderBtn);
         waitForWebElementAndClick(sortByDateNewerToOlderBtn);
     }
 
     public void sortByDateOlder() {
+        getDriver().navigate().refresh();
         sortBy();
         fluentWait(getDriver(), sortByDateOlderToNewerBtn);
         waitForWebElementAndClick(sortByDateOlderToNewerBtn);
     }
 
     public void sortByRating() {
+        getDriver().navigate().refresh();
         sortBy();
         fluentWait(getDriver(), ratingHigherToLowerBtn);
         waitForWebElementAndClick(ratingHigherToLowerBtn);

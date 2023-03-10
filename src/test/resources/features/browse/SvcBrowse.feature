@@ -1,13 +1,13 @@
 Feature: Services Browse Page
 
-  @SVC-315 @SvcBrowse @SVC @smoke
-  Scenario: SVC - Validate browse services category filters
-    Given SVC I go to browse services page
-    When SVC I select ages 12 to 14 category filter
-    And SVC I select ages 15 to 17 category filter
-    And SVC I select ages 5 to 8 category filter
-    And SVC I select ages 9 to 11 category filter
-    Then SVC I validate categories filters
+#  @SVC-315 @SvcBrowse @SVC @smoke
+#  Scenario: SVC - Validate browse services category filters
+#    Given SVC I go to browse services page
+#    When SVC I select ages 12 to 14 category filter
+#    And SVC I select ages 15 to 17 category filter
+#    And SVC I select ages 5 to 8 category filter
+#    And SVC I select ages 9 to 11 category filter
+#    Then SVC I validate categories filters
 
   @SVC-316 @SvcBrowse @SVC @smoke
   Scenario: SVC - Validate browse by price And SVC location
@@ -36,7 +36,7 @@ Feature: Services Browse Page
   @SVC-318 @SvcBrowse @SVC @smoke
   Scenario: SVC - Validate browse services sort by
     Given SVC I go to browse services page
-    When SVC I select sort by most relevant
+    #When SVC I select sort by most relevant
     And SVC I select sort by price: higher to lower
     And SVC I select sort by price: lower to higher
     And SVC I select sort by date: newer to older

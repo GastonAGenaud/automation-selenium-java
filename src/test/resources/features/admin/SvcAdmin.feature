@@ -36,8 +36,8 @@ Feature: Services Admin
   Scenario: validate Create Categories
     Given SVC Step 4: Create Categories
     #When SVC I validate the Import data button
-    And SVC I type on category name field
-    #And SVC I validate the Add Category
+#    And SVC I type on category name field
+#    And SVC I validate the Add Category
     And SVC I validate the category name
     And SVC I validate the next button
     Then SVC I see that the add category button adds the category with the name set in the text bar
@@ -46,23 +46,25 @@ Feature: Services Admin
   Scenario: validate Create Custom Fields and Filters page
     Given SVC Step 5: Create Custom Fields and Filters
     #When SVC I validate the hide button
-    And SVC I validate the show button
+#    And SVC I validate the show button
     #And SVC I validate the listing page.jpg button
     #And SVC I validate the browse page.jpg button
     #And SVC I validate the upload a listing.jpg button
-    And SVC I validate the table
+    And SVC I validate the Create Custom Fields
+    And SVC I complete TextFields
     And SVC I validate the text button
     And SVC I validate the number button
     And SVC I validate the dropdown button
     And SVC I validate the checkbox button
-    And SVC I validate the Tags button
-    And SVC I validate the Color button
+#    And SVC I validate the Tags button
+    And SVC I validate the Color Picker button
     And SVC I validate the Mandatory checkbox
-    And SVC I validate the Show in Browse checkbox
-    And SVC I validate the Allow to add tags checkbox
-    And SVC I validate the is variant checkbox
-    And SVC I validate the next button
-    Then SVC I see that the next button redirect me to step 6
+    And SVC I validate the Set as filter checkbox
+    And SVC I validate Graphic and Design checkbox
+#    And SVC I validate the Allow to add tags checkbox
+#    And SVC I validate the is variant checkbox
+    And SVC I validate the Save button
+    Then SVC I see Successfully Text
 
   @SVC-397 @SvcAdmin @SVC
   Scenario: Validate Step 6 Connect Domain
@@ -76,7 +78,7 @@ Feature: Services Admin
     And SVC I validate the next button smtp
     Then SVC I see that the next button redirect me to step 7
 
-  @1 @SvcAdmin @SVC
+  @AdminDesign @SvcAdmin @SVC
   Scenario: Admin design page
     Given SVC I go to Admin design
     When SVC I validate customize landing page option

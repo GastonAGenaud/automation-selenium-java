@@ -66,7 +66,7 @@ public class SvcAdminPage extends BasePage {
     //Step 5
     @FindBy(how = How.CSS, using = "#toggler")
     public WebElement createCustomFieldsHideShowBtn;
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(5) > a:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(5) > a")
     public WebElement createCustomFields;
     @FindBy(how = How.CSS, using = "#resources > div > div > div:nth-child(1) > a > img")
     public WebElement listingPagePreviewImage;
@@ -92,7 +92,7 @@ public class SvcAdminPage extends BasePage {
     public WebElement cancelCustomFieldEditBtn;
 
     //Step 6
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(3) > a")
+    @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(3) > a")
     public WebElement emailStep;
     @FindBy(how = How.CSS, using = "#smtp-tab")
     public WebElement smtpSettingsEmails;
@@ -388,7 +388,7 @@ public class SvcAdminPage extends BasePage {
     public WebElement addOnsFilterTextField;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div/section/div/div[2]/button")
     public WebElement addOnsFilterBtn;
-    @FindBy(how =How.CSS,using = "#listingAddon > div > div > div")
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div > div")
     public WebElement explainerVideoBtn;
     @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(1) > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
     public WebElement addOnsEditBtn;
@@ -419,10 +419,10 @@ public class SvcAdminPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > header > div > div > div > a")
     public WebElement backToExtensionsBtn;
     //Step 7
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li.d-flex.align-items-center.done > a > strong")
+    @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li.d-flex.align-items-center > a:nth-child(1)")
     public WebElement connectDomain;
     //Step 8
-    @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(2) > a > strong")
+    @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(4) > div > ul > li:nth-child(2) > a")
     public WebElement socialLogin;
     //Step 9
     @FindBy(how = How.CSS, using = "body > div.container-fluid.full-height > div > main > div.container-fluid.bg-white.pb-5 > div:nth-child(7) > div > ul > li:nth-child(2) > a:nth-child(1)")
@@ -464,28 +464,126 @@ public class SvcAdminPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'Delete')]")
     public WebElement deleteXpath;
 
-    @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[3]/a/span")
+    @FindBy(xpath = "/html/body/div[2]/div/main/div/div/div/form/div[6]/div[1]/label[1]/span")
     public WebElement MandatoryCheckboxCustomFields;
 
-    @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[4]/a/span")
-    public WebElement ShowInBrowseCheckboxCustomFields;
+    @FindBy(xpath = "/html/body/div[2]/div/main/div/div/div/form/div[6]/div[2]/label[1]/span")
+    public WebElement SetAsFilterCheckboxCustomFields;
 
-    @FindBy (how = How.CSS,using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
+    @FindBy(how = How.CSS, using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
     public WebElement CreateCustomFieldBtn;
 
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(4) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(4) > label")
     public WebElement FieldNameBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(5) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(5) > label")
     public WebElement FieldDescriptionBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(6) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(6) > label")
     public WebElement FieldTypeBtn;
-    @FindBy(how = How.CSS,using = "#submit-form")
+    @FindBy(how = How.CSS, using = "#submit-form")
     public WebElement SaveBtn;
 
+    @FindBy(how = How.CSS, using = "#field-name")
+    public WebElement nameTextField;
 
-    public void ShowInBrowseCheckboxCustomFields() {
-        fluentWait(getDriver(), ShowInBrowseCheckboxCustomFields);
-        waitForWebElementAndClick(ShowInBrowseCheckboxCustomFields);
+    @FindBy(how = How.CSS, using = "#field-description")
+    public WebElement descriptionTextField;
+
+    @FindBy(how = How.CSS, using = "#text-tab")
+    public WebElement textTab;
+
+    @FindBy(how = How.CSS, using = "#number-tab")
+    public WebElement numberTab;
+
+    @FindBy(how = How.CSS, using = "#dropdown-tab")
+    public WebElement dropdownTab;
+
+    @FindBy(how = How.CSS, using = "#checkbox-tab")
+    public WebElement checkboxTab;
+
+    @FindBy(how = How.CSS, using = "#color-tab")
+    public WebElement colorTab;
+
+    @FindBy(how = How.CSS, using = "#submit-form")
+    public WebElement saveForm;
+
+    @FindBy(how = How.CSS, using = "div > div > div.iziToast-body > div.iziToast-texts > p")
+    public WebElement successfullyText;
+
+    @FindBy(how = How.CSS, using = "#checkbox-show-modal-category-494")
+    public WebElement graphicCheckbox;
+
+    @FindBy(how = How.CSS, using = "#go-next-step")
+    public WebElement goNextStep;
+
+    @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(2) > a")
+    public WebElement homePageLayout;
+
+    public void selectHomePageLayout(){
+        fluentWait(getDriver(), homePageLayout);
+        waitForWebElementAndClick(homePageLayout);
+    }
+
+    public void nextStepButton(){
+        fluentWait(getDriver(), goNextStep);
+        waitForWebElementAndClick(goNextStep);
+    }
+
+    public void graphicDesign(){
+        fluentWait(getDriver(), graphicCheckbox);
+        waitForWebElementAndClick(graphicCheckbox);
+    }
+
+    public void successfullyTextDisplayed() {
+        fluentWait(getDriver(), successfullyText);
+        Assert.assertEquals(successfullyText.getText(), "successfully created!");
+    }
+    public void saveButton(){
+        fluentWait(getDriver(), saveForm);
+        waitForWebElementAndClick(saveForm);
+    }
+
+    public void colorPickerButton(){
+        fluentWait(getDriver(), colorTab);
+        waitForWebElementAndClick(colorTab);
+    }
+
+    public void checkboxButton(){
+        fluentWait(getDriver(), checkboxTab);
+        waitForWebElementAndClick(checkboxTab);
+    }
+
+    public  void dropDownButton(){
+        fluentWait(getDriver(), dropdownTab);
+        waitForWebElementAndClick(dropdownTab);
+    }
+
+    public void numberButton() {
+        fluentWait(getDriver(), numberTab);
+        waitForWebElementAndClick(numberTab);
+    }
+
+    public void textButton() {
+        fluentWait(getDriver(), textTab);
+        waitForWebElementAndClick(textTab);
+    }
+
+    public void descriptionFieldText() {
+        fluentWait(getDriver(), descriptionTextField);
+        waitForWebElementAndClick(descriptionTextField);
+        descriptionTextField.sendKeys("Testing");
+    }
+
+
+    public void fieldNameText() {
+        fluentWait(getDriver(), nameTextField);
+        waitForWebElementAndClick(nameTextField);
+        nameTextField.sendKeys("Testing");
+    }
+
+
+    public void SetAsFilterCheckboxCustomFields() {
+        fluentWait(getDriver(),  SetAsFilterCheckboxCustomFields);
+        waitForWebElementAndClick( SetAsFilterCheckboxCustomFields);
 
     }
 
@@ -600,15 +698,14 @@ public class SvcAdminPage extends BasePage {
         waitForWebElementAndClick(designHomePageBtn);
     }
 
-    public void goToCreateCustomFieldsBtn(){
+    public void goToCreateCustomFieldsBtn() {
         try {
-            fluentWait(getDriver(),CreateCustomFieldBtn);
+            fluentWait(getDriver(), CreateCustomFieldBtn);
             waitForWebElementAndClick(CreateCustomFieldBtn);
-            fluentWait(getDriver(),FieldNameBtn);
-        }
-        catch (Exception e){
+            fluentWait(getDriver(), FieldNameBtn);
+        } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(),FieldNameBtn);
+            fluentWait(getDriver(), FieldNameBtn);
         }
 
     }
@@ -618,16 +715,17 @@ public class SvcAdminPage extends BasePage {
         return result;
     }
 
-    public String validateFieldDescription(){
+    public String validateFieldDescription() {
         String result = FieldDescriptionBtn.getText();
         return result;
     }
 
-    public String validateFieldType(){
+    public String validateFieldType() {
         String result = FieldTypeBtn.getText();
         return result;
     }
-    public String validateSaveButton(){
+
+    public String validateSaveButton() {
         String result = SaveBtn.getText();
         return result;
     }
@@ -841,7 +939,7 @@ public class SvcAdminPage extends BasePage {
 
     public void customizeLandingPage() {
         //designSection();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/LandingCustomize#!");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LandingCustomize#!");
     }
 
     public void customizeLandingPageHeader() {
@@ -895,13 +993,13 @@ public class SvcAdminPage extends BasePage {
 
     public void customizeMenu() {
         //designSection();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Menu/Customize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Menu/Customize");
         fluentWait(getDriver(), customizeMenuOrderCheckBox);
         waitForWebElementAndClick(customizeMenuOrderCheckBox);
     }
 
     public void customizeLogIn() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/LoginCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LoginCustomize");
 
         fluentWait(getDriver(), customizeLoginPageFacebookBtn);
         waitForWebElementAndClick(customizeLoginPageFacebookBtn);
@@ -911,7 +1009,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeSignUp() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/SignupCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/SignupCustomize");
         // customizeSignUpBtn.click();
         fluentWait(getDriver(), customizeRegistrationPageFacebookBtn);
         waitForWebElementAndClick(customizeRegistrationPageFacebookBtn);
@@ -921,7 +1019,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeContactUs() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/ContactUsCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/ContactUsCustomize");
         //customizeContactUsBtn.click();
         fluentWait(getDriver(), customizeContactPageTitleTextBar);
         waitForWebElementAndClick(customizeContactPageTitleTextBar);
@@ -958,7 +1056,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeAboutUs() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/AboutUs/Index");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/AboutUs/Index");
         //customizeAboutUsBtn.click();
     }
 
@@ -1048,7 +1146,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeFAQ() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/FAQCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/FAQCustomize");
         //customizeFAQBtn.click();
         fluentWait(getDriver(), customizeFAQPageTitleTextBar);
         waitForWebElementAndClick(customizeFAQPageTitleTextBar);
@@ -1067,7 +1165,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeTermsAndConditions() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/TermsOfUseCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/TermsOfUseCustomize");
         //customizeTermsAndConditionsBtn.click();
 
         fluentWait(getDriver(), customizeTermsAndConditionsPageTitleTextBar);
@@ -1087,7 +1185,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizePrivacyPolicy() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/PrivacyCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/PrivacyCustomize");
         //customizePrivacyPolicyBtn.click();
         fluentWait(getDriver(), customizePrivacyPolicyPageTitleTextBar);
         waitForWebElementAndClick(customizePrivacyPolicyPageTitleTextBar);
@@ -1121,7 +1219,7 @@ public class SvcAdminPage extends BasePage {
         } catch (Exception e) {
         }
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/GlobalSettings");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/GlobalSettings");
 //        fluentWait(getDriver(), siteWordingBtn);
 //        waitForWebElementAndClick(siteWordingBtn);
 
@@ -1142,7 +1240,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsCompanyInfo() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/companyinfo");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/companyinfo");
 //        fluentWaitStrict(getDriver(), settingsCompanyInfoBtn);
 //        waitForWebElementAndClick(settingsCompanyInfoBtn);
 
@@ -1256,7 +1354,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsOrdersSetup() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/OrdersSetup");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/OrdersSetup");
         //settingsOrdersSetupBtn.click();
 
         fluentWait(getDriver(), autoAcceptOrdersCheckBox);
@@ -1268,7 +1366,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsRequestSetup() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/RequestsSetup");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/RequestsSetup");
 //        fluentWait(getDriver(), settingsRequestSetupBtn);
 //        waitForWebElementAndClick(settingsRequestSetupBtn);
 
@@ -1279,7 +1377,7 @@ public class SvcAdminPage extends BasePage {
     public void settingsDiscount() {
         settings();
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/BrowseConfig");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/BrowseConfig");
 //        fluentWait(getDriver(), settingsDiscountBtn);
 //        waitForWebElementAndClick(settingsDiscountBtn);
 
@@ -1325,7 +1423,7 @@ public class SvcAdminPage extends BasePage {
 
     public void userReviews() {
         //   reports();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Application/UserReviews");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/UserReviews");
 //        fluentWait(getDriver(), userReviewsBtn);
 //        waitForWebElementAndClick(userReviewsBtn);
 
@@ -1336,7 +1434,7 @@ public class SvcAdminPage extends BasePage {
 
     public void listingReviews() {
         //reports();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Application/ListingsReviews");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/ListingsReviews");
 
 //        fluentWait(getDriver(), listingReviewsBtn);
 //        waitForWebElementAndClick(listingReviewsBtn);
@@ -1350,7 +1448,7 @@ public class SvcAdminPage extends BasePage {
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Transaction");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 
@@ -1360,7 +1458,7 @@ public class SvcAdminPage extends BasePage {
     //Add-ons
 
     public void addonBtnFromPanel() {
-        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons" );
+        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons");
 //        fluentWait(getDriver(), addonBtn);
 //        waitForWebElementAndClick(addonBtn);
     }
@@ -1403,6 +1501,7 @@ public class SvcAdminPage extends BasePage {
         fluentWait(getDriver(), addOnsFilterBtn);
         waitForWebElementAndClick(addOnsFilterBtn);
     }
+
     public void validateExtension() {
         boolean result = explainerVideoBtn.isDisplayed();
         Assert.assertTrue(result);

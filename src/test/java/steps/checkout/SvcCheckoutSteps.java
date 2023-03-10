@@ -30,7 +30,7 @@ public class SvcCheckoutSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
         getDriver().navigate().refresh();
     }
-/*
+
     @Given("SVC I login")
     public void SVCILogin(){
         _page.goToOwlPage();
@@ -130,7 +130,4 @@ public class SvcCheckoutSteps extends BasePage {
         _page.selectFlatFleeBtn();
         _page.hourlyCheckBox();
     }
-}
- */
-
 }

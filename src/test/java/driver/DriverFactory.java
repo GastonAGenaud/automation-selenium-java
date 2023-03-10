@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.FileInputStream;
@@ -18,7 +19,7 @@ public class DriverFactory {
     @Before
     public static void setup() {
         if (webDriver.get() == null) {
-             webDriver.set(createDriver());
+            webDriver.set(createDriver());
             driver = webDriver.get();
         }
     }
@@ -37,9 +38,15 @@ public class DriverFactory {
                 ChromeOptions options = new ChromeOptions();
                 options.setHeadless(true);
                 driver = new ChromeDriver(options);
+
             }
             else {
-                driver = new ChromeDriver();
+
+                FirefoxOptions options = new FirefoxOptions();
+                options.addPreference("network.cookie.sameSite.laxByDefault", false);
+                options.addPreference("network.cookie.sameSite.noneRequiresSecure", false);
+
+                driver = new FirefoxDriver(options);
             }
         } else if (getBrowserType() == "firefox") {
             driver = new FirefoxDriver();
@@ -51,6 +58,7 @@ public class DriverFactory {
                 options.setHeadless(true);
                 options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
+                options.addArguments("--remote-allow-origins=*");
             }
             else {
                 ChromeOptions options = new ChromeOptions();

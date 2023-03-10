@@ -841,7 +841,7 @@ public class OhAdminPage extends BasePage {
 
     public void customizeLandingPage() {
         //designSection();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/LandingCustomize#!");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LandingCustomize#!");
     }
 
     public void customizeLandingPageHeader() {
@@ -895,13 +895,13 @@ public class OhAdminPage extends BasePage {
 
     public void customizeMenu() {
         //designSection();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Menu/Customize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Menu/Customize");
         fluentWait(getDriver(), customizeMenuOrderCheckBox);
         waitForWebElementAndClick(customizeMenuOrderCheckBox);
     }
 
     public void customizeLogIn() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/LoginCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LoginCustomize");
 
         fluentWait(getDriver(), customizeLoginPageFacebookBtn);
         waitForWebElementAndClick(customizeLoginPageFacebookBtn);
@@ -911,7 +911,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizeSignUp() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/SignupCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/SignupCustomize");
         // customizeSignUpBtn.click();
         fluentWait(getDriver(), customizeRegistrationPageFacebookBtn);
         waitForWebElementAndClick(customizeRegistrationPageFacebookBtn);
@@ -921,7 +921,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizeContactUs() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/ContactUsCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/ContactUsCustomize");
         //customizeContactUsBtn.click();
         fluentWait(getDriver(), customizeContactPageTitleTextBar);
         waitForWebElementAndClick(customizeContactPageTitleTextBar);
@@ -958,7 +958,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizeAboutUs() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/AboutUs/Index");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/AboutUs/Index");
         //customizeAboutUsBtn.click();
     }
 
@@ -1048,7 +1048,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizeFAQ() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/FAQCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/FAQCustomize");
         //customizeFAQBtn.click();
         fluentWait(getDriver(), customizeFAQPageTitleTextBar);
         waitForWebElementAndClick(customizeFAQPageTitleTextBar);
@@ -1067,7 +1067,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizeTermsAndConditions() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/TermsOfUseCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/TermsOfUseCustomize");
         //customizeTermsAndConditionsBtn.click();
 
         fluentWait(getDriver(), customizeTermsAndConditionsPageTitleTextBar);
@@ -1087,7 +1087,7 @@ public class OhAdminPage extends BasePage {
     }
 
     public void customizePrivacyPolicy() {
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/application/PrivacyCustomize");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/PrivacyCustomize");
         //customizePrivacyPolicyBtn.click();
         fluentWait(getDriver(), customizePrivacyPolicyPageTitleTextBar);
         waitForWebElementAndClick(customizePrivacyPolicyPageTitleTextBar);
@@ -1121,7 +1121,7 @@ public class OhAdminPage extends BasePage {
         } catch (Exception e) {
         }
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/GlobalSettings");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/GlobalSettings");
 //        fluentWait(getDriver(), siteWordingBtn);
 //        waitForWebElementAndClick(siteWordingBtn);
 
@@ -1142,7 +1142,7 @@ public class OhAdminPage extends BasePage {
 
     public void settingsCompanyInfo() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/companyinfo");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/companyinfo");
 //        fluentWaitStrict(getDriver(), settingsCompanyInfoBtn);
 //        waitForWebElementAndClick(settingsCompanyInfoBtn);
 
@@ -1256,7 +1256,7 @@ public class OhAdminPage extends BasePage {
 
     public void settingsOrdersSetup() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/OrdersSetup");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/OrdersSetup");
         //settingsOrdersSetupBtn.click();
 
         fluentWait(getDriver(), autoAcceptOrdersCheckBox);
@@ -1268,7 +1268,7 @@ public class OhAdminPage extends BasePage {
 
     public void settingsRequestSetup() {
         settings();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/RequestsSetup");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/RequestsSetup");
 //        fluentWait(getDriver(), settingsRequestSetupBtn);
 //        waitForWebElementAndClick(settingsRequestSetupBtn);
 
@@ -1279,7 +1279,7 @@ public class OhAdminPage extends BasePage {
     public void settingsDiscount() {
         settings();
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/admin/application/BrowseConfig");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/BrowseConfig");
 //        fluentWait(getDriver(), settingsDiscountBtn);
 //        waitForWebElementAndClick(settingsDiscountBtn);
 
@@ -1325,7 +1325,7 @@ public class OhAdminPage extends BasePage {
 
     public void userReviews() {
         //   reports();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Application/UserReviews");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/UserReviews");
 //        fluentWait(getDriver(), userReviewsBtn);
 //        waitForWebElementAndClick(userReviewsBtn);
 
@@ -1336,7 +1336,7 @@ public class OhAdminPage extends BasePage {
 
     public void listingReviews() {
         //reports();
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Application/ListingsReviews");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/ListingsReviews");
 
 //        fluentWait(getDriver(), listingReviewsBtn);
 //        waitForWebElementAndClick(listingReviewsBtn);
@@ -1350,7 +1350,7 @@ public class OhAdminPage extends BasePage {
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to("https://owlhome-stage.azurewebsites.net/Admin/Transaction");
+        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 

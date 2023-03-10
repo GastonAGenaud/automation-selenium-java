@@ -18,7 +18,7 @@ public class SvcAdminSteps extends BasePage {
     }
 
     @Given("SVC I go to Admin page")
-    public void iGoToAdminPage(){
+    public void iGoToAdminPage() {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.setHomePage();
         _page.login();
@@ -89,15 +89,23 @@ public class SvcAdminSteps extends BasePage {
         _page.login();
         _page.goToAdminPanel();
         _page.getCloseChat();
+
     }
 
     @When("SVC I validate the options")
     public void SVCIValidateTheOptions() {
-        //_page.landingPageLayout();
+        _page.selectHomePageLayout();
+    }
+
+    @And("SVC I validate the Save button")
+    public void SVCIValidateTheSaveButton() {
+        _page.saveButton();
     }
 
     @And("SVC I validate the next button")
     public void SVCIValidateTheNextButton() {
+        _page.getCloseChat();
+        _page.nextStepButton();
     }
 
     @Then("SVC I see the Step 3")
@@ -171,28 +179,33 @@ public class SvcAdminSteps extends BasePage {
         _page.uploadAListingPreviewImage();
     }
 
-    @And("SVC I validate the table")
-    public void SVCIValidateTheTable() {
+    @And("SVC I validate the Create Custom Fields")
+    public void SVCIValidateTheCreateCustomFields() {
+        _page.goToCreateCustomFieldsBtn();
     }
 
     @And("SVC I validate the text button")
     public void SVCIValidateTheTextButton() {
-        _page.AddNewFieldsText();
+        _page.textButton();
+//        _page.AddNewFieldsText();
     }
 
     @And("SVC I validate the number button")
     public void SVCIValidateTheNumberButton() {
-        _page.AddNewFieldsNumber();
+        _page.numberButton();
+//       _page.AddNewFieldsNumber();
     }
 
     @And("SVC I validate the dropdown button")
     public void SVCIValidateTheDropdownButton() {
-        _page.AddNewFieldsDropdown();
+        _page.dropDownButton();
+//        _page.AddNewFieldsDropdown();
     }
 
     @And("SVC I validate the checkbox button")
     public void SVCIValidateTheCheckboxButton() {
-        _page.AddNewFieldsCheckbox();
+        _page.checkboxButton();
+//        _page.AddNewFieldsCheckbox();
     }
 
     @And("SVC I validate the Tags button")
@@ -200,9 +213,11 @@ public class SvcAdminSteps extends BasePage {
         _page.AddNewFieldsTags();
     }
 
-    @And("SVC I validate the Color button")
-    public void SVCIValidateTheColorButton() {
-        _page.AddNewFieldsColor();
+    @And("SVC I validate the Color Picker button")
+    public void SVCIValidateTheColorPickerButton() {
+        _page.colorPickerButton();
+        _page.textButton();
+//        _page.AddNewFieldsColor();
     }
 
     @And("SVC I validate the Mandatory checkbox")
@@ -210,9 +225,9 @@ public class SvcAdminSteps extends BasePage {
         _page.MandatoryCheckboxCustomFields();
     }
 
-    @And("SVC I validate the Show in Browse checkbox")
-    public void SVCIValidateTheShowInBrowseCheckbox() {
-        _page.ShowInBrowseCheckboxCustomFields();
+    @And("SVC I validate the Set as filter checkbox")
+    public void SVCIValidateTheSetAsFilterCheckbox() {
+        _page.SetAsFilterCheckboxCustomFields();
     }
 
     @And("SVC I validate the Allow to add tags checkbox")
@@ -223,8 +238,9 @@ public class SvcAdminSteps extends BasePage {
     public void SVCIValidateTheIsVariantCheckbox() {
     }
 
-    @Then("SVC I see that the next button redirect me to step 6")
-    public void SVCISeeThatTheNextButtonRedirectMeToStep() {
+    @Then("SVC I see Successfully Text")
+    public void SVCISeeSuccessfullyText() {
+        _page.successfullyTextDisplayed();
     }
 
     @Given("SVC Step 6: Connect Domain")
@@ -512,5 +528,16 @@ public class SvcAdminSteps extends BasePage {
 
     @Then("SVC I Validate the design homepage")
     public void SVCIValidateTheDesignHomepage() {
+    }
+
+    @And("SVC I complete TextFields")
+    public void svcICompleteTextFields() {
+        _page.fieldNameText();
+        _page.descriptionFieldText();
+    }
+
+    @And("SVC I validate Graphic and Design checkbox")
+    public void svcIValidateGraphicAndDesignCheckbox() {
+        _page.graphicDesign();
     }
 }
