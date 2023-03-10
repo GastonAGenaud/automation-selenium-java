@@ -31,6 +31,7 @@ public class DriverFactory {
 
     private static WebDriver createDriver() {
         WebDriver driver;
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
         if (getBrowserType() == "chrome") {
             if (getHeadlessMode()) {
                 ChromeOptions options = new ChromeOptions();
@@ -52,7 +53,9 @@ public class DriverFactory {
                 driver = new ChromeDriver(options);
             }
             else {
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
             }
         }
 

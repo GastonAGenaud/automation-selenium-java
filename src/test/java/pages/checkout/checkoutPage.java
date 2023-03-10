@@ -422,6 +422,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreLoadedCardButton() {
+        fluentWait(getDriver(), preLoadedCreditCardBtn);
         waitForVisibility(preLoadedCreditCardBtn);
         waitForClickability(preLoadedCreditCardBtn);
         fluentWait(getDriver(), preLoadedCreditCardBtn);

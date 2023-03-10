@@ -47,3 +47,7 @@ Feature: Listing
     And I complete Custom Fields
     And I select Publish button STAGING
     Then I validate create a listing Staging
+    And I log out
+    And I login with another account
+    And I go to dashboard
+

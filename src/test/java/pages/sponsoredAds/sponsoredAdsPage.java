@@ -36,7 +36,7 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement sponsoredAdsBtn;
     @FindBy(xpath = "//*[ text() = 'Add New' ]")
     public WebElement addNewBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div[3]/div/div/form/div/div[2]/div/input")
+    @FindBy(how = How.CSS, using = "#adsText")
     public WebElement adsTextSector;
     @FindBy(how = How.CSS, using = "#adsLink")
     public WebElement adsLinkSector;
@@ -45,9 +45,11 @@ public class sponsoredAdsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div[3]/div/div/form/div/div[4]/div/label/img")
     public WebElement addImageSponsoredAdsBtn;
     @FindBy(how = How.CSS, using = "#start-date")
-    public WebElement startDateSector;
+    public WebElement startDateSelector;
+    @FindBy(how = How.CSS, using = "#active > div:nth-child(5) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div.row.mt-2 > div > span")
+    public WebElement startDateView;
     @FindBy(how = How.CSS, using = "#end-date")
-    public WebElement endDateSector;
+    public WebElement endDateSelector;
     @FindBy(how = How.CSS, using = "#ads-publish > span")
     public WebElement publishAddBtn;
     @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > div > button")
@@ -116,13 +118,23 @@ public class sponsoredAdsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body")
     public WebElement validateReactivateMessage;
-
+    @FindBy(how = How.CSS, using = "#ads-form > div > div.col-auto.pt-5 > span")
+    public WebElement priceAds;
+    @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div:nth-child(1) > div > span")
+    public WebElement activeFields;
+    @FindBy(how = How.CSS, using = "#userPreview > span.user")
+    public WebElement userNameView;
+    @FindBy(how = How.CSS, using = "#textPreview")
+    public WebElement numberOfCharacters;
+    @FindBy(how = How.CSS, using = "#active > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9.card-body.pr-4.py-2.py-sm-3 > div.row.mt-2 > span")
+    public WebElement validatePrice;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[2]/div[1]/div/div/button")
     public WebElement tabReactivate;
 
     @FindBy(xpath = "//span[ text() = 'PROFILE' ]")
     public WebElement profileTextValidate;
-    public boolean validateProfileText(){
+
+    public boolean validateProfileText() {
         boolean result = profileTextValidate.isDisplayed();
         return result;
     }
@@ -223,20 +235,25 @@ public class sponsoredAdsPage extends BasePage {
         waitForWebElementAndClick(cropBtn);
     }
 
+    String startDate = "04-25-2023";
+
     public void adStartDateTextField() {
-        fluentWait(getDriver(), startDateSector);
-        waitForWebElementAndClick(startDateSector);
-        startDateSector.sendKeys(Keys.ARROW_LEFT);
-        startDateSector.sendKeys("04-25-2023");
-        waitForWebElementAndClick(startDateSector);
+        fluentWait(getDriver(), startDateSelector);
+        waitForWebElementAndClick(startDateSelector);
+
+        startDateSelector.sendKeys(Keys.ARROW_LEFT);
+        startDateSelector.sendKeys(startDate);
+        waitForWebElementAndClick(startDateSelector);
     }
 
+    String endDate = "04-25-2025";
+
     public void adEndDateTextField() {
-        fluentWait(getDriver(), endDateSector);
-        waitForWebElementAndClick(endDateSector);
-        endDateSector.sendKeys(Keys.ARROW_LEFT);
-        endDateSector.sendKeys("04-25-2025");
-        waitForWebElementAndClick(endDateSector);
+        fluentWait(getDriver(), endDateSelector);
+        waitForWebElementAndClick(endDateSelector);
+        endDateSelector.sendKeys(Keys.ARROW_LEFT);
+        endDateSelector.sendKeys(endDate);
+        waitForWebElementAndClick(endDateSelector);
     }
 
     public void iSelectPublish() {
@@ -324,6 +341,7 @@ public class sponsoredAdsPage extends BasePage {
             }
         }
     }
+
 
     public void iSelectTabDotsDelete() {
         List<WebElement> tabDotsDelete = getDriver().findElements(By.xpath("//*[@class='btn dropdown-icon pt-0']"));
@@ -413,8 +431,25 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void deleteAd() {
-        fluentWait(getDriver(), deleteBtn);
-        waitForWebElementAndClick(deleteBtn);
+
+        try {
+            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            WebElement activeDiv = getDriver().findElement(By.id("inactive"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            fluentWait(getDriver(),spanElement);
+            waitForWebElementAndClick(spanElement);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            WebElement activeDiv = getDriver().findElement(By.id("inactive"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            fluentWait(getDriver(),spanElement);
+            waitForWebElementAndClick(spanElement);
+        }
     }
 
     public boolean payingErrorMSG() {
@@ -429,5 +464,98 @@ public class sponsoredAdsPage extends BasePage {
         endDate2.sendKeys(Keys.ARROW_LEFT);
         endDate2.sendKeys("12-26-2024");
     }
+
+    public void validateStartDateField() {
+        String startDateConvert =null;
+        String startDateEdit = null;
+        try {
+            startDateConvert = startDate.replace("-", "/");
+            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            WebElement activeDiv = getDriver().findElement(By.id("active"));
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
+            String spanText = spanElement.getText();
+            startDateEdit = spanText.replace("Start Date: ", "");
+        }catch (Exception e){
+            wait(3);
+            startDateConvert = startDate.replace("-", "/");
+            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            WebElement activeDiv = getDriver().findElement(By.id("active"));
+            wait(3);
+            List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            wait(3);
+            WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
+            String spanText = spanElement.getText();
+            startDateEdit = spanText.replace("Start Date: ", "");
+        }
+
+        try {
+            Assert.assertEquals(startDateConvert, startDateEdit);
+        } catch (Exception e) {
+            wait(3);
+            Assert.assertEquals(startDateConvert, startDateEdit);
+        }
+    }
+
+
+    public boolean validateThePriceOfAnAdvertisement() {
+        try {
+            boolean result = priceAds.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            boolean result = priceAds.isDisplayed();
+            return result;
+        }
+
+    }
+
+    public String activeAds() {
+        String result = activeFields.getText();
+        return result;
+    }
+
+    public String validateUserName() {
+        String result = userNameView.getText();
+        return result;
+    }
+
+    public void completeTextField() {
+        try {
+            actions.moveToElement(adsTextSector);
+            fluentWait(getDriver(), adsTextSector);
+            waitForWebElementAndClick(adsTextSector);
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            adsTextSector.clear();
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), adsTextSector);
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            adsTextSector.clear();
+            adsTextSector.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        }
+
+    }
+
+    public void validNumberOfCharacters() {
+        Assert.assertEquals(numberOfCharacters.getText().length(), 100);
+    }
+
+    public void textItIsDisplayedInThePreview() {
+
+        try {
+            Assert.assertEquals("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", numberOfCharacters.getText());
+        } catch (Exception e) {
+            wait(3);
+            Assert.assertEquals("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", numberOfCharacters.getText());
+        }
+    }
 }
+
+
+
+
 

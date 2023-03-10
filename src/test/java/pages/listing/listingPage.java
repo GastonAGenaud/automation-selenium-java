@@ -74,10 +74,18 @@ public class listingPage extends BasePage {
     public WebElement listingFedExBtn;
     @FindBy(how = How.CSS, using = "#location-fedex")
     public WebElement fedExAddress1TextField;
+    @FindBy(how = How.CSS, using = "#fedex > div:nth-child(2) > div:nth-child(1) > div > label")
+    public WebElement fedExAddress1;
+    @FindBy(how = How.CSS, using = "#fedex > div:nth-child(2) > div:nth-child(2) > div > label")
+    public WebElement fedExAddress2;
     @FindBy(how = How.CSS, using = "#locality-location-fedex")
     public WebElement fedExCityTextField;
+    @FindBy(how = How.CSS, using = "#fedex > div:nth-child(3) > div.col-6.col-md-4 > div > label")
+    public WebElement fedExCity;
     @FindBy(how = How.CSS, using = "#StateNameLong-location-fedex")
     public WebElement fedExStateTextField;
+    @FindBy(how = How.CSS, using = "#fedex > div:nth-child(3) > div:nth-child(2) > div > label")
+    public WebElement fedExState;
     @FindBy(how = How.CSS, using = "#ZipCode-location-fedex")
     public WebElement fedExZipTextField;
     @FindBy(how = How.CSS, using = "#Country-location-fedex")
@@ -208,17 +216,16 @@ public class listingPage extends BasePage {
     }
 
     public String GreatText() {
-       try {
-           fluentWaitStrict(getDriver(), greatJobText);
-           String result = greatJobText.getText();
-           return result;
-       }
-       catch (Exception e){
-           wait(3);
-           fluentWaitStrict(getDriver(), greatJobText);
-           String result = greatJobText.getText();
-           return result;
-       }
+        try {
+            fluentWaitStrict(getDriver(), greatJobText);
+            String result = greatJobText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), greatJobText);
+            String result = greatJobText.getText();
+            return result;
+        }
 
     }
 
@@ -257,7 +264,6 @@ public class listingPage extends BasePage {
     public void goToLoginPageStaging() {
         getDriver().navigate().to(url + "/Account/Login");
     }
-
 
 
     public boolean listingConfirm() {
@@ -589,5 +595,6 @@ public class listingPage extends BasePage {
         waitForWebElementAndClick(pickUpCountryTextField);
         pickUpCountryTextField.sendKeys("United States");
     }
+
 
 }

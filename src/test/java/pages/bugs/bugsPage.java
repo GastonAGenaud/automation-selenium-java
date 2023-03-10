@@ -723,8 +723,15 @@ public class bugsPage extends BasePage {
     }
 
     public void setSelectActionBtn() {
-        fluentWait(getDriver(), selectActionBtn);
-        waitForWebElementAndClick(selectActionBtn);
+        try {
+            fluentWait(getDriver(), selectActionBtn);
+            waitForWebElementAndClick(selectActionBtn);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), selectActionBtn);
+            waitForWebElementAndClick(selectActionBtn);
+        }
+
     }
 
     public void getCloseChat() {
@@ -734,8 +741,7 @@ public class bugsPage extends BasePage {
             getDriver().findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/header/div[1]/button")).click();
         } catch (ElementNotInteractableException e) {
             System.out.println("The support chat trow the next error: " + e);
-        }
-        finally {
+        } finally {
             wait(2);
             getDriver().switchTo().defaultContent();
         }
@@ -1541,8 +1547,9 @@ public class bugsPage extends BasePage {
             wait(3);
             fluentWait(getDriver(), buyProductDigitalBtn);
             waitForWebElementAndClick(buyProductDigitalBtn);
+        } finally {
+            wait(1);
         }
-
     }
 
     public void soldProduct() {

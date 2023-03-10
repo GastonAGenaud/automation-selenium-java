@@ -178,26 +178,26 @@ public class requestPage extends BasePage {
     @FindBy(xpath = "//h3[contains(text(), 'Excellent!')]")
     public WebElement validatingExcellentTxt;
 
-    public boolean ExcellentTxt(){
+    public boolean ExcellentTxt() {
         fluentWait(getDriver(), validatingExcellentTxt);
         boolean result = validatingExcellentTxt.isDisplayed();
         return result;
     }
 
 
-    public boolean validatingDetailText(){
+    public boolean validatingDetailText() {
         fluentWait(getDriver(), detailTextValidate);
         boolean result = detailTextValidate.isDisplayed();
         return result;
     }
 
 
-    public boolean validatingAddImagesTxt(){
+    public boolean validatingAddImagesTxt() {
         try {
             fluentWait(getDriver(), validateAddImagesTxt);
             boolean result = validateAddImagesTxt.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), validateAddImagesTxt);
             boolean result = validateAddImagesTxt.isDisplayed();
@@ -205,7 +205,7 @@ public class requestPage extends BasePage {
         }
 
 
-}
+    }
 
     public void goToRequestFromDashboard() {
         fluentWait(getDriver(), requestFromDashboard);
@@ -585,15 +585,31 @@ public class requestPage extends BasePage {
 
     public void requestsMatchedClose() {
         getDriver().navigate().refresh();
-        fluentWait(getDriver(), requestsCreatedByMeBtn);
-        waitForWebElementAndClick(requestsCreatedByMeBtn);
+       try {
+           //fluentWait(getDriver(), requestsCreatedByMeBtn);
+           //waitForWebElementAndClick(requestsCreatedByMeBtn);
 
-        fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
-        waitForWebElementAndClick(requestsMatchedMenuBtn);
+           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+           waitForWebElementAndClick(requestsMatchedMenuBtn);
 //        retryingFindClick(requestsMatchedMenuBtn);
 
-        fluentWait(getDriver(), requestsMatchedCloseBtn);
-        waitForWebElementAndClick(requestsMatchedCloseBtn);
+           fluentWait(getDriver(), requestsMatchedCloseBtn);
+           waitForWebElementAndClick(requestsMatchedCloseBtn);
+       }catch (Exception e){
+           wait(3);
+           //fluentWait(getDriver(), requestsCreatedByMeBtn);
+
+           //waitForWebElementAndClick(requestsCreatedByMeBtn);
+
+           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+           waitForWebElementAndClick(requestsMatchedMenuBtn);
+//        retryingFindClick(requestsMatchedMenuBtn);
+
+           fluentWait(getDriver(), requestsMatchedCloseBtn);
+           waitForWebElementAndClick(requestsMatchedCloseBtn);
+       }
+
+
     }
 
     public void closedMenu() {
