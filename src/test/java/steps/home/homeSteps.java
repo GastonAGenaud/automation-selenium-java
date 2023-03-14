@@ -380,6 +380,14 @@ public class homeSteps extends BasePage {
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
     }
+/*@Before
+public void lallallallal() throws IOException {
+        _page.loginWithGastonNoBorrar();
+        _page.loginWithGastonUser();
+    }
+
+ */
+
 
     @Given("I login with Gaston User")
     public void loginWithGastonUserSteps() {

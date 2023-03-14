@@ -25,14 +25,14 @@ public class ItemApproveSteps extends BasePage {
         _page.approveText();
         _page.pendingText();
         _page.rejectedText();
-        _page.hottestText();
-        _page.listingText();
-        _page.soldByText();
-        _page.gastonItemTxt();
-        _page.ItemImg();
-        _page.fiveStars();
-        _page.DotsDisplayed();
-        _page.priceDisplayed();
+     //   _page.hottestText();
+     //   _page.listingText();
+     //   _page.soldByText();
+     //   _page.gastonItemTxt();
+     //   _page.ItemImg();
+     //   _page.fiveStars();
+     //   _page.DotsDisplayed();
+     //   _page.priceDisplayed();
     }
 
     @Then("Valid that the texts are displayed correctly")

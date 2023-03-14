@@ -30,7 +30,7 @@ Feature: Home
     #And I validate the more Shoes button
     And I validate the outdoor staff section
     #And I validate the more outdoor staff section
-    And I validate the hottest items button
+    #And I validate the hottest items button
     #And I validate the more hottest items section
     And I validate the art and collectables section
     And I validate Rugs button

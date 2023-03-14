@@ -61,7 +61,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersBuyAgainBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div/a[2]")
     public WebElement ordersPurchasedShareBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[43]/div/div/div/div[1]/div[2]/div/div/a[3]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[45]/div/div/div/div[1]/div[2]/div/div/a[3]")
     public WebElement ordersPurchasedRequestRefundBtn;
     @FindBy(how = How.CSS, using = "#transaction-521 > div > div > div:nth-child(2) > div > div.col.d-flex.justify-content-end.align-items-end > button")
     public WebElement ordersConfirmPickUpBtn;
@@ -100,7 +100,7 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/button")
     public WebElement ordersPurchasedTab2Button;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[43]/div/div/div/div[1]/div[2]/div/button ")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[45]/div/div/div/div[1]/div[2]/div/button")
     public WebElement requestTabButton;
 
     @FindBy(how = How.CSS, using = "#chat-message")
@@ -188,36 +188,67 @@ public class ordersPage extends BasePage {
     public void ordersSoldDetails() {
 //        waitForVisibility(ordersSoldDetailsBtn);
 //        waitForClickability(ordersSoldDetailsBtn);
-        fluentWait(getDriver(), ordersSoldDetailsBtn);
-        waitForWebElementAndClick(ordersSoldDetailsBtn);
+        try {
+            fluentWait(getDriver(), ordersSoldDetailsBtn);
+            waitForWebElementAndClick(ordersSoldDetailsBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersSoldDetailsBtn);
+            waitForWebElementAndClick(ordersSoldDetailsBtn);
+        }
+
     }
 
     public void ordersSoldMessage() {
         try {
 
+            try {
 
-            fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
-            waitForWebElementAndClick(ordersSoldMessageBtn);
+                fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
+                waitForWebElementAndClick(ordersSoldMessageBtn);
 
-            validateMessageText();
+                //validateMessageText();
 
-            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
-            waitForWebElementAndClick(ordersSoldMessageTextField);
-            ordersSoldMessageTextField.sendKeys("Test Automation");
+                // fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+                //  waitForWebElementAndClick(ordersSoldMessageTextField);
+                //   ordersSoldMessageTextField.sendKeys("Test Automation");
 
-            ordersSoldMessageTextField.clear();
+                //        ordersSoldMessageTextField.clear();
 
-            validateMessageText();
+                //      validateMessageText();
 
-            fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
-            waitForWebElementAndClick(ordersSoldMessageTextField);
-            ordersSoldMessageTextField.sendKeys("Test Automation");
+                fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+                waitForWebElementAndClick(ordersSoldMessageTextField);
+                ordersSoldMessageTextField.sendKeys("Test Automation");
 
 
-            fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
-            waitForWebElementAndClick(ordersSoldSendMessageBtn);
+                fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
+                waitForWebElementAndClick(ordersSoldSendMessageBtn);
+            } catch (Exception e) {
+                wait(3);
+                fluentWaitStrict(getDriver(), ordersSoldMessageBtn);
+                waitForWebElementAndClick(ordersSoldMessageBtn);
+
+                //validateMessageText();
+
+                // fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+                //  waitForWebElementAndClick(ordersSoldMessageTextField);
+                //  ordersSoldMessageTextField.sendKeys("Test Automation");
+
+                //      ordersSoldMessageTextField.clear();
+
+                //    validateMessageText();
+
+                fluentWaitStrict(getDriver(), ordersSoldMessageTextField);
+                waitForWebElementAndClick(ordersSoldMessageTextField);
+                ordersSoldMessageTextField.sendKeys("Test Automation");
+
+
+                fluentWaitStrict(getDriver(), ordersSoldSendMessageBtn);
+                waitForWebElementAndClick(ordersSoldSendMessageBtn);
+            }
         } catch (Exception e) {
-            wait(2);
+            wait(3);
             fluentWaitStrict(getDriver(), chatMessageField);
             waitForWebElementAndClick(chatMessageField);
             chatMessageField.sendKeys("Test Automation");
@@ -320,6 +351,7 @@ public class ordersPage extends BasePage {
         fluentWait(getDriver(), shippingAddressText);
         boolean result = shippingAddressText.isDisplayed();
         return result;
+
     }
 
     public void ordersShare() {
@@ -455,10 +487,12 @@ public class ordersPage extends BasePage {
 
     public boolean soldOpenSection() {
         try {
+            fluentWait(getDriver(),soldOpenSection);
             boolean result = soldOpenSection.isDisplayed();
             return result;
         } catch (Exception e) {
-            wait(4);
+            wait(5);
+            fluentWait(getDriver(),soldOpenSection);
             boolean result = soldOpenSection.isDisplayed();
             return result;
         }

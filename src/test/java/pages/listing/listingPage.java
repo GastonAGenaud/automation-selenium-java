@@ -347,7 +347,13 @@ public class listingPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void listingImageLoad() {
-        listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        try {
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+            fluentWaitStrict(getDriver(), cropBtn);
+        } catch (Exception e) {
+            wait(3);
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        }
     }
 
     public void cropButton() {

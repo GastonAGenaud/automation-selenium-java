@@ -438,6 +438,7 @@ public class sponsoredAdsPage extends BasePage {
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            waitForClickability(spanElement);
             fluentWait(getDriver(),spanElement);
             waitForWebElementAndClick(spanElement);
         }catch (Exception e){
@@ -446,7 +447,9 @@ public class sponsoredAdsPage extends BasePage {
             WebElement activeDiv = getDriver().findElement(By.id("inactive"));
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
+            fluentWait(getDriver(),lastElement);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            waitForClickability(spanElement);
             fluentWait(getDriver(),spanElement);
             waitForWebElementAndClick(spanElement);
         }

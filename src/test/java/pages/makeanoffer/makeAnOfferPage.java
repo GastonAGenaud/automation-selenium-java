@@ -106,13 +106,11 @@ public class makeAnOfferPage extends BasePage {
     public WebElement validateText;
 
 
-    public boolean validateTextFirst(){
+    public boolean validateTextFirst() {
         fluentWait(getDriver(), validateFirstText);
         boolean result = validateFirstText.isDisplayed();
         return result;
     }
-
-
 
 
     public boolean validateLastError() {
@@ -120,7 +118,7 @@ public class makeAnOfferPage extends BasePage {
             fluentWaitElementDisappears(getDriver(), lastErrorValidate);
             boolean result = lastErrorValidate.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(4);
             waitForWebElementAndClick(validateText);
             boolean result = lastErrorValidate.isDisplayed();
@@ -155,18 +153,34 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void completeFormSignUp() {
-        fluentWait(getDriver(), howOld);
-        waitForWebElementAndClick(howOld);
-        //fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
-        howOld.sendKeys("18");
-        howMuch.sendKeys("test");
-        agreeTerms.sendKeys("Yes");
-        whereAreYou.sendKeys("test");
-        fluentWait(getDriver(), submitBtn);
-        waitForWebElementAndClick(submitBtn);
+        try {
+            fluentWait(getDriver(), howOld);
+            waitForWebElementAndClick(howOld);
+            //fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
+            howOld.sendKeys("18");
+            howMuch.sendKeys("test");
+            agreeTerms.sendKeys("Yes");
+            whereAreYou.sendKeys("test");
+            fluentWait(getDriver(), submitBtn);
+            waitForWebElementAndClick(submitBtn);
 //        retryingFindClick(submitBtn);
-        validateTextFirst();
-        getDriver().navigate().to(url + "/Listing/Detail/619");
+            validateTextFirst();
+            getDriver().navigate().to(url + "/Listing/Detail/619");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), howOld);
+            waitForWebElementAndClick(howOld);
+            //fluentWaitElementDisappears(getDriver(),errorMessageSignUp);
+            howOld.sendKeys("18");
+            howMuch.sendKeys("test");
+            agreeTerms.sendKeys("Yes");
+            whereAreYou.sendKeys("test");
+            fluentWait(getDriver(), submitBtn);
+            waitForWebElementAndClick(submitBtn);
+//        retryingFindClick(submitBtn);
+            validateTextFirst();
+            getDriver().navigate().to(url + "/Listing/Detail/619");
+        }
 
 
     }
@@ -222,15 +236,15 @@ public class makeAnOfferPage extends BasePage {
 
     public void selectMakeAnOfferBtn() {
         getDriver().navigate().refresh();
-       try {
-           fluentWait(getDriver(), makeAnOfferBtn);
-           waitForWebElementAndClick(makeAnOfferBtn);
-           fluentWait(getDriver(), makeAnOfferMessageTextField);
-       }catch (Exception e){
-           wait(3);
-           fluentWait(getDriver(), makeAnOfferBtn);
-           waitForWebElementAndClick(makeAnOfferBtn);
-       }
+        try {
+            fluentWait(getDriver(), makeAnOfferBtn);
+            waitForWebElementAndClick(makeAnOfferBtn);
+            fluentWait(getDriver(), makeAnOfferMessageTextField);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), makeAnOfferBtn);
+            waitForWebElementAndClick(makeAnOfferBtn);
+        }
 
     }
 
@@ -272,7 +286,7 @@ public class makeAnOfferPage extends BasePage {
             waitForWebElementAndClick(makeAnOfferSendBtn);
             //retryingFindClick(makeAnOfferSendBtn);
 //            fluentWait(getDriver(), chatVerify);
-        }catch(Exception e){
+        } catch (Exception e) {
             wait(4);
             fluentWaitStrict(getDriver(), makeAnOfferSendBtn);
             waitForWebElementAndClick(makeAnOfferSendBtn);
