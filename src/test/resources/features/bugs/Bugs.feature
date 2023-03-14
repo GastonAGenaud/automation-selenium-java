@@ -73,7 +73,8 @@ Feature: Bugs
 
   @MTR @MTR-3261 @bugs
   Scenario: Create tracking number
-    Given I login and I go to Dashboard BUG
+    And I login with another account
+    And I go to dashboard
     When buy the product
     And I select the add a Shipping Address button
     And I add an Address Fields
@@ -132,10 +133,6 @@ Feature: Bugs
     And select Edit button
     Then I validate Templates and Edit
 
-#  @MTR @MTR-1765 @bugs
-#  Scenario: Validate Sign In with Google
-#    Given I go to Sign Up Page BUG
-#    Then I validate the sign up with Google BUG
 
   @MTR @MTR-1654 @bugs
   Scenario: User able to Feature Listing
@@ -250,9 +247,9 @@ Feature: Bugs
 #    And complete Enter a Location TextField
 #    Then I validate the Location sector MAP
 
-  #@MTR @MTR @smoke @bugs @MTR @MTR-1942
+  @MTR @MTR @smoke @bugs @MTR  @MTR-1942
   Scenario: MTR - Item Reviews
-    Given I sign up and I go to Listing Page
+    Given I Sign in with new account "email2" and go to the listing page
     When I select an item BUG
     And I select the Reviews button
     And I select Leave a Review Button
@@ -262,11 +259,11 @@ Feature: Bugs
     And I select Reviews sector
     Then I validate Reviews in item page
 
- #@MTR @MTR @smoke @bugs @MTR @MTR-1987
-  #Scenario: MTR - Browse Listing without Login
-   # Given I go to listing page
-    #When I select an item BUG
-    #Then I validate Browse Listing without Login
+ @MTR @MTR @smoke @bugs @MTR @MTR-1987
+  Scenario: MTR - Browse Listing without Login
+    Given I go to listing page
+    When I select an item BUG
+    Then I validate Browse Listing without Login
 
   @adminBug  @test @MTR @MTR-2055 @bugs
   Scenario: Admin design page PNG
@@ -461,27 +458,6 @@ Feature: Bugs
     When I go to listing page BUG
     Then I validate Newest Listings images are not blurred
 
-#  Scenario: Modify the site from services to product
-#    Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding"
-#    When I type on name field
-#    And I type on e-mail field "email3"
-#    And I type on Phone Number field
-#    And I type on your Marketplace name field "Test2"
-#    And i check to accept 'Being contacted for Custom Features that will grow my marketplace 2x faster'
-#    And I click the button Next
-#    And I select Service
-#    And I click the other button Next
-#    And I complete the field Full name
-#    And I complete the field Email Address
-#    And I complete the field Phone Number
-#    #And I complete the field Card number
-#    #And I complete the field name on card
-#    And I complete the field Expiry Date
-#    And I complete the field CVC Code
-#    And I click the button Save payment
-#    Then I create my marketplace service page
-#    And I modify the site from services to product
-
   @bugs @MTR @MTR-2645
   Scenario: LandingPage - Validate Visual Editor feature is visible
     Given I login with Gaston User
@@ -496,12 +472,13 @@ Feature: Bugs
     And select Template Tab
     Then I validate that the 404 error does not exist.
 
-#  @MTR @MTR-2858 @bugs
-#  Scenario: Unable to download purchased downloadable files - blocked by firewall
-#    Given I go to orders page BUGS
-#    When I select Purchased button in orders
-#    And I select Download file button
-#    Then I validate that I can download the file
+  @MTR @MTR-2858 @bugs
+  Scenario: Unable to download purchased downloadable files - blocked by firewall
+    Given I login with Gaston User
+    And I go to orders page BUGS
+    When I select Purchased button in orders
+    And I select Download file button
+    Then I validate that I can download the file
 
 
   @MTR @MTR-2898 @bugs

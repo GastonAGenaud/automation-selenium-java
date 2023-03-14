@@ -164,9 +164,17 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean congratulationsMessageConfirm() {
-        fluentWait(getDriver(), congratulationsMessage);
-        boolean result = congratulationsMessage.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), congratulationsMessage);
+            boolean result = congratulationsMessage.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), congratulationsMessage);
+            boolean result = congratulationsMessage.isDisplayed();
+            return result;
+        }
+
     }
 
     public String validateSecureCheckout() {

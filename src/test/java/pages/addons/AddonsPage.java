@@ -263,8 +263,15 @@ public class AddonsPage extends BasePage {
     }
 
     public void addNewAddOns() {
-        fluentWait(getDriver(), addNewAddOnsBtn);
-        waitForWebElementAndClick(addNewAddOnsBtn);
+        try {
+            fluentWait(getDriver(), addNewAddOnsBtn);
+            waitForWebElementAndClick(addNewAddOnsBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), addNewAddOnsBtn);
+            waitForWebElementAndClick(addNewAddOnsBtn);
+        }
+
     }
 
     public void addonService() {
@@ -279,9 +286,17 @@ public class AddonsPage extends BasePage {
     }
 
     public void addonServiceSubscription() {
-        addonService();
-        fluentWait(getDriver(), subscriptionsServiceBtn);
-        waitForWebElementAndClick(subscriptionsServiceBtn);
+        try {
+            addonService();
+            fluentWait(getDriver(), subscriptionsServiceBtn);
+            waitForWebElementAndClick(subscriptionsServiceBtn);
+        }catch (Exception e){
+            wait(3);
+            addonService();
+            fluentWait(getDriver(), subscriptionsServiceBtn);
+            waitForWebElementAndClick(subscriptionsServiceBtn);
+        }
+
     }
 
     public void addonServiceOrderAutoApproval() {
@@ -325,6 +340,7 @@ public class AddonsPage extends BasePage {
     }
 
     public void addonEditStripeId() {
+        wait(8);
         fluentWait(getDriver(), stripeProductIdTextField);
         waitForWebElementAndClick(stripeProductIdTextField);
         stripeProductIdTextField.clear();
@@ -358,7 +374,7 @@ public class AddonsPage extends BasePage {
         try {
             fluentWait(getDriver(), addonSaveBtn);
             waitForWebElementAndClick(addonSaveBtn);
-            retryingFindClick(addonSaveBtn);
+            fluentWait(getDriver(), addonsMainTitle);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), addonSaveBtn);

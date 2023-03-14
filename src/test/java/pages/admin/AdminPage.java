@@ -848,7 +848,7 @@ public String validateSaveButton(){
 
     public void customizeLandingPage() {
         //designSection();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LandingCustomize#!");
+        getDriver().navigate().to(url +"Admin/application/LandingCustomize#!");
     }
 
     public void customizeLandingPageHeader() {
@@ -902,13 +902,13 @@ public String validateSaveButton(){
 
     public void customizeMenu() {
         //designSection();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Menu/Customize");
+        getDriver().navigate().to(url +"Menu/Customize");
         fluentWait(getDriver(), customizeMenuOrderCheckBox);
         waitForWebElementAndClick(customizeMenuOrderCheckBox);
     }
 
     public void customizeLogIn() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LoginCustomize");
+        getDriver().navigate().to(url +"Admin/application/LoginCustomize");
 
         fluentWait(getDriver(), customizeLoginPageFacebookBtn);
         waitForWebElementAndClick(customizeLoginPageFacebookBtn);
@@ -918,7 +918,7 @@ public String validateSaveButton(){
     }
 
     public void customizeSignUp() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/SignupCustomize");
+        getDriver().navigate().to(url +"Admin/application/SignupCustomize");
         // customizeSignUpBtn.click();
         fluentWait(getDriver(), customizeRegistrationPageFacebookBtn);
         waitForWebElementAndClick(customizeRegistrationPageFacebookBtn);
@@ -928,7 +928,7 @@ public String validateSaveButton(){
     }
 
     public void customizeContactUs() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/ContactUsCustomize");
+        getDriver().navigate().to(url +"Admin/application/ContactUsCustomize");
         //customizeContactUsBtn.click();
         fluentWait(getDriver(), customizeContactPageTitleTextBar);
         waitForWebElementAndClick(customizeContactPageTitleTextBar);
@@ -965,7 +965,7 @@ public String validateSaveButton(){
     }
 
     public void customizeAboutUs() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/AboutUs/Index");
+        getDriver().navigate().to(url +"Admin/AboutUs/Index");
         //customizeAboutUsBtn.click();
     }
 
@@ -1055,7 +1055,7 @@ public String validateSaveButton(){
     }
 
     public void customizeFAQ() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/FAQCustomize");
+        getDriver().navigate().to(url +"Admin/application/FAQCustomize");
         //customizeFAQBtn.click();
         fluentWait(getDriver(), customizeFAQPageTitleTextBar);
         waitForWebElementAndClick(customizeFAQPageTitleTextBar);
@@ -1074,7 +1074,7 @@ public String validateSaveButton(){
     }
 
     public void customizeTermsAndConditions() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/TermsOfUseCustomize");
+        getDriver().navigate().to(url +"Admin/application/TermsOfUseCustomize");
         //customizeTermsAndConditionsBtn.click();
 
         fluentWait(getDriver(), customizeTermsAndConditionsPageTitleTextBar);
@@ -1094,7 +1094,7 @@ public String validateSaveButton(){
     }
 
     public void customizePrivacyPolicy() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/PrivacyCustomize");
+        getDriver().navigate().to(url +"Admin/application/PrivacyCustomize");
         //customizePrivacyPolicyBtn.click();
         fluentWait(getDriver(), customizePrivacyPolicyPageTitleTextBar);
         waitForWebElementAndClick(customizePrivacyPolicyPageTitleTextBar);
@@ -1128,7 +1128,7 @@ public String validateSaveButton(){
         } catch (Exception e) {
         }
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/GlobalSettings");
+        getDriver().navigate().to(url +"admin/application/GlobalSettings");
 //        fluentWait(getDriver(), siteWordingBtn);
 //        waitForWebElementAndClick(siteWordingBtn);
 
@@ -1149,7 +1149,7 @@ public String validateSaveButton(){
 
     public void settingsCompanyInfo() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/companyinfo");
+        getDriver().navigate().to(url +"admin/application/companyinfo");
 //        fluentWaitStrict(getDriver(), settingsCompanyInfoBtn);
 //        waitForWebElementAndClick(settingsCompanyInfoBtn);
 
@@ -1263,7 +1263,7 @@ public String validateSaveButton(){
 
     public void settingsOrdersSetup() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/OrdersSetup");
+        getDriver().navigate().to(url +"admin/application/OrdersSetup");
         //settingsOrdersSetupBtn.click();
 
         fluentWait(getDriver(), autoAcceptOrdersCheckBox);
@@ -1275,7 +1275,7 @@ public String validateSaveButton(){
 
     public void settingsRequestSetup() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/RequestsSetup");
+        getDriver().navigate().to(url +"admin/application/RequestsSetup");
 //        fluentWait(getDriver(), settingsRequestSetupBtn);
 //        waitForWebElementAndClick(settingsRequestSetupBtn);
 
@@ -1286,7 +1286,7 @@ public String validateSaveButton(){
     public void settingsDiscount() {
         settings();
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/BrowseConfig");
+        getDriver().navigate().to(url +"admin/application/BrowseConfig");
 //        fluentWait(getDriver(), settingsDiscountBtn);
 //        waitForWebElementAndClick(settingsDiscountBtn);
 
@@ -1332,7 +1332,7 @@ public String validateSaveButton(){
 
     public void userReviews() {
         //   reports();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Application/UserReviews");
+        getDriver().navigate().to(url +"Admin/Application/UserReviews");
 //        fluentWait(getDriver(), userReviewsBtn);
 //        waitForWebElementAndClick(userReviewsBtn);
 
@@ -1343,7 +1343,7 @@ public String validateSaveButton(){
 
     public void listingReviews() {
         //reports();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Application/ListingsReviews");
+        getDriver().navigate().to(url +"Admin/Application/ListingsReviews");
 
 //        fluentWait(getDriver(), listingReviewsBtn);
 //        waitForWebElementAndClick(listingReviewsBtn);
@@ -1357,7 +1357,7 @@ public String validateSaveButton(){
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/Transaction");
+        getDriver().navigate().to(url +"Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 

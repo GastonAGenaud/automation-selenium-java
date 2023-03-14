@@ -2,7 +2,7 @@ Feature: Settings
 
   @settings @smoke @MTR @MTR-1393
   Scenario: MTR - Profile page
-    Given I login
+    Given I login with Dev user
     And I go to dashboard
     When I select my settings
     Then I see the profile information

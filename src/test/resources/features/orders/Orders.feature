@@ -26,7 +26,8 @@ Feature: Orders
 
   @orders @smoke @MTR  @MTR-1449
   Scenario: MTR - Orders - Purchased - shipped orders
-    Given I login and I go to Dashboard BUG
+    And I login with another account
+    And I go to dashboard
     And I go to orders page BUGS
     When I validate the track button
     And I validate the buy again button
@@ -36,7 +37,8 @@ Feature: Orders
 
   @orders @smoke @MTR  @MTR-1450
   Scenario: MTR - Orders - Purchased - pickup orders
-    Given I login and I go to Dashboard BUG
+    And I login with another account
+    And I go to dashboard
     And I go to orders page BUGS
     #And I validate the confirm pick up button
     And I validate the leave a review button

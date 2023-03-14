@@ -253,8 +253,7 @@ public class requestPage extends BasePage {
         try {
             fluentWait(getDriver(), requestSearchBtn);
             waitForWebElementAndClick(requestSearchBtn);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(5);
             fluentWait(getDriver(), requestSearchBtn);
             waitForWebElementAndClick(requestSearchBtn);
@@ -281,6 +280,7 @@ public class requestPage extends BasePage {
         }
 
     }
+
     public void filterAccessories() {
         fluentWait(getDriver(), filterAccessoriesBtn);
         waitForWebElementAndClick(filterAccessoriesBtn);
@@ -371,8 +371,17 @@ public class requestPage extends BasePage {
     }
 
     public void next2() {
-        fluentWait(getDriver(), next2Btn);
-        waitForWebElementAndClick(next2Btn);
+       try {
+           fluentWait(getDriver(), next2Btn);
+           waitForWebElementAndClick(next2Btn);
+           fluentWait(getDriver(), minimumBudgetTextField);
+       }
+       catch (Exception e){
+           wait(2);
+           fluentWait(getDriver(), next2Btn);
+           waitForWebElementAndClick(next2Btn);
+       }
+
     }
 
     public void requestName() {
@@ -387,17 +396,16 @@ public class requestPage extends BasePage {
             fluentWait(getDriver(), requestDescriptionTextField);
             waitForWebElementAndClick(requestDescriptionTextField);
             requestDescriptionTextField.sendKeys("test automation");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), requestDescriptionTextField);
             waitForWebElementAndClick(requestDescriptionTextField);
             requestDescriptionTextField.sendKeys("test automation");
 
         }
-        fluentWait(getDriver(), requestDescriptionTextField);
-        waitForWebElementAndClick(requestDescriptionTextField);
-        requestDescriptionTextField.sendKeys("test automation");
+       // fluentWait(getDriver(), requestDescriptionTextField);
+       // waitForWebElementAndClick(requestDescriptionTextField);
+       // requestDescriptionTextField.sendKeys("test automation");
     }
 
     public void minimumBudget() {
@@ -585,29 +593,29 @@ public class requestPage extends BasePage {
 
     public void requestsMatchedClose() {
         getDriver().navigate().refresh();
-       try {
-           //fluentWait(getDriver(), requestsCreatedByMeBtn);
-           //waitForWebElementAndClick(requestsCreatedByMeBtn);
+        try {
+            //fluentWait(getDriver(), requestsCreatedByMeBtn);
+            //waitForWebElementAndClick(requestsCreatedByMeBtn);
 
-           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
-           waitForWebElementAndClick(requestsMatchedMenuBtn);
+            fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+            waitForWebElementAndClick(requestsMatchedMenuBtn);
 //        retryingFindClick(requestsMatchedMenuBtn);
 
-           fluentWait(getDriver(), requestsMatchedCloseBtn);
-           waitForWebElementAndClick(requestsMatchedCloseBtn);
-       }catch (Exception e){
-           wait(3);
-           //fluentWait(getDriver(), requestsCreatedByMeBtn);
+            fluentWait(getDriver(), requestsMatchedCloseBtn);
+            waitForWebElementAndClick(requestsMatchedCloseBtn);
+        } catch (Exception e) {
+            wait(3);
+            //fluentWait(getDriver(), requestsCreatedByMeBtn);
 
-           //waitForWebElementAndClick(requestsCreatedByMeBtn);
+            //waitForWebElementAndClick(requestsCreatedByMeBtn);
 
-           fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
-           waitForWebElementAndClick(requestsMatchedMenuBtn);
+            fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+            waitForWebElementAndClick(requestsMatchedMenuBtn);
 //        retryingFindClick(requestsMatchedMenuBtn);
 
-           fluentWait(getDriver(), requestsMatchedCloseBtn);
-           waitForWebElementAndClick(requestsMatchedCloseBtn);
-       }
+            fluentWait(getDriver(), requestsMatchedCloseBtn);
+            waitForWebElementAndClick(requestsMatchedCloseBtn);
+        }
 
 
     }
@@ -687,13 +695,20 @@ public class requestPage extends BasePage {
 
 
     public String validateCreateRequestDashboard() {
-        fluentWait(getDriver(),validateRequestDashboard);
+        fluentWait(getDriver(), validateRequestDashboard);
         String result = validateRequestDashboard.getText();
         return result;
     }
 
     public String validateCreateRequestBrowse() {
-        String result = validateRequestDashboard.getText();
-        return result;
+        try {
+            String result = validateRequestDashboard.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = validateRequestDashboard.getText();
+            return result;
+        }
+
     }
 }

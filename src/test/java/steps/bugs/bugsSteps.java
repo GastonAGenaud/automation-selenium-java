@@ -348,7 +348,6 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Browse Listing without Login")
     public void iValidateBrowseListingWithoutLogin() {
-
         Assert.assertEquals("Send message", _page.setGreatCarTxt());
     }
 
@@ -546,7 +545,7 @@ public class bugsSteps extends BasePage {
     @And("I go to Landing Page")
     public void iGoToLandingPage() {
         _page.goToAdminPanel();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LandingCustomize");
+        getDriver().navigate().to(url +"Admin/application/LandingCustomize");
     }
 
     @Then("I validate the Visual Editor Button is hidden")
@@ -603,7 +602,7 @@ public class bugsSteps extends BasePage {
 
     @Given("I go to Signup")
     public void iGoToLoginAndSignup() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Account/Login");
+        getDriver().navigate().to(url +"Account/Login");
     }
 
 
