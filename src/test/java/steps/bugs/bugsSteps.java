@@ -546,7 +546,7 @@ public class bugsSteps extends BasePage {
     @And("I go to Landing Page")
     public void iGoToLandingPage() {
         _page.goToAdminPanel();
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Admin/application/LandingCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/Admin/application/LandingCustomize");
     }
 
     @Then("I validate the Visual Editor Button is hidden")
@@ -603,7 +603,7 @@ public class bugsSteps extends BasePage {
 
     @Given("I go to Signup")
     public void iGoToLoginAndSignup() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Account/Login");
+        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/Account/Login");
     }
 
 

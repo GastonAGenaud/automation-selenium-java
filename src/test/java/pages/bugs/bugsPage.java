@@ -458,7 +458,7 @@ public class bugsPage extends BasePage {
 
 
     public void goToLoginPage() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/Account/Login");
+        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/Account/Login");
     }
 
     public boolean validateVisualEditor() {
@@ -1402,7 +1402,7 @@ public class bugsPage extends BasePage {
     }
 
     public void goToSiteWording() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/admin/application/GlobalSettings");
+        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/admin/application/GlobalSettings");
         try {
             getDriver().switchTo().frame(2);
 

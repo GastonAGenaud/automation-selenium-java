@@ -20,7 +20,7 @@ public class SvcOrdersSteps extends BasePage {
     @Given("SVC I login and go to orders page")
     public void svcILoginAndGoToOrdersPage() {
         //_page.goToOwlPage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToDashboard();
         _page.goToOrders();
     }

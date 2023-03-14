@@ -104,15 +104,15 @@ public class SvcOrdersPage extends BasePage {
     public WebElement soldOpenSection;
 
     public void goToOWLPage() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToDashboard() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+        getDriver().navigate().to(UrlSVC + "/dashboard");
     }
 
     public void goToOrders() {
-        getDriver().navigate().to(baseUrlOHE + "/order/MyOrders?");
+        getDriver().navigate().to(UrlSVC + "/order/MyOrders?");
     }
 
     public void soldOption() {

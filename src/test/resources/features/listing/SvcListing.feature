@@ -1,7 +1,7 @@
 Feature: Listing
 
 
-  @SVClisting @SVC-578 @SVC
+  @MMRSlisting @MMRS-578 @MMRS
 
   Scenario: SVC - Buyer able to create a listing
     Given SVC I login
@@ -14,7 +14,6 @@ Feature: Listing
     And I validate listing image
     And I validate listing video URL
     And I select the go to details
-    And I select Subject Tag
     And I select Work Model checkbox
     And I select Languages checkbox
     And I complete Cancellation Text Field
@@ -22,10 +21,10 @@ Feature: Listing
     And I select Available Days tab
     And I select Add Time Slot
     And I select Publish button
-#    Then I validate create a listing      TO DO
+    Then I validate create a listing
 
 
-      #@SVClisting
+      #@MMRSlisting
 
   #Crear un caso de prueba editando un listing
 

@@ -101,7 +101,7 @@ public class SvcReviewsPage extends BasePage {
     }
 
     public void setSelectClass(){
-        getDriver().navigate().to( "https://mtreborn-staging-auto-service.azurewebsites.net/Listing/DetailService/3");
+        getDriver().navigate().to( "https://mtreborn-automation-services.azurewebsites.net/Listing/DetailService/3");
     }
     public void setBrowseClassesBtn() {
         fluentWait(getDriver(), browseClassesBtn);
@@ -111,15 +111,15 @@ public class SvcReviewsPage extends BasePage {
     //LOG IN
 
 
-    public void goToOwlPage() {
-        getDriver().navigate().to(baseUrlOHE);
+    public void goToSvcPage() {
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE+"/Account/Login");
+        getDriver().navigate().to(UrlSVC+"/Account/Login");
     }
 
     public void goToDashboard() {
-        getDriver().navigate().to(baseUrlOHE+"/dashboard");
+        getDriver().navigate().to(UrlSVC+"/dashboard");
     }
 }

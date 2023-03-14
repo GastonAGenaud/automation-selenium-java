@@ -101,7 +101,7 @@ public class OhReviewsPage extends BasePage {
     }
 
     public void setSelectClass(){
-        getDriver().navigate().to( "https://mtreborn-staging-auto-service.azurewebsites.net/Listing/DetailService/3");
+        getDriver().navigate().to( "https://mtreborn-automation-services.azurewebsites.net/Listing/DetailService/3");
     }
     public void setBrowseClassesBtn() {
         fluentWait(getDriver(), browseClassesBtn);

@@ -71,11 +71,11 @@ public class SvcStorefrontPage extends BasePage {
 
 
     public void setHomePage(){
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE+"/Account/Login");
+        getDriver().navigate().to(UrlSVC+"/Account/Login");
     }
 
     public void goToProfile() {

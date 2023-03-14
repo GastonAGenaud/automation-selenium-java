@@ -18,10 +18,11 @@ public class SvcHomeSteps extends BasePage {
 
     }
 
-//    @Given("I go to owl home page")
-//    public void iGoToOwlHomePage() {
-//        ////_driver.manage().window().setSize(new Dimension(1920, 1080));
-//        _page.goToOwlHomePage();
+    @Given("I go to owl Svc page")
+    public void iGoToSvcHomePage() {
+        ////_driver.manage().window().setSize(new Dimension(1920, 1080));
+        _page.iGoToSvcHomePage();
+    }
 //    }
 //
 //    @When("I select browse services")

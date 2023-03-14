@@ -39,9 +39,9 @@ public class SvcCheckoutPage extends BasePage {
     public WebElement dateField;
     @FindBy(how = How.CSS, using = "#hourly-end")
     public WebElement endTimeOptionBtn;
-    @FindBy(how = How.CSS, using = "#hourly-end > option:nth-child(5)")
+    @FindBy(how = How.CSS, using = "#hourly-end")
     public WebElement endTimeOptionValueBtn;
-    @FindBy(how = How.CSS, using = "#form-hire > div.form-group.mb-4 > textarea")
+    @FindBy(how = How.CSS, using = "#form-hire > div:nth-child(7) > textarea")
     public WebElement messageTextField;
     @FindBy(how = How.CSS, using = "#modal-hire-btn")
     public WebElement hireAcceptBtn;
@@ -70,6 +70,16 @@ public class SvcCheckoutPage extends BasePage {
     @FindBy(how = How.CSS, using = "#form-hire > div.form-group.mb-3 > label:nth-child(4)")
     public WebElement hourlyCheck;
 
+    @FindBy(how = How.CSS, using = "#listing-img-0")
+    public WebElement selectClass;
+
+    @FindBy(xpath = "/html/body/div[4]/main/section[2]/div/div/div/form/div[3]/div[3]/div/select/option[6]")
+    public WebElement selectingEndingHour;
+
+    public void selectClassFromListing(){
+        fluentWait(getDriver(), selectClass);
+        waitForWebElementAndClick(selectClass);
+    }
     public void hourlyCheckBox() {
         fluentWait(getDriver(), hourlyCheck);
         waitForWebElementAndClick(hourlyCheck);
@@ -88,20 +98,28 @@ public class SvcCheckoutPage extends BasePage {
     }
 
     public void goToLogin() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
-    public void goToOwlPage() {
-        getDriver().navigate().to(baseUrlOHE);
+    public void goToSvcPage() {
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToAClass() {
-        getDriver().navigate().to(baseUrlOHE + "/Listing/DetailService/22");
+        getDriver().navigate().to(UrlSVC + "Listing/Browse");
+        fluentWait(getDriver(), selectClass);
+        waitForWebElementAndClick(selectClass);
     }
 
     public void selectHireBtn() {
-        fluentWaitStrict(getDriver(), hireBtn);
-        waitForWebElementAndClick(hireBtn);
+        try {
+            fluentWaitStrict(getDriver(), hireBtn);
+            waitForWebElementAndClick(hireBtn);
+        }catch(Exception e){
+            fluentWaitStrict(getDriver(), hireBtn);
+            actions.doubleClick(hireBtn);
+        }
+
     }
 
     public void selectFlatFleeBtn() {
@@ -124,14 +142,27 @@ public class SvcCheckoutPage extends BasePage {
     }
 
     public void selectEndHour() {
-        fluentWait(getDriver(), endTimeOptionValueBtn);
-        waitForWebElementAndClick(endTimeOptionValueBtn);
+        {
+            try {
+                fluentWait(getDriver(), endTimeOptionValueBtn);
+                waitForWebElementAndClick(endTimeOptionValueBtn);
+
+                fluentWait(getDriver(), selectingEndingHour);
+                waitForWebElementAndClick(selectingEndingHour);
+            }catch (Exception e){
+                retryingFindClick(endTimeOptionBtn);
+                fluentWait(getDriver(), selectingEndingHour);
+                waitForWebElementAndClick(selectingEndingHour);
+            }
+        }
+
     }
 
     public void messageField() {
         fluentWait(getDriver(), messageTextField);
         waitForWebElementAndClick(messageTextField);
         messageTextField.sendKeys("Automation Test");
+
     }
 
     public void acceptHire() {

@@ -19,27 +19,27 @@ public class SvcListingDetailsSteps extends BasePage {
         this._page = new SvcListingDetailsPage();
 
     }
-/*
-    @Given("I go to the listing details page on OHE")
-    public void iGoToTheListingDetailsPageOnOHE() {
+
+    @Given("SVC I go to the listing details page on OHE")
+    public void SvCiGoToTheListingDetailsPageOnOHE() {
         _page.setHomePage();
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
     }
 
-    @When("select the seller name")
-    public void selectTheSellerName() {
+    @When("SVC select the seller name")
+    public void SvCselectTheSellerName() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
     }
 
-    @Then("see the seller storefront profile")
-    public void seeTheSellerStorefrontProfile() {
+    @Then("SVC see the seller storefront profile")
+    public void SvCseeTheSellerStorefrontProfile() {
         _page.providerText();
     }
 
-    @When("select the send message button")
-    public void selectTheSendMessageButton() {
+    @When("SVC select the send message button")
+    public void SvCselectTheSendMessageButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.sendMessageButton();
@@ -47,109 +47,106 @@ public class SvcListingDetailsSteps extends BasePage {
 
     }
 
-    @Then("see that it redirects me to the chat page")
-    public void seeThatItRedirectsMeToTheChatPage() {
+    @Then("SVC see that it redirects me to the chat page")
+    public void SvCseeThatItRedirectsMeToTheChatPage() {
         _page.fromBoxSend();
     }
 
-    @When("I select the Hire Button")
-    public void iSelectTheHireButton() {
+    @When("SVC I select the Hire Button")
+    public void SvCiSelectTheHireButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.hireButton();
     }
 
-    @Then("I validate Hire Button")
-    public void iValidateHireButton() {
+    @Then("SVC I validate Hire Button")
+    public void SvCiValidateHireButton() {
         Assert.assertEquals(true, _page.hireTxt());
     }
 
-    @When("I select the Service information button")
-    public void iSelectTheServiceInformationButton() {
+    @When("SVC I select the Service information button")
+    public void SvCiSelectTheServiceInformationButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.serviceInfoButton();
     }
-*/
+
     @Then("SVC I validate Service information sector")
-    public void iValidateServiceInformationSector() {
+    public void SvCiValidateServiceInformationSector() {
         Assert.assertEquals(true, _page.serviceInfoTxt());
     }
-/*
-    @When("I select the Availability button")
-    public void iSelectTheAvailabilityButton() {
+
+    @When("SVC I select the Availability button")
+    public void SvCiSelectTheAvailabilityButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.availabilityButton();
     }
-*/
+
     @Then("SVC I validate Availability sector")
-    public void iValidateAvailabilitySector() {
+    public void SvCiValidateAvailabilitySector() {
         Assert.assertEquals(true, _page.availabilityTxt());
     }
-/*
 
-*/
+
     @When("SVC I select the Flat rate services button")
-    public void iSelectTheFlatRateServicesButton() {
+    public void SvCiSelectTheFlatRateServicesButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.flatRateServicesButton();
     }
 
-    /*
 
-    */
     @Then("SVC I validate Flat rate services sector")
-    public void iValidateFlatRateServicesSector() {
+    public void SvCiValidateFlatRateServicesSector() {
         Assert.assertEquals(true, _page.flatRateServicesTxt());
     }
-/*
-    @When("I select the Media button")
-    public void iSelectTheMediaButton() {
+
+    @When("SVC I select the Media button")
+    public void SvCiSelectTheMediaButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.mediaButton();
     }
 
-    @Then("I validate Media sector")
-    public void iValidateMediaSector() {
+    @Then("SVC I validate Media sector")
+    public void SvCiValidateMediaSector() {
         Assert.assertEquals(true, _page.mediaTxt());
     }
 
-    @When("I select the Review button")
-    public void iSelectTheReviewButton() {
+    @When("SVC I select the Review button")
+    public void SvCiSelectTheReviewButton() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         _page.reviewsButton();
     }
 
-    @Then("I validate Review sector")
-    public void iValidateReviewSector() {
+    @Then("SVC I validate Review sector")
+    public void SvCiValidateReviewSector() {
         Assert.assertEquals(true, _page.reviewTxt());
     }
 
-    @Then("I validate Work sector")
-    public void iValidateWorkSector() {
+    @Then("SVC I validate Work sector")
+    public void SvCiValidateWorkSector() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         Assert.assertEquals(true, _page.workTxt());
     }
 
-    @Then("I validate Education sector")
-    public void iValidateEducationSector() {
+    @Then("SVC I validate Education sector")
+    public void SvCiValidateEducationSector() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         Assert.assertEquals(true, _page.educationTxt());
     }
 
-    @Then("I validate Bio sector")
-    public void iValidateBioSector() {
+    @Then("SVC I validate Bio sector")
+    public void SvCiValidateBioSector() {
         _page.BrowseClassesButton();
         _page.exampleItemButton();
         Assert.assertEquals(true, _page.bioTxt());
 
-}
-  */
+    }
+
 
 }

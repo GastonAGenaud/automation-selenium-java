@@ -34,7 +34,7 @@ public class OhListingPage extends BasePage {
     public WebElement listingNameTextField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement listingCategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/select/option[2]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[2]")
     public WebElement listingCategoryOption;
     @FindBy(how = How.CSS, using = "#description")
     public WebElement listingDescriptionTextField;
@@ -50,7 +50,10 @@ public class OhListingPage extends BasePage {
     public WebElement selectSubject;
     @FindBy(how = How.CSS, using = "#checkbox-1-0")
     public WebElement WorkModelOnlineCheckbox;
+
     @FindBy(how = How.CSS, using = "#checkbox-2-0")
+    public WebElement techSpecialtiesCheckbox;
+    @FindBy(how = How.CSS, using = "#checkbox-0-0")
     public WebElement listingLanguageCheckbox;
     @FindBy(how = How.CSS, using = "#policy")
     public WebElement cancellationTextField;
@@ -99,10 +102,37 @@ public class OhListingPage extends BasePage {
 
     @FindBy(xpath = "//label[contains(text(), 'Stripe Connect')]")
     public WebElement validateStripeText;
+    @FindBy(xpath = "sub-category-selector")
+    public WebElement subcategoryButton;
+    @FindBy(how = How.CSS, using = "#total-price > div > div.col-lg-12.d-flex.align-items-center > label.switch.mb-0.mr-1.my-2 > span")
+    public WebElement setUpHourly;
 
-    public boolean validatingStripeTxtM(){
+    @FindBy(how = How.CSS, using = "#btn-crop")
+    public WebElement cropBtn;
+
+    public void techCheckbox(){
+        fluentWait(getDriver(), techSpecialtiesCheckbox);
+        waitForWebElementAndClick(techSpecialtiesCheckbox);
+    }
+
+    public void cropButton() {
+        fluentWaitStrict(getDriver(), cropBtn);
+        waitForWebElementAndClick(cropBtn);
+    }
+
+    public void setUpHourlyCheckbox() {
+        fluentWait(getDriver(), setUpHourly);
+        waitForWebElementAndClick(setUpHourly);
+    }
+
+    public void subCategoryTab() {
+        fluentWait(getDriver(), subcategoryButton);
+        waitForWebElementAndClick(subcategoryButton);
+    }
+
+    public boolean validatingStripeTxtM() {
         boolean result = validateStripeText.isDisplayed();
-        return  result;
+        return result;
     }
 
     public void setDeleteConfirm() {
@@ -190,6 +220,7 @@ public class OhListingPage extends BasePage {
     public void listingDescriptionTextField() {
         fluentWait(getDriver(), listingDescriptionTextField);
         waitForWebElementAndClick(listingDescriptionTextField);
+        retryingFindClick(listingDescriptionTextField);
         listingDescriptionTextField.sendKeys("Test Automation");
 
     }
@@ -202,6 +233,7 @@ public class OhListingPage extends BasePage {
     }
 
     public void listingImageUploadButton() {
+
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,250)", "");
         try {
@@ -213,10 +245,10 @@ public class OhListingPage extends BasePage {
     }
 
     public void listingVideoURLTextField() {
-        waitForVisibility(listingVideoTextField);
-        fluentWait(getDriver(), listingVideoTextField);
+        fluentWaitStrict(getDriver(), listingVideoTextField);
         waitForWebElementAndClick(listingVideoTextField);
         listingVideoTextField.sendKeys("https://www.youtube.com/watch?v=59_usZm0HRg&ab_channel=PatrickFarrington");
+
     }
 
     public void selectGoToDetailsButton() {
@@ -294,8 +326,7 @@ public class OhListingPage extends BasePage {
                 waitForWebElementAndClick(listingPublishBtn);
                 retryingFindClick(listingPublishBtn);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(4);
             retryingFindClick(listingPublishBtn);
 

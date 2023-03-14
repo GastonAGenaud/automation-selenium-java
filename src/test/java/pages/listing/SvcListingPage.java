@@ -100,6 +100,15 @@ public class SvcListingPage extends BasePage {
     @FindBy(xpath = "//label[contains(text(), 'Stripe Connect')]")
     public WebElement validateStripeText;
 
+    @FindBy(how = How.CSS, using = "#total-price > div > div.col-lg-12.d-flex.align-items-center > label.switch.mb-0.mr-1.my-2 > span")
+    public WebElement setUpHourly;
+
+
+    public void setUpHourlyCheckbox(){
+        fluentWait(getDriver(), setUpHourly);
+        waitForWebElementAndClick(setUpHourly);
+    }
+
     public boolean validatingStripeTxtM(){
         boolean result = validateStripeText.isDisplayed();
         return  result;
@@ -145,19 +154,19 @@ public class SvcListingPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void setHomePage() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToListingPage() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard/MyListings");
+        getDriver().navigate().to(UrlSVC + "/dashboard/MyListings");
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void goToDashboardPage() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+        getDriver().navigate().to(UrlSVC + "/dashboard");
     }
 
     public void myListingButton() {

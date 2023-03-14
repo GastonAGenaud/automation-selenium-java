@@ -1,6 +1,6 @@
 Feature:Services Dashboard
 
-  @SVC-347 @SVC @smoke @SvcDashboard
+  @MMRS-347 @MMRS @smoke @MMRSDashboard
   Scenario: SVC - Validate dashboard Customer
     Given  I login and go to Dashboard
     When I select dashboard customer section
@@ -12,7 +12,7 @@ Feature:Services Dashboard
     And SVC I select create a want button
     Then I validate the customer dashboard
 
-  @SVC-348 @SVC @smoke @SvcDashboard
+  @MMRS-348 @MMRS @smoke @MMRSDashboard
   Scenario: SVC - Validate dashboard Provider
     Given I login and go to Dashboard
     When I select dashboard provider section

@@ -1,6 +1,6 @@
 Feature: Services Checkout
 
-  @SVC-378 @SvcCheckout @SVC @smoke
+  @MMRS-378 @MMRSCheckout @MMRS @smoke
   Scenario: SVC - Buyer able to book a class with flat fee service
     Given SVC I login
     When SVC I go to a class
@@ -10,26 +10,26 @@ Feature: Services Checkout
     And SVC I select the hire accept button
     Then SVC I see the shopping cart
 
-  @SVC-379 @SvcCheckout @SVC @smoke
+  @MMRS-379 @MMRSCheckout @MMRS @smoke
   Scenario: SVC Buyer able to book a class with hourly
     Given SVC I login
     When SVC I go to a class
     And SVC I select hire button
-    And SVC I select hourly option
     And SVC I select the date time
+    And SVC I select hourly option
     And SVC I select select the end time
     And SVC I type in message text field
     And SVC I select the hire accept button
     And SVC I go back to cart
     Then SVC I see the shopping cart
 
-  @SVC-380 @SvcCheckout @SVC @smoke
+  @MMRS-380 @MMRSCheckout @MMRS @smoke
   Scenario: SVC Buyer able to add a new credit cart
     Given SVC I login
     When SVC I go to a class
     And SVC I select hire button
-    And SVC I select hourly option
     And SVC I select the date time
+    And SVC I select hourly option
     And SVC I select select the end time
     And SVC I type in message text field
     And SVC I select the hire accept button
@@ -40,13 +40,13 @@ Feature: Services Checkout
     And SVC I select save checkbox
     Then SVC I validate the new credit card
 
-  @SVC-402 @SvcCheckout @SVC @smoke
+  @MMRS-402 @MMRSCheckout @MMRS @smoke
   Scenario: SVC Buyer able to submit payment
     Given SVC I login
     When SVC I go to a class
     And SVC I select hire button
-    And SVC I select hourly option
     And SVC I select the date time
+    And SVC I select hourly option
     And SVC I select select the end time
     And SVC I type in message text field
     And SVC I select the hire accept button

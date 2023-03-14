@@ -18,17 +18,13 @@ public class SvcStorefrontSteps extends BasePage {
 
         this._page = new SvcStorefrontPage();
     }
-//    @Given("SVC I login")
-//    public void SvCiLogin() {
-//        _page.goToLoginPage();
-//        _page.login();
-//    }
+
 
     @Given("SVC I login and go to user profile")
     public void SvcILoginAndGoToUserProfile(){
         _page.setHomePage();
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
     }
 
     @When("SVC I select the profile Button")
@@ -52,7 +48,7 @@ public class SvcStorefrontSteps extends BasePage {
         Assert.assertEquals(true, _page.profileStorefront());
     }
 
-    @When("SVC I validate the settings Button")
+    @When("SVC I validate the settings button")
     public void SvcIValidateTheSettingsButton() {
         _page.goToSettings();
     }
@@ -92,8 +88,8 @@ public class SvcStorefrontSteps extends BasePage {
         Assert.assertEquals(true, _page.profileAvatar());
     }
 
-    @When("SVC I validate the settings button OHE")
-    public void SvcIValidateTheSettingsButtonOHE() {
-        _page.goToSettings();
-    }
+//    @When("SVC I validate the settings button")
+//    public void SvcIValidateTheSettingsButton() {
+//        _page.goToSettings();
+//    }
 }

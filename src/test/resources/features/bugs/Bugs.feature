@@ -165,7 +165,7 @@ Feature: Bugs
     When select Download file
     Then I validate Download file
 
-#  @OHE-445 @SvCheckout @OHE @smoke @bugs
+#  @OHE-445 @MMRSheckout @OHE @smoke @bugs
 #  Scenario: OHE Buyer able to submit payment
 #    Given OHE I login
 #    When OHE I go to a class

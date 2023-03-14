@@ -27,7 +27,7 @@ public class SvcSettingsSteps extends BasePage {
     public void iLoginAndGoToDashboardPage(){
         _page.setHomePage();
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToDashboard();
     }
 

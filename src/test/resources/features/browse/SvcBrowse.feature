@@ -1,6 +1,6 @@
 Feature: Services Browse Page
 
-#  @SVC-315 @SvcBrowse @SVC @smoke
+#  @MMRS-315 @MMRSBrowse @MMRS @smoke
 #  Scenario: SVC - Validate browse services category filters
 #    Given SVC I go to browse services page
 #    When SVC I select ages 12 to 14 category filter
@@ -9,7 +9,7 @@ Feature: Services Browse Page
 #    And SVC I select ages 9 to 11 category filter
 #    Then SVC I validate categories filters
 
-  @SVC-316 @SvcBrowse @SVC @smoke
+  @MMRS-316 @MMRSBrowse @MMRS @smoke
   Scenario: SVC - Validate browse by price And SVC location
     Given SVC I go to browse services page
     When SVC I type in the minimum price text field
@@ -18,14 +18,14 @@ Feature: Services Browse Page
     And SVC I type in the location text field
     Then SVC I validate the browse services price and location
 
-  @SVC-317 @SvcBrowse @SVC @smoke
+  @MMRS-317 @MMRSBrowse @MMRS @smoke
   Scenario: SVC - Validate browse services search
     Given SVC I go to browse services page
     When SVC I type the browse search text field
     And SVC I select the browse search button
     Then SVC I validate the browse search
 
-  @SVC-319 @SvcBrowse @SVC @smoke
+  @MMRS-319 @MMRSBrowse @MMRS @smoke
   Scenario: SVC - Validate browse services view
     Given SVC I go to browse services page
     When SVC I select block view
@@ -33,7 +33,7 @@ Feature: Services Browse Page
     And SVC I select map view
     Then SVC I validate the browse view
 
-  @SVC-318 @SvcBrowse @SVC @smoke
+  @MMRS-318 @MMRSBrowse @MMRS @smoke
   Scenario: SVC - Validate browse services sort by
     Given SVC I go to browse services page
     #When SVC I select sort by most relevant

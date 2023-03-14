@@ -20,7 +20,7 @@ public class OhDashboardSteps extends BasePage {
     @Given("I login and go to Dashboard")
     public void iLoginAndGoToDashboard() {
         _page.goToLoginPage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToDashboard();
     }
 

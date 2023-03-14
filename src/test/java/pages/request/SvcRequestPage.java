@@ -204,15 +204,15 @@ public class SvcRequestPage extends BasePage {
 
     //HOME PAGE
     public void goToOwlPage() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void goToDashboard() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+        getDriver().navigate().to(UrlSVC + "/dashboard");
     }
 
     //LOG IN
@@ -413,7 +413,7 @@ public class SvcRequestPage extends BasePage {
     }
 
     public void goToOrders() {
-        getDriver().navigate().to(baseUrlOHE + "/want");
+        getDriver().navigate().to(UrlSVC + "/want");
     }
 
     public void requestsCreatedByMeButton() {

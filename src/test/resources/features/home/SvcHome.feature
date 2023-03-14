@@ -1,27 +1,27 @@
 Feature: Services Home
 
-  @SVC-309 @SVC @smoke @SvcHome
+  @MMRS-309 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate home main header without account
-    Given I go to owl home page
+    Given I go to owl Svc page
     When I select browse services
     And I select login
     And SVC I select browse requests
     And I select sign up
     Then I validate the home main header
 
-  @SVC-310 @SVC @smoke @SvcHome
+  @MMRS-310 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the home menu
-    Given I go to owl home page
+    Given I go to owl Svc page
 #    When I select ages 5 to 8 option
 #    And I select ages 9 to 11 option
 #    And I select ages 12 to 14 option
 #    And I select ages 15 to 17 option
-    And I select More option
+#    And I select More option
     Then I validate the home menu
 
-  @SVC-311 @SVC @smoke @SvcHome
+  @MMRS-311 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the body without account
-    Given I go to owl home page
+    Given I go to owl Svc page
     When I select Provide button
     And I select start now button
     And I select Hire button
@@ -35,9 +35,9 @@ Feature: Services Home
     And I select sign up now button
     Then I validate the home body
 
-  @SVC-312 @SVC @smoke @SvcHome
+  @MMRS-312 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the footer without account
-    Given I go to owl home page
+    Given I go to owl Svc page
 #    When I select footer browse request button
     And I select footer log in button
     And I select footer sign up button
@@ -49,20 +49,20 @@ Feature: Services Home
     And I select footer contact button
     Then I validate the home footer section
 
-  @SVC-313 @SVC @smoke @SvcHome
+  @MMRS-313 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the main header with account
     Given I login
-    And I go to owl home page
+    And I go to owl Svc page
     When I select browse services
     And I select browse requests
     And I select inbox icon button
     And I select cart icon button
     Then I validate the main header with account
 
-  @SVC-314 @SVC @smoke @SvcHome
+  @MMRS-314 @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the footer with account
     Given I login
-    And I go to owl home page
+    And I go to owl Svc page
     When I select footer browse requests button
     And I select footer browse classes button
     And I select footer FAQ button
@@ -72,9 +72,9 @@ Feature: Services Home
     And I select footer contact button
     Then I validate the home footer section with account
 
-  @SVC-315  @SVC @smoke @SvcHome
+  @MMRS-315  @MMRS @smoke @MMRSHome
   Scenario: SVC - Validate the home - social links
-    Given I go to owl home page
+    Given I go to owl Svc page
     When I validate the owl Facebook icon
     And I validate the owl Instagram icon
     And I validate the owl Linkedin icon

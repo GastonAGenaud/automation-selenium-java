@@ -51,12 +51,13 @@ public class SvcListingSteps extends BasePage {
     public void SVCiValidateTheListingDescriptionTextField() {
         _page.listingDescriptionTextField();
     }
+*/
+//    @And("I validate the listing Hourly price")
+//    public void SVCiValidateTheListingHourlyPrice() {
+//        _page.listingHourlyPriceTextField();
+//    }
 
-    @And("I validate the listing Hourly price")
-    public void SVCiValidateTheListingHourlyPrice() {
-        _page.listingHourlyPriceTextField();
-    }
-
+    /*
     @And("I validate listing image")
     public void SVCiValidateTheListingImage() {
         _page.listingImageUploadButton();

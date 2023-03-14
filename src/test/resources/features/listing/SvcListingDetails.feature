@@ -1,66 +1,66 @@
 Feature:Services Listing details
 
-  @SVCdetails @SVC-460 @SVC
+  @MMRSdetails @MMRS-460 @MMRS
   Scenario: SVC - Validate listing details page
-    Given I go to the listing details page on OHE
-    When  select the seller name
-    Then  see the seller storefront profile
+    Given SVC I go to the listing details page on OHE
+    When  SVC select the seller name
+    Then  SVC see the seller storefront profile
 
-  @SVCdetails @SVC-461 @SVC
+  @MMRSdetails @MMRS-461 @MMRS
   Scenario: SVC - Send message to seller
-    Given I go to the listing details page on OHE
-    When  select the send message button
-    Then  see that it redirects me to the chat page
+    Given SVC I go to the listing details page on OHE
+    When  SVC select the send message button
+    Then  SVC see that it redirects me to the chat page
 
-  @SVCdetails @SVC-462 @SVC
+  @MMRSdetails @MMRS-462 @MMRS
   Scenario: SVC - Validate Hire Button
-    Given I go to the listing details page on OHE
-    When I select the Hire Button
-    Then I validate Hire Button
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Hire Button
+    Then SVC I validate Hire Button
 
-  @SVCdetails @SVC-463 @SVC
+  @MMRSdetails @MMRS-463 @MMRS
   Scenario: SVC - Validate Service information sector
-    Given I go to the listing details page on OHE
-    When I select the Service information button
-#    Then SVC I validate Service information sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Service information button
+    Then SVC I validate Service information sector
 
-  @SVCdetails @SVC-464 @SVC
+  @MMRSdetails @MMRS-464 @MMRS
   Scenario: SVC - Validate Availability sector
-    Given I go to the listing details page on OHE
-    When I select the Availability button
-    #Then SVC I validate Availability sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Availability button
+    Then SVC I validate Availability sector
 
-  @SVCdetails @SVC-467 @SVC
+  @MMRSdetails @MMRS-467 @MMRS
   Scenario: SVC - Validate Flat rate services sector
-    Given I go to the listing details page on OHE
-    When I select the Flat rate services button
-    #Then SVC I validate Flat rate services sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Flat rate services button
+    Then SVC I validate Flat rate services sector
 
-  @SVCdetails @SVC-468 @SVC
+  @MMRSdetails @MMRS-468 @MMRS
   Scenario: SVC - Validate Media sector
-    Given I go to the listing details page on OHE
-    When I select the Media button
-    #Then I validate Media sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Media button
+    Then SVC I validate Media sector
 
-  @SVCdetails @SVC-469 @SVC
+  @MMRSdetails @MMRS-469 @MMRS
   Scenario: SVC - Validate Review sector
-    Given I go to the listing details page on OHE
-    When I select the Review button
-    Then I validate Review sector
+    Given SVC I go to the listing details page on OHE
+    When SVC I select the Review button
+    Then SVC I validate Review sector
 
 
-  @SVCdetails @SVC-471 @SVC
+  @MMRSdetails @MMRS-471 @MMRS
   Scenario: SVC - Validate Work sector
-    Given I go to the listing details page on OHE
-#    Then I validate Work sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    Then SVC I validate Work sector
 
-  @SVCdetails @SVC-472 @SVC
+  @MMRSdetails @MMRS-472 @MMRS
   Scenario: SVC - Validate Education sector
-    Given I go to the listing details page on OHE
-#    Then I validate Education sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    Then SVC I validate Education sector
 
-  @SVCdetails @SVC-473 @SVC
+  @MMRSdetails @MMRS-473 @MMRS
   Scenario: SVC - Validate Bio sector
-    Given I go to the listing details page on OHE
-#    Then I validate Bio sector      MISSING
+    Given SVC I go to the listing details page on OHE
+    Then SVC I validate Bio sector
 

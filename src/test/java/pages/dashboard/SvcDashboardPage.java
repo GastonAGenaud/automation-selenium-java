@@ -69,11 +69,11 @@ public class SvcDashboardPage extends BasePage {
     //LOGIN
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void goToDashboard() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+        getDriver().navigate().to(UrlSVC + "/dashboard");
     }
 
     //CUSTOMER

@@ -73,7 +73,7 @@ public class SvcSignupPage extends BasePage {
 
 
     public void goToSignUp() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void emailTextField(String text) {

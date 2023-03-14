@@ -1,12 +1,12 @@
 Feature: Services Orders
 
-  @SVC-383 @SVC @SvcOrders
+  @MMRS-383 @MMRS @MMRSOrders
   Scenario: SVC Orders - Sold Section
     Given SVC I login and go to orders page
     When SVC I select sold section
     Then SVC I validate sold section
 
-  @SVC-384 @SVC @SvcOrders
+  @MMRS-384 @MMRS @MMRSOrders
   Scenario: SVC Orders - Purchased Section
     Given SVC I login and go to orders page
     When SVC I select purchased section
@@ -14,7 +14,7 @@ Feature: Services Orders
     And SVC I validate close section in purchased
     Then SVC I validate purchased section
 
-  @SVC-385 @SVC @SvcOrders
+  @MMRS-385 @MMRS @MMRSOrders
   Scenario: SVC Orders - Sort by
     Given SVC I login and go to orders page
     When SVC I select sort by all

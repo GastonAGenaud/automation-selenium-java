@@ -21,7 +21,7 @@ public class SvcAdminSteps extends BasePage {
     public void iGoToAdminPage() {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
 
@@ -86,7 +86,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Step 2: Select your homepage layout")
     public void SVCStepSelectYourHomepageLayout() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
 
@@ -115,7 +115,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Step 4: Create Categories")
     public void SVCStepCreateCategories() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.createCategories();
@@ -148,7 +148,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Step 5: Create Custom Fields and Filters")
     public void SVCStepCreateCustomFieldsAndFilters() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.createCustomFields();
         _page.getCloseChat();
@@ -241,12 +241,13 @@ public class SvcAdminSteps extends BasePage {
     @Then("SVC I see Successfully Text")
     public void SVCISeeSuccessfullyText() {
         _page.successfullyTextDisplayed();
+        _page.deleteTheLastCustomField();
     }
 
     @Given("SVC Step 6: Connect Domain")
     public void SVCStepEMails() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.emailStep();
@@ -312,7 +313,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC I go to Admin design")
     public void SVCAdminDesign() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
@@ -389,7 +390,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Admin settings")
     public void SVCAdminSettings() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.settings();
@@ -435,7 +436,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Admin Reports")
     public void SVCAdminReports() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
@@ -470,7 +471,7 @@ public class SvcAdminSteps extends BasePage {
     @Given("SVC Admin Add-ons")
     public void SVCAdminAddOns() {
         _page.setHomePage();
-        _page.login();
+        _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }

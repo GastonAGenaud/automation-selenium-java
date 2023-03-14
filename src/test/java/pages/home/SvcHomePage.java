@@ -107,31 +107,31 @@ public class SvcHomePage extends BasePage {
     @FindBy(how = How.CSS, using = "body > header > nav > div > a > img")
     public WebElement owlHomeIconBtn;
 
-    public void goToOwlHomePage() {
-        getDriver().navigate().to(baseUrlOHE);
+    public void iGoToSvcHomePage() {
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        driver.navigate().to(baseUrlOHE + "/Account/Login");
+        driver.navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void headerBrowseServices() {
         fluentWait(getDriver(), headerBrowseServicesBtn);
         waitForWebElementAndClick(headerBrowseServicesBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void headerLogin() {
         fluentWait(getDriver(), headerLoginBtn);
         waitForWebElementAndClick(headerLoginBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
 
     public void headerSignUp() {
         fluentWait(getDriver(), headerLoginBtn);
         waitForWebElementAndClick(headerLoginBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public boolean OwlHomeVerify() {
@@ -143,31 +143,31 @@ public class SvcHomePage extends BasePage {
     public void ages5to8() {
         fluentWait(getDriver(), ages5CategoryBtn);
         waitForWebElementAndClick(ages5CategoryBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void ages9to11() {
         fluentWait(getDriver(), ages9CategoryBtn);
         waitForWebElementAndClick(ages9CategoryBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void ages12to14() {
         fluentWait(getDriver(), ages12CategoryBtn);
         waitForWebElementAndClick(ages12CategoryBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void ages15to17() {
         fluentWait(getDriver(), ages15CategoryBtn);
         waitForWebElementAndClick(ages15CategoryBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void categoryMore() {
         fluentWait(getDriver(), moreCategoriesBtn);
         waitForWebElementAndClick(moreCategoriesBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void provideOption() {
@@ -178,7 +178,7 @@ public class SvcHomePage extends BasePage {
     public void startNowButton() {
         fluentWait(getDriver(), provideStartNowBtn);
         waitForWebElementAndClick(provideStartNowBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void hireOption() {
@@ -195,31 +195,31 @@ public class SvcHomePage extends BasePage {
     public void hireSearchButton() {
         fluentWait(getDriver(), hireSearchBtn);
         waitForWebElementAndClick(hireSearchBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void advancedSearchBtn() {
         fluentWait(getDriver(), hireAdvancedSearchBtn);
         waitForWebElementAndClick(hireAdvancedSearchBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void seeAllBrowseByCategory() {
         fluentWait(getDriver(), browseByCategorySeeAllBtn);
         waitForWebElementAndClick(browseByCategorySeeAllBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void seeAllFeaturedProviders() {
         fluentWait(getDriver(), featuredProvidersSeeAllBtn);
         waitForWebElementAndClick(featuredProvidersSeeAllBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void seeAllNewestProviders() {
         fluentWait(getDriver(), newestProvidersSeeAllBtn);
         waitForWebElementAndClick(newestProvidersSeeAllBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void forProvidersButton() {
@@ -240,67 +240,67 @@ public class SvcHomePage extends BasePage {
     public void footerBrowseRequests() {
         fluentWait(getDriver(), footerBrowseRequestsBtn);
         waitForWebElementAndClick(footerBrowseRequestsBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerLogin() {
         fluentWait(getDriver(), footerLoginBtn);
         waitForWebElementAndClick(footerLoginBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerSignup() {
         fluentWait(getDriver(), footerSignupBtn);
         waitForWebElementAndClick(footerSignupBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerBrowseClass() {
         fluentWait(getDriver(), footerBrowseClassBtn);
         waitForWebElementAndClick(footerBrowseClassBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerFAQ() {
         fluentWait(getDriver(), footerFAQBtn);
         waitForWebElementAndClick(footerFAQBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerTermsAndService() {
         fluentWait(getDriver(), footerTermsAndServiceBtn);
         waitForWebElementAndClick(footerTermsAndServiceBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerPrivacyPolicy() {
         fluentWait(getDriver(), footerPrivacyPolicyBtn);
         waitForWebElementAndClick(footerPrivacyPolicyBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerAboutUs() {
         fluentWait(getDriver(), footerAboutUSBtn);
         waitForWebElementAndClick(footerAboutUSBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerContact() {
         fluentWait(getDriver(), footerContactBtn);
         waitForWebElementAndClick(footerContactBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void headerInbox() {
         fluentWait(getDriver(), headerInboxIconBtn);
         waitForWebElementAndClick(headerInboxIconBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void headerCartIcon() {
         fluentWait(getDriver(), headerCartIconBtn);
         waitForWebElementAndClick(headerCartIconBtn);
-        goToOwlHomePage();
+        iGoToSvcHomePage();
     }
 
     public void footerFacebookIcon() {

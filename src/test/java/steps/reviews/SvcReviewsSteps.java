@@ -21,10 +21,10 @@ public class SvcReviewsSteps extends BasePage {
 
     @Given("SVC I login and go to a class")
     public void iLoginAndGoToClass() throws IOException {
-        _page.goToOwlPage();
+        _page.goToSvcPage();
         _page.goToLoginPage();
-        _page.login();
-        _page.goToOwlPage();
+        _page.loginWithGastonUserSVC();
+        _page.goToSvcPage();
         _page.setBrowseClassesBtn();
         _page.setSelectClass();
     }

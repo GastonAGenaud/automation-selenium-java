@@ -1,6 +1,7 @@
 package pages.admin;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.BasePage;
+
+import java.util.List;
 
 public class SvcAdminPage extends BasePage {
 
@@ -518,17 +521,17 @@ public class SvcAdminPage extends BasePage {
     @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(2) > a")
     public WebElement homePageLayout;
 
-    public void selectHomePageLayout(){
+    public void selectHomePageLayout() {
         fluentWait(getDriver(), homePageLayout);
         waitForWebElementAndClick(homePageLayout);
     }
 
-    public void nextStepButton(){
+    public void nextStepButton() {
         fluentWait(getDriver(), goNextStep);
         waitForWebElementAndClick(goNextStep);
     }
 
-    public void graphicDesign(){
+    public void graphicDesign() {
         fluentWait(getDriver(), graphicCheckbox);
         waitForWebElementAndClick(graphicCheckbox);
     }
@@ -537,22 +540,23 @@ public class SvcAdminPage extends BasePage {
         fluentWait(getDriver(), successfullyText);
         Assert.assertEquals(successfullyText.getText(), "successfully created!");
     }
-    public void saveButton(){
+
+    public void saveButton() {
         fluentWait(getDriver(), saveForm);
         waitForWebElementAndClick(saveForm);
     }
 
-    public void colorPickerButton(){
+    public void colorPickerButton() {
         fluentWait(getDriver(), colorTab);
         waitForWebElementAndClick(colorTab);
     }
 
-    public void checkboxButton(){
+    public void checkboxButton() {
         fluentWait(getDriver(), checkboxTab);
         waitForWebElementAndClick(checkboxTab);
     }
 
-    public  void dropDownButton(){
+    public void dropDownButton() {
         fluentWait(getDriver(), dropdownTab);
         waitForWebElementAndClick(dropdownTab);
     }
@@ -582,8 +586,8 @@ public class SvcAdminPage extends BasePage {
 
 
     public void SetAsFilterCheckboxCustomFields() {
-        fluentWait(getDriver(),  SetAsFilterCheckboxCustomFields);
-        waitForWebElementAndClick( SetAsFilterCheckboxCustomFields);
+        fluentWait(getDriver(), SetAsFilterCheckboxCustomFields);
+        waitForWebElementAndClick(SetAsFilterCheckboxCustomFields);
 
     }
 
@@ -593,7 +597,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void setHomePage() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
         fluentWait(getDriver(), headerLogInBtn);
         waitForWebElementAndClick(headerLogInBtn);
     }
@@ -607,7 +611,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void goToAdminPanel() {
-        getDriver().navigate().to(baseUrlOHE + "/admin/application/GetStarted");
+        getDriver().navigate().to(UrlSVC + "/admin/application/GetStarted");
 
 //        getDriver().switchTo().frame(2);
 //
@@ -939,7 +943,7 @@ public class SvcAdminPage extends BasePage {
 
     public void customizeLandingPage() {
         //designSection();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LandingCustomize#!");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/LandingCustomize#!");
     }
 
     public void customizeLandingPageHeader() {
@@ -993,13 +997,13 @@ public class SvcAdminPage extends BasePage {
 
     public void customizeMenu() {
         //designSection();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Menu/Customize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Menu/Customize");
         fluentWait(getDriver(), customizeMenuOrderCheckBox);
         waitForWebElementAndClick(customizeMenuOrderCheckBox);
     }
 
     public void customizeLogIn() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/LoginCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/LoginCustomize");
 
         fluentWait(getDriver(), customizeLoginPageFacebookBtn);
         waitForWebElementAndClick(customizeLoginPageFacebookBtn);
@@ -1009,7 +1013,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeSignUp() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/SignupCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/SignupCustomize");
         // customizeSignUpBtn.click();
         fluentWait(getDriver(), customizeRegistrationPageFacebookBtn);
         waitForWebElementAndClick(customizeRegistrationPageFacebookBtn);
@@ -1019,7 +1023,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeContactUs() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/ContactUsCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/ContactUsCustomize");
         //customizeContactUsBtn.click();
         fluentWait(getDriver(), customizeContactPageTitleTextBar);
         waitForWebElementAndClick(customizeContactPageTitleTextBar);
@@ -1056,7 +1060,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeAboutUs() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/AboutUs/Index");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/AboutUs/Index");
         //customizeAboutUsBtn.click();
     }
 
@@ -1146,7 +1150,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeFAQ() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/FAQCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/FAQCustomize");
         //customizeFAQBtn.click();
         fluentWait(getDriver(), customizeFAQPageTitleTextBar);
         waitForWebElementAndClick(customizeFAQPageTitleTextBar);
@@ -1165,7 +1169,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizeTermsAndConditions() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/TermsOfUseCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/TermsOfUseCustomize");
         //customizeTermsAndConditionsBtn.click();
 
         fluentWait(getDriver(), customizeTermsAndConditionsPageTitleTextBar);
@@ -1185,7 +1189,7 @@ public class SvcAdminPage extends BasePage {
     }
 
     public void customizePrivacyPolicy() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/application/PrivacyCustomize");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/application/PrivacyCustomize");
         //customizePrivacyPolicyBtn.click();
         fluentWait(getDriver(), customizePrivacyPolicyPageTitleTextBar);
         waitForWebElementAndClick(customizePrivacyPolicyPageTitleTextBar);
@@ -1219,7 +1223,7 @@ public class SvcAdminPage extends BasePage {
         } catch (Exception e) {
         }
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/GlobalSettings");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/admin/application/GlobalSettings");
 //        fluentWait(getDriver(), siteWordingBtn);
 //        waitForWebElementAndClick(siteWordingBtn);
 
@@ -1240,7 +1244,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsCompanyInfo() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/companyinfo");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/admin/application/companyinfo");
 //        fluentWaitStrict(getDriver(), settingsCompanyInfoBtn);
 //        waitForWebElementAndClick(settingsCompanyInfoBtn);
 
@@ -1354,7 +1358,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsOrdersSetup() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/OrdersSetup");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/admin/application/OrdersSetup");
         //settingsOrdersSetupBtn.click();
 
         fluentWait(getDriver(), autoAcceptOrdersCheckBox);
@@ -1366,7 +1370,7 @@ public class SvcAdminPage extends BasePage {
 
     public void settingsRequestSetup() {
         settings();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/RequestsSetup");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/admin/application/RequestsSetup");
 //        fluentWait(getDriver(), settingsRequestSetupBtn);
 //        waitForWebElementAndClick(settingsRequestSetupBtn);
 
@@ -1377,7 +1381,7 @@ public class SvcAdminPage extends BasePage {
     public void settingsDiscount() {
         settings();
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/admin/application/BrowseConfig");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/admin/application/BrowseConfig");
 //        fluentWait(getDriver(), settingsDiscountBtn);
 //        waitForWebElementAndClick(settingsDiscountBtn);
 
@@ -1423,7 +1427,7 @@ public class SvcAdminPage extends BasePage {
 
     public void userReviews() {
         //   reports();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/UserReviews");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Application/UserReviews");
 //        fluentWait(getDriver(), userReviewsBtn);
 //        waitForWebElementAndClick(userReviewsBtn);
 
@@ -1434,7 +1438,7 @@ public class SvcAdminPage extends BasePage {
 
     public void listingReviews() {
         //reports();
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Application/ListingsReviews");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Application/ListingsReviews");
 
 //        fluentWait(getDriver(), listingReviewsBtn);
 //        waitForWebElementAndClick(listingReviewsBtn);
@@ -1448,7 +1452,7 @@ public class SvcAdminPage extends BasePage {
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to("https://mtreborn-staging-auto-service.azurewebsites.net/Admin/Transaction");
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 
@@ -1458,7 +1462,7 @@ public class SvcAdminPage extends BasePage {
     //Add-ons
 
     public void addonBtnFromPanel() {
-        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons");
+        getDriver().navigate().to(UrlSVC + "admin/feature/addons");
 //        fluentWait(getDriver(), addonBtn);
 //        waitForWebElementAndClick(addonBtn);
     }
@@ -1581,4 +1585,30 @@ public class SvcAdminPage extends BasePage {
         waitForWebElementAndClick(marketingTips);
     }
 
+    public void deleteTheLastCustomField() {
+
+        try {
+            fluentWait(getDriver(), getDriver().findElement(By.id("custom-fields")));
+            List<WebElement> elements = getDriver().findElements(By.xpath("//[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
+            try {
+                getCloseChat();
+            } catch (Exception e) {
+                wait(5);
+                getCloseChat();
+            }
+            WebElement lastElement = elements.get(elements.size() - 1);
+            waitForWebElementAndClick(lastElement);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            waitForWebElementAndClick(spanElement);
+        } catch (Exception e) {
+            wait(5);
+            fluentWait(getDriver(), getDriver().findElement(By.id("custom-fields")));
+            List<WebElement> elements = getDriver().findElements(By.xpath("//[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
+            WebElement lastElement = elements.get(elements.size() - 1);
+            waitForWebElementAndClick(lastElement);
+            WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
+            fluentWait(getDriver(), spanElement);
+            waitForWebElementAndClick(spanElement);
+        }
+    }
 }

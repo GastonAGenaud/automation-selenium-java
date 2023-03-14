@@ -117,25 +117,25 @@ public class SvcSettingsPage extends BasePage {
     }
 
     public void setHomePage() {
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void goToDashboard() {
-        getDriver().navigate().to(baseUrlOHE + "/dashboard");
+        getDriver().navigate().to(UrlSVC + "/dashboard");
     }
 
     public void settingsReload() {
-        getDriver().navigate().to(baseUrlOHE + "/profile/settings");
+        getDriver().navigate().to(UrlSVC + "/profile/settings");
     }
 
     public void selectMySettings() {
         fluentWait(getDriver(), mySettingsBtn);
         waitForWebElementAndClick(mySettingsBtn);
-        getDriver().get(baseUrlOHE + "/profile/settings");
+        getDriver().get(UrlSVC + "/profile/settings");
     }
 
     public void selectSocial() {

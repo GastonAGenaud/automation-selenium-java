@@ -44,7 +44,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @When("I select Sponsored Ads section")
     public void iSelectSponsoredAdsSection() {
-        getDriver().navigate().to("https://mtreborn-staging-auto-products.azurewebsites.net/dashboard");
+        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/dashboard");
         _page.goToSponsoredAds();
     }
 

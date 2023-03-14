@@ -1,5 +1,6 @@
 package steps.listing;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -7,6 +8,8 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.BasePage;
 import pages.listing.OhListingPage;
+
+import java.io.IOException;
 
 public class OhListingSteps extends BasePage {
 
@@ -16,6 +19,11 @@ public class OhListingSteps extends BasePage {
 
         this._page = new OhListingPage();
     }
+
+//    @Before
+//    public void loginAgain() throws IOException {
+//        loginWithGastonUserSVC();
+//    }
     @Given("I login and I go to Dashboard")
     public void iLoginAndGoToDashboard() {
         _page.setHomePage();
@@ -43,7 +51,7 @@ public class OhListingSteps extends BasePage {
     public void iValidateTheListingCategory() {
         _page.categoryBtn();
         _page.listingCategoryOption();
-
+        //_page.subCategoryTab();
     }
 
     @And("I validate listing description text field")
@@ -53,17 +61,18 @@ public class OhListingSteps extends BasePage {
 
     @And("I validate the listing Hourly price")
     public void iValidateTheListingHourlyPrice() {
+        _page.setUpHourlyCheckbox();
         _page.listingHourlyPriceTextField();
     }
 
     @And("I validate listing image")
     public void iValidateTheListingImage() {
         _page.listingImageUploadButton();
+        _page.cropButton();
     }
 
     @And("I validate listing video URL")
     public void iValidateTheListingVideoURL() {
-        
         _page.listingVideoURLTextField();
     }
 
@@ -86,6 +95,7 @@ public class OhListingSteps extends BasePage {
     @And("I select Languages checkbox")
     public void iSelectLanguagesCheckbox() {
         _page.languageCheckboxEnglish();
+        _page.techCheckbox();
     }
 
     @And("I complete Cancellation Text Field")

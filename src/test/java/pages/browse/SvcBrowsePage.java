@@ -98,11 +98,11 @@ public class SvcBrowsePage extends BasePage {
 
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
     }
 
     public void goToBrowseServices() {
-        getDriver().navigate().to(baseUrlOHE + "/Listing/Browse");
+        getDriver().navigate().to(UrlSVC + "/Listing/Browse");
         getDriver().navigate().refresh();
     }
 

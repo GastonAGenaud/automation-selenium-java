@@ -64,7 +64,8 @@ public class BasePage {
     public String email = Environment.getProperty("email");
     public String url = Environment.getProperty("url");
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
-    public String UrlProduct = "https://mtreborn-staging-auto-products.azurewebsites.net/listing/detail/740";
+    public String UrlSVC = Environment.getProperty("UrlSVC");
+    public String UrlProduct = "https://mtreborn-automation-products.azurewebsites.net/listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
 
@@ -259,6 +260,19 @@ public class BasePage {
         fluentWaitStrict(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+
+        waitForWebElementAndClick(logInBtn);
+    }
+
+    public void loginWithGastonUserSVC() {
+        getDriver().navigate().to(UrlSVC + "Account/Login");
+        fluentWaitStrict(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("gastongenaud@7r1ck.com");
 
         fluentWait(getDriver(), passwordLoginInput);
         waitForWebElementAndClick(passwordLoginInput);

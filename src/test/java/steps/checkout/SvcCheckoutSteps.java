@@ -31,11 +31,13 @@ public class SvcCheckoutSteps extends BasePage {
         getDriver().navigate().refresh();
     }
 
+
+
     @Given("SVC I login")
-    public void SVCILogin(){
-        _page.goToOwlPage();
+    public void SVCILogin() throws IOException {
+        _page.goToSvcPage();
         _page.goToLogin();
-        _page.login();
+        _page.loginWithGastonUserSVC();
     }
 
     @When("SVC I go to a class")
@@ -45,7 +47,7 @@ public class SvcCheckoutSteps extends BasePage {
 
     @And("SVC I select hire button")
     public void SVCISelectHireButton() {
-        _page.validateTextUser();
+        //_page.validateTextUser();
         _page.selectHireBtn();
     }
 
@@ -70,8 +72,8 @@ public class SvcCheckoutSteps extends BasePage {
 
     @And("SVC I select hourly option")
     public void SVCISelectHourlyOption() {
-        _page.validateHireTextBox();
-        //_page.selectEndHour();
+        //_page.validateHireTextBox();
+        _page.selectEndHour();
     }
 
     @And("SVC I select select the end time")

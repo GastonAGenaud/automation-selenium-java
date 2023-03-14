@@ -62,7 +62,7 @@ public class SvcListingDetailsPage extends BasePage {
     public WebElement serviceInfoText;
     @FindBy(how = How.CSS, using = "#availability > h4")
     public WebElement availabilityText;
-    @FindBy(how = How.CSS, using = "#package > h4")
+    @FindBy(xpath = "//h4[contains(text(), 'Flat Rate Services')]")
     public WebElement flatRateServicesText;
     @FindBy(how = How.CSS, using = "#media > h4")
     public WebElement mediaText;
@@ -71,12 +71,11 @@ public class SvcListingDetailsPage extends BasePage {
 
 
     public void setHomePage() {
-
-        getDriver().navigate().to(baseUrlOHE);
+        getDriver().navigate().to(UrlSVC);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(baseUrlOHE + "/Account/Login");
+        getDriver().navigate().to(UrlSVC + "/Account/Login");
 
     }
 
