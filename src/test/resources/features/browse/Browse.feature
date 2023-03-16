@@ -2,7 +2,7 @@ Feature: browse
 
   Validate Browse & Browse Requests Pages
 
-  @browse @smoke @MTR-1309 @MTR
+  @browse  @MTR-1309 @MTR
   Scenario: MTR - Log in and Validate the Browse Section
     Given I login with Gaston User
     And I go to Browse Page
@@ -14,7 +14,7 @@ Feature: browse
     And I validate the visual style
     Then I validate the Browse Section
 
-  @browse @smoke  @MTR-1310 @MTR
+  @browse   @MTR-1310 @MTR
   Scenario: MTR - Log in and Validate the Browse Request Section
     Given I login with Gaston User
     And I go to Browse Request Page

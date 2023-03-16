@@ -1,21 +1,21 @@
 Feature: Request
 
 
-  @request @smoke @MTR-1455 @MTR
+  @request  @MTR-1455 @MTR
   Scenario: MTR - Create a request in browse page
     Given I login with Gaston User
     And I go to Browse Request Page
     When I select create a request button
     Then I validate the Create a Request in browse section
 
-  @request @smoke @MTR  @MTR-1456
+  @request  @MTR  @MTR-1456
   Scenario: MTR - Create a request in dashboard page
     Given I login with Gaston User
     And I go to dashboard
     When I select create a request button in dashboard
     Then I validate the Create a Request in dashboard
 
-  @request @smoke @MTR  @MTR-1457
+  @request  @MTR  @MTR-1457
   Scenario: MTR - Success pop up
     Given I login with Gaston User
     And I go to Browse Request Page
@@ -25,7 +25,7 @@ Feature: Request
     Then I validate the request pop up
     And I select request details
 
-#  @request  @MTR-1458 @smoke
+#  @request  @MTR-1458 
   Scenario: MTR - Requests created by me
     Given I login with Make An offer
     And I go to Request Page from Dashboard
@@ -37,7 +37,7 @@ Feature: Request
     And I validate delete the request button
     Then I validate the requests created by me section
 
-  @request @smoke @MTR  @MTR-1459
+  @request  @MTR  @MTR-1459
   Scenario: MTR - Requests matched
     Given I login with Gaston User
     And I go to dashboard
@@ -49,7 +49,7 @@ Feature: Request
     And I validate the share button in open section
     Then I validate the request matched page
 
-  @request @smoke @MTR  @MTR-1460
+  @request  @MTR  @MTR-1460
   Scenario: MTR - Request Browse
     Given I login with Gaston User
     And I go to Browse Request Page

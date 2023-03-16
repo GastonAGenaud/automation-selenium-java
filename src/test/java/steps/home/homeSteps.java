@@ -223,6 +223,7 @@ public class homeSteps extends BasePage {
     public void iValidateTheAboutUsButton() {
         _page.footerAboutUs();
         _page.homeBack();
+
     }
 
     @And("I validate the Contact Us button")

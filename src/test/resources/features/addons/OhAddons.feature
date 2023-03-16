@@ -1,6 +1,6 @@
 Feature: addons
 
-  @OHE-342 @OHE @smoke @AddonsOHE
+  @OHE-342 @OHE  @AddonsOHE
   Scenario: OHE - Create an Add-on
     Given OHE - I login and go to addons page
     When OHE - I select Add add on button

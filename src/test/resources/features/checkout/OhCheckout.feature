@@ -1,6 +1,6 @@
 Feature: Checkout
 
-  @OHE-378 @MMRSheckout @OHE @smoke
+  @OHE-378 @MMRSheckout @OHE
   Scenario: OHE - Buyer able to book a class with flat fee service
     Given OHE I login
     When OHE I go to a class
@@ -10,7 +10,7 @@ Feature: Checkout
     And OHE I select the hire accept button
     Then OHE I see the shopping cart
 
-  @OHE-379 @MMRSheckout @OHE @smoke
+  @OHE-379 @MMRSheckout @OHE
   Scenario: OHE Buyer able to book a class with hourly
     Given OHE I login
     When OHE I go to a class
@@ -23,7 +23,7 @@ Feature: Checkout
     And OHE I go back to cart
     Then OHE I see the shopping cart
 
-  @OHE-380 @MMRSheckout @OHE @smoke
+  @OHE-380 @MMRSheckout @OHE
   Scenario: OHE Buyer able to add a new credit cart
     Given OHE I login
     When OHE I go to a class
@@ -40,7 +40,7 @@ Feature: Checkout
     And OHE I select save checkbox
     Then OHE I validate the new credit card
 
-  @OHE-402 @MMRSheckout @OHE @smoke
+  @OHE-402 @MMRSheckout @OHE
   Scenario: OHE Buyer able to submit payment
     Given OHE I login
     When OHE I go to a class

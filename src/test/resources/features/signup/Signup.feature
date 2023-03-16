@@ -2,7 +2,7 @@ Feature: Sign Up
 
   Sign up
 
-  @sign @smoke @MTR
+  @sign  @MTR
   Scenario: MTR - I Create an Account
     Given I go to Sign Up Page
     When I validate the Sign Up with Facebook

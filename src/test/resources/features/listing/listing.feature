@@ -1,6 +1,6 @@
 Feature: Listing
 
-  @listing @smoke @MTR-1345 @MTR
+  @listing  @MTR-1345 @MTR
   Scenario: MTR - Buyer able to create a listing STAGING
     Given I login with Gaston User
     And I go to dashboard
@@ -27,7 +27,7 @@ Feature: Listing
 
     #Crear un caso de pruebas dando click en delete
 
-  @listing @smoke @MTR-3230 @MTR
+  @listing  @MTR-3230 @MTR
   Scenario: MTR - Buyer able to create a listing with subcategory
     Given I login with Gaston User
     And I go to dashboard

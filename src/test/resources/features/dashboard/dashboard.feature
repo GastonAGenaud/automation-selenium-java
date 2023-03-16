@@ -2,7 +2,7 @@ Feature: Dashboard
 
   Dashboard Page
 
-  @dashboard @smoke  @MTR
+  @dashboard   @MTR @MTR-6666
   Scenario: MTR - Buyers Dashboard
     Given I login with Gaston User
     And I go to dashboard
@@ -13,7 +13,7 @@ Feature: Dashboard
     And I validate the create a request button
     Then I validate buyers dashboard
 
-  @dashboard @smoke  @MTR-1386 @MTR
+  @dashboard   @MTR-1386 @MTR
   Scenario: MTR - Sellers dashboard
     Given I login with Gaston User
     And I go to dashboard

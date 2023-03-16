@@ -15,6 +15,7 @@ import java.util.Properties;
 public class DriverFactory {
     public static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     static WebDriver driver;
+
     @BeforeSuite
     @Before
     public static void setup() {
@@ -39,8 +40,7 @@ public class DriverFactory {
                 options.setHeadless(true);
                 driver = new ChromeDriver(options);
 
-            }
-            else {
+            } else {
 
                 FirefoxOptions options = new FirefoxOptions();
                 options.addPreference("network.cookie.sameSite.laxByDefault", false);
@@ -51,16 +51,16 @@ public class DriverFactory {
         } else if (getBrowserType() == "firefox") {
             driver = new FirefoxDriver();
 
-        }
-        else {
+        } else {
             if (getHeadlessMode()) {
                 ChromeOptions options = new ChromeOptions();
                 options.setHeadless(true);
                 options.addArguments("--window-size=1920,1080");
-                driver = new ChromeDriver(options);
                 options.addArguments("--remote-allow-origins=*");
-            }
-            else {
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                driver = new ChromeDriver(options);
+            } else {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(options);
@@ -115,6 +115,7 @@ public class DriverFactory {
         }
         return password;
     }
+
     public static String getUrl() {
         String url = null;
 
@@ -128,6 +129,7 @@ public class DriverFactory {
         }
         return url;
     }
+
     public static void cleanupDriver() {
         webDriver.get().quit();
         webDriver.remove();

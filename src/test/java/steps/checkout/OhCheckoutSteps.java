@@ -21,6 +21,13 @@ public class OhCheckoutSteps extends BasePage {
     }
 
 
+  /*  @Before
+    public void lalalalla() throws IOException {
+        _page.loginWithMatiasOwl();
+    }
+
+   */
+
     @Given("I login with Matias Owl")
     public void loginWithMatiasOwlSteps() {
         getDriver().manage().deleteAllCookies();
@@ -31,8 +38,19 @@ public class OhCheckoutSteps extends BasePage {
         getDriver().navigate().refresh();
     }
 
+
+    @Given("I login with Dev User Owl")
+    public void loginWithDevUserOwlSteps() {
+        getDriver().manage().deleteAllCookies();
+        sessionManager.usePreviousLoggedInSession("DevUserOwl-data-session");
+        getDriver().navigate().refresh();
+        wait(3);
+        sessionManager.usePreviousLoggedInSession("DevUserOwl-data-session");
+        getDriver().navigate().refresh();
+    }
+
     @Given("OHE I login")
-    public void oheILogin(){
+    public void oheILogin() {
         _page.goToOwlPage();
         _page.goToLogin();
         _page.login();

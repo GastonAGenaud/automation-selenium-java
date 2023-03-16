@@ -317,8 +317,16 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPlusButton() {
-        fluentWait(getDriver(), plusIconBtn);
-        waitForWebElementAndClick(plusIconBtn);
+        try {
+            fluentWait(getDriver(), plusIconBtn);
+            waitForWebElementAndClick(plusIconBtn);
+        }
+        catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), plusIconBtn);
+            waitForWebElementAndClick(plusIconBtn);
+        }
+
     }
 
     public void selectPreviousAddress() {

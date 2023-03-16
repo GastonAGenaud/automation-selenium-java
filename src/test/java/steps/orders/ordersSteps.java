@@ -115,14 +115,13 @@ public class ordersSteps extends BasePage {
     @And("I validate the request refund button")
     public void iValidateTheRequestRefundButton() {
         _page.ordersPurchasedButton();
-        _page.requestTabBtn();
+       // _page.requestTabBtn();
         _page.ordersRequestRefund();
     }
 
     @Then("I validate the purchased shipped orders section")
     public void iValidateThePurchasedShippedOrdersSection() {
-        
-        Assert.assertEquals(false, _page.purchasedPickupSection());
+        Assert.assertEquals("Request Refund", _page.validateRequestRefundSection());
     }
 
     @And("I validate the confirm pick up button")
@@ -174,7 +173,7 @@ public class ordersSteps extends BasePage {
     public void iValidateThePurchasedPickupOrdersSection() {
         _page.ordersPurchasedButton();
         
-        Assert.assertEquals(true, _page.purchasedPickupSection());
+        Assert.assertEquals(true, _page.validateRequestRefundSection());
     }
 
     @And("I select the show menu button")

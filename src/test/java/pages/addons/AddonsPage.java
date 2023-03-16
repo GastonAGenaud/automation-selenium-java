@@ -101,7 +101,8 @@ public class AddonsPage extends BasePage {
     public WebElement NewProduct;
     @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
     public WebElement buyProductDigitalBtn;
-
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
+    public WebElement goToSecureCheckoutBtn;
 
     String newProductUrl = null;
     String windowHandle = getDriver().getWindowHandle();
@@ -220,7 +221,7 @@ public class AddonsPage extends BasePage {
             fluentWait(getDriver(), buyProductDigitalBtn);
             waitForWebElementAndClick(buyProductDigitalBtn);
         } finally {
-            wait(1);
+            fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
         }
     }
 
@@ -290,7 +291,7 @@ public class AddonsPage extends BasePage {
             addonService();
             fluentWait(getDriver(), subscriptionsServiceBtn);
             waitForWebElementAndClick(subscriptionsServiceBtn);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             addonService();
             fluentWait(getDriver(), subscriptionsServiceBtn);

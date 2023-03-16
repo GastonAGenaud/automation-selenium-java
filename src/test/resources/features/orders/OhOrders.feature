@@ -1,12 +1,12 @@
 Feature: Orders
 
-  @OHE-383 @OHE @smoke
+  @OHE-383 @OHE
   Scenario: OHE Orders - Sold Section
     Given OHE I login and go to orders page
     When OHE I select sold section
     Then OHE I validate sold section
 
-  @OHE-384 @OHE @smoke
+  @OHE-384 @OHE
   Scenario: OHE Orders - Purchased Section
     Given OHE I login and go to orders page
     When OHE I select purchased section
@@ -14,7 +14,7 @@ Feature: Orders
     And OHE I validate close section in purchased
     Then OHE I validate purchased section
 
-  @OHE-385 @OHE @smoke
+  @OHE-385 @OHE
   Scenario: OHE Orders - Sort by
     Given OHE I login and go to orders page
     When OHE I select sort by all

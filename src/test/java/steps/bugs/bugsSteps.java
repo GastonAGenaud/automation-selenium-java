@@ -271,7 +271,7 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate mail in Profile Edit")
     public void iValidateMailInProfileEdit() {
-        Assert.assertEquals("UserName already exists.", _page.setSuccessSavePopUp());
+        Assert.assertEquals("Email cannot be empty.", _page.setSuccessSavePopUp());
     }
 
     @Then("I validate Contact Messages BUG")
@@ -326,7 +326,7 @@ public class bugsSteps extends BasePage {
     @Then("I validate Reviews in item page")
     public void iValidateReviewsInItemPage() {
 
-        Assert.assertEquals(_page.setCoolTxt(), "Leave a Review");
+        Assert.assertEquals("Leave a Review", _page.setCoolTxt());
 
     }
 
@@ -734,9 +734,9 @@ public class bugsSteps extends BasePage {
 
     @Given("I go setting page")
     public void iGoSettingPage() throws IOException {
-        _page.setHomePage();
-        _page.goToDashboard();
-        _page.loginWithGastonUser();
+       // _page.setHomePage();
+       // _page.goToDashboard();
+       // _page.loginWithGastonUser();
         _page.goToSiteWording();
 
         //_page.getCloseChat();

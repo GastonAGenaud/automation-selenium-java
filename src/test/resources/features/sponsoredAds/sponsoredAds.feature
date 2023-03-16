@@ -1,6 +1,6 @@
 Feature: Sponsored Ads
 
-  @sponsoredAds @smoke @MTR  @MTR-1600
+  @sponsoredAds  @MTR  @MTR-1600
   Scenario: MTR - User able to create an Ad
     Given I login with Gaston User
     And I go to dashboard
@@ -14,7 +14,7 @@ Feature: Sponsored Ads
     And I select the Publish button
     Then I validate Create an Ad
 
-  @sponsoredAds @smoke @MTR  @MTR-1601
+  @sponsoredAds  @MTR  @MTR-1601
   Scenario: MTR - User able to change status to Active
     Given I login with Gaston User
     And I go to dashboard
@@ -23,7 +23,7 @@ Feature: Sponsored Ads
     And I select the Reactivate option
     Then I validate the change status to Active
 
-  @sponsoredAds @smoke @MTR  @MTR-1602
+  @sponsoredAds  @MTR  @MTR-1602
   Scenario: MTR - User able to change status to Inactive
     Given I login with Gaston User
     And I go to dashboard
@@ -32,7 +32,7 @@ Feature: Sponsored Ads
     And I select the Deactivate option
     Then I validate the change status to Inactive
 
-  @sponsoredAds @smoke @MTR  @MTR-1603
+  @sponsoredAds  @MTR  @MTR-1603
   Scenario: MTR - User able to pay an ad
     Given I login with another account
     And I go to dashboard
@@ -47,7 +47,7 @@ Feature: Sponsored Ads
     And I select the Submit Payment Button
     Then I validate Pay an ad
 
-  @sponsoredAds @smoke @MTR  @MTR-1604
+  @sponsoredAds  @MTR  @MTR-1604
   Scenario: MTR - User able to sort ads
     Given I login with Gaston User
     And I go to dashboard
@@ -56,7 +56,7 @@ Feature: Sponsored Ads
     And I select the Expires Last option
     Then I validate sort ads
 
-  @sponsoredAds @smoke @MTR  @MTR-1605
+  @sponsoredAds  @MTR  @MTR-1605
   Scenario: MTR - User able to Edit ads
     Given I login with Gaston User
     And I go to dashboard
@@ -66,7 +66,7 @@ Feature: Sponsored Ads
     And i click the Publish button
     Then I validate the Edit ads
 
-  @sponsoredAds @smoke @MTR  @MTR-1606
+  @sponsoredAds  @MTR  @MTR-1606
   Scenario: MTR - User able to Delete ads
     Given I login with Gaston User
     And I go to dashboard
@@ -76,7 +76,7 @@ Feature: Sponsored Ads
     Then I validate the Delete ads
 
 
-  @sponsoredAds @smoke @MTR  @MTR-3297
+  @sponsoredAds  @MTR  @MTR-3297
   Scenario: MTR - validate texts within the sponsored ads section
     Given I login with Gaston User
     And I go to dashboard

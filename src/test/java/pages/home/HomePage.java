@@ -80,6 +80,9 @@ public class HomePage extends BasePage {
     public WebElement buyBtn;
     @FindBy(how = How.CSS, using = "body > header > nav > div > a")
     public WebElement homeBackBtn;
+
+    @FindBy(how = How.CSS, using = "body > section > div > div.w-35.col-responsive-r > a")
+    public WebElement homeBackBtnBug;
     @FindBy(how = How.CSS, using = "#searchCarousel")
     public WebElement buySearchTextField;
     @FindBy(how = How.CSS, using = "#nav-buy-carousel > div > div.d-flex.align-items-center.justify-content-between.mb-4 > button")
@@ -357,8 +360,14 @@ public class HomePage extends BasePage {
     }
 
     public void homeBack() {
-        fluentWait(getDriver(), homeBackBtn);
-        waitForWebElementAndClick(homeBackBtn);
+       try {
+           fluentWait(getDriver(), homeBackBtn);
+           waitForWebElementAndClick(homeBackBtn);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(), homeBackBtnBug);
+           waitForWebElementAndClick(homeBackBtnBug);
+       }
     }
 
     public void forBuyers() {

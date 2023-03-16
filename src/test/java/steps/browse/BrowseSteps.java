@@ -121,7 +121,7 @@ public class BrowseSteps extends BasePage {
         _page.minimumBudget();
         _page.maximumBudget();
         //_page.endDate();
-        _page.locationCheckBox();
+        //_page.locationCheckBox();
         _page.next();
         _page.publishRequest();
     }

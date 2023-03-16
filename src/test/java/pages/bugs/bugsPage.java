@@ -148,6 +148,8 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#saveChangesBtn")
     public WebElement saveChangesButton;
 
+    // @FindBy(xpath = "/html/body/div[8]/div/div/div[1]/div[1]/p")
+    // public WebElement successSavePopUp;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
     public WebElement successSavePopUp;
 
@@ -878,8 +880,16 @@ public class bugsPage extends BasePage {
     }
 
     public void setReviewsTab() {
-        fluentWait(getDriver(), reviewsTab);
-        waitForWebElementAndClick(reviewsTab);
+        try {
+            fluentWait(getDriver(), reviewsTab);
+            waitForWebElementAndClick(reviewsTab);
+            fluentWait(getDriver(), coolTxt);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), reviewsTab);
+            waitForWebElementAndClick(reviewsTab);
+        }
+
     }
 
     public void setItemBug() {
@@ -908,13 +918,27 @@ public class bugsPage extends BasePage {
     }
 
     public String setSuccessSavePopUp() {
-        String result = successSavePopUp.getText();
-        return result;
+        try {
+            String result = successSavePopUp.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = successSavePopUp.getText();
+            return result;
+        }
     }
 
     public void setSaveChangesButton() {
-        fluentWait(getDriver(), saveChangesButton);
-        waitForWebElementAndClick(saveChangesButton);
+        try {
+            fluentWait(getDriver(), saveChangesButton);
+            waitForWebElementAndClick(saveChangesButton);
+            fluentWait(getDriver(), successSavePopUp);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), saveChangesButton);
+            waitForWebElementAndClick(saveChangesButton);
+        }
+
 
     }
 

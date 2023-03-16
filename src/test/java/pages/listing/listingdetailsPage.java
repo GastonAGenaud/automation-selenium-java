@@ -113,7 +113,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement shoesText;
     @FindBy(how = How.CSS, using = "#shopping-cart-mobile > a")
     public WebElement shoppingCartButton;
-    @FindBy(how = How.CSS, using = "#searchButton")
+    @FindBy(how = How.CSS, using = "#search")
     public WebElement browseSearchBtn;
 
     @FindBy(how = How.CSS, using = "#imSellerSelector > div > label > div > div > p")
@@ -414,8 +414,15 @@ public class listingdetailsPage extends BasePage {
     }
 
     public boolean browseConfirm() {
-        boolean result = browseSearchBtn.isDisplayed();
-        return result;
+        try {
+            boolean result = browseSearchBtn.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(3);
+            boolean result = browseSearchBtn.isDisplayed();
+            return result;
+        }
+
     }
 
     public void iSelectSellerName() {
