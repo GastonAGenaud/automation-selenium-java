@@ -162,7 +162,7 @@ Feature: Bugs
     When select Download file
     Then I validate Download file
 
-#  @OHE-445 @MMRSheckout @OHE @smoke @bugs
+#  @OHE-445 @MMRSheckout @OHE  @bugs
 #  Scenario: OHE Buyer able to submit payment
 #    Given OHE I login
 #    When OHE I go to a class
@@ -209,7 +209,7 @@ Feature: Bugs
 #    When I select the Review button
 #    Then I validate Review sector
 #
-#  @OHE-419 @OHE @smoke @bugs
+#  @OHE-419 @OHE  @bugs
 #  Scenario: OHE - Validate dashboard Customer
 #    Given I login and go to Dashboard
 #    When I select dashboard customer section
@@ -217,7 +217,7 @@ Feature: Bugs
 #    And I select the see all most popular button
 #    Then I validate the Most Popular sector
 #
-#  @OHE-410 @OHE @smoke @bugs
+#  @OHE-410 @OHE  @bugs
 #  Scenario: OHE - Validate Inbox Messages
 #    Given I login
 #    When I go to owl home page
@@ -225,7 +225,7 @@ Feature: Bugs
 #    And I select user message
 #    Then I validate inbox sector
 #
-#  @OHE-454 @OHE @smoke @bugs
+#  @OHE-454 @OHE  @bugs
 #  Scenario: Validate mail in Profile Edit
 #    Given I login and go to Dashboard
 #    And select Settings button
@@ -233,13 +233,13 @@ Feature: Bugs
 #    And select Save Changes button
 #    Then I validate mail in Profile Edit
 #
-#  @OHE @OHE-423 @bugs @smoke
+#  @OHE @OHE-423 @bugs
 #  Scenario: Contact Messages BUG
 #    Given Admin Reports OHE
 #    When I validate Contact Messages
 #    Then I validate Contact Messages
 #
-#  @OHE @OHE-330 @bugs @smoke
+#  @OHE @OHE-330 @bugs
 #  Scenario: OHE - Location MAP
 #    Given I login and go to dashboard page
 #    When I select My Settings
@@ -247,7 +247,7 @@ Feature: Bugs
 #    And complete Enter a Location TextField
 #    Then I validate the Location sector MAP
 
-  @MTR @MTR @smoke @bugs @MTR  @MTR-1942
+  @MTR @MTR  @bugs @MTR  @MTR-1942
   Scenario: MTR - Item Reviews
     Given I Sign in with new account "email2" and go to the listing page
     When I select an item BUG
@@ -259,7 +259,7 @@ Feature: Bugs
     And I select Reviews sector
     Then I validate Reviews in item page
 
- @MTR @MTR @smoke @bugs @MTR @MTR-1987
+  @MTR @MTR  @bugs @MTR @MTR-1987
   Scenario: MTR - Browse Listing without Login
     Given I go to listing page
     When I select an item BUG
@@ -499,20 +499,6 @@ Feature: Bugs
     And I select See Details button
     And I select See messages button
     Then valid to redirect to the respective page
-
-#  @MTR @MTR-2900 @bugs
-#  Scenario: Site wording is not working - text updates are not saving for separate user sign up page
-#    Given I go setting page
-#    When input changes in the field SIGNUP_WELCOME_TITLE
-#    And input changes in the field SIGNUP_WELCOME_DESCRIPTION
-#    And input changes in the field SIGNUP_WELCOME_BUTTON_SELLER_TITLE
-#    And input changes in the field SIGNUP_WELCOME_BUTTON_SELLER_DESCRIPTION
-#    And input changes in the field SIGNUP_WELCOME_BUTTON_BUYER_TITLE
-#    And input changes in the field SIGNUP_WELCOME_BUTTON_BUYER_DESCRIPTION
-#    And I log out
-#    And I go to Sign Up Page
-#    And I create a new user
-#    Then Valid to save the new texts entered
 
 
   @MTR @MTR-3279 @bugs

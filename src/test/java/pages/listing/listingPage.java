@@ -233,10 +233,15 @@ public class listingPage extends BasePage {
         try {
             fluentWait(getDriver(), listingPublishBtn);
             waitForWebElementAndClick(listingPublishBtn);
-            retryingFindClick(listingPublishBtn);
+            //retryingFindClick(listingPublishBtn);
             fluentWait(getDriver(), greatJobText);
         } catch (Exception e) {
             wait(2);
+            fluentWait(getDriver(), listingPublishBtn);
+            waitForWebElementAndClick(listingPublishBtn);
+        }
+        finally {
+            fluentWait(getDriver(), greatJobText);
         }
     }
 

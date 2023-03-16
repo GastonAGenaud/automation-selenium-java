@@ -1,18 +1,18 @@
 Feature: storefront
 
-  @OH5  @OHE @smoke
+  @OH5  @OHE
   #Scenario: OHE - Validate that the users storefront is displayed
    # Given I go to user profile
     #When I select the profile button
     #Then I see the user storefront
 
-  @OH5 @OHE @smoke
+  @OH5 @OHE
   #Scenario: OHE - Change cover image
    # Given I go to user profile
     #When I select the Change cover picture button
     #Then I see the new cover image
 
-  @OH6 @OHE @OHE-356 @smoke
+  @OH6 @OHE @OHE-356
   Scenario: OHE - Validate settings profile page
     Given I login
     When I validate the settings button OHE

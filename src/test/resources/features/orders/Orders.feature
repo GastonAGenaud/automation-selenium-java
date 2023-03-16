@@ -2,7 +2,7 @@ Feature: Orders
 
   Orders page
 
-  @orders @smoke @MTR @MTR-1446
+  @orders  @MTR @MTR-1446
   Scenario: MTR - Orders - Sold - Open Section
     Given I login with Gaston User
     And I go to orders page
@@ -10,21 +10,21 @@ Feature: Orders
     And I validate send message to buyer
     Then I validate the sold open section
 
-  @orders @smoke @MTR  @MTR-1447
+  @orders  @MTR  @MTR-1447
   Scenario: MTR - Orders - Sold - shipped orders
     Given I login with Gaston User
     And I go to orders page
     When I validate the cancel button
     Then I validate the shipping orders section
 
-#  @orders @smoke @MTR  @MTR-1448
+#  @orders  @MTR  @MTR-1448
 #  Scenario: MTR - Orders - Purchased - Open Section
 #    Given I go to orders page
 #    When I validate purchased orders details
 #    And I validate send message to seller
 #    Then I validate the purchased open section
 
-  @orders @smoke @MTR  @MTR-1449
+  @orders  @MTR  @MTR-1449
   Scenario: MTR - Orders - Purchased - shipped orders
     And I login with another account
     And I go to dashboard
@@ -35,7 +35,7 @@ Feature: Orders
     And I validate the request refund button
     Then I validate the purchased shipped orders section
 
-  @orders @smoke @MTR  @MTR-1450
+  @orders  @MTR  @MTR-1450
   Scenario: MTR - Orders - Purchased - pickup orders
     And I login with another account
     And I go to dashboard
@@ -47,7 +47,7 @@ Feature: Orders
     And I validate the request refund button in complete status
     Then I validate the purchased pickup orders section
 
-  @orders @smoke @MTR  @MTR-1451
+  @orders  @MTR  @MTR-1451
   Scenario: MTR - Orders - Show Menu
     Given I login with Gaston User
     And I go to orders page

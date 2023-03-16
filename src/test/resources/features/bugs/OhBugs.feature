@@ -1,7 +1,7 @@
 Feature: Owl Home Education Bugs
 
 
-  @OHE-445 @OhCheckout @OHE @smoke @oheBugs
+  @OHE-445 @OhCheckout @OHE  @oheBugs
   Scenario: OHE Buyer able to submit payment
     Given I login with Matias Owl
     When OHE I go to a class
@@ -22,7 +22,7 @@ Feature: Owl Home Education Bugs
 
   @OHElisting @OHE-446 @OHE
   Scenario: OHE - Buyer able to create a listing
-    Given I login and I go to Dashboard
+    Given I login with Matias Owl
     And I validate the My Listings button
     When I validate add new listing button
     And I validate listing name text field
@@ -48,15 +48,15 @@ Feature: Owl Home Education Bugs
     When I select the Review button
     Then I validate Review sector
 
-  @OHE-419 @OHE @smoke @oheBugs
+  @OHE-419 @OHE  @oheBugs
   Scenario: OHE - Validate dashboard Customer
-    Given I login and go to Dashboard
+    Given I login with Dev User Owl
     When I select dashboard customer section
     And I select my settings button
     And I select the see all most popular button
     Then I validate the Most Popular sector
 
-  @OHE-410 @OHE @smoke @oheBugs
+  @OHE-410 @OHE  @oheBugs
   Scenario: OHE - Validate Inbox Messages
     Given I login
     When I go to owl home page
@@ -64,23 +64,23 @@ Feature: Owl Home Education Bugs
     And I select user message
     Then I validate inbox sector
 
-  @OHE-454 @OHE @smoke @oheBugs
+  @OHE-454 @OHE  @oheBugs
   Scenario: Validate mail in Profile Edit
-    Given I login and go to Dashboard
+    Given I login with Dev User Owl
     And select Settings button
     When complete First Name TextField
     And select Save Changes button
     Then I validate mail in Profile Edit
 
-  @OHE @OHE-423 @oheBugs @smoke
+  @OHE @OHE-423 @oheBugs
   Scenario: Contact Messages BUG
     Given Admin Reports OHE
     When I validate Contact Messages
     Then I validate Contact Messages
 
-  @OHE @OHE-330 @oheBugs @smoke
+  @OHE @OHE-330 @oheBugs
   Scenario: OHE - Location MAP
-    Given I login and go to dashboard page
+    Given I login with Dev User Owl
     When I select my settings
     And validate Location sector
     And complete Enter a Location TextField

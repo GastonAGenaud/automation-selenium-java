@@ -34,7 +34,7 @@ public class OhListingPage extends BasePage {
     public WebElement listingNameTextField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement listingCategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[2]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/select/option[4]")
     public WebElement listingCategoryOption;
     @FindBy(how = How.CSS, using = "#description")
     public WebElement listingDescriptionTextField;
@@ -53,7 +53,7 @@ public class OhListingPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#checkbox-2-0")
     public WebElement techSpecialtiesCheckbox;
-    @FindBy(how = How.CSS, using = "#checkbox-0-0")
+    @FindBy(how = How.CSS, using = "#checkbox-2-0")
     public WebElement listingLanguageCheckbox;
     @FindBy(how = How.CSS, using = "#policy")
     public WebElement cancellationTextField;

@@ -1,6 +1,6 @@
 Feature: HomeEducation
 
-  @OHE-309 @OHE @smoke @OhHome
+  @OHE-309 @OHE  @OhHome
   Scenario: OHE - Validate home main header without account
     Given I go to owl home page
     When I select browse services
@@ -9,7 +9,7 @@ Feature: HomeEducation
     And I select sign up
     Then I validate the home main header
 
-  @OHE-310 @OHE @smoke @OhHome
+  @OHE-310 @OHE  @OhHome
   Scenario: OHE - Validate the home menu
     Given I go to owl home page
     When I select ages 5 to 8 option
@@ -19,7 +19,7 @@ Feature: HomeEducation
     #And I select More option
     Then I validate the home menu
 
-  @OHE-311 @OHE @smoke @OhHome
+  @OHE-311 @OHE  @OhHome
   Scenario: OHE - Validate the body without account
     Given I go to owl home page
     When I select Provide button
@@ -35,7 +35,7 @@ Feature: HomeEducation
     And I select sign up now button
     Then I validate the home body
 
-  @OHE-312 @OHE @smoke @OhHome
+  @OHE-312 @OHE  @OhHome
   Scenario: OHE - Validate the footer without account
     Given I go to owl home page
     When I select footer browse request button
@@ -49,7 +49,7 @@ Feature: HomeEducation
     And I select footer contact button
     Then I validate the home footer section
 
-  @OHE-313 @OHE @smoke @OhHome
+  @OHE-313 @OHE  @OhHome
   Scenario: OHE - Validate the main header with account
     Given I login
     And I go to owl home page
@@ -59,7 +59,7 @@ Feature: HomeEducation
     And I select cart icon button
     Then I validate the main header with account
 
-  @OHE-314 @OHE @smoke @OhHome
+  @OHE-314 @OHE  @OhHome
   Scenario: OHE - Validate the footer with account
     Given I login
     And I go to owl home page
@@ -72,7 +72,7 @@ Feature: HomeEducation
     And I select footer contact button
     Then I validate the home footer section with account
 
-  @OHE-315  @OHE @smoke @OhHome
+  @OHE-315  @OHE  @OhHome
   Scenario: OHE - Validate the home - social links
     Given I go to owl home page
     When I validate the owl Facebook icon

@@ -1,6 +1,6 @@
 Feature: addons
 
-  @addons @smoke @MTR-3307 @MTR
+  @addons  @MTR-3307 @MTR
   Scenario: MTR - Addons-FedEx- Validate the shipping with FedEx
     Given I login with Gaston User
     And I go to dashboard
@@ -8,7 +8,7 @@ Feature: addons
     When I validate the add new listing button
     Then Validate the shipping with FedEx
 
-  @addons @smoke @MTR-3308 @MTR
+  @addons  @MTR-3308 @MTR
   Scenario: MTR - Validating a FedEx Product Shipment
     Given I login with Gaston User
     And I go to dashboard

@@ -3,7 +3,7 @@ Feature: Home
 
   Principal Page
 
-  @home @smoke  @MTR-1436 @MTR
+  @home   @MTR-1436 @MTR
   Scenario: MTR - Validate the home header
     Given I go to home page
     When I validate the Browse button
@@ -13,7 +13,7 @@ Feature: Home
     And I validate the Browse by seller button
     Then I validate the main header
 
-  @home @smoke  @MTR-1437 @MTR
+  @home   @MTR-1437 @MTR
   Scenario: MTR - Validate the home - Category Menu
     Given I go to home page
     When I validate the accessories section
@@ -40,7 +40,7 @@ Feature: Home
     Then I validate the main header
 
 
-  @home @smoke  @MTR-1438 @MTR
+  @home   @MTR-1438 @MTR
   Scenario: MTR - Validate the home - Body Section
     Given I go to home page
 #    And I validate the Start Now button
@@ -48,7 +48,7 @@ Feature: Home
     And I validate the For Sellers section
     Then I validate the Body
 
-  @home @smoke  @MTR-1439 @MTR
+  @home   @MTR-1439 @MTR
   Scenario: MTR - Validate the home - Footer Section
     Given I go to home page
     When I validate the Sing up now button
@@ -64,7 +64,7 @@ Feature: Home
     And I validate the Contact Us button
     Then I validate the Footer Section
 
-  #@home @smoke  @MTR-1440 @MTR
+  #@home   @MTR-1440 @MTR
   # Scenario: MTR - Validate the home - social links
   #  Given I go to home page
   #  When I validate the Facebook icon
@@ -74,7 +74,7 @@ Feature: Home
    # And I validate the Youtube icon
   #  Then I validate the social links
 
-  @home @smoke  @MTR-1441 @MTR
+  @home   @MTR-1441 @MTR
   Scenario: MTR - Validate the home header with account
     Given I go to Home With Account
     When I validate the Browse button
@@ -82,7 +82,7 @@ Feature: Home
     And I validate the Browse by seller button
     Then I validate the main header
 
-  @home @smoke  @MTR-1442 @MTR
+  @home   @MTR-1442 @MTR
   Scenario: MTR - Validate the home Header Section with account
     Given I go to Home With Account
     When I validate the accessories section
@@ -102,7 +102,7 @@ Feature: Home
     #And I validate the More section
     Then I validate the Header Section with account
 
-  @home @smoke  @MTR-1443 @MTR
+  @home   @MTR-1443 @MTR
   Scenario: MTR - Validate the home - body section with account
     Given I login with Gaston User
     #And I validate the Start Now button
@@ -110,7 +110,7 @@ Feature: Home
     And I validate the For Sellers section
     Then I validate the Body with account
 
-  @home @smoke  @MTR-1444 @MTR
+  @home   @MTR-1444 @MTR
   Scenario: MTR - Validate the home Footer Section With Account
     Given I login with Gaston User
     When I validate the sell button
@@ -126,7 +126,7 @@ Feature: Home
 
 
 
-  #@home @smoke  @MTR-1445 @MTR
+  #@home   @MTR-1445 @MTR
   # Scenario: MTR - Validate the home Social Links with account
    # Given I go to Home With Account
   #  When I validate the Facebook icon

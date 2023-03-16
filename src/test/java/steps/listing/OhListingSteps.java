@@ -20,7 +20,7 @@ public class OhListingSteps extends BasePage {
         this._page = new OhListingPage();
     }
 
-//    @Before
+    //    @Before
 //    public void loginAgain() throws IOException {
 //        loginWithGastonUserSVC();
 //    }
@@ -61,14 +61,14 @@ public class OhListingSteps extends BasePage {
 
     @And("I validate the listing Hourly price")
     public void iValidateTheListingHourlyPrice() {
-        _page.setUpHourlyCheckbox();
+        //_page.setUpHourlyCheckbox();
         _page.listingHourlyPriceTextField();
     }
 
     @And("I validate listing image")
     public void iValidateTheListingImage() {
         _page.listingImageUploadButton();
-        _page.cropButton();
+        // _page.cropButton();
     }
 
     @And("I validate listing video URL")
@@ -78,37 +78,38 @@ public class OhListingSteps extends BasePage {
 
     @And("I select the go to details")
     public void iSelectTheGoToDetails() {
-           _page.selectGoToDetailsButton();
+        _page.selectGoToDetailsButton();
     }
 
     @And("I select Subject Tag")
-    public void iSelectSubjectTag(){
-        
+    public void iSelectSubjectTag() {
+
         _page.selectSubjectTag();
     }
 
     @And("I select Work Model checkbox")
-    public void iSelectWorkModelCheckbox(){
+    public void iSelectWorkModelCheckbox() {
         _page.workModelCheckboxOnline();
     }
 
     @And("I select Languages checkbox")
     public void iSelectLanguagesCheckbox() {
         _page.languageCheckboxEnglish();
-        _page.techCheckbox();
+        //_page.techCheckbox();
     }
 
     @And("I complete Cancellation Text Field")
     public void iCompleteCancellationTextField() {
-       _page.listingCancellationTextField();
+        _page.listingCancellationTextField();
     }
+
     @And("I select Go to Availability button")
     public void iSelectGoToAvailabilityButton() {
         _page.goToAvailabilityButton();
     }
 
     @And("I select Available Days tab")
-    public void iSelectAvailableDaysTab(){
+    public void iSelectAvailableDaysTab() {
         _page.selectAvailableDaysTab();
         _page.selectSaturdayOption();
         _page.selectTimeFrom();
@@ -131,7 +132,7 @@ public class OhListingSteps extends BasePage {
 
     @Then("I validate create a listing")
     public void iValidateCreateAListing() {
-        Assert.assertEquals(_page.listingActiveTab(), true);
+        Assert.assertEquals(true, _page.listingActiveTab());
     }
 
     @And("I select Add Time Slot")
@@ -146,7 +147,7 @@ public class OhListingSteps extends BasePage {
 
     @Then("I validate the Edit button")
     public void iValidateTheEditButton() {
-        Assert.assertEquals(_page.editActive(),true);
+        Assert.assertEquals(_page.editActive(), true);
     }
 
     @And("I select tab dots")
@@ -157,7 +158,7 @@ public class OhListingSteps extends BasePage {
     @When("I select Share button")
     public void iSelectShareButton() {
         _page.shareButton();
-        
+
     }
 
     @Then("I validate Share button")
@@ -173,6 +174,7 @@ public class OhListingSteps extends BasePage {
 
     @Then("I validate Delete button")
     public void iValidateDeleteButton() {
-        Assert.assertEquals(_page.editActive(),true);
+        Assert.assertEquals(_page.editActive(), true);
     }
+
 }

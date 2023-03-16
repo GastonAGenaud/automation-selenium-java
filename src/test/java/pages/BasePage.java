@@ -363,9 +363,27 @@ public class BasePage {
         passwordLoginInput.sendKeys("Test1234!");
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
-        retryingFindClick(logInBtn);
+        //retryingFindClick(logInBtn);
         wait(2);
         sessionManager.storeSessionFile("MatiasUser-data-session");
+        wait(5);
+        getDriver().manage().deleteAllCookies();
+        getHomePageOWL();
+        getDriver().navigate().refresh();
+    }
+
+    public void loginWithDevOwl() throws IOException {
+        getHomePageOWL();
+        getLoginPageOWL();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        //retryingFindClick(logInBtn);
+        wait(2);
+        sessionManager.storeSessionFile("DevUserOwl-data-session");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePageOWL();
@@ -475,6 +493,7 @@ public class BasePage {
         }
         return result;
     }
+
     public void CreateAnAccountListingDetailsOHE(String text) {
         getDriver().navigate().to(baseUrlOHE);
 

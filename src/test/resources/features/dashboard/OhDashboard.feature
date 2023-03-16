@@ -1,6 +1,6 @@
 Feature: Dashboard
 
-  @OHE-347 @OHE @smoke @dashboardOHE
+  @OHE-347 @OHE  @dashboardOHE
   Scenario: OHE - Validate dashboard Customer
     Given I login and go to Dashboard
     When I select dashboard customer section
@@ -12,7 +12,7 @@ Feature: Dashboard
     And I select create a want button
     Then I validate the customer dashboard
 
-  @OHE-348 @OHE @smoke @dashboardOHE
+  @OHE-348 @OHE  @dashboardOHE
   Scenario: OHE - Validate dashboard Provider
     Given I login and go to Dashboard
     When I select dashboard provider section

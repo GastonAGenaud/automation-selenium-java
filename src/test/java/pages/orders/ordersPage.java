@@ -8,6 +8,7 @@ import org.openqa.selenium.support.How;
 import pages.BasePage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ordersPage extends BasePage {
 
@@ -61,7 +62,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersBuyAgainBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div/a[2]")
     public WebElement ordersPurchasedShareBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[45]/div/div/div/div[1]/div[2]/div/div/a[3]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/a[3]")
     public WebElement ordersPurchasedRequestRefundBtn;
     @FindBy(how = How.CSS, using = "#transaction-521 > div > div > div:nth-child(2) > div > div.col.d-flex.justify-content-end.align-items-end > button")
     public WebElement ordersConfirmPickUpBtn;
@@ -69,7 +70,8 @@ public class ordersPage extends BasePage {
     public WebElement ordersLeaveAReviewBtn;
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div")
     public WebElement ordersShowBtn;
-
+    @FindBy(xpath = "//a[contains(text(), 'Request Refund')]")
+    public WebElement RequestRefundBtn;
 
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(3)")
     public WebElement ordersShowShipmentPendingBtn;
@@ -87,6 +89,8 @@ public class ordersPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#purchased-tab > span > span:nth-child(1)")
     public WebElement purchasedPickupSection;
+    @FindBy(how = How.CSS, using = "#refund > div > div > div > h4")
+    public WebElement validateRequestRefund;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/a/span")
     public WebElement purchasedOpenSection;
@@ -100,7 +104,7 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/button")
     public WebElement ordersPurchasedTab2Button;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[45]/div/div/div/div[1]/div[2]/div/button")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/button")
     public WebElement requestTabButton;
 
     @FindBy(how = How.CSS, using = "#chat-message")
@@ -348,9 +352,17 @@ public class ordersPage extends BasePage {
 
 
     public boolean shippingAddressTextValidate() {
-        fluentWait(getDriver(), shippingAddressText);
-        boolean result = shippingAddressText.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), shippingAddressText);
+            boolean result = shippingAddressText.isDisplayed();
+            return result;
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), shippingAddressText);
+            boolean result = shippingAddressText.isDisplayed();
+            return result;
+        }
+
 
     }
 
@@ -365,7 +377,39 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersRequestRefund() {
-        action.moveToElement(requestTabButton).build();
+        wait(2);
+        fluentWait(getDriver(), getDriver().findElement(By.cssSelector("div[id='closed-purchased']")));
+        WebElement closeDiv = getDriver().findElement(By.cssSelector("div[id='closed-purchased']"));
+        wait(2);
+        List<WebElement> elements = closeDiv.findElements(By.cssSelector("div[class='card card-order card-horizontal card-grouped']"));
+        wait(2);
+        for (WebElement dot : elements) {
+            fluentWait(getDriver(),dot);
+            wait(2);
+            WebElement ElementSelect = dot.findElement(By.cssSelector("button[class='btn dropdown-mass-uploader dropdown-toggle select-item dropdown-icon']"));
+            try {
+                wait(2);
+                fluentWaitStrict(getDriver(), ElementSelect);
+                wait(2);
+                waitForWebElementAndClick(ElementSelect);
+                wait(2);
+                fluentWait(getDriver(), RequestRefundBtn);
+            } catch (Exception e) {
+                wait(3);
+                fluentWait(getDriver(), ElementSelect);
+                waitForWebElementAndClick(ElementSelect);
+            }
+            if (RequestRefundBtn.isDisplayed()) {
+                fluentWait(getDriver(), RequestRefundBtn);
+                waitForWebElementAndClick(RequestRefundBtn);
+                wait(3);
+                break;
+            }
+        }
+        // ElementSelect.findElement(By.xpath("//*[contains(text(), 'Request Refund')]")).getText() == "Request Refund"
+    }
+
+        /* action.moveToElement(requestTabButton).build();
         fluentWait(getDriver(), requestTabButton);
         waitForWebElementAndClick(requestTabButton);
 
@@ -373,8 +417,8 @@ public class ordersPage extends BasePage {
 //        action.moveToElement(ordersPurchasedRequestRefundBtn).build();
         fluentWait(getDriver(), ordersPurchasedRequestRefundBtn);
         waitForWebElementAndClick(ordersPurchasedRequestRefundBtn);
+        */
 
-    }
 
     public void ordersConfirmPickUp() {
         fluentWait(getDriver(), ordersConfirmPickUpBtn);
@@ -468,9 +512,15 @@ public class ordersPage extends BasePage {
         return result;
     }
 
-    public boolean purchasedPickupSection() {
-        boolean result = purchasedPickupSection.isDisplayed();
-        return result;
+    public String validateRequestRefundSection() {
+        try {
+            String result = validateRequestRefund.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = validateRequestRefund.getText();
+            return result;
+        }
     }
 
     public boolean purchasedOpenSection() {
@@ -487,12 +537,12 @@ public class ordersPage extends BasePage {
 
     public boolean soldOpenSection() {
         try {
-            fluentWait(getDriver(),soldOpenSection);
+            fluentWait(getDriver(), soldOpenSection);
             boolean result = soldOpenSection.isDisplayed();
             return result;
         } catch (Exception e) {
             wait(5);
-            fluentWait(getDriver(),soldOpenSection);
+            fluentWait(getDriver(), soldOpenSection);
             boolean result = soldOpenSection.isDisplayed();
             return result;
         }

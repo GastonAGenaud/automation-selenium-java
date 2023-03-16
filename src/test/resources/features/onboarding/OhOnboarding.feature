@@ -1,6 +1,6 @@
 Feature: OHE OnBoarding
 
-  @OHE-362 @smoke
+  @OHE-362
   Scenario: OHE Create my marketplace builder account and go to admin panel
     Given OHE I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When OHE I type on name field
@@ -18,7 +18,7 @@ Feature: OHE OnBoarding
     And OHE I go to the admin panel
     Then OHE I create my marketplace products page
 
-  @OHE-363 @smoke
+  @OHE-363
   Scenario: OHE Complete a marketplace of products
     Given OHE I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When OHE I type on name field
@@ -36,7 +36,7 @@ Feature: OHE OnBoarding
     And OHE I click the button Save payment
     Then OHE I create my marketplace products page
 
-  @OHE-364  @smoke
+  @OHE-364
   Scenario: OHE Complete a marketplace of service
     Given OHE I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding"
     When OHE I type on name field
