@@ -1,9 +1,9 @@
-# trick-selenium-java
+# test-automation
 # Spanish version
 
 Selenium test automation for trick.
 
-Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags @ebay y @gmail, puedes seguir los siguientes pasos:
+Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags @smoke y @MTR, puedes seguir los siguientes pasos:
 
 ## Requerimientos
 
@@ -19,7 +19,7 @@ Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con
 ## Como ejecutar los tests
 Si optaste por la linea de comandos:
 
-    mvn test
+    mvn test -Denv=staging
 
 ## Stack
 En cuanto a las dependencias del proyecto:
@@ -39,15 +39,15 @@ En cuanto a las dependencias del proyecto:
 ## Reporte
 > target/cucumber.html
 # CONTACTO
-> email : gastongenaudar@gmail.com
-> linkedin: https://www.linkedin.com/in/gaston-genaud/
+> email : gastongenaud@7r1ck.com
+
 
 ___
 # English version
 
 Selenium test automation for trick.
 
-To run the Runner.java file and execute the test cases marked with the @ebay and @gmail tags, you can follow the steps below:
+To run the Runner.java file and execute the test cases marked with the @smoke and @MTR tags, you can follow the steps below:
 
 ## Requirements
 
@@ -63,7 +63,7 @@ To run the Runner.java file and execute the test cases marked with the @ebay and
 ## How to run the tests
 If you opted for the command line:
 
-    mvn test
+    mvn test -Denv=staging
 
 ## Stack
 As for the project dependencies:
@@ -81,8 +81,8 @@ As for the project dependencies:
 > Commons-lang3: version 3.12.0. This dependency is a library of Apache Commons utility classes, which provides a number of useful methods for working with strings, numbers, dates and other data types.
 
 ## Report
-> target/cucumber.html
-# CONTACT
-> email : gastongenaudar@gmail.com
-> linkedin: https://www.linkedin.com/in/gaston-genaud/
+> target/cucumber-html-report
+OR
+Report folder
+
 

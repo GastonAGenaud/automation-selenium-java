@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.dashboard.OhDashboardPage;
 
+import java.io.IOException;
+
 public class OhDashboardSteps extends BasePage {
 
     public OhDashboardPage _page;
@@ -18,9 +20,9 @@ public class OhDashboardSteps extends BasePage {
     }
 
     @Given("I login and go to Dashboard")
-    public void iLoginAndGoToDashboard() {
-        _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+    public void iLoginAndGoToDashboard() throws IOException {
+        //_page.goToLoginPage();
+        _page.loginWithGastonUser();
         _page.goToDashboard();
     }
 

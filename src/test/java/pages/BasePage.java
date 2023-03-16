@@ -268,6 +268,19 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
     }
 
+    public void loginDevSVC() {
+        getDriver().navigate().to(UrlSVC + "Account/Login");
+        fluentWaitStrict(getDriver(), emailLoginInput);
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+
+        fluentWait(getDriver(), passwordLoginInput);
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+
+        waitForWebElementAndClick(logInBtn);
+    }
+
     public void loginWithGastonUserSVC() {
         getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
@@ -276,7 +289,7 @@ public class BasePage {
 
         fluentWait(getDriver(), passwordLoginInput);
         waitForWebElementAndClick(passwordLoginInput);
-        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
 
         waitForWebElementAndClick(logInBtn);
     }
@@ -496,6 +509,53 @@ public class BasePage {
 
     public void CreateAnAccountListingDetailsOHE(String text) {
         getDriver().navigate().to(baseUrlOHE);
+
+        waitForVisibility(signUpNowBtn);
+        fluentWaitStrict(getDriver(), signUpNowBtn);
+        fluentWait(getDriver(), signUpNowBtn);
+        waitForWebElementAndClick(signUpNowBtn);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        fluentWait(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+        newEmailBtn.sendKeys(text + randomEmail + "auto@trick.com");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.clear();
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.click();
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        wait(4);
+        //welcomeClose.click();
+
+    }
+
+    public void CreateAnAccountListingDetailsSVC(String text) {
+        getDriver().navigate().to(UrlSVC);
 
         waitForVisibility(signUpNowBtn);
         fluentWaitStrict(getDriver(), signUpNowBtn);
