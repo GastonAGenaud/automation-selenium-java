@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.home.OhHomePage;
 
+import java.io.IOException;
+
 public class OhHomeSteps extends BasePage {
 
     private OhHomePage _page;
@@ -223,9 +225,9 @@ public class OhHomeSteps extends BasePage {
     }
 
     @Given("I login")
-    public void iLogin() {
-        _page.goToLoginPage();
-        _page.login();
+    public void iLogin() throws IOException {
+        //_page.goToLoginPage();
+        _page.loginWithGastonUser();
     }
 
     @And("I select inbox icon button")

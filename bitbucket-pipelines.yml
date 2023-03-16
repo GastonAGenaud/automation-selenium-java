@@ -1,0 +1,26 @@
+image: selenium-ubuntu
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Run automation for staging environment
+          script:
+            - mvn clean verify test -Denv=staging
+          services:
+            - docker
+          caches:
+            - maven
+          artifacts:
+            - target/cucumber-html-reports
+    develop:
+      - step:
+          name: Run automation for dev environment
+          script:
+            - mvn clean verify test -Denv=dev
+          services:
+            - docker
+          caches:
+            - maven
+          artifacts:
+            - target/cucumber-html-reports
