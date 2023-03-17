@@ -240,12 +240,16 @@ public class checkoutPage extends BasePage {
        try {
            fluentWait(getDriver(), flatRateBtn);
            waitForWebElementAndClick(flatRateBtn);
+           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
        }
         catch (Exception e){
            wait(3);
             fluentWait(getDriver(), flatRateBtn);
             waitForWebElementAndClick(flatRateBtn);
         }
+       finally {
+           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
+       }
     }
 
     public void goToItemForShipping() {

@@ -302,21 +302,41 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersPurchasedMessage() {
-        fluentWait(getDriver(), ordersPurchasedMessageBtn);
-        waitForWebElementAndClick(ordersPurchasedMessageBtn);
+        try {
+            fluentWait(getDriver(), ordersPurchasedMessageBtn);
+            waitForWebElementAndClick(ordersPurchasedMessageBtn);
 
-        fluentWait(getDriver(), messageBeforeChat);
-        waitForWebElementAndClick(messageBeforeChat);
+            fluentWait(getDriver(), messageBeforeChat);
+            waitForWebElementAndClick(messageBeforeChat);
 
-        messageBeforeChat.sendKeys("Testing");
+            messageBeforeChat.sendKeys("Testing");
 
-        fluentWait(getDriver(), sendBeforeChat);
-        waitForWebElementAndClick(sendBeforeChat);
+            fluentWait(getDriver(), sendBeforeChat);
+            waitForWebElementAndClick(sendBeforeChat);
 
-        goToOrders();
+            goToOrders();
 
-        fluentWait(getDriver(), ordersPurchasedBtn);
-        waitForWebElementAndClick(ordersPurchasedBtn);
+            fluentWait(getDriver(), ordersPurchasedBtn);
+            waitForWebElementAndClick(ordersPurchasedBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersPurchasedMessageBtn);
+            waitForWebElementAndClick(ordersPurchasedMessageBtn);
+
+            fluentWait(getDriver(), messageBeforeChat);
+            waitForWebElementAndClick(messageBeforeChat);
+
+            messageBeforeChat.sendKeys("Testing");
+
+            fluentWait(getDriver(), sendBeforeChat);
+            waitForWebElementAndClick(sendBeforeChat);
+
+            goToOrders();
+
+            fluentWait(getDriver(), ordersPurchasedBtn);
+            waitForWebElementAndClick(ordersPurchasedBtn);
+        }
+
     }
 
     public void ordersPurchasedTrack() {
@@ -356,7 +376,7 @@ public class ordersPage extends BasePage {
             fluentWait(getDriver(), shippingAddressText);
             boolean result = shippingAddressText.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), shippingAddressText);
             boolean result = shippingAddressText.isDisplayed();
@@ -384,7 +404,7 @@ public class ordersPage extends BasePage {
         List<WebElement> elements = closeDiv.findElements(By.cssSelector("div[class='card card-order card-horizontal card-grouped']"));
         wait(2);
         for (WebElement dot : elements) {
-            fluentWait(getDriver(),dot);
+            fluentWait(getDriver(), dot);
             wait(2);
             WebElement ElementSelect = dot.findElement(By.cssSelector("button[class='btn dropdown-mass-uploader dropdown-toggle select-item dropdown-icon']"));
             try {
