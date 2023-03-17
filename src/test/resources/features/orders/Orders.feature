@@ -45,7 +45,7 @@ Feature: Orders
     And I validate the buy again button in completed status
     And I validate the share button in complete status
     And I validate the request refund button in complete status
-    Then I validate the purchased pickup orders section
+    Then I validate the purchased shipped orders section
 
   @orders  @MTR  @MTR-1451
   Scenario: MTR - Orders - Show Menu

@@ -238,8 +238,19 @@ public class requestPage extends BasePage {
     }
 
     public void browseCreateRequestBtn() {
-        fluentWait(getDriver(), browseCreateRequestBtn);
-        waitForWebElementAndClick(browseCreateRequestBtn);
+        try {
+            fluentWait(getDriver(), browseCreateRequestBtn);
+            waitForWebElementAndClick(browseCreateRequestBtn);
+            fluentWait(getDriver(),validateRequestDashboard);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), browseCreateRequestBtn);
+            waitForWebElementAndClick(browseCreateRequestBtn);
+        }
+        finally {
+            fluentWait(getDriver(),validateRequestDashboard);
+        }
+
 
     }
 

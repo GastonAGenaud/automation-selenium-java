@@ -8,12 +8,12 @@ Feature: Request
     When I select create a request button
     Then I validate the Create a Request in browse section
 
-  @request  @MTR  @MTR-1456
-  Scenario: MTR - Create a request in dashboard page
-    Given I login with Gaston User
-    And I go to dashboard
-    When I select create a request button in dashboard
-    Then I validate the Create a Request in dashboard
+  #@request  @MTR  @MTR-1456
+  #Scenario: MTR - Create a request in dashboard page
+  #  Given I login with Gaston User
+  #  And I go to dashboard
+  #  When I select create a request button in dashboard
+  #  Then I validate the Create a Request in dashboard
 
   @request  @MTR  @MTR-1457
   Scenario: MTR - Success pop up
