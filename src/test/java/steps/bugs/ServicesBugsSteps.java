@@ -105,4 +105,30 @@ public class ServicesBugsSteps extends BasePage {
     public void iValidThatTheEndlessLoadingWhenSelectingFaviconNoLongerOccurs() {
         _page.faviconRedirect();
     }
+
+
+    @And("SVC go to Admin")
+    public void svcGoToAdmin() {
+        _page.SVCgoToAdminPanel();
+    }
+
+    @Then("I validate that the modal is displaying correctly and the bug no longer occurs")
+    public void iValidateThatTheModalIsDisplayingCorrectlyAndTheBugNoLongerOccurs() {
+        _page.validateCustomFieldModal();
+    }
+
+    @When("SVC I select My Listings button")
+    public void svcISelectMyListingsButton() {
+        _page.myListingsButton();
+    }
+
+    @Then("I validate that the my Services-listings sections is working correctly and the slow loading no longer occurs")
+    public void iValidateThatTheMyServicesListingsSectionsIsWorkingCorrectlyAndTheSlowLoadingNoLongerOccurs() {
+        _page.MyListingCompleteSector();
+    }
+
+    @Then("SVC I validate that the bug of being able to continue creating the listing without adding the image no longer occurs")
+    public void svcIValidateThatTheBugOfBeingAbleToContinueCreatingTheListingWithoutAddingTheImageNoLongerOccurs() {
+        _page.imgCannotBeEmpty();
+    }
 }

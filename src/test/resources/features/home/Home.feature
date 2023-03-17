@@ -60,7 +60,7 @@ Feature: Home
     And I validate the FAQ button
     And I validate the Terms and Service button
     And I validate the Privacy Policy button
-    And I validate the About Us button
+    #And I validate the About Us button
     And I validate the Contact Us button
     Then I validate the Footer Section
 

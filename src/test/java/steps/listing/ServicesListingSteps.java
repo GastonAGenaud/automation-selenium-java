@@ -66,6 +66,7 @@ public class ServicesListingSteps extends BasePage {
     @And("SVC I validate listing image")
     public void SVCiValidateTheListingImage() {
         _page.listingImageUploadButton();
+        _page.cropButton();
     }
 
     @And("SVC I validate listing video URL")
@@ -93,6 +94,10 @@ public class ServicesListingSteps extends BasePage {
     @And("SVC I select Languages checkbox")
     public void SVCiSelectLanguagesCheckbox() {
         _page.languageCheckboxEnglish();
+    }
+    @And("SVC I select Speciality checkbox")
+    public void SVCiSelectSpecialityCheckbox() {
+        _page.specialityCheckbox();
     }
 
     @And("SVC I complete Cancellation Text Field")

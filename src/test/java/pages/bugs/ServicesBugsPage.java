@@ -85,6 +85,41 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#hero-section > div:nth-child(2) > div")
     public WebElement validatingFaviconRedirect;
 
+    @FindBy(how = How.CSS, using = "#custom-field-form")
+    public WebElement validateCustomFieldForm;
+
+    @FindBy(how = How.CSS, using = "#listings-tab > span > span:nth-child(1)")
+    public WebElement myListingsBtn;
+
+    @FindBy(how = How.CSS, using = "#dashboard > div.row > div")
+    public WebElement myListingSector;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
+    public WebElement imageCannotBeEmpty;
+
+    public void imgCannotBeEmpty(){
+        fluentWait(getDriver(), imageCannotBeEmpty);
+        Assert.assertTrue(imageCannotBeEmpty.isDisplayed());
+    }
+
+    public void MyListingCompleteSector(){
+        fluentWait(getDriver(), myListingSector);
+        Assert.assertTrue(myListingSector.isDisplayed());
+    }
+
+    public void myListingsButton(){
+        fluentWait(getDriver(), myListingsBtn);
+        waitForWebElementAndClick(myListingsBtn);
+    }
+    public void validateCustomFieldModal(){
+        fluentWait(getDriver(), validateCustomFieldForm);
+        Assert.assertTrue(validateCustomFieldForm.isDisplayed());
+    }
+
+    public void SVCgoToAdminPanel() {
+        getDriver().navigate().to(UrlSVC + "/admin/application/GetStarted");
+    }
+
     public void faviconRedirect(){
         fluentWait(getDriver(), validatingFaviconRedirect);
         Assert.assertTrue(validatingFaviconRedirect.isDisplayed());

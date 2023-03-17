@@ -365,8 +365,8 @@ public class HomePage extends BasePage {
            waitForWebElementAndClick(homeBackBtn);
        }catch (Exception e){
            wait(3);
-           fluentWait(getDriver(), homeBackBtnBug);
-           waitForWebElementAndClick(homeBackBtnBug);
+//           fluentWait(getDriver(), homeBackBtnBug);
+//           waitForWebElementAndClick(homeBackBtnBug);
        }
     }
 

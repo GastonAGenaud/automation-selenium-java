@@ -1,6 +1,6 @@
 Feature: Services Home
 
-  @MMRS-309 @MMRS @smoke @MMRSHome
+  @MMRS-309 @MMRS  @MMRSHome
   Scenario: SVC - Validate home main header without account
     Given SVC I go to owl Svc page
     When SVC I select browse services
@@ -9,7 +9,7 @@ Feature: Services Home
     And  SVC I select sign up
     Then SVC I validate the home main header
 
-  @MMRS-310 @MMRS @smoke @MMRSHome
+  @MMRS-310 @MMRS  @MMRSHome
   Scenario: SVC - Validate the home menu
     Given SVC I go to owl Svc page
 #    When SVC I select ages 5 to 8 option
@@ -19,7 +19,7 @@ Feature: Services Home
 #    And  SVC I select More option
     Then SVC I validate the home menu
 
-  @MMRS-311 @MMRS @smoke @MMRSHome
+  @MMRS-311 @MMRS  @MMRSHome
   Scenario: SVC - Validate the body without account
     Given SVC I go to owl Svc page
     When SVC I select Provide button
@@ -35,7 +35,7 @@ Feature: Services Home
     And  SVC I select sign up now button
     Then SVC I validate the home body
 
-  @MMRS-312 @MMRS @smoke @MMRSHome
+  @MMRS-312 @MMRS  @MMRSHome
   Scenario: SVC - Validate the footer without account
     Given SVC I go to owl Svc page
 #    When SVC I select footer browse request button
@@ -49,7 +49,7 @@ Feature: Services Home
     And  SVC I select footer contact button
     Then SVC I validate the home footer section
 
-  @MMRS-313 @MMRS @smoke @MMRSHome
+  @MMRS-313 @MMRS  @MMRSHome
   Scenario: SVC - Validate the main header with account
     Given SVC I login
     And  SVC I go to owl Svc page
@@ -59,7 +59,7 @@ Feature: Services Home
     And  SVC I select cart icon button
     Then SVC I validate the main header with account
 
-  @MMRS-314 @MMRS @smoke @MMRSHome
+  @MMRS-314 @MMRS  @MMRSHome
   Scenario: SVC - Validate the footer with account
     Given SVC I login
     And  SVC I go to owl Svc page
@@ -72,7 +72,7 @@ Feature: Services Home
     And  SVC I select footer contact button
     Then SVC I validate the home footer section with account
 
-  @MMRS-315  @MMRS @smoke @MMRSHome
+  @MMRS-315  @MMRS  @MMRSHome
   Scenario: SVC - Validate the home - social links
     Given SVC I go to owl Svc page
     When SVC I validate the owl Facebook icon

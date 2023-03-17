@@ -70,7 +70,7 @@ public class ServicesCheckoutPage extends BasePage {
     @FindBy(how = How.CSS, using = "#listing-img-0")
     public WebElement selectClass;
 
-    @FindBy(xpath = "/html/body/div[4]/main/section[2]/div/div/div/form/div[3]/div[3]/div/s<elect/option[6]")
+    @FindBy(xpath = "/html/body/div[4]/main/section[2]/div/div/div/form/div[3]/div[3]/div/select/option[6]")
     public WebElement selectingEndingHour;
 
     public void selectClassFromListing(){

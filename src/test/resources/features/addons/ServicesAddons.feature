@@ -1,6 +1,6 @@
 #Feature: addons
 #
-#  @MMRS-342 @MMRS @smoke @AddonsSVC
+#  @MMRS-342 @MMRS  @AddonsSVC
 #  Scenario: SVC - Create an Add-on
 #    Given SVC - I login and go to addons page
 #    When SVC - I select Add add on button

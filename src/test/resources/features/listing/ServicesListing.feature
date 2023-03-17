@@ -16,6 +16,7 @@ Feature: Listing
     And SVC I select the go to details
     And SVC I select Work Model checkbox
     And SVC I select Languages checkbox
+    And SVC I select Speciality checkbox
     And SVC I complete Cancellation Text Field
     And SVC I select Go to Availability button
     And SVC I select Available Days tab

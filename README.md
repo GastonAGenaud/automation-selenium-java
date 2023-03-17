@@ -3,7 +3,7 @@
 
 Selenium test automation for trick.
 
-Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags @smoke y @MTR, puedes seguir los siguientes pasos:
+Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con los tags  y @MTR, puedes seguir los siguientes pasos:
 
 ## Requerimientos
 
@@ -47,7 +47,7 @@ ___
 
 Selenium test automation for trick.
 
-To run the Runner.java file and execute the test cases marked with the @smoke and @MTR tags, you can follow the steps below:
+To run the Runner.java file and execute the test cases marked with the  and @MTR tags, you can follow the steps below:
 
 ## Requirements
 
