@@ -62,13 +62,13 @@ public class sponsoredAdsPage extends BasePage {
     public WebElement payBtn;
     @FindBy(xpath = "//*[contains(text(), 'Pay')]")
     public WebElement pendingPayBtn;
-    @FindBy(how = How.CSS, using = "#card-number")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/form/div/div[2]/div/div/div[2]/input")
     public WebElement cardNumberTextField;
-    @FindBy(how = How.CSS, using = "#card-name")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/form/div/div[2]/div/div/div[3]/div[1]/div/input")
     public WebElement cardNameTextField;
-    @FindBy(how = How.CSS, using = "#expiry-date")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/form/div/div[2]/div/div/div[3]/div[2]/div/input")
     public WebElement expirationDateTextField;
-    @FindBy(how = How.CSS, using = "#\\#card-cvc")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/form/div/div[2]/div/div/div[3]/div[3]/div/input")
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = ".btn > span:nth-child(2)")
     public WebElement submitPaymentBtn;
@@ -401,8 +401,17 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void iSubmitPendingPayment() {
-        fluentWait(getDriver(), submitPaymentBtn);
-        waitForWebElementAndClick(submitPaymentBtn);
+        try {
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+            fluentWait(getDriver(), payingErrorMSG);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+        } finally {
+            fluentWait(getDriver(), payingErrorMSG);
+        }
     }
 
     public void ScortBy() {
@@ -433,31 +442,37 @@ public class sponsoredAdsPage extends BasePage {
     public void deleteAd() {
 
         try {
-            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            fluentWait(getDriver(), getDriver().findElement(By.id("inactive")));
             WebElement activeDiv = getDriver().findElement(By.id("inactive"));
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
             waitForClickability(spanElement);
-            fluentWait(getDriver(),spanElement);
+            fluentWait(getDriver(), spanElement);
             waitForWebElementAndClick(spanElement);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(),getDriver().findElement(By.id("inactive")));
+            fluentWait(getDriver(), getDriver().findElement(By.id("inactive")));
             WebElement activeDiv = getDriver().findElement(By.id("inactive"));
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
-            fluentWait(getDriver(),lastElement);
+            fluentWait(getDriver(), lastElement);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
             waitForClickability(spanElement);
-            fluentWait(getDriver(),spanElement);
+            fluentWait(getDriver(), spanElement);
             waitForWebElementAndClick(spanElement);
         }
     }
 
     public boolean payingErrorMSG() {
-        boolean result = payingErrorMSG.isDisplayed();
-        return result;
+        try {
+            boolean result = payingErrorMSG.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            boolean result = payingErrorMSG.isDisplayed();
+            return result;
+        }
     }
 
 
@@ -469,21 +484,21 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public void validateStartDateField() {
-        String startDateConvert =null;
+        String startDateConvert = null;
         String startDateEdit = null;
         try {
             startDateConvert = startDate.replace("-", "/");
-            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            fluentWait(getDriver(), getDriver().findElement(By.id("active")));
             WebElement activeDiv = getDriver().findElement(By.id("active"));
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
             WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
             String spanText = spanElement.getText();
             startDateEdit = spanText.replace("Start Date: ", "");
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             startDateConvert = startDate.replace("-", "/");
-            fluentWait(getDriver(),getDriver().findElement(By.id("active")));
+            fluentWait(getDriver(), getDriver().findElement(By.id("active")));
             WebElement activeDiv = getDriver().findElement(By.id("active"));
             wait(3);
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));

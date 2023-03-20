@@ -196,11 +196,14 @@ public class makeAnOfferPage extends BasePage {
             fluentWaitElementDisappears(getDriver(), errorMessageSignUp);
             fluentWait(getDriver(), imSellerBtn);
             waitForWebElementAndClick(imSellerBtn);
+            fluentWaitStrict(getDriver(), nextBtn);
         } catch (Exception e) {
             wait(4);
             fluentWait(getDriver(), imSellerBtn);
             waitForWebElementAndClick(imSellerBtn);
             retryingFindClick(imSellerBtn);
+        }finally {
+            fluentWaitStrict(getDriver(), nextBtn);
         }
     }
 
