@@ -119,7 +119,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#purchased-tab > span > span:nth-child(1)")
     public WebElement ordersPurchasedBtn;
 
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnAddToCart")
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btn-add-to-cart")
     public WebElement addToCartBtn;
 
     @FindBy(how = How.CSS, using = "#item-4891 > div > div.row > div:nth-child(2) > div > div.col-lg-6 > a")
@@ -431,6 +431,7 @@ public class bugsPage extends BasePage {
     LogEntries logEntries = getDriver().manage().logs().get("browser");
 
     public boolean validateErrorConsole() {
+
         boolean result = true;
         for (LogEntry entry : logEntries) {
             String errorLogType = entry.getLevel().toString();

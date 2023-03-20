@@ -267,10 +267,14 @@ public class AddonsPage extends BasePage {
         try {
             fluentWait(getDriver(), addNewAddOnsBtn);
             waitForWebElementAndClick(addNewAddOnsBtn);
+            fluentWait(getDriver(), addonServiceBtn);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), addNewAddOnsBtn);
             waitForWebElementAndClick(addNewAddOnsBtn);
+        }
+        finally {
+            fluentWait(getDriver(), addonServiceBtn);
         }
 
     }

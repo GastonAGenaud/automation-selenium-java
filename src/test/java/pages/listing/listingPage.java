@@ -294,9 +294,15 @@ public class listingPage extends BasePage {
     }
 
     public void categoryJewelryBtn() {
-        fluentWaitStrict(getDriver(), categoryJewelry);
-        wait(2);
-        waitForWebElementAndClick(categoryJewelry);
+        try {
+            fluentWaitStrict(getDriver(), categoryJewelry);
+            waitForWebElementAndClick(categoryJewelry);
+        }catch (Exception e){
+            wait(2);
+            fluentWaitStrict(getDriver(), categoryJewelry);
+            waitForWebElementAndClick(categoryJewelry);
+        }
+
     }
 
     public void categoryHottestItemsBtn() {
@@ -311,8 +317,20 @@ public class listingPage extends BasePage {
     }
 
     public void subcategoryBtn() {
-        fluentWait(getDriver(), subcategoryBtn);
-        waitForWebElementAndClick(subcategoryBtn);
+        try {
+            fluentWait(getDriver(), subcategoryBtn);
+            waitForWebElementAndClick(subcategoryBtn);
+            fluentWaitStrict(getDriver(), subcategoryMensClothing);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), subcategoryBtn);
+            waitForWebElementAndClick(subcategoryBtn);
+        }
+        finally {
+            fluentWaitStrict(getDriver(), subcategoryMensClothing);
+        }
+
+
     }
 
     public void subcategoryMensClothing() {

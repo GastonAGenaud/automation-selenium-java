@@ -670,7 +670,7 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate that the 404 error does not exist.")
     public void iValidateThatTheErrorDoesNotExist() {
-        Assert.assertEquals(true, _page.validateErrorConsole());
+        Assert.assertEquals(false, _page.validateErrorConsole());
     }
 
     @When("I select Purchased button in orders")

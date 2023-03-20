@@ -32,7 +32,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement logInBtn;
     @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.mb-4 > div > a")
     public WebElement sellerNameBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.mb-4 > div > div > a")
+    @FindBy(xpath = "//a[contains(text(), 'Send message')]")
     public WebElement sendMessageBtn;
     @FindBy(how = How.CSS, using = "#message-text")
     public WebElement messageTextField;
@@ -50,7 +50,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement quantityTextField;
     @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
     public WebElement buyNowBtn;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > button.own-btn.own-btn-md.btn-outline-primary.fz-16.font-weight-bold.mr-2.secondary-font.mb-3.btnAddToCart")
+    @FindBy(xpath = "//button[contains(text(), 'Add to Cart')]")
     public WebElement addToCartBtn;
     @FindBy(how = How.CSS, using = "#whole-container > main > div.px-sm-3.px-md-4.px-lg-5.py-4.pt-lg-5 > div > div > div.col-12.col-lg-5.pl-lg-3.pr-lg-0 > div.d-flex.flex-wrap.align-items-center.justify-content-start > a")
     public WebElement makeAnOfferBtn;
@@ -155,6 +155,7 @@ public class listingdetailsPage extends BasePage {
     public WebElement activePdfBtn;
     @FindBy(how = How.CSS, using = "#img-7")
     public WebElement PdfFieldLoad;
+
     public boolean validateMessageText() {
         fluentWait(getDriver(), validateTextFromSendMessage);
         boolean result = validateTextFromSendMessage.isDisplayed();
@@ -281,7 +282,7 @@ public class listingdetailsPage extends BasePage {
             waitForWebElementAndClick(nextPageBtn);
             fluentWait(getDriver(), pendingBtn);
             wait(5);
-             List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
             for (WebElement category : hottestItemsList) {
                 if (category.getText().contains("Hottest Items")) {
                     wait(3);
@@ -417,7 +418,7 @@ public class listingdetailsPage extends BasePage {
         try {
             boolean result = browseSearchBtn.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             boolean result = browseSearchBtn.isDisplayed();
             return result;
@@ -431,7 +432,17 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void iSelectSendMessage() {
-        messageTexActivate();
+        fluentWait(getDriver(), sendMessageBtn);
+        waitForWebElementAndClick(sendMessageBtn);
+        fluentWait(getDriver(), messageTextField);
+        waitForWebElementAndClick(messageTextField);
+        messageTextField.sendKeys("Automation message");
+        fluentWait(getDriver(), sendBtn);
+        waitForWebElementAndClick(sendBtn);
+    }
+
+
+        /*messageTexActivate();
         fluentWait(getDriver(), sendMessageBtn);
         waitForWebElementAndClick(sendMessageBtn);
         fluentWait(getDriver(), messageTextField);
@@ -480,9 +491,13 @@ public class listingdetailsPage extends BasePage {
                 fluentWait(getDriver(), sendBtn);
                 waitForWebElementAndClick(sendBtn);
             }
+
+
         }
+
+         */
 //        waitForWebElementAndClick(sendBtn);
-    }
+
 
     public void iSelectVariant() {
         fluentWait(getDriver(), redBtn);
@@ -507,8 +522,14 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void iSelectAddToCart() {
-        fluentWait(getDriver(), addToCartBtn);
-        waitForWebElementAndClick(addToCartBtn);
+        try {
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+        }
     }
 
     public void iGoToMakingOfferPage() {
@@ -558,23 +579,24 @@ public class listingdetailsPage extends BasePage {
         waitForWebElementAndClick(listingNameTextField);
         listingNameTextField.sendKeys("Test Download File");
     }
-    public void activePdf(){
+
+    public void activePdf() {
         try {
-            fluentWait(getDriver(),activePdfBtn);
+            fluentWait(getDriver(), activePdfBtn);
             waitForWebElementAndClick(activePdfBtn);
-            fluentWait(getDriver(),PdfFieldLoad);
-        }catch (Exception e){
+            fluentWait(getDriver(), PdfFieldLoad);
+        } catch (Exception e) {
             wait(3);
 
         }
 
     }
+
     public static final String EV_RESULT_PDF_PATH = System.getProperty("user.dir") + "/src/test/resources/media/Doc1.pdf";
 
     public void listingPdfLoad() {
         PdfFieldLoad.sendKeys(EV_RESULT_PDF_PATH);
     }
-
 
 
     public void iSelectTheProductInformation() {

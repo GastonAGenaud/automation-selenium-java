@@ -87,7 +87,7 @@ public class requestPage extends BasePage {
     public WebElement maximumBudgetTextField;
     @FindBy(how = How.CSS, using = "#end-date")
     public WebElement endDateTextField;
-    @FindBy(xpath = "/html/body/form/div/div[6]/div/div[2]/label[1]/span")
+    @FindBy(xpath = "/html/body/form/div/div[6]/div/div[3]/label[1]/span")
     public WebElement locationCheckBoxBtn;
     @FindBy(how = How.CSS, using = "#btn-create")
     public WebElement publishRequestBtn;
@@ -241,14 +241,13 @@ public class requestPage extends BasePage {
         try {
             fluentWait(getDriver(), browseCreateRequestBtn);
             waitForWebElementAndClick(browseCreateRequestBtn);
-            fluentWait(getDriver(),validateRequestDashboard);
-        }catch (Exception e){
+            fluentWait(getDriver(), validateRequestDashboard);
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), browseCreateRequestBtn);
             waitForWebElementAndClick(browseCreateRequestBtn);
-        }
-        finally {
-            fluentWait(getDriver(),validateRequestDashboard);
+        } finally {
+            fluentWait(getDriver(), validateRequestDashboard);
         }
 
 
@@ -382,16 +381,15 @@ public class requestPage extends BasePage {
     }
 
     public void next2() {
-       try {
-           fluentWait(getDriver(), next2Btn);
-           waitForWebElementAndClick(next2Btn);
-           fluentWait(getDriver(), minimumBudgetTextField);
-       }
-       catch (Exception e){
-           wait(2);
-           fluentWait(getDriver(), next2Btn);
-           waitForWebElementAndClick(next2Btn);
-       }
+        try {
+            fluentWait(getDriver(), next2Btn);
+            waitForWebElementAndClick(next2Btn);
+            fluentWait(getDriver(), minimumBudgetTextField);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), next2Btn);
+            waitForWebElementAndClick(next2Btn);
+        }
 
     }
 
@@ -414,9 +412,9 @@ public class requestPage extends BasePage {
             requestDescriptionTextField.sendKeys("test automation");
 
         }
-       // fluentWait(getDriver(), requestDescriptionTextField);
-       // waitForWebElementAndClick(requestDescriptionTextField);
-       // requestDescriptionTextField.sendKeys("test automation");
+        // fluentWait(getDriver(), requestDescriptionTextField);
+        // waitForWebElementAndClick(requestDescriptionTextField);
+        // requestDescriptionTextField.sendKeys("test automation");
     }
 
     public void minimumBudget() {
@@ -444,11 +442,18 @@ public class requestPage extends BasePage {
     }
 
     public void locationCheckBox() {
-        fluentWait(getDriver(), locationCheckBoxBtn);
-        waitForWebElementAndClick(locationCheckBoxBtn);
-
-        fluentWait(getDriver(), next2Btn);
-        waitForWebElementAndClick(next2Btn);
+        try {
+            fluentWait(getDriver(), locationCheckBoxBtn);
+            waitForWebElementAndClick(locationCheckBoxBtn);
+            fluentWait(getDriver(), next2Btn);
+            waitForWebElementAndClick(next2Btn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), locationCheckBoxBtn);
+            waitForWebElementAndClick(locationCheckBoxBtn);
+            fluentWait(getDriver(), next2Btn);
+            waitForWebElementAndClick(next2Btn);
+        }
     }
 
     public void publishRequest() {
