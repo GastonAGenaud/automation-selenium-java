@@ -131,4 +131,40 @@ public class ServicesBugsSteps extends BasePage {
     public void svcIValidateThatTheBugOfBeingAbleToContinueCreatingTheListingWithoutAddingTheImageNoLongerOccurs() {
         _page.imgCannotBeEmpty();
     }
+
+    @And("SVC select Service from User in Listings")
+    public void svcSelectServiceFromUserInListings() {
+        _page.userImageFromListing();
+    }
+
+    @And("Go back to Listings")
+    public void goBackToListings() {
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Listing/Browse");
+    }
+
+    @Then("I validate that the List View is displaying correctly and the bug no longer occurs")
+    public void iValidateThatTheListViewIsDisplayingCorrectlyAndTheBugNoLongerOccurs() {
+        _page.validateListing();
+    }
+
+    @When("SVC I select Browse Experts")
+    public void svcISelectBrowseExperts() {
+        _page.browseExpertsTab();
+    }
+
+    @And("SVC I select list view BUG")
+    public void SvCiSelectListViewBUG() {
+        _page.validatingTextHigherAndLower();
+        _page.listViewBUG();
+    }
+
+    @And("SVC select Create a New Listing from Provider")
+    public void svcSelectCreateANewListingFromProvider() {
+        _page.addListingFromProvider();
+    }
+
+    @Then("I valid that the Add Listing Section from Provider works correctly and the bug no longer occurs")
+    public void iValidThatTheAddListingSectionFromProviderWorksCorrectlyAndTheBugNoLongerOccurs() {
+        _page.createListingValidateWeb();
+    }
 }

@@ -15,14 +15,14 @@ Feature: Services Admin
     Then SVC I see all the functionalities in the administration panel for the user
 
   @MMRS-393 @MMRSAdmin @MMRS
-  Scenario: Validate Select your homepage layout
+  Scenario: SVC Validate Select your homepage layout
     Given SVC Step 2: Select your homepage layout
     When SVC I validate the options
     And SVC I validate the next button
     Then SVC I see the Step 3
 
   @MMRS-394 @MMRSAdmin @MMRS
-  Scenario: Validate Select design your homepage
+  Scenario: SVC Validate Select design your homepage
     Given SVC Step 3: Design your homepage
     When SVC I validate the Header
     And SVC I validate the Footer
@@ -33,7 +33,7 @@ Feature: Services Admin
     Then SVC I Validate the design homepage
 
   @MMRS-395 @MMRSAdmin @MMRS
-  Scenario: validate Create Categories
+  Scenario:SVC Validate Create Categories
     Given SVC Step 4: Create Categories
     #When SVC I validate the Import data button
 #    And SVC I type on category name field

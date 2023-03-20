@@ -97,6 +97,64 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
     public WebElement imageCannotBeEmpty;
 
+    @FindBy(how = How.CSS, using = "#listing-img-0")
+    public WebElement userServiceImageFromListing;
+
+    @FindBy(how = How.CSS, using = "#container-block")
+    public WebElement listingValidation;
+
+    @FindBy(how = How.CSS, using = "#browse-header-text-customize")
+    public WebElement browseExperts;
+
+    @FindBy(xpath = "//span[contains(text(), 'Price: Higher to Lower')]")
+    public WebElement validateTextHigherLower;
+
+    @FindBy(how = How.CSS, using = "#list-tab")
+    public WebElement listViewBtn;
+
+    @FindBy(how = How.CSS, using = "#href-createlisting")
+    public WebElement createListingFromProvider;
+
+    @FindBy(how = How.CSS, using = "#dashboard > div")
+    public WebElement addListingWebValidate;
+
+    public void createListingValidateWeb(){
+        fluentWait(getDriver(), addListingWebValidate);
+        Assert.assertTrue(addListingWebValidate.isDisplayed());
+    }
+
+    public void addListingFromProvider(){
+        fluentWait(getDriver(), createListingFromProvider);
+        waitForWebElementAndClick(createListingFromProvider);
+    }
+
+    public void listViewBUG() {
+        fluentWait(getDriver(), listViewBtn);
+        waitForWebElementAndClick(listViewBtn);
+    }
+
+
+    public void validatingTextHigherAndLower(){
+        fluentWait(getDriver(), validateTextHigherLower);
+        validateTextHigherLower.isDisplayed();
+    }
+
+
+    public void browseExpertsTab(){
+        fluentWait(getDriver(), browseExperts);
+        waitForWebElementAndClick(browseExperts);
+    }
+
+    public void validateListing(){
+        fluentWait(getDriver(), listingValidation);
+        Assert.assertTrue(listingValidation.isDisplayed());
+    }
+
+    public void userImageFromListing(){
+        fluentWait(getDriver(), userServiceImageFromListing);
+        waitForWebElementAndClick(userServiceImageFromListing);
+    }
+
     public void imgCannotBeEmpty(){
         fluentWait(getDriver(), imageCannotBeEmpty);
         Assert.assertTrue(imageCannotBeEmpty.isDisplayed());

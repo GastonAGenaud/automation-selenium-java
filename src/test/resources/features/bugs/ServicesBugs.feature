@@ -67,3 +67,23 @@ Feature: Services Bugs
     And SVC I validate the listing Hourly price
     And SVC I select the go to details
     Then SVC I validate that the bug of being able to continue creating the listing without adding the image no longer occurs
+
+  @MMRS-530
+  Scenario: CS - Browse - List View is broken
+    Given SVC I login
+    When SVC I select Browse Experts
+    And SVC select Service from User in Listings
+    And Go back to Listings
+    And SVC I select list view BUG
+    And Go back to Listings
+    And SVC select Service from User in Listings
+    And Go back to Listings
+    Then I validate that the List View is displaying correctly and the bug no longer occurs
+
+    @MMRS-526
+  Scenario: CS - Site Settings are not fetched correctly
+    Given SVC I login and go to Dashboard
+    When SVC I select dashboard provider section
+    And SVC select Create a New Listing from Provider
+    Then I valid that the Add Listing Section from Provider works correctly and the bug no longer occurs
+
