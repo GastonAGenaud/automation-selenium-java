@@ -120,10 +120,13 @@ public class makeAnOfferPage extends BasePage {
             return result;
         } catch (Exception e) {
             wait(4);
-            waitForWebElementAndClick(validateText);
+            fluentWait(getDriver(),validateText);
             boolean result = lastErrorValidate.isDisplayed();
             return result;
+        }finally {
+            fluentWait(getDriver(),validateText);
         }
+
     }
 
 

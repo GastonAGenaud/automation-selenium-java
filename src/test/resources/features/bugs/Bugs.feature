@@ -528,7 +528,7 @@ Feature: Bugs
     Then I validate the Submit Payment
     And I go to dashboard
     And I log out
-    Given I login with Gaston User
+    And I login with Gaston User
     And I go to orders page BUGS
     And Sold the product
     And Valid that sold the product
@@ -538,6 +538,12 @@ Feature: Bugs
     And I go to orders page
     And file selection or download file
 
+  @MTR @MTR  @bugs @MTR  @MTR-3225
+  Scenario: MTR - Item Reviews
+    Given I Sign in with new account "email2" and go to the listing page
+    And I go to dashboard
+    When buy the product
+    Then valid that the purchase of the product can be carried out
 
 
 

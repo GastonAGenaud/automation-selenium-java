@@ -417,6 +417,8 @@ public class bugsPage extends BasePage {
     public WebElement approvedBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
     public WebElement NewProduct;
+    @FindBy(how = How.CSS, using = "#whole-container > main > div > div > div > div:nth-child(1) > div > p")
+    public WebElement validateText;
 
     public void goToProductDownloadFile() {
         getDriver().navigate().to(newProductUrl);
@@ -1695,5 +1697,10 @@ public class bugsPage extends BasePage {
     public void saveTheUrlProduct() {
         getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         newProductUrl = getDriver().getCurrentUrl();
+    }
+    public boolean validateBuyTheProductBUG(){
+        Boolean result = validateText.isDisplayed();
+        return result;
+
     }
 }

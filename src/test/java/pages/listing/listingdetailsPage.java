@@ -432,13 +432,31 @@ public class listingdetailsPage extends BasePage {
     }
 
     public void iSelectSendMessage() {
-        fluentWait(getDriver(), sendMessageBtn);
-        waitForWebElementAndClick(sendMessageBtn);
-        fluentWait(getDriver(), messageTextField);
-        waitForWebElementAndClick(messageTextField);
-        messageTextField.sendKeys("Automation message");
-        fluentWait(getDriver(), sendBtn);
-        waitForWebElementAndClick(sendBtn);
+        try {
+            fluentWait(getDriver(), sendMessageBtn);
+            waitForWebElementAndClick(sendMessageBtn);
+            fluentWait(getDriver(), messageTextField);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), sendMessageBtn);
+            waitForWebElementAndClick(sendMessageBtn);
+        }
+
+    }
+
+    public void iSendMessage() {
+        try {
+            fluentWait(getDriver(), messageTextField);
+            waitForWebElementAndClick(messageTextField);
+            messageTextField.sendKeys("Automation message");
+            fluentWait(getDriver(), sendBtn);
+            waitForWebElementAndClick(sendBtn);
+        }catch (Exception e){
+            wait(3);
+            messageTextField.sendKeys("Automation message");
+            fluentWait(getDriver(), sendBtn);
+            waitForWebElementAndClick(sendBtn);
+        }
     }
 
 

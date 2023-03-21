@@ -362,12 +362,19 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersBuyAgain() {
-        fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
-        waitForWebElementAndClick(ordersPurchasedMenuTabButton);
+       try {
+           fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
+           waitForWebElementAndClick(ordersPurchasedMenuTabButton);
+           fluentWait(getDriver(), ordersBuyAgainBtn);
+           waitForWebElementAndClick(ordersBuyAgainBtn);
+       }catch (Exception e){
+           wait(3);
+           fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
+           waitForWebElementAndClick(ordersPurchasedMenuTabButton);
+           fluentWait(getDriver(), ordersBuyAgainBtn);
+           waitForWebElementAndClick(ordersBuyAgainBtn);
+       }
 
-
-        fluentWait(getDriver(), ordersBuyAgainBtn);
-        waitForWebElementAndClick(ordersBuyAgainBtn);
     }
 
 

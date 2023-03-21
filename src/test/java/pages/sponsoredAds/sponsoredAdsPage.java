@@ -376,28 +376,61 @@ public class sponsoredAdsPage extends BasePage {
 
 
     public void cardNumberTXT() {
-        fluentWait(getDriver(), cardNumberTextField);
-        waitForWebElementAndClick(cardNumberTextField);
-        cardNumberTextField.sendKeys("1111111111111111");
+        try {
+            fluentWait(getDriver(), cardNumberTextField);
+            waitForWebElementAndClick(cardNumberTextField);
+            cardNumberTextField.sendKeys("1111111111111111");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cardNumberTextField);
+            waitForWebElementAndClick(cardNumberTextField);
+            cardNumberTextField.sendKeys("1111111111111111");
+        }
+
     }
 
     public void nameOnCardTXT() {
-        fluentWait(getDriver(), cardNameTextField);
-        waitForWebElementAndClick(cardNameTextField);
-        cardNameTextField.sendKeys("Automation");
+        try {
+            fluentWait(getDriver(), cardNameTextField);
+            waitForWebElementAndClick(cardNameTextField);
+            cardNameTextField.sendKeys("Automation");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cardNameTextField);
+            waitForWebElementAndClick(cardNameTextField);
+            cardNameTextField.sendKeys("Automation");
+        }
+
     }
 
     public void expirationDateTXT() {
-        fluentWait(getDriver(), expirationDateTextField);
-        waitForWebElementAndClick(expirationDateTextField);
-        expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
-        expirationDateTextField.sendKeys("01/25");
+        try {
+            fluentWait(getDriver(), expirationDateTextField);
+            waitForWebElementAndClick(expirationDateTextField);
+            expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
+            expirationDateTextField.sendKeys("01/25");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), expirationDateTextField);
+            waitForWebElementAndClick(expirationDateTextField);
+            expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
+            expirationDateTextField.sendKeys("01/25");
+        }
+
     }
 
     public void cvvCodeTXT() {
-        fluentWait(getDriver(), cvvCodeTextField);
-        waitForWebElementAndClick(cvvCodeTextField);
-        cvvCodeTextField.sendKeys("111");
+        try {
+            fluentWait(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("111");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("111");
+        }
+
     }
 
     public void iSubmitPendingPayment() {
@@ -426,9 +459,16 @@ public class sponsoredAdsPage extends BasePage {
 
 
     public void expiresLastOption() {
-        ScortBy();
-        fluentWait(getDriver(), expireSLastBtn);
-        waitForWebElementAndClick(expireSLastBtn);
+        try {
+            ScortBy();
+            fluentWait(getDriver(), expireSLastBtn);
+            waitForWebElementAndClick(expireSLastBtn);
+        } catch (Exception e) {
+            wait(3);
+            ScortBy();
+            fluentWait(getDriver(), expireSLastBtn);
+            waitForWebElementAndClick(expireSLastBtn);
+        }
         // actions.moveToElement(sortByBtn).perform();
         //waitForWebElementAndClick(expiresLastBtn);
     }

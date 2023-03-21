@@ -157,10 +157,8 @@ public class checkoutSteps extends BasePage {
 
     @Then("I validate the Go To Secure Checkout button")
     public void iValidateTheGoToSecureCheckoutButton() {
-
         iSelectTheSubmitPaymentButton();
-
-        Assert.assertEquals(_page.validateSecureCheckout(), "Now share it with the world");
+        Assert.assertEquals( "Now share it with the world",_page.validateSecureCheckout());
     }
 
     @And("I select the Back to my cart button")
@@ -170,7 +168,6 @@ public class checkoutSteps extends BasePage {
 
     @Then("I validate the Back to my cart button")
     public void iValidateTheBackToMyCartButton() {
-        wait(5);
         Assert.assertEquals(true, _page.cartCheckoutConfirm());
     }
 

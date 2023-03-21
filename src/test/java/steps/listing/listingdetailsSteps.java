@@ -61,6 +61,7 @@ public class listingdetailsSteps extends BasePage {
     public void iSelectTheSendMessageButton() {
         _page.goToListingItem();
         _page.iSelectSendMessage();
+        _page.iSendMessage();
     }
 
     @Then("I see that it redirects me to the chat page")
