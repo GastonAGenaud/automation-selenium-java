@@ -1,7 +1,7 @@
 Feature: Listing
 
 
-  @MMRSlisting @MMRS-578 @MMRS
+  @MMRSlisting @MMRS-904 @MMRS
 
   Scenario: SVC - Buyer able to create a listing
     Given SVC I login
@@ -34,7 +34,7 @@ Feature: Listing
   #Crear un caso de pruebas dando click en delete
 
 
-  @testingEdit
+  @testingEdit @MMRS-905
   Scenario: SVC - User able to edit classes
     Given SVC I login and I go to Dashboard
     And SVC I validate the My Listings button
@@ -53,17 +53,17 @@ Feature: Listing
     And SVC I select Publish button
     Then SVC I validate the Edit button
 
-  @testingShare
+  @testingShare @MMRS-906
   Scenario: SVC - User able to share class
-    Given I login And SVC I go to Dashboard
+    Given SVC I login and I go to Dashboard
     And SVC I validate the My Listings button
     And SVC I select tab dots
     When SVC I select Share button
     Then SVC I validate Share button
 
-  @testingDelete
+  @testingDelete @MMRS-907
   Scenario: SVC - User able to delete class
-    Given I login And SVC I go to Dashboard
+    Given SVC I login and I go to Dashboard
     And SVC I validate the My Listings button
     And SVC I select tab dots
     When SVC I select Delete button

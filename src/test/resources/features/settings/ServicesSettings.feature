@@ -1,6 +1,6 @@
 Feature: Settings
 
-  @MMRS-350 @MMRS  @MMRSSettings
+  @MMRS-917 @MMRS  @MMRSSettings
   Scenario: SVC - Profile page
     Given I login and go to dashboard page
     When SVC I select My Settings
@@ -13,35 +13,35 @@ Feature: Settings
     #And I select social section
     #Then I see the social information
 
-  @MMRS-352 @MMRS  @MMRSSettings
+  @MMRS-918 @MMRS  @MMRSSettings
   Scenario: SVC - Payment
     Given I login and go to dashboard page
     When SVC I select My Settings
     And I select payment section
     Then I see the payment information
 
-  @MMRS-353 @MMRS  @MMRSSettings
+  @MMRS-919 @MMRS  @MMRSSettings
   Scenario: SVC - CashOut
     Given I login and go to dashboard page
     When SVC I select My Settings
     And I select CashOut section
     Then I see the cashout information
 
-  @MMRS-354 @MMRS  @MMRS @MMRSSettings
+  @MMRS-920 @MMRS  @MMRS @MMRSSettings
   Scenario: SVC - Password
     Given I login and go to dashboard page
     When SVC I select My Settings
     And I select password section
     Then I see the password information
 
-  @MMRS-355 @MMRS  @MMRSSettings
+  @MMRS-921 @MMRS  @MMRSSettings
   Scenario: SVC - Addresses
     Given I login and go to dashboard page
     When SVC I select My Settings
     And SVC I select Addresses section
     Then SVC I see the Addresses information
 
-  @MMRS-355 @MMRS  @MMRSSettings
+  @MMRS-922 @MMRS  @MMRSSettings
   Scenario: SVC - Notifications
     Given I login and go to dashboard page
     When SVC I select My Settings

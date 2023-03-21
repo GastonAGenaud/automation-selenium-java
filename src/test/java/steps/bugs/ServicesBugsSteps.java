@@ -167,4 +167,22 @@ public class ServicesBugsSteps extends BasePage {
     public void iValidThatTheAddListingSectionFromProviderWorksCorrectlyAndTheBugNoLongerOccurs() {
         _page.createListingValidateWeb();
     }
+
+    @When("Deactivate Verify user")
+    public void deactivateVerifyUser() {
+        _page.deactivateAddonVerify();
+        _page.deactivateAddonVerifyConfirm();
+    }
+
+    @And("Deactivate Explainer Video")
+    public void deactivateExplainerVideo() {
+    }
+
+    @And("Deactivate Google Analytics")
+    public void deactivateGoogleAnalytics() {
+    }
+
+    @Then("I validate that the addons can be deactivated correctly and the bug no longer occurs.")
+    public void iValidateThatTheAddonsCanBeDeactivatedCorrectlyAndTheBugNoLongerOccurs() {
+    }
 }

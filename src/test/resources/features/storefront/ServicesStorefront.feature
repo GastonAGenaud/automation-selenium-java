@@ -12,7 +12,7 @@ Feature: Services Storefront
     #When I select the Change cover picture button
     #Then I see the new cover image
 
-  @MMRS @MMRSStorefront
+  @MMRS-926 @MMRSStorefront
   Scenario: SVC - Validate settings profile page
     Given SVC I login
     When SVC I validate the settings button

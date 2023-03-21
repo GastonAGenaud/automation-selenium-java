@@ -1,6 +1,6 @@
 Feature: Services Checkout
 
-  @MMRS-378 @MMRSCheckout @MMRS
+  @MMRS-875 @MMRSCheckout @MMRS
   Scenario: SVC - Buyer able to book a class with flat fee service
     Given SVC I login
     When SVC I go to a class
@@ -10,7 +10,7 @@ Feature: Services Checkout
     And SVC I select the hire accept button
     Then SVC I see the shopping cart
 
-  @MMRS-379 @MMRSCheckout @MMRS
+  @MMRS-876 @MMRSCheckout @MMRS
   Scenario: SVC Buyer able to book a class with hourly
     Given SVC I login
     When SVC I go to a class
@@ -23,7 +23,7 @@ Feature: Services Checkout
     And SVC I go back to cart
     Then SVC I see the shopping cart
 
-  @MMRS-380 @MMRSCheckout @MMRS
+  @MMRS-877 @MMRSCheckout @MMRS
   Scenario: SVC Buyer able to add a new credit cart
     Given SVC I login
     When SVC I go to a class
@@ -40,7 +40,7 @@ Feature: Services Checkout
     And SVC I select save checkbox
     Then SVC I validate the new credit card
 
-  @MMRS-402 @MMRSCheckout @MMRS
+  @MMRS-878 @MMRSCheckout @MMRS
   Scenario: SVC Buyer able to submit payment
     Given SVC I login
     When SVC I go to a class

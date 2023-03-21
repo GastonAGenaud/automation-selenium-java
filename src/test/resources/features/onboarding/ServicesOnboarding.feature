@@ -1,6 +1,6 @@
-Feature: Services Boarding
+Feature: Services Onboarding
 
-  @MMRS-362
+  @MMRS-909
   Scenario: SVC Create my marketplace builder account and go to admin panel
     Given SVC I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When SVC I type on name field
@@ -18,7 +18,7 @@ Feature: Services Boarding
     And SVC I go to the admin panel
     Then SVC I create my marketplace products page
 
-  @MMRS-363
+  @MMRS-910
   Scenario: SVC Complete a marketplace of products
     Given SVC I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When SVC I type on name field
@@ -36,7 +36,7 @@ Feature: Services Boarding
     And SVC I click the button Save payment
     Then SVC I create my marketplace products page
 
-  @MMRS-364
+  @MMRS-911
   Scenario: SVC Complete a marketplace of service
     Given SVC I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding"
     When SVC I type on name field

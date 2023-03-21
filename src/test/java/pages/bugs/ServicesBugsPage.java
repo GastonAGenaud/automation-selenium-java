@@ -118,6 +118,24 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#dashboard > div")
     public WebElement addListingWebValidate;
 
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(1) > div > div.card-body.text-center > a")
+    public WebElement deactivateAddon1;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
+    public WebElement deactivateAddon1Confirm;
+
+    public void deactivateAddonVerifyConfirm(){
+        fluentWait(getDriver(), deactivateAddon1Confirm);
+        waitForWebElementAndClick(deactivateAddon1Confirm);
+    }
+
+    public void deactivateAddonVerify(){
+        fluentWait(getDriver(), deactivateAddon1);
+        waitForWebElementAndClick(deactivateAddon1);
+
+
+    }
+
     public void createListingValidateWeb(){
         fluentWait(getDriver(), addListingWebValidate);
         Assert.assertTrue(addListingWebValidate.isDisplayed());

@@ -80,10 +80,18 @@ Feature: Services Bugs
     And Go back to Listings
     Then I validate that the List View is displaying correctly and the bug no longer occurs
 
-    @MMRS-526
+  @MMRS-526
   Scenario: CS - Site Settings are not fetched correctly
     Given SVC I login and go to Dashboard
     When SVC I select dashboard provider section
     And SVC select Create a New Listing from Provider
     Then I valid that the Add Listing Section from Provider works correctly and the bug no longer occurs
+
+  Scenario: Unable to deactivate free add ons
+    Given SVC - I login and go to addons page
+    When Deactivate Verify user
+    And Deactivate Explainer Video
+    And Deactivate Google Analytics
+    Then I validate that the addons can be deactivated correctly and the bug no longer occurs.
+
 

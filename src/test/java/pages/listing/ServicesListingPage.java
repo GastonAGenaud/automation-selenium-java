@@ -123,6 +123,9 @@ public class ServicesListingPage extends BasePage {
     public void setUpHourlyCheckbox(){
         fluentWait(getDriver(), setUpHourly);
         waitForWebElementAndClick(setUpHourly);
+
+        fluentWait(getDriver(), setUpHourly);
+        waitForWebElementAndClick(setUpHourly);
     }
 
     public boolean validatingStripeTxtM(){

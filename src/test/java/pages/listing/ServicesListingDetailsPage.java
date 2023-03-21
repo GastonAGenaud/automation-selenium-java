@@ -59,7 +59,7 @@ public class ServicesListingDetailsPage extends BasePage {
     public WebElement hireNameText;
     @FindBy(how = How.CSS, using = "#sidebar > li:nth-child(1) > a > span > span.fz-20")
     public WebElement serviceInfoText;
-    @FindBy(how = How.CSS, using = "#availability > h4")
+    @FindBy(xpath = "//h5[contains(text(), 'Tech specialties')]")
     public WebElement availabilityText;
     @FindBy(xpath = "//h4[contains(text(), 'Flat Rate Services')]")
     public WebElement flatRateServicesText;
@@ -182,9 +182,16 @@ public class ServicesListingDetailsPage extends BasePage {
     }
 
     public boolean availabilityTxt() {
-        fluentWait(getDriver(), availabilityBtn);
-        boolean result = availabilityText.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), availabilityBtn);
+            boolean result = availabilityText.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(5);
+            fluentWait(getDriver(), availabilityBtn);
+            boolean result = availabilityText.isDisplayed();
+            return result;
+        }
     }
 
     public boolean flatRateServicesTxt() {

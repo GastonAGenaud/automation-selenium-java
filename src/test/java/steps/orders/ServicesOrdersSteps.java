@@ -58,6 +58,7 @@ public class ServicesOrdersSteps extends BasePage {
 
     @And("SVC I select sort by Pending response")
     public void svcISelectSortByPendingResponse() {
+        getDriver().navigate().refresh();
         _page.ordersPendingResponse();
     }
 

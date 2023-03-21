@@ -1,6 +1,6 @@
 Feature: Services Admin
 
-  @MMRS-392 @MMRSAdmin @MMRS
+  @MMRS-864 @MMRSAdmin @MMRS
   Scenario: SVC - Login and validate the elements on Admin Panel
     Given SVC I go to Admin page
     When SVC I validate step 1 Create your marketplace
@@ -14,14 +14,14 @@ Feature: Services Admin
     And SVC I validate step 9 create a request or add a listing
     Then SVC I see all the functionalities in the administration panel for the user
 
-  @MMRS-393 @MMRSAdmin @MMRS
+  @MMRS-865 @MMRSAdmin @MMRS
   Scenario: SVC Validate Select your homepage layout
     Given SVC Step 2: Select your homepage layout
     When SVC I validate the options
     And SVC I validate the next button
     Then SVC I see the Step 3
 
-  @MMRS-394 @MMRSAdmin @MMRS
+  @MMRS-866 @MMRSAdmin @MMRS
   Scenario: SVC Validate Select design your homepage
     Given SVC Step 3: Design your homepage
     When SVC I validate the Header
@@ -32,7 +32,7 @@ Feature: Services Admin
     And SVC I validate the Logo And Favicon
     Then SVC I Validate the design homepage
 
-  @MMRS-395 @MMRSAdmin @MMRS
+  @MMRS-867 @MMRSAdmin @MMRS
   Scenario:SVC Validate Create Categories
     Given SVC Step 4: Create Categories
     #When SVC I validate the Import data button
@@ -103,8 +103,8 @@ Feature: Services Admin
     #And SVC I validate Discount codes section
     Then SVC I validate Admin Settings
 
-  @MMRS-400 @MMRSAdmin @MMRS
-  Scenario: Admin panel Reports validate page
+  @MMRS-927 @MMRSAdmin @MMRS
+  Scenario:SVC Admin panel Reports validate page
     Given SVC Admin Reports
     When SVC I validate Contact Messages
     And SVC I validate User Reviews
@@ -112,8 +112,8 @@ Feature: Services Admin
     And SVC I validate User Transactions
     Then SVC I validate Admin Reports
 
-  @MMRS-401 @MMRSAdmin @MMRS
-  Scenario: Admin panel Add-ons validate page
+  @MMRS-928 @MMRSAdmin @MMRS
+  Scenario:SVC Admin panel Add-ons validate page
     Given SVC Admin Add-ons
     When SVC I validate Add-Ons Section
     #And SVC I validate Extensions
