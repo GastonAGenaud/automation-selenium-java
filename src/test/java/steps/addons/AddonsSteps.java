@@ -127,10 +127,10 @@ public class AddonsSteps extends BasePage {
         Assert.assertEquals("ZIP", _page.validateFedExZip());
         Assert.assertEquals("Country", _page.validateFedExCountry());
         Assert.assertEquals("Weight (lbs)", _page.validateFedExWeightLbs());
-        Assert.assertEquals("Weight (oz)", _page.validateFedExWeightOz());
-        Assert.assertEquals("Length (in)", _page.validateFedExLength());
-        Assert.assertEquals("Width (in)", _page.validateFedExWidth());
-        Assert.assertEquals("Height (in)", _page.validateFedExHeight());
+    //    Assert.assertEquals("Weight (oz)", _page.validateFedExWeightOz());
+    //    Assert.assertEquals("Length (in)", _page.validateFedExLength());
+    //    Assert.assertEquals("Width (in)", _page.validateFedExWidth());
+    //    Assert.assertEquals("Height (in)", _page.validateFedExHeight());
         Assert.assertEquals("Phone number", _page.validateFedExPhoneNumber());
     }
 

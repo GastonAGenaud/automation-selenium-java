@@ -470,9 +470,14 @@ public class requestPage extends BasePage {
     public void requestCopyURL() {
         String window = getDriver().getWindowHandle();
 
-        fluentWait(getDriver(), requestCopyURLBtn);
-        waitForWebElementAndClick(requestCopyURLBtn);
-
+        try {
+            fluentWait(getDriver(), requestCopyURLBtn);
+            waitForWebElementAndClick(requestCopyURLBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), requestCopyURLBtn);
+            waitForWebElementAndClick(requestCopyURLBtn);
+        }
         getDriver().switchTo().window(window);
 
     }

@@ -168,7 +168,7 @@ public class checkoutPage extends BasePage {
             fluentWait(getDriver(), congratulationsMessage);
             boolean result = congratulationsMessage.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), congratulationsMessage);
             boolean result = congratulationsMessage.isDisplayed();
@@ -178,9 +178,15 @@ public class checkoutPage extends BasePage {
     }
 
     public String validateSecureCheckout() {
-        fluentWait(getDriver(), validateSecureCheckoutText);
-        String result = validateSecureCheckoutText.getText();
-        return result;
+        try {
+            fluentWait(getDriver(), validateSecureCheckoutText);
+            String result = validateSecureCheckoutText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = validateSecureCheckoutText.getText();
+            return result;
+        }
     }
 
     public String myOrdersConfirm() {
@@ -195,9 +201,15 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean cartCheckoutConfirm() {
-        fluentWait(getDriver(), goToSecureCheckoutBtn);
-        boolean result = goToSecureCheckoutBtn.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), goToSecureCheckoutBtn);
+            boolean result = goToSecureCheckoutBtn.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            boolean result = goToSecureCheckoutBtn.isDisplayed();
+            return result;
+        }
     }
 
     public String summaryText() {
@@ -237,19 +249,17 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectFlatRate() {
-       try {
-           fluentWait(getDriver(), flatRateBtn);
-           waitForWebElementAndClick(flatRateBtn);
-           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
-       }
-        catch (Exception e){
-           wait(3);
+        try {
             fluentWait(getDriver(), flatRateBtn);
             waitForWebElementAndClick(flatRateBtn);
+            fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), flatRateBtn);
+            waitForWebElementAndClick(flatRateBtn);
+        } finally {
+            fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
         }
-       finally {
-           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
-       }
     }
 
     public void goToItemForShipping() {
@@ -262,9 +272,14 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectAddToCart() {
-        fluentWait(getDriver(), addToCartBtn);
-        waitForWebElementAndClick(addToCartBtn);
-
+        try {
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+        }
     }
 
     public void selectCartIcon() {
@@ -285,7 +300,7 @@ public class checkoutPage extends BasePage {
                 fluentWait(getDriver(), clearCartBtn);
                 waitForWebElementAndClick(clearCartBtn);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -294,8 +309,7 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(), acceptClearCartBtn);
             waitForWebElementAndClick(acceptClearCartBtn);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -324,8 +338,7 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(), plusIconBtn);
             waitForWebElementAndClick(plusIconBtn);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), plusIconBtn);
             waitForWebElementAndClick(plusIconBtn);
@@ -337,11 +350,13 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(), reUseAddressBtn);
             waitForWebElementAndClick(reUseAddressBtn);
-            fluentWait(getDriver(), flatRateBtn);
+
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), reUseAddressBtn);
             waitForWebElementAndClick(reUseAddressBtn);
+        } finally {
+            fluentWait(getDriver(), flatRateBtn);
         }
 
     }

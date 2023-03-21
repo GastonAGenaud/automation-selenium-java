@@ -846,4 +846,8 @@ public class bugsSteps extends BasePage {
     }
 
 
+    @Then("valid that the purchase of the product can be carried out")
+    public void validThatThePurchaseOfTheProductCanBeCarriedOut() {
+        Assert.assertEquals(true,_page.validateBuyTheProductBUG());
+    }
 }
