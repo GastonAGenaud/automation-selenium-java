@@ -385,9 +385,13 @@ public class homeSteps extends BasePage {
 public void lallallallal() throws IOException {
         _page.loginWithGastonNoBorrar();
         _page.loginWithGastonUser();
+        _page.loginWithDev();
+            _page.loginWithMakeAnOffer();
     }
 
  */
+
+
 
 
     @Given("I login with Gaston User")

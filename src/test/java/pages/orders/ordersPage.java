@@ -118,6 +118,8 @@ public class ordersPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#cancel-message")
     public WebElement cancelMessage;
+    @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
+    public WebElement goToSecureCheckoutBtn;
 
     @FindBy(xpath = "//p[contains(text(), 'Shipping Address')]")
     public WebElement shippingAddressText;
@@ -362,18 +364,18 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersBuyAgain() {
-       try {
-           fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
-           waitForWebElementAndClick(ordersPurchasedMenuTabButton);
-           fluentWait(getDriver(), ordersBuyAgainBtn);
-           waitForWebElementAndClick(ordersBuyAgainBtn);
-       }catch (Exception e){
-           wait(3);
-           fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
-           waitForWebElementAndClick(ordersPurchasedMenuTabButton);
-           fluentWait(getDriver(), ordersBuyAgainBtn);
-           waitForWebElementAndClick(ordersBuyAgainBtn);
-       }
+        try {
+            fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
+            waitForWebElementAndClick(ordersPurchasedMenuTabButton);
+            fluentWait(getDriver(), ordersBuyAgainBtn);
+            waitForWebElementAndClick(ordersBuyAgainBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), ordersPurchasedMenuTabButton);
+            waitForWebElementAndClick(ordersPurchasedMenuTabButton);
+            fluentWait(getDriver(), ordersBuyAgainBtn);
+            waitForWebElementAndClick(ordersBuyAgainBtn);
+        }
 
     }
 
@@ -389,8 +391,6 @@ public class ordersPage extends BasePage {
             boolean result = shippingAddressText.isDisplayed();
             return result;
         }
-
-
     }
 
     public void ordersShare() {
