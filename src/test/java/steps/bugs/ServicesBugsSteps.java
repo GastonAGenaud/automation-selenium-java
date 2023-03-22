@@ -172,17 +172,62 @@ public class ServicesBugsSteps extends BasePage {
     public void deactivateVerifyUser() {
         _page.deactivateAddonVerify();
         _page.deactivateAddonVerifyConfirm();
+        _page.loaderWheel();
     }
 
     @And("Deactivate Explainer Video")
     public void deactivateExplainerVideo() {
+        getDriver().navigate().refresh();
+        _page.addonExplainerDeactivate();
+        _page.deactivateAddonVerifyConfirm();
+        _page.loaderWheel();
     }
 
     @And("Deactivate Google Analytics")
     public void deactivateGoogleAnalytics() {
+        getDriver().navigate().refresh();
+        _page.analyticsDeactivate();
+        _page.deactivateAddonVerifyConfirm();
     }
 
     @Then("I validate that the addons can be deactivated correctly and the bug no longer occurs.")
     public void iValidateThatTheAddonsCanBeDeactivatedCorrectlyAndTheBugNoLongerOccurs() {
+        _page.loaderWheel();
+    }
+
+    @And("SVC select browse first option")
+    public void svcSelectBrowseFirstOption() {
+        _page.browseLayout();
+        _page.saveButtonLayout();
+    }
+
+    @And("SVC go to home")
+    public void svcGoToHome() {
+        getDriver().navigate().to(UrlSVC);
+        _page.validateHome();
+    }
+
+    @And("SVC return to homepage layout")
+    public void svcReturnToHomepageLayout() {
+    }
+
+    @And("SVC select Stylish layout")
+    public void svcSelectStylishLayout() {
+        _page.stylishLayout();
+    }
+
+    @Then("I validate that the browse first layout is displayed correctly and the bug no longer occurs")
+    public void iValidateThatTheBrowseFirstLayoutIsDisplayedCorrectlyAndTheBugNoLongerOccurs() {
+        _page.saveButtonLayout();
+    }
+
+    @And("SVC I go to Admin page again")
+    public void svcIGoToAdminPageAgain() {
+        _page.goToAdminPanel();
+    }
+
+    @Then("I Valid that the monthly offering button is not shown and the bug no longer occurs")
+    public void iValidThatTheMonthlyOfferingButtonIsNotShownAndTheBugNoLongerOccurs() {
+
     }
 }

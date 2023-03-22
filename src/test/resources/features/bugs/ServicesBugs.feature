@@ -87,6 +87,8 @@ Feature: Services Bugs
     And SVC select Create a New Listing from Provider
     Then I valid that the Add Listing Section from Provider works correctly and the bug no longer occurs
 
+
+  @TestingAddonsBug
   Scenario: Unable to deactivate free add ons
     Given SVC - I login and go to addons page
     When Deactivate Verify user
@@ -94,4 +96,50 @@ Feature: Services Bugs
     And Deactivate Google Analytics
     Then I validate that the addons can be deactivated correctly and the bug no longer occurs.
 
+#  Scenario: Unable to deactivate free add ons
+#    Given SVC - I login and go to addons page
+#    When Deactivate Verify user
+#    And Deactivate Explainer Video
+#    And Deactivate Google Analytics
+#    Then I validate that the addons can be deactivated correctly and the bug no longer occurs.
 
+
+  Scenario: CS - Add a listing - Can't publish listing, Connect with Stripe button is displayed while already connected to Stripe
+    Given SVC I login
+    And SVC I validate the My Listings button
+    When SVC I validate add new listing button
+    And SVC I validate listing name text field
+    And SVC I validate listing category
+    And SVC I validate listing description text field
+    And SVC I validate the listing Hourly price
+    And SVC I validate listing image
+    And SVC I validate listing video URL
+    And SVC I select the go to details
+    And SVC I select Work Model checkbox
+    And SVC I select Languages checkbox
+    And SVC I select Speciality checkbox
+    And SVC I complete Cancellation Text Field
+    And SVC I select Go to Availability button
+    And SVC I select Available Days tab
+    And SVC I select Add Time Slot
+#    Then I validate that the
+
+  @MMRS-429
+  Scenario: CS - Landing Page - with Browse first layout selected, listings are not showing
+    Given SVC Step 2: Select your homepage layout
+    And SVC I validate the options
+    And SVC select browse first option
+    And SVC go to home
+    And SVC I go to Admin page again
+    And SVC I validate the options
+    And SVC select Stylish layout
+    Then I validate that the browse first layout is displayed correctly and the bug no longer occurs
+
+    Scenario:CS - Monthly bookings toggle is visible by default
+      Given SVC I login
+      And SVC I validate the My Listings button
+      When SVC I validate add new listing button
+      And SVC I validate listing name text field
+      And SVC I validate listing category
+      And SVC I validate listing description text field
+      Then I Valid that the monthly offering button is not shown and the bug no longer occurs

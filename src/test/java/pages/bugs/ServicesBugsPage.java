@@ -124,6 +124,70 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement deactivateAddon1Confirm;
 
+    @FindBy(how = How.CSS, using = "#loader-customize > div")
+    public WebElement loader;
+
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(2) > div > div.card-body.text-center > a")
+    public WebElement deactivateAddonExplainer;
+
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(3) > div > div.card-body.text-center > a")
+    public WebElement deactivateAnalytics;
+
+    @FindBy(how = How.CSS, using = "#main-admin > div.py-5.b-top > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div > div > div.text-center > div.be-masked.mt-3 > label")
+    public WebElement browseFirstCheckbox;
+
+    @FindBy(how = How.CSS, using = "#btn-save")
+    public WebElement btnSaveLayout;
+
+    @FindBy(how = How.CSS, using = "#whole-container")
+    public WebElement homeValidateLayout;
+
+    @FindBy(how = How.CSS, using = "#main-admin > div.py-5.b-top > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div > div > div.text-center > div.be-masked.mt-3 > label > span")
+    public WebElement stylishCheckbox;
+
+    @FindBy(how = How.CSS, using = "#basic-tab-pane > div > div.card-body")
+    public WebElement monthlyCheckboxValidate;
+
+    public void  monthlyCheckbox(){
+        fluentWait(getDriver(), monthlyCheckboxValidate);
+        monthlyCheckboxValidate.isDisplayed();
+    }
+
+    public void stylishLayout(){
+        fluentWait(getDriver(), stylishCheckbox);
+        waitForWebElementAndClick(stylishCheckbox);
+    }
+
+    public void validateHome(){
+        fluentWait(getDriver(), homeValidateLayout);
+        homeValidateLayout.isDisplayed();
+    }
+
+    public void saveButtonLayout(){
+        fluentWait(getDriver(), btnSaveLayout);
+        Assert.assertTrue(btnSaveLayout.isDisplayed());
+    }
+
+    public void browseLayout(){
+        fluentWait(getDriver(), browseFirstCheckbox);
+        waitForWebElementAndClick(browseFirstCheckbox);
+    }
+
+
+    public void analyticsDeactivate(){
+        fluentWait(getDriver(), deactivateAnalytics);
+        waitForWebElementAndClick(deactivateAnalytics);
+    }
+
+    public void addonExplainerDeactivate(){
+        fluentWait(getDriver(), deactivateAddonExplainer);
+        waitForWebElementAndClick(deactivateAddonExplainer);
+    }
+
+    public void loaderWheel(){
+        Assert.assertFalse(loader.isDisplayed());
+    }
+
     public void deactivateAddonVerifyConfirm(){
         fluentWait(getDriver(), deactivateAddon1Confirm);
         waitForWebElementAndClick(deactivateAddon1Confirm);
