@@ -230,4 +230,19 @@ public class ServicesBugsSteps extends BasePage {
     public void iValidThatTheMonthlyOfferingButtonIsNotShownAndTheBugNoLongerOccurs() {
 
     }
+
+    @And("select Email Notifications Checkbox")
+    public void selectEmailNotificationsCheckbox() {
+        _page.emailNotificationCheckbox();
+    }
+
+    @And("select the Save Changes button")
+    public void selectTheSaveChangesButton() {
+        _page.saveChangesNotification();
+    }
+
+    @Then("I validate that the error on Notifications Settings no longer occurs")
+    public void iValidateThatTheErrorOnNotificationsSettingsNoLongerOccurs() {
+        _page.successSaveMessage();
+    }
 }

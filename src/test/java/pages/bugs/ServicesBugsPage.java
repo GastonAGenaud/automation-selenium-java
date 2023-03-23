@@ -148,6 +148,30 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#basic-tab-pane > div > div.card-body")
     public WebElement monthlyCheckboxValidate;
 
+    @FindBy(how = How.CSS, using = "#notifications-tab-content > div:nth-child(1) > div > div > div > div > label.switch.switch-settings.ml-auto > span")
+    public WebElement notificationEmailCheckbox;
+
+    @FindBy(how = How.CSS, using = "#save-info-notifications")
+    public WebElement notificationSaveChanges;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
+    public WebElement saveSuccessMessage;
+
+    public void successSaveMessage(){
+        fluentWait(getDriver(), saveSuccessMessage);
+        Assert.assertTrue(saveSuccessMessage.isDisplayed());
+    }
+
+    public void saveChangesNotification(){
+        fluentWait(getDriver(), notificationSaveChanges);
+        waitForWebElementAndClick(notificationSaveChanges);
+    }
+
+    public void emailNotificationCheckbox(){
+        fluentWait(getDriver(), notificationEmailCheckbox);
+        waitForWebElementAndClick(notificationEmailCheckbox);
+    }
+
     public void  monthlyCheckbox(){
         fluentWait(getDriver(), monthlyCheckboxValidate);
         monthlyCheckboxValidate.isDisplayed();
