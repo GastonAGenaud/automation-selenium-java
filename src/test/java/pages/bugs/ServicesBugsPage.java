@@ -157,79 +157,150 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > p")
     public WebElement saveSuccessMessage;
 
-    public void successSaveMessage(){
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white > div.newest-items > div > div.d-flex.justify-content-between > a")
+    public WebElement seeMoreBtn;
+
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[2]/div[1]/div/a/span")
+    public WebElement clearFiltersBtn;
+
+    @FindBy(how = How.CSS, using = "#container-block")
+    public WebElement validateListing;
+
+    @FindBy(how = How.CSS, using = "#block-tab")
+    public WebElement blockViewBtn;
+    @FindBy(how = How.CSS, using = "#total-price > div > div.col-lg-12.d-flex.align-items-center > label.switch.mb-0.mr-1.my-2 > span")
+    public WebElement setUpHourly;
+
+    @FindBy(how = How.CSS, using = "#hourlyPrice")
+    public WebElement listingPriceTextField;
+
+    @FindBy(xpath = "//label[contains(text(), '1500.00')]")
+    public WebElement priceNumberValidate;
+
+    public void priceValidate(){
+        fluentWait(getDriver(), priceNumberValidate);
+        Assert.assertTrue(priceNumberValidate.isDisplayed());
+    }
+
+    public void listingHourlyPriceTextField() {
+        fluentWait(getDriver(), listingPriceTextField);
+        waitForWebElementAndClick(listingPriceTextField);
+        listingPriceTextField.sendKeys("1500");
+        listingPriceTextField.sendKeys(Keys.ENTER);
+    }
+
+    public void setUpHourlyCheckbox() {
+        fluentWait(getDriver(), setUpHourly);
+        waitForWebElementAndClick(setUpHourly);
+
+        fluentWait(getDriver(), setUpHourly);
+        waitForWebElementAndClick(setUpHourly);
+    }
+
+    public void blockView() {
+        fluentWait(getDriver(), blockViewBtn);
+        waitForWebElementAndClick(blockViewBtn);
+    }
+
+    public void validateListingPage() {
+        fluentWait(getDriver(), validateListing);
+        Assert.assertTrue(validateListing.isDisplayed());
+    }
+
+    public void clearFiltersButton() {
+//        fluentWait(getDriver(), clearFiltersBtn);
+//        waitForWebElementAndClick(clearFiltersBtn);
+        try {
+            fluentWait(getDriver(), userServiceImageFromListing);
+            userServiceImageFromListing.isDisplayed();
+            fluentWait(getDriver(), clearFiltersBtn);
+            waitForWebElementAndClick(clearFiltersBtn);
+        } catch (Exception e) {
+            getDriver().navigate().refresh();
+            wait(4);
+            fluentWait(getDriver(), clearFiltersBtn);
+            waitForWebElementAndClick(clearFiltersBtn);
+        }
+    }
+
+    public void seeMoreButton() {
+        fluentWait(getDriver(), seeMoreBtn);
+        waitForWebElementAndClick(seeMoreBtn);
+    }
+
+    public void successSaveMessage() {
         fluentWait(getDriver(), saveSuccessMessage);
         Assert.assertTrue(saveSuccessMessage.isDisplayed());
     }
 
-    public void saveChangesNotification(){
+    public void saveChangesNotification() {
         fluentWait(getDriver(), notificationSaveChanges);
         waitForWebElementAndClick(notificationSaveChanges);
     }
 
-    public void emailNotificationCheckbox(){
+    public void emailNotificationCheckbox() {
         fluentWait(getDriver(), notificationEmailCheckbox);
         waitForWebElementAndClick(notificationEmailCheckbox);
     }
 
-    public void  monthlyCheckbox(){
+    public void monthlyCheckbox() {
         fluentWait(getDriver(), monthlyCheckboxValidate);
         monthlyCheckboxValidate.isDisplayed();
     }
 
-    public void stylishLayout(){
+    public void stylishLayout() {
         fluentWait(getDriver(), stylishCheckbox);
         waitForWebElementAndClick(stylishCheckbox);
     }
 
-    public void validateHome(){
+    public void validateHome() {
         fluentWait(getDriver(), homeValidateLayout);
         homeValidateLayout.isDisplayed();
     }
 
-    public void saveButtonLayout(){
+    public void saveButtonLayout() {
         fluentWait(getDriver(), btnSaveLayout);
         Assert.assertTrue(btnSaveLayout.isDisplayed());
     }
 
-    public void browseLayout(){
+    public void browseLayout() {
         fluentWait(getDriver(), browseFirstCheckbox);
         waitForWebElementAndClick(browseFirstCheckbox);
     }
 
 
-    public void analyticsDeactivate(){
+    public void analyticsDeactivate() {
         fluentWait(getDriver(), deactivateAnalytics);
         waitForWebElementAndClick(deactivateAnalytics);
     }
 
-    public void addonExplainerDeactivate(){
+    public void addonExplainerDeactivate() {
         fluentWait(getDriver(), deactivateAddonExplainer);
         waitForWebElementAndClick(deactivateAddonExplainer);
     }
 
-    public void loaderWheel(){
+    public void loaderWheel() {
         Assert.assertFalse(loader.isDisplayed());
     }
 
-    public void deactivateAddonVerifyConfirm(){
+    public void deactivateAddonVerifyConfirm() {
         fluentWait(getDriver(), deactivateAddon1Confirm);
         waitForWebElementAndClick(deactivateAddon1Confirm);
     }
 
-    public void deactivateAddonVerify(){
+    public void deactivateAddonVerify() {
         fluentWait(getDriver(), deactivateAddon1);
         waitForWebElementAndClick(deactivateAddon1);
 
 
     }
 
-    public void createListingValidateWeb(){
+    public void createListingValidateWeb() {
         fluentWait(getDriver(), addListingWebValidate);
         Assert.assertTrue(addListingWebValidate.isDisplayed());
     }
 
-    public void addListingFromProvider(){
+    public void addListingFromProvider() {
         fluentWait(getDriver(), createListingFromProvider);
         waitForWebElementAndClick(createListingFromProvider);
     }
@@ -240,42 +311,43 @@ public class ServicesBugsPage extends BasePage {
     }
 
 
-    public void validatingTextHigherAndLower(){
+    public void validatingTextHigherAndLower() {
         fluentWait(getDriver(), validateTextHigherLower);
         validateTextHigherLower.isDisplayed();
     }
 
 
-    public void browseExpertsTab(){
+    public void browseExpertsTab() {
         fluentWait(getDriver(), browseExperts);
         waitForWebElementAndClick(browseExperts);
     }
 
-    public void validateListing(){
+    public void validateListing() {
         fluentWait(getDriver(), listingValidation);
         Assert.assertTrue(listingValidation.isDisplayed());
     }
 
-    public void userImageFromListing(){
+    public void userImageFromListing() {
         fluentWait(getDriver(), userServiceImageFromListing);
         waitForWebElementAndClick(userServiceImageFromListing);
     }
 
-    public void imgCannotBeEmpty(){
+    public void imgCannotBeEmpty() {
         fluentWait(getDriver(), imageCannotBeEmpty);
         Assert.assertTrue(imageCannotBeEmpty.isDisplayed());
     }
 
-    public void MyListingCompleteSector(){
+    public void MyListingCompleteSector() {
         fluentWait(getDriver(), myListingSector);
         Assert.assertTrue(myListingSector.isDisplayed());
     }
 
-    public void myListingsButton(){
+    public void myListingsButton() {
         fluentWait(getDriver(), myListingsBtn);
         waitForWebElementAndClick(myListingsBtn);
     }
-    public void validateCustomFieldModal(){
+
+    public void validateCustomFieldModal() {
         fluentWait(getDriver(), validateCustomFieldForm);
         Assert.assertTrue(validateCustomFieldForm.isDisplayed());
     }
@@ -284,17 +356,17 @@ public class ServicesBugsPage extends BasePage {
         getDriver().navigate().to(UrlSVC + "/admin/application/GetStarted");
     }
 
-    public void faviconRedirect(){
+    public void faviconRedirect() {
         fluentWait(getDriver(), validatingFaviconRedirect);
         Assert.assertTrue(validatingFaviconRedirect.isDisplayed());
     }
 
-    public void svcFaviconButton(){
+    public void svcFaviconButton() {
         fluentWait(getDriver(), svcFaviconBtn);
         waitForWebElementAndClick(svcFaviconBtn);
     }
 
-    public void sendRequestButton(){
+    public void sendRequestButton() {
         fluentWait(getDriver(), sendRequestBtn);
         waitForWebElementAndClick(sendRequestBtn);
     }
@@ -304,7 +376,8 @@ public class ServicesBugsPage extends BasePage {
         waitForWebElementAndClick(messageTextField);
         messageTextField.sendKeys("Testing Message");
     }
-    public void proposedPriceTextField(){
+
+    public void proposedPriceTextField() {
         fluentWait(getDriver(), proposedPriceText);
         waitForWebElementAndClick(proposedPriceText);
         proposedPriceText.sendKeys("10");

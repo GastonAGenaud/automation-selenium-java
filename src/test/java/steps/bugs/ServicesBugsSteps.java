@@ -245,4 +245,36 @@ public class ServicesBugsSteps extends BasePage {
     public void iValidateThatTheErrorOnNotificationsSettingsNoLongerOccurs() {
         _page.successSaveMessage();
     }
+
+    @When("select See more button")
+    public void selectSeeMoreButton() {
+        _page.seeMoreButton();
+    }
+
+    @And("select Clear Filters")
+    public void selectClearFilters() {
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Listing/Browse");
+        _page.clearFiltersButton();
+    }
+
+    @Then("I validate that the Clear Filter error no longer occurs")
+    public void iValidateThatTheClearFilterErrorNoLongerOccurs() {
+        _page.validateListingPage();
+    }
+
+    @Then("I validate that the Listing Section is working correctly and the bug no longer occurs")
+    public void iValidateThatTheListingSectionIsWorkingCorrectlyAndTheBugNoLongerOccurs() {
+        _page.validateListingPage();
+    }
+
+    @And("SVC I validate the listing Hourly price BUG")
+    public void svcIValidateTheListingHourlyPriceBUG() {
+        _page.setUpHourlyCheckbox();
+        _page.listingHourlyPriceTextField();
+    }
+
+    @Then("I validate that the monthly price exceeds {int} correctly and the bug no longer occurs")
+    public void iValidateThatTheMonthlyPriceExceedsCorrectlyAndTheBugNoLongerOccurs(int arg0) {
+        _page.priceValidate();
+    }
 }

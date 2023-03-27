@@ -103,7 +103,7 @@ Feature: Services Bugs
 #    And Deactivate Google Analytics
 #    Then I validate that the addons can be deactivated correctly and the bug no longer occurs.
 
-  @MMRSBugs
+  @MMRSBugs @TestListing
   Scenario: CS - Add a listing - Can't publish listing, Connect with Stripe button is displayed while already connected to Stripe
     Given SVC I login
     And SVC I validate the My Listings button
@@ -122,7 +122,7 @@ Feature: Services Bugs
     And SVC I select Go to Availability button
     And SVC I select Available Days tab
     And SVC I select Add Time Slot
-#    Then I validate that the
+#    Then I validate that the Stripe button
 
   @MMRS-429 @MMRSBugs
   Scenario: CS - Landing Page - with Browse first layout selected, listings are not showing
@@ -153,3 +153,41 @@ Feature: Services Bugs
     And select Email Notifications Checkbox
     And select the Save Changes button
     Then I validate that the error on Notifications Settings no longer occurs
+
+  @testingBug
+  Scenario: CS - Browse - Newer to Older filter doesn't work
+    Given SVC I go to owl Svc page
+    When select See more button
+    And select Clear Filters
+    Then I validate that the Clear Filter error no longer occurs
+
+  @testingBug2
+  Scenario: CS - Browse By Seller shows only one listing
+    Given SVC I login
+    When SVC I select Browse Experts
+    Then I validate that the Listing Section is working correctly and the bug no longer occurs
+
+  @TestingPrice
+  Scenario: CS - Listing Details - If the monthly price fields exceeds $999, it's displayed as $0
+    Given SVC I login
+    And SVC I validate the My Listings button
+    When SVC I validate add new listing button
+    And SVC I validate listing name text field
+    And SVC I validate listing category
+    And SVC I validate listing description text field
+    And SVC I validate the listing Hourly price BUG
+    And SVC I validate listing image
+    And SVC I validate listing video URL
+    And SVC I select the go to details
+    And SVC I select Work Model checkbox
+    And SVC I select Languages checkbox
+    And SVC I select Speciality checkbox
+    And SVC I complete Cancellation Text Field
+    And SVC I select Go to Availability button
+    And SVC I select Available Days tab
+    And SVC I select Add Time Slot
+    And SVC I select Publish button
+    And SVC I validate create a listing
+    Then I validate that the monthly price exceeds 999 correctly and the bug no longer occurs
+
+  Scenario: CS - Create Listing - Can access Create Listing view instead of being redirected while not logged in

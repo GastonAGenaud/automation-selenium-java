@@ -1,6 +1,7 @@
+@MMRS-923
 Feature: Services Sign Up
 
-   @MMRS-924 @MMRSSignup
+  @MMRS-924 @MMRSSignup
   Scenario: SVC - I Create an Account
     Given SVC I Sign in with new account "email2"
 #    When I type in the E-mail text field "Automation"
