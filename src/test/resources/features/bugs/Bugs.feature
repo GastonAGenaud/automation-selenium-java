@@ -247,7 +247,7 @@ Feature: Bugs
 #    And complete Enter a Location TextField
 #    Then I validate the Location sector MAP
 
-  @MTR @MTR  @bugs @MTR  @MTR-1942
+    @bugs @MTR  @MTR-1942
   Scenario: MTR - Item Reviews
     Given I Sign in with new account "email2" and go to the listing page
     When I select an item BUG
@@ -259,7 +259,7 @@ Feature: Bugs
     And I select Reviews sector
     Then I validate Reviews in item page
 
-  @MTR @MTR  @bugs @MTR @MTR-1987
+   @bugs @MTR @MTR-1987
   Scenario: MTR - Browse Listing without Login
     Given I go to listing page
     When I select an item BUG

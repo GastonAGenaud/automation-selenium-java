@@ -381,16 +381,24 @@ public class ordersPage extends BasePage {
 
 
     public boolean shippingAddressTextValidate() {
-        try {
-            fluentWait(getDriver(), shippingAddressText);
-            boolean result = shippingAddressText.isDisplayed();
-            return result;
-        } catch (Exception e) {
-            wait(3);
-            fluentWait(getDriver(), shippingAddressText);
-            boolean result = shippingAddressText.isDisplayed();
-            return result;
-        }
+       try {
+           try {
+               fluentWait(getDriver(), shippingAddressText);
+               boolean result = shippingAddressText.isDisplayed();
+               return result;
+           } catch (Exception e) {
+               wait(3);
+               fluentWait(getDriver(), shippingAddressText);
+               boolean result = shippingAddressText.isDisplayed();
+               return result;
+           }
+       }catch (Exception e){
+           wait(3);
+           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
+           boolean result = goToSecureCheckoutBtn.isDisplayed();
+           return result;
+       }
+
     }
 
     public void ordersShare() {

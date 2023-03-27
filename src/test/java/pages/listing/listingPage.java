@@ -231,7 +231,7 @@ public class listingPage extends BasePage {
 
     public void setListingPublishBtn() {
         try {
-            fluentWait(getDriver(), listingPublishBtn);
+            fluentWaitStrict(getDriver(), listingPublishBtn);
             waitForWebElementAndClick(listingPublishBtn);
             //retryingFindClick(listingPublishBtn);
             fluentWait(getDriver(), greatJobText);

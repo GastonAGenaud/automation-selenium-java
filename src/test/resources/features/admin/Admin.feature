@@ -133,6 +133,7 @@ Feature: Admin
     And I validate customize Terms & conditions page option
     And I validate customize Privacy Policy page option
     Then I validate Admin Design
+
   @admin  @MTR-1306 @MTR
   Scenario: Validate Admin settings
     Given I login with Gaston User
@@ -161,7 +162,7 @@ Feature: Admin
     And Admin Add-ons
     When I validate Add-Ons Section
    # And I validate Extensions
-   Then I validate add ons
+    Then I validate add ons
 
   @admin @MTR-2072 @MTR
   Scenario: Delete user in Admin Page

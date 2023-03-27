@@ -3,7 +3,7 @@ Feature: Sign Up
 
   Sign up
 
-  @sign  @MTR
+  @sign  @MTR @MTR-3397
   Scenario: MTR - I Create an Account
     Given I go to Sign Up Page
     When I validate the Sign Up with Facebook
