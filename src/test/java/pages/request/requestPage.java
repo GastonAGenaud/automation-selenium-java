@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
 
-import static java.lang.Math.random;
-
 public class requestPage extends BasePage {
 
 
@@ -91,6 +89,7 @@ public class requestPage extends BasePage {
     public WebElement locationCheckBoxBtn;
     @FindBy(how = How.CSS, using = "#btn-create")
     public WebElement publishRequestBtn;
+
     @FindBy(how = How.CSS, using = "#card-want")
     public WebElement requestDetailsSuccessPopUpBtn;
     @FindBy(how = How.CSS, using = "#clipboard-button")
@@ -455,10 +454,24 @@ public class requestPage extends BasePage {
             waitForWebElementAndClick(next2Btn);
         }
     }
+    public void addEndDate(){
+        fluentWait(getDriver(),endDateTextField);
+        waitForWebElementAndClick(endDateTextField);
+        endDateTextField.sendKeys(Keys.ARROW_LEFT);
+        endDateTextField.sendKeys("04-25-2025");
+    }
 
     public void publishRequest() {
-        fluentWait(getDriver(), publishRequestBtn);
-        waitForWebElementAndClick(publishRequestBtn);
+
+        try {
+            fluentWait(getDriver(), publishRequestBtn);
+            waitForWebElementAndClick(publishRequestBtn);
+            fluentWait(getDriver(), requestCopyURLBtn);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), publishRequestBtn);
+            waitForWebElementAndClick(publishRequestBtn);
+        }
     }
 
     public void requestDetailsSuccessPopUp() {
