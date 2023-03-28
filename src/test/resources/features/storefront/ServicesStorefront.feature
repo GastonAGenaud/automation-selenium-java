@@ -1,3 +1,4 @@
+@MMRS-925
 Feature: Services Storefront
 
   @MMRS @MMRSStorefront
@@ -6,7 +7,7 @@ Feature: Services Storefront
     #When I select the profile button
     #Then I see the user storefront
 
-   @MMRS @MMRSStorefront
+  @MMRS @MMRSStorefront
   #Scenario: OHE - Change cover image
    # Given I go to user profile
     #When I select the Change cover picture button

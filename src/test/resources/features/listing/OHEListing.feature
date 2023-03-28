@@ -1,7 +1,6 @@
 @OHE-557
 Feature: Listing
 
-
   @OHElisting @OHE-578 @OHE
 
   Scenario: OHE - Buyer able to create a listing

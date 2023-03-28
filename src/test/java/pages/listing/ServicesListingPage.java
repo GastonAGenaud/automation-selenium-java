@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 import pages.BasePage;
 
 public class ServicesListingPage extends BasePage {
@@ -108,6 +109,8 @@ public class ServicesListingPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#btn-crop")
     public WebElement cropBtn;
+
+
 
     public void specialityCheckbox(){
         fluentWait(getDriver(), listingSpecialityCheckbox);

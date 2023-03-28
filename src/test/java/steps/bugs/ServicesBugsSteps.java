@@ -230,4 +230,105 @@ public class ServicesBugsSteps extends BasePage {
     public void iValidThatTheMonthlyOfferingButtonIsNotShownAndTheBugNoLongerOccurs() {
 
     }
+
+    @And("select Email Notifications Checkbox")
+    public void selectEmailNotificationsCheckbox() {
+        _page.emailNotificationCheckbox();
+    }
+
+    @And("select the Save Changes button")
+    public void selectTheSaveChangesButton() {
+        _page.saveChangesNotification();
+    }
+
+    @Then("I validate that the error on Notifications Settings no longer occurs")
+    public void iValidateThatTheErrorOnNotificationsSettingsNoLongerOccurs() {
+        _page.successSaveMessage();
+    }
+
+    @When("select See more button")
+    public void selectSeeMoreButton() {
+        _page.seeMoreButton();
+    }
+
+    @And("select Clear Filters")
+    public void selectClearFilters() {
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Listing/Browse");
+        _page.clearFiltersButton();
+    }
+
+    @Then("I validate that the Clear Filter error no longer occurs")
+    public void iValidateThatTheClearFilterErrorNoLongerOccurs() {
+        _page.validateListingPage();
+    }
+
+    @Then("I validate that the Listing Section is working correctly and the bug no longer occurs")
+    public void iValidateThatTheListingSectionIsWorkingCorrectlyAndTheBugNoLongerOccurs() {
+        _page.validateListingPage();
+    }
+
+    @And("SVC I validate the listing Hourly price BUG")
+    public void svcIValidateTheListingHourlyPriceBUG() {
+        _page.setUpHourlyCheckbox();
+        _page.listingHourlyPriceTextField();
+    }
+
+    @Then("I validate that the monthly price exceeds {int} correctly and the bug no longer occurs")
+    public void iValidateThatTheMonthlyPriceExceedsCorrectlyAndTheBugNoLongerOccurs(int arg0) {
+        _page.priceValidate();
+    }
+
+    @And("select Become an Expert button")
+    public void selectBecomeAnExpertButton() {
+        _page.becomeAnExpertButton();
+    }
+
+    @When("select Login button")
+    public void selectLoginButton() {
+        _page.loginButton();
+    }
+
+    @Then("It redirects me to the Create-Edit Listing section and the bug no longer occurs.")
+    public void itRedirectsMeToTheCreateEditListingSectionAndTheBugNoLongerOccurs() {
+        _page.createListingValidateWeb();
+    }
+
+    @Given("SVC I go to Monetization in Admin")
+    public void svcIGoToMonetizationInAdmin() {
+        _page.loginWithGastonUserSVC();
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Application/ChooseMonetization");
+        _page.getCloseChat();
+        getDriver().navigate().refresh();
+    }
+
+    @And("select No Payment Checkbox")
+    public void selectNoPaymentCheckbox() {
+        _page.getCloseChat();
+        _page.noPaymentOption();
+        _page.saveMonetization();
+    }
+
+    @And("select Transaction Fee checkbox")
+    public void selectTransactionFeeCheckbox() {
+        _page.getCloseChat();
+        _page.transactionFeeOption();
+        _page.saveMonetization();
+    }
+
+    @Then("I validate that Listings is visible and the bug no longer occurs.")
+    public void iValidateThatListingsIsVisibleAndTheBugNoLongerOccurs() {
+        _page.setAdminMonetizationValidate();
+    }
+
+    @And("I validate Listing is Visible")
+    public void iValidateListingIsVisible() {
+        _page.setListingVisible();
+    }
+
+    @And("SVC I return to Monetization in Admin")
+    public void svcIReturnToMonetizationInAdmin() {
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Application/ChooseMonetization");
+        _page.getCloseChat();
+        getDriver().navigate().refresh();
+    }
 }

@@ -1,5 +1,5 @@
-Feature: Listing
-
+@MMRS-868
+Feature: Services Listing
 
   @MMRSlisting @MMRS-904 @MMRS
 

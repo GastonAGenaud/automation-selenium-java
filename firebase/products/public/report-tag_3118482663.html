@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>MTR Report</td>
         <td>1</td>
-      <td>07 Mar 2023, 11:08</td>
+      <td>28 Mar 2023, 11:28</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@MTR-1425</td>
-          <td      class="passed"    >7</td>
-          <td >0</td>
-          <td >0</td>
+          <td      class="passed"    >2</td>
+          <td      class="failed"    >1</td>
+          <td     class="skipped"   >4</td>
           <td >0</td>
           <td >0</td>
           <td class="total">7</td>
 
-          <td  class="passed"    >1</td>
           <td >0</td>
+          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="57951341800">57.951</td>
-          <td class="passed">Passed</td>
+          <td class="duration" data-value="96303007100">1:36.303</td>
+          <td class="failed">Failed</td>
         </tr>
         </tbody>
 
@@ -173,25 +173,25 @@ $(document).ready(function() {
 <div class="element">
     <div class="indention">
       <b>Feature:</b>
-      <a href="report-feature_4_580081601.html">Checkout</a>
+      <a href="report-feature_6_580081601.html">Checkout</a>
     </div>
 
 
 <div class="tags indention">
     <b>Tags:</b>
+       <a href="report-tag_3118483782.html">@MTR-1578</a>
        <a href="report-tag_3971419525.html">@checkout</a>
        <a href="report-tag_3118482663.html">@MTR-1425</a>
-       <a href="report-tag_4089311534.html"></a>
        <a href="report-tag_2149466954.html">@MTR</a>
 </div>
 
 
-  <span class="lead-duration duration">57.951</span>
+  <span class="lead-duration duration">1:36.303</span>
 
 
-  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
 
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario</span>
   <span class="name">MTR - Buyer able to click Go To Secure Checkout once shipping or pickup selected</span>
 
@@ -202,7 +202,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details ">
+  <div id="element-1" class="collapse collapsable-details  in ">
 
 
   <div class="inner-level hooks-element-before">
@@ -224,7 +224,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">driver.DriverFactory.setup()</span>
 
-  <span class="lead-duration duration">0.844</span>
+  <span class="lead-duration duration">0.733</span>
 
           </div>
 
@@ -241,9 +241,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
 
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -253,7 +253,7 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details ">
+  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
       <div class="step">
 
 
@@ -261,7 +261,7 @@ $(document).ready(function() {
   <span class="keyword indention">Given</span>
   <span class="name">I login with Gaston User</span>
 
-  <span class="lead-duration duration">23.588</span>
+  <span class="lead-duration duration">21.326</span>
 
 </div>
 
@@ -288,7 +288,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">I go to the Shopping Cart</span>
 
-  <span class="lead-duration duration">3.418</span>
+  <span class="lead-duration duration">3.199</span>
 
 </div>
 
@@ -311,11 +311,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And passed">
+<div class="brief step-name-And failed">
   <span class="keyword indention">And</span>
   <span class="name">I add an item to the Shopping Cart for shipping</span>
 
-  <span class="lead-duration duration">10.676</span>
+  <span class="lead-duration duration">1:11.776</span>
 
 </div>
 
@@ -323,6 +323,46 @@ $(document).ready(function() {
 
 
 
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
+          <a>org.openqa.selenium.NoSuchElementException:</a>
+      </div>
+      <div id="msg-4" class="collapse collapsable-details  in ">
+        <pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#U3VjY2Vzc0FkZGVkJTIwdG8lMjBjYXJ0IWdyZWVu &gt; div.iziToast-body &gt; div.iziToast-texts &gt; p&quot;}
+  (Session info: chrome=111.0.5563.146)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4f18debaebc10bad238395bc76bfb332, findElement {using=css selector, value=#U3VjY2Vzc0FkZGVkJTIwdG8lMjBjYXJ0IWdyZWVu &gt; div.iziToast-body &gt; div.iziToast-texts &gt; p}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.146, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\Dangelo\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:61305}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61305/devtoo..., se:cdpVersion: 111.0.5563.146, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4f18debaebc10bad238395bc76bfb332
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy27.isDisplayed(Unknown Source)
+	at pages.checkout.checkoutPage.addedToCartMessage(checkoutPage.java:155)
+	at steps.checkout.checkoutSteps.iAddAnItemToTheShoppingCartForShipping(checkoutSteps.java:46)
+	at &#10045;.I add an item to the Shopping Cart for shipping(classpath:features/checkout/Checkout.feature:55)
+</pre>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -338,11 +378,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And passed">
+<div class="brief step-name-And skipped">
   <span class="keyword indention">And</span>
   <span class="name">I add an Address</span>
 
-  <span class="lead-duration duration">5.284</span>
+  <span class="lead-duration duration">0.000</span>
 
 </div>
 
@@ -365,11 +405,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And passed">
+<div class="brief step-name-And skipped">
   <span class="keyword indention">And</span>
   <span class="name">I select the Flat Rate option</span>
 
-  <span class="lead-duration duration">0.551</span>
+  <span class="lead-duration duration">0.000</span>
 
 </div>
 
@@ -392,11 +432,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And passed">
+<div class="brief step-name-And skipped">
   <span class="keyword indention">And</span>
   <span class="name">I select the Go To Secure Checkout button</span>
 
-  <span class="lead-duration duration">5.061</span>
+  <span class="lead-duration duration">0.000</span>
 
 </div>
 
@@ -419,11 +459,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-Then passed">
+<div class="brief step-name-Then skipped">
   <span class="keyword indention">Then</span>
   <span class="name">I validate the Go To Secure Checkout button</span>
 
-  <span class="lead-duration duration">9.370</span>
+  <span class="lead-duration duration">0.000</span>
 
 </div>
 
@@ -450,7 +490,7 @@ $(document).ready(function() {
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -462,13 +502,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-4" class="inner-level collapse collapsable-details ">
+    <div id="after-5" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.231</span>
+  <span class="lead-duration duration">0.376</span>
 
           </div>
 
@@ -479,15 +519,15 @@ $(document).ready(function() {
 
   <div class="embeddings inner-level">
   <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-5" class="collapsable-control">
+    <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
       <a>MTR - Buyer able to click Go To Secure Checkout once shipping or pickup selected</a>
-      <a href="embeddings/embedding_342888569.png" download target="_blank">
+      <a href="embeddings/embedding_-1618396186.png" download target="_blank">
         <span class="download-button glyphicon glyphicon-download-alt"></span>
       </a>
     </div>
-    <div id="embedding-5" class="collapse collapsable-details ">
+    <div id="embedding-6" class="collapse collapsable-details ">
       <div class="embedding-content">
-        <img src="embeddings/embedding_342888569.png">
+        <img src="embeddings/embedding_-1618396186.png">
       </div>
     </div>
   </div>

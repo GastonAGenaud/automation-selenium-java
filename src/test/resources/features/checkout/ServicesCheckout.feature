@@ -1,3 +1,4 @@
+@MMRS-868
 Feature: Services Checkout
 
   @MMRS-875 @MMRSCheckout @MMRS
