@@ -67,7 +67,7 @@ Feature: Listing details
    # When I select the related item
    # Then I see that it redirects me to the item page
 
-    @details @MTR-1381
+    @details @MTR-1381 @MTR
   Scenario: MTR - Viewing all items
     Given I login with Gaston User
     And I go to the listing details page

@@ -99,7 +99,7 @@ public class AddonsPage extends BasePage {
     public WebElement listingCategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
     public WebElement NewProduct;
-    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[4]/button[1]")
+    @FindBy(xpath = "//button[contains(text(),'Buy Now')]")
     public WebElement buyProductDigitalBtn;
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
     public WebElement goToSecureCheckoutBtn;

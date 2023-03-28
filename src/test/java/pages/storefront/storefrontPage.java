@@ -71,7 +71,7 @@ public class storefrontPage extends BasePage {
             textFieldBio.sendKeys("Test");
         }
         catch (Exception e) {
-            wait(2);
+            wait(3);
             WebElement textFieldBio=getDriver().findElement(By.cssSelector("body"));
             textFieldBio.sendKeys("Test");
         }

@@ -3,7 +3,7 @@ Feature: Dashboard
 
   Dashboard Page
 
-  @dashboard   @MTR @MTR-6666
+  @dashboard   @MTR @MTR-3395
   Scenario: MTR - Buyers Dashboard
     Given I login with Gaston User
     And I go to dashboard
