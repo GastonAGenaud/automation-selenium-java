@@ -177,6 +177,59 @@ public class ServicesBugsPage extends BasePage {
     @FindBy(xpath = "//label[contains(text(), '1500.00')]")
     public WebElement priceNumberValidate;
 
+    @FindBy(how = How.CSS, using = "#sell-footer-text-customize")
+    public WebElement becomeAnExpertBtn;
+
+    @FindBy(xpath = "/html/body/div[2]/div/main/form/div/div/div/div/div/div[1]/div[2]/label/div")
+    public WebElement noPaymentCheckbox;
+
+    @FindBy(xpath = "/html/body/div[2]/div/main/form/div/div/div/div/div/div[1]/div[1]/label/div")
+    public WebElement transactionFeeCheckbox;
+
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/img")
+    public WebElement listingVisible;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div")
+    public WebElement adminMonetizationValidate;
+
+    @FindBy(how = How.CSS, using = "#save-monetization")
+    public WebElement saveMonetizationBtn;
+
+    public void saveMonetization(){
+        fluentWait(getDriver(), saveMonetizationBtn);
+        waitForWebElementAndClick(saveMonetizationBtn);
+    }
+
+    public void setAdminMonetizationValidate(){
+        fluentWait(getDriver(), adminMonetizationValidate);
+        Assert.assertTrue(adminMonetizationValidate.isDisplayed());
+    }
+
+    public void setListingVisible(){
+        fluentWait(getDriver(), listingVisible);
+        listingVisible.isDisplayed();
+    }
+
+    public void transactionFeeOption(){
+        fluentWait(getDriver(), transactionFeeCheckbox);
+        waitForWebElementAndClick(transactionFeeCheckbox);
+    }
+
+    public void noPaymentOption(){
+        fluentWait(getDriver(), noPaymentCheckbox);
+        waitForWebElementAndClick(noPaymentCheckbox);
+    }
+
+    public void loginButton(){
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+    }
+
+    public void becomeAnExpertButton(){
+        fluentWait(getDriver(), becomeAnExpertBtn);
+        waitForWebElementAndClick(becomeAnExpertBtn);
+    }
+
     public void priceValidate(){
         fluentWait(getDriver(), priceNumberValidate);
         Assert.assertTrue(priceNumberValidate.isDisplayed());

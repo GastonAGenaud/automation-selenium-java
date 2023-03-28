@@ -190,4 +190,20 @@ Feature: Services Bugs
     And SVC I validate create a listing
     Then I validate that the monthly price exceeds 999 correctly and the bug no longer occurs
 
+    @MMRS-994
   Scenario: CS - Create Listing - Can access Create Listing view instead of being redirected while not logged in
+    Given SVC I go to owl Svc page
+    And select Become an Expert button
+    When select Login button
+    Then It redirects me to the Create-Edit Listing section and the bug no longer occurs.
+
+
+    @TestingMonetization
+  Scenario: CS - Browse - No Payments - Listings not visible
+    Given SVC I go to Monetization in Admin
+    And select No Payment Checkbox
+    When SVC I go to browse services page
+    And I validate Listing is Visible
+    And SVC I return to Monetization in Admin
+    And select Transaction Fee checkbox
+    Then I validate that Listings is visible and the bug no longer occurs.
