@@ -121,7 +121,7 @@ public class OnboardingPage extends BasePage {
            boolean result = marketPlaceCreateBtn.isDisplayed();
            return result;
        }catch (Exception e){
-           wait(2);
+           wait(3);
            boolean result = marketPlaceCreateBtn.isDisplayed();
            return result;
        }

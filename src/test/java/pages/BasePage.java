@@ -65,6 +65,7 @@ public class BasePage {
     public String url = Environment.getProperty("url");
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
     public String UrlSVC = Environment.getProperty("UrlSVC");
+    public String urlServicesProd = Environment.getProperty("UrlServicesProd");
     public String UrlProduct = "https://mtreborn-automation-products.azurewebsites.net/listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
