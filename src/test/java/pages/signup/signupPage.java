@@ -41,11 +41,11 @@ public class signupPage extends BasePage {
     public WebElement welcomeText;
 
     public void setHomePage() {
-        getDriver().navigate().to(url);
+        getDriver().navigate().to(UrlProd);
     }
 
     public void goToSignUp() {
-        getDriver().navigate().to(url + "/Account/Register");
+        getDriver().navigate().to(UrlProd + "/Account/Register");
     }
 
 
@@ -70,10 +70,10 @@ public class signupPage extends BasePage {
         usernameTextField.sendKeys(text + "AutomationTesting" + id);
     }
 
-    public void passwordTextField() {
+    public void passwordTextField(String password) {
         fluentWait(getDriver(), passwordTextField);
         waitForWebElementAndClick(passwordTextField);
-        passwordTextField.sendKeys("123456789Automation");
+        passwordTextField.sendKeys(password);
     }
 
     public void signUpBtn() {

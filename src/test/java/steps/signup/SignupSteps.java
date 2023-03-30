@@ -54,9 +54,9 @@ public class SignupSteps extends BasePage {
         _page.userNameTextField(text);
     }
 
-    @And("I validate the Password Text Field")
-    public void loginiValidateThePasswordTextField(){
-        _page.passwordTextField();
+    @And("I validate the Password Text Field {string}")
+    public void loginiValidateThePasswordTextField(String password){
+        _page.passwordTextField(password);
     }
 
     @And("I validate the Sign Up button")

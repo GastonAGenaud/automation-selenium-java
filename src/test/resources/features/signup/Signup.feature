@@ -10,6 +10,6 @@ Feature: Sign Up
     #And I validate the sign up with Google
     And I validate the E-mail Text Field with the email "automation"
     And I validate the Username Text Field with the username "automation"
-    And I validate the Password Text Field
+    And I validate the Password Text Field "123456789Automation"
     And I validate the Sign Up button
     Then I validate the creation of an account
