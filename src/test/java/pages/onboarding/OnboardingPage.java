@@ -122,6 +122,7 @@ public class OnboardingPage extends BasePage {
            return result;
        }catch (Exception e){
            wait(3);
+           fluentWait(getDriver(),marketPlaceCreateBtn);
            boolean result = marketPlaceCreateBtn.isDisplayed();
            return result;
        }
