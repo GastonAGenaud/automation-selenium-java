@@ -66,6 +66,7 @@ public class BasePage {
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
     public String UrlSVC = Environment.getProperty("UrlSVC");
     public String UrlProd = Environment.getProperty("UrlProd");
+    public String urlServicesProd = Environment.getProperty("UrlServicesProd");
     public String UrlProduct = "https://mtreborn-automation-products.azurewebsites.net/listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
@@ -226,6 +227,10 @@ public class BasePage {
         getDriver().navigate().to(url);
     }
 
+    public void getHomePageProd() {
+        getDriver().navigate().to(urlServicesProd);
+    }
+
     public void ProdHomePage() {
         getDriver().navigate().to(UrlProd);
     }
@@ -235,6 +240,11 @@ public class BasePage {
         getDriver().navigate().to(baseUrlOHE);
     }
 
+
+    public void getLoginPageProd() {
+        wait(2);
+        getDriver().navigate().to(urlServicesProd + "Account/Login");
+    }
 
     public void getLoginPage() {
         wait(2);
@@ -342,7 +352,7 @@ public class BasePage {
     }
 
 
-    public void loginWithGastonUserProd() throws IOException {
+    public void loginWithGastonUserProdProducts() throws IOException {
         ProdHomePage();
         loginPageProd();
         waitForWebElementAndClick(emailLoginInput);
@@ -447,6 +457,43 @@ public class BasePage {
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePage();
+        getDriver().navigate().refresh();
+    }
+
+    public void loginWithGastonUserProdServices() throws IOException {
+        getHomePageProd();
+        getLoginPageProd();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("gastongenaud@7r1ck.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
+        wait(2);
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        wait(7);
+        sessionManager.storeSessionFile("GastonUserProd");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
+    }
+
+    public void loginWithDevProd() throws IOException {
+        getHomePageProd();
+        getLoginPageProd();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        wait(7);
+        sessionManager.storeSessionFile("DevUserProd");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
     }
 

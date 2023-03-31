@@ -47,7 +47,7 @@ Feature: Admin
     Then I see that the contact us button redirect me to a calendar
     And I see that the next button send me to step 3
 
-  @admin  @MTR-1300
+  @admin  @MTR-1300  @MTR
   Scenario: Validate Select your landing page layout
     Given I login with Gaston User
     And Step 3: Select your landing page layout
