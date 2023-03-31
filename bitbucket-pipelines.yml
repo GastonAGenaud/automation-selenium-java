@@ -1,26 +1,114 @@
-image: selenium-ubuntu
+image: atlassian/default-image:2
 
+definitions:
+  steps:
+    - step: &BuildImage
+        name: Build Docker Image
+        services:
+          - docker
+        caches:
+          - docker
+        script:
+          - export ENVIRONMENT=$(cat ./environment.txt)
+          - export SCOPE=$(cat ./testing_scope.txt)
+          - export SITE_TYPE=$(cat ./site_type.txt)
+          - export BITBUCKET_NUMBER=$BITBUCKET_BUILD_NUMBER
+          - echo $ENVIRONMENT
+          - echo $SITE_TYPE
+          - echo $SCOPE
+          - echo $BITBUCKET_BUILD_NUMBER
+          - sed -i 's/(@MTR)/($SCOPE)/g' ./src/test/java/runner/Runner.java
+          - if [[ $SITETYPE != 'products' ]]; then sed -i 's/products/$SITETYPE/g' ./deploy_to_firebase_products_pre-staging.sh; fi;
+          - IMAGE_NAME_MIN=automatedtest
+          # - docker login $AcrName --username $AcrUser --password $AcrPassword
+          # - docker build -t $AcrName/$IMAGE_NAME_MIN:latest --build-arg ENVIRONMENT=$ENVIRONMENT .
+          # - docker push $AcrName/$IMAGE_NAME_MIN:latest
+    - step: &SendSlackMessage
+        name: Send Slack Message
+        clone:
+          enabled: false
+        script:
+          - export ENVIRONMENT=$(cat ./environment.txt)
+          - echo $(date +%F) 
+          - echo $ENVIRONMENT
+          - export DEPLOYMESSAGE=$(printf "@here The automated test on %s was triggered!. Pls check its result on following link https://mtr-automation.web.app/%s/report_%s_%s/overview-features.html" $ENVIRONMENT $ENVIRONMENT $(date +%F) $BITBUCKET_BUILD_NUMBER)
+          - echo $DEPLOYMESSAGE
+          - pipe: atlassian/slack-notify:2.0.0
+            variables:
+              WEBHOOK_URL: $SLACK_CHANNEL
+              PRETEXT: 'Deployment success'
+              MESSAGE: $DEPLOYMESSAGE 
 pipelines:
-  branches:
-    master:
+  custom:
+    PreStaging-Products:
       - step:
-          name: Run automation for staging environment
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
           script:
-            - mvn clean verify test -Denv=staging
-          services:
-            - docker
-          caches:
-            - maven
+            - export ENVIRONMENT=pre-staging
+            - export SCOPE=@MTR-1436
+            - export SITETYPE=products
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SITETYPE > site_type.txt
+            - echo $SCOPE > testing_scope.txt
           artifacts:
-            - target/cucumber-html-reports
-    develop:
+            - environment.txt
+            - testing_scope.txt
+            - site_type.txt
+      - step: *BuildImage
+      - step: *SendSlackMessage
+    PreStaging-Services:
       - step:
-          name: Run automation for dev environment
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
           script:
-            - mvn clean verify test -Denv=dev
-          services:
-            - docker
-          caches:
-            - maven
+            - export ENVIRONMENT=pre-staging
+            - export SCOPE=@OHE-331
+            - export SITETYPE=services
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SITETYPE > site_type.txt
+            - echo $SCOPE > testing_scope.txt
           artifacts:
-            - target/cucumber-html-reports
+            - environment.txt
+            - testing_scope.txt
+            - site_type.txt
+      - step: *BuildImage
+      - step: *SendSlackMessage
+    Staging-Products:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MTR-1436
+            - export SITETYPE=products
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SITETYPE > site_type.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - site_type.txt
+      - step: *BuildImage
+      - step: *SendSlackMessage
+    Staging-Services:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@OHE-392
+            - export SITETYPE=services
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SITETYPE > site_type.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - site_type.txt
+      - step: *BuildImage
+      - step: *SendSlackMessage
