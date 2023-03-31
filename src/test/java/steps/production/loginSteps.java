@@ -53,4 +53,24 @@ public class loginSteps extends BasePage {
     @Then("I validate Login")
     public void iValidateLogin() {
     }
+
+    @When("select Forgot your password?")
+    public void selectForgotYourPassword() {
+        _page.forgotPasswordButton();
+    }
+
+    @And("complete Forgot Email TexField")
+    public void completeForgotEmailTexField() {
+        _page.forgotPasswordInput();
+    }
+
+    @And("select Send e-mail button")
+    public void selectSendEMailButton() {
+        _page.sendEmailForgot();
+    }
+
+    @Then("see reset password message")
+    public void seeResetPasswordMessage() {
+        _page.resetPasswordText();
+    }
 }

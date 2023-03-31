@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 import pages.BasePage;
 
 public class loginPage extends BasePage {
@@ -30,7 +31,40 @@ public class loginPage extends BasePage {
     public WebElement logInBtn;
     @FindBy(how = How.CSS, using = "#login-header-text-customize")
     public WebElement logInHeaderBtn;
+
+    @FindBy(how = How.CSS, using = "#forgot-tab")
+    public WebElement forgotPasswordBtn;
+
+    @FindBy(how = How.CSS, using = "#e-mail-forgot")
+    public WebElement emailForgotTextField;
+
+    @FindBy(how = How.CSS, using = "#forgot > div.d-flex.justify-content-end.mt-4 > button")
+    public WebElement forgotSendButton;
+
+    @FindBy(how = How.CSS, using = "#email-sent > h3")
+    public WebElement resetPasswordTxt;
     ////////////////
+
+    public void resetPasswordText(){
+        fluentWait(getDriver(),resetPasswordTxt);
+        Assert.assertTrue(resetPasswordTxt.isDisplayed());
+    }
+
+    public void sendEmailForgot() {
+        fluentWait(getDriver(), forgotSendButton);
+        waitForWebElementAndClick(forgotSendButton);
+    }
+
+    public void forgotPasswordInput(){
+        fluentWait(getDriver(), emailForgotTextField);
+        waitForWebElementAndClick(emailForgotTextField);
+        emailForgotTextField.sendKeys("gastongenaud@7r1ck.com");
+    }
+
+    public void forgotPasswordButton(){
+        fluentWait(getDriver(), forgotPasswordBtn);
+        waitForWebElementAndClick(forgotPasswordBtn);
+    }
 
     public void loginButton(){
         fluentWait(getDriver(), logInBtn);

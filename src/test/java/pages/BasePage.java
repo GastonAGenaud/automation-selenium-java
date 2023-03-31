@@ -226,6 +226,10 @@ public class BasePage {
         getDriver().navigate().to(url);
     }
 
+    public void ProdHomePage() {
+        getDriver().navigate().to(UrlProd);
+    }
+
 
     public void getHomePageOWL() {
         getDriver().navigate().to(baseUrlOHE);
@@ -235,6 +239,11 @@ public class BasePage {
     public void getLoginPage() {
         wait(2);
         getDriver().navigate().to(url + "Account/Login");
+    }
+
+    public void loginPageProd() {
+        wait(2);
+        getDriver().navigate().to(UrlProd + "Account/Login");
     }
 
     public void getLoginPageOWL() {
@@ -328,6 +337,26 @@ public class BasePage {
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
+    }
+
+
+    public void loginWithGastonUserProd() throws IOException {
+        ProdHomePage();
+        loginPageProd();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("gastongenaud@7r1ck.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
+        wait(2);
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        wait(7);
+        sessionManager.storeSessionFile("GastonUser");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        ProdHomePage();
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
     }

@@ -62,19 +62,27 @@ public class ServicesSettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#addresses-tab > span > span:nth-child(1)")
     public WebElement addressesBtn;
 
+    @FindBy(how = How.CSS, using = "#social-tab > span > span:nth-child(1)")
+    public WebElement socialTab;
 
 
+    public void dashboardSocialTab(){
+        fluentWait(getDriver(), socialTab);
+        waitForWebElementAndClick(socialTab);
+    }
     public String notificationsConfirm() {
         fluentWait(getDriver(), emailTextConfirm);
         String result = emailTextConfirm.getText();
         return result;
 
     }
-    public void notificationsTab () {
+
+    public void notificationsTab() {
         fluentWait(getDriver(), notificationsBtn);
         waitForWebElementAndClick(notificationsBtn);
     }
-    public String addressesConfirm () {
+
+    public String addressesConfirm() {
         fluentWait(getDriver(), addressesConfirm);
         String result = addressesConfirm.getText();
         return result;
@@ -105,7 +113,7 @@ public class ServicesSettingsPage extends BasePage {
     }
 
     public String securityConfirm() {
-        fluentWait(getDriver(),securityInformation);
+        fluentWait(getDriver(), securityInformation);
         String result = securityInformation.getText();
         return result;
     }
@@ -166,7 +174,7 @@ public class ServicesSettingsPage extends BasePage {
 
     }
 
-    public void selectAddresses () {
+    public void selectAddresses() {
         fluentWait(getDriver(), addressesBtn);
         waitForWebElementAndClick(addressesBtn);
 

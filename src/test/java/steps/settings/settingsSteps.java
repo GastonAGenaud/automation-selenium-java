@@ -1,4 +1,5 @@
 package steps.settings;
+
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -26,7 +27,8 @@ public class settingsSteps extends BasePage {
         this._page = new settingsPage();
 
     }
-//    @Before
+
+    //    @Before
 //    public void testSignup() throws IOException {
 //        _page.loginWithGastonUser();
 //        _page.loginWithDev();
