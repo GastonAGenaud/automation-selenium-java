@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Lamansys Test Suite">
-    <test  name="Test Suite for Lamansys">
+<suite name="trick Test Suite" parallel="classes" thread-count="2">
+    <test  name="Test Suite for trick" thread-count="2">
+        <parameter name="env" value="staging"/>
         <classes>
             <class name="runner.Runner"/>
         </classes>

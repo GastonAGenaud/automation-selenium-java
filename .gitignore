@@ -18,7 +18,14 @@
 *.zip
 *.tar.gz
 *.rar
-
+.idea/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 target/
+target
+target/*
+firebase/products/staging/public/
+firebase/products/pre-staging/public/
+firebase/services/staging/public/
+firebase/services/pre-staging/public/
+firebase/owl_home_educations/public/
