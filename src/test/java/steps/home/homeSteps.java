@@ -393,7 +393,7 @@ public class homeSteps extends BasePage {
     */
 
     @Given("I login with Gaston User")
-    public void loginWithGastonUserSteps() {
+    public void loginWithGastonUser() {
         try {
             wait(10);
             getDriver().manage().deleteAllCookies();
@@ -413,8 +413,8 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession("GastonUser");
         }
     }
-    @Given("I login with Gaston User Prod")
-    public void loginWithGastonUserStepsProd() {
+    @Given("I login with Gaston")
+    public void loginWithGastonUserSteps() {
         try {
             wait(10);
             getDriver().manage().deleteAllCookies();

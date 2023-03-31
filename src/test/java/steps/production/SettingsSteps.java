@@ -20,11 +20,11 @@ public class SettingsSteps extends BasePage {
 
     }
 
-//    @Before
-//    public void testSignup() throws IOException {
-//        _page.loginWithGastonUserProd();
+    @Before
+    public void testSignup() throws IOException {
+        _page.loginWithGastonUserProdProducts();
 
-//}
+}
 
     @And("go to dashboard")
     public void goToDashboard() {
@@ -59,12 +59,12 @@ public class SettingsSteps extends BasePage {
     }
 
     @Given("I login with Gaston User Prod")
-    public void iLoginWithGastonUserProd() throws IOException {
-        _page.loginWithGastonUserProd();
+    public void iLoginWithGastonUserProdProducts() throws IOException {
+        _page.loginWithGastonUserProdProducts();
     }
 
     @Given("I login with Gaston User PROD")
-    public void loginWithGastonUserStepsProd() {
+    public void loginWithGastonUserStepsProdProducts() {
         try {
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
@@ -86,30 +86,74 @@ public class SettingsSteps extends BasePage {
 
     @And("select Social tab")
     public void selectSocialTab() {
+        _page.dashboardSocialTab();
     }
 
     @And("complete Website TextField")
     public void completeWebsiteTextField() {
+        _page.websiteTextField();
     }
 
     @And("complete Facebook TextField")
     public void completeFacebookTextField() {
+        _page.facebookTextField();
     }
 
     @And("complete Twitter TextField")
     public void completeTwitterTextField() {
+        _page.twitterTextField();
     }
 
     @And("complete Instagram TextField")
     public void completeInstagramTextField() {
+        _page.instagramTextField();
     }
 
     @And("complete Linkedin TextField")
     public void completeLinkedinTextField() {
+        _page.linkedinTextField();
     }
 
     @And("complete Youtube TextField")
     public void completeYoutubeTextField() {
+        _page.youtubeTextField();
+        _page.twitterTextField();
+    }
+
+    @Then("I valid add social profile urls")
+    public void iValidAddSocialProfileUrls() {
+        _page.urlsAddedPopUp();
+    }
+
+    @And("complete Name on card TextField")
+    public void completeNameOnCardTextField() {
+        _page.nameOnCardTextField();
+    }
+
+    @And("complete Card number TextField")
+    public void completeCardNumberTextField() {
+        _page.cardNumberTextField();
+    }
+
+    @And("complete Expiration Date TextField")
+    public void completeExpirationDateTextField() {
+        _page.expirationDateTextField();
+    }
+
+    @And("complete Security Code TextField")
+    public void completeSecurityCodeTextField() {
+        _page.cvvTextField();
+    }
+
+    @And("select Add Credit Card button")
+    public void selectAddCreditCardButton() {
+    }
+
+    @Then("I validate Add credit card")
+    public void iValidateAddCreditCard() {
     }
 }
+
+
+
 

@@ -48,6 +48,97 @@ public class SettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#CurrentPassword")
     public WebElement currentPassword;
 
+    @FindBy(how = How.CSS, using = "#social-tab > span > span:nth-child(1)")
+    public WebElement socialTab;
+
+    @FindBy(how = How.CSS, using = "#website")
+    public WebElement websiteInput;
+
+    @FindBy(how = How.CSS, using = "#linkedin")
+    public WebElement linkedinInput;
+
+    @FindBy(how = How.CSS, using = "#facebook")
+    public WebElement facebookInput;
+    @FindBy(how = How.CSS, using = "#instagram")
+    public WebElement instagramInput;
+    @FindBy(how = How.CSS, using = "#youtube")
+    public WebElement youtubeInput;
+    @FindBy(how = How.CSS, using = "#twitter")
+    public WebElement twitterInput;
+
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body")
+    public WebElement urlsAddedMessage;
+
+    @FindBy(how = How.CSS, using = "#NameOnCard")
+    public WebElement nameOnCardInput;
+
+    @FindBy(how = How.CSS, using = "#CardNumber")
+    public WebElement cardNumberInput;
+
+    @FindBy(how = How.CSS, using = "#ExpirationDate")
+    public WebElement expirationDateInput;
+
+    @FindBy(how = How.CSS, using = "#CVV")
+    public WebElement cvvInput;
+
+    public void cvvTextField(){
+        fluentWait(getDriver(), cvvInput);
+        cvvInput.sendKeys("123");
+    }
+
+    public void expirationDateTextField(){
+        fluentWait(getDriver(), expirationDateInput);
+        expirationDateInput.sendKeys("052");
+    }
+
+    public void cardNumberTextField(){
+        fluentWait(getDriver(), cardNumberInput);
+        cardNumberInput.sendKeys("424242424242");
+    }
+
+    public void nameOnCardTextField(){
+        fluentWait(getDriver(), nameOnCardInput);
+        nameOnCardInput.sendKeys("Test Production");
+    }
+
+
+
+    public void urlsAddedPopUp(){
+        fluentWait(getDriver(), urlsAddedMessage);
+        Assert.assertTrue(urlsAddedMessage.isDisplayed());
+    }
+
+    public void linkedinTextField(){
+        fluentWait(getDriver(), linkedinInput);
+        linkedinInput.sendKeys("https://www.google.com/");
+    }
+    public void facebookTextField(){
+        fluentWait(getDriver(), facebookInput);
+        facebookInput.sendKeys("https://www.google.com/");
+    }
+    public void instagramTextField(){
+        fluentWait(getDriver(), instagramInput);
+        instagramInput.sendKeys("https://www.google.com/");
+    }
+    public void youtubeTextField(){
+        fluentWait(getDriver(), youtubeInput);
+        youtubeInput.sendKeys("https://www.google.com/");
+    }
+    public void websiteTextField(){
+        fluentWait(getDriver(), websiteInput);
+        websiteInput.sendKeys("https://www.google.com/");
+    }
+
+    public void twitterTextField(){
+        fluentWait(getDriver(), twitterInput);
+        twitterInput.sendKeys("https://www.google.com/");
+    }
+
+    public void dashboardSocialTab() {
+        fluentWait(getDriver(), socialTab);
+        waitForWebElementAndClick(socialTab);
+
+    }
     public void currentPasswordTextField(){
         fluentWait(getDriver(), currentPassword);
         waitForWebElementAndClick(currentPassword);
