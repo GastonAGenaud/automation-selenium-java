@@ -382,7 +382,7 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession("makeAnOffer");
     }
 
-   /* @Before
+    /*@Before
     public void lallallallal() throws IOException {
         _page.loginWithGastonNoBorrar();
         _page.loginWithGastonUser();
@@ -413,6 +413,27 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession("GastonUser");
         }
     }
+    @Given("I login with Gaston User Prod")
+    public void loginWithGastonUserStepsProd() {
+        try {
+            wait(10);
+            getDriver().manage().deleteAllCookies();
+            getHomePageProd();
+            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+        } catch (Exception e) {
+            wait(3);
+
+            getDriver().manage().deleteAllCookies();
+            getHomePageProd();
+            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+        }
+    }
 
     @Given("I login with Dev user")
     public void loginWithDevSteps() {
@@ -422,6 +443,16 @@ public class homeSteps extends BasePage {
 
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession("DevUser");
+    }
+
+    @Given("I login with Dev user Prod")
+    public void loginWithDevStepsProd() {
+        getDriver().manage().deleteAllCookies();
+        getHomePageProd();
+        sessionManager.usePreviousLoggedInSession("DevUserProd");
+
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession("DevUserProd");
     }
 
     @Given("I login with GoodWill User")

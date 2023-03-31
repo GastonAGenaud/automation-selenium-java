@@ -612,6 +612,7 @@ public class AdminPage extends BasePage {
        try {
            fluentWait(getDriver(),CreateCustomFieldBtn);
            waitForWebElementAndClick(CreateCustomFieldBtn);
+           retryingFindClick(CreateCustomFieldBtn);
            fluentWait(getDriver(),FieldNameBtn);
        }
        catch (Exception e){
@@ -656,8 +657,15 @@ public String validateSaveButton(){
 
 
     public void selectLandingPage() {
-        fluentWait(getDriver(), selectLandingPage);
-        waitForWebElementAndClick(selectLandingPage);
+        try {
+            fluentWait(getDriver(), selectLandingPage);
+            waitForWebElementAndClick(selectLandingPage);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), selectLandingPage);
+            waitForWebElementAndClick(selectLandingPage);
+        }
+
     }
 
     public void createCategories() {
@@ -822,10 +830,19 @@ public String validateSaveButton(){
     }
 
     public void watchVideoRedirect() {
-        String window = getDriver().getWindowHandle();
-        fluentWait(getDriver(), watchVideoBtn);
-        waitForWebElementAndClick(watchVideoBtn);
-        getDriver().switchTo().window(window);
+       try {
+           String window = getDriver().getWindowHandle();
+           fluentWait(getDriver(), watchVideoBtn);
+           waitForWebElementAndClick(watchVideoBtn);
+           getDriver().switchTo().window(window);
+       }catch (Exception e){
+           wait(3);
+           String window = getDriver().getWindowHandle();
+           fluentWait(getDriver(), watchVideoBtn);
+           waitForWebElementAndClick(watchVideoBtn);
+           getDriver().switchTo().window(window);
+       }
+
     }
 
     public void actionsTemplateOptions() {

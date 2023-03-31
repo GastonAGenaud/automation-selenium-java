@@ -71,6 +71,7 @@ public class requestSteps extends BasePage {
         //_page.endDate();
         _page.locationCheckBox();
         _page.ExcellentTxt();
+        _page.addEndDate();
         System.out.println("MENSAJE IMPORTANTE");
         _page.publishRequest();
         System.out.println("MENSAJE IMPORTANTE");
