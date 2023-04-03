@@ -24,7 +24,7 @@ public class SettingsSteps extends BasePage {
     public void testSignup() throws IOException {
         _page.loginWithGastonUserProdProducts();
 
-}
+    }
 
     @And("go to dashboard")
     public void goToDashboard() {
@@ -147,10 +147,147 @@ public class SettingsSteps extends BasePage {
 
     @And("select Add Credit Card button")
     public void selectAddCreditCardButton() {
+        _page.addCreditCardButton();
     }
 
     @Then("I validate Add credit card")
     public void iValidateAddCreditCard() {
+        _page.cardExists();
+    }
+
+    @And("select Notifications Tab")
+    public void selectNotificationsTab() {
+        _page.dashboardNotificationsTab();
+    }
+
+    @And("select Email Notifications checkbox")
+    public void selectEmailNotificationsCheckbox() {
+        _page.emailNotificationsCheckbox();
+    }
+
+    @And("select SMS Notifications checkbox")
+    public void selectSMSNotificationsCheckbox() {
+        _page.smsNotificationsCheckbox();
+    }
+
+    @And("select WhatsApp Notifications checkbox")
+    public void selectWhatsAppNotificationsCheckbox() {
+        _page.whatsappNotificationCheckbox();
+    }
+
+    @Then("I validate Activate Notifications")
+    public void iValidateActivateNotifications() {
+        _page.saveChangesMessagePopUp();
+    }
+
+    @And("complete Phone number TextField ONE")
+    public void completePhoneNumberTextFieldONE() {
+        _page.countryCodeTxtONE();
+        _page.areaCodeTxtONE();
+        _page.phoneNumberTxtONE();
+        _page.termsAndConditions();
+    }
+
+    @And("complete Phone number TextField TWO")
+    public void completePhoneNumberTextFieldTWO() {
+        _page.countryCodeTxtTWO();
+        _page.areaCodeTxtTWO();
+        _page.phoneNumberTxtTWO();
+    }
+
+    @Then("I validate Deactivate Notifications")
+    public void iValidateDeactivateNotifications() {
+        _page.saveChangesMessagePopUp();
+    }
+
+    @And("select Shipping Tab")
+    public void selectShippingTab() {
+        _page.dashboardShippingTab();
+    }
+
+    @And("select Add New address")
+    public void selectAddNewAddress() {
+        _page.addAddress();
+    }
+
+    @And("complete Full Name TextField")
+    public void completeFullNameTextField() {
+        _page.enterFullName();
+    }
+
+    @And("complete Phone Number TextField")
+    public void completePhoneNumberTextField() {
+        _page.enterPhoneNumber();
+    }
+
+    @And("complete Country TextField")
+    public void completeCountryTextField() {
+        _page.enterCountry();
+    }
+
+    @And("complete State-Province-Region TextField")
+    public void completeStateProvinceRegionTextField() {
+        _page.enterStateName();
+    }
+
+    @And("complete City TextField")
+    public void completeCityTextField() {
+        _page.enterCity();
+    }
+
+    @And("complete ZIP-Postal Code TextField")
+    public void completeZIPPostalCodeTextField() {
+        _page.enterZipCode();
+    }
+
+    @And("select Save Button")
+    public void selectSaveButton() {
+        _page.saveAddress();
+    }
+
+    @And("select Edit Save Button")
+    public void selectEditSaveButton() {
+        _page.editSaveAddress();
+    }
+
+    @Then("I validate Add Address option")
+    public void iValidateAddAddressOption() {
+        _page.saveChangesMessagePopUp();
+    }
+
+    @Then("I validate Edit Address option")
+    public void iValidateEditAddressOption() {
+        _page.saveChangesMessagePopUp();
+    }
+
+    @And("complete Address Line")
+    public void completeAddressLine() {
+        _page.enterAddress();
+    }
+
+    @And("select Edit Address button")
+    public void selectEditAddressButton() {
+        _page.editAddress();
+    }
+
+    @And("Edit Zip Text")
+    public void editZipText() {
+        _page.editAddressTxt();
+    }
+
+    @And("select Delete Address")
+    public void selectDeleteAddress() {
+        _page.deleteAddress();
+    }
+
+    @And("select Delete Confirm")
+    public void selectDeleteConfirm() {
+        _page.confirmDeleteAddress();
+    }
+
+    @Then("I validate delete Address")
+    public void iValidateDeleteAddress() {
+        _page.deleteAddressSuccessfulPopUp();
     }
 }
 
