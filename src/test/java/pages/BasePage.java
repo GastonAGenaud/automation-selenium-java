@@ -245,6 +245,10 @@ public class BasePage {
         wait(2);
         getDriver().navigate().to(urlServicesProd + "Account/Login");
     }
+    public void getSignUpPageProd() {
+        wait(2);
+        getDriver().navigate().to(urlServicesProd + "Account/Register");
+    }
 
     public void getLoginPage() {
         wait(2);

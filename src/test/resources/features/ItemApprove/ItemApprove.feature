@@ -1,6 +1,6 @@
 Feature: Item Approve
 
-   @ItemApprove @MTR @MTR-8888
+   @ItemApprove @MTR @MTR-3458
 
   Scenario: Valid if the "Item Approves" texts are displayed.
     Given I login with Gaston User

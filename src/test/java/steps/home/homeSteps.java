@@ -413,8 +413,15 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession("GastonUser");
         }
     }
-    @Given("I login with Gaston")
-    public void loginWithGastonUserSteps() {
+   /*@Before
+    public void test() throws IOException {
+        _page.loginWithGastonUserProdServices();
+        _page.loginWithDevProd();
+    }
+    */
+
+    @Given("I login with Gaston User Prod")
+    public void loginWithGastonUserStepsProd() {
         try {
             wait(10);
             getDriver().manage().deleteAllCookies();

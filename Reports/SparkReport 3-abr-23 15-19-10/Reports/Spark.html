@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"> Grasshopper Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">mar. 10, 2023 09:39:37 a. m.</span></a>
+<a href="#"><span class="badge badge-primary">abr 3, 2023 03:19:10 p. m.</span></a>
 </li>
 </ul>
 </div>
@@ -71,13 +71,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>mar. 10, 2023 09:39:37 a. m.</h3>
+<h3>abr 3, 2023 03:19:10 p. m.</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>mar. 10, 2023 09:40:00 a. m.</h3>
+<h3>abr 3, 2023 03:19:19 p. m.</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -148,10 +148,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> steps passed</small></div>
+<div><small data-tooltip='57%'><b>4</b> steps passed</small></div>
 <div>
-<small data-tooltip='8%'><b>1</b> steps failed,
-<b>11</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='14%'><b>1</b> steps failed,
+<b>2</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -167,7 +167,7 @@
 </div></div>
 <script>
 var timeline = {
-"addons":22.059
+"AdminPanel":8.794
 };
 </script>
 <div class="row">
@@ -177,23 +177,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@MTR-1542</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-</tr>
-<tr>
-<td>@addons</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-</tr>
-<tr>
-<td>@maxa</td>
+<td>@MTR-1111</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
@@ -234,10 +218,10 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 0,
+passGrandChild: 4,
 failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 11,
+skipGrandChild: 2,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -259,7 +243,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@MTR-1542</a><a class="dropdown-item" href="#">@addons</a><a class="dropdown-item" href="#">@maxa</a>
+<a class="dropdown-item" href="#">@MTR-1111</a>
 </ul>
 </li>
 </ul>
@@ -270,9 +254,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">addons</p>
+            <p class="name">AdminPanel</p>
             <p class="text-sm">
-              <span>09:39:38 a. m.</span> / <span>00:22:059</span>
+              <span>15:19:11 p. m.</span> / <span>00:08:794</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -280,10 +264,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">addons</h5>
-<span class='badge badge-success'>03.10.2023 09:39:38</span>
-<span class='badge badge-danger'>03.10.2023 09:40:00</span>
-<span class='badge badge-default'>00:22:059</span>
+<h5 class="test-status text-fail">AdminPanel</h5>
+<span class='badge badge-success'>04.03.2023 15:19:11</span>
+<span class='badge badge-danger'>04.03.2023 15:19:19</span>
+<span class='badge badge-default'>00:08:794</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
 <div class="m-t-10 m-l-5"></div>
@@ -293,103 +277,64 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>MTR - Create an Add-On</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Login</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
         <div class="">
           <div class="card-body">
-              <div class="step fail-bg" title="steps.home.homeSteps.IgoToHomePage()">
-                <span>Given I go to Home With Account</span>
+              <div class="step pass-bg" title="steps.productionServices.SProdLoginSteps.iGoLogin()">
+                <span>Given I go login</span>
       <div>
-        <textarea disabled class="code-block">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=111.0.5563.65)
-Build info: version: '4.6.0', revision: '79f1c02ae20'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3ddc8426e64c3b41d5de0ad0629de982, findElement {using=css selector, value=#login-header-text-customize}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\gasto\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49986}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49986/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3ddc8426e64c3b41d5de0ad0629de982
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy27.isDisplayed(Unknown Source)
-	at pages.BasePage.lambda$fluentWait$1(BasePage.java:119)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	at pages.BasePage.fluentWait(BasePage.java:119)
-	at pages.home.HomePage.headerLogIn(HomePage.java:185)
-	at steps.home.homeSteps.IgoToHomePage(homeSteps.java:273)
-	at ✽.I go to Home With Account(classpath:features/addons/Addons.feature:41)
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.productionServices.SProdLoginSteps.loginTitleValid()">
+                <span>When Login title valid</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="steps.productionServices.SProdLoginSteps.validLoginWithFacebook()">
+                <span>And valid Login with Facebook</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="steps.productionServices.SProdLoginSteps.validLoginWithGoogle()">
+                <span>And valid Login with Google</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:976)
+	at org.testng.Assert.assertEquals(Assert.java:1010)
+	at steps.productionServices.SProdLoginSteps.validLoginWithGoogle(SProdLoginSteps.java:41)
+	at ✽.valid Login with Google(classpath:features/productionServices/AdminPanel.feature:9)
 </textarea>
       
       </div>
               </div>
-              <div class="step skip-bg" title="steps.admin.AdminSteps.adminAddOns()">
-                <span>And Admin Add-ons</span>
+              <div class="step skip-bg" title="steps.home.homeSteps.loginWithGastonUserStepsProd()">
+                <span>And I login with Gaston User Prod</span>
       <div>Step skipped
       </div>
               </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iGoToAddons()">
-                <span>And I go to addons</span>
+              <div class="step skip-bg" title="steps.productionServices.SProdLoginSteps.validSessionLogin()">
+                <span>Then valid session login</span>
       <div>Step skipped
       </div>
               </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iSelectAddAddOnButton()">
-                <span>When I select add add on button</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iSelectTheTypeOfService()">
-                <span>And I select the type of service</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iCompleteTheTitleTextField()">
-                <span>And I complete the Title text field</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iCompleteTheDescriptionTextField()">
-                <span>And I complete the description text field</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iCompleteTheStripeProductIdTextField()">
-                <span>And I complete the stripe productId text field</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iCompleteVideoURL()">
-                <span>And I complete video URL</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iLoadAImage()">
-                <span>And I load a image</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iSelectTheSaveButton()">
-                <span>And I select the save button</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="steps.addons.AddonsSteps.iValidateTheCreatedAddon()">
-                <span>Then I validate the created addon</span>
-      <div>Step skipped
+              <div class="step pass-bg" title="AFTER">
+                <span>driver.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Login
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
       </div>
               </div>
           </div>
@@ -411,7 +356,7 @@ Session ID: 3ddc8426e64c3b41d5de0ad0629de982
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">3</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -420,12 +365,12 @@ Session ID: 3ddc8426e64c3b41d5de0ad0629de982
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">@MTR-1542</p>
+<p class="name">@MTR-1111</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@MTR-1542</h4>
+<h4>@MTR-1111</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -439,83 +384,11 @@ Session ID: 3ddc8426e64c3b41d5de0ad0629de982
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>09:39:38 a. m.</td>
+<td>15:19:11 p. m.</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>MTR - Create an Add-On</a>
+<a href="#" class="linked" test-id='1' id='2'>Login</a>
 <div class="">
-<span class="badge badge-default">addons.MTR - Create an Add-On</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">@addons</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@addons</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>09:39:38 a. m.</td>
-<td>
-<a href="#" class="linked" test-id='1' id='2'>MTR - Create an Add-On</a>
-<div class="">
-<span class="badge badge-default">addons.MTR - Create an Add-On</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">@maxa</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@maxa</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>09:39:38 a. m.</td>
-<td>
-<a href="#" class="linked" test-id='1' id='2'>MTR - Create an Add-On</a>
-<div class="">
-<span class="badge badge-default">addons.MTR - Create an Add-On</span>
+<span class="badge badge-default">AdminPanel.Login</span>
 </div>
 </td>
 </tr>
@@ -544,12 +417,12 @@ Session ID: 3ddc8426e64c3b41d5de0ad0629de982
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">org.openqa.selenium.NoSuchWindowException</p>
+<p class="name">java.lang.AssertionError</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>org.openqa.selenium.NoSuchWindowException</h4>
+<h4>java.lang.AssertionError</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -563,11 +436,11 @@ Session ID: 3ddc8426e64c3b41d5de0ad0629de982
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>09:39:40 a. m.</td>
+<td>15:19:19 p. m.</td>
 <td>
-<a href="#" class="linked" test-id='1' id='4'>Given I go to Home With Account</a>
+<a href="#" class="linked" test-id='1' id='7'>And valid Login with Google</a>
 <div class="">
-<span class="badge badge-default">addons.MTR - Create an Add-On.Given I go to Home With Account</span>
+<span class="badge badge-default">AdminPanel.Login.And valid Login with Google</span>
 </div>
 </td>
 </tr>
