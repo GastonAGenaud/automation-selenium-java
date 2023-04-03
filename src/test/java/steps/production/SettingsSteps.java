@@ -58,10 +58,7 @@ public class SettingsSteps extends BasePage {
         _page.passwordChangedPopUp();
     }
 
-    @Given("I login with Gaston User Prod")
-    public void iLoginWithGastonUserProd() throws IOException {
-        _page.loginWithGastonUserProd();
-    }
+
 
     @Given("I login with Gaston User PROD")
     public void loginWithGastonUserStepsProd() {
