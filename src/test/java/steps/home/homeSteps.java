@@ -451,19 +451,19 @@ public class homeSteps extends BasePage {
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
     }
-    @Before
-    public void test () throws IOException {
-        loginWithMakeAnOffer();
-        loginWithGastonUserSVC();
-        loginDevSVC();
-        generateLoginWithGastonUser();
-        loginWithGastonUserProdProducts();
-        loginWithDev();
-        loginWithMatiasOwl();
-        loginWithGastonNoBorrar();
-        loginWithGastonUserProdServices();
-        loginWithDevProd();
-    }
+//    @Before
+//    public void test () throws IOException {
+//        loginWithMakeAnOffer();
+//        loginWithGastonUserSVC();
+//        loginDevSVC();
+//        generateLoginWithGastonUser();
+//        loginWithGastonUserProdProducts();
+//        loginWithDev();
+//        loginWithMatiasOwl();
+//        loginWithGastonNoBorrar();
+//        loginWithGastonUserProdServices();
+//        loginWithDevProd();
+//    }
 
     @Given("I login with Dev user Prod")
     public void loginWithDevStepsProd() {
