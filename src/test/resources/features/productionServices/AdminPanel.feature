@@ -1,6 +1,6 @@
 Feature: AdminPanel
 
-#Given I login with Gaston User Prod
+#Given I login with Gaston User in production products using cookies
   @MTR-1111
   Scenario: Login
     Given I go login page PROD

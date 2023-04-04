@@ -228,7 +228,8 @@ public class ServicesHomeSteps extends BasePage {
     @Given("SVC I login")
     public void SVCiLogin() throws IOException {
         _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
+//        _page.loginWithGastonUserSVC();
     }
 
     @And("SVC I select inbox icon button")

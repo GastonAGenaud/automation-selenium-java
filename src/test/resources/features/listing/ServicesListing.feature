@@ -4,7 +4,7 @@ Feature: Services Listing
   @MMRSlisting @MMRS-904 @MMRS
 
   Scenario: SVC - Buyer able to create a listing
-    Given SVC I login
+    Given SVC I login and go to Dashboard
     And SVC I validate the My Listings button
     When SVC I validate add new listing button
     And SVC I validate listing name text field

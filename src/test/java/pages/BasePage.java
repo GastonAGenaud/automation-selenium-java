@@ -279,7 +279,7 @@ public class BasePage {
     }
 
     public void login() {
-        getDriver().navigate().to(baseUrlOHE + "Account/Login");
+        getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
         emailLoginInput.sendKeys("dev@mymarketplacebuilder.com");
@@ -290,7 +290,12 @@ public class BasePage {
 
         waitForWebElementAndClick(logInBtn);
     }
+    public void iLoginWithGastonUserServices(){
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
 
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "DevUser");
+    }
     public void loginDevSVC() throws IOException {
         getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
@@ -304,7 +309,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
 
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"GastonUser");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"DevUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();

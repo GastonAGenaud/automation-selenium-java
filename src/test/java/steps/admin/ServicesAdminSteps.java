@@ -1,5 +1,6 @@
 package steps.admin;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -471,12 +472,13 @@ public class ServicesAdminSteps extends BasePage {
     //Add-Ons and extensions
 //    @Before
 //    public void test() throws IOException {
-//        loginWithDev();
+//        loginDevSVC();
 //    }
+
     @Given("SVC Admin Add-ons")
     public void SVCAdminAddOns() throws IOException {
         _page.getHomePageSVC();
-        _page.loginDevSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }

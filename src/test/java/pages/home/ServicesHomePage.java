@@ -115,6 +115,8 @@ public class ServicesHomePage extends BasePage {
         driver.navigate().to(UrlSVC + "/Account/Login");
     }
 
+
+
     public void headerBrowseServices() {
         fluentWait(getDriver(), headerBrowseServicesBtn);
         waitForWebElementAndClick(headerBrowseServicesBtn);
