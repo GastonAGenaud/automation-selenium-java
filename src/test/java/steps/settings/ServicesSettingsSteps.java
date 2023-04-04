@@ -7,6 +7,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.settings.ServicesSettingsPage;
 
+import java.io.IOException;
+
 
 public class ServicesSettingsSteps extends BasePage {
 
@@ -18,7 +20,7 @@ public class ServicesSettingsSteps extends BasePage {
     }
 
     @Given("I login and go to dashboard page")
-    public void iLoginAndGoToDashboardPage(){
+    public void iLoginAndGoToDashboardPage() throws IOException {
         _page.setHomePage();
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();

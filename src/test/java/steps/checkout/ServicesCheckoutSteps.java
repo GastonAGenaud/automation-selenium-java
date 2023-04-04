@@ -20,10 +20,10 @@ public class ServicesCheckoutSteps extends BasePage {
     @Given("SVC I login with Matias Owl")
     public void SVCloginWithMatiasOwlSteps() {
         getDriver().manage().deleteAllCookies();
-        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "MatiasUser");
         getDriver().navigate().refresh();
         wait(3);
-        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "MatiasUser");
         getDriver().navigate().refresh();
     }
 

@@ -3,6 +3,8 @@
 <suite name="trick Test Suite" parallel="classes" thread-count="2">
     <test  name="Test Suite for trick" thread-count="2">
         <parameter name="env" value="staging"/>
+        <parameter name="suite" value="products"/>
+
         <classes>
             <class name="runner.Runner"/>
         </classes>

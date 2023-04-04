@@ -22,7 +22,7 @@ public class OHEDashboardSteps extends BasePage {
     @Given("I login and go to Dashboard")
     public void iLoginAndGoToDashboard() throws IOException {
         //_page.goToLoginPage();
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
         _page.goToDashboard();
     }
 

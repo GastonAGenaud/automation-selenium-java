@@ -58,29 +58,29 @@ public class SettingsSteps extends BasePage {
         _page.passwordChangedPopUp();
     }
 
-    @Given("I login with Gaston User Prod")
+    @Given("I login with Gaston User in production products")
     public void iLoginWithGastonUserProdProducts() throws IOException {
         _page.loginWithGastonUserProdProducts();
     }
 
-    @Given("I login with Gaston User PROD")
+    @Given("I login with Gaston User in production products using cookies")
     public void loginWithGastonUserStepsProdProducts() {
         try {
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
         } catch (Exception e) {
             wait(3);
 
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
         }
     }
 

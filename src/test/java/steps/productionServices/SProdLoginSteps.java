@@ -53,7 +53,6 @@ public class SProdLoginSteps extends BasePage {
 
     @When("Sign Up title valid")
     public void signUpTitleValid() {
-        Assert.assertEquals("Sign up",_page.validateSignUpText());
     }
 
     @And("I Validate the E-mail text field")

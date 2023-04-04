@@ -28,8 +28,6 @@ public class SProdLoginPages extends BasePage {
     public WebElement GoogleText;
     @FindBy(how = How.CSS, using = "body > header > nav > div > a > img")
     public WebElement logoQA;
-    @FindBy(how = How.CSS, using = "#no-footer > div.d-flex.justify-content-between.mb-4 > h3")
-    public WebElement logoQA;
 
     public void goToLogin() {
         getHomePageProd();
@@ -82,9 +80,6 @@ public class SProdLoginPages extends BasePage {
     public void goToSignUp(){
         getHomePageProd();
         getSignUpPageProd();
-    }
-    public String validateSignUpText(){
-        String result=
     }
 
 }

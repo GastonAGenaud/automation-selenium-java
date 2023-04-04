@@ -7,7 +7,7 @@ Feature: AdminPanel
     When Login title valid
     And valid Login with Facebook
     And valid Login with Google
-    And I login with Gaston User Prod
+    And I login with Gaston User in production services using cookies
     Then valid session login
 
   @MTR-2222

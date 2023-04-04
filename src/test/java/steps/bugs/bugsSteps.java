@@ -298,7 +298,7 @@ public class bugsSteps extends BasePage {
     @Given("Admin Reports OHE")
     public void adminReportsOHE() throws IOException {
         _page.setHomePage();
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
         _page.setAdminButton();
     }
 
@@ -539,7 +539,7 @@ public class bugsSteps extends BasePage {
     @Given("I login BUG")
     public void iLoginBugGiven() throws IOException {
         _page.goToLoginPage();
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
     }
 
     @And("I go to Landing Page")
@@ -649,7 +649,7 @@ public class bugsSteps extends BasePage {
 
     @Given("I login and go to Landing page")
     public void iLoginAndGoToLandingPage() throws IOException {
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
 
     }
 
@@ -784,7 +784,7 @@ public class bugsSteps extends BasePage {
     public void iLogInAndGoSettingPage() throws IOException {
         _page.setHomePage();
         _page.goToDashboard();
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
         _page.goToSiteWording();
     }
 
