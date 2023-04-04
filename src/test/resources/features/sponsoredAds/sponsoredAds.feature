@@ -35,7 +35,7 @@ Feature: Sponsored Ads
 
   @sponsoredAds  @MTR  @MTR-1603
   Scenario: MTR - User able to pay an ad
-    Given I login with another account
+    Given I login with Gaston No Borrar
     And I go to dashboard
     When I select Sponsored Ads section
     And I create a new Ad for PENDING PAY

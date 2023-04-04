@@ -1206,10 +1206,11 @@ public class bugsPage extends BasePage {
 
     public boolean setSuccessPopUp() {
         try {
+            fluentWait(getDriver(),successMessage);
             boolean result = successMessage.isDisplayed();
             return result;
         } catch (Exception e) {
-            wait(2);
+            wait(3);
             boolean result = successMessage.isDisplayed();
             return result;
         }
@@ -1304,7 +1305,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#hv-root > div > div > main > div.db-ConsumerUIWrapper-left > div.db-ConsumerUIWrapper-left--sidebarCopy > span")
     public WebElement VerificationForm;
 
-    @FindBy(how = How.CSS, using = "#transaction-4977 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
+    @FindBy(how = How.CSS, using = "#transaction-5933 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
     public WebElement SeeDetails;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -1582,8 +1583,8 @@ public class bugsPage extends BasePage {
         try {
             fluentWait(getDriver(), buyBtn);
             waitForWebElementAndClick(buyBtn);
-            retryingFindClick(buyBtn);
-            fluentWait(getDriver(), shippingAddressText);
+            //retryingFindClick(buyBtn);
+            //fluentWait(getDriver(), shippingAddressText);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), buyBtn);
@@ -1596,7 +1597,7 @@ public class bugsPage extends BasePage {
         try {
             fluentWait(getDriver(), buyProductDigitalBtn);
             waitForWebElementAndClick(buyProductDigitalBtn);
-            retryingFindClick(buyProductDigitalBtn);
+            //retryingFindClick(buyProductDigitalBtn);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), buyProductDigitalBtn);

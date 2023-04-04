@@ -85,7 +85,7 @@ public class checkoutPage extends BasePage {
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = "#left-column > div:nth-child(2) > div.card.card-shopping > div > div.d-flex.align-items-center.mt-2 > label.switch.mr-2 > span")
     public WebElement saveCreditCardBtn;
-    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[3]/div[5]/button/span")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[3]/div[6]/button")
     public WebElement submitPaymentBtn;
     @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div/div/div/div[1]/input")
     public WebElement preLoadedCreditCardBtn;
@@ -452,8 +452,14 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectSubmitPayment() {
-        fluentWait(getDriver(), submitPaymentBtn);
-        waitForWebElementAndClick(submitPaymentBtn);
+        try {
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+        }
     }
 
     public void selectPreLoadedCardButton() {

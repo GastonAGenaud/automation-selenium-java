@@ -29,7 +29,7 @@ Feature: addons
     And I go to my Listing
     And select my newly created product ADDONS
     And I log out
-    And I login with another account
+    And I login with Gaston No Borrar
     And I go to dashboard
     And I will purchase the product
     And I select the Go To Secure Checkout button

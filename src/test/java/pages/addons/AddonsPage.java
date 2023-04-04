@@ -215,7 +215,7 @@ public class AddonsPage extends BasePage {
         try {
             fluentWait(getDriver(), buyProductDigitalBtn);
             waitForWebElementAndClick(buyProductDigitalBtn);
-            retryingFindClick(buyProductDigitalBtn);
+            //retryingFindClick(buyProductDigitalBtn);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), buyProductDigitalBtn);

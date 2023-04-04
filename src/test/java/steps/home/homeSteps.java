@@ -391,6 +391,15 @@ public class homeSteps extends BasePage {
     }
 
     */
+   /* @Before
+    public void test () throws IOException {
+        loginWithMakeAnOffer();
+        generateLoginWithGastonUser();
+        loginWithDev();
+        loginWithGastonNoBorrar();
+    }
+
+    */
 
     @Given("I login with Gaston User")
     public void loginWithGastonUser() {
@@ -482,7 +491,12 @@ public class homeSteps extends BasePage {
 
         getDriver().navigate().refresh();
     }
+   /* @Before
+    public void test () throws IOException {
+        loginWithGastonNoBorrar();
+    }
 
+    */
 
     @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {

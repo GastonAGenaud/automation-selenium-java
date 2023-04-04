@@ -49,6 +49,6 @@ Feature: Listing
     And I select Publish button STAGING
     Then I validate create a listing Staging
     #And I log out
-    #And I login with another account
+    #And I login with Gaston No Borrar
     #And I go to dashboard
 

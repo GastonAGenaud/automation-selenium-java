@@ -2,7 +2,7 @@ Feature: Bugs
 
   @MTR @MTR-1927 @bugs
   Scenario: MTR - Orders - Purchased - Open Section
-    Given I login with Gaston User
+    Given I login with another account
     And I go to orders page BUGS
     When I validate purchased orders details
     And I validate send message to seller
@@ -157,7 +157,7 @@ Feature: Bugs
 
   @MTR @MTR-1711 @bugs
   Scenario: Download file in Orders Purchased
-    Given I login with Gaston User
+    Given I login with another account
     And I go to orders page
     When select Download file
     Then I validate Download file
@@ -440,7 +440,7 @@ Feature: Bugs
 
   @bugs @MTR @MTR-2651
   Scenario: No Payments - "Payment" information still showing
-    Given I login with Gaston User
+    Given I login with another account
     And go to Dashboard
     And select Settings button
     When I select Payment
@@ -474,7 +474,7 @@ Feature: Bugs
 
   @MTR @MTR-2858 @bugs
   Scenario: Unable to download purchased downloadable files - blocked by firewall
-    Given I login with Gaston User
+    Given I login with another account
     And I go to orders page BUGS
     When I select Purchased button in orders
     And I select Download file button
@@ -483,7 +483,7 @@ Feature: Bugs
 
   @MTR @MTR-2898 @bugs
   Scenario: Error when users try to complete connecting to stripe
-    Given I login with another account
+    Given I login with Gaston User
     And go to Dashboard
     When I select Settings button
     And I select CaShout button
@@ -493,7 +493,7 @@ Feature: Bugs
 
   @MTR @MTR-2899 @bugs
   Scenario: It should redirect on respective page as redirects when clicking from another place
-    Given I login with Gaston User
+    Given I login with another account
     And I go to orders page BUGS
     When I select Purchased button in orders
     And I select See Details button
@@ -533,7 +533,7 @@ Feature: Bugs
     And Sold the product
     And Valid that sold the product
     And I log out
-    And I login with another account
+    And I login with Gaston No Borrar
     And I go to dashboard
     And I go to orders page
     And file selection or download file

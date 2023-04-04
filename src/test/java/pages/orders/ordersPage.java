@@ -92,7 +92,7 @@ public class ordersPage extends BasePage {
     @FindBy(how = How.CSS, using = "#refund > div > div > div > h4")
     public WebElement validateRequestRefund;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/a/span")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div[1]/h5/a/span")
     public WebElement purchasedOpenSection;
 
     @FindBy(how = How.CSS, using = "#btn-cancel")
@@ -107,10 +107,10 @@ public class ordersPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/button")
     public WebElement requestTabButton;
 
-    @FindBy(how = How.CSS, using = "#chat-message")
+    @FindBy(how = How.CSS, using = "#message-text")
     public WebElement messageBeforeChat;
 
-    @FindBy(how = How.CSS, using = "#sendmessage-btn")
+    @FindBy(how = How.CSS, using = "#message > div > div > div > div.justify-content-end.d-flex > div > button")
     public WebElement sendBeforeChat;
 
     @FindBy(how = How.CSS, using = "#sold-tab > span > span:nth-child(1)")
@@ -182,7 +182,7 @@ public class ordersPage extends BasePage {
     }
 
     public void goToOrders() {
-        getDriver().navigate().to(url + "/order/MyOrders?");
+        getDriver().navigate().to(url + "order/MyOrders?");
     }
 
 
@@ -322,21 +322,7 @@ public class ordersPage extends BasePage {
             waitForWebElementAndClick(ordersPurchasedBtn);
         } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(), ordersPurchasedMessageBtn);
-            waitForWebElementAndClick(ordersPurchasedMessageBtn);
-
-            fluentWait(getDriver(), messageBeforeChat);
-            waitForWebElementAndClick(messageBeforeChat);
-
-            messageBeforeChat.sendKeys("Testing");
-
-            fluentWait(getDriver(), sendBeforeChat);
-            waitForWebElementAndClick(sendBeforeChat);
-
             goToOrders();
-
-            fluentWait(getDriver(), ordersPurchasedBtn);
-            waitForWebElementAndClick(ordersPurchasedBtn);
         }
 
     }
@@ -381,23 +367,23 @@ public class ordersPage extends BasePage {
 
 
     public boolean shippingAddressTextValidate() {
-       try {
-           try {
-               fluentWait(getDriver(), shippingAddressText);
-               boolean result = shippingAddressText.isDisplayed();
-               return result;
-           } catch (Exception e) {
-               wait(3);
-               fluentWait(getDriver(), shippingAddressText);
-               boolean result = shippingAddressText.isDisplayed();
-               return result;
-           }
-       }catch (Exception e){
-           wait(3);
-           fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
-           boolean result = goToSecureCheckoutBtn.isDisplayed();
-           return result;
-       }
+        try {
+            try {
+                fluentWait(getDriver(), shippingAddressText);
+                boolean result = shippingAddressText.isDisplayed();
+                return result;
+            } catch (Exception e) {
+                wait(3);
+                fluentWait(getDriver(), shippingAddressText);
+                boolean result = shippingAddressText.isDisplayed();
+                return result;
+            }
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), goToSecureCheckoutBtn);
+            boolean result = goToSecureCheckoutBtn.isDisplayed();
+            return result;
+        }
 
     }
 
@@ -559,10 +545,16 @@ public class ordersPage extends BasePage {
     }
 
     public boolean purchasedOpenSection() {
-        fluentWait(getDriver(), purchasedOpenSection);
-        boolean result = purchasedOpenSection.isDisplayed();
-        return result;
-
+        try {
+            fluentWait(getDriver(), purchasedOpenSection);
+            boolean result = purchasedOpenSection.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), purchasedOpenSection);
+            boolean result = purchasedOpenSection.isDisplayed();
+            return result;
+        }
     }
 
     public boolean shippingOrderSection() {
