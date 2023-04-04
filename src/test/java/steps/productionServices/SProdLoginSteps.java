@@ -19,7 +19,6 @@ public class SProdLoginSteps extends BasePage {
     }
 
 
-
     @Given("I go login page PROD")
     public void iGoLoginPagePROD() {
         _page.goToLogin();
@@ -28,22 +27,22 @@ public class SProdLoginSteps extends BasePage {
 
     @When("Login title valid")
     public void loginTitleValid() {
-        Assert.assertEquals("Login",_page.validateLoginText());
+        Assert.assertEquals("Login", _page.validateLoginText());
     }
 
     @And("valid Login with Facebook")
     public void validLoginWithFacebook() {
-        Assert.assertEquals("Login with Facebook",_page.validateLoginFacebookText());
+        Assert.assertEquals("Login with Facebook", _page.validateLoginFacebookText());
     }
 
     @And("valid Login with Google")
     public void validLoginWithGoogle() {
-        Assert.assertEquals(true,_page.validateLoginGoogleText());
+        Assert.assertEquals(true, _page.validateLoginGoogleText());
     }
 
     @Then("valid session login")
     public void validSessionLogin() {
-        Assert.assertEquals(true,_page.logoQAProductionSite());
+        Assert.assertEquals(true, _page.logoQAProductionSite());
     }
 
     @Given("I go to Sign Up PROD")
@@ -53,22 +52,36 @@ public class SProdLoginSteps extends BasePage {
 
     @When("Sign Up title valid")
     public void signUpTitleValid() {
-        Assert.assertEquals("Sign up",_page.validateSignUpText());
+        Assert.assertEquals("Sign up", _page.validateSignUpText());
     }
 
     @And("I Validate the E-mail text field")
     public void iValidateTheEMailTextField() {
+        Assert.assertEquals(true, _page.validateEmail());
     }
 
     @And("I validate the Username Text Field")
     public void iValidateTheUsernameTextField() {
+        Assert.assertEquals(true, _page.usernameTextField());
     }
 
     @And("I validate the Password Text Field")
     public void iValidateThePasswordTextField() {
+        Assert.assertEquals(true, _page.passwordTextField());
     }
 
     @Then("valid session Sign Up")
     public void validSessionSignUp() {
+        Assert.assertEquals(true, _page.logoQAProductionSite());
+    }
+
+
+    @And("I Sign in with new account {string} PROD")
+    public void iSignInWithNewAccountEmailPROD(String text) {
+        _page.CreateAnAccountListingDetailsPROD(text);
+        _page.validateLastError();
+        _page.imSellerButton();
+        _page.nextButton();
+        _page.completeFormSignUp();
     }
 }
