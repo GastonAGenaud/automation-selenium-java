@@ -20,10 +20,10 @@ public class ServicesSettingsSteps extends BasePage {
     }
 
     @Given("I login and go to dashboard page")
-    public void iLoginAndGoToDashboardPage() throws IOException {
+    public void iLoginAndGoToDashboardPage() {
         _page.setHomePage();
         _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToDashboard();
     }
 

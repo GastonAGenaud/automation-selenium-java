@@ -20,9 +20,9 @@ public class ServicesDashboardSteps extends BasePage {
     }
 
     @Given("SVC I login and go to Dashboard")
-    public void SVCiLoginAndgoToDashboardSVC() throws IOException {
+    public void SVCiLoginAndGoToDashboardSVC() {
         _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToDashboardSVC();
     }
 

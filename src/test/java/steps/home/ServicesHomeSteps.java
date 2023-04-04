@@ -25,7 +25,7 @@ public class ServicesHomeSteps extends BasePage {
         //_driver.manage().window().setSize(new Dimension(1920, 1080));
         _page.iGoToSvcHomePage();
     }
-    
+
 
     @When("SVC I select browse services")
     public void iSelectBrowseServices() {
@@ -37,7 +37,7 @@ public class ServicesHomeSteps extends BasePage {
         _page.headerLogin();
     }
 
-   @And("SVC I select browse requests")
+    @And("SVC I select browse requests")
     public void iSelectBrowseRequests() {
         _page.footerBrowseRequests();
     }
@@ -49,7 +49,7 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the home main header")
     public void iValidateTheHomeMainHeader() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @When("SVC I validate the owl Facebook icon")
@@ -80,21 +80,24 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the owl social links")
     public void iValidateTheSocialWithAccounts() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @When("SVC I select ages 5 to 8 option")
     public void iSelectAges5To8Option() {
         _page.ages5to8();
     }
+
     @And("SVC I select ages 9 to 11 option")
     public void iSelectAges9To11Option() {
         _page.ages9to11();
     }
+
     @And("SVC I select ages 12 to 14 option")
     public void iSelectAges12To14Option() {
         _page.ages12to14();
     }
+
     @And("SVC I select ages 15 to 17 option")
     public void iSelectAges15To17Option() {
         _page.ages15to17();
@@ -107,7 +110,7 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the home menu")
     public void iValidateTheHomeMenu() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @When("SVC I select Provide button")
@@ -172,7 +175,7 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the home body")
     public void iValidateTheHomeBody() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @When("SVC I select footer browse request button")
@@ -222,11 +225,11 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the home footer section")
     public void iValidateTheHomeFooterSection() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @Given("SVC I login")
-    public void SVCiLogin() throws IOException {
+    public void SVCiLogin() {
         _page.goToLoginPage();
         _page.iLoginWithGastonUserServices();
 //        _page.loginWithGastonUserSVC();
@@ -244,7 +247,7 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the main header with account")
     public void iValidateTheMainHeaderWithAccount() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
     @When("SVC I select footer browse requests button")
@@ -254,7 +257,7 @@ public class ServicesHomeSteps extends BasePage {
 
     @Then("SVC I validate the home footer section with account")
     public void iValidateTheHomeFooterSectionWithAccount() {
-        Assert.assertEquals(_page.OwlHomeVerify(),true);
+        Assert.assertEquals(_page.OwlHomeVerify(), true);
     }
 
 

@@ -116,7 +116,7 @@ Feature: Services Admin
 
   @MMRS-928 @MMRSAdmin @MMRS
   Scenario:SVC Admin panel Add-ons validate page
-    Given SVC Admin Add-ons
+    Given SVC I login With Dev User
     When SVC I validate Add-Ons Section
     #And SVC I validate Extensions
     Then SVC I validate add ons

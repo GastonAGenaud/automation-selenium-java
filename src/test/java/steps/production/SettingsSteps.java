@@ -22,7 +22,7 @@ public class SettingsSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-//        _page.loginWithGastonUserProd();
+//        _page.loginWithGastonUserProdProducts();
 
 //}
 
@@ -68,19 +68,19 @@ public class SettingsSteps extends BasePage {
         try {
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
         } catch (Exception e) {
             wait(3);
 
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
         }
     }
 

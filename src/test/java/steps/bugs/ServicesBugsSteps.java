@@ -21,9 +21,9 @@ public class ServicesBugsSteps extends BasePage {
     }
 
     @Given("SVC The user create 5 subcategories under one category.")
-    public void SVCTheUserCreateSubcategoriesUnderOneCategory() throws IOException {
+    public void SVCTheUserCreateSubcategoriesUnderOneCategory() {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.createCustomFields();
         _page.getCloseChat();

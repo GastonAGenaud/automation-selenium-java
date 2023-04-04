@@ -1,5 +1,6 @@
 package steps.orders;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,9 +21,9 @@ public class ServicesOrdersSteps extends BasePage {
     }
 
     @Given("SVC I login and go to orders page")
-    public void svcILoginAndGoToOrdersPage() throws IOException {
-        //_page.goToOwlPage();
-        _page.loginWithGastonUserSVC();
+    public void svcILoginAndGoToOrdersPage(){
+        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/");
+        _page.iLoginWithGastonUserServices();
         _page.goToDashboard();
         _page.goToOrders();
     }
