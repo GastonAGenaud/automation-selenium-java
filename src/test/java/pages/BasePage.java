@@ -291,6 +291,12 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
     }
     public void iLoginWithGastonUserServices(){
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+
+        getDriver().navigate().refresh();
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "GastonUser");
+    }
+    public void iLoginWithDevUserServices(){
         sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
 
         getDriver().navigate().refresh();

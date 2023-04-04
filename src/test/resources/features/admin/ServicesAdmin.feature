@@ -3,7 +3,8 @@ Feature: Services Admin
 
   @MMRS-864 @MMRSAdmin @MMRS
   Scenario: SVC - Login and validate the elements on Admin Panel
-    Given SVC I go to Admin page
+    Given SVC I login with Gaston User in services
+    And I go to admin panel in services
     When SVC I validate step 1 Create your marketplace
     And SVC I validate step 2 Select your homepage layout
     And SVC I validate step 3 design your homepage

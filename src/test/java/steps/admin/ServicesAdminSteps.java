@@ -20,14 +20,16 @@ public class ServicesAdminSteps extends BasePage {
         this._page = new ServicesAdminPage();
     }
 
-    @Given("SVC I go to Admin page")
-    public void iGoToAdminPage() throws IOException {
-        //_driver.manage().window().setSize(new Dimension(2560, 1440));
+    @Given("SVC I login with Gaston User in services")
+    public void ILoginWithGastonUserInServices() {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
+    }
+    @Given("I go to admin panel in services")
+    public void iGoToAdminPageInServices()
+        {
         _page.goToAdminPanel();
         _page.getCloseChat();
-
     }
 
     @When("SVC I validate step 1 Create your marketplace")
@@ -87,9 +89,9 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 2: Select your homepage layout")
-    public void SVCStepSelectYourHomepageLayout() throws IOException {
+    public void SVCStepSelectYourHomepageLayout(){
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
 
@@ -116,9 +118,9 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 4: Create Categories")
-    public void SVCStepCreateCategories() throws IOException {
+    public void SVCStepCreateCategories(){
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.createCategories();
@@ -149,9 +151,9 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 5: Create Custom Fields and Filters")
-    public void SVCStepCreateCustomFieldsAndFilters() throws IOException {
+    public void SVCStepCreateCustomFieldsAndFilters() {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.createCustomFields();
         _page.getCloseChat();
@@ -248,9 +250,9 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 6: Connect Domain")
-    public void SVCStepEMails() throws IOException {
+    public void SVCStepEMails() {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.emailStep();
@@ -314,9 +316,9 @@ public class ServicesAdminSteps extends BasePage {
     //Design  STEPS
 
     @Given("SVC I go to Admin design")
-    public void SVCAdminDesign() throws IOException {
+    public void SVCAdminDesign() {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
@@ -391,9 +393,9 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Admin settings")
-    public void SVCAdminSettings() throws IOException {
+    public void SVCAdminSettings()  {
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
         _page.settings();
@@ -437,9 +439,9 @@ public class ServicesAdminSteps extends BasePage {
     //Reports
 
     @Given("SVC Admin Reports")
-    public void SVCAdminReports() throws IOException {
+    public void SVCAdminReports(){
         _page.setHomePage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
@@ -476,7 +478,7 @@ public class ServicesAdminSteps extends BasePage {
 //    }
 
     @Given("SVC Admin Add-ons")
-    public void SVCAdminAddOns() throws IOException {
+    public void SVCAdminAddOns(){
         _page.getHomePageSVC();
         _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
