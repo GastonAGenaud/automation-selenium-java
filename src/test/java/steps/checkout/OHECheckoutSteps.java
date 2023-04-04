@@ -27,10 +27,10 @@ public class OHECheckoutSteps extends BasePage {
     @Given("I login with Matias Owl")
     public void loginWithMatiasOwlSteps() {
         getDriver().manage().deleteAllCookies();
-        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "MatiasUser");
         getDriver().navigate().refresh();
         wait(3);
-        sessionManager.usePreviousLoggedInSession("MatiasUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "MatiasUser");
         getDriver().navigate().refresh();
     }
 
@@ -38,10 +38,10 @@ public class OHECheckoutSteps extends BasePage {
     @Given("I login with Dev User Owl")
     public void loginWithDevUserOwlSteps() {
         getDriver().manage().deleteAllCookies();
-        sessionManager.usePreviousLoggedInSession("DevUserOwl-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "DevUserOwl");
         getDriver().navigate().refresh();
         wait(3);
-        sessionManager.usePreviousLoggedInSession("DevUserOwl-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "DevUserOwl");
         getDriver().navigate().refresh();
     }
 

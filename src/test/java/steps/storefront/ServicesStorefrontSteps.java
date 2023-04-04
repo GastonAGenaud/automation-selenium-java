@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.storefront.ServicesStorefrontPage;
 
+import java.io.IOException;
+
 public class ServicesStorefrontSteps extends BasePage {
 
     private ServicesStorefrontPage _page;
@@ -19,7 +21,7 @@ public class ServicesStorefrontSteps extends BasePage {
 
 
     @Given("SVC I login and go to user profile")
-    public void SvcILoginAndGoToUserProfile(){
+    public void SvcILoginAndGoToUserProfile() throws IOException {
         _page.setHomePage();
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();

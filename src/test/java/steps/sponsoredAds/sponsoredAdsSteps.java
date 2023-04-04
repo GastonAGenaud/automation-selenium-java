@@ -35,10 +35,10 @@ public class sponsoredAdsSteps extends BasePage {
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
         getHomePage();
-        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser-data-session");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
 
     }
 

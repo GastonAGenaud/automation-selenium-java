@@ -52,6 +52,7 @@ public class settingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#creditCards > h5")
     public WebElement validatePaymentText;
 
+
     public String settingsConfirm() {
         fluentWait(getDriver(), settingsInformation);
         String result = settingsInformation.getText();

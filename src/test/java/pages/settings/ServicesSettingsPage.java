@@ -62,14 +62,6 @@ public class ServicesSettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#addresses-tab > span > span:nth-child(1)")
     public WebElement addressesBtn;
 
-    @FindBy(how = How.CSS, using = "#social-tab > span > span:nth-child(1)")
-    public WebElement socialTab;
-
-
-    public void dashboardSocialTab(){
-        fluentWait(getDriver(), socialTab);
-        waitForWebElementAndClick(socialTab);
-    }
     public String notificationsConfirm() {
         fluentWait(getDriver(), emailTextConfirm);
         String result = emailTextConfirm.getText();

@@ -37,7 +37,6 @@ public class BasePage {
     public WebElement logInBtn;
     @FindBy(id = "loader")
     public WebElement loader;
-
     @FindBy(how = How.CSS, using = "#signup-header-text-customize")
     public WebElement signUpNowBtn;
     @FindBy(how = How.CSS, using = "#e-mail")
@@ -48,9 +47,11 @@ public class BasePage {
     public WebElement newPasswordBtn;
     @FindBy(how = How.CSS, using = "#signup-button")
     public WebElement signUpBtn;
-
     @FindBy(how = How.CSS, using = "#buyer > div > div:nth-child(1) > div.card.card-dashboard.min-h-16.mb-3 > div > div.flex-column.text-center > a")
     public WebElement mySettingsValidateText;
+
+    public String environment = System.getProperty("env");
+    public String suiteName = System.getProperty("suite");
 
     public boolean validatingSettingsText() {
         fluentWait(getDriver(), mySettingsValidateText);
@@ -70,9 +71,7 @@ public class BasePage {
     public String UrlProduct = "https://mtreborn-automation-products.azurewebsites.net/listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
-
     String randomEmail = rdm + Long.toString((int) random() * 1200);
-
     ///// Selector ////
 
     public void navigateTo(String url) {
@@ -292,7 +291,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
     }
 
-    public void loginDevSVC() {
+    public void loginDevSVC() throws IOException {
         getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
@@ -303,9 +302,17 @@ public class BasePage {
         passwordLoginInput.sendKeys("uX$Z2Z4^Ye3z,2&A");
 
         waitForWebElementAndClick(logInBtn);
+
+        wait(7);
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"GastonUser");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
     }
 
-    public void loginWithGastonUserSVC() {
+    public void loginWithGastonUserSVC() throws IOException {
         getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
         waitForWebElementAndClick(emailLoginInput);
@@ -316,6 +323,10 @@ public class BasePage {
         passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
 
         waitForWebElementAndClick(logInBtn);
+
+        wait(7);
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"GastonUser");
+        getDriver().navigate().refresh();
     }
 
     public void loginWithMakeAnOffer() throws IOException {
@@ -328,7 +339,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("makeAnOffer");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"makeAnOffer");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -336,7 +347,7 @@ public class BasePage {
         getDriver().navigate().refresh();
     }
 
-    public void loginWithGastonUser() throws IOException {
+    public void generateLoginWithGastonUser() throws IOException {
         getHomePage();
         getLoginPage();
         waitForWebElementAndClick(emailLoginInput);
@@ -347,7 +358,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("GastonUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName +"-" + "GastonUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -367,7 +378,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("GastonUser");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"GastonUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         ProdHomePage();
@@ -385,7 +396,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("DevUser");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "DevUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -403,7 +414,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile("GoodWillUser-data-session");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GoodWillUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -422,7 +433,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
         //retryingFindClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile("MatiasUser-data-session");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" + "MatiasUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePageOWL();
@@ -440,7 +451,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
         //retryingFindClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile("DevUserOwl-data-session");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"DevUserOwl");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePageOWL();
@@ -457,7 +468,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile("GastonNoBorrarUser-data-session");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GastonNoBorrarUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -475,7 +486,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("GastonUserProd");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GastonUserProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -493,7 +504,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile("DevUserProd");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"DevUserProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();

@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.home.ServicesHomePage;
 
+import java.io.IOException;
+
 public class ServicesHomeSteps extends BasePage {
 
     private ServicesHomePage _page;
@@ -224,7 +226,7 @@ public class ServicesHomeSteps extends BasePage {
     }
 
     @Given("SVC I login")
-    public void SVCiLogin() {
+    public void SVCiLogin() throws IOException {
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();
     }
