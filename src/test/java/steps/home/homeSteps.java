@@ -376,10 +376,10 @@ public class homeSteps extends BasePage {
     public void loginWithMakeAnOfferSteps() {
         getDriver().manage().deleteAllCookies();
         getHomePage();
-        sessionManager.usePreviousLoggedInSession("makeAnOffer");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"makeAnOffer");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("makeAnOffer");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "makeAnOffer");
     }
 
     /*@Before
@@ -398,40 +398,47 @@ public class homeSteps extends BasePage {
             wait(10);
             getDriver().manage().deleteAllCookies();
             getHomePage();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
         } catch (Exception e) {
             wait(3);
 
             getDriver().manage().deleteAllCookies();
             getHomePage();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
         }
     }
-    @Given("I login with Gaston")
-    public void loginWithGastonUserSteps() {
+   /*@Before
+    public void test() throws IOException {
+        _page.loginWithGastonUserProdServices();
+        _page.loginWithDevProd();
+    }
+    */
+
+    @Given("I login with Gaston User in production services using cookies")
+    public void loginWithGastonUserStepsProdServices() {
         try {
             wait(10);
             getDriver().manage().deleteAllCookies();
             getHomePageProd();
-            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
         } catch (Exception e) {
             wait(3);
 
             getDriver().manage().deleteAllCookies();
             getHomePageProd();
-            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession("GastonUserProd");
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
         }
     }
 
@@ -439,26 +446,39 @@ public class homeSteps extends BasePage {
     public void loginWithDevSteps() {
         getDriver().manage().deleteAllCookies();
         getHomePage();
-        sessionManager.usePreviousLoggedInSession("DevUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("DevUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
     }
+//    @Before
+//    public void test () throws IOException {
+//        loginWithMakeAnOffer();
+//        loginWithGastonUserSVC();
+//        loginDevSVC();
+//        generateLoginWithGastonUser();
+//        loginWithGastonUserProdProducts();
+//        loginWithDev();
+//        loginWithMatiasOwl();
+//        loginWithGastonNoBorrar();
+//        loginWithGastonUserProdServices();
+//        loginWithDevProd();
+//    }
 
     @Given("I login with Dev user Prod")
     public void loginWithDevStepsProd() {
         getDriver().manage().deleteAllCookies();
         getHomePageProd();
-        sessionManager.usePreviousLoggedInSession("DevUserProd");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "DevUserProd");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("DevUserProd");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUserProd");
     }
 
     @Given("I login with GoodWill User")
     public void loginWithGoodWillUserSteps() {
         getDriver().manage().deleteAllCookies();
-        sessionManager.usePreviousLoggedInSession("GoodWillUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GoodWillUser");
 
         getDriver().navigate().refresh();
     }
@@ -466,10 +486,10 @@ public class homeSteps extends BasePage {
 
     @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {
-        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession("GastonNoBorrarUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
 
     }
 }

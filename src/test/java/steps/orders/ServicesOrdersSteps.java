@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.orders.ServicesOrdersPage;
 
+import java.io.IOException;
+
 public class ServicesOrdersSteps extends BasePage {
 
     private ServicesOrdersPage _page;
@@ -18,7 +20,7 @@ public class ServicesOrdersSteps extends BasePage {
     }
 
     @Given("SVC I login and go to orders page")
-    public void svcILoginAndGoToOrdersPage() {
+    public void svcILoginAndGoToOrdersPage() throws IOException {
         //_page.goToOwlPage();
         _page.loginWithGastonUserSVC();
         _page.goToDashboard();

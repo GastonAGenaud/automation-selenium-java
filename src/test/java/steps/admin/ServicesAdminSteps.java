@@ -20,7 +20,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC I go to Admin page")
-    public void iGoToAdminPage() {
+    public void iGoToAdminPage() throws IOException {
         //_driver.manage().window().setSize(new Dimension(2560, 1440));
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
@@ -86,7 +86,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 2: Select your homepage layout")
-    public void SVCStepSelectYourHomepageLayout() {
+    public void SVCStepSelectYourHomepageLayout() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -115,7 +115,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 4: Create Categories")
-    public void SVCStepCreateCategories() {
+    public void SVCStepCreateCategories() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -148,7 +148,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 5: Create Custom Fields and Filters")
-    public void SVCStepCreateCustomFieldsAndFilters() {
+    public void SVCStepCreateCustomFieldsAndFilters() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -247,7 +247,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 6: Connect Domain")
-    public void SVCStepEMails() {
+    public void SVCStepEMails() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -313,7 +313,7 @@ public class ServicesAdminSteps extends BasePage {
     //Design  STEPS
 
     @Given("SVC I go to Admin design")
-    public void SVCAdminDesign() {
+    public void SVCAdminDesign() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -390,7 +390,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Admin settings")
-    public void SVCAdminSettings() {
+    public void SVCAdminSettings() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -436,7 +436,7 @@ public class ServicesAdminSteps extends BasePage {
     //Reports
 
     @Given("SVC Admin Reports")
-    public void SVCAdminReports() {
+    public void SVCAdminReports() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();

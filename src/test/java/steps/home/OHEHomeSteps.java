@@ -227,7 +227,7 @@ public class OHEHomeSteps extends BasePage {
     @Given("I login")
     public void iLogin() throws IOException {
         //_page.goToLoginPage();
-        _page.loginWithGastonUser();
+        _page.generateLoginWithGastonUser();
     }
 
     @And("I select inbox icon button")

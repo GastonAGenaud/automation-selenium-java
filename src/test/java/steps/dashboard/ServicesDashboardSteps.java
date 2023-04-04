@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.dashboard.ServicesDashboardPage;
 
+import java.io.IOException;
+
 public class ServicesDashboardSteps extends BasePage {
 
     public ServicesDashboardPage _page;
@@ -18,7 +20,7 @@ public class ServicesDashboardSteps extends BasePage {
     }
 
     @Given("SVC I login and go to Dashboard")
-    public void SVCiLoginAndgoToDashboardSVC() {
+    public void SVCiLoginAndgoToDashboardSVC() throws IOException {
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();
         _page.goToDashboardSVC();

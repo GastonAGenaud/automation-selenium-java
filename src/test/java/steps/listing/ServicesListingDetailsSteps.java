@@ -7,6 +7,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.listing.ServicesListingDetailsPage;
 
+import java.io.IOException;
+
 
 public class ServicesListingDetailsSteps extends BasePage {
 
@@ -19,7 +21,7 @@ public class ServicesListingDetailsSteps extends BasePage {
     }
 
     @Given("SVC I go to the listing details page on OHE")
-    public void SvCiGoToTheListingDetailsPageOnOHE() {
+    public void SvCiGoToTheListingDetailsPageOnOHE() throws IOException {
         _page.setHomePage();
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();

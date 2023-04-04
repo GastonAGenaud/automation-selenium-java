@@ -4,7 +4,7 @@ Feature: Production Settings
 
   @prodSettingsChangePassword
   Scenario: Change Password
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select password tab
@@ -14,7 +14,7 @@ Feature: Production Settings
 
   @prodSettingsAddUrls
   Scenario:Add social profile urls
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Social tab
@@ -29,7 +29,7 @@ Feature: Production Settings
 
   @AddCreditCard
   Scenario: Add Credit card
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And I select Payment
@@ -42,7 +42,7 @@ Feature: Production Settings
 
   @ActivateNotifications @testingNotifications
   Scenario: Activate notifications
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Notifications Tab
@@ -56,7 +56,7 @@ Feature: Production Settings
 
   @DeactivateNotifications @testingNotifications
   Scenario: Deactivate notifications
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Notifications Tab
@@ -68,7 +68,7 @@ Feature: Production Settings
 
   @TestingAddAddress
   Scenario: Add Address
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab
@@ -86,7 +86,7 @@ Feature: Production Settings
 
   @EditAddress @TestingAddAddress
   Scenario: Edit Address
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab
@@ -97,7 +97,7 @@ Feature: Production Settings
 
   @DeleteAddress @TestingAddAddress
   Scenario: Delete Address
-    Given I login with Gaston User PROD
+    Given I login with Gaston User in production products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab

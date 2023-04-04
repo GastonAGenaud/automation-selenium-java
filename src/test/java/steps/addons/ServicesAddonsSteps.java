@@ -9,6 +9,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.addons.ServicesAddonsPage;
 
+import java.io.IOException;
+
 public class ServicesAddonsSteps extends BasePage {
 
     private ServicesAddonsPage _page;
@@ -19,7 +21,7 @@ public class ServicesAddonsSteps extends BasePage {
     }
 
     @Given("SVC - I login and go to addons page")
-    public void iLoginAndGoToAddons(){
+    public void iLoginAndGoToAddons() throws IOException {
         _page.goToLoginPage();
         _page.loginWithGastonUserSVC();
         _page.goToAddonsPage();

@@ -8,6 +8,8 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.bugs.ServicesBugsPage;
 
+import java.io.IOException;
+
 public class ServicesBugsSteps extends BasePage {
 
     private ServicesBugsPage _page;
@@ -19,7 +21,7 @@ public class ServicesBugsSteps extends BasePage {
     }
 
     @Given("SVC The user create 5 subcategories under one category.")
-    public void SVCTheUserCreateSubcategoriesUnderOneCategory() {
+    public void SVCTheUserCreateSubcategoriesUnderOneCategory() throws IOException {
         _page.setHomePage();
         _page.loginWithGastonUserSVC();
         _page.goToAdminPanel();
@@ -294,7 +296,7 @@ public class ServicesBugsSteps extends BasePage {
     }
 
     @Given("SVC I go to Monetization in Admin")
-    public void svcIGoToMonetizationInAdmin() {
+    public void svcIGoToMonetizationInAdmin() throws IOException {
         _page.loginWithGastonUserSVC();
         getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/Admin/Application/ChooseMonetization");
         _page.getCloseChat();

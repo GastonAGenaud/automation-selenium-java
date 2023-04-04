@@ -606,11 +606,19 @@ public class requestPage extends BasePage {
     }
 
     public void requestsMatchedMenu() {
-        getDriver().navigate().refresh();
+        try {
+            getDriver().navigate().refresh();
+            fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+            waitForWebElementAndClick(requestsMatchedMenuBtn);
+        }catch (Exception e){
+            wait(3);
+            getDriver().navigate().refresh();
+            fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
+            waitForWebElementAndClick(requestsMatchedMenuBtn);
+        }
 //        fluentWait(getDriver(), requestsCreatedByMeBtn);
 //        waitForWebElementAndClick(requestsCreatedByMeBtn);
-        fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
-        waitForWebElementAndClick(requestsMatchedMenuBtn);
+
     }
 
     public void requestsMatchedApply() {
