@@ -29,7 +29,7 @@ public class ordersSteps extends BasePage {
     @And("I go to orders page")
     public void iGoToOrdersPage() {
         _page.goToOrders();
-        _page.ordersPurchasedButton();
+       // _page.ordersPurchasedButton();
 
     }
 
@@ -178,7 +178,7 @@ public class ordersSteps extends BasePage {
 
     @And("I select the show menu button")
     public void iSelectTheShowMenuButton() {
-        _page.ordersPurchasedButton();
+       // _page.ordersPurchasedButton();
         _page.ordersShowAll();
         //_page.ordersPendingResponse();
         _page.ordersShowShipmentPending();

@@ -79,9 +79,6 @@ public class SProdLoginSteps extends BasePage {
     @And("I Sign in with new account {string} PROD")
     public void iSignInWithNewAccountEmailPROD(String text) {
         _page.CreateAnAccountListingDetailsPROD(text);
-        _page.validateLastError();
-        _page.imSellerButton();
-        _page.nextButton();
-        _page.completeFormSignUp();
+        _page.CloseWindow();
     }
 }

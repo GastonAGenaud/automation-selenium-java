@@ -27,7 +27,7 @@ Feature: Orders
 
   @orders  @MTR  @MTR-1449
   Scenario: MTR - Orders - Purchased - shipped orders
-    And I login with Gaston No Borrar
+    Given I login with another account
     And I go to dashboard
     And I go to orders page BUGS
     When I validate the track button
@@ -38,7 +38,7 @@ Feature: Orders
 
   @orders  @MTR  @MTR-1450
   Scenario: MTR - Orders - Purchased - pickup orders
-    And I login with Gaston No Borrar
+    Given I login with another account
     And I go to dashboard
     And I go to orders page BUGS
     #And I validate the confirm pick up button
@@ -50,7 +50,7 @@ Feature: Orders
 
   @orders  @MTR  @MTR-1451
   Scenario: MTR - Orders - Show Menu
-    Given I login with Gaston User
+    Given I login with another account
     And I go to orders page
     And I select the show menu button
     Then I validate the show menu

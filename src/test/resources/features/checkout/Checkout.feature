@@ -153,7 +153,7 @@ Feature: Checkout
 
   @checkout  @MTR-1433  @MTR
   Scenario: MTR - Buyer able to click Your Orders link to go to Orders > Purchased
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I add an item to the Shopping Cart
     And I add an Address

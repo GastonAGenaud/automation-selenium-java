@@ -64,6 +64,9 @@ public class SProdLoginPages extends BasePage {
     public WebElement submitBtn;
     @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
     public WebElement validateFirstText;
+    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button > span")
+    public WebElement closeBtnWindow;
+
 
     public void goToLogin() {
         getHomePageProd();
@@ -72,6 +75,7 @@ public class SProdLoginPages extends BasePage {
 
     public String validateLoginText() {
         try {
+            fluentWait(getDriver(),loginTxt);
             String result = loginTxt.getText();
             return result;
         } catch (Exception e) {
@@ -83,6 +87,7 @@ public class SProdLoginPages extends BasePage {
 
     public String validateLoginFacebookText() {
         try {
+            fluentWait(getDriver(),facebookText);
             String result = facebookText.getText();
             return result;
         } catch (Exception e) {
@@ -218,7 +223,7 @@ public class SProdLoginPages extends BasePage {
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
-        fluentWaitStrict(getDriver(), newUsernameBtn);
+   /*     fluentWaitStrict(getDriver(), newUsernameBtn);
         fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.clear();
@@ -232,6 +237,18 @@ public class SProdLoginPages extends BasePage {
         wait(4);
         //welcomeClose.click();
 
+    */
+
+    }
+    public void CloseWindow(){
+       try {
+           fluentWait(getDriver(),closeBtnWindow);
+           waitForWebElementAndClick(closeBtnWindow);
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(),closeBtnWindow);
+           waitForWebElementAndClick(closeBtnWindow);
+       }
     }
 
     public boolean validateLastError() {

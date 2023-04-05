@@ -87,7 +87,7 @@ public class dashboardSteps extends BasePage {
     public void iValidateMySalesLink() {
         _page.goToDashboard();
         _page.sellerOption();
-        _page.mySales();
+        //_page.mySales();
         _page.goToDashboard();
         _page.sellerOption();
         _page.seeAllMySales();

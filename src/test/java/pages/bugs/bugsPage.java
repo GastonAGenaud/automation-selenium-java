@@ -52,7 +52,7 @@ public class bugsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
     public WebElement flatRateButton;
 
-    @FindBy(how = How.CSS, using = "#listings-tab > span > span:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#add-new-btn > span")
     public WebElement myListingsBtn;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[2]/div/button")
@@ -1206,7 +1206,7 @@ public class bugsPage extends BasePage {
 
     public boolean setSuccessPopUp() {
         try {
-            fluentWait(getDriver(),successMessage);
+            fluentWait(getDriver(), successMessage);
             boolean result = successMessage.isDisplayed();
             return result;
         } catch (Exception e) {
@@ -1586,7 +1586,7 @@ public class bugsPage extends BasePage {
             //retryingFindClick(buyBtn);
             //fluentWait(getDriver(), shippingAddressText);
         } catch (Exception e) {
-            wait(3);
+            wait(5);
             fluentWait(getDriver(), buyBtn);
             waitForWebElementAndClick(buyBtn);
         }
@@ -1699,9 +1699,18 @@ public class bugsPage extends BasePage {
         getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         newProductUrl = getDriver().getCurrentUrl();
     }
-    public boolean validateBuyTheProductBUG(){
-        Boolean result = validateText.isDisplayed();
-        return result;
+
+    public boolean validateBuyTheProductBUG() {
+        try {
+            fluentWait(getDriver(),validateText);
+            Boolean result = validateText.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            Boolean result = validateText.isDisplayed();
+            return result;
+        }
+
 
     }
 }

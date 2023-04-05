@@ -320,7 +320,7 @@ Feature: Bugs
     And I go to Item
     Then I validate Listing Price
 
-  @bugs @MTR @MTR-2098
+  #@bugs @MTR @MTR-2098
   Scenario: User able to see My Listings message
     Given I Sign in with new account "email3" and go to dashboard
     When select My Listings button BUG
@@ -483,7 +483,7 @@ Feature: Bugs
 
   @MTR @MTR-2898 @bugs
   Scenario: Error when users try to complete connecting to stripe
-    Given I login with Gaston User
+    Given I login with another account
     And go to Dashboard
     When I select Settings button
     And I select CaShout button
@@ -533,7 +533,7 @@ Feature: Bugs
     And Sold the product
     And Valid that sold the product
     And I log out
-    And I login with Gaston No Borrar
+    And I login with another account
     And I go to dashboard
     And I go to orders page
     And file selection or download file

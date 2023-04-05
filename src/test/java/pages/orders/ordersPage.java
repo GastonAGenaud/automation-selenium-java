@@ -68,7 +68,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersConfirmPickUpBtn;
     @FindBy(xpath = "//button[contains(text(), 'Leave a review')]")
     public WebElement ordersLeaveAReviewBtn;
-    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div")
+    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div")
     public WebElement ordersShowBtn;
     @FindBy(xpath = "//a[contains(text(), 'Request Refund')]")
     public WebElement RequestRefundBtn;
@@ -457,29 +457,29 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersShowMenu() {
-
         try {
-
-
             try {
-                WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
+                WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/div/div"));
                 Actions action = new Actions(getDriver());
                 fluentWaitStrict(getDriver(), ordersShowBtn);
                 action.moveToElement(ordersShowBtn).perform();
             } catch (Exception e) {
                 actions.moveToElement(ordersShowBtn);
-                WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div"));
+                WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/div/div"));
                 Actions action = new Actions(getDriver());
                 fluentWaitStrict(getDriver(), ordersShowBtn);
                 action.moveToElement(ordersShowBtn).perform();
             }
 
         } catch (Exception e) {
+            wait(3);
             fluentWait(getDriver(), ordersShowBtn);
             waitForWebElementAndClick(ordersShowBtn);
             waitForWebElementAndClick(ordersShowBtn);
         }
+
     }
+
 
     public void ordersShowAll() {
         ordersShowMenu();
