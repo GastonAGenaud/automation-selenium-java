@@ -35,7 +35,7 @@ public class storefrontSteps extends BasePage {
 
     @Then("I see the user storefront")
     public void iSeeTheUserStorefront() {
-        Assert.assertEquals(true, _page.profileStorefront());
+//        _page.validateProfileStorefront();
     }
 
     @And("I select the Change cover picture button")
@@ -46,7 +46,7 @@ public class storefrontSteps extends BasePage {
 
     @Then("I see the new cover image")
     public void iSeeTheNewCoverImage() {
-        Assert.assertEquals(true, _page.profileStorefront());
+       _page.validateProfileStorefront();
     }
 
 

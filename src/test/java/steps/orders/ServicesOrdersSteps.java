@@ -67,6 +67,7 @@ public class ServicesOrdersSteps extends BasePage {
 
     @And("SVC I select sort by Shipment pending")
     public void svcISelectSortByShipmentPending() {
+        getDriver().navigate().refresh();
         _page.ordersShowShipmentPending();
     }
 
@@ -76,21 +77,25 @@ public class ServicesOrdersSteps extends BasePage {
 
     @And("SVC I select sort by shipped")
     public void svcISelectSortByShipped() {
+        getDriver().navigate().refresh();
         _page.ordersShowShipped();
     }
 
     @And("SVC I select sort by delivered")
     public void svcISelectSortByDelivered() {
+        getDriver().navigate().refresh();
         _page.ordersShowDelivered();
     }
 
     @And("SVC I select sort by completed")
     public void svcISelectSortByCompleted() {
+        getDriver().navigate().refresh();
         _page.ordersShowCompleted();
     }
 
     @And("SVC I select sort by cancelled")
     public void svcISelectSortByCancelled() {
+        getDriver().navigate().refresh();
         _page.ordersCancelled();
     }
 

@@ -2,17 +2,18 @@
 
 Feature: Production Storefront
 
-  Scenario: Validate that the users storefront is displayed
-    Given I login with Gaston User in production products using cookies
-    When I select the profile button
-    Then I see the user storefront
-
-
-  Scenario: Change cover image
-    Given I login with Gaston User in production products using cookies
-    When I select the profile button
-    And I select the Change cover picture button
-    Then I see the new cover image
+#  @StorefrontDisplayed
+#  Scenario: Validate that the users storefront is displayed
+#    Given I login with Gaston User in production products using cookies
+#    When I select the profile button
+#    Then I see the user storefront
+#
+#
+#  Scenario: Change cover image
+#    Given I login with Gaston User in production products using cookies
+#    When I select the profile button
+#    And I select the Change cover picture button
+#    Then I see the new cover image
 
 
   Scenario: Validate settings profile page

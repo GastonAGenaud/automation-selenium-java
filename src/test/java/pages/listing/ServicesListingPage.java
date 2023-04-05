@@ -334,7 +334,7 @@ public class ServicesListingPage extends BasePage {
     }
 
     public boolean listingActiveTab() {
-        fluentWait(getDriver(), listingActive);
+        fluentWaitStrict(getDriver(), listingActive);
         boolean result = listingActive.isDisplayed();
         return result;
     }
