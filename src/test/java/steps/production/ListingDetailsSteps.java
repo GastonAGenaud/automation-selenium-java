@@ -297,4 +297,15 @@ public class ListingDetailsSteps extends BasePage {
     public void selectAnItem() {
         _page.goToSpecificItem();
     }
+
+    @Then("I validate Seen count")
+    public void iValidateSeenCount() {
+        try {
+            Assert.assertEquals("Seen 0 times in the last hour", _page.seenCountText());
+        } catch (Exception e) {
+            wait(4);
+            Assert.assertEquals("Seen 0 times in the last hour", _page.seenCountText());
+        }
+
+    }
 }

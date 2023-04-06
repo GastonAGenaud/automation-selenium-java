@@ -192,7 +192,7 @@ public class ServicesCheckoutPage extends BasePage {
 
     public void cvvCode() {
         fluentWait(getDriver(), CVVCodeTextField);
-        waitForWebElementAndClick(CVVCodeTextField);
+//        waitForWebElementAndClick(CVVCodeTextField);
         CVVCodeTextField.sendKeys(Keys.ARROW_LEFT);
         CVVCodeTextField.sendKeys("333");
     }

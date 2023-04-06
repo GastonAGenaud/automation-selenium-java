@@ -101,10 +101,9 @@ Feature: Production Listing details
     And PROD select the category
     Then PROD valid if the category is selected
 
-  @ProdReviews
-  Scenario: Reviews
+
+    @SeenCount
+  Scenario:Seen count
     Given I login with Gaston User in production products using cookies
-    And PROD I go to the listing details page
-    And select an item
-    And select Review button
-    Then Validate the Review sector
+    When PROD I go to the listing details page
+    Then I validate Seen count
