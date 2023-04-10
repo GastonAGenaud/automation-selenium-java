@@ -104,3 +104,19 @@ Feature: Production Settings
     And select Delete Address
     And select Delete Confirm
     Then I validate delete Address
+
+
+  @FillProfile
+  Scenario: Fill in profile information and save
+    Given I login with Gaston User in production products using cookies
+    And go to dashboard
+    When I select settings
+    And see Personal Information
+    And I complete First Name TextField
+    And complete Last name TextField
+    And complete User Name TextField
+    And I complete E-Mail TextField
+    And I complete Phone number TextField
+    And complete Bio TextField
+    And select Save Changes
+    Then valid Fill in profile information
