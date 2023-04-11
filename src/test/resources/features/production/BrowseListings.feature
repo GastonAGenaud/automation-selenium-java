@@ -1,4 +1,4 @@
-@category
+@categoriesProduction
 Feature: Production Browse
 
   Scenario: Browse Listing, Category

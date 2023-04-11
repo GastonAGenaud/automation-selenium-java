@@ -27,25 +27,25 @@ public class BrowseListingPage extends BasePage {
     Actions actions = new Actions(getDriver());
 
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(1) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
     public WebElement accessoriesFilterBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(2) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(2) > span > label")
     public WebElement bodyJewelryStuffBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(3) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(3) > span > label")
     public WebElement braceletsStuffBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(4) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(4) > span > label")
     public WebElement earringsBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(5) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(5) > span > label")
     public WebElement happyFilterBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(6) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(6) > span > label")
     public WebElement ringsBtn;
 
-    @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(7) > span > label")
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(7) > span > label")
     public WebElement shoesBtn;
 
     @FindBy(how = How.CSS, using = "#location")

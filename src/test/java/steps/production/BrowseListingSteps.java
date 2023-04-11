@@ -7,10 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.BasePage;
-import pages.production. BrowseListingPage;
+import pages.production.BrowseListingPage;
+
+import java.io.IOException;
 
 
-public class  BrowseListingSteps extends BasePage {
+public class BrowseListingSteps extends BasePage {
 
     private BrowseListingPage _page;
 
@@ -19,8 +21,16 @@ public class  BrowseListingSteps extends BasePage {
         this._page = new BrowseListingPage();
     }
 
+//    @Before
+//    public void testSignup() throws IOException {
+//        _page.loginWithGastonUserProdProducts();
+//
+//    }
+
+
     @And("go to Listing Page")
     public void goToListingPage() {
+        getDriver().navigate().to("https://lizcolemp.mymarketplacebuilder.com/Listing/Browse");
     }
 
     @When("select Accessories")
