@@ -217,6 +217,7 @@ public class SettingsPage extends BasePage {
 
     public void usernameTxt() {
         fluentWait(getDriver(), usernameInput);
+        usernameInput.clear();
         usernameInput.sendKeys("gastontrick");
     }
 
