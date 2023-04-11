@@ -463,12 +463,23 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreLoadedCardButton() {
-        fluentWait(getDriver(), preLoadedCreditCardBtn);
-        waitForVisibility(preLoadedCreditCardBtn);
-        waitForClickability(preLoadedCreditCardBtn);
-        fluentWait(getDriver(), preLoadedCreditCardBtn);
-        waitForWebElementAndClick(preLoadedCreditCardBtn);
-        actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+       try {
+           fluentWait(getDriver(), preLoadedCreditCardBtn);
+           waitForVisibility(preLoadedCreditCardBtn);
+           waitForClickability(preLoadedCreditCardBtn);
+           fluentWait(getDriver(), preLoadedCreditCardBtn);
+           waitForWebElementAndClick(preLoadedCreditCardBtn);
+           actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+       }catch (Exception e){
+           wait(3);
+           fluentWait(getDriver(), preLoadedCreditCardBtn);
+           waitForVisibility(preLoadedCreditCardBtn);
+           waitForClickability(preLoadedCreditCardBtn);
+           fluentWait(getDriver(), preLoadedCreditCardBtn);
+           waitForWebElementAndClick(preLoadedCreditCardBtn);
+           actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+       }
+
     }
 
     public void selectShareFacebookButton() {

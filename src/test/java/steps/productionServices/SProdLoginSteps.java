@@ -81,4 +81,77 @@ public class SProdLoginSteps extends BasePage {
         _page.CreateAnAccountListingDetailsPROD(text);
         _page.CloseWindow();
     }
+
+    @When("go to forgot your Password")
+    public void goToForgotYourPassword() {
+        _page.forgotYourPassword();
+    }
+
+    @And("enter the e-mail to recover the password")
+    public void enterTheEMailToRecoverThePassword() {
+        _page.enterTheEmail();
+    }
+
+    @Then("Valid that An email has been sent to reset the password.")
+    public void validThatAnEmailHasBeenSentToResetThePassword() {
+        Assert.assertEquals("Reset password e-mail was sent", _page.validMessageToResetThePassword());
+    }
+
+    @And("add New Listing")
+    public void addNewListing() {
+        _page.createNewListing();
+        _page.enterTheName();
+        _page.enterCategory();
+        _page.descriptionSection();
+        _page.hourlyPriceSection();
+        _page.listingImageLoad();
+        _page.cropButton();
+        _page.goToDetails();
+        _page.textCustomField();
+        _page.numberCustomField();
+        _page.dropdownCustomField();
+        _page.checkboxCustomField();
+        _page.colorPicker();
+        _page.goToAvailability();
+        _page.publish();
+    }
+
+    @And("go to Dashboard ServProd")
+    public void goToDashboardServProd() {
+        _page.goToDashboardServ();
+    }
+
+    @When("select My Listings button Serv Prod")
+    public void selectMyListingsButtonServProd() {
+        _page.selectMyListingsServProd();
+    }
+
+    @When("go to Settings Serv Prod")
+    public void goToSettingsServProd() {
+        _page.goToSettingServ();
+    }
+
+    @And("go to Cashout")
+    public void goToCashout() {
+        _page.goToCashoutServ();
+    }
+
+    @Then("valid than connect to Stripe")
+    public void validThanConnectToStripe() {
+        Assert.assertEquals("Pending",_page.validConnectStipe());
+    }
+
+    @And("enter profile information")
+    public void enterProfileInformation() {
+        _page.enterFirstName();
+        _page.enterLastName();
+        _page.enterPhoneNumber();
+        _page.enterBio();
+        _page.saveChanges();
+    }
+
+    @Then("valid to save profile information")
+    public void validToSaveProfileInformation() {
+        Assert.assertEquals("Success",_page.validSaveProfile());
+    }
 }

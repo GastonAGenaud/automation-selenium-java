@@ -184,6 +184,9 @@ public class makeAnOfferPage extends BasePage {
             validateTextFirst();
             getDriver().navigate().to(url + "/Listing/Detail/619");
         }
+        finally {
+            getDriver().navigate().to(url + "/Listing/Detail/619");
+        }
 
 
     }

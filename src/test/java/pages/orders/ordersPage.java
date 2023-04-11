@@ -68,7 +68,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersConfirmPickUpBtn;
     @FindBy(xpath = "//button[contains(text(), 'Leave a review')]")
     public WebElement ordersLeaveAReviewBtn;
-    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/div/div/button")
     public WebElement ordersShowBtn;
     @FindBy(xpath = "//a[contains(text(), 'Request Refund')]")
     public WebElement RequestRefundBtn;
@@ -292,13 +292,13 @@ public class ordersPage extends BasePage {
         getDriver().navigate().refresh();
         try {
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
-            waitForWebElementAndClick(ordersPurchasedBtn);
-            retryingFindClick(ordersPurchasedBtn);
+            //waitForWebElementAndClick(ordersPurchasedBtn);
+            // retryingFindClick(ordersPurchasedBtn);
         } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
-            waitForWebElementAndClick(ordersPurchasedBtn);
-            retryingFindClick(ordersPurchasedBtn);
+            // waitForWebElementAndClick(ordersPurchasedBtn);
+            //  retryingFindClick(ordersPurchasedBtn);
         }
 //        retryingFindClick(ordersPurchasedBtn);
     }
@@ -458,6 +458,19 @@ public class ordersPage extends BasePage {
 
     public void ordersShowMenu() {
         try {
+            fluentWaitStrict(getDriver(), ordersShowBtn);
+            waitForClickability(ordersShowBtn);
+            waitForWebElementAndClick(ordersShowBtn);
+            //   retryingFindClick(ordersShowBtn);
+            // fluentWait(getDriver(), ordersShowCompletedBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersShowBtn);
+            waitForClickability(ordersShowBtn);
+            waitForVisibility(ordersShowBtn);
+            waitForWebElementAndClick(ordersShowBtn);
+        }
+      /*  try {
             try {
                 WebElement element = getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/div/div"));
                 Actions action = new Actions(getDriver());
@@ -478,19 +491,29 @@ public class ordersPage extends BasePage {
             waitForWebElementAndClick(ordersShowBtn);
         }
 
+       */
+
     }
 
 
     public void ordersShowAll() {
         ordersShowMenu();
 
+
     }
 
 
     public void ordersShowShipmentPending() {
-        ordersShowMenu();
-        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
-        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
+        //  ordersShowMenu();
+        try {
+            fluentWait(getDriver(), ordersShowShipmentPendingBtn);
+            waitForWebElementAndClick(ordersShowShipmentPendingBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersShowShipmentPendingBtn);
+            waitForWebElementAndClick(ordersShowShipmentPendingBtn);
+        }
+
 
 //        fluentWait(getDriver(), ordersShowShipmentPendingBtn);
 //        waitForWebElementAndClick(ordersShowShipmentPendingBtn);
@@ -498,34 +521,68 @@ public class ordersPage extends BasePage {
     }
 
     public void ordersShowShipped() {
-        ordersShowMenu();
-        fluentWait(getDriver(), ordersShowShippedBtn);
-        waitForWebElementAndClick(ordersShowShippedBtn);
+        // ordersShowMenu();
+        try {
+            fluentWait(getDriver(), ordersShowShippedBtn);
+            waitForWebElementAndClick(ordersShowShippedBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), ordersShowShippedBtn);
+            waitForWebElementAndClick(ordersShowShippedBtn);
+        }
+
     }
 
     public void ordersShowDelivered() {
-        ordersShowMenu();
-        fluentWait(getDriver(), ordersShowDeliveredBtn);
-        waitForWebElementAndClick(ordersShowDeliveredBtn);
+        // ordersShowMenu();
+        try {
+            fluentWait(getDriver(), ordersShowDeliveredBtn);
+            waitForWebElementAndClick(ordersShowDeliveredBtn);
+        } catch (Exception e) {
+            wait(3);
+            waitForWebElementAndClick(ordersShowBtn);
+            fluentWait(getDriver(), ordersShowDeliveredBtn);
+            waitForWebElementAndClick(ordersShowDeliveredBtn);
+        }
+
     }
 
     public void ordersShowCompleted() {
-        System.out.println("Antes");
-        ordersShowMenu();
-        System.out.println("Despues");
+        try {
+            System.out.println("Antes");
+            //  ordersShowMenu();
+            System.out.println("Despues");
 
-        fluentWait(getDriver(), ordersShowCompletedBtn);
-        waitForWebElementAndClick(ordersShowCompletedBtn);
+            fluentWait(getDriver(), ordersShowCompletedBtn);
+            waitForWebElementAndClick(ordersShowCompletedBtn);
+        } catch (Exception e) {
+            wait(3);
+            System.out.println("Antes");
+            // ordersShowMenu();
+            System.out.println("Despues");
 
+            fluentWait(getDriver(), ordersShowCompletedBtn);
+            waitForWebElementAndClick(ordersShowCompletedBtn);
+        }
     }
 
     public void ordersCancelled() {
         getDriver().navigate().refresh();
-        ordersShowAll();
+        try {
+            fluentWait(getDriver(), ordersShowCancelledBtn);
+            waitForWebElementAndClick(ordersShowCancelledBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), ordersShowBtn);
+            waitForClickability(ordersShowBtn);
+            waitForWebElementAndClick(ordersShowBtn);
+            fluentWaitStrict(getDriver(), ordersShowCancelledBtn);
+            waitForWebElementAndClick(ordersShowCancelledBtn);
+        }
+        //  ordersShowAll();
 //        fluentWait(getDriver(), ordersShowBtn);
 //        action.moveToElement(ordersShowBtn);
-        fluentWait(getDriver(), ordersShowCancelledBtn);
-        waitForWebElementAndClick(ordersShowCancelledBtn);
+
     }
 
     public String showMenu() {

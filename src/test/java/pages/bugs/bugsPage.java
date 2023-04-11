@@ -1305,7 +1305,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#hv-root > div > div > main > div.db-ConsumerUIWrapper-left > div.db-ConsumerUIWrapper-left--sidebarCopy > span")
     public WebElement VerificationForm;
 
-    @FindBy(how = How.CSS, using = "#transaction-5933 > div > div > div.d-flex.flex-row.flex-wrap-reverse.align-items-center > div.align-items-center.ml-auto.mb-2.justify-content-end.see__details > a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[2]/a")
     public WebElement SeeDetails;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
