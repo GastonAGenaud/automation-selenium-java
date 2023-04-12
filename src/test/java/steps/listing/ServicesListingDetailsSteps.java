@@ -21,10 +21,10 @@ public class ServicesListingDetailsSteps extends BasePage {
     }
 
     @Given("SVC I go to the listing details page on OHE")
-    public void SvCiGoToTheListingDetailsPageOnOHE() throws IOException {
+    public void SvCiGoToTheListingDetailsPageOnOHE() {
         _page.setHomePage();
         _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
     }
 
     @When("SVC select the seller name")
