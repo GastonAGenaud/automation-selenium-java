@@ -1374,7 +1374,7 @@ public String validateSaveButton(){
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/Admin/Transaction");
+        getDriver().navigate().to(url +"Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 

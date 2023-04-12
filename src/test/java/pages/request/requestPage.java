@@ -277,15 +277,17 @@ public class requestPage extends BasePage {
             fluentWait(getDriver(), requestSearchTextField);
             waitForWebElementAndClick(requestSearchTextField);
             requestSearchTextField.sendKeys("test");
-            waitForWebElementAndClick(requestSearchTextField);
-            requestSearchTextField.clear();
+            requestSearchTextField.sendKeys(Keys.ENTER);
+            //  waitForWebElementAndClick(requestSearchTextField);
+           // requestSearchTextField.clear();
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), requestSearchTextField);
             waitForWebElementAndClick(requestSearchTextField);
             requestSearchTextField.sendKeys("test");
-            waitForWebElementAndClick(requestSearchTextField);
-            requestSearchTextField.clear();
+            requestSearchTextField.sendKeys(Keys.ENTER);
+          //  waitForWebElementAndClick(requestSearchTextField);
+         //   requestSearchTextField.clear();
         }
 
     }

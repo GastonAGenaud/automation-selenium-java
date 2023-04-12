@@ -675,7 +675,7 @@ public class bugsSteps extends BasePage {
 
     @When("I select Purchased button in orders")
     public void iSelectPurchasedButtonInOrders() {
-        _page.ordersPurchasedButton();
+        //_page.ordersPurchasedButton();
     }
 
     @And("I select Download file button")

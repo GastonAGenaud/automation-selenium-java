@@ -5,7 +5,7 @@ Feature: Dashboard
 
   @dashboard   @MTR @MTR-3395
   Scenario: MTR - Buyers Dashboard
-    Given I login with Gaston User
+    Given I login with another account
     And I go to dashboard
     When I validate my settings button
     And I validate the most popular carousel section

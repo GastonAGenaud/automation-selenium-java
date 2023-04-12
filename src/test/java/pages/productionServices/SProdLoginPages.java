@@ -64,6 +64,68 @@ public class SProdLoginPages extends BasePage {
     public WebElement submitBtn;
     @FindBy(xpath = "//h2[contains(text(), 'You haven’t created any listings yet')]")
     public WebElement validateFirstText;
+    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button > span")
+    public WebElement closeBtnWindow;
+    @FindBy(how = How.CSS, using = "#forgot-tab")
+    public WebElement forgotYourPassword;
+    @FindBy(how = How.CSS, using = "#e-mail-forgot")
+    public WebElement forgotEmailField;
+    @FindBy(how = How.CSS, using = "#email-sent > h3")
+    public WebElement messageResetPassword;
+    @FindBy(how = How.CSS, using = "#add-new-btn")
+    public WebElement newListing;
+    @FindBy(how = How.CSS, using = "#name")
+    public WebElement listingName;
+    @FindBy(how = How.CSS, using = "#category-selector")
+    public WebElement categoryServ;
+    @FindBy(how = How.CSS, using = "#\\32 5761")
+    public WebElement relaxCategory;
+    @FindBy(how = How.CSS, using = "#description")
+    public WebElement descriptionServ;
+    @FindBy(how = How.CSS, using = "#hourlyPrice")
+    public WebElement hourlyPrice;
+    @FindBy(how = How.CSS, using = "#img-0")
+    public WebElement listingImageUpload;
+    @FindBy(how = How.CSS, using = "#btn-crop")
+    public WebElement cropBtn;
+    @FindBy(how = How.CSS, using = "#go-detail-button")
+    public WebElement goToDetailsBtn;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(1) > input")
+    public WebElement textField;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(2) > div > input")
+    public WebElement numberField;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(3) > div > select")
+    public WebElement dropdownField;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(3) > div > select > option:nth-child(2)")
+    public WebElement indoorOption;
+    @FindBy(how = How.CSS, using = "#checkbox-3-0")
+    public WebElement fatOption;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div.form-group > div > div > div:nth-child(2) > span > label > span")
+    public WebElement blackOption;
+    @FindBy(how = How.CSS, using = "#go-availability-button")
+    public WebElement goToAvailabilityBtn;
+    @FindBy(how = How.CSS, using = "#availability-tab-pane > div.d-flex.justify-content-between.align-items-center > div > button")
+    public WebElement publishBtn;
+    @FindBy(how = How.CSS, using = "#listings-tab")
+    public WebElement myListingProd;
+    @FindBy(how = How.CSS, using = "#settings-tab > span > span:nth-child(1)")
+    public WebElement mySettingsProd;
+    @FindBy(how = How.CSS, using = "#cashout-tab > span")
+    public WebElement cashoutProd;
+    @FindBy(how = How.CSS, using = "#container-stripe > div > a > span")
+    public WebElement pendingProd;
+    @FindBy(how = How.CSS, using = "#FirstName")
+    public WebElement firstNameProd;
+    @FindBy(how = How.CSS, using = "#LastName")
+    public WebElement LastNameProd;
+    @FindBy(how = How.CSS, using = "#PhoneNumber")
+    public WebElement phoneNumberProd;
+    @FindBy(how = How.CSS, using = "body")
+    public WebElement bioProd;
+    @FindBy(how = How.CSS, using = "#saveChangesBtn")
+    public WebElement SaveChangesBtnProd;
+    @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > strong")
+    public WebElement successText;
 
     public void goToLogin() {
         getHomePageProd();
@@ -72,6 +134,7 @@ public class SProdLoginPages extends BasePage {
 
     public String validateLoginText() {
         try {
+            fluentWait(getDriver(), loginTxt);
             String result = loginTxt.getText();
             return result;
         } catch (Exception e) {
@@ -83,6 +146,7 @@ public class SProdLoginPages extends BasePage {
 
     public String validateLoginFacebookText() {
         try {
+            fluentWait(getDriver(), facebookText);
             String result = facebookText.getText();
             return result;
         } catch (Exception e) {
@@ -102,8 +166,7 @@ public class SProdLoginPages extends BasePage {
             wait(3);
             boolean result = GoogleText.isDisplayed();
             return result;
-        }
-       finally {
+        } finally {
             getDriver().switchTo().defaultContent();
         }
     }
@@ -218,7 +281,7 @@ public class SProdLoginPages extends BasePage {
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
-        fluentWaitStrict(getDriver(), newUsernameBtn);
+   /*     fluentWaitStrict(getDriver(), newUsernameBtn);
         fluentWait(getDriver(), newUsernameBtn);
         waitForWebElementAndClick(newUsernameBtn);
         newUsernameBtn.clear();
@@ -232,6 +295,19 @@ public class SProdLoginPages extends BasePage {
         wait(4);
         //welcomeClose.click();
 
+    */
+
+    }
+
+    public void CloseWindow() {
+        try {
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        }
     }
 
     public boolean validateLastError() {
@@ -304,7 +380,317 @@ public class SProdLoginPages extends BasePage {
             waitForWebElementAndClick(submitBtn);
             validateTextFirst();
         }
+    }
 
+    public void forgotYourPassword() {
+        try {
+            fluentWait(getDriver(), forgotYourPassword);
+            waitForWebElementAndClick(forgotYourPassword);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), forgotYourPassword);
+            waitForWebElementAndClick(forgotYourPassword);
+        }
+    }
+
+    public void enterTheEmail() {
+        fluentWait(getDriver(), forgotEmailField);
+        waitForWebElementAndClick(forgotEmailField);
+        forgotEmailField.sendKeys("gastongenaud@7r1ck.com");
+        forgotEmailField.sendKeys(Keys.ENTER);
+    }
+
+    public String validMessageToResetThePassword() {
+        fluentWait(getDriver(), messageResetPassword);
+        String result = messageResetPassword.getText();
+        return result;
+    }
+
+    public void createNewListing() {
+        try {
+            fluentWait(getDriver(), newListing);
+            waitForWebElementAndClick(newListing);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), newListing);
+            waitForWebElementAndClick(newListing);
+        }
+    }
+
+    public void enterTheName() {
+        fluentWait(getDriver(), listingName);
+        waitForWebElementAndClick(listingName);
+        listingName.sendKeys("Test 1");
+        listingName.sendKeys(Keys.ENTER);
+    }
+
+    public void enterCategory() {
+        try {
+            fluentWait(getDriver(), categoryServ);
+            waitForWebElementAndClick(categoryServ);
+            fluentWait(getDriver(), relaxCategory);
+            waitForWebElementAndClick(relaxCategory);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), categoryServ);
+            waitForWebElementAndClick(categoryServ);
+            fluentWait(getDriver(), relaxCategory);
+            waitForWebElementAndClick(relaxCategory);
+        }
+    }
+
+    public void descriptionSection() {
+        try {
+            fluentWait(getDriver(), descriptionServ);
+            waitForWebElementAndClick(descriptionServ);
+            descriptionServ.sendKeys("Test 1");
+            descriptionServ.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), descriptionServ);
+            waitForWebElementAndClick(descriptionServ);
+            descriptionServ.sendKeys("Test 1");
+            descriptionServ.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void hourlyPriceSection() {
+        fluentWait(getDriver(), hourlyPrice);
+        waitForWebElementAndClick(hourlyPrice);
+        hourlyPrice.sendKeys("10");
+        hourlyPrice.sendKeys(Keys.ENTER);
+    }
+
+    public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
+
+    public void listingImageLoad() {
+        try {
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+            fluentWait(getDriver(), cropBtn);
+        } catch (Exception e) {
+            wait(3);
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        }
+    }
+
+    public void cropButton() {
+        fluentWaitStrict(getDriver(), cropBtn);
+        waitForWebElementAndClick(cropBtn);
+    }
+
+    public void goToDetails() {
+        try {
+            fluentWait(getDriver(), goToDetailsBtn);
+            waitForWebElementAndClick(goToDetailsBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), goToDetailsBtn);
+            waitForWebElementAndClick(goToDetailsBtn);
+        }
+    }
+
+    public void textCustomField() {
+        fluentWait(getDriver(), textField);
+        waitForWebElementAndClick(textField);
+        textField.sendKeys("text 1");
+        textField.sendKeys(Keys.ENTER);
+    }
+
+    public void numberCustomField() {
+        fluentWait(getDriver(), numberField);
+        waitForWebElementAndClick(numberField);
+        numberField.sendKeys("1");
+        numberField.sendKeys(Keys.ENTER);
+    }
+
+    public void dropdownCustomField() {
+        try {
+            fluentWait(getDriver(), dropdownField);
+            waitForWebElementAndClick(dropdownField);
+            fluentWait(getDriver(), indoorOption);
+            waitForWebElementAndClick(indoorOption);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), dropdownField);
+            waitForWebElementAndClick(dropdownField);
+            fluentWait(getDriver(), indoorOption);
+            waitForWebElementAndClick(indoorOption);
+        }
+    }
+
+    public void checkboxCustomField() {
+        try {
+            fluentWait(getDriver(), fatOption);
+            waitForWebElementAndClick(fatOption);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), fatOption);
+            waitForWebElementAndClick(fatOption);
+        }
+    }
+
+    public void colorPicker() {
+        try {
+            fluentWait(getDriver(), blackOption);
+            waitForWebElementAndClick(blackOption);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), blackOption);
+            waitForWebElementAndClick(blackOption);
+        }
+    }
+
+    public void goToAvailability() {
+        try {
+            fluentWait(getDriver(), goToAvailabilityBtn);
+            waitForWebElementAndClick(goToAvailabilityBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), goToAvailabilityBtn);
+            waitForWebElementAndClick(goToAvailabilityBtn);
+        }
+    }
+
+    public void publish() {
+        try {
+            fluentWait(getDriver(), publishBtn);
+            waitForWebElementAndClick(publishBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), publishBtn);
+            waitForWebElementAndClick(publishBtn);
+        }
+    }
+
+    public void goToDashboardServ() {
+        getDriver().navigate().to(urlServicesProd + "/dashboard");
 
     }
+
+    public void selectMyListingsServProd() {
+        try {
+            fluentWait(getDriver(), myListingProd);
+            waitForWebElementAndClick(myListingProd);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), myListingProd);
+            waitForWebElementAndClick(myListingProd);
+        }
+    }
+
+    public void goToSettingServ() {
+        try {
+            fluentWait(getDriver(), mySettingsProd);
+            waitForWebElementAndClick(mySettingsProd);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), mySettingsProd);
+            waitForWebElementAndClick(mySettingsProd);
+        }
+    }
+
+    public void goToCashoutServ() {
+        try {
+            fluentWait(getDriver(), cashoutProd);
+            waitForWebElementAndClick(cashoutProd);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cashoutProd);
+            waitForWebElementAndClick(cashoutProd);
+        }
+    }
+
+    public String validConnectStipe() {
+        fluentWait(getDriver(), pendingProd);
+        String result = pendingProd.getText();
+        return result;
+    }
+
+    public void enterFirstName() {
+        try {
+            fluentWait(getDriver(), firstNameProd);
+            waitForWebElementAndClick(firstNameProd);
+            firstNameProd.clear();
+            firstNameProd.sendKeys("Gaston");
+            firstNameProd.sendKeys(Keys.ENTER);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), firstNameProd);
+            waitForWebElementAndClick(firstNameProd);
+            firstNameProd.clear();
+            firstNameProd.sendKeys("Gaston");
+            firstNameProd.sendKeys(Keys.ENTER);
+        }
+
+    }
+
+    public void enterLastName() {
+        try {
+            fluentWait(getDriver(), LastNameProd);
+            waitForWebElementAndClick(LastNameProd);
+            LastNameProd.clear();
+            LastNameProd.sendKeys("Genaud");
+            LastNameProd.sendKeys(Keys.ENTER);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), LastNameProd);
+            waitForWebElementAndClick(LastNameProd);
+            LastNameProd.clear();
+            LastNameProd.sendKeys("Genaud");
+            LastNameProd.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void enterPhoneNumber() {
+        try {
+            fluentWait(getDriver(), phoneNumberProd);
+            waitForWebElementAndClick(phoneNumberProd);
+            phoneNumberProd.clear();
+            phoneNumberProd.sendKeys("123456789");
+            phoneNumberProd.sendKeys(Keys.ENTER);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), phoneNumberProd);
+            waitForWebElementAndClick(phoneNumberProd);
+            phoneNumberProd.clear();
+            phoneNumberProd.sendKeys("123456789");
+            phoneNumberProd.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void enterBio() {
+        try {
+            fluentWait(getDriver(), bioProd);
+            waitForWebElementAndClick(bioProd);
+            bioProd.clear();
+            bioProd.sendKeys("test 1");
+            bioProd.sendKeys(Keys.ENTER);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), bioProd);
+            waitForWebElementAndClick(bioProd);
+            bioProd.clear();
+            bioProd.sendKeys("test 1");
+            bioProd.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void saveChanges() {
+        try {
+            fluentWait(getDriver(), SaveChangesBtnProd);
+            waitForWebElementAndClick(SaveChangesBtnProd);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), SaveChangesBtnProd);
+            waitForWebElementAndClick(SaveChangesBtnProd);
+        }
+
+    }
+
+    public String validSaveProfile() {
+        fluentWait(getDriver(),successText);
+        String result =successText.getText();
+        return result;
+    }
+
 }

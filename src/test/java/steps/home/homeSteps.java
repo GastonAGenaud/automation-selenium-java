@@ -391,6 +391,15 @@ public class homeSteps extends BasePage {
     }
 
     */
+   /* @Before
+    public void test () throws IOException {
+        loginWithMakeAnOffer();
+        generateLoginWithGastonUser();
+        loginWithDev();
+        loginWithGastonNoBorrar();
+    }
+
+    */
 
     @Given("I login with Gaston User")
     public void loginWithGastonUser() {
@@ -413,12 +422,14 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
         }
     }
-   /*@Before
+  /* @Before
     public void test() throws IOException {
         _page.loginWithGastonUserProdServices();
         _page.loginWithDevProd();
     }
-    */
+
+   */
+
 
     @Given("I login with Gaston User in production services using cookies")
     public void loginWithGastonUserStepsProdServices() {
@@ -441,6 +452,12 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
         }
     }
+  /*@Before
+        public void test () throws IOException {
+            loginWithDev();
+        }
+ */
+
 
     @Given("I login with Dev user")
     public void loginWithDevSteps() {
@@ -482,7 +499,12 @@ public class homeSteps extends BasePage {
 
         getDriver().navigate().refresh();
     }
+   /* @Before
+    public void test () throws IOException {
+        loginWithGastonNoBorrar();
+    }
 
+    */
 
     @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {

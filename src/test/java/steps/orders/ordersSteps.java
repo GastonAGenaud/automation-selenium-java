@@ -29,7 +29,7 @@ public class ordersSteps extends BasePage {
     @And("I go to orders page")
     public void iGoToOrdersPage() {
         _page.goToOrders();
-        _page.ordersPurchasedButton();
+       // _page.ordersPurchasedButton();
 
     }
 
@@ -140,6 +140,7 @@ public class ordersSteps extends BasePage {
 
     @And("I validate the buy again button in completed status")
     public void iValidateTheBuyAgainButtonInCompletedStatus() {
+        _page.ordersShowMenu();
         _page.ordersShowCompleted();
         _page.ordersPurchasedButton();
         _page.seeDetailsValidateText();
@@ -150,6 +151,7 @@ public class ordersSteps extends BasePage {
     @And("I validate the share button in complete status")
     public void iValidateTheShareButtonInCompleteStatus() {
         _page.goToOrders();
+        _page.ordersShowMenu();
         _page.ordersShowCompleted();
         _page.ordersPurchasedButton();
         _page.seeDetailsValidateText();
@@ -178,13 +180,17 @@ public class ordersSteps extends BasePage {
 
     @And("I select the show menu button")
     public void iSelectTheShowMenuButton() {
-        _page.ordersPurchasedButton();
-        _page.ordersShowAll();
+       // _page.ordersPurchasedButton();
+        _page.ordersShowMenu();
         //_page.ordersPendingResponse();
         _page.ordersShowShipmentPending();
+        _page.ordersShowMenu();
         _page.ordersShowShipped();
+        _page.ordersShowMenu();
         _page.ordersShowDelivered();
+        _page.ordersShowMenu();
         _page.ordersShowCompleted();
+        //_page.ordersShowMenu();
         _page.ordersCancelled();
     }
 
