@@ -166,7 +166,7 @@ public class sponsoredAdsSteps extends BasePage {
 
     @Then("I validate Pay an ad")
     public void iValidatePayAnAd() {
-        Assert.assertEquals(true, _page.payingErrorMSG());
+        Assert.assertEquals(false, _page.payingErrorMSG());
     }
 
     @And("I select the Sort By option")

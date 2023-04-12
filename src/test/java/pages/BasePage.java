@@ -493,6 +493,24 @@ public class BasePage {
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
     }
+    public void loginWithGaston10UserProdServices() throws IOException {
+        getHomePageProd();
+        getLoginPageProd();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("Gaston2NoBorrar@hotmail.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq");
+        wait(2);
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        wait(7);
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "Gaston10NoBorrarProd");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
+    }
 
     public void loginWithDevProd() throws IOException {
         getHomePageProd();

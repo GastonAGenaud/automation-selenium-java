@@ -52,7 +52,7 @@ public class bugsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
     public WebElement flatRateButton;
 
-    @FindBy(how = How.CSS, using = "#add-new-btn > span")
+    @FindBy(how = How.CSS, using = "#listings-tab")
     public WebElement myListingsBtn;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[2]/div/button")
@@ -1152,8 +1152,15 @@ public class bugsPage extends BasePage {
     }
 
     public void setMyListingsBtn() {
-        fluentWait(getDriver(), myListingsBtn);
-        waitForWebElementAndClick(myListingsBtn);
+        try {
+            fluentWait(getDriver(), myListingsBtn);
+            waitForWebElementAndClick(myListingsBtn);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), myListingsBtn);
+            waitForWebElementAndClick(myListingsBtn);
+        }
+
     }
 
     public void setItemDots() {

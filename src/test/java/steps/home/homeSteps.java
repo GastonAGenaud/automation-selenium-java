@@ -452,6 +452,37 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUserProd");
         }
     }
+    /* @Before
+    public void test() throws IOException {
+        _page.loginWithGastonUserProdServices();
+        _page.loginWithDevProd();
+        _page.loginWithGaston10UserProdServices();
+    }
+
+   */
+
+
+    @Given("I login with Gaston10 User Verified in production services using cookies")
+    public void loginWithGaston10UserVerifiedProdServices() {
+        try {
+            wait(10);
+            getDriver().manage().deleteAllCookies();
+            getHomePageProd();
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"Gaston10NoBorrarProd");
+
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"Gaston10NoBorrarProd");
+        } catch (Exception e) {
+            wait(3);
+
+            getDriver().manage().deleteAllCookies();
+            getHomePageProd();
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"Gaston10NoBorrarProd");
+
+            getDriver().navigate().refresh();
+            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"Gaston10NoBorrarProd");
+        }
+    }
   /*@Before
         public void test () throws IOException {
             loginWithDev();

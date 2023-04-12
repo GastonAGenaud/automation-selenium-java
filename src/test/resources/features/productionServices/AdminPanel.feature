@@ -45,16 +45,27 @@ Feature: AdminPanel
     And go to Cashout
     Then valid than connect to Stripe
 
+  @MTR-6
+  Scenario: Settings/ Fill in profile information and save
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard ServProd
+    When go to Settings Serv Prod
+    And enter profile information
+    Then valid to save profile information
+
+
+  @MTR-6
+  Scenario: Hire a Service - With all types of shipments
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard ServProd
+    When go to Browse Services
+    And select the required service
+    And contract the service
+    And complete the form
+    And enter the new Credit Card
+    And I select the Submit Payment Button SERV
+    Then valid that can hire the service
+
   @MTR-6666
-    Scenario: Settings/ Fill in profile information and save
-      Given I login with Gaston User in production services using cookies
-      And go to Dashboard ServProd
-      When go to Settings Serv Prod
-      And enter profile information
-      Then valid to save profile information
-
-
-
-
-
+  Scenario: Orders view: Accept an order/ Reject an order/ Refund an order
 

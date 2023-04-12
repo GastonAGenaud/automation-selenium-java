@@ -379,12 +379,12 @@ public class sponsoredAdsPage extends BasePage {
         try {
             fluentWait(getDriver(), cardNumberTextField);
             waitForWebElementAndClick(cardNumberTextField);
-            cardNumberTextField.sendKeys("1111111111111111");
+            cardNumberTextField.sendKeys("4242424242424242");
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), cardNumberTextField);
             waitForWebElementAndClick(cardNumberTextField);
-            cardNumberTextField.sendKeys("1111111111111111");
+            cardNumberTextField.sendKeys("4242424242424242");
         }
 
     }
@@ -494,8 +494,10 @@ public class sponsoredAdsPage extends BasePage {
             wait(3);
             fluentWait(getDriver(), getDriver().findElement(By.id("inactive")));
             WebElement activeDiv = getDriver().findElement(By.id("inactive"));
+            wait(2);
             List<WebElement> elements = activeDiv.findElements(By.cssSelector("div.card.card-horizontal.listing-card-border"));
             WebElement lastElement = elements.get(elements.size() - 1);
+            wait(2);
             fluentWait(getDriver(), lastElement);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
             waitForClickability(spanElement);
