@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import pages.BasePage;
-import sun.awt.windows.WWindowPeer;
+//import sun.awt.windows.WWindowPeer;
 
 import java.security.Key;
 
@@ -75,84 +75,84 @@ public class BrowseListingPage extends BasePage {
     @FindBy(how = How.CSS, using = "#filters-container")
     public WebElement validateCategories;
 
-    public void validateCategorySector(){
+    public void validateCategorySector() {
         fluentWait(getDriver(), validateCategories);
         Assert.assertTrue(validateCategories.isDisplayed());
     }
 
-    public void validateLocationSector(){
+    public void validateLocationSector() {
         fluentWait(getDriver(), validateLocation);
         Assert.assertTrue(validateLocation.isDisplayed());
     }
 
-    public void validateColor(){
+    public void validateColor() {
         fluentWait(getDriver(), validateColorsSector);
         waitForWebElementAndClick(validateColorsSector);
     }
 
-    public void darkGreenColorButton(){
+    public void darkGreenColorButton() {
         fluentWait(getDriver(), darkGreenColorBtn);
         waitForWebElementAndClick(darkGreenColorBtn);
     }
 
-    public void validatePrice(){
+    public void validatePrice() {
         fluentWait(getDriver(), validatePriceFilter);
         Assert.assertTrue(validatePriceFilter.isDisplayed());
     }
 
-    public void applyFilterButton(){
+    public void applyFilterButton() {
         fluentWait(getDriver(), applyFilter);
         waitForWebElementAndClick(applyFilter);
     }
 
-    public void maxPriceText(){
+    public void maxPriceText() {
         fluentWait(getDriver(), maxPriceInput);
         maxPriceInput.sendKeys("1000");
     }
 
-    public void minPriceText(){
+    public void minPriceText() {
         fluentWait(getDriver(), minPriceInput);
         minPriceInput.sendKeys("1");
     }
 
-    public void locationTxt(){
+    public void locationTxt() {
         fluentWait(getDriver(), locationInput);
         locationInput.sendKeys("2405 Montopolis Drive, Austin, TX, USA");
         locationInput.sendKeys(Keys.ARROW_DOWN);
         locationInput.sendKeys(Keys.ENTER);
     }
 
-    public void shoesButton(){
+    public void shoesButton() {
         fluentWait(getDriver(), shoesBtn);
         waitForWebElementAndClick(shoesBtn);
     }
 
-    public void ringsButton(){
+    public void ringsButton() {
         fluentWait(getDriver(), ringsBtn);
         waitForWebElementAndClick(ringsBtn);
     }
 
-    public void happyFilterButton(){
+    public void happyFilterButton() {
         fluentWait(getDriver(), happyFilterBtn);
         waitForWebElementAndClick(happyFilterBtn);
     }
 
-    public void earringsButton(){
+    public void earringsButton() {
         fluentWait(getDriver(), earringsBtn);
         waitForWebElementAndClick(earringsBtn);
     }
 
-    public void braceletsAndStuffButton(){
+    public void braceletsAndStuffButton() {
         fluentWait(getDriver(), braceletsStuffBtn);
         waitForWebElementAndClick(braceletsStuffBtn);
     }
 
-    public void bodyJewelryAndStuffButton(){
+    public void bodyJewelryAndStuffButton() {
         fluentWait(getDriver(), bodyJewelryStuffBtn);
         waitForWebElementAndClick(bodyJewelryStuffBtn);
     }
 
-    public void accessoriesFilterButton(){
+    public void accessoriesFilterButton() {
         fluentWait(getDriver(), accessoriesFilterBtn);
         waitForWebElementAndClick(accessoriesFilterBtn);
     }
