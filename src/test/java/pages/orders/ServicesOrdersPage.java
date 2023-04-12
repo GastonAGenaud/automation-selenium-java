@@ -72,7 +72,7 @@ public class ServicesOrdersPage extends BasePage {
     public WebElement ordersShowBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div/div/a[1]")
     public WebElement ordersShowAllBtn;
-    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(2)")
     public WebElement ordersPendingResponseBtn;
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(3)")
     public WebElement ordersShowShipmentPendingBtn;
@@ -82,7 +82,7 @@ public class ServicesOrdersPage extends BasePage {
     public WebElement ordersShowDeliveredBtn;
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(7)")
     public WebElement ordersShowCompletedBtn;
-    @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > div > div > a:nth-child(8)")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div/div/a[8]")
     public WebElement ordersShowCancelledBtn;
 
     @FindBy(how = How.CSS, using = "#sidebar-listing > li.nav-item.ml-auto.my-auto > div > span")
@@ -207,7 +207,7 @@ public class ServicesOrdersPage extends BasePage {
     }
 
     public void ordersConfirmPickUp() {
-        fluentWait(getDriver(),ordersConfirmPickUpBtn);
+        fluentWait(getDriver(), ordersConfirmPickUpBtn);
         waitForWebElementAndClick(ordersConfirmPickUpBtn);
     }
 
@@ -217,8 +217,9 @@ public class ServicesOrdersPage extends BasePage {
     }
 
     public void ordersShowMenu() {
-        //fluentWait(getDriver(), ordersShowBtn);
-        action.moveToElement(ordersShowBtn).build().perform();
+        fluentWaitStrict(getDriver(), ordersShowBtn);
+        waitForWebElementAndClick(ordersShowBtn);
+//        action.moveToElement(ordersShowBtn).build().perform();
     }
 
     public void ordersShowAll() {
@@ -262,7 +263,7 @@ public class ServicesOrdersPage extends BasePage {
 
     public void ordersCancelled() {
         ordersShowMenu();
-        fluentWait(getDriver(),ordersShowCancelledBtn);
+        fluentWait(getDriver(), ordersShowCancelledBtn);
         waitForWebElementAndClick(ordersShowCancelledBtn);
     }
 

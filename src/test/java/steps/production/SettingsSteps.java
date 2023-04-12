@@ -22,7 +22,7 @@ public class SettingsSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-//        _page.loginWithGastonUserProd();
+//        _page.loginWithGastonUserProdProducts();
 
 //}
 
@@ -68,19 +68,19 @@ public class SettingsSteps extends BasePage {
         try {
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
         } catch (Exception e) {
             wait(3);
 
             getDriver().manage().deleteAllCookies();
             ProdHomePage();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
 
             getDriver().navigate().refresh();
-            sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+            sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
         }
     }
 
@@ -288,6 +288,46 @@ public class SettingsSteps extends BasePage {
     @Then("I validate delete Address")
     public void iValidateDeleteAddress() {
         _page.deleteAddressSuccessfulPopUp();
+    }
+
+    @And("see Personal Information")
+    public void seePersonalInformation() {
+        _page.validatePersonalInformationText();
+    }
+
+    @And("I complete First Name TextField")
+    public void iCompleteFirstNameTextField() {
+        _page.firstNameTxt();
+    }
+
+    @And("complete Last name TextField")
+    public void completeLastNameTextField() {
+        _page.lastNameTxt();
+    }
+
+    @And("complete User Name TextField")
+    public void completeUserNameTextField() {
+        _page.usernameTxt();
+    }
+
+    @And("I complete Phone number TextField")
+    public void iCompletePhoneNumberTextField() {
+        _page.phoneNumberTxt();
+    }
+
+    @And("complete Bio TextField")
+    public void completeBioTextField() {
+        _page.setFrameText();
+    }
+
+    @Then("valid Fill in profile information")
+    public void validFillInProfileInformation() {
+        _page.saveChangesMessagePopUp();
+    }
+
+    @And("I complete E-Mail TextField")
+    public void iCompleteEMailTextField() {
+        _page.emailText();
     }
 }
 

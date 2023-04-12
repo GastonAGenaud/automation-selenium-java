@@ -35,7 +35,7 @@ public class ServicesListingPage extends BasePage {
     public WebElement listingNameTextField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement listingCategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[2]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[3]")
     public WebElement listingCategoryOption;
     @FindBy(how = How.CSS, using = "#description")
     public WebElement listingDescriptionTextField;
@@ -334,9 +334,17 @@ public class ServicesListingPage extends BasePage {
     }
 
     public boolean listingActiveTab() {
-        fluentWait(getDriver(), listingActive);
-        boolean result = listingActive.isDisplayed();
-        return result;
+       try {
+            fluentWaitStrict(getDriver(), listingActive);
+            boolean result = listingActive.isDisplayed();
+            return result;
+        }
+       catch (Exception e){
+           wait(5);
+           fluentWaitStrict(getDriver(), listingActive);
+           boolean result = listingActive.isDisplayed();
+           return result;
+       }
     }
 
     public boolean editActive() {

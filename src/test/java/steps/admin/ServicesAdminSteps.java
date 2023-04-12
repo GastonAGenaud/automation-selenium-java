@@ -477,10 +477,17 @@ public class ServicesAdminSteps extends BasePage {
 //        loginDevSVC();
 //    }
 
-    @Given("SVC Admin Add-ons")
-    public void SVCAdminAddOns(){
+//    @Given("SVC Admin Add-ons")
+//    public void SVCAdminAddOns() {
+//        _page.getHomePageSVC();
+//        _page.iLoginWithDevUserServices();
+//        _page.goToAdminPanel();
+//        _page.getCloseChat();
+//    }
+    @Given("SVC I login With Dev User")
+    public void SVCIloginWithDevUser(){
         _page.getHomePageSVC();
-        _page.iLoginWithGastonUserServices();
+        _page.iLoginWithDevUserServices();
         _page.goToAdminPanel();
         _page.getCloseChat();
     }

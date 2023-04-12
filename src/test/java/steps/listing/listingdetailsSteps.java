@@ -222,4 +222,6 @@ public class listingdetailsSteps extends BasePage {
         _page.activePdf();
         _page.listingPdfLoad();
     }
+
+
 }

@@ -20,10 +20,10 @@ public class ServicesReviewsSteps extends BasePage {
     }
 
     @Given("SVC I login and go to a class")
-    public void iLoginAndGoToClass() throws IOException {
+    public void iLoginAndGoToClass(){
         _page.goToSvcPage();
         _page.goToLoginPage();
-        _page.loginWithGastonUserSVC();
+        _page.iLoginWithGastonUserServices();
         _page.goToSvcPage();
         _page.setBrowseClassesBtn();
         _page.setSelectClass();

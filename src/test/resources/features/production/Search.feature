@@ -9,6 +9,7 @@ Feature: Search
     And select update
     Then I validate Search in home
 
+  @homeSearch2
   Scenario: Search in home
     Given I login with Gaston User in production products using cookies
     And select Browse Listings

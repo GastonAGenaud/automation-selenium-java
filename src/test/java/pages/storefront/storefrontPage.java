@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 import pages.BasePage;
 
 public class storefrontPage extends BasePage {
@@ -57,8 +58,8 @@ public class storefrontPage extends BasePage {
     public WebElement linkedinTextField;
     @FindBy(how = How.CSS, using = "#youtube")
     public WebElement youtubeTextField;
-    @FindBy(how = How.CSS, using = "#banner-storefront-img")
-    public WebElement profileImage;
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.cards-container.pt-0.pb-0 > div")
+    public WebElement validateStorefrontPage;
     @FindBy(how = How.CSS, using = "#avatarProfile-img")
     public WebElement profileAvatar;
     @FindBy(how = How.CSS, using = "#social-tab-content > div > div > h5")
@@ -92,10 +93,8 @@ public class storefrontPage extends BasePage {
     }
 
 
-    public boolean profileStorefront() {
-        boolean result =
-                profileImage.isDisplayed();
-        return result;
+    public void validateProfileStorefront() {
+        Assert.assertTrue(validateStorefrontPage.isDisplayed());
     }
 
     public boolean profileAvatar() {

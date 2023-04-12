@@ -1,5 +1,6 @@
 package pages.production;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -172,7 +173,72 @@ public class SettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div")
     public WebElement deleteAddressPopUp;
 
-    public void deleteAddressSuccessfulPopUp(){
+    @FindBy(how = How.CSS, using = "#profile-tab-content > div:nth-child(1) > div > h5")
+    public WebElement personalInformationText;
+
+    @FindBy(how = How.CSS, using = "#FirstName")
+    public WebElement firstNameInput;
+
+    @FindBy(how = How.CSS, using = "#LastName")
+    public WebElement lastNameInput;
+
+    @FindBy(how = How.CSS, using = "#DisplayName")
+    public WebElement usernameInput;
+
+    @FindBy(how = How.CSS, using = "#PhoneNumber")
+    public WebElement phoneNumberInput;
+
+    @FindBy(how = How.CSS, using = "#Email")
+    public WebElement emailTextFieldInput;
+
+    public void emailText(){
+        fluentWait(getDriver(),emailTextFieldInput);
+        emailTextFieldInput.clear();
+        emailTextFieldInput.sendKeys("gastongenaud@7r1ck.com");
+    }
+
+    public void setFrameText() {
+        getDriver().switchTo().frame(0);
+        try {
+            WebElement textFieldBio = getDriver().findElement(By.cssSelector("body"));
+            textFieldBio.sendKeys("Test");
+        } catch (Exception e) {
+            wait(3);
+            WebElement textFieldBio = getDriver().findElement(By.cssSelector("body"));
+            textFieldBio.sendKeys("Test");
+        }
+        getDriver().switchTo().defaultContent();
+    }
+
+    public void phoneNumberTxt() {
+        fluentWait(getDriver(), phoneNumberInput);
+        phoneNumberInput.sendKeys("123123123");
+    }
+
+    public void usernameTxt() {
+        fluentWait(getDriver(), usernameInput);
+        usernameInput.clear();
+        usernameInput.sendKeys("gastontrick");
+    }
+
+    public void lastNameTxt() {
+        fluentWait(getDriver(), lastNameInput);
+        lastNameInput.sendKeys("Automation");
+    }
+
+    public void firstNameTxt() {
+        fluentWait(getDriver(), firstNameInput);
+        firstNameInput.clear();
+        firstNameInput.sendKeys("Testing");
+
+    }
+
+    public void validatePersonalInformationText() {
+        fluentWait(getDriver(), personalInformationText);
+        Assert.assertTrue(personalInformationText.isDisplayed());
+    }
+
+    public void deleteAddressSuccessfulPopUp() {
         fluentWait(getDriver(), deleteAddressPopUp);
         Assert.assertTrue(deleteAddressPopUp.isDisplayed());
     }
