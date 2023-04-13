@@ -84,7 +84,7 @@ Feature: Checkout
 
   @checkout  @MTR-1428  @MTR
   Scenario: MTR - Buyer able to add a new credit card and save it
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     #When I clear the cart
     And I add an item to the Shopping Cart
@@ -100,7 +100,7 @@ Feature: Checkout
 
   @checkout  @MTR-1429  @MTR
   Scenario: MTR - Buyer able to click Submit Payment button to complete checkout
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     #When I clear the cart
     And I add an item to the Shopping Cart
@@ -114,7 +114,7 @@ Feature: Checkout
 
   @checkout  @MTR-1430  @MTR @testing1
   Scenario: MTR - Buyer able to select saved credit card if previously saved from past purchases made
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I add an item to the Shopping Cart
     And I add an Address
@@ -125,7 +125,7 @@ Feature: Checkout
 
   @checkout  @MTR-1431  @MTR @testing1
   Scenario: MTR - Buyer able to see Congratulations screen after submitting payment
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I clear the cart
     And I add an item to the Shopping Cart
@@ -138,7 +138,7 @@ Feature: Checkout
 
   @checkout  @MTR-1432  @MTR @testing1
   Scenario: MTR - Buyer able to share listing on Facebook, Twitter or WhatsApp
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I add an item to the Shopping Cart
     And I add an Address

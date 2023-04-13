@@ -203,7 +203,8 @@ public class HomePage extends BasePage {
     public void accessoriesMenuTab() {
         goToHome();
         fluentWait(getDriver(), accessoriesBtn);
-        waitForWebElementAndClick(accessoriesBtn);}
+        waitForWebElementAndClick(accessoriesBtn);
+    }
 
 
     public void mensHomeBtn() {
@@ -311,11 +312,21 @@ public class HomePage extends BasePage {
     }
 
     public void moreArtAndCollectables() {
-        fluentWait(getDriver(), artAndCollectablesBtn);
-        actions.moveToElement(artAndCollectablesBtn).build().perform();
+        try {
+            fluentWait(getDriver(), artAndCollectablesBtn);
+            actions.moveToElement(artAndCollectablesBtn).build().perform();
 
-        fluentWaitStrict(getDriver(), moreArtAndCollectablesBtn);
-        waitForWebElementAndClick(moreArtAndCollectablesBtn);
+            fluentWaitStrict(getDriver(), moreArtAndCollectablesBtn);
+            waitForWebElementAndClick(moreArtAndCollectablesBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), artAndCollectablesBtn);
+            actions.moveToElement(artAndCollectablesBtn).build().perform();
+
+            fluentWaitStrict(getDriver(), moreArtAndCollectablesBtn);
+            waitForWebElementAndClick(moreArtAndCollectablesBtn);
+        }
+
     }
 
     public void moreCategories() {
@@ -360,14 +371,14 @@ public class HomePage extends BasePage {
     }
 
     public void homeBack() {
-       try {
-           fluentWait(getDriver(), homeBackBtn);
-           waitForWebElementAndClick(homeBackBtn);
-       }catch (Exception e){
-           wait(3);
+        try {
+            fluentWait(getDriver(), homeBackBtn);
+            waitForWebElementAndClick(homeBackBtn);
+        } catch (Exception e) {
+            wait(3);
 //           fluentWait(getDriver(), homeBackBtnBug);
 //           waitForWebElementAndClick(homeBackBtnBug);
-       }
+        }
     }
 
     public void forBuyers() {
