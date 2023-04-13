@@ -22,11 +22,11 @@ public class HomeSteps extends BasePage {
     }
 
 
-    @Before
-    public void testSignup() throws IOException {
-        _page.loginWithGastonUserProdProducts();
-
-    }
+//    @Before
+//    public void testSignup() throws IOException {
+//        _page.loginWithGastonUserProdProducts();
+//
+//    }
 
 
     @And("select Contact Us button")
@@ -41,32 +41,4 @@ public class HomeSteps extends BasePage {
     public void completeEmailTextField() {
     }
 
-    @And("go to Landing Page")
-    public void goToLandingPage() {
-        getDriver().navigate().to("https://lizcolemp.mymarketplacebuilder.com/Admin/Application/LandingCustomize#!");
     }
-
-    @When("select Header")
-    public void selectHeader() {
-        _page.headerOption();
-    }
-
-    @And("modify header text to {}")
-    public void modifyHeaderTextBLOGToTest(String text) {
-        _page.blogModifyText(text);
-    }
-
-    @And("select Save")
-    public void selectSave() {
-        _page.saveButton();
-    }
-
-    @And("validate modified text")
-    public void validateModifiedText() {
-    }
-
-
-    @Then("I validate Landing Page")
-    public void iValidateLandingPage() {
-    }
-}

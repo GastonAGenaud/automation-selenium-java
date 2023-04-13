@@ -8,12 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import pages.BasePage;
-import sun.awt.windows.WWindowPeer;
 
-import java.security.Key;
 
-import static java.lang.Math.min;
-import static java.lang.Math.random;
 
 public class BrowseWantsPage extends BasePage {
 

@@ -389,7 +389,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"GastonUser");
+        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"GastonUserProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         ProdHomePage();

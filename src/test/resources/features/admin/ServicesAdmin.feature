@@ -13,7 +13,6 @@ Feature: Services Admin
     And SVC I validate step 6 connect domain
     And SVC I validate step 7 Google Locations
     And SVC I validate step 8 emails
-    And SVC I validate step 9 create a request or add a listing
     Then SVC I see all the functionalities in the administration panel for the user
 
   @MMRS-865 @MMRSAdmin @MMRS

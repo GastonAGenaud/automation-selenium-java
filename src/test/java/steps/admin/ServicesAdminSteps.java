@@ -20,14 +20,14 @@ public class ServicesAdminSteps extends BasePage {
         this._page = new ServicesAdminPage();
     }
 
+
     @Given("SVC I login with Gaston User in services")
     public void ILoginWithGastonUserInServices() {
         _page.setHomePage();
-        _page.iLoginWithGastonUserServices();
     }
+
     @Given("I go to admin panel in services")
-    public void iGoToAdminPageInServices()
-        {
+    public void iGoToAdminPageInServices() {
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
@@ -89,7 +89,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 2: Select your homepage layout")
-    public void SVCStepSelectYourHomepageLayout(){
+    public void SVCStepSelectYourHomepageLayout() {
         _page.setHomePage();
         _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
@@ -118,7 +118,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Step 4: Create Categories")
-    public void SVCStepCreateCategories(){
+    public void SVCStepCreateCategories() {
         _page.setHomePage();
         _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
@@ -393,7 +393,7 @@ public class ServicesAdminSteps extends BasePage {
     }
 
     @Given("SVC Admin settings")
-    public void SVCAdminSettings()  {
+    public void SVCAdminSettings() {
         _page.setHomePage();
         _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
@@ -439,7 +439,7 @@ public class ServicesAdminSteps extends BasePage {
     //Reports
 
     @Given("SVC Admin Reports")
-    public void SVCAdminReports(){
+    public void SVCAdminReports() {
         _page.setHomePage();
         _page.iLoginWithGastonUserServices();
         _page.goToAdminPanel();
@@ -475,9 +475,10 @@ public class ServicesAdminSteps extends BasePage {
 //    @Before
 //    public void test() throws IOException {
 //        loginDevSVC();
+//        loginWithGastonUserSVC();
 //    }
 
-//    @Given("SVC Admin Add-ons")
+    //    @Given("SVC Admin Add-ons")
 //    public void SVCAdminAddOns() {
 //        _page.getHomePageSVC();
 //        _page.iLoginWithDevUserServices();
@@ -485,7 +486,7 @@ public class ServicesAdminSteps extends BasePage {
 //        _page.getCloseChat();
 //    }
     @Given("SVC I login With Dev User")
-    public void SVCIloginWithDevUser(){
+    public void SVCIloginWithDevUser() {
         _page.getHomePageSVC();
         _page.iLoginWithDevUserServices();
         _page.goToAdminPanel();
