@@ -68,7 +68,7 @@ public class BasePage {
     public String UrlSVC = Environment.getProperty("UrlSVC");
     public String UrlProd = Environment.getProperty("UrlProd");
     public String urlServicesProd = Environment.getProperty("UrlServicesProd");
-    public String UrlProduct = "https://mtreborn-automation-products.azurewebsites.net/listing/detail/740";
+    public String UrlProduct = url + "listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
     String randomEmail = rdm + Long.toString((int) random() * 1200);
@@ -244,6 +244,7 @@ public class BasePage {
         wait(2);
         getDriver().navigate().to(urlServicesProd + "Account/Login");
     }
+
     public void getSignUpPageProd() {
         wait(2);
         getDriver().navigate().to(urlServicesProd + "Account/Register");
@@ -290,18 +291,21 @@ public class BasePage {
 
         waitForWebElementAndClick(logInBtn);
     }
-    public void iLoginWithGastonUserServices(){
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonUser");
+
+    public void iLoginWithGastonUserServices() {
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "GastonUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");
     }
-    public void iLoginWithDevUserServices(){
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"DevUser");
+
+    public void iLoginWithDevUserServices() {
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "DevUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" + "DevUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "DevUser");
     }
+
     public void loginDevSVC() throws IOException {
         getDriver().navigate().to(UrlSVC + "Account/Login");
         fluentWaitStrict(getDriver(), emailLoginInput);
@@ -315,7 +319,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
 
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"DevUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "DevUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -336,7 +340,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
 
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"GastonUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonUser");
         getDriver().navigate().refresh();
     }
 
@@ -350,7 +354,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"makeAnOffer");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "makeAnOffer");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -369,7 +373,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-" + suiteName +"-" + "GastonUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -389,7 +393,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"GastonUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         ProdHomePage();
@@ -407,7 +411,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "DevUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "DevUser");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -425,7 +429,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GoodWillUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GoodWillUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -444,7 +448,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
         //retryingFindClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" + "MatiasUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "MatiasUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePageOWL();
@@ -462,7 +466,7 @@ public class BasePage {
         waitForWebElementAndClick(logInBtn);
         //retryingFindClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" +"DevUserOwl");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "DevUserOwl");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePageOWL();
@@ -479,7 +483,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(2);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GastonNoBorrarUser");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonNoBorrarUser");
         wait(5);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -497,13 +501,14 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "GastonUserProd");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonUserProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
     }
+
     public void loginWithGaston10UserProdServices() throws IOException {
         getHomePageProd();
         getLoginPageProd();
@@ -515,7 +520,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName +"-" + "Gaston10NoBorrarProd");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "Gaston10NoBorrarProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();
@@ -533,7 +538,7 @@ public class BasePage {
         fluentWait(getDriver(), logInBtn);
         waitForWebElementAndClick(logInBtn);
         wait(7);
-        sessionManager.storeSessionFile(environment + "-"+ suiteName + "-" +"DevUserProd");
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "DevUserProd");
         wait(7);
         getDriver().manage().deleteAllCookies();
         getHomePage();

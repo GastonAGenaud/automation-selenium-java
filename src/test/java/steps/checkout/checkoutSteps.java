@@ -25,8 +25,8 @@ public class checkoutSteps extends BasePage {
     @When("I add an item to the Shopping Cart")
     public void iAddAnItemToTheShoppingCart() {
         System.out.println("goToItem");
-        _page.goToItem();
-        _page.goToItem();
+        //_page.goToItem();
+       // _page.goToItem();
         _page.goToItem();
 
         System.out.println("selectAddToCart");

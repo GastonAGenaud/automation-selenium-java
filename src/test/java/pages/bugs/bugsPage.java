@@ -130,7 +130,7 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#address-2087")
     public WebElement reUseAddressBtn;
-    @FindBy(how = How.CSS, using = "#address-2851 > div")
+    @FindBy(how = How.CSS, using = "#address-3607 > div > div")
     public WebElement reUseAddressTwoBtn;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -517,8 +517,15 @@ public class bugsPage extends BasePage {
     }
 
     public String welcomeTxt() {
-        String result = welcomeText.getText();
-        return result;
+        try {
+            String result = welcomeText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = welcomeText.getText();
+            return result;
+        }
+
     }
 
     public void loginFacebookButton() {
@@ -1155,7 +1162,7 @@ public class bugsPage extends BasePage {
         try {
             fluentWait(getDriver(), myListingsBtn);
             waitForWebElementAndClick(myListingsBtn);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), myListingsBtn);
             waitForWebElementAndClick(myListingsBtn);
@@ -1591,7 +1598,7 @@ public class bugsPage extends BasePage {
             fluentWait(getDriver(), buyBtn);
             waitForWebElementAndClick(buyBtn);
             //retryingFindClick(buyBtn);
-            //fluentWait(getDriver(), shippingAddressText);
+            fluentWait(getDriver(), shippingAddressText);
         } catch (Exception e) {
             wait(5);
             fluentWait(getDriver(), buyBtn);
@@ -1709,7 +1716,7 @@ public class bugsPage extends BasePage {
 
     public boolean validateBuyTheProductBUG() {
         try {
-            fluentWait(getDriver(),validateText);
+            fluentWait(getDriver(), validateText);
             Boolean result = validateText.isDisplayed();
             return result;
         } catch (Exception e) {

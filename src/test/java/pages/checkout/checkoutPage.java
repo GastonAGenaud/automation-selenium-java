@@ -275,6 +275,7 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(), addToCartBtn);
             waitForWebElementAndClick(addToCartBtn);
+            retryingFindClick(addToCartBtn);
         } catch (Exception e) {
             wait(2);
             fluentWait(getDriver(), addToCartBtn);

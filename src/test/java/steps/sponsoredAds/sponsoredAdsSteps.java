@@ -35,6 +35,8 @@ public class sponsoredAdsSteps extends BasePage {
     }
 
     */
+
+
     @Given("I login with another account")
     public void iLoginWithAnotherAccount() throws IOException {
         getDriver().manage().deleteAllCookies();

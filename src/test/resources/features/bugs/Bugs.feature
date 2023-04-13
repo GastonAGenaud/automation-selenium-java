@@ -54,7 +54,7 @@ Feature: Bugs
 
   @MTR @MTR-1804 @bugs
   Scenario: MTR - Buyer able to click Submit Payment button to complete checkout
-    Given I login with Gaston User
+    Given I login with another account
     And I add an item to the Shopping Cart BUG
     When I clear the cart
     And I add an item to the Shopping Cart BUG

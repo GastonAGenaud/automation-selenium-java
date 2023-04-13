@@ -11,7 +11,7 @@ Feature: Checkout
 
   @checkout  @MTR-1420  @MTR
   Scenario: MTR - Buyer able to add or subtract quantity
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I add an item to the Shopping Cart
     And I increase the quantity of the item
@@ -49,7 +49,7 @@ Feature: Checkout
 
   @checkout  @MTR-1425  @MTR
   Scenario: MTR - Buyer able to click Go To Secure Checkout once shipping or pickup selected
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     #When I clear the cart
     And I add an item to the Shopping Cart for shipping
@@ -60,7 +60,7 @@ Feature: Checkout
 
   @checkout  @MTR-1426  @MTR
   Scenario: MTR - Buyer able to go back to cart
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     #When I clear the cart
     And I add an item to the Shopping Cart
@@ -72,7 +72,7 @@ Feature: Checkout
 
   @checkout  @MTR-1427  @MTR
   Scenario: MTR - Buyer able to enter a message to seller
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     #When I clear the cart
     And I add an item to the Shopping Cart
