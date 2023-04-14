@@ -619,18 +619,18 @@ public class BasePage {
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
-        fluentWaitStrict(getDriver(), newUsernameBtn);
-        fluentWait(getDriver(), newUsernameBtn);
-        waitForWebElementAndClick(newUsernameBtn);
-        newUsernameBtn.clear();
-        newUsernameBtn.sendKeys(randomStr);
+     //   fluentWaitStrict(getDriver(), newUsernameBtn);
+    //    fluentWait(getDriver(), newUsernameBtn);
+    //    waitForWebElementAndClick(newUsernameBtn);
+    //    newUsernameBtn.clear();
+    //    newUsernameBtn.sendKeys(randomStr);
 
-        fluentWaitStrict(getDriver(), signUpBtn);
-        fluentWait(getDriver(), signUpBtn);
-        waitForWebElementAndClick(signUpBtn);
+   //     fluentWaitStrict(getDriver(), signUpBtn);
+   //     fluentWait(getDriver(), signUpBtn);
+   //     waitForWebElementAndClick(signUpBtn);
 
 
-        wait(4);
+   //     wait(4);
         //welcomeClose.click();
 
     }

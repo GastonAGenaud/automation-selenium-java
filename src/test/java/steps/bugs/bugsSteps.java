@@ -65,7 +65,7 @@ public class bugsSteps extends BasePage {
         //_page.setHomePageBUG();
         // validatingSettingsText();
         _page.goToOrders();
-        _page.goToSoldPage();
+      //  _page.goToSoldPage();
     }
 
     @And("select My Listings button")

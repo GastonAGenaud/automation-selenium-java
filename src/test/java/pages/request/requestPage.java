@@ -279,15 +279,15 @@ public class requestPage extends BasePage {
             requestSearchTextField.sendKeys("test");
             requestSearchTextField.sendKeys(Keys.ENTER);
             //  waitForWebElementAndClick(requestSearchTextField);
-           // requestSearchTextField.clear();
+            // requestSearchTextField.clear();
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), requestSearchTextField);
             waitForWebElementAndClick(requestSearchTextField);
             requestSearchTextField.sendKeys("test");
             requestSearchTextField.sendKeys(Keys.ENTER);
-          //  waitForWebElementAndClick(requestSearchTextField);
-         //   requestSearchTextField.clear();
+            //  waitForWebElementAndClick(requestSearchTextField);
+            //   requestSearchTextField.clear();
         }
 
     }
@@ -456,8 +456,9 @@ public class requestPage extends BasePage {
             waitForWebElementAndClick(next2Btn);
         }
     }
-    public void addEndDate(){
-        fluentWait(getDriver(),endDateTextField);
+
+    public void addEndDate() {
+        fluentWait(getDriver(), endDateTextField);
         waitForWebElementAndClick(endDateTextField);
         endDateTextField.sendKeys(Keys.ARROW_LEFT);
         endDateTextField.sendKeys("04-25-2025");
@@ -469,7 +470,7 @@ public class requestPage extends BasePage {
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
             fluentWait(getDriver(), requestCopyURLBtn);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
@@ -602,9 +603,17 @@ public class requestPage extends BasePage {
 //        fluentWait(getDriver(), requestsCreatedByMeBtn);
 //        waitForWebElementAndClick(requestsCreatedByMeBtn);
 
-        fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
-        actions.moveToElement(requestsMatchedDetailsBtn);
-        waitForWebElementAndClick(requestsMatchedDetailsBtn);
+        try {
+            fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+            actions.moveToElement(requestsMatchedDetailsBtn);
+            waitForWebElementAndClick(requestsMatchedDetailsBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), requestsMatchedDetailsBtn);
+            actions.moveToElement(requestsMatchedDetailsBtn);
+            waitForWebElementAndClick(requestsMatchedDetailsBtn);
+        }
+
     }
 
     public void requestsMatchedMenu() {
@@ -612,7 +621,7 @@ public class requestPage extends BasePage {
             getDriver().navigate().refresh();
             fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);
             waitForWebElementAndClick(requestsMatchedMenuBtn);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             getDriver().navigate().refresh();
             fluentWaitStrict(getDriver(), requestsMatchedMenuBtn);

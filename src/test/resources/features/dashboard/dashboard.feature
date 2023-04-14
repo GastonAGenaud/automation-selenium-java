@@ -16,7 +16,7 @@ Feature: Dashboard
 
   @dashboard   @MTR-1386 @MTR
   Scenario: MTR - Sellers dashboard
-    Given I login with Gaston User Stripe
+    Given I login with Gaston User
     And I go to dashboard
     When I validate the seller section
     And I validate the option to view last days section
