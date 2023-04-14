@@ -389,7 +389,7 @@ public class AdminPage extends BasePage {
     public WebElement addOnsFilterTextField;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div/section/div/div[2]/button")
     public WebElement addOnsFilterBtn;
-    @FindBy(how =How.CSS,using = "#listingAddon > div > div > div")
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div > div")
     public WebElement explainerVideoBtn;
     @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(1) > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
     public WebElement addOnsEditBtn;
@@ -471,16 +471,16 @@ public class AdminPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[4]/a/span")
     public WebElement ShowInBrowseCheckboxCustomFields;
 
-    @FindBy (how = How.CSS,using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
+    @FindBy(how = How.CSS, using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
     public WebElement CreateCustomFieldBtn;
 
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(4) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(4) > label")
     public WebElement FieldNameBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(5) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(5) > label")
     public WebElement FieldDescriptionBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(6) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(6) > label")
     public WebElement FieldTypeBtn;
-    @FindBy(how = How.CSS,using = "#submit-form")
+    @FindBy(how = How.CSS, using = "#submit-form")
     public WebElement SaveBtn;
 
 
@@ -597,28 +597,26 @@ public class AdminPage extends BasePage {
     }
 
     public void designYourHomePage() {
-       try {
-           fluentWait(getDriver(), designHomePageBtn);
-           waitForWebElementAndClick(designHomePageBtn);
-       }
-        catch (Exception e){
-           wait(3);
+        try {
+            fluentWait(getDriver(), designHomePageBtn);
+            waitForWebElementAndClick(designHomePageBtn);
+        } catch (Exception e) {
+            wait(3);
             fluentWait(getDriver(), designHomePageBtn);
             waitForWebElementAndClick(designHomePageBtn);
         }
     }
 
-    public void goToCreateCustomFieldsBtn(){
-       try {
-           fluentWait(getDriver(),CreateCustomFieldBtn);
-           waitForWebElementAndClick(CreateCustomFieldBtn);
-           retryingFindClick(CreateCustomFieldBtn);
-           fluentWait(getDriver(),FieldNameBtn);
-       }
-       catch (Exception e){
-           wait(3);
-           fluentWait(getDriver(),FieldNameBtn);
-       }
+    public void goToCreateCustomFieldsBtn() {
+        try {
+            fluentWait(getDriver(), CreateCustomFieldBtn);
+            waitForWebElementAndClick(CreateCustomFieldBtn);
+            retryingFindClick(CreateCustomFieldBtn);
+            fluentWait(getDriver(), FieldNameBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), FieldNameBtn);
+        }
 
     }
 
@@ -627,19 +625,20 @@ public class AdminPage extends BasePage {
         return result;
     }
 
-    public String validateFieldDescription(){
+    public String validateFieldDescription() {
         String result = FieldDescriptionBtn.getText();
         return result;
     }
 
-    public String validateFieldType(){
+    public String validateFieldType() {
         String result = FieldTypeBtn.getText();
         return result;
     }
-public String validateSaveButton(){
+
+    public String validateSaveButton() {
         String result = SaveBtn.getText();
         return result;
-}
+    }
 
     public void next() {
         fluentWait(getDriver(), nextSteps);
@@ -660,7 +659,7 @@ public String validateSaveButton(){
         try {
             fluentWait(getDriver(), selectLandingPage);
             waitForWebElementAndClick(selectLandingPage);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), selectLandingPage);
             waitForWebElementAndClick(selectLandingPage);
@@ -830,18 +829,18 @@ public String validateSaveButton(){
     }
 
     public void watchVideoRedirect() {
-       try {
-           String window = getDriver().getWindowHandle();
-           fluentWait(getDriver(), watchVideoBtn);
-           waitForWebElementAndClick(watchVideoBtn);
-           getDriver().switchTo().window(window);
-       }catch (Exception e){
-           wait(3);
-           String window = getDriver().getWindowHandle();
-           fluentWait(getDriver(), watchVideoBtn);
-           waitForWebElementAndClick(watchVideoBtn);
-           getDriver().switchTo().window(window);
-       }
+        try {
+            String window = getDriver().getWindowHandle();
+            fluentWait(getDriver(), watchVideoBtn);
+            waitForWebElementAndClick(watchVideoBtn);
+            getDriver().switchTo().window(window);
+        } catch (Exception e) {
+            wait(3);
+            String window = getDriver().getWindowHandle();
+            fluentWait(getDriver(), watchVideoBtn);
+            waitForWebElementAndClick(watchVideoBtn);
+            getDriver().switchTo().window(window);
+        }
 
     }
 
@@ -1338,13 +1337,24 @@ public String validateSaveButton(){
     }
 
     public void contactMessages() {
-        actions.moveToElement(reportsBtn).perform();
+        try {
+            actions.moveToElement(reportsBtn).perform();
+            fluentWait(getDriver(), contactMessagesBtn);
+            waitForWebElementAndClick(contactMessagesBtn);
 
-        fluentWait(getDriver(), contactMessagesBtn);
-        waitForWebElementAndClick(contactMessagesBtn);
+            fluentWait(getDriver(), contactMessagesEmailForwardingCheckBox);
+            waitForWebElementAndClick(contactMessagesEmailForwardingCheckBox);
+        } catch (Exception e) {
+            wait(3);
+            actions.moveToElement(reportsBtn).perform();
+            fluentWait(getDriver(), contactMessagesBtn);
+            waitForWebElementAndClick(contactMessagesBtn);
 
-        fluentWait(getDriver(), contactMessagesEmailForwardingCheckBox);
-        waitForWebElementAndClick(contactMessagesEmailForwardingCheckBox);
+            fluentWait(getDriver(), contactMessagesEmailForwardingCheckBox);
+            waitForWebElementAndClick(contactMessagesEmailForwardingCheckBox);
+        }
+
+
     }
 
     public void userReviews() {
@@ -1374,7 +1384,7 @@ public String validateSaveButton(){
     public void userTransactions() {
         //reports();
 
-        getDriver().navigate().to(url +"Admin/Transaction");
+        getDriver().navigate().to(url + "Admin/Transaction");
 //        fluentWait(getDriver(), reportsUserTransactions);
 //        waitForWebElementAndClick(reportsUserTransactions);
 
@@ -1426,6 +1436,7 @@ public String validateSaveButton(){
         fluentWait(getDriver(), addOnsFilterBtn);
         waitForWebElementAndClick(addOnsFilterBtn);
     }
+
     public void validateExtension() {
         boolean result = explainerVideoBtn.isDisplayed();
         Assert.assertTrue(result);

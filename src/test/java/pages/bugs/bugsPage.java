@@ -52,7 +52,7 @@ public class bugsPage extends BasePage {
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[2]/form/div/div/div[2]/div[2]/table/tbody/tr[1]/th/div/label")
     public WebElement flatRateButton;
 
-    @FindBy(how = How.CSS, using = "#add-new-btn > span")
+    @FindBy(how = How.CSS, using = "#listings-tab")
     public WebElement myListingsBtn;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[2]/div/button")
@@ -130,7 +130,7 @@ public class bugsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#address-2087")
     public WebElement reUseAddressBtn;
-    @FindBy(how = How.CSS, using = "#address-2851 > div")
+    @FindBy(how = How.CSS, using = "#address-3607 > div > div")
     public WebElement reUseAddressTwoBtn;
 
     @FindBy(how = How.CSS, using = "#inbox-container")
@@ -517,8 +517,15 @@ public class bugsPage extends BasePage {
     }
 
     public String welcomeTxt() {
-        String result = welcomeText.getText();
-        return result;
+        try {
+            String result = welcomeText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            String result = welcomeText.getText();
+            return result;
+        }
+
     }
 
     public void loginFacebookButton() {
@@ -1152,8 +1159,15 @@ public class bugsPage extends BasePage {
     }
 
     public void setMyListingsBtn() {
-        fluentWait(getDriver(), myListingsBtn);
-        waitForWebElementAndClick(myListingsBtn);
+        try {
+            fluentWait(getDriver(), myListingsBtn);
+            waitForWebElementAndClick(myListingsBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), myListingsBtn);
+            waitForWebElementAndClick(myListingsBtn);
+        }
+
     }
 
     public void setItemDots() {
@@ -1584,7 +1598,7 @@ public class bugsPage extends BasePage {
             fluentWait(getDriver(), buyBtn);
             waitForWebElementAndClick(buyBtn);
             //retryingFindClick(buyBtn);
-            //fluentWait(getDriver(), shippingAddressText);
+            fluentWait(getDriver(), shippingAddressText);
         } catch (Exception e) {
             wait(5);
             fluentWait(getDriver(), buyBtn);
@@ -1702,7 +1716,7 @@ public class bugsPage extends BasePage {
 
     public boolean validateBuyTheProductBUG() {
         try {
-            fluentWait(getDriver(),validateText);
+            fluentWait(getDriver(), validateText);
             Boolean result = validateText.isDisplayed();
             return result;
         } catch (Exception e) {

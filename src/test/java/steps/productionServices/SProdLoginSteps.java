@@ -138,20 +138,61 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("valid than connect to Stripe")
     public void validThanConnectToStripe() {
-        Assert.assertEquals("Pending",_page.validConnectStipe());
+        Assert.assertEquals("Pending", _page.validConnectStipe());
     }
 
     @And("enter profile information")
     public void enterProfileInformation() {
         _page.enterFirstName();
         _page.enterLastName();
+        _page.enterUsername();
+        _page.enterEmail();
         _page.enterPhoneNumber();
-        _page.enterBio();
         _page.saveChanges();
     }
 
     @Then("valid to save profile information")
     public void validToSaveProfileInformation() {
-        Assert.assertEquals("Success",_page.validSaveProfile());
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @When("go to Browse Services")
+    public void goToBrowseServices() {
+        _page.goToBrowseService();
+    }
+
+    @And("select the required service")
+    public void selectTheRequiredService() {
+        _page.enterClassesValet();
+    }
+
+    @And("contract the service")
+    public void contractTheService() {
+        _page.hireTheService();
+    }
+
+    @And("complete the form")
+    public void completeTheForm() {
+        _page.enterDeadline();
+        _page.enterDescription();
+        _page.enterHire();
+    }
+
+    @Then("valid that can hire the service")
+    public void validThatCanHireTheService() {
+        Assert.assertEquals("Congratulations! You just bought:",_page.validateHireServices());
+    }
+
+    @And("enter the new Credit Card")
+    public void enterTheNewCreditCard() {
+        _page.enterCardNumberServ();
+        _page.enterNameOnCardServ();
+        _page.enterExpirationDateServ();
+        _page.enterCVVCodeServ();
+    }
+
+    @And("I select the Submit Payment Button SERV")
+    public void iSelectTheSubmitPaymentButtonSERV() {
+        _page.iSubmitPendingPaymentServ();
     }
 }

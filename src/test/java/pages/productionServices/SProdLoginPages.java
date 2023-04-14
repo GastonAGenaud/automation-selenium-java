@@ -118,14 +118,39 @@ public class SProdLoginPages extends BasePage {
     public WebElement firstNameProd;
     @FindBy(how = How.CSS, using = "#LastName")
     public WebElement LastNameProd;
+    @FindBy(how = How.CSS, using = "#DisplayName")
+    public WebElement userNameProd;
+    @FindBy(how = How.CSS, using = "#Email")
+    public WebElement emailProd;
     @FindBy(how = How.CSS, using = "#PhoneNumber")
     public WebElement phoneNumberProd;
-    @FindBy(how = How.CSS, using = "body")
-    public WebElement bioProd;
     @FindBy(how = How.CSS, using = "#saveChangesBtn")
     public WebElement SaveChangesBtnProd;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body > div.iziToast-texts > strong")
     public WebElement successText;
+    @FindBy(how = How.CSS, using = "#browse-header-text-customize")
+    public WebElement BrowseServicesBtn;
+    @FindBy(how = How.CSS, using = "#hire-btn")
+    public WebElement hireBtn;
+    @FindBy(how = How.CSS, using = "#flatfee-deadline")
+    public WebElement DeadlineField;
+    @FindBy(how = How.CSS, using = "#form-hire > div:nth-child(7) > textarea")
+    public WebElement descriptionField;
+    @FindBy(how = How.CSS, using = "#modal-hire-btn")
+    public WebElement hireSubmitBtn;
+    @FindBy(how = How.CSS, using = "body > div > div.card.card-vertical.mb-3 > div > div.text-center > h3")
+    public WebElement validateHireText;
+    @FindBy(how = How.CSS, using = "#card-number")
+    public WebElement cardNumberTextField;
+    @FindBy(how = How.CSS, using = "#card-name")
+    public WebElement cardNameTextField;
+    @FindBy(how = How.CSS, using = "#expiry-date")
+    public WebElement expirationDateTextField;
+    @FindBy(how = How.CSS, using = "#card-cvc")
+    public WebElement cvvCodeTextField;
+    @FindBy(how = How.CSS, using = "#prepare-checkout")
+    public WebElement submitPaymentBtn;
+
 
     public void goToLogin() {
         getHomePageProd();
@@ -613,7 +638,7 @@ public class SProdLoginPages extends BasePage {
             firstNameProd.clear();
             firstNameProd.sendKeys("Gaston");
             firstNameProd.sendKeys(Keys.ENTER);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), firstNameProd);
             waitForWebElementAndClick(firstNameProd);
@@ -631,7 +656,7 @@ public class SProdLoginPages extends BasePage {
             LastNameProd.clear();
             LastNameProd.sendKeys("Genaud");
             LastNameProd.sendKeys(Keys.ENTER);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), LastNameProd);
             waitForWebElementAndClick(LastNameProd);
@@ -648,7 +673,7 @@ public class SProdLoginPages extends BasePage {
             phoneNumberProd.clear();
             phoneNumberProd.sendKeys("123456789");
             phoneNumberProd.sendKeys(Keys.ENTER);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), phoneNumberProd);
             waitForWebElementAndClick(phoneNumberProd);
@@ -658,27 +683,46 @@ public class SProdLoginPages extends BasePage {
         }
     }
 
-    public void enterBio() {
+    public void enterUsername() {
         try {
-            fluentWait(getDriver(), bioProd);
-            waitForWebElementAndClick(bioProd);
-            bioProd.clear();
-            bioProd.sendKeys("test 1");
-            bioProd.sendKeys(Keys.ENTER);
-        }catch (Exception e){
+            fluentWait(getDriver(), userNameProd);
+            waitForWebElementAndClick(userNameProd);
+            userNameProd.clear();
+            userNameProd.sendKeys("GastonUserProd");
+            userNameProd.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(), bioProd);
-            waitForWebElementAndClick(bioProd);
-            bioProd.clear();
-            bioProd.sendKeys("test 1");
-            bioProd.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), userNameProd);
+            waitForWebElementAndClick(userNameProd);
+            userNameProd.clear();
+            userNameProd.sendKeys("GastonUserProd");
+            userNameProd.sendKeys(Keys.ENTER);
         }
     }
+
+    public void enterEmail() {
+        try {
+            fluentWait(getDriver(), emailProd);
+            waitForWebElementAndClick(emailProd);
+            emailProd.clear();
+            emailProd.sendKeys("gastongenaud@7r1ck.com");
+            emailProd.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), emailProd);
+            waitForWebElementAndClick(emailProd);
+            emailProd.clear();
+            emailProd.sendKeys("gastongenaud@7r1ck.com");
+            emailProd.sendKeys(Keys.ENTER);
+        }
+    }
+
 
     public void saveChanges() {
         try {
             fluentWait(getDriver(), SaveChangesBtnProd);
             waitForWebElementAndClick(SaveChangesBtnProd);
+            retryingFindClick(SaveChangesBtnProd);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), SaveChangesBtnProd);
@@ -688,9 +732,164 @@ public class SProdLoginPages extends BasePage {
     }
 
     public String validSaveProfile() {
-        fluentWait(getDriver(),successText);
-        String result =successText.getText();
-        return result;
+        try {
+            fluentWait(getDriver(), successText);
+            String result = successText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), successText);
+            String result = successText.getText();
+            return result;
+        }
+
+    }
+
+    public void goToBrowseService() {
+        try {
+            fluentWait(getDriver(), BrowseServicesBtn);
+            waitForWebElementAndClick(BrowseServicesBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), BrowseServicesBtn);
+            waitForWebElementAndClick(BrowseServicesBtn);
+        }
+    }
+
+    public void enterClassesValet() {
+        getDriver().navigate().to(urlServicesProd + "Listing/DetailService/2163");
+    }
+
+    public void hireTheService() {
+        try {
+            fluentWait(getDriver(), hireBtn);
+            waitForWebElementAndClick(hireBtn);
+            fluentWait(getDriver(), DeadlineField);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), hireBtn);
+            waitForWebElementAndClick(hireBtn);
+        }
+    }
+
+    public void enterDeadline() {
+        try {
+            fluentWait(getDriver(), DeadlineField);
+            waitForWebElementAndClick(DeadlineField);
+            DeadlineField.sendKeys("10/12/2023");
+            DeadlineField.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), DeadlineField);
+            waitForWebElementAndClick(DeadlineField);
+            DeadlineField.sendKeys("10/12/2023");
+            DeadlineField.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void enterDescription() {
+        try {
+            fluentWait(getDriver(), descriptionField);
+            waitForWebElementAndClick(descriptionField);
+            descriptionField.sendKeys("text");
+            descriptionField.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), descriptionField);
+            waitForWebElementAndClick(descriptionField);
+            descriptionField.sendKeys("text");
+            descriptionField.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void enterHire() {
+        try {
+            fluentWait(getDriver(), hireSubmitBtn);
+            waitForWebElementAndClick(hireSubmitBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), hireSubmitBtn);
+            waitForWebElementAndClick(hireSubmitBtn);
+        }
+    }
+
+    public String validateHireServices() {
+        try {
+            String result = validateHireText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), validateHireText);
+            String result = validateHireText.getText();
+            return result;
+        }
+
+
+    }
+
+    public void enterCardNumberServ() {
+        try {
+            fluentWait(getDriver(), cardNumberTextField);
+            waitForWebElementAndClick(cardNumberTextField);
+            cardNumberTextField.sendKeys("4242424242424242");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cardNumberTextField);
+            waitForWebElementAndClick(cardNumberTextField);
+            cardNumberTextField.sendKeys("4242424242424242");
+        }
+    }
+
+    public void enterNameOnCardServ() {
+        try {
+            fluentWait(getDriver(), cardNameTextField);
+            waitForWebElementAndClick(cardNameTextField);
+            cardNameTextField.sendKeys("Automation");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cardNameTextField);
+            waitForWebElementAndClick(cardNameTextField);
+            cardNameTextField.sendKeys("Automation");
+        }
+    }
+
+    public void enterExpirationDateServ() {
+        try {
+            fluentWait(getDriver(), expirationDateTextField);
+            waitForWebElementAndClick(expirationDateTextField);
+            expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
+            expirationDateTextField.sendKeys("01/25");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), expirationDateTextField);
+            waitForWebElementAndClick(expirationDateTextField);
+            expirationDateTextField.sendKeys(Keys.ARROW_LEFT);
+            expirationDateTextField.sendKeys("01/25");
+        }
+    }
+
+    public void enterCVVCodeServ() {
+        try {
+            fluentWait(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("111");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("111");
+        }
+    }
+
+    public void iSubmitPendingPaymentServ() {
+        try {
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), submitPaymentBtn);
+            waitForWebElementAndClick(submitPaymentBtn);
+        }
     }
 
 }

@@ -273,8 +273,11 @@ public class checkoutPage extends BasePage {
 
     public void selectAddToCart() {
         try {
-            fluentWait(getDriver(), addToCartBtn);
+            fluentWaitStrict(getDriver(), addToCartBtn);
+            waitForClickability(addToCartBtn);
             waitForWebElementAndClick(addToCartBtn);
+            waitForWebElementAndClick(addToCartBtn);
+            retryingFindClick(addToCartBtn);
         } catch (Exception e) {
             wait(2);
             fluentWait(getDriver(), addToCartBtn);

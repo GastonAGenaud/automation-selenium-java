@@ -560,7 +560,7 @@ public class ordersPage extends BasePage {
             System.out.println("Antes");
             // ordersShowMenu();
             System.out.println("Despues");
-
+            waitForWebElementAndClick(ordersShowBtn);
             fluentWait(getDriver(), ordersShowCompletedBtn);
             waitForWebElementAndClick(ordersShowCompletedBtn);
         }
