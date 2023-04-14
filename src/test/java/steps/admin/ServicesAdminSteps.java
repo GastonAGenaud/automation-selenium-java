@@ -24,6 +24,7 @@ public class ServicesAdminSteps extends BasePage {
     @Given("SVC I login with Gaston User in services")
     public void ILoginWithGastonUserInServices() {
         _page.setHomePage();
+        _page.iLoginWithGastonUserServices();
     }
 
     @Given("I go to admin panel in services")
