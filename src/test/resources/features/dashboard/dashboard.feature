@@ -5,7 +5,7 @@ Feature: Dashboard
 
   @dashboard   @MTR @MTR-3395
   Scenario: MTR - Buyers Dashboard
-    Given I login with another account
+    Given I login with Gaston User
     And I go to dashboard
     When I validate my settings button
     And I validate the most popular carousel section
@@ -16,7 +16,7 @@ Feature: Dashboard
 
   @dashboard   @MTR-1386 @MTR
   Scenario: MTR - Sellers dashboard
-    Given I login with Gaston User
+    Given I login with Gaston User Stripe
     And I go to dashboard
     When I validate the seller section
     And I validate the option to view last days section

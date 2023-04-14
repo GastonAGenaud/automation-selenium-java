@@ -65,11 +65,13 @@ public class bugsSteps extends BasePage {
         //_page.setHomePageBUG();
         // validatingSettingsText();
         _page.goToOrders();
+        _page.goToSoldPage();
     }
 
     @And("select My Listings button")
     public void selectMyListingsButton() {
         _page.goToDashboard();
+
         _page.setMyListingsBtn();
     }
 
@@ -394,7 +396,7 @@ public class bugsSteps extends BasePage {
     public void searchName() {
         try {
             _page.getCloseChat();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         _page.setFilterSearchTextField();
@@ -545,7 +547,7 @@ public class bugsSteps extends BasePage {
     @And("I go to Landing Page")
     public void iGoToLandingPage() {
         _page.goToAdminPanel();
-        getDriver().navigate().to(url +"Admin/application/LandingCustomize");
+        getDriver().navigate().to(url + "Admin/application/LandingCustomize");
     }
 
     @Then("I validate the Visual Editor Button is hidden")
@@ -602,7 +604,7 @@ public class bugsSteps extends BasePage {
 
     @Given("I go to Signup")
     public void iGoToLoginAndSignup() {
-        getDriver().navigate().to(url +"Account/Login");
+        getDriver().navigate().to(url + "Account/Login");
     }
 
 
@@ -734,9 +736,9 @@ public class bugsSteps extends BasePage {
 
     @Given("I go setting page")
     public void iGoSettingPage() throws IOException {
-       // _page.setHomePage();
-       // _page.goToDashboard();
-       // _page.loginWithGastonUser();
+        // _page.setHomePage();
+        // _page.goToDashboard();
+        // _page.loginWithGastonUser();
         _page.goToSiteWording();
 
         //_page.getCloseChat();
@@ -848,6 +850,6 @@ public class bugsSteps extends BasePage {
 
     @Then("valid that the purchase of the product can be carried out")
     public void validThatThePurchaseOfTheProductCanBeCarriedOut() {
-        Assert.assertEquals(true,_page.validateBuyTheProductBUG());
+        Assert.assertEquals(true, _page.validateBuyTheProductBUG());
     }
 }

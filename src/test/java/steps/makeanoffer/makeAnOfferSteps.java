@@ -28,10 +28,11 @@ public class makeAnOfferSteps extends BasePage {
     @Given("I Sign in with new account {string} and go to the listing page")
     public void iSignInAndGoToTheListingPage(String text) {
         _page.CreateAnAccountListingDetails(text);
-        _page.validateLastError();
-        _page.imSellerButton();
-        _page.nextButton();
-        _page.completeFormSignUp();
+        _page.CloseWindow();
+       // _page.validateLastError();
+     //   _page.imSellerButton();
+     //   _page.nextButton();
+     //   _page.completeFormSignUp();
 //        _page.howMuchSell();
 //        _page.termsAndConditions();
 //        _page.whereAreYouFrom();

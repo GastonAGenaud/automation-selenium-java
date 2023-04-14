@@ -221,7 +221,7 @@ public class listingPage extends BasePage {
             String result = greatJobText.getText();
             return result;
         } catch (Exception e) {
-            wait(4);
+            wait(6);
             fluentWaitStrict(getDriver(), greatJobText);
             String result = greatJobText.getText();
             return result;
@@ -234,7 +234,6 @@ public class listingPage extends BasePage {
             fluentWaitStrict(getDriver(), listingPublishBtn);
             waitForWebElementAndClick(listingPublishBtn);
             //retryingFindClick(listingPublishBtn);
-            fluentWait(getDriver(), greatJobText);
         } catch (Exception e) {
             wait(4);
             fluentWait(getDriver(), listingPublishBtn);

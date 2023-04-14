@@ -53,7 +53,7 @@ public class dashboardPage extends BasePage {
     public WebElement mySalesBtn;
     @FindBy(how = How.CSS, using = "#seller > div:nth-child(4) > div:nth-child(2) > div > div > div.d-flex.justify-content-between.align-items-center.mb-2 > span:nth-child(2) > a")
     public WebElement seeAllMySalesBtn;
-    @FindBy(how = How.CSS, using = "#dashboard-seller-messages > a:nth-child(2)")
+    @FindBy(how = How.CSS, using = "#dashboard-seller-messages > a > div")
     public WebElement sellerMessageBtn;
     @FindBy(how = How.CSS, using = "#dashboard-seller-messages > div > span:nth-child(2) > a")
     public WebElement seeAllSellersMessages;
@@ -154,7 +154,15 @@ public class dashboardPage extends BasePage {
     }
 
     public void sellerMessage() {
-        waitForWebElementAndClick(sellerMessageBtn);
+        try {
+            fluentWait(getDriver(), sellerMessageBtn);
+            waitForWebElementAndClick(sellerMessageBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), sellerMessageBtn);
+            waitForWebElementAndClick(sellerMessageBtn);
+        }
+
     }
 
     public void seeAllSellerMessages() {
