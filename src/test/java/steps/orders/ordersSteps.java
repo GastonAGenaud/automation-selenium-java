@@ -29,13 +29,14 @@ public class ordersSteps extends BasePage {
     @And("I go to orders page")
     public void iGoToOrdersPage() {
         _page.goToOrders();
+        _page.selectSoldBtn();
        // _page.ordersPurchasedButton();
 
     }
 
     @When("I validate sold orders details")
     public void iValidateSoldOrdersDetails() {
-        _page.goToOrders();
+      //  _page.goToOrders();
        // _page.shipmentValidatingTxt();
         _page.ordersSoldDetails();
     }
@@ -43,6 +44,7 @@ public class ordersSteps extends BasePage {
     @And("I validate send message to buyer")
     public void iValidateSendMessageToBuyer() {
         _page.goToOrders();
+        _page.selectSoldBtn();
         _page.ordersSoldMessage();
     }
 

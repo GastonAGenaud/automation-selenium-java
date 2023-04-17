@@ -419,6 +419,10 @@ public class bugsPage extends BasePage {
     public WebElement NewProduct;
     @FindBy(how = How.CSS, using = "#whole-container > main > div > div > div > div:nth-child(1) > div > p")
     public WebElement validateText;
+   // @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[1]/a/span/span[1]")
+   // public WebElement soldPageBtn;
+    @FindBy(xpath = "//span[contains(text(), 'Sold')]")
+    public WebElement soldPageBtn;
 
     public void goToProductDownloadFile() {
         getDriver().navigate().to(newProductUrl);
@@ -507,6 +511,9 @@ public class bugsPage extends BasePage {
             fluentWait(getDriver(), minimumPasswordTxt);
         } catch (Exception e) {
             wait(3);
+            fluentWait(getDriver(), passwordTextField);
+            waitForWebElementAndClick(passwordTextField);
+            passwordTextField.sendKeys("Automation@321");
             fluentWait(getDriver(), minimumPasswordTxt);
         }
     }
@@ -1181,6 +1188,7 @@ public class bugsPage extends BasePage {
     }
 
     public void acceptField() {
+        waitForWebElementAndClick(soldPageBtn);
         try {
             fluentWait(getDriver(), acceptBtn);
             waitForWebElementAndClick(acceptBtn);
@@ -1193,6 +1201,7 @@ public class bugsPage extends BasePage {
     }
 
     public void setTrackingTextField() {
+        waitForWebElementAndClick(soldPageBtn);
         try {
             fluentWait(getDriver(), trackingTextField);
             waitForWebElementAndClick(trackingTextField);
@@ -1724,7 +1733,17 @@ public class bugsPage extends BasePage {
             Boolean result = validateText.isDisplayed();
             return result;
         }
+    }
 
-
+    public void goToSoldPage() {
+        try {
+            fluentWait(getDriver(), soldPageBtn);
+            waitForWebElementAndClick(soldPageBtn);
+            retryingFindClick(soldPageBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), soldPageBtn);
+            waitForWebElementAndClick(soldPageBtn);
+        }
     }
 }

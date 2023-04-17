@@ -162,6 +162,7 @@ public class categoryPage extends BasePage {
 
     public String validationSuccesSubcategory() {
         try {
+            fluentWait(getDriver(),SuccessSubcategory);
             String result = SuccessSubcategory.getText();
             return result;
         } catch (Exception e) {

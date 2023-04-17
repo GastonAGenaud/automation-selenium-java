@@ -483,7 +483,7 @@ Feature: Bugs
 
   @MTR @MTR-2898 @bugs
   Scenario: Error when users try to complete connecting to stripe
-    Given I login with another account
+    Given I login with Gaston User Stripe
     And go to Dashboard
     When I select Settings button
     And I select CaShout button

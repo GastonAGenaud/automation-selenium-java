@@ -379,12 +379,12 @@ public class sponsoredAdsPage extends BasePage {
         try {
             fluentWait(getDriver(), cardNumberTextField);
             waitForWebElementAndClick(cardNumberTextField);
-            cardNumberTextField.sendKeys("4242424242424242");
+            cardNumberTextField.sendKeys("1111111111111111");
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), cardNumberTextField);
             waitForWebElementAndClick(cardNumberTextField);
-            cardNumberTextField.sendKeys("4242424242424242");
+            cardNumberTextField.sendKeys("1111111111111111");
         }
 
     }

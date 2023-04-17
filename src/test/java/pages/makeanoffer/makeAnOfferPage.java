@@ -104,7 +104,8 @@ public class makeAnOfferPage extends BasePage {
     public WebElement validateFirstText;
     @FindBy(how = How.CSS, using = "#seller-buyer-section > p")
     public WebElement validateText;
-
+    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button > span")
+    public WebElement closeBtnWindow;
 
     public boolean validateTextFirst() {
         fluentWait(getDriver(), validateFirstText);
@@ -128,7 +129,16 @@ public class makeAnOfferPage extends BasePage {
         }
 
     }
-
+    public void CloseWindow() {
+        try {
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        }
+    }
 
     public void submitButton() {
         fluentWait(getDriver(), submitBtn);

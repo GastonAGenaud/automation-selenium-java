@@ -5,6 +5,7 @@ Feature: addons
   Scenario: MTR - Addons-FedEx- Validate the shipping with FedEx
     Given I login with Gaston User
     And I go to dashboard
+    #And back to click Dashboard
     And select My Listings button
     When I validate the add new listing button
     Then Validate the shipping with FedEx

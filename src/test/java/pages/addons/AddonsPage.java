@@ -103,6 +103,8 @@ public class AddonsPage extends BasePage {
     public WebElement buyProductDigitalBtn;
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
     public WebElement goToSecureCheckoutBtn;
+    @FindBy(how = How.CSS, using = "#category-selector")
+    public WebElement dashboardPageBtn;
 
     String newProductUrl = null;
     String windowHandle = getDriver().getWindowHandle();
@@ -402,7 +404,9 @@ public class AddonsPage extends BasePage {
         waitForVisibility(acceptDeleteBtn);
         waitForWebElementAndClick(acceptDeleteBtn);
     }
+public void clickDashboard(){
 
+}
 }
 
 

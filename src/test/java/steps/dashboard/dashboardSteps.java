@@ -69,6 +69,8 @@ public class dashboardSteps extends BasePage {
     @When("I validate the seller section")
     public void iValidateTheSellerSection() {
         _page.sellerOption();
+        _page.goToDashboard();
+        _page.sellerOption();
     }
 
     @And("I validate the option to view last days section")

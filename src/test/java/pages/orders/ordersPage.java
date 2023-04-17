@@ -68,7 +68,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersConfirmPickUpBtn;
     @FindBy(xpath = "//button[contains(text(), 'Leave a review')]")
     public WebElement ordersLeaveAReviewBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[2]/div/div/button")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[3]/div/div/button")
     public WebElement ordersShowBtn;
     @FindBy(xpath = "//a[contains(text(), 'Request Refund')]")
     public WebElement RequestRefundBtn;
@@ -113,7 +113,7 @@ public class ordersPage extends BasePage {
     @FindBy(how = How.CSS, using = "#message > div > div > div > div.justify-content-end.d-flex > div > button")
     public WebElement sendBeforeChat;
 
-    @FindBy(how = How.CSS, using = "#sold-tab > span > span:nth-child(1)")
+    @FindBy(xpath = "//span[contains(text(), 'Sold')]")
     public WebElement soldBtn;
 
     @FindBy(how = How.CSS, using = "#cancel-message")
@@ -187,8 +187,15 @@ public class ordersPage extends BasePage {
 
 
     public void selectSoldBtn() {
-        fluentWait(getDriver(), soldBtn);
-        waitForWebElementAndClick(soldBtn);
+        try {
+            fluentWait(getDriver(), soldBtn);
+            waitForWebElementAndClick(soldBtn);
+        }catch (Exception e){
+            wait(3);
+            fluentWait(getDriver(), soldBtn);
+            waitForWebElementAndClick(soldBtn);
+        }
+
     }
 
     public void ordersSoldDetails() {

@@ -158,4 +158,9 @@ public class AddonsSteps extends BasePage {
         _page.addonBtnFromPanel();
         _page.getCloseChat();
     }
+
+    @And("back to click Dashboard")
+    public void backToClickDashboard() {
+        _page.clickDashboard();
+    }
 }

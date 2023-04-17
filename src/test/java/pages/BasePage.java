@@ -380,6 +380,24 @@ public class BasePage {
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
     }
+    public void generateLoginWithGastonUserVerifyStripe() throws IOException {
+        getHomePage();
+        getLoginPage();
+        waitForWebElementAndClick(emailLoginInput);
+        emailLoginInput.sendKeys("gastonVerifyStripe@7r1ck.com");
+        waitForWebElementAndClick(passwordLoginInput);
+        passwordLoginInput.sendKeys("#NcUzbusYqu667gq007");
+        wait(2);
+        fluentWait(getDriver(), logInBtn);
+        waitForWebElementAndClick(logInBtn);
+        wait(7);
+        sessionManager.storeSessionFile(environment + "-" + suiteName + "-" + "GastonUserVerifyStripe");
+        wait(7);
+        getDriver().manage().deleteAllCookies();
+        getHomePage();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
+    }
 
 
     public void loginWithGastonUserProdProducts() throws IOException {
@@ -601,18 +619,18 @@ public class BasePage {
         fluentWait(getDriver(), signUpBtn);
         waitForWebElementAndClick(signUpBtn);
 
-        fluentWaitStrict(getDriver(), newUsernameBtn);
-        fluentWait(getDriver(), newUsernameBtn);
-        waitForWebElementAndClick(newUsernameBtn);
-        newUsernameBtn.clear();
-        newUsernameBtn.sendKeys(randomStr);
+     //   fluentWaitStrict(getDriver(), newUsernameBtn);
+    //    fluentWait(getDriver(), newUsernameBtn);
+    //    waitForWebElementAndClick(newUsernameBtn);
+    //    newUsernameBtn.clear();
+    //    newUsernameBtn.sendKeys(randomStr);
 
-        fluentWaitStrict(getDriver(), signUpBtn);
-        fluentWait(getDriver(), signUpBtn);
-        waitForWebElementAndClick(signUpBtn);
+   //     fluentWaitStrict(getDriver(), signUpBtn);
+   //     fluentWait(getDriver(), signUpBtn);
+   //     waitForWebElementAndClick(signUpBtn);
 
 
-        wait(4);
+   //     wait(4);
         //welcomeClose.click();
 
     }
