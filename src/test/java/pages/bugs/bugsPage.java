@@ -368,8 +368,8 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#facebook")
     public WebElement loginFacebookBtn;
 
-    @FindBy(how = How.CSS, using = "#welcomeUsername")
-    public WebElement welcomeText;
+    @FindBy(how = How.CSS, using = "#facebook > span")
+    public WebElement loginFacebookField;
 
     @FindBy(how = How.CSS, using = "#creditCards > h5")
     public WebElement validatePaymentText;
@@ -419,8 +419,8 @@ public class bugsPage extends BasePage {
     public WebElement NewProduct;
     @FindBy(how = How.CSS, using = "#whole-container > main > div > div > div > div:nth-child(1) > div > p")
     public WebElement validateText;
-   // @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[1]/a/span/span[1]")
-   // public WebElement soldPageBtn;
+    // @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/ul/li[1]/a/span/span[1]")
+    // public WebElement soldPageBtn;
     @FindBy(xpath = "//span[contains(text(), 'Sold')]")
     public WebElement soldPageBtn;
 
@@ -523,22 +523,34 @@ public class bugsPage extends BasePage {
         return result;
     }
 
-    public String welcomeTxt() {
+    public boolean welcomeTxt() {
         try {
-            String result = welcomeText.getText();
-            return result;
+            getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
+            String url = getDriver().getCurrentUrl();
+            return url.contains("facebook");
         } catch (Exception e) {
-            wait(3);
-            String result = welcomeText.getText();
-            return result;
+            getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
+            String url = getDriver().getCurrentUrl();
+            return url.contains("facebook");
         }
-
     }
 
-    public void loginFacebookButton() {
-        fluentWait(getDriver(), loginFacebookBtn);
-        waitForWebElementAndClick(loginFacebookBtn);
 
+    public void loginFacebookButton() {
+        try {
+            fluentWait(getDriver(), loginFacebookBtn);
+            waitForWebElementAndClick(loginFacebookBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), loginFacebookBtn);
+            waitForWebElementAndClick(loginFacebookBtn);
+        }
+    }
+
+    public String loginFacebookField() {
+        fluentWait(getDriver(),loginFacebookField);
+        String result=loginFacebookField.getText();
+        return result;
     }
 
     public String seenTimesText() {
@@ -1057,6 +1069,8 @@ public class bugsPage extends BasePage {
     }
 
     public void selectCartIconBUG() {
+        fluentWait(getDriver(), addToCartBtn);
+        waitForWebElementAndClick(addToCartBtn);
         getDriver().navigate().to(url + "/order/ShoppingCart");
 
         getDriver().navigate().to(url + "/order/ShoppingCart");

@@ -163,4 +163,10 @@ public class AddonsSteps extends BasePage {
     public void backToClickDashboard() {
         _page.clickDashboard();
     }
+
+    @And("I validate the listing category Shoes")
+    public void iValidateTheListingCategoryShoes() {
+        _page.categoryBtn();
+        _page.categoryShoesBtn();
+    }
 }

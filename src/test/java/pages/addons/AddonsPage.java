@@ -97,6 +97,8 @@ public class AddonsPage extends BasePage {
     public WebElement listingNameTextField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement listingCategoryBtn;
+    @FindBy(how = How.CSS, using = "#category-selector > option:nth-child(3)")
+    public WebElement categoryShoes;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
     public WebElement NewProduct;
     @FindBy(xpath = "//button[contains(text(),'Buy Now')]")
@@ -211,6 +213,23 @@ public class AddonsPage extends BasePage {
         fluentWait(getDriver(), listingCategoryBtn);
         waitForWebElementAndClick(listingNameTextField);
         listingNameTextField.sendKeys("Fedex Example 1");
+    }
+
+    public void categoryBtn() {
+        fluentWaitStrict(getDriver(), listingCategoryBtn);
+        waitForWebElementAndClick(listingCategoryBtn);
+    }
+
+    public void categoryShoesBtn() {
+        try {
+            fluentWaitStrict(getDriver(), categoryShoes);
+            waitForWebElementAndClick(categoryShoes);
+        }catch (Exception e){
+            wait(2);
+            fluentWaitStrict(getDriver(), categoryShoes);
+            waitForWebElementAndClick(categoryShoes);
+        }
+
     }
 
     public void buyProductDigital() {

@@ -41,6 +41,7 @@ Feature: Orders
     Given I login with another account
     And I go to dashboard
     And I go to orders page BUGS
+    When I select Purchased button in orders
     #And I validate the confirm pick up button
     And I validate the leave a review button
     And I validate the buy again button in completed status
