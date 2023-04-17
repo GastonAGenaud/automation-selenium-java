@@ -1,5 +1,7 @@
 package pages.production;
 
+import io.cucumber.java.bs.A;
+import io.cucumber.java.ja.且つ;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -43,27 +45,168 @@ public class AdminPanelPage extends BasePage {
     @FindBy(how = How.CSS, using = "#filter")
     public WebElement filterBtn;
 
-    public void filterButton(){
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div.col-6.offset-lg-2")
+    public WebElement siteWordingTxt;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section > div.row.no-gutters.bg-white.border-b-gray > div")
+    public WebElement searchAndLenguage;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section > div.row.row-wordings.pt-4")
+    public WebElement templateValidate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div")
+    public WebElement settingsTitle;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section")
+    public WebElement companyInfoSubscriptionInfo;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div")
+    public WebElement stripeSettings;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section > div")
+    public WebElement stripeTemplate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div")
+    public WebElement seoSetupText;
+
+    @FindBy(how = How.CSS, using = "#tabs")
+    public WebElement tabs;
+
+    @FindBy(how = How.CSS, using = "#landing-page > section")
+    public WebElement siteMetaTagsTemplate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div.col-lg-6.offset-lg-2 > h1")
+    public WebElement requestsTitle;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section > div.row.mb-lg-5")
+    public WebElement requestsTemplate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div > h1")
+    public WebElement browseConfigTitle;
+
+    @FindBy(how = How.CSS, using = "#main-admin > section > div")
+    public WebElement browseConfigTemplate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div.col-lg-6.offset-lg-2 > div > h1")
+    public WebElement smsTitle;
+
+    @FindBy(how = How.CSS, using = "#main-admin > div.py-4.b-top > div")
+    public WebElement smsTemplate;
+
+    @FindBy(how = How.CSS, using = "#main-admin > header > div > div.col-lg-6.offset-lg-2 > h1")
+    public WebElement ordersTitle;
+
+    public void ordersTitleText(){
+        fluentWait(getDriver(), ordersTitle);
+        Assert.assertTrue(ordersTitle.isDisplayed());
+    }
+
+    public void smsTemplateSector(){
+        fluentWait(getDriver(), smsTemplate);
+        Assert.assertTrue(smsTemplate.isDisplayed());
+    }
+
+    public void smsTitleText(){
+        fluentWait(getDriver(), smsTitle);
+        Assert.assertTrue(smsTitle.isDisplayed());
+    }
+
+
+
+    public void  browseConfigTemplateSector(){
+        fluentWait(getDriver(), browseConfigTemplate);
+        Assert.assertTrue(browseConfigTemplate.isDisplayed());
+    }
+
+    public void BrowseConfigTxt(){
+        fluentWait(getDriver(), browseConfigTitle);
+        Assert.assertTrue(browseConfigTitle.isDisplayed());
+    }
+
+
+    public void requestsTemplateSector() {
+        fluentWait(getDriver(), requestsTemplate);
+        Assert.assertTrue(requestsTemplate.isDisplayed());
+    }
+
+
+    public void requestTitleText() {
+        fluentWait(getDriver(), requestsTitle);
+        Assert.assertTrue(requestsTitle.isDisplayed());
+    }
+
+    public void siteTagsTemplate() {
+        fluentWait(getDriver(), siteMetaTagsTemplate);
+        Assert.assertTrue(siteMetaTagsTemplate.isDisplayed());
+    }
+
+    public void tabsSector() {
+        fluentWait(getDriver(), tabs);
+        Assert.assertTrue(tabs.isDisplayed());
+    }
+
+    public void seoSetupTxt() {
+        fluentWait(getDriver(), seoSetupText);
+        Assert.assertTrue(seoSetupText.isDisplayed());
+    }
+
+    public void stripeTemplateSector() {
+        fluentWait(getDriver(), stripeTemplate);
+        Assert.assertTrue(stripeTemplate.isDisplayed());
+    }
+
+    public void stripeSettingsSector() {
+        fluentWait(getDriver(), stripeSettings);
+        Assert.assertTrue(stripeSettings.isDisplayed());
+    }
+
+    public void companyInfoSubscriptionSector() {
+        fluentWait(getDriver(), companyInfoSubscriptionInfo);
+        Assert.assertTrue(companyInfoSubscriptionInfo.isDisplayed());
+    }
+
+    public void settingsTitleSector() {
+        fluentWait(getDriver(), settingsTitle);
+        Assert.assertTrue(settingsTitle.isDisplayed());
+    }
+
+    public void templateSector() {
+        fluentWait(getDriver(), templateValidate);
+        Assert.assertTrue(templateValidate.isDisplayed());
+    }
+
+    public void searchAndLanguageSection() {
+        fluentWait(getDriver(), searchAndLenguage);
+        Assert.assertTrue((searchAndLenguage.isDisplayed()));
+    }
+
+    public void siteWordingText() {
+        fluentWait(getDriver(), siteWordingTxt);
+        Assert.assertTrue(siteWordingTxt.isDisplayed());
+    }
+
+
+    public void filterButton() {
         fluentWait(getDriver(), filterBtn);
         waitForWebElementAndClick(filterBtn);
     }
 
-    public void userResult(){
+    public void userResult() {
         fluentWait(getDriver(), userResultValidate);
         Assert.assertTrue(userResultValidate.isDisplayed());
     }
 
-    public void searchUser(){
+    public void searchUser() {
         fluentWait(getDriver(), searchUserInput);
         searchUserInput.sendKeys("gastontrick");
     }
 
-    public void impersonateValidation(){
+    public void impersonateValidation() {
         fluentWait(getDriver(), impersonateValidate);
         Assert.assertTrue(impersonateValidate.isDisplayed());
     }
 
-    public void impersonateOption(){
+    public void impersonateOption() {
         fluentWait(getDriver(), impersonateBtn);
         waitForWebElementAndClick(impersonateBtn);
     }
@@ -93,4 +236,38 @@ public class AdminPanelPage extends BasePage {
 
         }
     }
+
+    public void siteWording() {
+        Assert.assertEquals(UrlProd + "/admin/application/GlobalSettings", getDriver().getCurrentUrl());
+    }
+
+    public void companyInfo() {
+        Assert.assertEquals(UrlProd + "/application/companyinfo", getDriver().getCurrentUrl());
+    }
+
+    public void paymentInfo() {
+        Assert.assertEquals(UrlProd + "/application/StripeSettings", getDriver().getCurrentUrl());
+    }
+
+    public void siteMetaTags() {
+        Assert.assertEquals(UrlProd + "/admin/application/MetaTags", getDriver().getCurrentUrl());
+    }
+
+    public void requestsSetup() {
+        Assert.assertEquals(UrlProd + "/admin/application/RequestsSetup", getDriver().getCurrentUrl());
+    }
+
+    public void browseConfig() {
+        Assert.assertEquals(UrlProd + "/admin/application/BrowseConfig", getDriver().getCurrentUrl());
+    }
+
+    public void smsSettings() {
+        Assert.assertEquals(UrlProd + "/admin/application/SmsSettings", getDriver().getCurrentUrl());
+    }
+
+    public void ordersSetup() {
+        Assert.assertEquals(UrlProd + "/admin/application/OrdersSetup", getDriver().getCurrentUrl());
+    }
+
+
 }

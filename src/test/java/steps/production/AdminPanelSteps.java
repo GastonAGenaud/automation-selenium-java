@@ -70,6 +70,95 @@ public class AdminPanelSteps extends BasePage {
     public void selectFilterButton() {
         _page.filterButton();
     }
+
+    @Then("I validate redirection to Site Wording")
+    public void iValidateRedirectionToSiteWording() {
+        _page.siteWording();
+    }
+
+    @And("I validate elements in Site Wording")
+    public void iValidateElementsInSiteWording() {
+        _page.siteWordingText();
+        _page.searchAndLanguageSection();
+        _page.templateSector();
+    }
+
+    @And("I validate redirection to Company Info")
+    public void iValidateRedirectionToCompanyInfo() {
+        _page.companyInfo();
+    }
+
+    @And("validate elements in Company Info")
+    public void validateElementsInCompanyInfo() {
+        _page.settingsTitleSector();
+        _page.companyInfoSubscriptionSector();
+    }
+
+    @And("I validate redirection to Payment Info")
+    public void iValidateRedirectionToPaymentInfo() {
+        _page.paymentInfo();
+    }
+
+    @And("validate elements in Payment Info")
+    public void validateElementsInPaymentInfo() {
+        _page.stripeSettingsSector();
+        _page.stripeTemplateSector();
+    }
+
+    @And("I validate redirection to Site MetaTags")
+    public void iValidateRedirectionToSiteMetaTags() {
+        _page.siteMetaTags();
+    }
+
+    @And("validate elements in Site MetaTags")
+    public void validateElementsInSiteMetaTags() {
+        _page.seoSetupTxt();
+        _page.tabsSector();
+        _page.siteTagsTemplate();
+    }
+
+    @And("I validate redirection to Requests Setup")
+    public void iValidateRedirectionToRequestsSetup() {
+        _page.requestsSetup();
+    }
+
+    @And("validate elements in Requests Setup")
+    public void validateElementsInRequestsSetup() {
+        _page.requestTitleText();
+        _page.requestsTemplateSector();
+    }
+
+    @And("I validate redirection to Browse config")
+    public void iValidateRedirectionToBrowseConfig() {
+        _page.browseConfig();
+    }
+
+    @And("validate elements in Browse config")
+    public void validateElementsInBrowseConfig() {
+        _page.BrowseConfigTxt();
+        _page.browseConfigTemplateSector();
+    }
+
+    @And("I validate redirection to SMS Settings")
+    public void iValidateRedirectionToSMSSettings() {
+        _page.smsSettings();
+    }
+
+    @And("validate elements in SMS Settings")
+    public void validateElementsInSMSSettings() {
+        _page.smsTitleText();
+        _page.smsTemplateSector();
+    }
+
+    @And("I validate redirection to Orders Setup")
+    public void iValidateRedirectionToOrdersSetup() {
+        _page.ordersSetup();
+    }
+
+    @And("validate elements in Orders Setup")
+    public void validateElementsInOrdersSetup() {
+        _page.ordersTitleText();
+    }
 }
 
 
