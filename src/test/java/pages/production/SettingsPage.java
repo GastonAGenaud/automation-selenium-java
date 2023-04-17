@@ -212,6 +212,7 @@ public class SettingsPage extends BasePage {
 
     public void phoneNumberTxt() {
         fluentWait(getDriver(), phoneNumberInput);
+        phoneNumberInput.clear();
         phoneNumberInput.sendKeys("123123123");
     }
 
@@ -223,6 +224,7 @@ public class SettingsPage extends BasePage {
 
     public void lastNameTxt() {
         fluentWait(getDriver(), lastNameInput);
+        lastNameInput.clear();
         lastNameInput.sendKeys("Automation");
     }
 
