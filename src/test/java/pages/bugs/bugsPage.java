@@ -38,7 +38,7 @@ public class bugsPage extends BasePage {
     public WebElement passwordLoginInput;
     @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
     public WebElement logInBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/div/input[1]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[4]/div/div/div/div[2]/div[1]/div[4]/div/input[1]")
     public WebElement trackingTextField;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/a[1]")
     public WebElement acceptBtn;
@@ -362,7 +362,7 @@ public class bugsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#openReadMessages > span")
     public WebElement validateRead;
 
-    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/div/span[1]")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[2]/a/div/div/span[1]")
     public WebElement seenTimesTxt;
 
     @FindBy(how = How.CSS, using = "#facebook")
@@ -865,6 +865,7 @@ public class bugsPage extends BasePage {
 
     public String setCoolTxt() {
         try {
+            fluentWaitStrict(getDriver(), coolTxt);
             String result = coolTxt.getText();
             return result;
         } catch (Exception e) {

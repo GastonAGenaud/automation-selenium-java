@@ -32,6 +32,7 @@ public class checkoutSteps extends BasePage {
         System.out.println("selectAddToCart");
         _page.selectAddToCart();
 
+
         //_page.setCloseAddedToCart();
         //
         //_page.setCloseAddedToCart();
