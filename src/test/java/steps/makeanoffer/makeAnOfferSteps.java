@@ -1,4 +1,5 @@
 package steps.makeanoffer;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,11 +29,15 @@ public class makeAnOfferSteps extends BasePage {
     @Given("I Sign in with new account {string} and go to the listing page")
     public void iSignInAndGoToTheListingPage(String text) {
         _page.CreateAnAccountListingDetails(text);
-        _page.CloseWindow();
-       // _page.validateLastError();
-     //   _page.imSellerButton();
-     //   _page.nextButton();
-     //   _page.completeFormSignUp();
+        try {
+            _page.CloseWindow();
+        } catch (Exception e) {
+
+        }
+        // _page.validateLastError();
+        //   _page.imSellerButton();
+        //   _page.nextButton();
+        //   _page.completeFormSignUp();
 //        _page.howMuchSell();
 //        _page.termsAndConditions();
 //        _page.whereAreYouFrom();
@@ -84,7 +89,6 @@ public class makeAnOfferSteps extends BasePage {
     public void iValidateTheSeeingOfTheRequestInMessageViewAfterRequest() {
         Assert.assertEquals(_page.offerChatVerify(), true);
     }
-
 
 
     @Then("I validate the viewing of offer in inbox under Unread messages")

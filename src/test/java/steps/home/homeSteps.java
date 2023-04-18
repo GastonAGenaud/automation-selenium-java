@@ -391,7 +391,7 @@ public class homeSteps extends BasePage {
     }
 
     */
-   /* @Before
+  /*  @Before
     public void test () throws IOException {
         //loginWithMakeAnOffer();
         generateLoginWithGastonUser();
@@ -399,7 +399,9 @@ public class homeSteps extends BasePage {
         loginWithGastonNoBorrar();
     }
 
-    */
+   */
+
+
 
 
     @Given("I login with Gaston User")

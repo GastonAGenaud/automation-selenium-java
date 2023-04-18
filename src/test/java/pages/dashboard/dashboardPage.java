@@ -30,7 +30,7 @@ public class dashboardPage extends BasePage {
     public WebElement carouselNextBtn;
     @FindBy(how = How.CSS, using = "#products-carousel > a.carousel-control-prev.cl-primary")
     public WebElement carouselPreviousBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div/div/div[2]/a[1]/div/div/div[2]/div/h5")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[1]/span[2]/a")
     public WebElement myOrdersBtn;
     @FindBy(how = How.CSS, using = "#dashboard-messages > a:nth-child(2) > div")
     public WebElement buyersMessagesBtn;
@@ -90,6 +90,7 @@ public class dashboardPage extends BasePage {
 
     public void buyersMyOrders() {
         try {
+            fluentWait(getDriver(), myOrdersBtn);
             waitForWebElementAndClick(myOrdersBtn);
         } catch (Exception e) {
             wait(2);

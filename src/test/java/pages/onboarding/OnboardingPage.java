@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import pages.BasePage;
+
 import static java.lang.Math.random;
 
 public class OnboardingPage extends BasePage {
@@ -102,7 +103,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public String calendar() {
-        fluentWait(getDriver(),bookYourMeeting);
+        fluentWait(getDriver(), bookYourMeeting);
         String result = bookYourMeeting.getText();
         return result;
     }
@@ -116,16 +117,16 @@ public class OnboardingPage extends BasePage {
 
 
     public boolean marketPlaceCreateConfirm() {
-       try {
-           fluentWait(getDriver(), bookYourMeeting);
-           boolean result = marketPlaceCreateBtn.isDisplayed();
-           return result;
-       }catch (Exception e){
-           wait(3);
-           fluentWait(getDriver(),marketPlaceCreateBtn);
-           boolean result = marketPlaceCreateBtn.isDisplayed();
-           return result;
-       }
+        try {
+            fluentWaitStrict(getDriver(), bookYourMeeting);
+            boolean result = marketPlaceCreateBtn.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(4);
+            fluentWaitStrict(getDriver(), marketPlaceCreateBtn);
+            boolean result = marketPlaceCreateBtn.isDisplayed();
+            return result;
+        }
 
     }
 
@@ -167,7 +168,8 @@ public class OnboardingPage extends BasePage {
     public void yourMarketplaceFieldFunction(String text) {
         String id = rdm + Long.toString((int) random() * 1200);
         fluentWait(getDriver(), yourMarketplaceField);
-        waitForWebElementAndClick(yourMarketplaceField);;
+        waitForWebElementAndClick(yourMarketplaceField);
+        ;
         yourMarketplaceField.sendKeys(text + "AutomationTesting" + id);
     }
 
@@ -175,7 +177,7 @@ public class OnboardingPage extends BasePage {
         waitForClickability(nextBtn);
         fluentWait(getDriver(), nextBtn);
         waitForWebElementAndClick(nextBtn);
-        
+
     }
 
     public void chooseProductMarketplace() {
@@ -215,8 +217,15 @@ public class OnboardingPage extends BasePage {
     }
 
     public void setSavePaymentFunction() {
-        fluentWait(getDriver(), savePaymentBtn);
-        waitForWebElementAndClick(savePaymentBtn);
+        try {
+            fluentWait(getDriver(), savePaymentBtn);
+            waitForWebElementAndClick(savePaymentBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), savePaymentBtn);
+            waitForWebElementAndClick(savePaymentBtn);
+        }
+
     }
 
     public void adminPanelStepFunction() {

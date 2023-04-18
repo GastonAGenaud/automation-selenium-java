@@ -47,6 +47,7 @@ public class dashboardSteps extends BasePage {
     @And("I validate the my orders section")
     public void iValidateTheMyOrdersSection() {
         _page.buyersMyOrders();
+        _page.goToDashboard();
     }
 
     @And("I validate the messages section")

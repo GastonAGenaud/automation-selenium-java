@@ -49,7 +49,7 @@ public class ordersPage extends BasePage {
     public WebElement ordersSoldOpenMenuTabBtn;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/a")
     public WebElement ordersSoldOpenCancelBtn;
-    @FindBy(how = How.CSS, using = "#purchased-tab")
+    @FindBy (how =How.CSS,using = "#purchased-tab > span")
     public WebElement ordersPurchasedBtn;
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[3]/div/div/a")
@@ -299,12 +299,12 @@ public class ordersPage extends BasePage {
         getDriver().navigate().refresh();
         try {
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
-            //waitForWebElementAndClick(ordersPurchasedBtn);
-            // retryingFindClick(ordersPurchasedBtn);
+            waitForWebElementAndClick(ordersPurchasedBtn);
+             retryingFindClick(ordersPurchasedBtn);
         } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
-            // waitForWebElementAndClick(ordersPurchasedBtn);
+             waitForWebElementAndClick(ordersPurchasedBtn);
             //  retryingFindClick(ordersPurchasedBtn);
         }
 //        retryingFindClick(ordersPurchasedBtn);

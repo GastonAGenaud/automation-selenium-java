@@ -45,7 +45,7 @@ public class listingPage extends BasePage {
     public WebElement listingPriceTextField;
     @FindBy(how = How.CSS, using = "#quantity")
     public WebElement listingQuantityTextField;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/form/div/div[1]/div[5]/div[1]/div/ul/li[1]/div/label/input")
+    @FindBy(how = How.CSS, using = "#img-0")
     public WebElement listingImageUpload;
     @FindBy(how = How.CSS, using = "#listing-videourl")
     public WebElement listingVideoTextField;
