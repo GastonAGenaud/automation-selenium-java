@@ -435,6 +435,7 @@ Feature: Bugs
   @bugs @MTR @MTR-2387
   Scenario: Facebook Signup doesn't work
     Given I go to Sign Up Page
+    And validate SignUp With Facebook Text
     When Select Signup With Facebook
     Then I validate Signup With Facebook
 

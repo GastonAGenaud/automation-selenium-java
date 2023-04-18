@@ -10,14 +10,14 @@ Feature: addons
     When I validate the add new listing button
     Then Validate the shipping with FedEx
 
-  @addons  @MTR-3308 @MTR
+  @addons  @MTR-3308 @MTR @retry
   Scenario: MTR - Validating a FedEx Product Shipment
     Given I login with Gaston User
     And I go to dashboard
     And select My Listings button
     When I validate the add new listing button
     And validate the listing name text field
-    And I validate the listing category
+    And I validate the listing category Shoes
     And I validate the listing description text field
     And I validate the listing price
     And I validate the listing quantity

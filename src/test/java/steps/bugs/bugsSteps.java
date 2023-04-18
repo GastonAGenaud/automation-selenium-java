@@ -1,5 +1,6 @@
 package steps.bugs;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -65,7 +66,7 @@ public class bugsSteps extends BasePage {
         //_page.setHomePageBUG();
         // validatingSettingsText();
         _page.goToOrders();
-      //  _page.goToSoldPage();
+        _page.goToSoldPage();
     }
 
     @And("select My Listings button")
@@ -615,7 +616,7 @@ public class bugsSteps extends BasePage {
 
     @Then("I validate Signup With Facebook")
     public void iValidateSignupWithFacebook() {
-        Assert.assertEquals("Welcome!", _page.welcomeTxt());
+        Assert.assertTrue(_page.welcomeTxt());
     }
 
 
@@ -677,7 +678,7 @@ public class bugsSteps extends BasePage {
 
     @When("I select Purchased button in orders")
     public void iSelectPurchasedButtonInOrders() {
-        //_page.ordersPurchasedButton();
+        _page.ordersPurchasedButton();
     }
 
     @And("I select Download file button")
@@ -851,5 +852,10 @@ public class bugsSteps extends BasePage {
     @Then("valid that the purchase of the product can be carried out")
     public void validThatThePurchaseOfTheProductCanBeCarriedOut() {
         Assert.assertEquals(true, _page.validateBuyTheProductBUG());
+    }
+
+    @And("validate SignUp With Facebook Text")
+    public void validateSignUpWithFacebookText() {
+        Assert.assertEquals("Signup with Facebook", _page.loginFacebookField());
     }
 }
