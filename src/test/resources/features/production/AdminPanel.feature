@@ -19,6 +19,8 @@ Feature: Production Admin Panel
     And select Filter button
     Then I validate Filter sector in Admin panel - Users
 
+
+    @testAdminSettings
   Scenario: Admin Panel - Settings
     Given I login with Gaston User in production products using cookies
     And go to Admin Panel

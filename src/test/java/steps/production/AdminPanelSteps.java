@@ -24,7 +24,7 @@ public class AdminPanelSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-//        _page.loginWithGastonUserProdProducts();
+    //  _page.loginWithGastonUserProdProducts();
 //
 //    }
 
@@ -73,6 +73,7 @@ public class AdminPanelSteps extends BasePage {
 
     @Then("I validate redirection to Site Wording")
     public void iValidateRedirectionToSiteWording() {
+        getDriver().navigate().to(UrlProd + "admin/application/GlobalSettings");
         _page.siteWording();
     }
 
@@ -85,6 +86,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Company Info")
     public void iValidateRedirectionToCompanyInfo() {
+        getDriver().navigate().to(UrlProd + "admin/application/companyinfo");
         _page.companyInfo();
     }
 
@@ -96,6 +98,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Payment Info")
     public void iValidateRedirectionToPaymentInfo() {
+        getDriver().navigate().to(UrlProd + "admin/application/StripeSettings");
         _page.paymentInfo();
     }
 
@@ -107,6 +110,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Site MetaTags")
     public void iValidateRedirectionToSiteMetaTags() {
+        getDriver().navigate().to(UrlProd + "admin/application/MetaTags");
         _page.siteMetaTags();
     }
 
@@ -119,6 +123,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Requests Setup")
     public void iValidateRedirectionToRequestsSetup() {
+        getDriver().navigate().to(UrlProd + "admin/application/RequestsSetup");
         _page.requestsSetup();
     }
 
@@ -130,6 +135,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Browse config")
     public void iValidateRedirectionToBrowseConfig() {
+        getDriver().navigate().to(UrlProd + "admin/application/BrowseConfig");
         _page.browseConfig();
     }
 
@@ -141,6 +147,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to SMS Settings")
     public void iValidateRedirectionToSMSSettings() {
+        getDriver().navigate().to(UrlProd + "admin/application/SmsSettings");
         _page.smsSettings();
     }
 
@@ -152,6 +159,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Orders Setup")
     public void iValidateRedirectionToOrdersSetup() {
+        getDriver().navigate().to(UrlProd + "admin/application/OrdersSetup");
         _page.ordersSetup();
     }
 

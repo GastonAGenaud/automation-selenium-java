@@ -238,35 +238,35 @@ public class AdminPanelPage extends BasePage {
     }
 
     public void siteWording() {
-        Assert.assertEquals(UrlProd + "/admin/application/GlobalSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/GlobalSettings", getDriver().getCurrentUrl());
     }
 
     public void companyInfo() {
-        Assert.assertEquals(UrlProd + "/application/companyinfo", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/companyinfo", getDriver().getCurrentUrl());
     }
 
     public void paymentInfo() {
-        Assert.assertEquals(UrlProd + "/application/StripeSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/StripeSettings", getDriver().getCurrentUrl());
     }
 
     public void siteMetaTags() {
-        Assert.assertEquals(UrlProd + "/admin/application/MetaTags", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/MetaTags", getDriver().getCurrentUrl());
     }
 
     public void requestsSetup() {
-        Assert.assertEquals(UrlProd + "/admin/application/RequestsSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/RequestsSetup", getDriver().getCurrentUrl());
     }
 
     public void browseConfig() {
-        Assert.assertEquals(UrlProd + "/admin/application/BrowseConfig", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/BrowseConfig", getDriver().getCurrentUrl());
     }
 
     public void smsSettings() {
-        Assert.assertEquals(UrlProd + "/admin/application/SmsSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/SmsSettings", getDriver().getCurrentUrl());
     }
 
     public void ordersSetup() {
-        Assert.assertEquals(UrlProd + "/admin/application/OrdersSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlProd + "admin/application/OrdersSetup", getDriver().getCurrentUrl());
     }
 
 
