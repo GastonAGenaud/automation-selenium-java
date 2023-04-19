@@ -1049,7 +1049,7 @@ public class bugsPage extends BasePage {
 
     public void goToItemBUG() {
         goToListingPage();
-        getDriver().navigate().to(url + "listing/detail/619");
+        getDriver().navigate().to(UrlProduct);
     }
 
     public void selectAddToCartBUG() {

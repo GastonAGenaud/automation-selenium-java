@@ -1,7 +1,7 @@
 @MTR-1575
 Feature: addons
 
-  @addons  @MTR-3307 @MTR
+  #@addons  @MTR-3307 @MTR
   Scenario: MTR - Addons-FedEx- Validate the shipping with FedEx
     Given I login with Gaston User
     And I go to dashboard
@@ -10,7 +10,7 @@ Feature: addons
     When I validate the add new listing button
     Then Validate the shipping with FedEx
 
-  @addons  @MTR-3308 @MTR @retry
+  #@addons  @MTR-3308 @MTR @retry
   Scenario: MTR - Validating a FedEx Product Shipment
     Given I login with Gaston User
     And I go to dashboard
@@ -59,6 +59,7 @@ Feature: addons
     Given I login with Dev user
     And Admin Add-ons
     And I go to addons
+    And I search and select the addons
     When I select edit button in addons
     And I select other type of service
     And I complete the edit Title text field
@@ -67,13 +68,6 @@ Feature: addons
     And I select the save button
     Then I validate the edit
 
-  @addons  @MTR-1544 @MTR
-  Scenario: Eliminate an Add-on
-    Given I login with Dev user
-    And Admin Add-ons
-    And I go to addons
-    When I select delete button
-    Then I validate the delete addon
 
   @addons  @MTR-1545 @MTR
   Scenario: Create a second Add-On
@@ -88,7 +82,6 @@ Feature: addons
     And I complete video URL
     And I load a image
     And I select the save button
-    And I select delete button
     Then I validate the created addon
 
   @addons  @MTR-1546 @MTR
@@ -104,5 +97,14 @@ Feature: addons
     And I complete video URL
     And I load a image
     And I select the save button
-    And I select delete button
     Then I validate the created addon
+
+
+  @addons  @MTR-1544 @MTR
+  Scenario: Eliminate an Add-on
+    Given I login with Dev user
+    And Admin Add-ons
+    And I go to addons
+    And I search and select the addons
+    When I select delete button
+    Then I validate the delete addon

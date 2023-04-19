@@ -3,7 +3,7 @@ Feature: Checkout
 
   @checkout  @MTR-1421  @MTR
   Scenario: Buyer able to clear cart
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I add an item to the Shopping Cart
     And I validate the clear cart button
@@ -20,7 +20,7 @@ Feature: Checkout
 
   @checkout  @MTR-1423  @MTR
   Scenario: MTR - Buyer able to add and save a shipping address
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I clear the cart1
     And I clear the cart2
@@ -39,7 +39,7 @@ Feature: Checkout
 
   @checkout  @MTR-1424   @MTR @test1
   Scenario: MTR - Buyer able to select shipping method if USPS or Flat Rate option
-    Given I login with Gaston User
+    Given I login with another account
     And I go to the Shopping Cart
     When I clear the cart
     And I add an item to the Shopping Cart for shipping

@@ -207,7 +207,6 @@ public class bugsSteps extends BasePage {
         _page.goToItemBUG();
         System.out.println("selectAddToCart");
         _page.selectAddToCartBUG();
-
         System.out.println("selectCartIcon");
         _page.selectCartIconBUG();
     }
@@ -832,7 +831,7 @@ public class bugsSteps extends BasePage {
 
     @And("file selection or download file")
     public void fileSelectionOrDownloadFile() {
-        _page.openSection();
+       // _page.openSection();
         _page.downloadFile();
     }
 

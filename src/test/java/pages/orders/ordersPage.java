@@ -301,6 +301,7 @@ public class ordersPage extends BasePage {
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
             waitForWebElementAndClick(ordersPurchasedBtn);
              retryingFindClick(ordersPurchasedBtn);
+            fluentWait(getDriver(), purchasedOpenSection);
         } catch (Exception e) {
             wait(3);
             fluentWaitStrict(getDriver(), ordersPurchasedBtn);
@@ -323,10 +324,10 @@ public class ordersPage extends BasePage {
             fluentWait(getDriver(), sendBeforeChat);
             waitForWebElementAndClick(sendBeforeChat);
 
-            goToOrders();
+       //     goToOrders();
 
-            fluentWait(getDriver(), ordersPurchasedBtn);
-            waitForWebElementAndClick(ordersPurchasedBtn);
+         //   fluentWait(getDriver(), ordersPurchasedBtn);
+        //    waitForWebElementAndClick(ordersPurchasedBtn);
         } catch (Exception e) {
             wait(3);
             goToOrders();

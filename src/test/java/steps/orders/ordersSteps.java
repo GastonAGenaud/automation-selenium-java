@@ -75,6 +75,8 @@ public class ordersSteps extends BasePage {
     public void iValidateSendMessageToSeller() {
         _page.ordersPurchasedButton();
         _page.ordersPurchasedMessage();
+        _page.goToOrders();
+        _page.ordersPurchasedButton();
         //page.setMessageBeforeChat();
         //_page.setSendBeforeChat();
     }

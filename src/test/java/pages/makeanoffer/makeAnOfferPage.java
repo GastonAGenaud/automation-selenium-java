@@ -121,14 +121,15 @@ public class makeAnOfferPage extends BasePage {
             return result;
         } catch (Exception e) {
             wait(4);
-            fluentWait(getDriver(),validateText);
+            fluentWait(getDriver(), validateText);
             boolean result = lastErrorValidate.isDisplayed();
             return result;
-        }finally {
-            fluentWait(getDriver(),validateText);
+        } finally {
+            fluentWait(getDriver(), validateText);
         }
 
     }
+
     public void CloseWindow() {
         try {
             fluentWait(getDriver(), closeBtnWindow);
@@ -193,8 +194,7 @@ public class makeAnOfferPage extends BasePage {
 //        retryingFindClick(submitBtn);
             validateTextFirst();
             getDriver().navigate().to(url + "/Listing/Detail/619");
-        }
-        finally {
+        } finally {
             getDriver().navigate().to(url + "/Listing/Detail/619");
         }
 
@@ -218,7 +218,7 @@ public class makeAnOfferPage extends BasePage {
             fluentWait(getDriver(), imSellerBtn);
             waitForWebElementAndClick(imSellerBtn);
             retryingFindClick(imSellerBtn);
-        }finally {
+        } finally {
             fluentWaitStrict(getDriver(), nextBtn);
         }
     }
@@ -268,9 +268,17 @@ public class makeAnOfferPage extends BasePage {
     }
 
     public void selectMakeAnOfferMessageTextField() {
-        fluentWait(getDriver(), makeAnOfferMessageTextField);
-        waitForWebElementAndClick(makeAnOfferMessageTextField);
-        makeAnOfferMessageTextField.sendKeys("Test Asleep(3000);utomation");
+        try {
+            fluentWait(getDriver(), makeAnOfferMessageTextField);
+            waitForWebElementAndClick(makeAnOfferMessageTextField);
+            makeAnOfferMessageTextField.sendKeys("Test Asleep(3000);utomation");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), makeAnOfferMessageTextField);
+            waitForWebElementAndClick(makeAnOfferMessageTextField);
+            makeAnOfferMessageTextField.sendKeys("Test Asleep(3000);utomation");
+        }
+
     }
 
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/addons.png";

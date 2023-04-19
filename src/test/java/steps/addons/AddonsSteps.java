@@ -73,7 +73,7 @@ public class AddonsSteps extends BasePage {
 
     @And("I select other type of service")
     public void iSelectOtherTypeOfService() {
-        _page.addonServiceSubscription();
+        _page.addonServiceSubscriptionEdit();
     }
 
     @And("I complete the edit Title text field")
@@ -159,14 +159,15 @@ public class AddonsSteps extends BasePage {
         _page.getCloseChat();
     }
 
-    @And("back to click Dashboard")
-    public void backToClickDashboard() {
-        _page.clickDashboard();
-    }
 
     @And("I validate the listing category Shoes")
     public void iValidateTheListingCategoryShoes() {
         _page.categoryBtn();
         _page.categoryShoesBtn();
+    }
+
+    @And("I search and select the addons")
+    public void iSearchAndSelectTheAddons() {
+        _page.searchAddons();
     }
 }

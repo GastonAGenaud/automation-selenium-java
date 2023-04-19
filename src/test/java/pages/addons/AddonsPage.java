@@ -2,6 +2,7 @@ package pages.addons;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.WebElement;
 
 import pages.BasePage;
+
+import java.util.List;
 
 
 public class AddonsPage extends BasePage {
@@ -35,9 +38,11 @@ public class AddonsPage extends BasePage {
     public WebElement addonServiceBtn;
     @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(5)")
     public WebElement featuredUsersServiceBtn;
-    @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(8)")
+    @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(41)")
     public WebElement subscriptionsServiceBtn;
-    @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(11)")
+    @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(43)")
+    public WebElement ServiceEditBtn;
+    @FindBy(how = How.CSS, using = "#addon-feature > option:nth-child(42)")
     public WebElement orderAutoApprovalBtn;
     @FindBy(how = How.CSS, using = "#addon-title")
     public WebElement titleTextField;
@@ -55,9 +60,9 @@ public class AddonsPage extends BasePage {
     public WebElement cropBtn;
     @FindBy(how = How.CSS, using = "#addon-form > button")
     public WebElement addonSaveBtn;
-    @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(17) > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
     public WebElement addOnsEditBtn;
-    @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(17) > div.d-flex.justify-content-around.mb-2 > a.text-danger.font-weight-bold")
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div/div[2]/div/div[2]/div[1]/a[2]")
     public WebElement addOnsDeleteBtn;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement acceptDeleteBtn;
@@ -105,8 +110,8 @@ public class AddonsPage extends BasePage {
     public WebElement buyProductDigitalBtn;
     @FindBy(xpath = "/html/body/div[4]/main/div/div/div/div[3]/button")
     public WebElement goToSecureCheckoutBtn;
-    @FindBy(how = How.CSS, using = "#category-selector")
-    public WebElement dashboardPageBtn;
+    @FindBy(how = How.CSS, using = "#txtFilter")
+    public WebElement searchField;
 
     String newProductUrl = null;
     String windowHandle = getDriver().getWindowHandle();
@@ -224,7 +229,7 @@ public class AddonsPage extends BasePage {
         try {
             fluentWaitStrict(getDriver(), categoryShoes);
             waitForWebElementAndClick(categoryShoes);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(2);
             fluentWaitStrict(getDriver(), categoryShoes);
             waitForWebElementAndClick(categoryShoes);
@@ -284,6 +289,24 @@ public class AddonsPage extends BasePage {
 
     }
 
+    public void searchAddons() {
+        try {
+            fluentWait(getDriver(), searchField);
+            waitForWebElementAndClick(searchField);
+            searchField.clear();
+            searchField.sendKeys("Automation Test");
+            searchField.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), searchField);
+            waitForWebElementAndClick(searchField);
+            searchField.clear();
+            searchField.sendKeys("Automation Test");
+            searchField.sendKeys(Keys.ENTER);
+        }
+
+    }
+
     public void addNewAddOns() {
         try {
             fluentWait(getDriver(), addNewAddOnsBtn);
@@ -293,8 +316,7 @@ public class AddonsPage extends BasePage {
             wait(3);
             fluentWait(getDriver(), addNewAddOnsBtn);
             waitForWebElementAndClick(addNewAddOnsBtn);
-        }
-        finally {
+        } finally {
             fluentWait(getDriver(), addonServiceBtn);
         }
 
@@ -311,6 +333,19 @@ public class AddonsPage extends BasePage {
         waitForWebElementAndClick(featuredUsersServiceBtn);
     }
 
+    public void addonServiceSubscriptionEdit() {
+        try {
+            addonService();
+            fluentWait(getDriver(), ServiceEditBtn);
+            waitForWebElementAndClick(ServiceEditBtn);
+        } catch (Exception e) {
+            wait(3);
+            addonService();
+            fluentWait(getDriver(), ServiceEditBtn);
+            waitForWebElementAndClick(ServiceEditBtn);
+        }
+
+    }
     public void addonServiceSubscription() {
         try {
             addonService();
@@ -412,20 +447,51 @@ public class AddonsPage extends BasePage {
     }
 
     public void addonEdit() {
-        fluentWait(getDriver(), addOnsEditBtn);
-        waitForWebElementAndClick(addOnsEditBtn);
+        try {
+            fluentWait(getDriver(), addOnsEditBtn);
+            waitForWebElementAndClick(addOnsEditBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), addOnsEditBtn);
+            waitForWebElementAndClick(addOnsEditBtn);
+        }
+
     }
 
     public void addonDelete() {
-        fluentWait(getDriver(), addOnsDeleteBtn);
-        waitForWebElementAndClick(addOnsDeleteBtn);
-        fluentWait(getDriver(), acceptDeleteBtn);
-        waitForVisibility(acceptDeleteBtn);
-        waitForWebElementAndClick(acceptDeleteBtn);
-    }
-public void clickDashboard(){
+        try {
+            List<WebElement> deleteAddons = getDriver().findElements(By.xpath("//a[contains(text(), 'Delete')]"));
+            for (WebElement addon : deleteAddons) {
+                if (addon.getText().contains("Delete")) {
+                    wait(3);
+                    fluentWaitStrict(getDriver(), addon);
+                    waitForWebElementAndClick(addon);
+                    fluentWaitStrict(getDriver(), acceptDeleteBtn);
+                    waitForWebElementAndClick(acceptDeleteBtn);
+                   searchAddons();
+                   wait(3);
+                }
+            }
+        } catch (Exception e) {
 
-}
+            wait(5);
+            List<WebElement> deleteAddons = getDriver().findElements(By.xpath("//a[contains(text(), 'Delete')]"));
+            for (WebElement addon : deleteAddons) {
+                fluentWait(getDriver(),addon);
+                if (addon.getText().contains("Delete")) {
+                    wait(3);
+                    fluentWaitStrict(getDriver(), addon);
+                    waitForWebElementAndClick(addon);
+                    fluentWaitStrict(getDriver(), acceptDeleteBtn);
+                    waitForWebElementAndClick(acceptDeleteBtn);
+                    searchAddons();
+                }
+            }
+        }
+
+    }
+
+
 }
 
 

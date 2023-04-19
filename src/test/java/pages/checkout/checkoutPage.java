@@ -147,7 +147,6 @@ public class checkoutPage extends BasePage {
 
     public boolean addedToCartMessage() {
         try {
-            fluentWaitStrict(getDriver(), addtoCartMessage);
             boolean result = addtoCartMessage.isDisplayed();
             return result;
         } catch (Exception e) {
@@ -219,8 +218,16 @@ public class checkoutPage extends BasePage {
     }
 
     public boolean addressErrorMessage() {
-        boolean result = addressErrorText.isDisplayed();
-        return result;
+        try {
+
+            boolean result = addressErrorText.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(2);
+            boolean result = addressErrorText.isDisplayed();
+            return result;
+        }
+
     }
 
     public boolean submitPaymentConfirm() {
@@ -245,7 +252,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItem() {
-        getDriver().navigate().to(url + "/Listing/Detail/619");
+        getDriver().navigate().to(UrlProduct);
     }
 
     public void selectFlatRate() {
@@ -263,7 +270,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItemForShipping() {
-        getDriver().navigate().to(url + "/Listing/Detail/619");
+        getDriver().navigate().to(UrlProduct);
     }
 
     public void goToSecureCheckout() {
@@ -406,8 +413,16 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectAddAddress() {
-        fluentWait(getDriver(), acceptBtn);
-        waitForWebElementAndClick(acceptBtn);
+        try {
+            fluentWait(getDriver(), acceptBtn);
+            waitForWebElementAndClick(acceptBtn);
+            fluentWait(getDriver(), addressErrorText);
+        } catch (Exception e) {
+            wait(2);
+            fluentWait(getDriver(), acceptBtn);
+            waitForWebElementAndClick(acceptBtn);
+        }
+
     }
 
     public void selectBackToCart() {
@@ -458,7 +473,7 @@ public class checkoutPage extends BasePage {
         try {
             fluentWait(getDriver(), submitPaymentBtn);
             waitForWebElementAndClick(submitPaymentBtn);
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), submitPaymentBtn);
             waitForWebElementAndClick(submitPaymentBtn);
@@ -466,22 +481,22 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectPreLoadedCardButton() {
-       try {
-           fluentWait(getDriver(), preLoadedCreditCardBtn);
-           waitForVisibility(preLoadedCreditCardBtn);
-           waitForClickability(preLoadedCreditCardBtn);
-           fluentWait(getDriver(), preLoadedCreditCardBtn);
-           waitForWebElementAndClick(preLoadedCreditCardBtn);
-           actions.moveToElement(preLoadedCreditCardBtn).build().perform();
-       }catch (Exception e){
-           wait(3);
-           fluentWait(getDriver(), preLoadedCreditCardBtn);
-           waitForVisibility(preLoadedCreditCardBtn);
-           waitForClickability(preLoadedCreditCardBtn);
-           fluentWait(getDriver(), preLoadedCreditCardBtn);
-           waitForWebElementAndClick(preLoadedCreditCardBtn);
-           actions.moveToElement(preLoadedCreditCardBtn).build().perform();
-       }
+        try {
+            fluentWait(getDriver(), preLoadedCreditCardBtn);
+            waitForVisibility(preLoadedCreditCardBtn);
+            waitForClickability(preLoadedCreditCardBtn);
+            fluentWait(getDriver(), preLoadedCreditCardBtn);
+            waitForWebElementAndClick(preLoadedCreditCardBtn);
+            actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), preLoadedCreditCardBtn);
+            waitForVisibility(preLoadedCreditCardBtn);
+            waitForClickability(preLoadedCreditCardBtn);
+            fluentWait(getDriver(), preLoadedCreditCardBtn);
+            waitForWebElementAndClick(preLoadedCreditCardBtn);
+            actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+        }
 
     }
 

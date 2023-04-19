@@ -125,7 +125,7 @@ public class checkoutSteps extends BasePage {
 
     @Then("I see the shipping address added and saved")
     public void iSeeTheShippingAddressAddedAndSaved() {
-        fluentWait(getDriver(), _page.addressErrorText);
+       // fluentWait(getDriver(), _page.addressErrorText);
         Assert.assertEquals(true, _page.addressErrorMessage());
     }
 

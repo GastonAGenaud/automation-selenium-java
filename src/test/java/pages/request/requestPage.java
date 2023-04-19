@@ -460,6 +460,7 @@ public class requestPage extends BasePage {
     public void addEndDate() {
         fluentWait(getDriver(), endDateTextField);
         waitForWebElementAndClick(endDateTextField);
+        endDateTextField.clear();
         endDateTextField.sendKeys(Keys.ARROW_LEFT);
         endDateTextField.sendKeys("04-25-2025");
     }
@@ -469,11 +470,14 @@ public class requestPage extends BasePage {
         try {
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
-            fluentWait(getDriver(), requestCopyURLBtn);
+             fluentWait(getDriver(), requestCopyURLBtn);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
+        }
+        finally {
+            fluentWaitStrict(getDriver(), requestCopyURLBtn);
         }
     }
 

@@ -2,7 +2,7 @@ Feature: Bugs
 
   @MTR @MTR-1927 @bugs
   Scenario: MTR - Orders - Purchased - Open Section
-    Given I login with another account
+    Given I login with Gaston User
     And I go to orders page BUGS
     When I validate purchased orders details
     And I validate send message to seller
@@ -159,6 +159,7 @@ Feature: Bugs
   Scenario: Download file in Orders Purchased
     Given I login with another account
     And I go to orders page
+    And I validate purchased orders details
     When select Download file
     Then I validate Download file
 
@@ -537,6 +538,7 @@ Feature: Bugs
     And I login with another account
     And I go to dashboard
     And I go to orders page
+    And I validate purchased orders details
     And file selection or download file
 
   @MTR @MTR  @bugs @MTR  @MTR-3225
