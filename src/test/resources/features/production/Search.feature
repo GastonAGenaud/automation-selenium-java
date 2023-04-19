@@ -1,3 +1,5 @@
+@prodProducts
+
 @search
 Feature: Search
 

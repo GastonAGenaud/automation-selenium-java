@@ -1,3 +1,5 @@
+@prodProducts
+
 @prod @prodLogin
 Feature: Production Login
 

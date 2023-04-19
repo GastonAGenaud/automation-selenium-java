@@ -1,3 +1,5 @@
+@prodProducts
+
 @prod
 Feature: PROD Signup
 

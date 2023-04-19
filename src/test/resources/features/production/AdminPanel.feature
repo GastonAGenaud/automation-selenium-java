@@ -1,7 +1,9 @@
+@prodProducts
+
 Feature: Production Admin Panel
 
 
-  @testImpersonate
+  @testImpersonate1
   Scenario: Admin Panel - Users - Actions
     Given I login with Gaston User in production products using cookies
     And go to Admin Panel
@@ -20,7 +22,7 @@ Feature: Production Admin Panel
     Then I validate Filter sector in Admin panel - Users
 
 
-    @testAdminSettings
+  @testAdminSettings
   Scenario: Admin Panel - Settings
     Given I login with Gaston User in production products using cookies
     And go to Admin Panel

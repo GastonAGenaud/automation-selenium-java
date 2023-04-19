@@ -365,13 +365,6 @@ public class homeSteps extends BasePage {
     }
 
 
-//    @Before
-//    public void test() throws IOException {
-//        loginWithDev();
-//        loginWithMakeAnOffer();
-//        loginWithGastonUser();
-//    }
-
     @Given("I login with Make An offer")
     public void loginWithMakeAnOfferSteps() {
         getDriver().manage().deleteAllCookies();
@@ -382,24 +375,14 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "makeAnOffer");
     }
 
-    /*@Before
-    public void lallallallal() throws IOException {
+    @Before
+    public void loginForProducts() throws IOException {
         _page.loginWithGastonNoBorrar();
-        _page.loginWithGastonUser();
-        _page.loginWithDev();
+//        _page.generateLoginWithGastonUser();
+//        _page.loginWithDev();
         _page.loginWithMakeAnOffer();
     }
 
-    */
-   /* @Before
-    public void test () throws IOException {
-        //loginWithMakeAnOffer();
-        generateLoginWithGastonUser();
-       // loginWithDev();
-        loginWithGastonNoBorrar();
-    }
-
-    */
 
 
     @Given("I login with Gaston User")
@@ -430,7 +413,6 @@ public class homeSteps extends BasePage {
     }
 
      */
-
 
 
     @Given("I login with Gaston User Stripe")

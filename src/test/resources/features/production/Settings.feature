@@ -1,3 +1,5 @@
+@prodProducts
+
 @prod @prodSettings
 Feature: Production Settings
 

@@ -24,8 +24,8 @@ public class AdminPanelSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-    //  _page.loginWithGastonUserProdProducts();
-//
+//      _page.loginWithGastonUserProdProducts();
+//      _page.loginWithDevProd();
 //    }
 
     @When("I select Users tab")

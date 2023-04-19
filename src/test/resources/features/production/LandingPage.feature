@@ -1,3 +1,5 @@
+@prodProducts
+
 Feature: Production Landing Page
 
   @landingPageTest
