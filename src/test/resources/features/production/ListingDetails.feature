@@ -54,11 +54,11 @@ Feature: Production Listing details
 #    And PROD I complete the Delivery Date TextField
 #    Then PROD I validate the Make an offer message TextField
 
-  @ProductionDetails
+  @ProductionDetailsTEST
   Scenario: Viewing listing tabs
     Given I login with Gaston User in production products using cookies
     And PROD I go to the listing details page
-#    When PROD I select the product Information button
+    When PROD I select the product Information button
     Then PROD I validate the listing tabs
 
   @ProductionDetails

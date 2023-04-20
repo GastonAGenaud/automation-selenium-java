@@ -34,7 +34,7 @@ public class SearchPage extends BasePage {
     @FindBy(how = How.CSS, using = "#searchCarousel")
     public WebElement searchHomeInput;
 
-    @FindBy(how = How.CSS, using = "#nav-buy-carousel > div.input-nav.mb-5 > a")
+    @FindBy(how = How.CSS, using = "#nav-buy-carousel > div > div.d-flex.align-items-center.justify-content-between.mb-4 > button")
     public WebElement searchUpdateBtn;
 
     @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5")

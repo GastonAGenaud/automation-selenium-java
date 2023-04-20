@@ -65,7 +65,7 @@ public class ListingDetailsPage extends BasePage {
     public WebElement deliveryDate;
     @FindBy(how = How.CSS, using = "#info-tab")
     public WebElement productInformationBtn;
-    @FindBy(how = How.CSS, using = "#shipping-tab > span > span.fz-20")
+    @FindBy(how = How.CSS, using = "#shipping-tab")
     public WebElement shippingBtn;
     @FindBy(how = How.CSS, using = "#reviews-tab > span > span.fz-20")
     public WebElement reviewsBtn;
@@ -267,7 +267,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public void goToItem() {
-        getDriver().navigate().to(UrlProd + "/Listing/Detail/3714");
+        getDriver().navigate().to(UrlProd + "Listing/Detail/3285");
     }
 
 
@@ -421,6 +421,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public boolean itemImageConfirm() {
+        fluentWait(getDriver(), itemImage);
         boolean result = itemImage.isDisplayed();
         return result;
     }
@@ -654,6 +655,7 @@ public class ListingDetailsPage extends BasePage {
         waitForClickability(productInformationBtn);
         fluentWait(getDriver(), productInformationBtn);
         waitForWebElementAndClick(productInformationBtn);
+
 
         fluentWait(getDriver(), shippingBtn);
         waitForWebElementAndClick(shippingBtn);

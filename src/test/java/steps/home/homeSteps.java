@@ -375,13 +375,13 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "makeAnOffer");
     }
 
-    @Before
-    public void loginForProducts() throws IOException {
-        _page.loginWithGastonNoBorrar();
-//        _page.generateLoginWithGastonUser();
-//        _page.loginWithDev();
-        _page.loginWithMakeAnOffer();
-    }
+//    @Before
+//    public void loginForProducts() throws IOException {
+//        _page.loginWithGastonNoBorrar();
+////        _page.generateLoginWithGastonUser();
+////        _page.loginWithDev();
+//        _page.loginWithMakeAnOffer();
+//    }
 
 
 

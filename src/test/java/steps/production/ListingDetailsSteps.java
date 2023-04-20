@@ -143,6 +143,7 @@ public class ListingDetailsSteps extends BasePage {
 
     @Then("PROD I validate the listing tabs")
     public void prodiValidateTheListingTabs() {
+        getDriver().navigate().refresh();
         Assert.assertEquals(true, _page.itemImageConfirm());
     }
 

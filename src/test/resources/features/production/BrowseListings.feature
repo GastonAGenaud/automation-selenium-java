@@ -3,6 +3,7 @@
 @categoriesProduction
 Feature: Production Browse
 
+  @browseProd
   Scenario: Browse Listing, Category
     Given I login with Gaston User in production products using cookies
     And go to Listing Page
