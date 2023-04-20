@@ -54,7 +54,7 @@ Feature: AdminPanel
     Then valid to save profile information
 
 
-  @MTR-6
+  @MTR-6666
   Scenario: Hire a Service - With all types of shipments
     Given I login with Gaston User in production services using cookies
     And go to Dashboard ServProd
@@ -66,6 +66,6 @@ Feature: AdminPanel
     And I select the Submit Payment Button SERV
     Then valid that can hire the service
 
-  @MTR-6666
+  @MTR-66
   Scenario: Orders view: Accept an order/ Reject an order/ Refund an order
 
