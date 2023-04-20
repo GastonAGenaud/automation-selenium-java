@@ -98,7 +98,12 @@ public class AddonsSteps extends BasePage {
 
     @When("I select delete button")
     public void iSelectDeleteButton() {
-        _page.addonDelete();
+       try {
+           _page.addonDelete();
+       }catch (Exception e){
+          wait(3);
+           _page.addonDelete();
+       }
     }
 
     @Then("I validate the delete addon")

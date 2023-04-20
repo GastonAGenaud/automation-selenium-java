@@ -100,7 +100,7 @@ Feature: addons
     Then I validate the created addon
 
 
-  @addons  @MTR-1544 @MTR
+  @addons @MTR-1544 @MTR
   Scenario: Eliminate an Add-on
     Given I login with Dev user
     And Admin Add-ons

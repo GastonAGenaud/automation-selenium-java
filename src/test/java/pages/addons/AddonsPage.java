@@ -258,7 +258,7 @@ public class AddonsPage extends BasePage {
             String result = addonsMainTitle.getText();
             return result;
         } catch (Exception e) {
-            wait(3);
+            wait(4);
             fluentWait(getDriver(), addonsMainTitle);
             String result = addonsMainTitle.getText();
             return result;
@@ -346,6 +346,7 @@ public class AddonsPage extends BasePage {
         }
 
     }
+
     public void addonServiceSubscription() {
         try {
             addonService();
@@ -460,31 +461,46 @@ public class AddonsPage extends BasePage {
 
     public void addonDelete() {
         try {
+            fluentWait(getDriver(), addOnsEditBtn);
             List<WebElement> deleteAddons = getDriver().findElements(By.xpath("//a[contains(text(), 'Delete')]"));
+            wait(2);
             for (WebElement addon : deleteAddons) {
+                wait(2);
                 if (addon.getText().contains("Delete")) {
                     wait(3);
                     fluentWaitStrict(getDriver(), addon);
                     waitForWebElementAndClick(addon);
                     fluentWaitStrict(getDriver(), acceptDeleteBtn);
                     waitForWebElementAndClick(acceptDeleteBtn);
-                   searchAddons();
-                   wait(3);
+                    wait(3);
+                    fluentWait(getDriver(), searchField);
+                    waitForWebElementAndClick(searchField);
+                    searchField.clear();
+                    searchField.sendKeys("Automation Test");
+                    searchField.sendKeys(Keys.ENTER);
+                    wait(3);
                 }
             }
         } catch (Exception e) {
 
-            wait(5);
+            wait(3);
             List<WebElement> deleteAddons = getDriver().findElements(By.xpath("//a[contains(text(), 'Delete')]"));
             for (WebElement addon : deleteAddons) {
-                fluentWait(getDriver(),addon);
+                wait(2);
+                fluentWait(getDriver(), addon);
                 if (addon.getText().contains("Delete")) {
                     wait(3);
                     fluentWaitStrict(getDriver(), addon);
                     waitForWebElementAndClick(addon);
                     fluentWaitStrict(getDriver(), acceptDeleteBtn);
                     waitForWebElementAndClick(acceptDeleteBtn);
-                    searchAddons();
+                    wait(3);
+                    fluentWait(getDriver(), searchField);
+                    waitForWebElementAndClick(searchField);
+                    searchField.clear();
+                    searchField.sendKeys("Automation Test");
+                    searchField.sendKeys(Keys.ENTER);
+                    wait(3);
                 }
             }
         }
