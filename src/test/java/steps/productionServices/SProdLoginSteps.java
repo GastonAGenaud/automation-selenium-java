@@ -195,4 +195,19 @@ public class SProdLoginSteps extends BasePage {
     public void iSelectTheSubmitPaymentButtonSERV() {
         _page.iSubmitPendingPaymentServ();
     }
+
+    @When("go to the message section")
+    public void goToTheMessageSection() {
+        _page.messageSection();
+    }
+
+    @And("I send message")
+    public void iSendMessage() {
+        _page.sendMessage();
+        _page.sendMediaMessage();
+    }
+
+    @Then("valid that send messages")
+    public void validThatSendMessages() {
+    }
 }

@@ -54,7 +54,7 @@ Feature: AdminPanel
     Then valid to save profile information
 
 
-  @MTR-6666
+  @MTR-6
   Scenario: Hire a Service - With all types of shipments
     Given I login with Gaston User in production services using cookies
     And go to Dashboard ServProd
@@ -68,4 +68,14 @@ Feature: AdminPanel
 
   @MTR-66
   Scenario: Orders view: Accept an order/ Reject an order/ Refund an order
+
+  @MTR-6666
+  Scenario: Send messages to users, including media (photos)
+    Given I login with Gaston10 User Verified in production services using cookies
+    And go to Dashboard ServProd
+    When go to the message section
+    And I send message
+    Then valid that send messages
+
+
 

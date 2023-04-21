@@ -150,7 +150,10 @@ public class SProdLoginPages extends BasePage {
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = "#prepare-checkout")
     public WebElement submitPaymentBtn;
-
+    @FindBy(how = How.CSS, using = "#dashboard-messages > a > div > div > div.col-lg-10.read-msg.pl-2")
+    public WebElement messageSection;
+    @FindBy(how = How.CSS, using = "#chat-message")
+    public WebElement chatField;
 
     public void goToLogin() {
         getHomePageProd();
@@ -890,6 +893,39 @@ public class SProdLoginPages extends BasePage {
             fluentWait(getDriver(), submitPaymentBtn);
             waitForWebElementAndClick(submitPaymentBtn);
         }
+    }
+
+    public void messageSection() {
+        try {
+            fluentWait(getDriver(), messageSection);
+            waitForWebElementAndClick(messageSection);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), messageSection);
+            waitForWebElementAndClick(messageSection);
+        }
+    }
+
+    public void sendMessage() {
+        try {
+            fluentWait(getDriver(), chatField);
+            waitForWebElementAndClick(chatField);
+            chatField.clear();
+            chatField.sendKeys("hi test");
+            chatField.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), chatField);
+            waitForWebElementAndClick(chatField);
+            chatField.clear();
+            chatField.sendKeys("hi test");
+            chatField.sendKeys(Keys.ENTER);
+        }
+
+    }
+
+    public void sendMediaMessage() {
+
     }
 
 }

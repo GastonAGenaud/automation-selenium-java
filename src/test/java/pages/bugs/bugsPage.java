@@ -1,12 +1,16 @@
 package pages.bugs;
 
+import io.cucumber.java.ja.且つ;
 import lombok.extern.java.Log;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Math.pow;
 import static java.lang.Math.random;
 
 public class bugsPage extends BasePage {
@@ -548,10 +553,13 @@ public class bugsPage extends BasePage {
     }
 
     public String loginFacebookField() {
-        fluentWait(getDriver(),loginFacebookField);
-        String result=loginFacebookField.getText();
+        fluentWait(getDriver(), loginFacebookField);
+        String result = loginFacebookField.getText();
         return result;
     }
+
+
+
 
     public String seenTimesText() {
         String result = seenTimesTxt.getText();
