@@ -1234,6 +1234,7 @@ public class bugsPage extends BasePage {
             waitForWebElementAndClick(trackingTextField);
             fluentWait(getDriver(), trackingTextField);
         } finally {
+            fluentWait(getDriver(), trackingTextField);
             trackingTextField.sendKeys("12345");
         }
 

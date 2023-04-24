@@ -30,22 +30,30 @@ public class ordersSteps extends BasePage {
     public void iGoToOrdersPage() {
         _page.goToOrders();
         _page.selectSoldBtn();
-       // _page.ordersPurchasedButton();
+        // _page.ordersPurchasedButton();
 
     }
 
     @When("I validate sold orders details")
     public void iValidateSoldOrdersDetails() {
-      //  _page.goToOrders();
-       // _page.shipmentValidatingTxt();
+        //  _page.goToOrders();
+        // _page.shipmentValidatingTxt();
         _page.ordersSoldDetails();
     }
 
     @And("I validate send message to buyer")
     public void iValidateSendMessageToBuyer() {
-        _page.goToOrders();
-        _page.selectSoldBtn();
-        _page.ordersSoldMessage();
+        try {
+            _page.goToOrders();
+            _page.selectSoldBtn();
+            _page.ordersSoldMessage();
+        } catch (Exception e) {
+            wait(3);
+            _page.goToOrders();
+            _page.selectSoldBtn();
+            _page.ordersSoldMessage();
+        }
+
     }
 
     @Then("I validate the sold open section")
@@ -83,7 +91,7 @@ public class ordersSteps extends BasePage {
 
     @Then("I validate the purchased open section")
     public void iValidateThePurchasedOpenSection() {
-        
+
         Assert.assertEquals(true, _page.purchasedOpenSection());
 
     }
@@ -111,15 +119,15 @@ public class ordersSteps extends BasePage {
         _page.goToOrders();
         _page.ordersPurchasedButton();
         _page.ordersShare();
-        
+
         _page.goToOrders();
-        
+
     }
 
     @And("I validate the request refund button")
     public void iValidateTheRequestRefundButton() {
         _page.ordersPurchasedButton();
-       // _page.requestTabBtn();
+        // _page.requestTabBtn();
         _page.ordersRequestRefund();
     }
 
@@ -160,7 +168,7 @@ public class ordersSteps extends BasePage {
         _page.ordersPurchasedButton();
         _page.seeDetailsValidateText();
         _page.ordersShare();
-        
+
     }
 
     @And("I validate the request refund button in complete status")
@@ -172,19 +180,19 @@ public class ordersSteps extends BasePage {
         //_page.ordersPurchasedTab2Button();
         //_page.ordersPurchasedTab2Button();
         _page.ordersRequestRefund();
-        
+
     }
 
     @Then("I validate the purchased pickup orders section")
     public void iValidateThePurchasedPickupOrdersSection() {
         _page.ordersPurchasedButton();
-        
+
         Assert.assertEquals(true, _page.validateRequestRefundSection());
     }
 
     @And("I select the show menu button")
     public void iSelectTheShowMenuButton() {
-       // _page.ordersPurchasedButton();
+        // _page.ordersPurchasedButton();
         _page.ordersShowMenu();
         //_page.ordersPendingResponse();
         _page.ordersShowShipmentPending();
