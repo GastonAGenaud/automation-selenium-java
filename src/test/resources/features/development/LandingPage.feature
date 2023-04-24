@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 Feature: Production Landing Page
 

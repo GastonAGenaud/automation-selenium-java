@@ -119,7 +119,7 @@ public class ReviewsPage extends BasePage {
 
     String randomEmail = rdm + Long.toString((int) random() * 1200);
     public void CreateAnAccountListingDetailsPROD(String text) {
-        getDriver().navigate().to(UrlProd);
+        getDriver().navigate().to(UrlDev);
 
         waitForVisibility(signUpNowBtn);
         fluentWaitStrict(getDriver(), signUpNowBtn);

@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 @search
 Feature: Search

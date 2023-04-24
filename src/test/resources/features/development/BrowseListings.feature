@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 @categoriesProduction
 Feature: Production Browse

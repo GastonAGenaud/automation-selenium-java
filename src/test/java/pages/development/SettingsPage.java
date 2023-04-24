@@ -127,10 +127,10 @@ public class SettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#phone-number-whatsapp")
     public WebElement phoneNumberTWO;
 
-    @FindBy(how = How.CSS, using = "#addresses-tab > span > span:nth-child(1)")
+    @FindBy(how = How.CSS, using = "#shipping-tab > span > span:nth-child(1)")
     public WebElement shippingTab;
 
-    @FindBy(how = How.CSS, using = "#addresses-tab-content > div.card.card-settings.mt-4.work-experience.px-3.px-sm-3.px-md-4.px-lg-5 > div > div:nth-child(3) > div.col-lg-4.d-flex.align-items-center > a > span")
+    @FindBy(how = How.CSS, using = "#linkNewInternationalAddress > span")
     public WebElement addNewAddressBtn;
 
     @FindBy(how = How.CSS, using = "#Name-international")
@@ -314,15 +314,17 @@ public class SettingsPage extends BasePage {
 
 
     public void addAddress() {
-        try {
-            fluentWait(getDriver(), addNewAddressBtn);
-            waitForWebElementAndClick(addNewAddressBtn);
-            retryingFindClick(addNewAddressBtn);
-        } catch (Exception e) {
-            fluentWait(getDriver(), addNewAddressBtn);
-            waitForWebElementAndClick(addNewAddressBtn);
-            retryingFindClick(addNewAddressBtn);
-        }
+        fluentWait(getDriver(), addNewAddressBtn);
+        waitForWebElementAndClick(addNewAddressBtn);
+//        try {
+//            fluentWait(getDriver(), addNewAddressBtn);
+//            waitForWebElementAndClick(addNewAddressBtn);
+//            retryingFindClick(addNewAddressBtn);
+//        } catch (Exception e) {
+//            fluentWait(getDriver(), addNewAddressBtn);
+//            waitForWebElementAndClick(addNewAddressBtn);
+//            retryingFindClick(addNewAddressBtn);
+//        }
     }
 
     public void dashboardShippingTab() {

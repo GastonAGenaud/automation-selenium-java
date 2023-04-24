@@ -93,7 +93,8 @@ public class ListingDetailsSteps extends BasePage {
 
     @Then("PROD I see that the price adjusts to the quantity")
     public void prodiSeeThatThePriceAdjustToTheQuantity() {
-        Assert.assertEquals("Earrings", _page.earringsTextConfirm());
+        _page.validateQuantity();
+//        Assert.assertEquals("Earrings", _page.earringsTextConfirm());
     }
 
     @When("PROD I select the buy now button")

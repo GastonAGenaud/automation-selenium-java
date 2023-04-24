@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 @prod
 Feature: PROD Signup

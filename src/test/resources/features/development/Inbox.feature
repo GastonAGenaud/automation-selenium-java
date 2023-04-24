@@ -1,5 +1,5 @@
 
-@prodProducts
+@devProducts
 Feature: Production Inbox
 
   @sendMessageMedia

@@ -26,7 +26,7 @@ public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div/div/div/div[1]/div/table/tbody/tr[1]/td[7]/select")
     public WebElement selectActionBtn;
 
-    @FindBy(how = How.CSS, using = "#selecte991c557-2c61-4711-8752-f49138529bec > option:nth-child(4)")
+    @FindBy(how = How.CSS, using = "#select1634c162-85d9-4677-bbff-392ce1c869cd > option:nth-child(4)")
     public WebElement impersonateBtn;
 
     @FindBy(how = How.CSS, using = "#navbar-nav > ul > li.dropdown.hidden-mobile > a")
@@ -35,7 +35,7 @@ public class AdminPanelPage extends BasePage {
     @FindBy(how = How.CSS, using = "#search")
     public WebElement searchUserInput;
 
-    @FindBy(how = How.CSS, using = "#display-name-3c5a88fb-a0b2-4ca5-a5ae-59f790fafbe6")
+    @FindBy(how = How.CSS, using = "#display-name-e31c7ff4-a743-47be-8007-5a2c2054f2dc")
     public WebElement userResultValidate;
 
     @FindBy(how = How.CSS, using = "#filter")
@@ -213,7 +213,7 @@ public class AdminPanelPage extends BasePage {
     }
 
     public void setUsersBtn() {
-        getDriver().navigate().to(UrlProd + "/Admin/User");
+        getDriver().navigate().to(UrlDev + "/Admin/User");
     }
 
     public void getCloseChat() {
@@ -234,35 +234,35 @@ public class AdminPanelPage extends BasePage {
     }
 
     public void siteWording() {
-        Assert.assertEquals(UrlProd + "admin/application/GlobalSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/GlobalSettings", getDriver().getCurrentUrl());
     }
 
     public void companyInfo() {
-        Assert.assertEquals(UrlProd + "admin/application/companyinfo", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/companyinfo", getDriver().getCurrentUrl());
     }
 
     public void paymentInfo() {
-        Assert.assertEquals(UrlProd + "admin/application/StripeSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/StripeSettings", getDriver().getCurrentUrl());
     }
 
     public void siteMetaTags() {
-        Assert.assertEquals(UrlProd + "admin/application/MetaTags", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/MetaTags", getDriver().getCurrentUrl());
     }
 
     public void requestsSetup() {
-        Assert.assertEquals(UrlProd + "admin/application/RequestsSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/RequestsSetup", getDriver().getCurrentUrl());
     }
 
     public void browseConfig() {
-        Assert.assertEquals(UrlProd + "admin/application/BrowseConfig", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/BrowseConfig", getDriver().getCurrentUrl());
     }
 
     public void smsSettings() {
-        Assert.assertEquals(UrlProd + "admin/application/SmsSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/SmsSettings", getDriver().getCurrentUrl());
     }
 
     public void ordersSetup() {
-        Assert.assertEquals(UrlProd + "admin/application/OrdersSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDev + "admin/application/OrdersSetup", getDriver().getCurrentUrl());
     }
 
 

@@ -804,7 +804,7 @@ public class bugsSteps extends BasePage {
 
     @When("buy the product")
     public void buyTheProduct() {
-        navigateTo(UrlProduct);
+        navigateTo(UrlDevuct);
         _page.buyProduct();
     }
 
@@ -845,7 +845,7 @@ public class bugsSteps extends BasePage {
     @And("select my newly created product")
     public void selectMyNewlyCreatedProduct() {
         _page.selectMyNewlyProduct();
-        _page.saveTheUrlProduct();
+        _page.saveTheUrlDevuct();
     }
 
 

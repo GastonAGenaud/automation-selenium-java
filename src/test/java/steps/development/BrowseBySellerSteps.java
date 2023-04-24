@@ -26,7 +26,7 @@ public class BrowseBySellerSteps extends BasePage {
 
     @And("go to Browse By Seller")
     public void goToBrowseBySeller() {
-        getDriver().navigate().to(UrlProd + "Listing/BrowseBySeller");
+        getDriver().navigate().to(UrlDev + "Listing/BrowseBySeller");
     }
 
     @When("select Accessories BBS")

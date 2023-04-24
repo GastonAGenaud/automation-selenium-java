@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 Feature: Production Listing details
 
@@ -22,7 +22,7 @@ Feature: Production Listing details
     # When PROD  I select the variant colors
    # Then PROD I validate the variants
 
-  @ProductionDetails
+  @ProductionDetails1
   Scenario: Select item quantity
     Given I login with Gaston User in production products using cookies
     And PROD I go to the listing details page

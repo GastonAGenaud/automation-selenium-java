@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 @prod @prodLogin
 Feature: Production Login

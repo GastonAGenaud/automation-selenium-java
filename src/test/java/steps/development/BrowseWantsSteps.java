@@ -26,6 +26,6 @@ public class BrowseWantsSteps extends BasePage {
 
     @And("go to Browse Request")
     public void goToBrowseRequest() {
-        getDriver().navigate().to(UrlProd + "Want/browse");
+        getDriver().navigate().to(UrlDev + "Want/browse");
     }
 }

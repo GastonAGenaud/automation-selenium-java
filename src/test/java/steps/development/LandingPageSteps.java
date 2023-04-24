@@ -22,7 +22,7 @@ public class LandingPageSteps extends BasePage {
 //    }
     @And("go to Landing Page")
     public void goToLandingPage() {
-        getDriver().navigate().to("https://lizcolemp.mymarketplacebuilder.com/Admin/Application/LandingCustomize#!");
+        getDriver().navigate().to(UrlDev + "Admin/Application/LandingCustomize");
     }
 
     @When("select Header")

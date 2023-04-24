@@ -1,4 +1,4 @@
-@prodProducts
+@devProducts
 
 @prod @prodSettings
 Feature: Production Settings
@@ -68,7 +68,7 @@ Feature: Production Settings
     And select the Save Changes button
     Then I validate Deactivate Notifications
 
-  @TestingAddAddress
+  @TestingAddAddress1
   Scenario: Add Address
     Given I login with Gaston User in production products using cookies
     And go to dashboard

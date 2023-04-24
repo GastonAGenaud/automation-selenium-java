@@ -174,8 +174,16 @@ public class ListingDetailsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#reviews > div > div.d-flex.justify-content-end.mb-3")
     public WebElement reviewsSector;
-    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/div/span[1]")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[3]/a/div/div[2]/span[1]")
     public WebElement seenTimesTxt;
+
+    @FindBy(how = How.CSS, using = "#quantity")
+    public WebElement quantityDisplayed;
+
+    public void validateQuantity(){
+        fluentWait(getDriver(), quantityDisplayed);
+        Assert.assertTrue(quantityDisplayed.isDisplayed());
+    }
 
 
     public void reviewsSectorValidate() {
@@ -246,34 +254,34 @@ public class ListingDetailsPage extends BasePage {
 
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlProd);
+        getDriver().navigate().to(UrlDev);
     }
 
 
     public void goToLoginPage() {
-        getDriver().navigate().to(UrlProd + "/Account/Login");
+        getDriver().navigate().to(UrlDev + "/Account/Login");
     }
 
 
     public void goToListingPage() {
-        getDriver().navigate().to(UrlProd + "/Listing/Browse");
+        getDriver().navigate().to(UrlDev + "/Listing/Browse");
     }
 
     public void goToShoppingCart() {
-        getDriver().navigate().to(UrlProd + "/Order/ShoppingCart");
+        getDriver().navigate().to(UrlDev + "/Order/ShoppingCart");
     }
 
     public void goToItem() {
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1101");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1101");
     }
 
 
     public void goToListingItem() {
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
     }
 
     public void goToSpecificItem() {
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
     }
 
 
@@ -299,7 +307,7 @@ public class ListingDetailsPage extends BasePage {
                     String id = category.getAttribute("id");
                     wait(5);
                     String replace = id.replace("-cat", "");
-                    getDriver().navigate().to(UrlProd + "listing/detail/" + replace);
+                    getDriver().navigate().to(UrlDev + "listing/detail/" + replace);
                     break;
 
                 }
@@ -316,7 +324,7 @@ public class ListingDetailsPage extends BasePage {
                     String id = category.getAttribute("id");
                     String replace = id.replace("-cat", "");
                     wait(5);
-                    getDriver().navigate().to(UrlProd + "listing/detail/" + replace);
+                    getDriver().navigate().to(UrlDev + "listing/detail/" + replace);
                     break;
                 }
             }
@@ -350,7 +358,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public void goToProductHottestItems() {
-        getDriver().navigate().to(UrlProd + "/Listing/Detail/991");
+        getDriver().navigate().to(UrlDev + "/Listing/Detail/991");
     }
 
     public void selectProductHottestItems() {
@@ -401,7 +409,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public void goToHottestItemsDetail() {
-        getDriver().navigate().to(UrlProd + "/Listing/Browse?CategoryId=320");
+        getDriver().navigate().to(UrlDev + "/Listing/Browse?CategoryId=320");
     }
 
     public boolean sellerMessageConfirm() {
@@ -581,7 +589,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public void iGoToMakingOfferPage() {
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
 
     }
 
@@ -684,20 +692,20 @@ public class ListingDetailsPage extends BasePage {
         fluentWait(getDriver(), jewelryBtn);
         waitForWebElementAndClick(jewelryBtn);
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         fluentWait(getDriver(), earringsBtn);
         waitForWebElementAndClick(earringsBtn);
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         fluentWait(getDriver(), accessoriesBtn);
         waitForWebElementAndClick(accessoriesBtn);
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         fluentWait(getDriver(), homeAndLivingBtn);
         waitForWebElementAndClick(homeAndLivingBtn);
 
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         fluentWait(getDriver(), clothingBtn);
         waitForWebElementAndClick(clothingBtn);
 
@@ -707,14 +715,14 @@ public class ListingDetailsPage extends BasePage {
         fluentWait(getDriver(), wristBandCoolBtn);
         waitForWebElementAndClick(wristBandCoolBtn);
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         fluentWait(getDriver(), testPickupBtn);
         waitForWebElementAndClick(testPickupBtn);
     }
 
     public void iSelectSeeAllFromSeller() {
 
-        getDriver().navigate().to(UrlProd + "Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "Listing/Detail/1041");
         waitForVisibility(moreFromThisSellerSeeAllBtn);
         waitForClickability(moreFromThisSellerSeeAllBtn);
         fluentWait(getDriver(), moreFromThisSellerSeeAllBtn);
@@ -735,7 +743,7 @@ public class ListingDetailsPage extends BasePage {
             waitForWebElementAndClick(submitBtn);
 //        retryingFindClick(submitBtn);
             validateTextFirst();
-            getDriver().navigate().to(UrlProd + "/Listing/Detail/1041");
+            getDriver().navigate().to(UrlDev + "/Listing/Detail/1041");
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), howOld);
@@ -749,7 +757,7 @@ public class ListingDetailsPage extends BasePage {
             waitForWebElementAndClick(submitBtn);
 //        retryingFindClick(submitBtn);
             validateTextFirst();
-            getDriver().navigate().to(UrlProd + "/Listing/Detail/1041");
+            getDriver().navigate().to(UrlDev + "/Listing/Detail/1041");
         }
     }
 
@@ -837,7 +845,7 @@ public class ListingDetailsPage extends BasePage {
             waitForWebElementAndClick(submitBtn);
 //        retryingFindClick(submitBtn);
             validateTextFirst();
-            getDriver().navigate().to(UrlProd + "/Listing/Detail/1041");
+            getDriver().navigate().to(UrlDev + "/Listing/Detail/1041");
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), howOld);
@@ -851,12 +859,12 @@ public class ListingDetailsPage extends BasePage {
             waitForWebElementAndClick(submitBtn);
 //        retryingFindClick(submitBtn);
             validateTextFirst();
-            getDriver().navigate().to(UrlProd + "/Listing/Detail/1041");
+            getDriver().navigate().to(UrlDev + "/Listing/Detail/1041");
         }
     }
 
     public void selectItemBtn() {
-        getDriver().navigate().to(UrlProd + "/Listing/Detail/1041");
+        getDriver().navigate().to(UrlDev + "/Listing/Detail/1041");
 
     }
 

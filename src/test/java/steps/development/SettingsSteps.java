@@ -1,5 +1,6 @@
 package steps.development;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,13 +22,13 @@ public class SettingsSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-//        _page.loginWithGastonUserProdProducts();
-//
-//}
+//      _page.loginWithGastonUserProdProducts();
+//      _page.loginWithDevProd();
+//    }
 
     @And("go to dashboard")
     public void goToDashboard() {
-        getDriver().navigate().to(UrlProd + "/dashboard");
+        getDriver().navigate().to(UrlDev + "/dashboard");
     }
 
     @When("I select settings")
