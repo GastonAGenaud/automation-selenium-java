@@ -1058,7 +1058,7 @@ public class bugsPage extends BasePage {
 
     public void goToItemBUG() {
         goToListingPage();
-        getDriver().navigate().to(UrlProduct);
+        getDriver().navigate().to(url);
     }
 
     public void selectAddToCartBUG() {

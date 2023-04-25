@@ -1,7 +1,7 @@
 @MTR-1575
 Feature: addons
 
-  #@addons  @MTR-3307 @MTR
+  @addons  @MTR-3307 @MTR
   Scenario: MTR - Addons-FedEx- Validate the shipping with FedEx
     Given I login with Gaston User
     And I go to dashboard
