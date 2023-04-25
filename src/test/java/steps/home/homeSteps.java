@@ -382,26 +382,13 @@ public class homeSteps extends BasePage {
         sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "makeAnOffer");
     }
 
-    /*@Before
-    public void lallallallal() throws IOException {
-        _page.loginWithGastonNoBorrar();
-        _page.loginWithGastonUser();
-        _page.loginWithDev();
-        _page.loginWithMakeAnOffer();
-    }
-
-    */
-  /*  @Before
-    public void test () throws IOException {
-        //loginWithMakeAnOffer();
-        generateLoginWithGastonUser();
-       // loginWithDev();
-        loginWithGastonNoBorrar();
-    }
-
-   */
-
-
+//    @Before
+//    public void loginForProducts() throws IOException {
+//        _page.loginWithGastonNoBorrar();
+////        _page.generateLoginWithGastonUser();
+////        _page.loginWithDev();
+//        _page.loginWithMakeAnOffer();
+//    }
 
 
     @Given("I login with Gaston User")
@@ -433,8 +420,6 @@ public class homeSteps extends BasePage {
 
      */
 
-
-
     @Given("I login with Gaston User Stripe")
     public void loginWithGastonUserStripe() {
         try {
@@ -456,14 +441,6 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUserVerifyStripe");
         }
     }
-  /* @Before
-    public void test() throws IOException {
-        _page.loginWithGastonUserProdServices();
-        _page.loginWithDevProd();
-    }
-
-   */
-
 
     @Given("I login with Gaston User in production services using cookies")
     public void loginWithGastonUserStepsProdServices() {
@@ -536,19 +513,6 @@ public class homeSteps extends BasePage {
         getDriver().navigate().refresh();
         sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "DevUser");
     }
-//    @Before
-//    public void test () throws IOException {
-//        loginWithMakeAnOffer();
-//        loginWithGastonUserSVC();
-//        loginDevSVC();
-//        generateLoginWithGastonUser();
-//        loginWithGastonUserProdProducts();
-//        loginWithDev();
-//        loginWithMatiasOwl();
-//        loginWithGastonNoBorrar();
-//        loginWithGastonUserProdServices();
-//        loginWithDevProd();
-//    }
 
     @Given("I login with Dev user Prod")
     public void loginWithDevStepsProd() {
@@ -567,14 +531,8 @@ public class homeSteps extends BasePage {
 
         getDriver().navigate().refresh();
     }
-   /* @Before
-    public void test () throws IOException {
-        loginWithGastonNoBorrar();
-    }
 
-    */
-
-    @Given("I login with Gaston No Borrar")
+  @Given("I login with Gaston No Borrar")
     public void loginWithGastonNoBorrarSteps() {
         sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonNoBorrarUser");
 

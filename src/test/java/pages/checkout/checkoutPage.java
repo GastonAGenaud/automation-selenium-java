@@ -279,17 +279,23 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectAddToCart() {
-        try {
-            fluentWaitStrict(getDriver(), addToCartBtn);
-            waitForClickability(addToCartBtn);
-            waitForWebElementAndClick(addToCartBtn);
-            waitForWebElementAndClick(addToCartBtn);
-            retryingFindClick(addToCartBtn);
-        } catch (Exception e) {
-            wait(2);
-            fluentWait(getDriver(), addToCartBtn);
-            waitForWebElementAndClick(addToCartBtn);
-        }
+        fluentWaitStrict(getDriver(), addToCartBtn);
+        waitForWebElementAndClick(addToCartBtn);
+
+        fluentWaitStrict(getDriver(), addtoCartMessage);
+        Assert.assertTrue(addtoCartMessage.isDisplayed());
+//        try {
+//            fluentWaitStrict(getDriver(), addToCartBtn);
+//            waitForClickability(addToCartBtn);
+//            waitForWebElementAndClick(addToCartBtn);
+//            waitForWebElementAndClick(addToCartBtn);
+//            Assert.assertTrue(addtoCartMessage.isDisplayed());
+//            retryingFindClick(addToCartBtn);
+//        } catch (Exception e) {
+//            wait(2);
+//            fluentWait(getDriver(), addToCartBtn);
+//            waitForWebElementAndClick(addToCartBtn);
+//        }
     }
 
     public void selectCartIcon() {

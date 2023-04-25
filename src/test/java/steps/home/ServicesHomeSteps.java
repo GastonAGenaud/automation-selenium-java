@@ -30,6 +30,8 @@ public class ServicesHomeSteps extends BasePage {
     @When("SVC I select browse services")
     public void iSelectBrowseServices() {
         _page.headerBrowseServices();
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
     }
 
     @And("SVC I select login")
@@ -185,6 +187,8 @@ public class ServicesHomeSteps extends BasePage {
 
     @And("SVC I select footer log in button")
     public void iSelectFooterLogInButton() {
+        getDriver().manage().deleteAllCookies();
+        getDriver().navigate().refresh();
         _page.footerLogin();
     }
 

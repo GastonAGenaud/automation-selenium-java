@@ -22,7 +22,7 @@ public class ServicesOrdersSteps extends BasePage {
 
     @Given("SVC I login and go to orders page")
     public void svcILoginAndGoToOrdersPage(){
-        getDriver().navigate().to("https://mtreborn-automation-services.azurewebsites.net/");
+        getDriver().navigate().to(UrlSVC);
         _page.iLoginWithGastonUserServices();
         _page.goToDashboard();
         _page.goToOrders();
