@@ -8,7 +8,7 @@ Feature: Bugs
     And I validate send message to seller
     Then I validate the purchased open section
 
-  @MTR @MTR-1923 @bugs
+   @MTR-1923 @bugs @CAPTCHA
   Scenario: MTR - Create my marketplace builder account and go to admin panel
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When I type on name field

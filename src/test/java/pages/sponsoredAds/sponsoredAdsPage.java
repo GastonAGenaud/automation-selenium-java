@@ -146,9 +146,17 @@ public class sponsoredAdsPage extends BasePage {
     }
 
     public boolean successPublishAdText() {
-        fluentWait(getDriver(), successPublishAdTxt);
-        boolean result = successPublishAdTxt.isDisplayed();
-        return result;
+        try {
+            fluentWait(getDriver(), successPublishAdTxt);
+            boolean result = successPublishAdTxt.isDisplayed();
+            return result;
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), successPublishAdTxt);
+            boolean result = successPublishAdTxt.isDisplayed();
+            return result;
+        }
+
 
     }
 

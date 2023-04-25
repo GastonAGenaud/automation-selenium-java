@@ -180,7 +180,7 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("valid that can hire the service")
     public void validThatCanHireTheService() {
-        Assert.assertEquals("Congratulations! You just bought:",_page.validateHireServices());
+        Assert.assertEquals("Congratulations! You just bought:", _page.validateHireServices());
     }
 
     @And("enter the new Credit Card")
@@ -194,5 +194,49 @@ public class SProdLoginSteps extends BasePage {
     @And("I select the Submit Payment Button SERV")
     public void iSelectTheSubmitPaymentButtonSERV() {
         _page.iSubmitPendingPaymentServ();
+    }
+
+    @When("go to the message section")
+    public void goToTheMessageSection() {
+        _page.messageSection();
+    }
+
+    @And("I send message")
+    public void iSendMessage() {
+        _page.sendMediaMessage();
+        _page.cropButton();
+        _page.sendMediaMessageAppendix();
+    }
+
+    @Then("valid that send messages")
+    public void validThatSendMessages() {
+        Assert.assertTrue(_page.validateSendMessageIncludingMedia());
+    }
+
+    @When("go to Browse Request ServProd")
+    public void goToBrowseRequestServProd() {
+        _page.goToBrowseRequestServ();
+    }
+
+    @And("i select the request")
+    public void iSelectTheRequest() {
+        _page.selectTheRequest();
+    }
+
+    @And("i select apply")
+    public void iSelectApply() {
+        _page.selectApply();
+    }
+
+    @And("complete the form ServProd")
+    public void completeTheFormServProd() {
+        _page.enterMessage();
+        _page.enterStartDate();
+        _page.endTimeField();
+        _page.applyField();
+    }
+
+    @Then("valid Request a quote")
+    public void validRequestAQuote() {
     }
 }

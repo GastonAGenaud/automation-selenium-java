@@ -414,7 +414,7 @@ public class homeSteps extends BasePage {
     }
 
     /*@Before
-    public void lallallallal() throws IOException {
+    public void dev() throws IOException {
         _page.generateLoginWithGastonUserVerifyStripe();
     }
 
@@ -463,16 +463,14 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUserProd");
         }
     }
-    /* @Before
+ /*    @Before
     public void test() throws IOException {
-        _page.loginWithGastonUserProdServices();
-        _page.loginWithDevProd();
+      //  _page.loginWithGastonUserProdServices();
+       // _page.loginWithDevProd();
         _page.loginWithGaston10UserProdServices();
     }
 
-   */
-
-
+  */
     @Given("I login with Gaston10 User Verified in production services using cookies")
     public void loginWithGaston10UserVerifiedProdServices() {
         try {
@@ -494,15 +492,6 @@ public class homeSteps extends BasePage {
             sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "Gaston10NoBorrarProd");
         }
     }
-
-    /*@Before
-    public void test() throws IOException {
-        loginWithDev();
-        loginWithMakeAnOffer();
-    }
-
-     */
-
 
     @Given("I login with Dev user")
     public void loginWithDevSteps() {

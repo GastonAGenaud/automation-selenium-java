@@ -98,12 +98,14 @@ public class AddonsSteps extends BasePage {
 
     @When("I select delete button")
     public void iSelectDeleteButton() {
-       try {
-           _page.addonDelete();
-       }catch (Exception e){
-          wait(3);
-           _page.addonDelete();
-       }
+        try {
+            _page.addonDelete();
+        } catch (Exception e) {
+            wait(3);
+            _page.addonDelete();
+        } finally {
+            _page.addonDelete();
+        }
     }
 
     @Then("I validate the delete addon")
@@ -132,10 +134,10 @@ public class AddonsSteps extends BasePage {
         Assert.assertEquals("ZIP", _page.validateFedExZip());
         Assert.assertEquals("Country", _page.validateFedExCountry());
         Assert.assertEquals("Weight (lbs)", _page.validateFedExWeightLbs());
-    //    Assert.assertEquals("Weight (oz)", _page.validateFedExWeightOz());
-    //    Assert.assertEquals("Length (in)", _page.validateFedExLength());
-    //    Assert.assertEquals("Width (in)", _page.validateFedExWidth());
-    //    Assert.assertEquals("Height (in)", _page.validateFedExHeight());
+        //    Assert.assertEquals("Weight (oz)", _page.validateFedExWeightOz());
+        //    Assert.assertEquals("Length (in)", _page.validateFedExLength());
+        //    Assert.assertEquals("Width (in)", _page.validateFedExWidth());
+        //    Assert.assertEquals("Height (in)", _page.validateFedExHeight());
         Assert.assertEquals("Phone number", _page.validateFedExPhoneNumber());
     }
 

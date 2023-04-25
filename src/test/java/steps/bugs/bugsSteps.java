@@ -857,4 +857,6 @@ public class bugsSteps extends BasePage {
     public void validateSignUpWithFacebookText() {
         Assert.assertEquals("Signup with Facebook", _page.loginFacebookField());
     }
+
+
 }
