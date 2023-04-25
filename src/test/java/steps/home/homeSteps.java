@@ -384,9 +384,9 @@ public class homeSteps extends BasePage {
 
     //@Before
     public void loginForProducts() throws IOException {
-        _page.loginWithGastonNoBorrar();
-       _page.generateLoginWithGastonUser();
+        _page.generateLoginWithGastonUser();
         _page.loginWithDev();
+        _page.loginWithGastonNoBorrar();
         _page.loginWithMakeAnOffer();
     }
 

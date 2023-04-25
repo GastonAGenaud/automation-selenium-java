@@ -15,7 +15,7 @@ Feature: Services Orders
     And SVC I validate close section in purchased
     Then SVC I validate purchased section
 
-  @MMRS-915 @MMRS @MMRSOrders
+  @MMRS-915 @MMRSOrders
   Scenario: SVC Orders - Sort by
     Given SVC I login and go to orders page
     When SVC I select sort by all

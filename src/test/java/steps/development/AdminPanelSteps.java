@@ -19,11 +19,12 @@ public class AdminPanelSteps extends BasePage {
         this._page = new AdminPanelPage();
     }
 
-//    @Before
-//    public void testSignup() throws IOException {
-//      _page.loginWithGastonUserProdProducts();
-//      _page.loginWithDevProd();
-//    }
+   // @Before
+    public void testSignup() throws IOException {
+      _page.loginDevSVC();
+      _page.loginWithGastonUserSVC();
+      _page.loginWithMatiasOwl();
+    }
 
     @When("I select Users tab")
     public void iSelectUsersTab() {

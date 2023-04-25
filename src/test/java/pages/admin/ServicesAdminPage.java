@@ -1589,7 +1589,7 @@ public class ServicesAdminPage extends BasePage {
 
         try {
             fluentWait(getDriver(), getDriver().findElement(By.id("custom-fields")));
-            List<WebElement> elements = getDriver().findElements(By.xpath("//[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
+            List<WebElement> elements = getDriver().findElements(By.xpath("//*[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
             try {
                 getCloseChat();
             } catch (Exception e) {
@@ -1603,7 +1603,7 @@ public class ServicesAdminPage extends BasePage {
         } catch (Exception e) {
             wait(5);
             fluentWait(getDriver(), getDriver().findElement(By.id("custom-fields")));
-            List<WebElement> elements = getDriver().findElements(By.xpath("//[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
+            List<WebElement> elements = getDriver().findElements(By.xpath("//*[@class='btn dropdown-action-listing dropdown-toggle pt-0']"));
             WebElement lastElement = elements.get(elements.size() - 1);
             waitForWebElementAndClick(lastElement);
             WebElement spanElement = lastElement.findElement(By.xpath("//a[contains(text(), 'Delete')]"));
