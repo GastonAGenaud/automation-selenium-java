@@ -25,7 +25,7 @@ public class BrowseListingSteps extends BasePage {
 
     @And("go to Listing Page")
     public void goToListingPage() {
-        getDriver().navigate().to("https://lizcolemp.mymarketplacebuilder.com/Listing/Browse");
+        getDriver().navigate().to("https://mtreborn-dev-products.azurewebsites.net/Listing/Browse");
     }
 
     @When("select Accessories")

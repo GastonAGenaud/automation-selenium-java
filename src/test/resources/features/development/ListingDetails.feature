@@ -54,7 +54,7 @@ Feature: Production Listing details
 #    And PROD I complete the Delivery Date TextField
 #    Then PROD I validate the Make an offer message TextField
 
-  @ProductionDetailsTEST
+  @ProductionDetailsTESTListingTabs
   Scenario: Viewing listing tabs
     Given I login with Gaston User in production products using cookies
     And PROD I go to the listing details page
@@ -94,7 +94,7 @@ Feature: Production Listing details
     When PROD I select see all redirect button
     Then PROD I see that redirects me to the seller profile
 
-  @ProductionDetails
+  @ProductionDetails2
   Scenario: Viewing the category and subcategory
     Given I login with Gaston User in production products using cookies
     And select My Listings button

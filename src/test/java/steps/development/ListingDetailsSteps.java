@@ -194,10 +194,10 @@ public class ListingDetailsSteps extends BasePage {
     @And("PROD valid if the category is shown on the product page")
     public void prodValidIfTheCategoryIsShownOnTheProductPage() {
         try {
-            Assert.assertEquals("Hottest Items", _page.HottestItemsDetail());
+            Assert.assertEquals("Jewerly", _page.HottestItemsDetail());
         } catch (Exception e) {
             _page.validHottestItemsCategory();
-            Assert.assertEquals("Hottest Items", _page.HottestItemsDetail());
+            Assert.assertEquals("Jewerly", _page.HottestItemsDetail());
         }
     }
 
@@ -209,7 +209,7 @@ public class ListingDetailsSteps extends BasePage {
 
     @Then("PROD valid if the category is selected")
     public void prodValidIfTheCategoryIsSelected() {
-        Assert.assertEquals("Hottest Items", _page.HottestItemsCategory());
+        Assert.assertEquals("Jewerly", _page.HottestItemsCategory());
     }
 
     @And("PROD I add a name text field")

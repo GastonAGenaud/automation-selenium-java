@@ -97,9 +97,9 @@ public class ListingDetailsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#pending-tab > span")
     public WebElement pendingBtn;
 
-    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
+    @FindBy(how = How.CSS, using = "#listing-category-1")
     public WebElement hottestItemsCategory;
-    @FindBy(xpath = "/html/body/div[4]/main/div[1]/div/div/div[2]/div[2]/div[1]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/div[1]/div[1]/label")
     public WebElement hottestItemsDetail;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div/div/div[2]/div/a/h5")
     public WebElement productHottestItems;
@@ -298,10 +298,10 @@ public class ListingDetailsPage extends BasePage {
 
     public void validHottestItemsCategory() {
         try {
-            fluentWaitStrict(getDriver(), nextBtn);
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+//            fluentWaitStrict(getDriver(), nextBtn);
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Jewelry')]"));
             for (WebElement category : hottestItemsList) {
-                if (category.getText().contains("Hottest Items")) {
+                if (category.getText().contains("Jewelry")) {
                     wait(3);
                     fluentWaitStrict(getDriver(), category);
                     String id = category.getAttribute("id");
@@ -313,13 +313,13 @@ public class ListingDetailsPage extends BasePage {
                 }
             }
         } catch (Exception e) {
-            fluentWait(getDriver(), nextPageBtn);
-            waitForWebElementAndClick(nextPageBtn);
-            fluentWait(getDriver(), pendingBtn);
+//            fluentWait(getDriver(), nextPageBtn);
+//            waitForWebElementAndClick(nextPageBtn);
+//            fluentWait(getDriver(), pendingBtn);
             wait(5);
-            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Hottest Items')]"));
+            List<WebElement> hottestItemsList = getDriver().findElements(By.xpath("//*[contains(text(), 'Jewelry')]"));
             for (WebElement category : hottestItemsList) {
-                if (category.getText().contains("Hottest Items")) {
+                if (category.getText().contains("Jewelry")) {
                     wait(3);
                     String id = category.getAttribute("id");
                     String replace = id.replace("-cat", "");
@@ -385,6 +385,7 @@ public class ListingDetailsPage extends BasePage {
 
     public String HottestItemsCategory() {
         try {
+            fluentWait(getDriver(), hottestItemsCategory);
             String result = hottestItemsCategory.getText();
             return result;
         } catch (Exception e) {
@@ -656,19 +657,17 @@ public class ListingDetailsPage extends BasePage {
 
 
     public void iSelectTheProductInformation() {
-        waitForVisibility(productInformationBtn);
-        waitForClickability(productInformationBtn);
-        fluentWait(getDriver(), productInformationBtn);
+        fluentWaitStrict(getDriver(), productInformationBtn);
         waitForWebElementAndClick(productInformationBtn);
 
 
-        fluentWait(getDriver(), shippingBtn);
+        fluentWaitStrict(getDriver(), shippingBtn);
         waitForWebElementAndClick(shippingBtn);
 
-        fluentWait(getDriver(), reviewsBtn);
+        fluentWaitStrict(getDriver(), reviewsBtn);
         waitForWebElementAndClick(reviewsBtn);
 
-        fluentWait(getDriver(), returnsAndRefundsBtn);
+        fluentWaitStrict(getDriver(), returnsAndRefundsBtn);
         waitForWebElementAndClick(returnsAndRefundsBtn);
 
     }

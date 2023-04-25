@@ -123,7 +123,7 @@ public class ListingsPage extends BasePage {
     @FindBy(xpath = "//option[contains(text(), 'Good')]")
     public WebElement goodOption;
 
-    @FindBy(how = How.CSS, using = "#dashboard > div.row")
+    @FindBy(how = How.CSS, using = "body > div > div.card.card-vertical.mb-3 > div")
     public WebElement validateListing;
 
     public void validatingListing() {
@@ -219,19 +219,19 @@ public class ListingsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlSVC);
+        getDriver().navigate().to(UrlDev);
     }
 
     public void goToListingPage() {
-        getDriver().navigate().to(UrlSVC + "/dashboard/MyListings");
+        getDriver().navigate().to(UrlDev + "/dashboard/MyListings");
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(UrlSVC + "/Account/Login");
+        getDriver().navigate().to(UrlDev + "/Account/Login");
     }
 
     public void goToDashboardPage() {
-        getDriver().navigate().to(UrlSVC + "/dashboard");
+        getDriver().navigate().to(UrlDev + "/dashboard");
     }
 
     public void myListingButton() {
