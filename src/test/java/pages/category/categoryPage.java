@@ -189,6 +189,10 @@ public class categoryPage extends BasePage {
         } catch (Exception e) {
 
         }
+        finally {
+            getDriver().switchTo().defaultContent();
+        }
+
 
     }
 

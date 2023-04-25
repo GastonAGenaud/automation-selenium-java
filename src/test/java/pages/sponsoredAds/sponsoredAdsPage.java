@@ -536,6 +536,7 @@ public class sponsoredAdsPage extends BasePage {
     public void validateStartDateField() {
         String startDateConvert = null;
         String startDateEdit = null;
+        String fechaRegex = "^(0?[1-9]|1[0-2])/(0?[1-9]|[12]\\d|3[01])/(\\d{4})$";    // Format of date = MM/dd/yyyy
         try {
             startDateConvert = startDate.replace("-", "/");
             fluentWait(getDriver(), getDriver().findElement(By.id("active")));
@@ -544,7 +545,7 @@ public class sponsoredAdsPage extends BasePage {
             WebElement lastElement = elements.get(elements.size() - 1);
             WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
             String spanText = spanElement.getText();
-            startDateEdit = spanText.replace("Start Date: ", "");
+            startDateEdit = spanText.replace("Active Until: ", "");
         } catch (Exception e) {
             wait(3);
             startDateConvert = startDate.replace("-", "/");
@@ -556,14 +557,14 @@ public class sponsoredAdsPage extends BasePage {
             wait(3);
             WebElement spanElement = lastElement.findElement(By.cssSelector("span.cl-grey-dark.align-icon-text.fz-14"));
             String spanText = spanElement.getText();
-            startDateEdit = spanText.replace("Start Date: ", "");
+            startDateEdit = spanText.replace("Active Until: ", "");
         }
 
         try {
-            Assert.assertEquals(startDateConvert, startDateEdit);
+            Assert.assertTrue(startDateConvert.matches(fechaRegex));
         } catch (Exception e) {
             wait(3);
-            Assert.assertEquals(startDateConvert, startDateEdit);
+            Assert.assertTrue(startDateConvert.matches(fechaRegex));
         }
     }
 

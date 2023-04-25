@@ -43,7 +43,7 @@ public class bugsPage extends BasePage {
     public WebElement passwordLoginInput;
     @FindBy(how = How.CSS, using = "#login > div.d-flex.justify-content-end.mt-4 > button")
     public WebElement logInBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[4]/div/div/div/div[2]/div[1]/div[4]/div/input[1]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[4]/div/input[1]")
     public WebElement trackingTextField;
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[4]/a[1]")
     public WebElement acceptBtn;
@@ -1058,7 +1058,7 @@ public class bugsPage extends BasePage {
 
     public void goToItemBUG() {
         goToListingPage();
-        getDriver().navigate().to(url);
+        getDriver().navigate().to(UrlDevuct);
     }
 
     public void selectAddToCartBUG() {
@@ -1221,6 +1221,9 @@ public class bugsPage extends BasePage {
             waitForWebElementAndClick(acceptBtn);
             fluentWait(getDriver(), acceptBtn);
         }
+        finally {
+            fluentWait(getDriver(), trackingTextField);
+        }
     }
 
     public void setTrackingTextField() {
@@ -1228,14 +1231,15 @@ public class bugsPage extends BasePage {
         try {
             fluentWait(getDriver(), trackingTextField);
             waitForWebElementAndClick(trackingTextField);
-            fluentWait(getDriver(), trackingTextField);
+            trackingTextField.sendKeys("12345");
         } catch (Exception e) {
             wait(4);
             fluentWait(getDriver(), trackingTextField);
             waitForWebElementAndClick(trackingTextField);
-            fluentWait(getDriver(), trackingTextField);
+            trackingTextField.sendKeys("12345");
         } finally {
             fluentWait(getDriver(), trackingTextField);
+            trackingTextField.clear();
             trackingTextField.sendKeys("12345");
         }
 

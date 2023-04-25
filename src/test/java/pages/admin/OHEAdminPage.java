@@ -386,7 +386,7 @@ public class OHEAdminPage extends BasePage {
     public WebElement addOnsFilterTextField;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div/section/div/div[2]/button")
     public WebElement addOnsFilterBtn;
-    @FindBy(how =How.CSS,using = "#listingAddon > div > div > div")
+    @FindBy(how = How.CSS, using = "#listingAddon > div > div > div")
     public WebElement explainerVideoBtn;
     @FindBy(how = How.CSS, using = "#listingAddon > div > div:nth-child(1) > div.d-flex.justify-content-around.mb-2 > a:nth-child(1)")
     public WebElement addOnsEditBtn;
@@ -468,16 +468,16 @@ public class OHEAdminPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/main/div[1]/div/div/div/div[3]/div[2]/div[1]/div[4]/a/span")
     public WebElement ShowInBrowseCheckboxCustomFields;
 
-    @FindBy (how = How.CSS,using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
+    @FindBy(how = How.CSS, using = "#admin-categories > div > div.col-2 > div > div.w-100.bor-1.br-sm.p-3.content-info > div.d-flex.justify-content-between.align-items-center > a")
     public WebElement CreateCustomFieldBtn;
 
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(4) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(4) > label")
     public WebElement FieldNameBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(5) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(5) > label")
     public WebElement FieldDescriptionBtn;
-    @FindBy (how = How.CSS,using = "#custom-field-form > div:nth-child(6) > label")
+    @FindBy(how = How.CSS, using = "#custom-field-form > div:nth-child(6) > label")
     public WebElement FieldTypeBtn;
-    @FindBy(how = How.CSS,using = "#submit-form")
+    @FindBy(how = How.CSS, using = "#submit-form")
     public WebElement SaveBtn;
 
 
@@ -529,7 +529,10 @@ public class OHEAdminPage extends BasePage {
             }
         } catch (Exception e) {
 
+        } finally {
+            getDriver().switchTo().defaultContent();
         }
+
 
     }
 
@@ -598,15 +601,14 @@ public class OHEAdminPage extends BasePage {
         waitForWebElementAndClick(designHomePageBtn);
     }
 
-    public void goToCreateCustomFieldsBtn(){
+    public void goToCreateCustomFieldsBtn() {
         try {
-            fluentWait(getDriver(),CreateCustomFieldBtn);
+            fluentWait(getDriver(), CreateCustomFieldBtn);
             waitForWebElementAndClick(CreateCustomFieldBtn);
-            fluentWait(getDriver(),FieldNameBtn);
-        }
-        catch (Exception e){
+            fluentWait(getDriver(), FieldNameBtn);
+        } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(),FieldNameBtn);
+            fluentWait(getDriver(), FieldNameBtn);
         }
 
     }
@@ -616,16 +618,17 @@ public class OHEAdminPage extends BasePage {
         return result;
     }
 
-    public String validateFieldDescription(){
+    public String validateFieldDescription() {
         String result = FieldDescriptionBtn.getText();
         return result;
     }
 
-    public String validateFieldType(){
+    public String validateFieldType() {
         String result = FieldTypeBtn.getText();
         return result;
     }
-    public String validateSaveButton(){
+
+    public String validateSaveButton() {
         String result = SaveBtn.getText();
         return result;
     }
@@ -1358,7 +1361,7 @@ public class OHEAdminPage extends BasePage {
     //Add-ons
 
     public void addonBtnFromPanel() {
-        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons" );
+        getDriver().navigate().to(baseUrlOHE + "admin/feature/addons");
 //        fluentWait(getDriver(), addonBtn);
 //        waitForWebElementAndClick(addonBtn);
     }
@@ -1401,6 +1404,7 @@ public class OHEAdminPage extends BasePage {
         fluentWait(getDriver(), addOnsFilterBtn);
         waitForWebElementAndClick(addOnsFilterBtn);
     }
+
     public void validateExtension() {
         boolean result = explainerVideoBtn.isDisplayed();
         Assert.assertTrue(result);

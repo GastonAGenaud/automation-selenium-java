@@ -166,11 +166,11 @@ public class HomePage extends BasePage {
     //HOME PAGE
 
     public void setHomePage() {
-        driver.navigate().to(UrlDev);
+        driver.navigate().to(url);
     }
 
     public void goToHome() {
-        driver.navigate().to(UrlDev);
+        driver.navigate().to(url);
     }
 
     //Header
