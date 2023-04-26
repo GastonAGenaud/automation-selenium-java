@@ -533,6 +533,9 @@ public class AdminPage extends BasePage {
         } catch (Exception e) {
 
         }
+        finally {
+            getDriver().switchTo().defaultContent();
+        }
 
     }
 

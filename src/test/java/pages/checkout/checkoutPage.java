@@ -81,9 +81,9 @@ public class checkoutPage extends BasePage {
     public WebElement nameOnCardTextField;
     @FindBy(how = How.CSS, using = "#expiry-date")
     public WebElement expirationDateTextField;
-    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[2]/div/div[3]/div[3]/div/input")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div[2]/div/div[3]/div[3]/div/input")
     public WebElement cvvCodeTextField;
-    @FindBy(how = How.CSS, using = "#left-column > div:nth-child(2) > div.card.card-shopping > div > div.d-flex.align-items-center.mt-2 > label.switch.mr-2 > span")
+    @FindBy(how = How.CSS, using = "#sub-container-cards > div.card.card-shopping.form-new-card > div > div.d-flex.align-items-center.mt-2 > label.switch.mr-2 > span")
     public WebElement saveCreditCardBtn;
     @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[3]/div[6]/button")
     public WebElement submitPaymentBtn;
@@ -252,7 +252,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItem() {
-        getDriver().navigate().to(url);
+        getDriver().navigate().to(UrlDevuct);
     }
 
     public void selectFlatRate() {
@@ -270,7 +270,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItemForShipping() {
-        getDriver().navigate().to(url);
+        getDriver().navigate().to(UrlDevuct);
     }
 
     public void goToSecureCheckout() {
@@ -463,16 +463,33 @@ public class checkoutPage extends BasePage {
     }
 
     public void selectCvvCodeTextField() {
-        fluentWaitStrict(getDriver(), cvvCodeTextField);
-        waitForWebElementAndClick(cvvCodeTextField);
-        //cvvCodeTextField.sendKeys(Keys.ARROW_LEFT);
-        waitForClickability(cvvCodeTextField);
-        cvvCodeTextField.sendKeys("333");
+        try {
+            fluentWaitStrict(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            //cvvCodeTextField.sendKeys(Keys.ARROW_LEFT);
+            waitForClickability(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("333");
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), cvvCodeTextField);
+            waitForWebElementAndClick(cvvCodeTextField);
+            //cvvCodeTextField.sendKeys(Keys.ARROW_LEFT);
+            waitForClickability(cvvCodeTextField);
+            cvvCodeTextField.sendKeys("333");
+        }
     }
 
+
     public void selectSaveCreditCard() {
-        fluentWait(getDriver(), saveCreditCardBtn);
-        waitForWebElementAndClick(saveCreditCardBtn);
+        try {
+            fluentWait(getDriver(), saveCreditCardBtn);
+            waitForWebElementAndClick(saveCreditCardBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), saveCreditCardBtn);
+            waitForWebElementAndClick(saveCreditCardBtn);
+        }
+
     }
 
     public void selectSubmitPayment() {
@@ -493,7 +510,7 @@ public class checkoutPage extends BasePage {
             waitForClickability(preLoadedCreditCardBtn);
             fluentWait(getDriver(), preLoadedCreditCardBtn);
             waitForWebElementAndClick(preLoadedCreditCardBtn);
-            actions.moveToElement(preLoadedCreditCardBtn).build().perform();
+            //actions.moveToElement(preLoadedCreditCardBtn).build().perform();
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), preLoadedCreditCardBtn);

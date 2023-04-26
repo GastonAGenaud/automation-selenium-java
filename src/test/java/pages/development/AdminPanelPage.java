@@ -231,6 +231,10 @@ public class AdminPanelPage extends BasePage {
         } catch (Exception e) {
 
         }
+        finally {
+            getDriver().switchTo().defaultContent();
+        }
+
     }
 
     public void siteWording() {

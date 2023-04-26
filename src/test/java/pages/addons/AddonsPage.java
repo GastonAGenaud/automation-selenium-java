@@ -286,6 +286,10 @@ public class AddonsPage extends BasePage {
         } catch (Exception e) {
 
         }
+        finally {
+            getDriver().switchTo().defaultContent();
+        }
+
 
     }
 

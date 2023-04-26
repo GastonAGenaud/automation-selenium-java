@@ -42,16 +42,16 @@ public class sponsoredAdsSteps extends BasePage {
         getDriver().manage().deleteAllCookies();
         getDriver().navigate().refresh();
         getHomePage();
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonNoBorrarUser");
 
         getDriver().navigate().refresh();
-        sessionManager.usePreviousLoggedInSession(environment + "-"+ suiteName + "-" +"GastonNoBorrarUser");
+        sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonNoBorrarUser");
 
     }
 
     @When("I select Sponsored Ads section")
     public void iSelectSponsoredAdsSection() {
-        getDriver().navigate().to(url +"dashboard");
+        getDriver().navigate().to(url + "dashboard");
         _page.goToSponsoredAds();
     }
 
@@ -216,8 +216,15 @@ public class sponsoredAdsSteps extends BasePage {
 
     @And("I select the Delete option")
     public void iSelectTheDeleteOption() {
-        _page.deleteAd();
-        _page.deleteConfirmButton();
+        try {
+            _page.deleteAd();
+            _page.deleteConfirmButton();
+        } catch (Exception e) {
+            wait(3);
+            _page.deleteAd();
+            _page.deleteConfirmButton();
+        }
+
     }
 
     @Then("I validate the Delete ads")
@@ -262,7 +269,6 @@ public class sponsoredAdsSteps extends BasePage {
     public void iValidateStartDate() {
         _page.validateStartDateField();
     }
-
 
 
     @And("validating the display of the price of an aggregated advertisement")

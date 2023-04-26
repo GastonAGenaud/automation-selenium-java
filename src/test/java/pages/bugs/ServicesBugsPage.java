@@ -567,6 +567,10 @@ public class ServicesBugsPage extends BasePage {
         } catch (Exception e) {
 
         }
+        finally {
+            getDriver().switchTo().defaultContent();
+        }
+
 
     }
 

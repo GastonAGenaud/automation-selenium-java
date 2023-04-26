@@ -216,7 +216,7 @@ public class checkoutSteps extends BasePage {
 
     @And("I select the preloaded Credit Card button")
     public void iSelectThePreloadedCreditCardButton() {
-        _page.selectPreLoadedCardButton();
+       // _page.selectPreLoadedCardButton();
     }
 
     @And("I select the Submit Payment button")

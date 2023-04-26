@@ -129,6 +129,6 @@ public class storefrontSteps extends BasePage {
 
     @Then("I validate the profile social media")
     public void iValidateTheProfileSocialMedia() {
-        Assert.assertEquals("Enter Your Social Profile URLs", _page.socialConfirmText());
+        Assert.assertEquals("You on the web", _page.socialConfirmText());
     }
 }
