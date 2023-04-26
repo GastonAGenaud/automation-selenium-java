@@ -243,15 +243,26 @@ public class sponsoredAdsPage extends BasePage {
         waitForWebElementAndClick(cropBtn);
     }
 
-    String startDate = "04-25-2023";
+    String startDate = "07-25-2023";
 
     public void adStartDateTextField() {
-        fluentWait(getDriver(), startDateSelector);
-        waitForWebElementAndClick(startDateSelector);
+        try {
+            fluentWait(getDriver(), startDateSelector);
+            waitForWebElementAndClick(startDateSelector);
 
-        startDateSelector.sendKeys(Keys.ARROW_LEFT);
-        startDateSelector.sendKeys(startDate);
-        waitForWebElementAndClick(startDateSelector);
+            startDateSelector.sendKeys(Keys.ARROW_LEFT);
+            startDateSelector.sendKeys(startDate);
+            waitForWebElementAndClick(startDateSelector);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), startDateSelector);
+            waitForWebElementAndClick(startDateSelector);
+
+            startDateSelector.sendKeys(Keys.ARROW_LEFT);
+            startDateSelector.sendKeys(startDate);
+            waitForWebElementAndClick(startDateSelector);
+        }
+
     }
 
     String endDate = "04-25-2025";

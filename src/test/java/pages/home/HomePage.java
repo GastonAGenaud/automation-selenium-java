@@ -65,13 +65,15 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=574']")
     public WebElement moreShoesBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[3]/a")
-    public WebElement outdoorStuffBtn;
-    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=576']")
-    public WebElement moreOutdoorStuffBtn;
     @FindBy(xpath = "/html/body/header/div/ul/li[4]/a")
+    public WebElement outdoorStuffBtn;
+   // @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=576']")
+   // public WebElement moreOutdoorStuffBtn;
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[4]/div/div/div/div[1]/ul/li/a")
+    public WebElement moreOutdoorStuffBtn;
+    @FindBy(xpath = "/html/body/header/div/ul/li[5]/a")
     public WebElement artAndCollectablesBtn;
-    @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=316']")
+    @FindBy(xpath = "/html/body/header/div/div[2]/div[5]/div/div/div/div[1]/ul/li/a")
     public WebElement moreArtAndCollectablesBtn;
     @FindBy(how = How.CSS, using = "#more-tab")
     public WebElement moreBtn;
@@ -299,11 +301,21 @@ public class HomePage extends BasePage {
     }
 
     public void moreOutdoorStuff() {
-        fluentWait(getDriver(), outdoorStuffBtn);
-        actions.moveToElement(outdoorStuffBtn).build().perform();
+        try {
+            fluentWait(getDriver(), outdoorStuffBtn);
+            actions.moveToElement(outdoorStuffBtn).build().perform();
 
-        fluentWait(getDriver(), moreOutdoorStuffBtn);
-        waitForWebElementAndClick(moreOutdoorStuffBtn);
+            fluentWait(getDriver(), moreOutdoorStuffBtn);
+            waitForWebElementAndClick(moreOutdoorStuffBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), outdoorStuffBtn);
+            actions.moveToElement(outdoorStuffBtn).build().perform();
+
+            fluentWait(getDriver(), moreOutdoorStuffBtn);
+            waitForWebElementAndClick(moreOutdoorStuffBtn);
+        }
+
     }
 
     public void artAndCollectables() {

@@ -535,6 +535,7 @@ public class ordersPage extends BasePage {
             waitForWebElementAndClick(ordersShowShippedBtn);
         } catch (Exception e) {
             wait(3);
+            waitForWebElementAndClick(ordersShowBtn);
             fluentWait(getDriver(), ordersShowShippedBtn);
             waitForWebElementAndClick(ordersShowShippedBtn);
         }

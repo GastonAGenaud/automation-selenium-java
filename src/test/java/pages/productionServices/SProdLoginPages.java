@@ -174,6 +174,43 @@ public class SProdLoginPages extends BasePage {
     public WebElement endTimeField;
     @FindBy(how = How.CSS, using = "#supply-endtime > option:nth-child(3)")
     public WebElement endTimeOption;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
+    public WebElement graphicsDesignBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(2) > span > label")
+    public WebElement marketingBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(3) > span > label")
+    public WebElement programmingTechBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(4) > span > label")
+    public WebElement testingCategoryBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(5) > span > label")
+    public WebElement softwareBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(6) > span > label")
+    public WebElement techonologyBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(7) > span > label")
+    public WebElement photographyBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(8) > span > label")
+    public WebElement businessBtn;
+    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > h3")
+    public WebElement categoryText;
+    @FindBy(how = How.CSS, using = "#work-model-filters > li:nth-child(1) > span > label")
+    public WebElement videoConferenceBtn;
+    @FindBy(how = How.CSS, using = "#work-model-filters > li:nth-child(2) > span > label")
+    public WebElement inPersonBtn;
+    @FindBy(how = How.CSS, using = "#work-model-holder > div")
+    public WebElement workModelText;
+    @FindBy(how = How.CSS, using = "#manual-max")
+    public WebElement maxPriceField;
+    @FindBy(how = How.CSS, using = "#manual-min")
+    public WebElement minPriceField;
+    @FindBy(how = How.CSS, using = "#set-up-manually-btn")
+    public WebElement applyFilterPriceBtn;
+    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(6)")
+    public WebElement validatePriceSection;
+    @FindBy(how = How.CSS, using = "#location")
+    public WebElement locationField;
+    @FindBy(how = How.CSS, using = "#filters-container > div.mb-4.location-cont.pt-3")
+    public WebElement locationSection;
+
 
     public void goToLogin() {
         getHomePageProd();
@@ -1070,4 +1107,104 @@ public class SProdLoginPages extends BasePage {
         }
     }
 
+    public void graphicsDesignFilter() {
+        fluentWait(getDriver(), graphicsDesignBtn);
+        waitForWebElementAndClick(graphicsDesignBtn);
+    }
+
+    public void marketingFilter() {
+        fluentWait(getDriver(), marketingBtn);
+        waitForWebElementAndClick(marketingBtn);
+    }
+
+    public void programmingTechFilter() {
+        fluentWait(getDriver(), programmingTechBtn);
+        waitForWebElementAndClick(programmingTechBtn);
+    }
+
+    public void testingCategoryFilter() {
+        fluentWait(getDriver(), testingCategoryBtn);
+        waitForWebElementAndClick(testingCategoryBtn);
+    }
+
+    public void softwareFilter() {
+        fluentWait(getDriver(), softwareBtn);
+        waitForWebElementAndClick(softwareBtn);
+    }
+
+    public void techonologyFilter() {
+        fluentWait(getDriver(), techonologyBtn);
+        waitForWebElementAndClick(techonologyBtn);
+    }
+
+    public void businessFilter() {
+        fluentWait(getDriver(), businessBtn);
+        waitForWebElementAndClick(businessBtn);
+    }
+
+    public void photographyFilter() {
+        fluentWait(getDriver(), photographyBtn);
+        waitForWebElementAndClick(photographyBtn);
+    }
+
+    public String validateFilterSector() {
+        fluentWait(getDriver(), categoryText);
+        String result = categoryText.getText();
+        return result;
+    }
+
+    public void VideoConferenceFilter() {
+        fluentWait(getDriver(), videoConferenceBtn);
+        waitForWebElementAndClick(videoConferenceBtn);
+    }
+
+    public void inPersonFilter() {
+        fluentWait(getDriver(), inPersonBtn);
+        waitForWebElementAndClick(inPersonBtn);
+    }
+
+    public String validateWorkModelSector() {
+        fluentWait(getDriver(), workModelText);
+        String result = workModelText.getText();
+        return result;
+    }
+
+    public void maxPriceFilter() {
+        fluentWait(getDriver(), maxPriceField);
+        waitForWebElementAndClick(maxPriceField);
+        maxPriceField.clear();
+        maxPriceField.sendKeys("1000");
+
+    }
+
+    public void minPriceFilter() {
+        fluentWait(getDriver(), minPriceField);
+        waitForWebElementAndClick(minPriceField);
+        minPriceField.clear();
+        minPriceField.sendKeys("1");
+
+    }
+
+    public void applyFilterPrice() {
+        fluentWait(getDriver(), applyFilterPriceBtn);
+        waitForWebElementAndClick(applyFilterPriceBtn);
+    }
+
+    public void validatePriceFilter() {
+        fluentWait(getDriver(), validatePriceSection);
+        Assert.assertTrue(validatePriceSection.isDisplayed());
+
+    }
+
+    public void locationText() {
+        fluentWait(getDriver(), locationField);
+        locationField.sendKeys("2405 Montopolis Drive, Austin, TX, USA");
+        locationField.sendKeys(Keys.ARROW_DOWN);
+        locationField.sendKeys(Keys.ENTER);
+    }
+
+    public void validateLocationSection() {
+        fluentWait(getDriver(), locationSection);
+        Assert.assertTrue(locationSection.isDisplayed());
+    }
 }

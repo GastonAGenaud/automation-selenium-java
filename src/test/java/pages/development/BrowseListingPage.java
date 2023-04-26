@@ -109,6 +109,7 @@ public class BrowseListingPage extends BasePage {
     public void minPriceText() {
         fluentWait(getDriver(), minPriceInput);
         minPriceInput.sendKeys("1");
+
     }
 
     public void locationTxt() {

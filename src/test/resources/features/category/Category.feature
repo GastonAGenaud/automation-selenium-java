@@ -25,7 +25,7 @@ Feature: Category
     And Delete Subcategory Shoes
     Then Valid that the subcategory Shoes was delete
 
-  @MTR @MTR-3198 @category
+  @MTR @MTR-3199 @category
   Scenario: MTR - valid that you can add a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -41,7 +41,7 @@ Feature: Category
     And edit Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was edit
 
-  @MTR @MTR-3200 @category
+  @MTR @MTR-3199 @category
   Scenario: MTR - valid that you can delete a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
