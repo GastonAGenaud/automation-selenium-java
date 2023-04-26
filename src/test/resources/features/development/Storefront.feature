@@ -1,9 +1,6 @@
-@devProducts
+@ENV @ProdStorefront
 
-
-@ProdStorefront
-
-Feature: Production Storefront
+Feature: Development Storefront
 
 #  @StorefrontDisplayed
 #  Scenario: Validate that the users storefront is displayed

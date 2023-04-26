@@ -1,6 +1,5 @@
-
-@devProducts
-Feature: Production Inbox
+@ENV
+Feature: Development Inbox
 
   @sendMessageMedia
   Scenario: Send messages to users, including media

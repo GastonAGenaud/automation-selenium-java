@@ -1,7 +1,5 @@
-@devProducts
-
-@search
-Feature: Search
+@ENV @search
+Feature: Development Search
 
   @homeSearch
   Scenario: Search in home

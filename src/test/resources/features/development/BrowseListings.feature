@@ -1,7 +1,5 @@
-@devProducts
-
-@categoriesProduction
-Feature: Production Browse
+@ENV @categoriesProduction
+Feature: Development Browse
 
   @browseProd
   Scenario: Browse Listing, Category

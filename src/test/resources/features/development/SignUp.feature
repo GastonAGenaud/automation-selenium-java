@@ -1,7 +1,5 @@
-@devProducts
-
-@prod
-Feature: PROD Signup
+@ENV
+Feature: Development Signup
 
   @prodSignup
   Scenario: PROD - I Create an Account

@@ -26,7 +26,7 @@ public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div/div/div/div[1]/div/table/tbody/tr[1]/td[7]/select")
     public WebElement selectActionBtn;
 
-    @FindBy(how = How.CSS, using = "#select1634c162-85d9-4677-bbff-392ce1c869cd > option:nth-child(4)")
+    @FindBy(xpath = "//option[contains(text(), 'Impersonate')]")
     public WebElement impersonateBtn;
 
     @FindBy(how = How.CSS, using = "#navbar-nav > ul > li.dropdown.hidden-mobile > a")
