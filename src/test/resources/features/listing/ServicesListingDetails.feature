@@ -7,43 +7,43 @@ Feature:Services Listing details
     When  SVC select the seller name
     Then  SVC see the seller storefront profile
 
-  @MMRSdetails @MMRS-892 @MMRS
+  @MMRSdetails @MMRS-892
   Scenario: SVC - Send message to seller
     Given SVC I go to the listing details page on OHE
     When  SVC select the send message button
     Then  SVC see that it redirects me to the chat page
 
-  @MMRSdetails @MMRS-893 @MMRS
+  @MMRSdetails @MMRS-893
   Scenario: SVC - Validate Hire Button
     Given SVC I go to the listing details page on OHE
     When SVC I select the Hire Button
     Then SVC I validate Hire Button
 
-  @MMRSdetails @MMRS-894 @MMRS
+  @MMRSdetails
   Scenario: SVC - Validate Service information sector
     Given SVC I go to the listing details page on OHE
     When SVC I select the Service information button
     Then SVC I validate Service information sector
 
-  @MMRSdetails @MMRS-895 @MMRS
+  @MMRSdetails
   Scenario: SVC - Validate Availability sector
     Given SVC I go to the listing details page on OHE
     When SVC I select the Availability button
     Then SVC I validate Availability sector
 
-  @MMRSdetails @MMRS-897 @MMRS
+  @MMRSdetails @MMRS-897
   Scenario: SVC - Validate Flat rate services sector
     Given SVC I go to the listing details page on OHE
     When SVC I select the Flat rate services button
     Then SVC I validate Flat rate services sector
 
-  @MMRSdetails @MMRS-898 @MMRS
+  @MMRSdetails @MMRS-898
   Scenario: SVC - Validate Media sector
     Given SVC I go to the listing details page on OHE
     When SVC I select the Media button
     Then SVC I validate Media sector
 
-  @MMRSdetails @MMRS-899 @MMRS
+  @MMRSdetails @MMRS-899
   Scenario: SVC - Validate Review sector
     Given SVC I go to the listing details page on OHE
     When SVC I select the Review button

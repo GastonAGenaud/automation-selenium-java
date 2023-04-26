@@ -3,7 +3,7 @@ Feature: Admin
 
   Admin Account
 
-  @admin  @MTR-1297 @MTR
+  @admin  @MTR-1297
   Scenario: MTR - Login and validate the elements on Admin Panel
     Given I login with Gaston User
     And Get started steps
@@ -146,7 +146,7 @@ Feature: Admin
 #    And I validate Discount codes section
     Then I validate Admin Settings
 
-  @admin  @MTR-1307 @MTR
+  @admin  @MTR-1307
   Scenario: Admin panel Reports validate page
     Given I login with Gaston User
     And Admin Reports

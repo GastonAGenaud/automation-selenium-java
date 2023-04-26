@@ -18,7 +18,7 @@ Feature: Checkout
     And I subtract the quantity of the item
     Then I Validate quantity functioning
 
-  @checkout  @MTR-1423  @MTR
+  @checkout  @MTR-1423
   Scenario: MTR - Buyer able to add and save a shipping address
     Given I login with another account
     And I go to the Shopping Cart
@@ -37,7 +37,7 @@ Feature: Checkout
     And I select the Accept button
     Then I see the shipping address added and saved
 
-  @checkout  @MTR-1424   @MTR @test1
+  @checkout  @MTR-1424
   Scenario: MTR - Buyer able to select shipping method if USPS or Flat Rate option
     Given I login with another account
     And I go to the Shopping Cart
@@ -70,7 +70,7 @@ Feature: Checkout
     And I select the Back to my cart button
     Then I validate the Back to my cart button
 
-  @checkout  @MTR-1427  @MTR
+  @checkout  @MTR-1427
   Scenario: MTR - Buyer able to enter a message to seller
     Given I login with another account
     And I go to the Shopping Cart
@@ -112,7 +112,7 @@ Feature: Checkout
     And I select the Submit Payment button
     Then I validate the Submit Payment
 
-  @checkout  @MTR-1430  @MTR @testing1
+  @checkout  @MTR-1430
   Scenario: MTR - Buyer able to select saved credit card if previously saved from past purchases made
     Given I login with another account
     And I go to the Shopping Cart
@@ -123,7 +123,7 @@ Feature: Checkout
     And I select the preloaded Credit Card button
     Then I validate the preloaded Credit Card
 
-  @checkout  @MTR-1431  @MTR @testing1
+  @checkout  @MTR-1431
   Scenario: MTR - Buyer able to see Congratulations screen after submitting payment
     Given I login with another account
     And I go to the Shopping Cart
@@ -136,7 +136,7 @@ Feature: Checkout
     And I select the Submit Payment button
     Then I see the Congratulations Screen
 
-  @checkout  @MTR-1432  @MTR @testing1
+  @checkout  @MTR-1432
   Scenario: MTR - Buyer able to share listing on Facebook, Twitter or WhatsApp
     Given I login with another account
     And I go to the Shopping Cart

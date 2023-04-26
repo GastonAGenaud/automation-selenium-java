@@ -1,7 +1,7 @@
 @MMRS-868
 Feature: Services Listing
 
-  @MMRSlisting @MMRS-904 @MMRS
+  @MMRSlisting @MMRS-904
 
   Scenario: SVC - Buyer able to create a listing
     Given SVC I login and go to Dashboard

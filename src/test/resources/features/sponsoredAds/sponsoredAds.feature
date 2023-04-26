@@ -33,7 +33,7 @@ Feature: Sponsored Ads
     And I select the Deactivate option
     Then I validate the change status to Inactive
 
-  @sponsoredAds  @MTR  @MTR-1603
+  @sponsoredAds  @MTR-1603
   Scenario: MTR - User able to pay an ad
     Given I login with another account
     And I go to dashboard
@@ -77,7 +77,7 @@ Feature: Sponsored Ads
     Then I validate the Delete ads
 
 
-  @sponsoredAds  @MTR  @MTR-3297
+  @sponsoredAds @MTR-3297
   Scenario: MTR - validate texts within the sponsored ads section
     Given I login with Gaston User
     And I go to dashboard

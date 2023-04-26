@@ -10,7 +10,7 @@ Feature: Services Browse Page
 #    And SVC I select ages 9 to 11 category filter
 #    Then SVC I validate categories filters
 
-  @MMRS-869 @MMRSBrowse @MMRS
+  @MMRS-869 @MMRSBrowse
   Scenario: SVC - Validate browse by price And SVC location
     Given SVC I go to browse services page
     When SVC I type in the minimum price text field
