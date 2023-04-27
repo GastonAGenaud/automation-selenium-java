@@ -330,4 +330,84 @@ public class SProdLoginSteps extends BasePage {
     public void iValidateLocationServProd() {
         _page.validateLocationSection();
     }
+
+
+    @And("select Show more")
+    public void selectShowMore() {
+        _page.shoreMoreSection();
+    }
+
+    @And("select Apply ServProd")
+    public void selectApplyServProd() {
+        _page.selectApplyButton();
+    }
+
+    @Then("I validate Price filter in section Browse Request ServProd")
+    public void iValidatePriceFilterInSectionBrowseRequestServProd() {
+        _page.validatePriceFilterSectionRequest();
+    }
+
+    @When("select filter colors")
+    public void selectFilterColors() {
+        _page.selectPurple();
+        _page.selectLightBlue();
+        _page.selectBlack();
+        _page.selectRed();
+        _page.selectBlue();
+        _page.selectGreen();
+        _page.selectYellow();
+        _page.selectPink();
+        _page.selectBrown();
+    }
+
+    @Then("valid color filter")
+    public void validColorFilter() {
+        _page.validColorFilterSection();
+    }
+
+    @And("go to Browse by Seller ServProd")
+    public void goToBrowseBySellerServProd() {
+        _page.goToBrowseBySeller();
+    }
+
+    @And("I validate listing name text field ServProd")
+    public void iValidateListingNameTextFieldServProd() {
+     //   _page.listingNameField();
+    }
+
+    @And("I validate listing category ServProd")
+    public void iValidateListingCategoryServProd() {
+       // _page.selectCategory();
+    //    _page.businessCategory();
+    }
+
+    @And("I validate listing description text field ServProd")
+    public void iValidateListingDescriptionTextFieldServProd() {
+      //  _page.listingDescriptionField();
+    }
+
+    @And("I validate the listing Price ServProd")
+    public void iValidateTheListingPriceServProd() {
+     //   _page.listingPricePerHour();
+    }
+
+    @And("I validate listing image ServProd")
+    public void iValidateListingImageServProd() {
+       // _page.listingAddImage();
+    }
+
+    @And("I validate listing video URL ServProd")
+    public void iValidateListingVideoURLServProd() {
+     //   _page.listingVideoURLField();
+
+    }
+
+    @And("Go to details Section ServProd")
+    public void goToDetailsSectionServProd() {
+        _page.goToDetails();
+    }
+
+    @Then("I validate Create a Listing ServProd")
+    public void iValidateCreateAListingServProd() {
+    }
 }

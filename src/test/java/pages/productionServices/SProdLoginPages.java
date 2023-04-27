@@ -174,7 +174,7 @@ public class SProdLoginPages extends BasePage {
     public WebElement endTimeField;
     @FindBy(how = How.CSS, using = "#supply-endtime > option:nth-child(3)")
     public WebElement endTimeOption;
-    @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(1) > span > label")
+    @FindBy(xpath = "//a[contains(text(), 'Graphics & Design')]")
     public WebElement graphicsDesignBtn;
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(2) > span > label")
     public WebElement marketingBtn;
@@ -192,6 +192,8 @@ public class SProdLoginPages extends BasePage {
     public WebElement businessBtn;
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > h3")
     public WebElement categoryText;
+    @FindBy(xpath = "//*[contains(text(), 'Show more')]")
+    public WebElement showMoreText;
     @FindBy(how = How.CSS, using = "#work-model-filters > li:nth-child(1) > span > label")
     public WebElement videoConferenceBtn;
     @FindBy(how = How.CSS, using = "#work-model-filters > li:nth-child(2) > span > label")
@@ -204,12 +206,36 @@ public class SProdLoginPages extends BasePage {
     public WebElement minPriceField;
     @FindBy(how = How.CSS, using = "#set-up-manually-btn")
     public WebElement applyFilterPriceBtn;
+    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(4) > div.mb-4.mt-3.browse-price-manual-component > div > a")
+    public WebElement applyFilterPriceButton;
     @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(6)")
     public WebElement validatePriceSection;
+    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(4)")
+    public WebElement validatePriceSectionRequest;
     @FindBy(how = How.CSS, using = "#location")
     public WebElement locationField;
     @FindBy(how = How.CSS, using = "#filters-container > div.mb-4.location-cont.pt-3")
     public WebElement locationSection;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(1) > label > span")
+    public WebElement purpleBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(2) > label > span")
+    public WebElement lightBlueBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(3) > label > span")
+    public WebElement blackBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(4) > label > span")
+    public WebElement redBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(5) > label > span")
+    public WebElement blueBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(6) > label > span")
+    public WebElement greenBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(7) > label > span")
+    public WebElement yellowBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(8) > label > span")
+    public WebElement pinkBtn;
+    @FindBy(how = How.CSS, using = "#colors-container > span:nth-child(9) > label > span")
+    public WebElement brownBtn;
+    @FindBy(how = How.CSS, using = "#colors-wrapper")
+    public WebElement colorFilter;
 
 
     public void goToLogin() {
@@ -1108,8 +1134,15 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void graphicsDesignFilter() {
-        fluentWait(getDriver(), graphicsDesignBtn);
-        waitForWebElementAndClick(graphicsDesignBtn);
+        try {
+            fluentWait(getDriver(), graphicsDesignBtn);
+            waitForWebElementAndClick(graphicsDesignBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), graphicsDesignBtn);
+            waitForWebElementAndClick(graphicsDesignBtn);
+        }
+
     }
 
     public void marketingFilter() {
@@ -1151,6 +1184,18 @@ public class SProdLoginPages extends BasePage {
         fluentWait(getDriver(), categoryText);
         String result = categoryText.getText();
         return result;
+    }
+
+
+    public void shoreMoreSection() {
+        try {
+            fluentWait(getDriver(), showMoreText);
+            waitForWebElementAndClick(showMoreText);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), showMoreText);
+            waitForWebElementAndClick(showMoreText);
+        }
     }
 
     public void VideoConferenceFilter() {
@@ -1206,5 +1251,69 @@ public class SProdLoginPages extends BasePage {
     public void validateLocationSection() {
         fluentWait(getDriver(), locationSection);
         Assert.assertTrue(locationSection.isDisplayed());
+    }
+
+    public void selectApplyButton() {
+        fluentWait(getDriver(), applyFilterPriceButton);
+        waitForWebElementAndClick(applyFilterPriceButton);
+    }
+
+    public void validatePriceFilterSectionRequest() {
+        fluentWait(getDriver(), validatePriceSectionRequest);
+        Assert.assertTrue(validatePriceSectionRequest.isDisplayed());
+    }
+
+    public void selectPurple() {
+        fluentWait(getDriver(), purpleBtn);
+        waitForWebElementAndClick(purpleBtn);
+    }
+
+    public void selectLightBlue() {
+        fluentWait(getDriver(), lightBlueBtn);
+        waitForWebElementAndClick(lightBlueBtn);
+    }
+
+    public void selectBlack() {
+        fluentWait(getDriver(), blackBtn);
+        waitForWebElementAndClick(blackBtn);
+    }
+
+    public void selectRed() {
+        fluentWait(getDriver(), redBtn);
+        waitForWebElementAndClick(redBtn);
+    }
+
+    public void selectBlue() {
+        fluentWait(getDriver(), blueBtn);
+        waitForWebElementAndClick(blueBtn);
+    }
+
+    public void selectGreen() {
+        fluentWait(getDriver(), greenBtn);
+        waitForWebElementAndClick(greenBtn);
+    }
+
+    public void selectYellow() {
+        fluentWait(getDriver(), yellowBtn);
+        waitForWebElementAndClick(yellowBtn);
+    }
+
+    public void selectPink() {
+        fluentWait(getDriver(), pinkBtn);
+        waitForWebElementAndClick(pinkBtn);
+    }
+
+    public void selectBrown() {
+        fluentWait(getDriver(), brownBtn);
+        waitForWebElementAndClick(brownBtn);
+    }
+
+    public void validColorFilterSection() {
+        fluentWait(getDriver(), colorFilter);
+        Assert.assertTrue(colorFilter.isDisplayed());
+    }
+
+    public void goToBrowseBySeller() {
+        getDriver().navigate().to(urlServicesProd + "Listing/BrowseBySeller");
     }
 }
