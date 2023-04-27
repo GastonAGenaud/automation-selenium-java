@@ -1,7 +1,5 @@
-@devProducts
-
-@prod @prodLogin
-Feature: Production Login
+@ENV @prodLogin
+Feature: Development Login
 
   @prodLogin
   Scenario: Login

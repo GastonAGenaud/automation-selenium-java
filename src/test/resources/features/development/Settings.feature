@@ -1,7 +1,5 @@
-@devProducts
-
-@prod @prodSettings
-Feature: Production Settings
+@ENV
+Feature: Development Settings
 
 
   @prodSettingsChangePassword

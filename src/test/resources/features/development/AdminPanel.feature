@@ -1,6 +1,5 @@
-@devProducts @AdminDev
-
-Feature: Production Admin Panel
+@ENV @AdminDev
+Feature: Development Admin Panel
 
 
   @testImpersonate1

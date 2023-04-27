@@ -1,5 +1,5 @@
-#@devProducts
-Feature: Production Home
+#@ENV
+Feature: Development Home
 
 #  Scenario: Contact us
 #    Given I go to home page

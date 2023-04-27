@@ -1,5 +1,5 @@
-@devProducts
-Feature: Dev Listing
+@ENV
+Feature: Development Listing
 
   @DevListing
   Scenario: DEV - Buyer able to create a listing

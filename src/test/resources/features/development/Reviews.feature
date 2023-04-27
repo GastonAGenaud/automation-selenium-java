@@ -1,6 +1,5 @@
-@devProducts
-
-Feature: Production Reviews
+@ENV
+Feature: Development Reviews
 
   @ProdReviews
   Scenario: Reviews
@@ -35,15 +34,15 @@ Feature: Production Reviews
     Then I validate the profile social media
 
 
-    @TestingLeaveAReview
-    Scenario: Leave a review
-      Given PROD I Sign in with new account "email2"
-      And PROD I go to the listing details page
-      When select an item
-      And select Reviews tab
-      And select Leave a review button
-      And select five stars
-      And complete the two reviews TextFields
-      And select Send button
-      And Validate that the review is displayed
-      Then I validate Leave a review
+  @TestingLeaveAReview
+  Scenario: Leave a review
+    Given PROD I Sign in with new account "email2"
+    And PROD I go to the listing details page
+    When select an item
+    And select Reviews tab
+    And select Leave a review button
+    And select five stars
+    And complete the two reviews TextFields
+    And select Send button
+    And Validate that the review is displayed
+    Then I validate Leave a review
