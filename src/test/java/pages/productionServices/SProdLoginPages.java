@@ -1,6 +1,7 @@
 package pages.productionServices;
 
 
+import freemarker.core._ArrayEnumeration;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -236,7 +237,66 @@ public class SProdLoginPages extends BasePage {
     public WebElement brownBtn;
     @FindBy(how = How.CSS, using = "#colors-wrapper")
     public WebElement colorFilter;
-
+    @FindBy(how = How.CSS, using = "#name")
+    public WebElement nameField;
+    @FindBy(how = How.CSS, using = "#category-selector")
+    public WebElement categoryField;
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[3]")
+    public WebElement businesBtn;
+    @FindBy(how = How.CSS, using = "#description")
+    public WebElement listingDescriptionField;
+    @FindBy(how = How.CSS, using = "#hourlyPrice")
+    public WebElement priceField;
+    @FindBy(how = How.CSS, using = "#url-0")
+    public WebElement listingVideosField;
+    @FindBy(how = How.CSS, using = "#videos-container > div > div > div.col.mr-2.p-0.d-flex.align-items-center.justify-content-start > a.cursor-pointer.add-video.ml-2")
+    public WebElement addListingVideos;
+    @FindBy(how = How.CSS, using = "#checkbox-0-3")
+    public WebElement englishCheckout;
+    @FindBy(how = How.CSS, using = "#checkbox-1-0")
+    public WebElement remoteCheckout;
+    @FindBy(how = How.CSS, using = "#checkbox-2-1")
+    public WebElement financeCheckout;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(4) > div > select")
+    public WebElement techSpecialtiesField;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(4) > div > select > option:nth-child(2)")
+    public WebElement qAOption;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div > select")
+    public WebElement testDropdownField;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div > select > option:nth-child(2)")
+    public WebElement option1;
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div.form-group > div > div > div:nth-child(3) > span > label > span")
+    public WebElement blackButton;
+    @FindBy(how = How.CSS, using = "#multi-select-button")
+    public WebElement weekdayField;
+    @FindBy(how = How.CSS, using = "#weekday-options-container > li:nth-child(1) > a")
+    public WebElement sundayOption;
+    @FindBy(how = How.CSS, using = "#availableTimeFrom")
+    public WebElement fromField;
+    @FindBy(how = How.CSS, using = "#availableTimeFrom > option:nth-child(3)")
+    public WebElement timeOption;
+    @FindBy(how = How.CSS, using = "#availableTimeTo")
+    public WebElement timeToField;
+    @FindBy(how = How.CSS, using = "#availableTimeTo > option:nth-child(6)")
+    public WebElement timeToOption;
+    @FindBy(how = How.CSS, using = "#dates-form > div.col-4.mb-3.d-flex.justify-content-end.align-items-center > a > img")
+    public WebElement addAvailable;
+    @FindBy(xpath = "//h3[contains(text(), 'Great job! Your listing is under review and will be published soon.')]")
+    public WebElement greatJobText;
+    @FindBy(how = How.CSS, using = "#work-model-selector")
+    public WebElement workModelField;
+    @FindBy(how = How.CSS, using = "#work-model-selector > option:nth-child(2)")
+    public WebElement videoConferenceOption;
+    @FindBy(how = How.CSS, using = "#block-tab")
+    public WebElement blockFilter;
+    @FindBy(how = How.CSS, using = "#list-tab")
+    public WebElement listFilter;
+    @FindBy(how = How.CSS, using = "#map-tab")
+    public WebElement mapFilter;
+    @FindBy(how = How.CSS, using = "#search")
+    public WebElement searchField;
+    @FindBy(how = How.CSS, using = "#search-button")
+    public WebElement searchBtn;
 
     public void goToLogin() {
         getHomePageProd();
@@ -1315,5 +1375,216 @@ public class SProdLoginPages extends BasePage {
 
     public void goToBrowseBySeller() {
         getDriver().navigate().to(urlServicesProd + "Listing/BrowseBySeller");
+    }
+
+    public void listingNameField() {
+        fluentWait(getDriver(), nameField);
+        waitForWebElementAndClick(nameField);
+        nameField.sendKeys("Kenpachi");
+        nameField.sendKeys(Keys.ENTER);
+    }
+
+    public void selectCategory() {
+        try {
+            fluentWait(getDriver(), categoryField);
+            waitForWebElementAndClick(categoryField);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), categoryField);
+            waitForWebElementAndClick(categoryField);
+        }
+
+    }
+
+    public void businessCategory() {
+        try {
+            fluentWait(getDriver(), businesBtn);
+            waitForWebElementAndClick(businesBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), businesBtn);
+            waitForWebElementAndClick(businesBtn);
+        }
+
+    }
+
+    public void listingDescriptionField() {
+        fluentWait(getDriver(), listingDescriptionField);
+        waitForWebElementAndClick(listingDescriptionField);
+        listingDescriptionField.sendKeys("test");
+        listingDescriptionField.sendKeys(Keys.ENTER);
+    }
+
+    public void listingPricePerHour() {
+        fluentWait(getDriver(), priceField);
+        waitForWebElementAndClick(priceField);
+        priceField.sendKeys("10");
+        priceField.sendKeys(Keys.ENTER);
+
+    }
+
+    public void listingAddImage() {
+        try {
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+            fluentWait(getDriver(), cropBtn);
+        } catch (Exception e) {
+            wait(3);
+            listingImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+        }
+    }
+
+    public void listingVideoURLField() {
+        try {
+            fluentWait(getDriver(), listingVideosField);
+            waitForWebElementAndClick(listingVideosField);
+            listingVideosField.sendKeys("https://www.youtube.com/watch?v=59_usZm0HRg&ab_channel=PatrickFarrington");
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), listingVideosField);
+            waitForWebElementAndClick(listingVideosField);
+            listingVideosField.sendKeys("https://www.youtube.com/watch?v=59_usZm0HRg&ab_channel=PatrickFarrington");
+        }
+
+    }
+
+    public void addVideoURL() {
+        fluentWait(getDriver(), addListingVideos);
+        waitForWebElementAndClick(addListingVideos);
+    }
+
+    public void listingLanguages() {
+        fluentWait(getDriver(), englishCheckout);
+        waitForWebElementAndClick(englishCheckout);
+    }
+
+    public void listingWorkModel() {
+        fluentWait(getDriver(), remoteCheckout);
+        waitForWebElementAndClick(remoteCheckout);
+
+    }
+
+    public void listingBusinessSpecialties() {
+        fluentWait(getDriver(), financeCheckout);
+        waitForWebElementAndClick(financeCheckout);
+
+    }
+
+    public void listingTechSpecialties() {
+        fluentWait(getDriver(), techSpecialtiesField);
+        waitForWebElementAndClick(techSpecialtiesField);
+    }
+
+    public void listingTechSpecialtiesOption() {
+        try {
+            fluentWaitStrict(getDriver(), qAOption);
+            waitForWebElementAndClick(qAOption);
+            qAOption.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), qAOption);
+            waitForWebElementAndClick(qAOption);
+        } finally {
+            fluentWaitStrict(getDriver(), qAOption);
+        }
+
+    }
+
+    public void listingDropdownFilter() {
+        try {
+            fluentWait(getDriver(), testDropdownField);
+            waitForWebElementAndClick(testDropdownField);
+            fluentWaitStrict(getDriver(), option1);
+            waitForWebElementAndClick(option1);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), testDropdownField);
+            waitForWebElementAndClick(testDropdownField);
+            fluentWaitStrict(getDriver(), option1);
+            waitForWebElementAndClick(option1);
+        }
+
+    }
+
+    public void listingColorPicker() {
+        fluentWait(getDriver(), blackButton);
+        waitForWebElementAndClick(blackButton);
+    }
+
+    public void selectWeekday() {
+        fluentWait(getDriver(), weekdayField);
+        waitForWebElementAndClick(weekdayField);
+        fluentWait(getDriver(), sundayOption);
+        waitForWebElementAndClick(sundayOption);
+    }
+
+    public void selectFrom() {
+        fluentWait(getDriver(), fromField);
+        waitForWebElementAndClick(fromField);
+        fluentWait(getDriver(), timeOption);
+        waitForWebElementAndClick(timeOption);
+    }
+
+    public void selectTimeTo() {
+        fluentWait(getDriver(), timeToField);
+        waitForWebElementAndClick(timeToField);
+        fluentWait(getDriver(), timeToOption);
+        waitForWebElementAndClick(timeToOption);
+    }
+
+    public void selectAddTimeslot() {
+        fluentWait(getDriver(), addAvailable);
+        waitForWebElementAndClick(addAvailable);
+    }
+
+    public String GreatText() {
+        try {
+            fluentWaitStrict(getDriver(), greatJobText);
+            String result = greatJobText.getText();
+            return result;
+        } catch (Exception e) {
+            wait(6);
+            fluentWaitStrict(getDriver(), greatJobText);
+            String result = greatJobText.getText();
+            return result;
+        }
+    }
+
+    public void workModelSection() {
+        fluentWait(getDriver(), workModelField);
+        waitForWebElementAndClick(workModelField);
+    }
+
+    public void selectVideoConference() {
+        fluentWait(getDriver(), videoConferenceOption);
+        waitForWebElementAndClick(videoConferenceOption);
+    }
+
+    public void selectBlock() {
+        fluentWait(getDriver(), blockFilter);
+        waitForWebElementAndClick(blockFilter);
+    }
+
+    public void selectList() {
+        fluentWait(getDriver(), listFilter);
+        waitForWebElementAndClick(listFilter);
+
+    }
+
+    public void selectMap() {
+        fluentWait(getDriver(), mapFilter);
+        waitForWebElementAndClick(mapFilter);
+
+    }
+
+    public void serviceIncome() {
+        fluentWait(getDriver(), searchField);
+        waitForWebElementAndClick(searchField);
+        searchField.sendKeys("Blouse");
+    }
+
+    public void selectSearch() {
+        fluentWait(getDriver(), searchBtn);
+        waitForWebElementAndClick(searchBtn);
+
     }
 }

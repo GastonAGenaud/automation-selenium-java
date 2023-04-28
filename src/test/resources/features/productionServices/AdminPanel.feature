@@ -29,7 +29,7 @@ Feature: AdminPanel
     And enter the e-mail to recover the password
     Then Valid that An email has been sent to reset the password.
 
-  @MTR-6666
+  @MTR-66
   Scenario: Create a Service
     Given I login with Gaston User in production services using cookies
     And go to Dashboard ServProd
@@ -200,10 +200,23 @@ Feature: AdminPanel
     When DEV I validate add new listing button
     And I validate listing name text field ServProd
     And I validate listing category ServProd
+    And I validate listing Work ModelServProd
     And I validate listing description text field ServProd
     And I validate the listing Price ServProd
     And I validate listing image ServProd
     And I validate listing video URL ServProd
     And Go to details Section ServProd
+    And I validate Custom fields
+    And Go to Availability ServProd
+    And I validate Set available days
     Then I validate Create a Listing ServProd
 
+  @MTR-6666
+  Scenario: Browse Listings Details
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard ServProd
+    When go to Listing Page ServProd
+    Then valid select Block
+    And valid select List
+    And valid select Map
+    And valid select Search

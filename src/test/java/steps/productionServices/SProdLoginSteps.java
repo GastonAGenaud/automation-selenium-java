@@ -372,33 +372,35 @@ public class SProdLoginSteps extends BasePage {
 
     @And("I validate listing name text field ServProd")
     public void iValidateListingNameTextFieldServProd() {
-     //   _page.listingNameField();
+        _page.listingNameField();
     }
 
     @And("I validate listing category ServProd")
     public void iValidateListingCategoryServProd() {
-       // _page.selectCategory();
-    //    _page.businessCategory();
+        _page.selectCategory();
+        _page.businessCategory();
     }
 
     @And("I validate listing description text field ServProd")
     public void iValidateListingDescriptionTextFieldServProd() {
-      //  _page.listingDescriptionField();
+        _page.listingDescriptionField();
     }
 
     @And("I validate the listing Price ServProd")
     public void iValidateTheListingPriceServProd() {
-     //   _page.listingPricePerHour();
+        _page.listingPricePerHour();
     }
 
     @And("I validate listing image ServProd")
     public void iValidateListingImageServProd() {
-       // _page.listingAddImage();
+        _page.listingAddImage();
+        _page.cropButton();
     }
 
     @And("I validate listing video URL ServProd")
     public void iValidateListingVideoURLServProd() {
-     //   _page.listingVideoURLField();
+        _page.listingVideoURLField();
+        _page.addVideoURL();
 
     }
 
@@ -409,5 +411,59 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("I validate Create a Listing ServProd")
     public void iValidateCreateAListingServProd() {
+        Assert.assertEquals(_page.GreatText(), "Great job! Your listing is under review and will be published soon.");
+    }
+
+    @And("I validate Custom fields")
+    public void iValidateCustomFields() {
+        _page.listingLanguages();
+        _page.listingWorkModel();
+        _page.listingBusinessSpecialties();
+        _page.listingTechSpecialties();
+        _page.listingTechSpecialtiesOption();
+        //  _page.listingDropdownFilter();
+        _page.listingColorPicker();
+    }
+
+    @And("Go to Availability ServProd")
+    public void goToAvailabilityServProd() {
+        _page.goToAvailability();
+    }
+
+    @And("I validate Set available days")
+    public void iValidateSetAvailableDays() {
+        _page.selectWeekday();
+        _page.selectFrom();
+        _page.selectTimeTo();
+        _page.selectAddTimeslot();
+        _page.publish();
+    }
+
+    @And("I validate listing Work ModelServProd")
+    public void iValidateListingWorkModelServProd() {
+        _page.workModelSection();
+        _page.selectVideoConference();
+    }
+
+    @Then("valid select Block")
+    public void validSelectBlock() {
+        _page.selectBlock();
+    }
+
+    @And("valid select List")
+    public void validSelectList() {
+        _page.selectList();
+    }
+
+    @And("valid select Map")
+    public void validSelectMap() {
+        _page.selectMap();
+    }
+
+    @And("valid select Search")
+    public void validSelectSearch() {
+        _page.serviceIncome();
+        _page.selectSearch();
+
     }
 }
