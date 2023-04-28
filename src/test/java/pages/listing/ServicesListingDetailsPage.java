@@ -83,6 +83,7 @@ public class ServicesListingDetailsPage extends BasePage {
 
     }
 
+
     public void BrowseClassesButton() {
         fluentWait(getDriver(), browseClassesBtn);
         waitForWebElementAndClick(browseClassesBtn);

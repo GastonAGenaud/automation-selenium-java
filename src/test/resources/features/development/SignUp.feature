@@ -2,7 +2,7 @@
 Feature: Development Signup
 
   @prodSignup
-  Scenario: PROD - I Create an Account
+  Scenario: ENV - I Create an Account
     Given I go to Sign Up Page
     When I validate the Sign Up with Facebook
     And I validate the E-mail Text Field with the email "automation2"

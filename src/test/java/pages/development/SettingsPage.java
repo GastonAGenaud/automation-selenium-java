@@ -37,7 +37,7 @@ public class SettingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#Password")
     public WebElement resetPasswordTextField;
 
-    @FindBy(how = How.CSS, using = "#saveChangesBtn")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div[1]/div/ul/li[10]/button")
     public WebElement saveResetPassword;
 
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-bottomRight > div > div > div.iziToast-body")
@@ -491,7 +491,7 @@ public class SettingsPage extends BasePage {
     }
 
     public void saveChangesPassword() {
-        fluentWait(getDriver(), saveResetPassword);
+        fluentWaitStrict(getDriver(), saveResetPassword);
         waitForWebElementAndClick(saveResetPassword);
     }
 
