@@ -1,6 +1,5 @@
-@devProducts
-
-Feature: Production Listing details
+@ENV
+Feature: Development Listing details
 
   @ProductionDetails
   Scenario:Validate listing details page
@@ -104,7 +103,7 @@ Feature: Production Listing details
     Then PROD valid if the category is selected
 
 
-    @SeenCount
+  @SeenCount
   Scenario:Seen count
     Given I login with Gaston User in production products using cookies
     When PROD I go to the listing details page

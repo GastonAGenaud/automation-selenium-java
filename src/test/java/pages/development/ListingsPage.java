@@ -114,7 +114,7 @@ public class ListingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#btn-crop")
     public WebElement cropBtn;
 
-    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(3) > div.form-group > div > div > div > span > label > span")
+    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(4) > div.form-group > div > div > div:nth-child(5) > span > label > span")
     public WebElement lightBlueColor;
 
     @FindBy(how = How.CSS, using = "#custom-4")

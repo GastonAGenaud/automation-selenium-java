@@ -1,6 +1,5 @@
-@devProducts
-
-Feature: Production Landing Page
+@ENV
+Feature: Development Landing Page
 
   @landingPageTest
   Scenario: Landing Page

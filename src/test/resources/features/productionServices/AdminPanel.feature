@@ -88,7 +88,19 @@ Feature: AdminPanel
     Then valid Request a quote
 
 
-
+    @AdminDesignTestProd
+  Scenario: Admin design page
+    Given PSVC I go to Admin design
+    When PSVC I validate customize landing page option
+    And PSVC I validate customize menu option
+    And PSVC I validate customize login page option
+    And PSVC I validate customize sign up page option
+    #And PSVC I validate customize contact us page option
+    #And PSVC I validate customize about us page option
+    #And PSVC I validate customize FAQ page option
+    And PSVC I validate customize Terms & conditions page option
+    #And PSVC I validate customize Privacy Policy page option
+    Then PSVC I validate Admin Design
 
 
 
