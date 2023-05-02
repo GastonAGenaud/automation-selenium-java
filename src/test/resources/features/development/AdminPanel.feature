@@ -4,7 +4,7 @@ Feature: Development Admin Panel
 
   @testImpersonate1
   Scenario: Admin Panel - Users - Actions
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to Admin Panel
     When I select Users tab
     And Select Action button
@@ -13,7 +13,7 @@ Feature: Development Admin Panel
 
   @testSearchFilter
   Scenario: Admin Panel - Users - Search filter
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to Admin Panel
     When I select Users tab
     And complete search filter
@@ -23,7 +23,7 @@ Feature: Development Admin Panel
 
   @testAdminSettings
   Scenario: Admin Panel - Settings
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to Admin Panel
     Then I validate redirection to Site Wording
     And I validate elements in Site Wording

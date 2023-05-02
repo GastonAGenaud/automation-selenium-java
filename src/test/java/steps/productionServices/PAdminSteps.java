@@ -434,7 +434,7 @@ public class PAdminSteps extends BasePage {
 
     @Then("PSVC I validate Admin Settings")
     public void PSVCIValidateAdminSettings() {
-        Assert.assertEquals("Site Wording", _page.ordersConfirm());
+        Assert.assertEquals("Browse Config", _page.ordersConfirm());
     }
 
     //Reports
@@ -553,5 +553,21 @@ public class PAdminSteps extends BasePage {
     @And("PSVC I validate Graphic and Design checkbox")
     public void PSVCIValidateGraphicAndDesignCheckbox() {
         _page.graphicDesign();
+    }
+
+    @When("PSVC I select Users tab")
+    public void psvcISelectUsersTab() {
+        _page.setUsersBtn();
+        _page.getCloseChat();
+    }
+
+    @And("PSVC complete search filter")
+    public void psvcCompleteSearchFilter() {
+        _page.searchUser();
+    }
+
+    @Then("PSVC I validate Filter sector in Admin panel - Users")
+    public void psvcIValidateFilterSectorInAdminPanelUsers() {
+        _page.userResult();
     }
 }

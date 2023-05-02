@@ -3,7 +3,7 @@ Feature: Development Inbox
 
   @sendMessageMedia
   Scenario: Send messages to users, including media
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And I select browse requests PROD
     When select an item
     And select Send Message
@@ -16,7 +16,7 @@ Feature: Development Inbox
 
   @ReadUnread
   Scenario: Unread
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When select Inbox
     And select Unread
@@ -24,7 +24,7 @@ Feature: Development Inbox
 
   @ReadUnread
   Scenario: Read
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When select Inbox
     And select read

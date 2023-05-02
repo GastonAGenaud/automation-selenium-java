@@ -41,11 +41,11 @@ public class SignUpPage extends BasePage {
     public WebElement welcomeText;
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
     public void goToSignUp() {
-        getDriver().navigate().to(UrlDev + "/Account/Register");
+        getDriver().navigate().to(UrlDevProducts + "/Account/Register");
     }
 
 

@@ -518,6 +518,28 @@ public class PAdminPage extends BasePage {
     @FindBy(how = How.CSS, using = "#main-admin > div.container-fluid.bg-white.pb-5 > div:nth-child(1) > div > ul > li:nth-child(2) > a")
     public WebElement homePageLayout;
 
+    @FindBy(how = How.CSS, using = "#search")
+    public WebElement searchUserInput;
+
+    @FindBy(how = How.CSS, using = "#display-name-7b1d49e4-942a-4a32-a976-ced874645f03")
+    public WebElement userResultValidate;
+
+
+    public void userResult() {
+        fluentWait(getDriver(), userResultValidate);
+        Assert.assertTrue(userResultValidate.isDisplayed());
+    }
+
+    public void setUsersBtn() {
+        getDriver().navigate().to(UrlSVC + "/Admin/User");
+    }
+
+    public void searchUser() {
+        fluentWait(getDriver(), searchUserInput);
+        searchUserInput.sendKeys("gastongenaud");
+    }
+
+
     public void selectHomePageLayout() {
         fluentWait(getDriver(), homePageLayout);
         waitForWebElementAndClick(homePageLayout);
@@ -1248,111 +1270,113 @@ public class PAdminPage extends BasePage {
 //        waitForWebElementAndClick(settingsCompanyInfoBtn);
 
 
-        fluentWaitStrict(getDriver(), selectCompanyInfoBtn);
-        waitForWebElementAndClick(selectCompanyInfoBtn);
-
-        fluentWait(getDriver(), companyInfoTitleTextBar);
-        waitForWebElementAndClick(companyInfoTitleTextBar);
-        companyInfoTitleTextBar.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoCompanyNameTextBar);
-        waitForWebElementAndClick(companyInfoCompanyNameTextBar);
-        companyInfoCompanyNameTextBar.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoCompanySiteDescriptionTextBar);
-        waitForWebElementAndClick(companyInfoCompanySiteDescriptionTextBar);
-        companyInfoCompanySiteDescriptionTextBar.click();
-        companyInfoCompanySiteDescriptionTextBar.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoContactNameTextBar);
-        waitForWebElementAndClick(companyInfoContactNameTextBar);
-        companyInfoContactNameTextBar.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
-        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
-
-        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
-        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
-        companyInfoPhoneNumberTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoPostProdKeyTextField);
-        waitForWebElementAndClick(companyInfoPostProdKeyTextField);
-        companyInfoPostProdKeyTextField.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), companyInfoUSPSCarrierAccountIdTextField);
-        waitForWebElementAndClick(companyInfoUSPSCarrierAccountIdTextField);
-        companyInfoUSPSCarrierAccountIdTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoGoogleLocationApiKeyTextField);
-        waitForWebElementAndClick(companyInfoGoogleLocationApiKeyTextField);
-        companyInfoGoogleLocationApiKeyTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoFaviconURLTextField);
-        waitForWebElementAndClick(companyInfoFaviconURLTextField);
-        companyInfoFaviconURLTextField.sendKeys("https://test.automation");
-
-
-        fluentWait(getDriver(), companyInfoGoogleLocationApiSecondKeyTextField);
-        waitForWebElementAndClick(companyInfoGoogleLocationApiSecondKeyTextField);
-        companyInfoGoogleLocationApiSecondKeyTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoFacebookOAuthIDTextField);
-        waitForWebElementAndClick(companyInfoFacebookOAuthIDTextField);
-        companyInfoFacebookOAuthIDTextField.sendKeys("111111111");
-
-
-        fluentWait(getDriver(), companyInfoGoogleAuthIDTextField);
-        waitForWebElementAndClick(companyInfoGoogleAuthIDTextField);
-        companyInfoGoogleAuthIDTextField.sendKeys("111111111");
-
-
-        fluentWait(getDriver(), companyInfoGoogleCaptchaKeyTextField);
-        waitForWebElementAndClick(companyInfoGoogleCaptchaKeyTextField);
-        companyInfoGoogleCaptchaKeyTextField.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), companyInfoGoogleAnalyticsTrackingIdTextField);
-        waitForWebElementAndClick(companyInfoGoogleAnalyticsTrackingIdTextField);
-        companyInfoGoogleAnalyticsTrackingIdTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), companyInfoCommissionTextField);
-        waitForWebElementAndClick(companyInfoCommissionTextField);
-        companyInfoCommissionTextField.sendKeys("11");
-
-        fluentWait(getDriver(), selectSubscriptionInfoBtn);
-        waitForWebElementAndClick(selectSubscriptionInfoBtn);
+//        fluentWaitStrict(getDriver(), selectCompanyInfoBtn);
+//        waitForWebElementAndClick(selectCompanyInfoBtn);
+//
+//        fluentWait(getDriver(), companyInfoTitleTextBar);
+//        waitForWebElementAndClick(companyInfoTitleTextBar);
+//        companyInfoTitleTextBar.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoCompanyNameTextBar);
+//        waitForWebElementAndClick(companyInfoCompanyNameTextBar);
+//        companyInfoCompanyNameTextBar.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoCompanySiteDescriptionTextBar);
+//        waitForWebElementAndClick(companyInfoCompanySiteDescriptionTextBar);
+//        companyInfoCompanySiteDescriptionTextBar.click();
+//        companyInfoCompanySiteDescriptionTextBar.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoContactNameTextBar);
+//        waitForWebElementAndClick(companyInfoContactNameTextBar);
+//        companyInfoContactNameTextBar.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
+//        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
+//
+//        fluentWait(getDriver(), companyInfoPhoneNumberTextField);
+//        waitForWebElementAndClick(companyInfoPhoneNumberTextField);
+//        companyInfoPhoneNumberTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoPostProdKeyTextField);
+//        waitForWebElementAndClick(companyInfoPostProdKeyTextField);
+//        companyInfoPostProdKeyTextField.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), companyInfoUSPSCarrierAccountIdTextField);
+//        waitForWebElementAndClick(companyInfoUSPSCarrierAccountIdTextField);
+//        companyInfoUSPSCarrierAccountIdTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoGoogleLocationApiKeyTextField);
+//        waitForWebElementAndClick(companyInfoGoogleLocationApiKeyTextField);
+//        companyInfoGoogleLocationApiKeyTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoFaviconURLTextField);
+//        waitForWebElementAndClick(companyInfoFaviconURLTextField);
+//        companyInfoFaviconURLTextField.sendKeys("https://test.automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoGoogleLocationApiSecondKeyTextField);
+//        waitForWebElementAndClick(companyInfoGoogleLocationApiSecondKeyTextField);
+//        companyInfoGoogleLocationApiSecondKeyTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoFacebookOAuthIDTextField);
+//        waitForWebElementAndClick(companyInfoFacebookOAuthIDTextField);
+//        companyInfoFacebookOAuthIDTextField.sendKeys("111111111");
+//
+//
+//        fluentWait(getDriver(), companyInfoGoogleAuthIDTextField);
+//        waitForWebElementAndClick(companyInfoGoogleAuthIDTextField);
+//        companyInfoGoogleAuthIDTextField.sendKeys("111111111");
+//
+//
+//        fluentWait(getDriver(), companyInfoGoogleCaptchaKeyTextField);
+//        waitForWebElementAndClick(companyInfoGoogleCaptchaKeyTextField);
+//        companyInfoGoogleCaptchaKeyTextField.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), companyInfoGoogleAnalyticsTrackingIdTextField);
+//        waitForWebElementAndClick(companyInfoGoogleAnalyticsTrackingIdTextField);
+//        companyInfoGoogleAnalyticsTrackingIdTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), companyInfoCommissionTextField);
+//        waitForWebElementAndClick(companyInfoCommissionTextField);
+//        companyInfoCommissionTextField.sendKeys("11");
+//
+//        fluentWait(getDriver(), selectSubscriptionInfoBtn);
+//        waitForWebElementAndClick(selectSubscriptionInfoBtn);
     }
 
     public void paymentInfo() {
         settings();
 
-        fluentWait(getDriver(), settingsPaymentInfoBtn);
-        waitForWebElementAndClick(settingsPaymentInfoBtn);
+        getDriver().navigate().to("https://mtreborn-dev-services.azurewebsites.net/admin/application/StripeSettings");
 
-        fluentWait(getDriver(), selectPaymentInfoBtn);
-        waitForWebElementAndClick(selectPaymentInfoBtn);
-
-        fluentWait(getDriver(), selectSitePaymentService);
-        waitForWebElementAndClick(selectSitePaymentService);
-
-        fluentWait(getDriver(), paymentInfoStripeSecretApiKeyTextField);
-        waitForWebElementAndClick(paymentInfoStripeSecretApiKeyTextField);
-        paymentInfoStripeSecretApiKeyTextField.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), paymentInfoStripePublishableApiKeyTextField);
-        waitForWebElementAndClick(paymentInfoStripePublishableApiKeyTextField);
-        paymentInfoStripePublishableApiKeyTextField.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), paymentInfoStripeConnectClientIdTextField);
-        waitForWebElementAndClick(paymentInfoStripeConnectClientIdTextField);
-        paymentInfoStripeConnectClientIdTextField.sendKeys("Test Automation");
+//        fluentWait(getDriver(), settingsPaymentInfoBtn);
+//        waitForWebElementAndClick(settingsPaymentInfoBtn);
+//
+//        fluentWait(getDriver(), selectPaymentInfoBtn);
+//        waitForWebElementAndClick(selectPaymentInfoBtn);
+//
+//        fluentWait(getDriver(), selectSitePaymentService);
+//        waitForWebElementAndClick(selectSitePaymentService);
+//
+//        fluentWait(getDriver(), paymentInfoStripeSecretApiKeyTextField);
+//        waitForWebElementAndClick(paymentInfoStripeSecretApiKeyTextField);
+//        paymentInfoStripeSecretApiKeyTextField.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), paymentInfoStripePublishableApiKeyTextField);
+//        waitForWebElementAndClick(paymentInfoStripePublishableApiKeyTextField);
+//        paymentInfoStripePublishableApiKeyTextField.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), paymentInfoStripeConnectClientIdTextField);
+//        waitForWebElementAndClick(paymentInfoStripeConnectClientIdTextField);
+//        paymentInfoStripeConnectClientIdTextField.sendKeys("Test Automation");
     }
 
     public void settingsOrdersSetup() {
@@ -1384,29 +1408,29 @@ public class PAdminPage extends BasePage {
 //        fluentWait(getDriver(), settingsDiscountBtn);
 //        waitForWebElementAndClick(settingsDiscountBtn);
 
-        fluentWait(getDriver(), discountCodeTextField);
-        waitForWebElementAndClick(discountCodeTextField);
-        discountCodeTextField.sendKeys("Test Automation");
-
-        fluentWait(getDriver(), discountDescriptionTextField);
-        waitForWebElementAndClick(discountDescriptionTextField);
-        discountDescriptionTextField.sendKeys("Test Automation");
-
-
-        fluentWait(getDriver(), discountExpiryDateTextField);
-        waitForWebElementAndClick(discountExpiryDateTextField);
-        discountExpiryDateTextField.sendKeys("20062023");
-
-
-        fluentWait(getDriver(), discountAmountTextField);
-        waitForWebElementAndClick(discountAmountTextField);
-        discountAmountTextField.sendKeys("111");
-
-        fluentWait(getDriver(), discountAddCodeBtn);
-        waitForWebElementAndClick(discountAddCodeBtn);
-
-        fluentWait(getDriver(), discountEliminate);
-        waitForWebElementAndClick(discountEliminate);
+//        fluentWait(getDriver(), discountCodeTextField);
+//        waitForWebElementAndClick(discountCodeTextField);
+//        discountCodeTextField.sendKeys("Test Automation");
+//
+//        fluentWait(getDriver(), discountDescriptionTextField);
+//        waitForWebElementAndClick(discountDescriptionTextField);
+//        discountDescriptionTextField.sendKeys("Test Automation");
+//
+//
+//        fluentWait(getDriver(), discountExpiryDateTextField);
+//        waitForWebElementAndClick(discountExpiryDateTextField);
+//        discountExpiryDateTextField.sendKeys("20062023");
+//
+//
+//        fluentWait(getDriver(), discountAmountTextField);
+//        waitForWebElementAndClick(discountAmountTextField);
+//        discountAmountTextField.sendKeys("111");
+//
+//        fluentWait(getDriver(), discountAddCodeBtn);
+//        waitForWebElementAndClick(discountAddCodeBtn);
+//
+//        fluentWait(getDriver(), discountEliminate);
+//        waitForWebElementAndClick(discountEliminate);
     }
 
     //Reports

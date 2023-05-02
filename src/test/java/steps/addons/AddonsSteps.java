@@ -150,7 +150,7 @@ public class AddonsSteps extends BasePage {
     @And("select my newly created product ADDONS")
     public void selectMyNewlyCreatedProductADDONS() {
         _page.selectMyNewlyProduct();
-        _page.saveTheUrlDevuct();
+        _page.saveTheUrlDevProductsuct();
     }
 
     @And("I will purchase the product")

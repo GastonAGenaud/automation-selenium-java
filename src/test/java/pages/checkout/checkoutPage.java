@@ -252,7 +252,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItem() {
-        getDriver().navigate().to(UrlDevuct);
+        getDriver().navigate().to(UrlDevProductsuct);
     }
 
     public void selectFlatRate() {
@@ -270,7 +270,7 @@ public class checkoutPage extends BasePage {
     }
 
     public void goToItemForShipping() {
-        getDriver().navigate().to(UrlDevuct);
+        getDriver().navigate().to(UrlDevProductsuct);
     }
 
     public void goToSecureCheckout() {

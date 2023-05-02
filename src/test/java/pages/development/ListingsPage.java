@@ -219,19 +219,19 @@ public class ListingsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
     public void goToListingPage() {
-        getDriver().navigate().to(UrlDev + "/dashboard/MyListings");
+        getDriver().navigate().to(UrlDevProducts + "/dashboard/MyListings");
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(UrlDev + "/Account/Login");
+        getDriver().navigate().to(UrlDevProducts + "/Account/Login");
     }
 
     public void goToDashboardPage() {
-        getDriver().navigate().to(UrlDev + "/dashboard");
+        getDriver().navigate().to(UrlDevProducts + "/dashboard");
     }
 
     public void myListingButton() {

@@ -1,6 +1,6 @@
 Feature: AdminPanel
 
-#Given I login with Gaston User in production products using cookies
+#Given I login with Gaston User in development products using cookies
   @MTR-1111
   Scenario: Login
     Given I go login page PROD
@@ -114,7 +114,7 @@ Feature: AdminPanel
     Then valid color filter
 
 
-    @AdminDesignTestProd
+  @AdminDesignTestProd
   Scenario: Admin design page
     Given PSVC I go to Admin design
     When PSVC I validate customize landing page option
@@ -127,6 +127,20 @@ Feature: AdminPanel
     And PSVC I validate customize Terms & conditions page option
     #And PSVC I validate customize Privacy Policy page option
     Then PSVC I validate Admin Design
+
+  @AdminDesignTestProd2
+  Scenario: Admin Settings
+    Given PSVC I login with Gaston User in services
+    When PSVC I go to admin panel in services
+    And PSVC I validate settings Site Wording
+    And PSVC I validate settings Company Info
+    And PSVC I validate settings Payment Info
+    And PSVC I validate settings Orders Setup
+    And PSVC I validate Request Setup
+    And PSVC I validate Discount codes section
+    Then PSVC I validate Admin Settings
+
+
   @MTR-66
   Scenario: Browse Listings/Browse Expert (Work Model)
     Given I login with Gaston User in production services using cookies
@@ -233,3 +247,22 @@ Feature: AdminPanel
     And valid select List
     And valid select Map
     And valid select Search
+
+
+    @testAdminActions
+  Scenario: Admin Panel - Users - Actions
+    Given PSVC I login with Gaston User in services
+    And PSVC I go to admin panel in services
+    When PSVC I select Users tab
+    And Select Action button
+    And select Impersonate Button
+    Then I validate action sector in Admin panel - Users
+
+  @testSearchFilter1
+  Scenario: Admin Panel - Users - Search filter
+    Given PSVC I login with Gaston User in services
+    And PSVC I go to admin panel in services
+    When PSVC I select Users tab
+    And PSVC complete search filter
+    And select Filter button
+    Then PSVC I validate Filter sector in Admin panel - Users

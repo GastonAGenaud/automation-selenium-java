@@ -116,7 +116,7 @@ public class AddonsPage extends BasePage {
     String newProductUrl = null;
     String windowHandle = getDriver().getWindowHandle();
 
-    public void saveTheUrlDevuct() {
+    public void saveTheUrlDevProductsuct() {
         getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         newProductUrl = getDriver().getCurrentUrl();
     }
