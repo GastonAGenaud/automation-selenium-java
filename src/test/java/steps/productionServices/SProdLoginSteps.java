@@ -45,8 +45,8 @@ public class SProdLoginSteps extends BasePage {
         Assert.assertEquals(true, _page.logoQAProductionSite());
     }
 
-    @Given("I go to Sign Up PROD")
-    public void iGoToSignUpPROD() {
+    @Given("I go to Sign Up")
+    public void iGoToSignUp() {
         _page.goToSignUp();
     }
 
@@ -76,8 +76,8 @@ public class SProdLoginSteps extends BasePage {
     }
 
 
-    @And("I Sign in with new account {string} PROD")
-    public void iSignInWithNewAccountEmailPROD(String text) {
+    @And("I Sign in with new account {string}")
+    public void iSignInWithNewAccountEmail(String text) {
         _page.CreateAnAccountListingDetailsPROD(text);
         _page.CloseWindow();
     }
@@ -116,18 +116,18 @@ public class SProdLoginSteps extends BasePage {
         _page.publish();
     }
 
-    @And("go to Dashboard ServProd")
-    public void goToDashboardServProd() {
+    @And("go to Dashboard Serv")
+    public void goToDashboardServ() {
         _page.goToDashboardServ();
     }
 
-    @When("select My Listings button Serv Prod")
-    public void selectMyListingsButtonServProd() {
+    @When("select My Listings button Serv")
+    public void selectMyListingsButtonServ() {
         _page.selectMyListingsServProd();
     }
 
-    @When("go to Settings Serv Prod")
-    public void goToSettingsServProd() {
+    @When("go to Settings Serv")
+    public void goToSettingsServ() {
         _page.goToSettingServ();
     }
 
@@ -141,8 +141,8 @@ public class SProdLoginSteps extends BasePage {
         Assert.assertEquals("Pending", _page.validConnectStipe());
     }
 
-    @And("enter profile information")
-    public void enterProfileInformation() {
+    @And("enter profile information Serv")
+    public void enterProfileInformationServ() {
         _page.enterFirstName();
         _page.enterLastName();
         _page.enterUsername();
@@ -213,8 +213,8 @@ public class SProdLoginSteps extends BasePage {
         Assert.assertTrue(_page.validateSendMessageIncludingMedia());
     }
 
-    @When("go to Browse Request ServProd")
-    public void goToBrowseRequestServProd() {
+    @When("go to Browse Request Serv")
+    public void goToBrowseRequestServ() {
         _page.goToBrowseRequestServ();
     }
 
@@ -228,8 +228,8 @@ public class SProdLoginSteps extends BasePage {
         _page.selectApply();
     }
 
-    @And("complete the form ServProd")
-    public void completeTheFormServProd() {
+    @And("complete the form Serv")
+    public void completeTheFormServ() {
         _page.enterMessage();
         _page.enterStartDate();
         _page.endTimeField();
@@ -240,8 +240,8 @@ public class SProdLoginSteps extends BasePage {
     public void validRequestAQuote() {
     }
 
-    @And("go to Listing Page ServProd")
-    public void goToListingPageServProd() {
+    @And("go to Listing Page Serv")
+    public void goToListingPageServ() {
         getDriver().navigate().to(urlServicesProd + "Listing/Browse");
     }
 
@@ -280,8 +280,8 @@ public class SProdLoginSteps extends BasePage {
         _page.businessFilter();
     }
 
-    @Then("I validate Filters ServProd")
-    public void iValidateFiltersServProd() {
+    @Then("I validate Filters Serv")
+    public void iValidateFiltersServ() {
         Assert.assertEquals("Category", _page.validateFilterSector());
     }
 
@@ -311,23 +311,23 @@ public class SProdLoginSteps extends BasePage {
         _page.maxPriceFilter();
     }
 
-    @And("select Apply button ServProd")
-    public void selectApplyButtonServProd() {
+    @And("select Apply button Serv")
+    public void selectApplyButtonServ() {
         _page.applyFilterPrice();
     }
 
-    @Then("I validate Price filter ServProd")
-    public void iValidatePriceFilterServProd() {
+    @Then("I validate Price filter Serv")
+    public void iValidatePriceFilterServ() {
         _page.validatePriceFilter();
     }
 
-    @When("complete Location TextField ServProd")
-    public void completeLocationTextFieldServProd() {
+    @When("complete Location TextField Serv")
+    public void completeLocationTextFieldServ() {
         _page.locationText();
     }
 
-    @Then("I validate Location ServProd")
-    public void iValidateLocationServProd() {
+    @Then("I validate Location Serv")
+    public void iValidateLocationServ() {
         _page.validateLocationSection();
     }
 
@@ -370,47 +370,47 @@ public class SProdLoginSteps extends BasePage {
         _page.goToBrowseBySeller();
     }
 
-    @And("I validate listing name text field ServProd")
-    public void iValidateListingNameTextFieldServProd() {
+    @And("go to Dashboard ServI validate listing name text field Serv")
+    public void iValidateListingNameTextFieldServ() {
         _page.listingNameField();
     }
 
-    @And("I validate listing category ServProd")
-    public void iValidateListingCategoryServProd() {
+    @And("I validate listing category Serv")
+    public void iValidateListingCategoryServ() {
         _page.selectCategory();
         _page.businessCategory();
     }
 
-    @And("I validate listing description text field ServProd")
-    public void iValidateListingDescriptionTextFieldServProd() {
+    @And("I validate listing description text field Serv")
+    public void iValidateListingDescriptionTextFieldServ() {
         _page.listingDescriptionField();
     }
 
-    @And("I validate the listing Price ServProd")
-    public void iValidateTheListingPriceServProd() {
+    @And("I validate the listing Price Serv")
+    public void iValidateTheListingPriceServ() {
         _page.listingPricePerHour();
     }
 
-    @And("I validate listing image ServProd")
-    public void iValidateListingImageServProd() {
+    @And("I validate listing image Serv")
+    public void iValidateListingImageServ() {
         _page.listingAddImage();
         _page.cropButton();
     }
 
-    @And("I validate listing video URL ServProd")
-    public void iValidateListingVideoURLServProd() {
+    @And("I validate listing video URL Serv")
+    public void iValidateListingVideoURLServ() {
         _page.listingVideoURLField();
         _page.addVideoURL();
 
     }
 
-    @And("Go to details Section ServProd")
-    public void goToDetailsSectionServProd() {
+    @And("Go to details Section Serv")
+    public void goToDetailsSectionServ() {
         _page.goToDetails();
     }
 
-    @Then("I validate Create a Listing ServProd")
-    public void iValidateCreateAListingServProd() {
+    @Then("I validate Create a Listing Serv")
+    public void iValidateCreateAListingServ() {
         Assert.assertEquals(_page.GreatText(), "Great job! Your listing is under review and will be published soon.");
     }
 
@@ -425,8 +425,8 @@ public class SProdLoginSteps extends BasePage {
         _page.listingColorPicker();
     }
 
-    @And("Go to Availability ServProd")
-    public void goToAvailabilityServProd() {
+    @And("Go to Availability Serv")
+    public void goToAvailabilityServ() {
         _page.goToAvailability();
     }
 
@@ -439,8 +439,8 @@ public class SProdLoginSteps extends BasePage {
         _page.publish();
     }
 
-    @And("I validate listing Work ModelServProd")
-    public void iValidateListingWorkModelServProd() {
+    @And("I validate listing Work ModelServ")
+    public void iValidateListingWorkModelServ() {
         _page.workModelSection();
         _page.selectVideoConference();
     }
@@ -466,4 +466,125 @@ public class SProdLoginSteps extends BasePage {
         _page.selectSearch();
 
     }
+
+    @Then("select Payment Section")
+    public void selectPaymentSection() {
+        _page.selectPayment();
+    }
+
+    @And("Add new Credit Card")
+    public void addNewCreditCard() {
+        _page.nameOnCardField();
+        _page.cardNumberField();
+        _page.expDateField();
+        _page.securityCode();
+        _page.addCreditCard();
+    }
+
+    @When("valid that the new credit card has been created")
+    public void validThatTheNewCreditCardHasBeenCreated() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @And("delete Credit Card")
+    public void deleteCreditCard() {
+        _page.deleteCreditCard();
+    }
+
+    @And("valid that the credit card has been erased")
+    public void validThatTheCreditCardHasBeenErased() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @Then("select Password section")
+    public void selectPasswordSection() {
+        _page.selectPassword();
+    }
+
+    @And("add New password")
+    public void addNewPassword() {
+        _page.newPasswordField();
+        _page.saveChanges();
+    }
+
+    @When("valid if the password has been changed")
+    public void validIfThePasswordHasBeenChanged() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @Then("select Notifications Section")
+    public void selectNotificationsSection() {
+        _page.selectNotifications();
+    }
+
+    @And("activate notifications")
+    public void activateNotifications() {
+        _page.activateSMSNotifications();
+        _page.countryCodeField();
+        _page.areaCode();
+        _page.phoneNumberField();
+        _page.acceptTermsAndConditions();
+        _page.saveChangesNotifications();
+    }
+
+    @When("valid to activate notifications")
+    public void validToActivateNotifications() {
+        Assert.assertEquals("Success!", _page.validSaveProfile());
+    }
+
+    @And("desactive notifications")
+    public void desactiveNotifications() {
+        _page.desactiveNotificationCheckout();
+        _page.saveChangesNotifications();
+    }
+
+    @And("valid to desactive notofications")
+    public void validToDesactiveNotofications() {
+        Assert.assertEquals("Success!", _page.validSaveProfile());
+    }
+
+    @Then("select Addresses Section")
+    public void selectAddressesSection() {
+        _page.selectAddressesSections();
+    }
+
+    @And("add New Address")
+    public void addNewAddress() {
+        _page.addressLineField();
+        _page.cityField();
+        _page.stateField();
+        _page.zIPField();
+        _page.nameThisAddress();
+        _page.addAddress();
+    }
+
+    @When("valid that the new address has been created")
+    public void validThatTheNewAddressHasBeenCreated() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @And("select Edit Addresses")
+    public void selectEditAddresses() {
+        _page.selectEdit();
+        _page.editAddress();
+        _page.acceptEditAddress();
+    }
+
+    @And("valid that the address has been edited")
+    public void validThatTheAddressHasBeenEdited() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @And("select Delete Address saved")
+    public void selectDeleteAddressSaved() {
+        _page.deleteSavedAddress();
+        _page.confirmDeleteAddress();
+    }
+
+    @And("valid that the address has been erased")
+    public void validThatTheAddressHasBeenErased() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+
 }
