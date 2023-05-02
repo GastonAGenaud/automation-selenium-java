@@ -77,7 +77,7 @@ Feature: AdminPanel
     And I send message
     Then valid that send messages
 
-  @MTR-6666
+  @MTR-66 #no se puede crear el request
   Scenario: Request a quote/Make an Offer
     Given I login with Gaston User in production services using cookies
     And go to Dashboard ServProd
@@ -86,6 +86,32 @@ Feature: AdminPanel
     And i select apply
     And complete the form ServProd
     Then valid Request a quote
+
+  @MTR-66
+  Scenario: Create a Want
+
+
+  @MTR-5
+  Scenario: Browse Listings/Browse Expert (Category)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page ServProd
+    When select Graphics & Design
+    And select Marketing
+    And select Programming & Tech
+    And select Testing Category
+    And select Software
+    And select Techonology
+    And select Photography
+    And select Business
+    And select Show more
+    Then I validate Filters ServProd
+
+  @MTR-66
+  Scenario: Browse Listings/Browse Expert (Category)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page ServProd
+    When select filter colors
+    Then valid color filter
 
 
     @AdminDesignTestProd
@@ -101,7 +127,109 @@ Feature: AdminPanel
     And PSVC I validate customize Terms & conditions page option
     #And PSVC I validate customize Privacy Policy page option
     Then PSVC I validate Admin Design
+  @MTR-66
+  Scenario: Browse Listings/Browse Expert (Work Model)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page ServProd
+    When select Video Conference
+    And select in-Person
+    Then I validate Work Model Section
 
 
+  @MTR-66
+  Scenario: Browse Listings/Browse Expert (Price)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page ServProd
+    When complete price numbers TextFields in Set up Manually ServProd
+    And select Apply button ServProd
+    Then I validate Price filter ServProd
+
+  @MTR-66
+  Scenario: Browse Listings/Browse Expert (Location)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page ServProd
+    When  complete Location TextField ServProd
+    Then I validate Location ServProd
+
+  @MTR-6
+  Scenario: Browse Listings/Browse Request (category)
+    Given I login with Gaston User in production services using cookies
+    And go to Browse Request ServProd
+    When select Graphics & Design
+    And select Marketing
+    And select Programming & Tech
+    And select Testing Category
+    And select Software
+    And select Techonology
+    And select Photography
+    And select Business
+    And select Show more
+    Then I validate Filters ServProd
 
 
+  @MTR-6
+  Scenario: Browse Listings/Browse Request (Price)
+    Given I login with Gaston User in production services using cookies
+    And go to Browse Request ServProd
+    When complete price numbers TextFields in Set up Manually ServProd
+    And select Apply ServProd
+    Then I validate Price filter in section Browse Request ServProd
+
+  @MTR-6
+  Scenario: Browse Listings/Browse Request (Location)
+    Given I login with Gaston User in production services using cookies
+    And go to Browse Request ServProd
+    When  complete Location TextField ServProd
+    Then I validate Location ServProd
+
+  @MTR-6
+  Scenario: Browse Listings/Browse by Seller (Category)
+    Given I login with Gaston User in production services using cookies
+    And go to Browse by Seller ServProd
+    When select Graphics & Design
+    And select Marketing
+    And select Programming & Tech
+    And select Testing Category
+    And select Software
+    And select Techonology
+    And select Photography
+    And select Business
+    And select Show more
+    Then I validate Filters ServProd
+
+
+  @MTR-66
+  Scenario: Browse Listings/Browse by Seller (Location)
+    Given I login with Gaston User in production services using cookies
+    And go to Browse by Seller ServProd
+    When  complete Location TextField ServProd
+    Then I validate Location ServProd
+
+  @MTR-6
+  Scenario: Listing/Service Details
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard ServProd
+    And DEV I validate the My Listings button
+    When DEV I validate add new listing button
+    And I validate listing name text field ServProd
+    And I validate listing category ServProd
+    And I validate listing Work ModelServProd
+    And I validate listing description text field ServProd
+    And I validate the listing Price ServProd
+    And I validate listing image ServProd
+    And I validate listing video URL ServProd
+    And Go to details Section ServProd
+    And I validate Custom fields
+    And Go to Availability ServProd
+    And I validate Set available days
+    Then I validate Create a Listing ServProd
+
+  @MTR-6666
+  Scenario: Browse Listings Details
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard ServProd
+    When go to Listing Page ServProd
+    Then valid select Block
+    And valid select List
+    And valid select Map
+    And valid select Search

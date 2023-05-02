@@ -239,4 +239,231 @@ public class SProdLoginSteps extends BasePage {
     @Then("valid Request a quote")
     public void validRequestAQuote() {
     }
+
+    @And("go to Listing Page ServProd")
+    public void goToListingPageServProd() {
+        getDriver().navigate().to(urlServicesProd + "Listing/Browse");
+    }
+
+    @When("select Graphics & Design")
+    public void selectGraphicsDesign() {
+        _page.graphicsDesignFilter();
+    }
+
+    @And("select Marketing")
+    public void selectMarketing() {
+        _page.marketingFilter();
+    }
+
+    @And("select Programming & Tech")
+    public void selectProgrammingTech() {
+        _page.programmingTechFilter();
+    }
+
+    @And("select Testing Category")
+    public void selectTestingCategory() {
+        _page.testingCategoryFilter();
+    }
+
+    @And("select Software")
+    public void selectSoftware() {
+        _page.softwareFilter();
+    }
+
+    @And("select Techonology")
+    public void selectTechonology() {
+        _page.techonologyFilter();
+    }
+
+    @And("select Business")
+    public void selectBusiness() {
+        _page.businessFilter();
+    }
+
+    @Then("I validate Filters ServProd")
+    public void iValidateFiltersServProd() {
+        Assert.assertEquals("Category", _page.validateFilterSector());
+    }
+
+    @And("select Photography")
+    public void selectPhotography() {
+        _page.photographyFilter();
+    }
+
+    @When("select Video Conference")
+    public void selectVideoConference() {
+        _page.VideoConferenceFilter();
+    }
+
+    @And("select in-Person")
+    public void selectInPerson() {
+        _page.inPersonFilter();
+    }
+
+    @Then("I validate Work Model Section")
+    public void iValidateWorkModelSection() {
+        Assert.assertEquals("Work Model", _page.validateWorkModelSector());
+    }
+
+    @When("complete price numbers TextFields in Set up Manually ServProd")
+    public void completePriceNumbersTextFieldsInSetUpManuallyServProd() {
+        _page.minPriceFilter();
+        _page.maxPriceFilter();
+    }
+
+    @And("select Apply button ServProd")
+    public void selectApplyButtonServProd() {
+        _page.applyFilterPrice();
+    }
+
+    @Then("I validate Price filter ServProd")
+    public void iValidatePriceFilterServProd() {
+        _page.validatePriceFilter();
+    }
+
+    @When("complete Location TextField ServProd")
+    public void completeLocationTextFieldServProd() {
+        _page.locationText();
+    }
+
+    @Then("I validate Location ServProd")
+    public void iValidateLocationServProd() {
+        _page.validateLocationSection();
+    }
+
+
+    @And("select Show more")
+    public void selectShowMore() {
+        _page.shoreMoreSection();
+    }
+
+    @And("select Apply ServProd")
+    public void selectApplyServProd() {
+        _page.selectApplyButton();
+    }
+
+    @Then("I validate Price filter in section Browse Request ServProd")
+    public void iValidatePriceFilterInSectionBrowseRequestServProd() {
+        _page.validatePriceFilterSectionRequest();
+    }
+
+    @When("select filter colors")
+    public void selectFilterColors() {
+        _page.selectPurple();
+        _page.selectLightBlue();
+        _page.selectBlack();
+        _page.selectRed();
+        _page.selectBlue();
+        _page.selectGreen();
+        _page.selectYellow();
+        _page.selectPink();
+        _page.selectBrown();
+    }
+
+    @Then("valid color filter")
+    public void validColorFilter() {
+        _page.validColorFilterSection();
+    }
+
+    @And("go to Browse by Seller ServProd")
+    public void goToBrowseBySellerServProd() {
+        _page.goToBrowseBySeller();
+    }
+
+    @And("I validate listing name text field ServProd")
+    public void iValidateListingNameTextFieldServProd() {
+        _page.listingNameField();
+    }
+
+    @And("I validate listing category ServProd")
+    public void iValidateListingCategoryServProd() {
+        _page.selectCategory();
+        _page.businessCategory();
+    }
+
+    @And("I validate listing description text field ServProd")
+    public void iValidateListingDescriptionTextFieldServProd() {
+        _page.listingDescriptionField();
+    }
+
+    @And("I validate the listing Price ServProd")
+    public void iValidateTheListingPriceServProd() {
+        _page.listingPricePerHour();
+    }
+
+    @And("I validate listing image ServProd")
+    public void iValidateListingImageServProd() {
+        _page.listingAddImage();
+        _page.cropButton();
+    }
+
+    @And("I validate listing video URL ServProd")
+    public void iValidateListingVideoURLServProd() {
+        _page.listingVideoURLField();
+        _page.addVideoURL();
+
+    }
+
+    @And("Go to details Section ServProd")
+    public void goToDetailsSectionServProd() {
+        _page.goToDetails();
+    }
+
+    @Then("I validate Create a Listing ServProd")
+    public void iValidateCreateAListingServProd() {
+        Assert.assertEquals(_page.GreatText(), "Great job! Your listing is under review and will be published soon.");
+    }
+
+    @And("I validate Custom fields")
+    public void iValidateCustomFields() {
+        _page.listingLanguages();
+        _page.listingWorkModel();
+        _page.listingBusinessSpecialties();
+        _page.listingTechSpecialties();
+        _page.listingTechSpecialtiesOption();
+        //  _page.listingDropdownFilter();
+        _page.listingColorPicker();
+    }
+
+    @And("Go to Availability ServProd")
+    public void goToAvailabilityServProd() {
+        _page.goToAvailability();
+    }
+
+    @And("I validate Set available days")
+    public void iValidateSetAvailableDays() {
+        _page.selectWeekday();
+        _page.selectFrom();
+        _page.selectTimeTo();
+        _page.selectAddTimeslot();
+        _page.publish();
+    }
+
+    @And("I validate listing Work ModelServProd")
+    public void iValidateListingWorkModelServProd() {
+        _page.workModelSection();
+        _page.selectVideoConference();
+    }
+
+    @Then("valid select Block")
+    public void validSelectBlock() {
+        _page.selectBlock();
+    }
+
+    @And("valid select List")
+    public void validSelectList() {
+        _page.selectList();
+    }
+
+    @And("valid select Map")
+    public void validSelectMap() {
+        _page.selectMap();
+    }
+
+    @And("valid select Search")
+    public void validSelectSearch() {
+        _page.serviceIncome();
+        _page.selectSearch();
+
+    }
 }

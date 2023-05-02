@@ -88,9 +88,9 @@ public class categoryPage extends BasePage {
     public WebElement addJewelrySubcategory;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topRight > div:nth-child(1) > div > div.iziToast-body > div.iziToast-texts > p")
     public WebElement SuccessSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/i[2]")
-    public WebElement editShoesSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/i[2]")
+    public WebElement editShoesSubcategoryBtn;
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editOutdoorStaffSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editRugsSubcategoryBtn;
@@ -102,9 +102,9 @@ public class categoryPage extends BasePage {
     public WebElement editAccessoriesSubcategoryBtn;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[6]/div[2]/div[1]/div/div[1]/i[2]")
     public WebElement editArtAndCollectablesSubcategoryBtn;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/input")
-    public WebElement editShoesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/input")
+    public WebElement editShoesSubcategory;
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/input")
     public WebElement editOutdoorStaffSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/input")
     public WebElement editRugsSubcategory;
@@ -116,9 +116,9 @@ public class categoryPage extends BasePage {
     public WebElement editAccessoriesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[8]/div[2]/div[1]/div/div[1]/input")
     public WebElement editArtAndCollectablesSubcategory;
-    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div[1]/a")
-    public WebElement deleteShoesSubcategory;
     @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div[1]/a")
+    public WebElement deleteShoesSubcategory;
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div[1]/a")
     public WebElement deleteOutdoorStaffSubcategory;
     @FindBy(xpath = "//a[text()='Delete'][@data-name='Test Rugs Edit']")
     public WebElement deleteRugsSubcategory;
@@ -209,6 +209,13 @@ public class categoryPage extends BasePage {
             fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
+            fluentWait(getDriver(), editShoesSubcategoryBtn);
+            waitForWebElementAndClick(editShoesSubcategoryBtn);
+            fluentWait(getDriver(), editShoesSubcategory);
+            waitForWebElementAndClick(editShoesSubcategory);
+            editShoesSubcategory.sendKeys(" Edit");
+            editShoesSubcategory.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
         }
 
     }

@@ -55,7 +55,7 @@ public class BrowsePage extends BasePage {
     public WebElement browseCategoryPetAccessoriesBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(7) > span > label")
     public WebElement browseCategoryRingsBtn;
-    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[1]/div[2]/div/ul/li[2]/span/label")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[1]/div[3]/div[1]/ul/li[3]/span/label")
     public WebElement browseCategoryShoesBtn;
     @FindBy(how = How.CSS, using = "#cats-father > li:nth-child(9) > span > label")
     public WebElement browseCategorySportsEquipmentBtn;
@@ -65,7 +65,7 @@ public class BrowsePage extends BasePage {
     public WebElement browseSetMinimalAmountTextField;
     @FindBy(how = How.CSS, using = "#manual-max")
     public WebElement browseSetMaximusAmountTextField;
-    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(5) > div.mb-4.mt-3 > div > a")
+    @FindBy(how = How.CSS, using = "#rangeBarContainer")
     public WebElement browseAmountFilterBtn;
     @FindBy(how = How.CSS, using = "#location")
     public WebElement browseLocationFilterTextField;
@@ -232,8 +232,15 @@ public class BrowsePage extends BasePage {
     }
 
     public void browseCategoryShoesBtn() {
-        fluentWaitStrict(getDriver(), browseCategoryShoesBtn);
-        waitForWebElementAndClick(browseCategoryShoesBtn);
+        try {
+            fluentWaitStrict(getDriver(), browseCategoryShoesBtn);
+            waitForWebElementAndClick(browseCategoryShoesBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWaitStrict(getDriver(), browseCategoryShoesBtn);
+            waitForWebElementAndClick(browseCategoryShoesBtn);
+        }
+
     }
 
     public void browseCategorySportsEquipmentBtn() {
@@ -255,8 +262,15 @@ public class BrowsePage extends BasePage {
     }
 
     public void browseAmountFilterBtn() {
-        fluentWait(getDriver(), browseAmountFilterBtn);
-        waitForWebElementAndClick(browseAmountFilterBtn);
+        try {
+            fluentWait(getDriver(), browseAmountFilterBtn);
+            waitForWebElementAndClick(browseAmountFilterBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), browseAmountFilterBtn);
+            waitForWebElementAndClick(browseAmountFilterBtn);
+        }
+
     }
 
     public void browseLocationFilterTextField() {
@@ -282,9 +296,16 @@ public class BrowsePage extends BasePage {
     }
 
     public void sortByPriceLowerToHigher() {
-        browseSortByBtn();
-        fluentWait(getDriver(), browseSortByPriceLowerToHigherBtn);
-        waitForWebElementAndClick(browseSortByPriceLowerToHigherBtn);
+        try {
+            browseSortByBtn();
+            fluentWait(getDriver(), browseSortByPriceLowerToHigherBtn);
+            waitForWebElementAndClick(browseSortByPriceLowerToHigherBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), browseSortByPriceLowerToHigherBtn);
+            waitForWebElementAndClick(browseSortByPriceLowerToHigherBtn);
+        }
+
 
     }
 
