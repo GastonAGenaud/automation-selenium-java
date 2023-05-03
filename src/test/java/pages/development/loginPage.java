@@ -46,7 +46,7 @@ public class loginPage extends BasePage {
     ////////////////
 
     public void resetPasswordText(){
-        fluentWait(getDriver(),resetPasswordTxt);
+        fluentWaitStrict(getDriver(),resetPasswordTxt);
         Assert.assertTrue(resetPasswordTxt.isDisplayed());
     }
 
@@ -62,7 +62,7 @@ public class loginPage extends BasePage {
     }
 
     public void forgotPasswordButton(){
-        fluentWait(getDriver(), forgotPasswordBtn);
+        fluentWaitStrict(getDriver(), forgotPasswordBtn);
         waitForWebElementAndClick(forgotPasswordBtn);
     }
 
@@ -72,7 +72,9 @@ public class loginPage extends BasePage {
     }
 
     public void loginHeader(){
-        fluentWait(getDriver(),logInHeaderBtn);
+        getDriver().navigate().refresh();
+
+        fluentWaitStrict(getDriver(),logInHeaderBtn);
         waitForWebElementAndClick(logInHeaderBtn);
     }
     public void emailLoginInputTextField(){

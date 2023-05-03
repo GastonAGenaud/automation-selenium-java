@@ -2,7 +2,7 @@
 Feature: Development Settings
 
 
-  @prodSettingsChangePassword
+  @envSettingsChangePassword
   Scenario: Change Password
     Given I login with Gaston User in development products using cookies
     And go to dashboard

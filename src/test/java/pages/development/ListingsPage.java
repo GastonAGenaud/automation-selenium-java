@@ -114,10 +114,10 @@ public class ListingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#btn-crop")
     public WebElement cropBtn;
 
-    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(4) > div.form-group > div > div > div:nth-child(5) > span > label > span")
+    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(5) > div.form-group > div > div > div:nth-child(5) > span > label > span")
     public WebElement lightBlueColor;
 
-    @FindBy(how = How.CSS, using = "#custom-4")
+    @FindBy(how = How.CSS, using = "#custom-0")
     public WebElement selectStatusTab;
 
     @FindBy(xpath = "//option[contains(text(), 'Good')]")

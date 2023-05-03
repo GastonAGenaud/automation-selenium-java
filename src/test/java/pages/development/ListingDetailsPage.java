@@ -174,7 +174,7 @@ public class ListingDetailsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "#reviews > div > div.d-flex.justify-content-end.mb-3")
     public WebElement reviewsSector;
-    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[3]/a/div/div[2]/span[1]")
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/div/span[1]")
     public WebElement seenTimesTxt;
 
     @FindBy(how = How.CSS, using = "#quantity")
@@ -868,6 +868,7 @@ public class ListingDetailsPage extends BasePage {
     }
 
     public String seenCountText() {
+        fluentWait(getDriver(),seenTimesTxt);
         String result = seenTimesTxt.getText();
         return result;
     }
