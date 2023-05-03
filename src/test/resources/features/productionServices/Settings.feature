@@ -59,3 +59,10 @@ Feature: Settings
     And valid that the address has been edited
     And select Delete Address saved
     And valid that the address has been erased
+
+  @MTR-66
+  Scenario: Settings/ Location
+    Given I login with Gaston User in production services using cookies
+    And go to Dashboard Serv
+    Then go to Settings Serv
+    When validate Location sector Serv

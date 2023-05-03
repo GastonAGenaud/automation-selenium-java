@@ -45,3 +45,10 @@ Feature: BrowseListings
     And go to Listing Page Serv
     When  complete Location TextField Serv
     Then I validate Location Serv
+
+  @MTR-66
+  Scenario: Browse Listings/Browse Expert (Search Bar)
+    Given I login with Gaston User in production services using cookies
+    And go to Listing Page Serv
+    When search for the desired product
+    Then validate that you have found the desired product

@@ -4,27 +4,6 @@ Feature: AdminPanel
 
 
 
-
-
-
-
-
-
-
-
-  @MTR-6
-  Scenario: Hire a Service - With all types of shipments
-    Given I login with Gaston User in production services using cookies
-    And go to Dashboard Serv
-    When go to Browse Services
-    And select the required service
-    And contract the service
-    And complete the form
-    And enter the new Credit Card
-    And I select the Submit Payment Button SERV
-    Then valid that can hire the service
-
-
   @MTR-66
   Scenario: Create a Want
 
@@ -44,14 +23,25 @@ Feature: AdminPanel
     Then PSVC I validate Admin Design
 
 
-  @MTR-6666
+  @MTR-6
   Scenario: Emails
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
     When go to Admin Panel Serv
-    And
+    And select step 8
+    Then validate step 8
+    And select Automated Emails section
+    And validate Automated Emails section
 
 
+
+  @MTR-6
+  Scenario: Contact Us
+    Given I login with Gaston User in production services using cookies
+    And go to home Serv
+    When select Contact Us
+    And complete the form the Contact Us
+    Then valid The complete form
 
 
 

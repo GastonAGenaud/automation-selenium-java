@@ -598,9 +598,11 @@ public class PAdminPage extends BasePage {
 //        fluentWait(getDriver(), headerLogInBtn);
 //        waitForWebElementAndClick(headerLogInBtn);
     }
+
     public void getHomePagePSVC() {
         getDriver().navigate().to(UrlSVC);
     }
+
     public void deleteCategory() {
         fluentWait(getDriver(), deleteXpath);
         waitForWebElementAndClick(deleteXpath);
@@ -632,6 +634,8 @@ public class PAdminPage extends BasePage {
             }
         } catch (Exception e) {
 
+        } finally {
+            getDriver().switchTo().defaultContent();
         }
 
     }

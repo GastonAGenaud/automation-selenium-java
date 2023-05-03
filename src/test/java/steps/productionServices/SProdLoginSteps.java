@@ -1,5 +1,6 @@
 package steps.productionServices;
 
+import io.cucumber.java.bs.A;
 import pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -76,8 +77,8 @@ public class SProdLoginSteps extends BasePage {
     }
 
 
-    @And("I Sign in with new account {string}")
-    public void iSignInWithNewAccountEmail(String text) {
+    @And("I Sign in with new account {string}OHE")
+    public void iSignInWithNewAccountEmailOHE(String text) {
         _page.CreateAnAccountListingDetailsPROD(text);
         _page.CloseWindow();
     }
@@ -587,4 +588,135 @@ public class SProdLoginSteps extends BasePage {
     }
 
 
+    @When("go to Admin Panel Serv")
+    public void goToAdminPanelServ() {
+        _page.goToAdminPanel();
+        _page.getCloseChat();
+    }
+
+    @And("select step {int}")
+    public void selectStep(int arg0) {
+        _page.selectStepEight();
+    }
+
+    @Then("validate step {int}")
+    public void validateStep(int arg0) {
+        Assert.assertEquals("TEMPLATES", _page.validatetTemplates());
+        Assert.assertEquals("SMTP SETTINGS",_page.validateSMTPSettings());
+    }
+
+
+    @And("select Automated Emails section")
+    public void selectAutomatedEmailsSection() {
+        _page.automatedEmailsSection();
+    }
+
+    @And("validate Automated Emails section")
+    public void validateAutomatedEmailsSection() {
+        Assert.assertEquals("TEMPLATES", _page.validatetTemplates());
+        Assert.assertEquals("SMTP SETTINGS",_page.validateSMTPSettings());
+    }
+
+    @And("go to home Serv")
+    public void goToHomeServ() {
+        _page.goToHomePage();
+    }
+
+    @When("select Contact Us")
+    public void selectContactUs() {
+        _page.selectContactUsSection();
+    }
+
+    @And("complete the form the Contact Us")
+    public void completeTheFormTheContactUs() {
+        _page.selectNameField();
+        _page.selectEmailField();
+        _page.selectMessage();
+        _page.selectSend();
+    }
+
+    @Then("valid The complete form")
+    public void validTheCompleteForm() {
+        Assert.assertEquals("Success", _page.validSaveProfile());
+    }
+
+    @When("search for the desired product")
+    public void searchForTheDesiredProduct() {
+        _page.searchProduct();
+    }
+
+    @Then("validate that you have found the desired product")
+    public void validateThatYouHaveFoundTheDesiredProduct() {
+        Assert.assertEquals("test22",_page.validateDesiredProduct());
+    }
+
+    @When("validate Location sector Serv")
+    public void validateLocationSectorServ() {
+        Assert.assertTrue(_page.enterLocation());
+        Assert.assertTrue(_page.enterRadius());
+    }
+
+    @And("Step {int}: Create Categories Serv")
+    public void stepCreateCategoriesServ(int arg0) {
+        _page.selectCreateCategorySection();
+    }
+
+    @When("Add new Category")
+    public void addNewCategory() {
+        _page.addCategory();
+        _page.enterNewCategory();
+    }
+
+    @Then("valid that new category was created")
+    public void validThatNewCategoryWasCreated() {
+        _page.validationSuccesSubcategory().contains("Awesome!");
+    }
+
+    @When("Edit Category")
+    public void editCategory() {
+        _page.selectKenpachiCat();
+      //  _page.editKenpachiCat();
+
+    }
+
+    @Then("valid that the category was edit")
+    public void validThatTheCategoryWasEdit() {
+        _page.validationSuccesSubcategory().contains("Awesome!");
+    }
+
+    @When("delete Category Serv")
+    public void deleteCategoryServ() {
+        _page.selectDeleteKenpachiCat();
+    }
+
+    @Then("valid that the category was erased")
+    public void validThatTheCategoryWasErased() {
+        _page.validationSuccesSubcategory().contains("Awesome!");
+    }
+
+    @When("Add new Subcategory")
+    public void addNewSubcategory() {
+        _page.selectKenpachiEditCat();
+        _page.addSubcategory();
+    }
+
+    @Then("Valid that the subcategory was created")
+    public void validThatTheSubcategoryWasCreated() {
+    }
+
+    @When("Edit Subcategory")
+    public void editSubcategory() {
+    }
+
+    @Then("valid that the Subcategory was edit")
+    public void validThatTheSubcategoryWasEdit() {
+    }
+
+    @When("delete Subategory Serv")
+    public void deleteSubategoryServ() {
+    }
+
+    @Then("valid that the Subcategory was erased")
+    public void validThatTheSubcategoryWasErased() {
+    }
 }
