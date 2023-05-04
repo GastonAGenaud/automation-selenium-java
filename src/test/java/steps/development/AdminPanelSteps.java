@@ -23,7 +23,12 @@ public class AdminPanelSteps extends BasePage {
     public void testSignup() throws IOException {
       _page.loginDevSVC();
       _page.loginWithGastonUserSVC();
-      _page.loginWithMatiasOwl();
+    }
+
+//    @Before
+    public void generateCookiesProducts()  throws IOException {
+        loginWithGastonUserDevProducts();
+        loginWithDev();
     }
 
     @When("I select Users tab")

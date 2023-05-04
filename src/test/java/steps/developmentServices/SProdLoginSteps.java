@@ -252,7 +252,7 @@ public class SProdLoginSteps extends BasePage {
 
     @And("go to Listing Page Serv")
     public void goToListingPageServ() {
-        getDriver().navigate().to(urlServicesProd + "Listing/Browse");
+        getDriver().navigate().to(UrlDevServices + "Listing/Browse");
     }
 
     @When("select Graphics & Design")

@@ -524,7 +524,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void CreateAnAccountListingDetailsPROD(String text) {
-        getDriver().navigate().to(urlServicesProd);
+        getDriver().navigate().to(UrlDevServices);
 
         waitForVisibility(signUpNowBtn);
         fluentWaitStrict(getDriver(), signUpNowBtn);
@@ -853,7 +853,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void goToDashboardServ() {
-        getDriver().navigate().to(urlServicesProd + "/dashboard");
+        getDriver().navigate().to(UrlDevServices + "/dashboard");
 
     }
 
@@ -1022,7 +1022,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void enterClassesValet() {
-        getDriver().navigate().to(urlServicesProd + "Listing/DetailService/252");
+        getDriver().navigate().to(UrlDevServices + "Listing/DetailService/252");
     }
 
     public void hireTheService() {
@@ -1234,7 +1234,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void goToBrowseRequestServ() {
-        getDriver().navigate().to(urlServicesProd + "Want/browse");
+        getDriver().navigate().to(UrlDevServices + "Want/browse");
     }
 
     public void selectTheRequest() {
@@ -1500,7 +1500,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void goToBrowseBySeller() {
-        getDriver().navigate().to(urlServicesProd + "Listing/BrowseBySeller");
+        getDriver().navigate().to(UrlDevServices + "Listing/BrowseBySeller");
     }
 
     public void listingNameField() {
@@ -2159,7 +2159,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void goToHomePage() {
-        getDriver().navigate().to(urlServicesProd + "home");
+        getDriver().navigate().to(UrlDevServices + "home");
     }
 
     public void selectContactUsSection() {

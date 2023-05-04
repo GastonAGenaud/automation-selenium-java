@@ -38,7 +38,7 @@ public class ListingDetailsSteps extends BasePage {
 
 //    @Before
 //    public void test() throws IOException {
-//        loginWithGastonUserProdProducts();
+//        loginWithGastonUserDevProducts();
 //    }
 
     @And("PROD I go to the listing details page")

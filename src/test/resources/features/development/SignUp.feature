@@ -1,7 +1,7 @@
-@ENV
+@devProducts
 Feature: Development Signup
 
-  @prodSignup
+  @devSignup
   Scenario: PROD - I Create an Account
     Given I go to Sign Up Page
     When I validate the Sign Up with Facebook

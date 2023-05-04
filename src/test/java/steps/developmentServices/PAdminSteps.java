@@ -474,9 +474,9 @@ public class PAdminSteps extends BasePage {
     //Add-Ons and extensions
 
 //    @Before
-    public void test() throws IOException {
-        //loginDevSVC();
-        loginWithGastonUserProdServices();
+    public void generateCookiesForServicesDevelopment() throws IOException {
+        loginDevSVC();
+        loginWithGastonUserDevServices();
         loginWithGastonUserSVC();
     }
 

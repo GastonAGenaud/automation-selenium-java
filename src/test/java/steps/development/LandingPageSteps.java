@@ -18,7 +18,7 @@ public class LandingPageSteps extends BasePage {
 
 //        @Before
 //    public void test() throws IOException {
-//        loginWithGastonUserProdProducts();
+//        loginWithGastonUserDevProducts();
 //    }
     @And("go to Landing Page")
     public void goToLandingPage() {

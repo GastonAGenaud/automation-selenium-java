@@ -1,7 +1,7 @@
-@ENV @categoriesProduction
+@devProducts @categoriesDevelopment
 Feature: Development Browse
 
-  @browseProd
+  @browseDev
   Scenario: Browse Listing, Category
     Given I login with Gaston User in development products using cookies
     And go to Listing Page

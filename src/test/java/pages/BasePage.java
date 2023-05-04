@@ -67,7 +67,7 @@ public class BasePage {
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
     public String UrlSVC = Environment.getProperty("UrlSVC");
     public String UrlDevProducts = Environment.getProperty("UrlDevProducts");
-    public String urlServicesProd = Environment.getProperty("UrlServicesProd");
+    public String UrlDevServices = Environment.getProperty("UrlDevServices");
     public String UrlDevProductsuct = url + "listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
@@ -227,7 +227,7 @@ public class BasePage {
     }
 
     public void getHomePageProd() {
-        getDriver().navigate().to(urlServicesProd);
+        getDriver().navigate().to(UrlDevServices);
     }
 
     public void ProdHomePage() {
@@ -242,12 +242,12 @@ public class BasePage {
 
     public void getLoginPageProd() {
         wait(2);
-        getDriver().navigate().to(urlServicesProd + "Account/Login");
+        getDriver().navigate().to(UrlDevServices + "Account/Login");
     }
 
     public void getSignUpPageProd() {
         wait(2);
-        getDriver().navigate().to(urlServicesProd + "Account/Register");
+        getDriver().navigate().to(UrlDevServices + "Account/Register");
     }
 
     public void getLoginPage() {
@@ -400,7 +400,7 @@ public class BasePage {
     }
 
 
-    public void loginWithGastonUserProdProducts() throws IOException {
+    public void loginWithGastonUserDevProducts() throws IOException {
         ProdHomePage();
         loginPageProd();
         waitForWebElementAndClick(emailLoginInput);
@@ -508,7 +508,7 @@ public class BasePage {
         getDriver().navigate().refresh();
     }
 
-    public void loginWithGastonUserProdServices() throws IOException {
+    public void loginWithGastonUserDevServices() throws IOException {
         getHomePageProd();
         getLoginPageProd();
         waitForWebElementAndClick(emailLoginInput);

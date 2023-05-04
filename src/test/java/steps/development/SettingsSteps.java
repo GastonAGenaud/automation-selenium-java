@@ -22,7 +22,7 @@ public class SettingsSteps extends BasePage {
 
 //    @Before
 //    public void testSignup() throws IOException {
-//      _page.loginWithGastonUserProdProducts();
+//      _page.loginWithGastonUserDevProducts();
 //      _page.loginWithDevProd();
 //    }
 
@@ -59,8 +59,8 @@ public class SettingsSteps extends BasePage {
     }
 
     @Given("I login with Gaston User in development products")
-    public void iLoginWithGastonUserProdProducts() throws IOException {
-        _page.loginWithGastonUserProdProducts();
+    public void iloginWithGastonUserDevProducts() throws IOException {
+        _page.loginWithGastonUserDevProducts();
     }
 
     @Given("I login with Gaston User in development products using cookies")

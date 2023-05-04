@@ -1,8 +1,8 @@
-@ENV
+@devProducts
 Feature: Development Settings
 
 
-  @envSettingsChangePassword
+  @devProductsSettingsChangePassword
   Scenario: Change Password
     Given I login with Gaston User in development products using cookies
     And go to dashboard
@@ -12,7 +12,7 @@ Feature: Development Settings
     And select Save Changes
     Then I valid change password
 
-  @prodSettingsAddUrls
+  @developmentSettingsAddUrls
   Scenario:Add social profile urls
     Given I login with Gaston User in development products using cookies
     And go to dashboard

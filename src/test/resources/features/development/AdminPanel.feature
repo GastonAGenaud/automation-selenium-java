@@ -1,4 +1,4 @@
-@ENV @AdminDev
+@devProducts @AdminDev
 Feature: Development Admin Panel
 
 

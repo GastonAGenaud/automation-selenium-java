@@ -1,4 +1,4 @@
-@ENV
+@devProducts
 Feature: Development Landing Page
 
   @landingPageTest

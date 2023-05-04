@@ -1,7 +1,7 @@
-@ENV
+@devProducts
 Feature: Development Reviews
 
-  @ProdReviews
+  @devReviews
   Scenario: Reviews
     Given I login with Gaston User in development products using cookies
     And PROD I go to the listing details page

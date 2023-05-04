@@ -1,4 +1,4 @@
-@ENV @search
+@devProducts @search
 Feature: Development Search
 
   @homeSearch

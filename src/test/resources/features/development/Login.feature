@@ -1,7 +1,7 @@
-@ENV @prodLogin
+@devProducts @devLogin
 Feature: Development Login
 
-  @prodLogin
+  @devLogin
   Scenario: Login
     Given I go to Products
     And I select Header Login
@@ -10,7 +10,7 @@ Feature: Development Login
     And select Log in Button
     Then I validate Login
 
-  @ProdForgotPassword
+  @devForgotPassword
   Scenario: Forgot password
     Given I go to Products
     And I select Header Login

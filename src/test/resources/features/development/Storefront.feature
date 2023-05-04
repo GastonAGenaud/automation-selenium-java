@@ -1,4 +1,4 @@
-@ENV @ProdStorefront
+@devProducts @devStorefront
 
 Feature: Development Storefront
 
