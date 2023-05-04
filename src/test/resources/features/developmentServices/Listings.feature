@@ -1,7 +1,7 @@
+@devServices
 Feature: Listings
 
-
-  @MTR-6
+  @CreatingListingDevServices
   Scenario: Listing/Service Details
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -20,7 +20,6 @@ Feature: Listings
     And I validate Set available days
     Then I validate Create a Listing Serv
 
-  @MTR-6
   Scenario: Create a Service
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv

@@ -1,7 +1,6 @@
+@devServices
 Feature: BrowseBySeller
 
-
-  @MTR-6
   Scenario: Browse Listings/Browse by Seller (Category)
     Given I login with Gaston User in production services using cookies
     And go to Browse by Seller ServProd
@@ -10,14 +9,12 @@ Feature: BrowseBySeller
     And select Programming & Tech
     And select Testing Category
     And select Software
-    And select Techonology
+    And select Technology
     And select Photography
     And select Business
     And select Show more
     Then I validate Filters Serv
 
-
-  @MTR-66
   Scenario: Browse Listings/Browse by Seller (Location)
     Given I login with Gaston User in production services using cookies
     And go to Browse by Seller ServProd

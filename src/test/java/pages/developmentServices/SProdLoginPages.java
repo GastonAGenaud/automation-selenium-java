@@ -1,7 +1,6 @@
-package pages.productionServices;
+package pages.developmentServices;
 
 
-import freemarker.core._ArrayEnumeration;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,9 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.BasePage;
+
+import java.util.List;
 
 import static java.lang.Math.random;
 
@@ -151,7 +152,7 @@ public class SProdLoginPages extends BasePage {
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = "#prepare-checkout")
     public WebElement submitPaymentBtn;
-    @FindBy(how = How.CSS, using = "#dashboard-messages > a > div > div > div.col-lg-10.read-msg.pl-2")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/div/div[3]/div[1]/div/a[3]/div")
     public WebElement messageSection;
     @FindBy(how = How.CSS, using = "#chat-message")
     public WebElement chatField;
@@ -186,7 +187,7 @@ public class SProdLoginPages extends BasePage {
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(5) > span > label")
     public WebElement softwareBtn;
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(6) > span > label")
-    public WebElement techonologyBtn;
+    public WebElement technologyBtn;
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(7) > span > label")
     public WebElement photographyBtn;
     @FindBy(how = How.CSS, using = "#category-holder > div.mb-4.pt-3.level-0 > ul > li:nth-child(8) > span > label")
@@ -241,7 +242,7 @@ public class SProdLoginPages extends BasePage {
     public WebElement nameField;
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement categoryField;
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[3]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div/select/option[10]")
     public WebElement businesBtn;
     @FindBy(how = How.CSS, using = "#description")
     public WebElement listingDescriptionField;
@@ -265,7 +266,7 @@ public class SProdLoginPages extends BasePage {
     public WebElement testDropdownField;
     @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div > select > option:nth-child(2)")
     public WebElement option1;
-    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(5) > div.form-group > div > div > div:nth-child(3) > span > label > span")
+    @FindBy(how = How.CSS, using = "#customfield-container > div:nth-child(6) > div.form-group > div > div > div:nth-child(3) > span > label > span")
     public WebElement blackButton;
     @FindBy(how = How.CSS, using = "#multi-select-button")
     public WebElement weekdayField;
@@ -396,6 +397,25 @@ public class SProdLoginPages extends BasePage {
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement confirmDeleteCat;
 
+    @FindBy(how = How.CSS, using = "/html/body/div[2]/div/div[2]/div/div/section[1]/section[1]/section[1]/div")
+    public WebElement validateMessage;
+
+    @FindBy(how = How.CSS, using = "#check-flat")
+    public WebElement fleeFlatBtn;
+
+    @FindBy(how = How.CSS, using = "#hire-modal > div > div > div")
+    public WebElement validateHireBox;
+
+    public void hireBoxValidate() {
+        wait(4);
+        fluentWait(getDriver(), validateHireBox);
+        validateHireBox.isDisplayed();
+    }
+
+    public void fleeFlatCheckbox() {
+        fluentWait(getDriver(), fleeFlatBtn);
+        waitForWebElementAndClick(fleeFlatBtn);
+    }
 
     public void goToLogin() {
         getHomePageProd();
@@ -1002,14 +1022,14 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void enterClassesValet() {
-        getDriver().navigate().to(urlServicesProd + "Listing/DetailService/2163");
+        getDriver().navigate().to(urlServicesProd + "Listing/DetailService/252");
     }
 
     public void hireTheService() {
         try {
             fluentWait(getDriver(), hireBtn);
             waitForWebElementAndClick(hireBtn);
-            fluentWait(getDriver(), DeadlineField);
+            //fluentWait(getDriver(), DeadlineField);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), hireBtn);
@@ -1049,7 +1069,7 @@ public class SProdLoginPages extends BasePage {
 
     public void enterHire() {
         try {
-            fluentWait(getDriver(), hireSubmitBtn);
+            fluentWaitStrict(getDriver(), hireSubmitBtn);
             waitForWebElementAndClick(hireSubmitBtn);
         } catch (Exception e) {
             wait(3);
@@ -1168,14 +1188,15 @@ public class SProdLoginPages extends BasePage {
 
     public void sendMediaMessage() {
         try {
-            fluentWait(getDriver(), messageImageUpload);
-            messageImageUpload.sendKeys(EV_RESULT_FILE_PATH);
-            fluentWait(getDriver(), cropBtn);
-
+            Assert.assertTrue(validateMessage.isDisplayed());
+            WebElement clipBtn = getDriver().findElement(By.id("files"));
+            clipBtn.sendKeys(EV_RESULT_FILE_PATH);
+            getWait().until(ExpectedConditions.attributeToBeNotEmpty(clipBtn, "value"));
         } catch (Exception e) {
-            wait(3);
-            fluentWait(getDriver(), messageImageUpload);
-            messageImageUpload.sendKeys(EV_RESULT_FILE_PATH);
+            wait(4);
+            WebElement clipBtn = getDriver().findElement(By.id("files"));
+            clipBtn.sendKeys(EV_RESULT_FILE_PATH);
+            getWait().until(ExpectedConditions.attributeToBeNotEmpty(clipBtn, "value"));
         }
     }
 
@@ -1200,10 +1221,16 @@ public class SProdLoginPages extends BasePage {
         }
     }
 
-    public boolean validateSendMessageIncludingMedia() {
-        fluentWait(getDriver(), validateSendMessage);
-        boolean result = validateSendMessage.isDisplayed();
-        return result;
+    public void validateSendMessageIncludingMedia() {
+        List<WebElement> msgRightDivs = getDriver().findElements(By.cssSelector(".row.msg-right"));
+        // Obtener el último elemento <div> con la clase 'row msg-right'
+        WebElement lastDiv = msgRightDivs.get(msgRightDivs.size() - 1);
+        // Verificar si contiene un elemento <img> con un atributo 'src' válido
+        WebElement imgElement = lastDiv.findElement(By.cssSelector("img[src]"));
+        // Comprobar si el elemento <img> encontrado tiene un atributo 'src' no vacío
+        String imgSrc = imgElement.getAttribute("src");
+        Assert.assertNotNull(imgSrc);
+        Assert.assertFalse(imgSrc.isEmpty());
     }
 
     public void goToBrowseRequestServ() {
@@ -1324,9 +1351,9 @@ public class SProdLoginPages extends BasePage {
         waitForWebElementAndClick(softwareBtn);
     }
 
-    public void techonologyFilter() {
-        fluentWait(getDriver(), techonologyBtn);
-        waitForWebElementAndClick(techonologyBtn);
+    public void technologyFilter() {
+        fluentWait(getDriver(), technologyBtn);
+        waitForWebElementAndClick(technologyBtn);
     }
 
     public void businessFilter() {
@@ -1563,7 +1590,7 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void listingBusinessSpecialties() {
-        fluentWait(getDriver(), financeCheckout);
+        fluentWaitStrict(getDriver(), financeCheckout);
         waitForWebElementAndClick(financeCheckout);
 
     }

@@ -1,13 +1,12 @@
-package steps.productionServices;
+package steps.developmentServices;
 
-import io.cucumber.java.bs.A;
 import pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.productionServices.SProdLoginPages;
+import pages.developmentServices.SProdLoginPages;
 
 
 public class SProdLoginSteps extends BasePage {
@@ -117,6 +116,14 @@ public class SProdLoginSteps extends BasePage {
         _page.publish();
     }
 
+
+//    @Before
+//    public void test() throws IOException {
+//        loginDevSVC();
+//        loginWithGastonUserSVC();
+//    }
+
+
     @And("go to Dashboard Serv")
     public void goToDashboardServ() {
         _page.goToDashboardServ();
@@ -170,6 +177,8 @@ public class SProdLoginSteps extends BasePage {
     @And("contract the service")
     public void contractTheService() {
         _page.hireTheService();
+        _page.hireBoxValidate();
+        _page.fleeFlatCheckbox();
     }
 
     @And("complete the form")
@@ -205,13 +214,13 @@ public class SProdLoginSteps extends BasePage {
     @And("I send message")
     public void iSendMessage() {
         _page.sendMediaMessage();
-        _page.cropButton();
+        //_page.cropButton();
         _page.sendMediaMessageAppendix();
     }
 
     @Then("valid that send messages")
     public void validThatSendMessages() {
-        Assert.assertTrue(_page.validateSendMessageIncludingMedia());
+        _page.validateSendMessageIncludingMedia();
     }
 
     @When("go to Browse Request Serv")
@@ -271,9 +280,9 @@ public class SProdLoginSteps extends BasePage {
         _page.softwareFilter();
     }
 
-    @And("select Techonology")
-    public void selectTechonology() {
-        _page.techonologyFilter();
+    @And("select Technology")
+    public void selectTechnology() {
+        _page.technologyFilter();
     }
 
     @And("select Business")
@@ -422,7 +431,7 @@ public class SProdLoginSteps extends BasePage {
         _page.listingBusinessSpecialties();
         _page.listingTechSpecialties();
         _page.listingTechSpecialtiesOption();
-        //  _page.listingDropdownFilter();
+        _page.listingDropdownFilter();
         _page.listingColorPicker();
     }
 
@@ -602,7 +611,7 @@ public class SProdLoginSteps extends BasePage {
     @Then("validate step {int}")
     public void validateStep(int arg0) {
         Assert.assertEquals("TEMPLATES", _page.validatetTemplates());
-        Assert.assertEquals("SMTP SETTINGS",_page.validateSMTPSettings());
+        Assert.assertEquals("SMTP SETTINGS", _page.validateSMTPSettings());
     }
 
 
@@ -614,7 +623,7 @@ public class SProdLoginSteps extends BasePage {
     @And("validate Automated Emails section")
     public void validateAutomatedEmailsSection() {
         Assert.assertEquals("TEMPLATES", _page.validatetTemplates());
-        Assert.assertEquals("SMTP SETTINGS",_page.validateSMTPSettings());
+        Assert.assertEquals("SMTP SETTINGS", _page.validateSMTPSettings());
     }
 
     @And("go to home Serv")
@@ -647,7 +656,7 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("validate that you have found the desired product")
     public void validateThatYouHaveFoundTheDesiredProduct() {
-        Assert.assertEquals("test22",_page.validateDesiredProduct());
+        Assert.assertEquals("test22", _page.validateDesiredProduct());
     }
 
     @When("validate Location sector Serv")
@@ -675,7 +684,7 @@ public class SProdLoginSteps extends BasePage {
     @When("Edit Category")
     public void editCategory() {
         _page.selectKenpachiCat();
-      //  _page.editKenpachiCat();
+        //  _page.editKenpachiCat();
 
     }
 

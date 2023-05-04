@@ -1,7 +1,7 @@
+@devServices
 Feature: RequestAQuote
 
-
-  @MTR-66 #no se puede crear el request
+   #no se puede crear el request
   Scenario: Request a quote/Make an Offer
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv

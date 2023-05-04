@@ -1,7 +1,6 @@
+@devServices
 Feature: Home
 
-
-  @MTR-66
   Scenario: Contact Us
     Given I login with Gaston User in production services using cookies
     And go to home Serv

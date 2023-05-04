@@ -1,7 +1,6 @@
+@devServices
 Feature: SignUp
 
-
-  @MTR-2222
   Scenario: Sign Up
     Given I go to Sign Up
     When Sign Up title valid

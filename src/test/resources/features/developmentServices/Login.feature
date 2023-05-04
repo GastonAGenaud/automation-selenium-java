@@ -1,7 +1,6 @@
+@devServices
 Feature: Login
 
-
-  @MTR-1111
   Scenario: Login
     Given I go login page PROD
     When Login title valid
@@ -10,8 +9,6 @@ Feature: Login
     And I login with Gaston User in production services using cookies
     Then valid session login
 
-
-  @MTR-6
   Scenario: Forgot Password
     Given I go login page PROD
     When go to forgot your Password

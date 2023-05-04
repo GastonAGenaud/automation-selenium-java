@@ -393,7 +393,7 @@ public class homeSteps extends BasePage {
     @Given("I login with Gaston User")
     public void loginWithGastonUser() {
         try {
-            wait(10);
+            //wait(10);
             getDriver().manage().deleteAllCookies();
             getHomePage();
             sessionManager.usePreviousLoggedInSession(environment + "-" + suiteName + "-" + "GastonUser");

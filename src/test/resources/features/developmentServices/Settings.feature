@@ -1,6 +1,6 @@
+@devServices
 Feature: Settings
 
-  @MTR-6
   Scenario: Settings/ Connect to Stripe
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -8,7 +8,7 @@ Feature: Settings
     And go to Cashout
     Then valid than connect to Stripe
 
-  @MTR-6
+  @FillProfIleAndSave
   Scenario: Settings/ Fill in profile information and save
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -16,7 +16,6 @@ Feature: Settings
     And enter profile information Serv
     Then valid to save profile information
 
-  @MTR-6
   Scenario: Settings/ add and delete credit cards
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -27,7 +26,6 @@ Feature: Settings
     And delete Credit Card
     And valid that the credit card has been erased
 
-  @MTR-6
   Scenario: Settings/ Change password
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -36,7 +34,7 @@ Feature: Settings
     And add New password
     When valid if the password has been changed
 
-  @MTR-66
+  @ActivateOrDeactivateNotifications
   Scenario: Settings/ activate or deactivate notifications
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -47,7 +45,7 @@ Feature: Settings
     And desactive notifications
     And valid to desactive notofications
 
-  @MTR-6
+  @SettingsAddDeleteAddresses
   Scenario: Settings/ Add-edit or delete addresses
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -60,7 +58,6 @@ Feature: Settings
     And select Delete Address saved
     And valid that the address has been erased
 
-  @MTR-66
   Scenario: Settings/ Location
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv

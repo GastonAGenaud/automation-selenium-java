@@ -1,13 +1,12 @@
-package steps.productionServices;
+package steps.developmentServices;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.BasePage;
-import pages.productionServices.PAdminPage;
+import pages.developmentServices.PAdminPage;
 
 import java.io.IOException;
 
@@ -474,11 +473,12 @@ public class PAdminSteps extends BasePage {
 
     //Add-Ons and extensions
 
-//       @Before
-//     public void test() throws IOException {
-//        loginDevSVC();
-//        loginWithGastonUserSVC();
-//    }
+//    @Before
+    public void test() throws IOException {
+        //loginDevSVC();
+        loginWithGastonUserProdServices();
+        loginWithGastonUserSVC();
+    }
 
     @Given("PSVC I login With Dev User")
     public void PSVCIloginWithDevUser() {

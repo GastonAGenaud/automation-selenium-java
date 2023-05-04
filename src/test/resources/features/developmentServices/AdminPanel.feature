@@ -1,12 +1,9 @@
+@devServices
 Feature: AdminPanel
 
 #Given I login with Gaston User in production products using cookies
 
-
-
-  @MTR-66
   Scenario: Create a Want
-
 
   @AdminDesignTestProd
   Scenario: Admin design page
@@ -22,8 +19,6 @@ Feature: AdminPanel
     #And PSVC I validate customize Privacy Policy page option
     Then PSVC I validate Admin Design
 
-
-  @MTR-6
   Scenario: Emails
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -33,9 +28,6 @@ Feature: AdminPanel
     And select Automated Emails section
     And validate Automated Emails section
 
-
-
-  @MTR-6
   Scenario: Contact Us
     Given I login with Gaston User in production services using cookies
     And go to home Serv

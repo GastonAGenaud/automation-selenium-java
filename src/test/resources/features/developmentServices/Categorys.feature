@@ -1,7 +1,7 @@
+@devServices
 Feature: Categorys
 
-
-  @MTR-66
+  @testKenpachi
   Scenario: create category
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -10,8 +10,6 @@ Feature: Categorys
     When Add new Category
     Then valid that new category was created
 
-
-  @MTR-66
   Scenario: edit category
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -20,7 +18,6 @@ Feature: Categorys
     When Edit Category
     Then valid that the category was edit
 
-  @MTR-66
   Scenario: delete category
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -29,9 +26,6 @@ Feature: Categorys
     When delete Category Serv
     Then valid that the category was erased
 
-
-
-  @MTR-66
   Scenario: create Subcategory
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -40,8 +34,6 @@ Feature: Categorys
     When Add new Subcategory
     Then Valid that the subcategory was created
 
-
-  @MTR-66
   Scenario: edit Subcategory
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -50,7 +42,6 @@ Feature: Categorys
     When Edit Subcategory
     Then valid that the Subcategory was edit
 
-  @MTR-66
   Scenario: delete Subcategory
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -58,8 +49,6 @@ Feature: Categorys
     And Step 4: Create Categories Serv
     When delete Subategory Serv
     Then valid that the Subcategory was erased
-
-
 
   @MTR-3195 @category @MTR
   Scenario: MTR - valid that you can add a subcategory in shoes
