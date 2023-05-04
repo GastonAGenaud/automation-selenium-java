@@ -34,7 +34,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("go to Admin Panel")
     public void goToAdminPanel() {
-        getDriver().navigate().to(UrlDev + "/Admin/application/getstarted");
+        getDriver().navigate().to(UrlDevProducts + "/Admin/application/getstarted");
         _page.getCloseChat();
     }
 
@@ -71,7 +71,7 @@ public class AdminPanelSteps extends BasePage {
 
     @Then("I validate redirection to Site Wording")
     public void iValidateRedirectionToSiteWording() {
-        getDriver().navigate().to(UrlDev + "admin/application/GlobalSettings");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/GlobalSettings");
         _page.siteWording();
     }
 
@@ -84,7 +84,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Company Info")
     public void iValidateRedirectionToCompanyInfo() {
-        getDriver().navigate().to(UrlDev + "admin/application/companyinfo");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/companyinfo");
         _page.companyInfo();
     }
 
@@ -96,7 +96,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Payment Info")
     public void iValidateRedirectionToPaymentInfo() {
-        getDriver().navigate().to(UrlDev + "admin/application/StripeSettings");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/StripeSettings");
         _page.paymentInfo();
     }
 
@@ -108,7 +108,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Site MetaTags")
     public void iValidateRedirectionToSiteMetaTags() {
-        getDriver().navigate().to(UrlDev + "admin/application/MetaTags");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/MetaTags");
         _page.siteMetaTags();
     }
 
@@ -121,7 +121,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Requests Setup")
     public void iValidateRedirectionToRequestsSetup() {
-        getDriver().navigate().to(UrlDev + "admin/application/RequestsSetup");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/RequestsSetup");
         _page.requestsSetup();
     }
 
@@ -133,7 +133,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Browse config")
     public void iValidateRedirectionToBrowseConfig() {
-        getDriver().navigate().to(UrlDev + "admin/application/BrowseConfig");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/BrowseConfig");
         _page.browseConfig();
     }
 
@@ -145,7 +145,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to SMS Settings")
     public void iValidateRedirectionToSMSSettings() {
-        getDriver().navigate().to(UrlDev + "admin/application/SmsSettings");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/SmsSettings");
         _page.smsSettings();
     }
 
@@ -157,7 +157,7 @@ public class AdminPanelSteps extends BasePage {
 
     @And("I validate redirection to Orders Setup")
     public void iValidateRedirectionToOrdersSetup() {
-        getDriver().navigate().to(UrlDev + "admin/application/OrdersSetup");
+        getDriver().navigate().to(UrlDevProducts + "admin/application/OrdersSetup");
         _page.ordersSetup();
     }
 

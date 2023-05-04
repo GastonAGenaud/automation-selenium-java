@@ -10,6 +10,9 @@ import org.testng.Assert;
 import pages.BasePage;
 import pages.development.ListingDetailsPage;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class ListingDetailsSteps extends BasePage {
 
@@ -20,7 +23,7 @@ public class ListingDetailsSteps extends BasePage {
         this._page = new ListingDetailsPage();
     }
 
-    @Given("PROD I create an account and go to Make an offer {string}")
+    @Given("ENV I create an account and go to Make an offer {string}")
     public void prodiCreateAnAccountAndGoToMakeAnOffer(String text) {
         _page.CreateAnAccountListingDetails(text);
         _page.imSellerButton();
@@ -194,10 +197,10 @@ public class ListingDetailsSteps extends BasePage {
     @And("PROD valid if the category is shown on the product page")
     public void prodValidIfTheCategoryIsShownOnTheProductPage() {
         try {
-            Assert.assertEquals("Jewerly", _page.HottestItemsDetail());
+            Assert.assertEquals("Jewelry", _page.HottestItemsDetail());
         } catch (Exception e) {
             _page.validHottestItemsCategory();
-            Assert.assertEquals("Jewerly", _page.HottestItemsDetail());
+            Assert.assertEquals("Jewelry", _page.HottestItemsDetail());
         }
     }
 
@@ -209,7 +212,7 @@ public class ListingDetailsSteps extends BasePage {
 
     @Then("PROD valid if the category is selected")
     public void prodValidIfTheCategoryIsSelected() {
-        Assert.assertEquals("Jewerly", _page.HottestItemsCategory());
+        Assert.assertEquals("Jewelry", _page.HottestItemsCategory());
     }
 
     @And("PROD I add a name text field")
@@ -293,12 +296,23 @@ public class ListingDetailsSteps extends BasePage {
 
     @Then("I validate Seen count")
     public void iValidateSeenCount() {
+        String expectedText = "Seen 20 times in the last hour";
+        String actualText = _page.seenCountText();
+        String regex = "^Seen \\d+ times in the last hour$";
         try {
-            Assert.assertEquals("Seen 0 times in the last hour", _page.seenCountText());
+            Assert.assertTrue(actualText.matches(regex));
+            Assert.assertEquals(expectedText, actualText);
         } catch (Exception e) {
             wait(4);
-            Assert.assertEquals("Seen 0 times in the last hour", _page.seenCountText());
+            Assert.assertTrue(actualText.matches(regex));
+            Assert.assertEquals(expectedText, actualText);
         }
+//        try {
+//            Assert.assertEquals("Seen \\d+ times in the last hour", _page.seenCountText());
+//        } catch (Exception e) {
+//            wait(4);
+//            Assert.assertEquals("Seen 0 times in the last hour", _page.seenCountText());
+//        }
 
     }
 }

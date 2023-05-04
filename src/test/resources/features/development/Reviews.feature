@@ -3,7 +3,7 @@ Feature: Development Reviews
 
   @ProdReviews
   Scenario: Reviews
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And PROD I go to the listing details page
     And select an item
     And select Review button
@@ -11,7 +11,7 @@ Feature: Development Reviews
 
   @ReviewStorefront
   Scenario: Validate settings profile page
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     When I validate the settings button
     And I validate the profile first name text field
     And I validate the profile last name text field
@@ -23,7 +23,7 @@ Feature: Development Reviews
 
   @ReviewStorefront
   Scenario: Validate profile social media
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     When I select social button
     And I validate the web site text field
     And I validate the facebook text field

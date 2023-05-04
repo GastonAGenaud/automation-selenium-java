@@ -2,9 +2,9 @@
 Feature: Development Settings
 
 
-  @prodSettingsChangePassword
+  @envSettingsChangePassword
   Scenario: Change Password
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select password tab
@@ -14,7 +14,7 @@ Feature: Development Settings
 
   @prodSettingsAddUrls
   Scenario:Add social profile urls
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Social tab
@@ -29,7 +29,7 @@ Feature: Development Settings
 
   @AddCreditCard
   Scenario: Add Credit card
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And I select Payment
@@ -42,7 +42,7 @@ Feature: Development Settings
 
   @ActivateNotifications @testingNotifications
   Scenario: Activate notifications
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Notifications Tab
@@ -56,7 +56,7 @@ Feature: Development Settings
 
   @DeactivateNotifications @testingNotifications
   Scenario: Deactivate notifications
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Notifications Tab
@@ -68,7 +68,7 @@ Feature: Development Settings
 
   @TestingAddAddress1
   Scenario: Add Address
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab
@@ -86,7 +86,7 @@ Feature: Development Settings
 
   @EditAddress @TestingAddAddress
   Scenario: Edit Address
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab
@@ -97,7 +97,7 @@ Feature: Development Settings
 
   @DeleteAddress @TestingAddAddress
   Scenario: Delete Address
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And select Shipping Tab
@@ -108,7 +108,7 @@ Feature: Development Settings
 
   @FillProfile
   Scenario: Fill in profile information and save
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     When I select settings
     And see Personal Information

@@ -19,7 +19,7 @@ public class loginSteps extends BasePage {
 
     @Given("I go to Products")
     public void iGoToProducts() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
     @And("I select Header Login")

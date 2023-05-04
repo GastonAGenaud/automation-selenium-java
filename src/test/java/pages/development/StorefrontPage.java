@@ -79,16 +79,16 @@ public class StorefrontPage extends BasePage {
     }
 
     public void setProfilePage() {
-        getDriver().navigate().to(UrlDev + "/listing/getstorefront");
+        getDriver().navigate().to(UrlDevProducts + "/listing/getstorefront");
     }
 
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(UrlDev + "/Account/Login");
+        getDriver().navigate().to(UrlDevProducts + "/Account/Login");
     }
 
 

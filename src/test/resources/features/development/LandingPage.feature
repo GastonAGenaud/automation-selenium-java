@@ -3,7 +3,7 @@ Feature: Development Landing Page
 
   @landingPageTest
   Scenario: Landing Page
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And I go to home page
     And go to Landing Page
     When select Header

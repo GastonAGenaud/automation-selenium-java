@@ -114,10 +114,10 @@ public class ListingsPage extends BasePage {
     @FindBy(how = How.CSS, using = "#btn-crop")
     public WebElement cropBtn;
 
-    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(3) > div.form-group > div > div > div > span > label > span")
+    @FindBy(how = How.CSS, using = "#customfield-holder > div:nth-child(5) > div.form-group > div > div > div:nth-child(5) > span > label > span")
     public WebElement lightBlueColor;
 
-    @FindBy(how = How.CSS, using = "#custom-4")
+    @FindBy(how = How.CSS, using = "#custom-0")
     public WebElement selectStatusTab;
 
     @FindBy(xpath = "//option[contains(text(), 'Good')]")
@@ -219,19 +219,19 @@ public class ListingsPage extends BasePage {
     public static final String EV_RESULT_FILE_PATH = System.getProperty("user.dir") + "/src/test/resources/media/listing.jpeg";
 
     public void setHomePage() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
     public void goToListingPage() {
-        getDriver().navigate().to(UrlDev + "/dashboard/MyListings");
+        getDriver().navigate().to(UrlDevProducts + "/dashboard/MyListings");
     }
 
     public void goToLoginPage() {
-        getDriver().navigate().to(UrlDev + "/Account/Login");
+        getDriver().navigate().to(UrlDevProducts + "/Account/Login");
     }
 
     public void goToDashboardPage() {
-        getDriver().navigate().to(UrlDev + "/dashboard");
+        getDriver().navigate().to(UrlDevProducts + "/dashboard");
     }
 
     public void myListingButton() {
@@ -401,4 +401,6 @@ public class ListingsPage extends BasePage {
         boolean result = successfullShare.isDisplayed();
         return result;
     }
+
+
 }

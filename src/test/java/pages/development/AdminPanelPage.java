@@ -213,7 +213,7 @@ public class AdminPanelPage extends BasePage {
     }
 
     public void setUsersBtn() {
-        getDriver().navigate().to(UrlDev + "/Admin/User");
+        getDriver().navigate().to(UrlDevProducts + "/Admin/User");
     }
 
     public void getCloseChat() {
@@ -238,35 +238,35 @@ public class AdminPanelPage extends BasePage {
     }
 
     public void siteWording() {
-        Assert.assertEquals(UrlDev + "admin/application/GlobalSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/GlobalSettings", getDriver().getCurrentUrl());
     }
 
     public void companyInfo() {
-        Assert.assertEquals(UrlDev + "admin/application/companyinfo", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/companyinfo", getDriver().getCurrentUrl());
     }
 
     public void paymentInfo() {
-        Assert.assertEquals(UrlDev + "admin/application/StripeSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/StripeSettings", getDriver().getCurrentUrl());
     }
 
     public void siteMetaTags() {
-        Assert.assertEquals(UrlDev + "admin/application/MetaTags", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/MetaTags", getDriver().getCurrentUrl());
     }
 
     public void requestsSetup() {
-        Assert.assertEquals(UrlDev + "admin/application/RequestsSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/RequestsSetup", getDriver().getCurrentUrl());
     }
 
     public void browseConfig() {
-        Assert.assertEquals(UrlDev + "admin/application/BrowseConfig", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/BrowseConfig", getDriver().getCurrentUrl());
     }
 
     public void smsSettings() {
-        Assert.assertEquals(UrlDev + "admin/application/SmsSettings", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/SmsSettings", getDriver().getCurrentUrl());
     }
 
     public void ordersSetup() {
-        Assert.assertEquals(UrlDev + "admin/application/OrdersSetup", getDriver().getCurrentUrl());
+        Assert.assertEquals(UrlDevProducts + "admin/application/OrdersSetup", getDriver().getCurrentUrl());
     }
 
 

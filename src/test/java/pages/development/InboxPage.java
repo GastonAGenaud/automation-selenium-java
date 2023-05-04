@@ -100,8 +100,19 @@ public class InboxPage extends BasePage {
 
     public void validateMessageMedia() {
         List<WebElement> msgRightDivs = getDriver().findElements(By.cssSelector(".row.msg-right"));
+        try {
+            fluentWaitStrict(getDriver(),validateChatBox);
+            waitForVisibility(validateChatBox);
+            Assert.assertTrue(validateChatBox.isDisplayed());
+        }catch(Exception e){
+            wait(3);
+            Assert.assertTrue(validateChatBox.isDisplayed());
+        }
+
         // Obtener el último elemento <div> con la clase 'row msg-right'
+
         WebElement lastDiv = msgRightDivs.get(msgRightDivs.size() - 1);
+//        fluentWait(getDriver(), lastDiv);
         // Verificar si contiene un elemento <img> con un atributo 'src' válido
         WebElement imgElement = lastDiv.findElement(By.cssSelector("img[src]"));
         // Comprobar si el elemento <img> encontrado tiene un atributo 'src' no vacío

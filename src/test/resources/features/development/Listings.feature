@@ -3,7 +3,7 @@ Feature: Development Listing
 
   @DevListing
   Scenario: DEV - Buyer able to create a listing
-    Given I login with Gaston User in production products using cookies
+    Given I login with Gaston User in development products using cookies
     And go to dashboard
     And DEV I validate the My Listings button
     When DEV I validate add new listing button

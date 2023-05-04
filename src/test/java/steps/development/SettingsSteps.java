@@ -28,7 +28,7 @@ public class SettingsSteps extends BasePage {
 
     @And("go to dashboard")
     public void goToDashboard() {
-        getDriver().navigate().to(UrlDev + "/dashboard");
+        getDriver().navigate().to(UrlDevProducts + "/dashboard");
     }
 
     @When("I select settings")
@@ -58,13 +58,13 @@ public class SettingsSteps extends BasePage {
         _page.passwordChangedPopUp();
     }
 
-    @Given("I login with Gaston User in production products")
+    @Given("I login with Gaston User in development products")
     public void iLoginWithGastonUserProdProducts() throws IOException {
         _page.loginWithGastonUserProdProducts();
     }
 
-    @Given("I login with Gaston User in production products using cookies")
-    public void loginWithGastonUserStepsProdProducts() {
+    @Given("I login with Gaston User in development products using cookies")
+    public void loginWithGastonUserStepsDevProducts() {
         try {
             getDriver().manage().deleteAllCookies();
             ProdHomePage();

@@ -66,9 +66,9 @@ public class BasePage {
     public String url = Environment.getProperty("url");
     public String baseUrlOHE = Environment.getProperty("baseUrlOHE");
     public String UrlSVC = Environment.getProperty("UrlSVC");
-    public String UrlDev = Environment.getProperty("UrlDev");
+    public String UrlDevProducts = Environment.getProperty("UrlDevProducts");
     public String urlServicesProd = Environment.getProperty("UrlServicesProd");
-    public String UrlDevuct = url + "listing/detail/740";
+    public String UrlDevProductsuct = url + "listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
     String randomEmail = rdm + Long.toString((int) random() * 1200);
@@ -231,7 +231,7 @@ public class BasePage {
     }
 
     public void ProdHomePage() {
-        getDriver().navigate().to(UrlDev);
+        getDriver().navigate().to(UrlDevProducts);
     }
 
 
@@ -257,7 +257,7 @@ public class BasePage {
 
     public void loginPageProd() {
         wait(2);
-        getDriver().navigate().to(UrlDev + "Account/Login");
+        getDriver().navigate().to(UrlDevProducts + "Account/Login");
     }
 
     public void getLoginPageOWL() {
