@@ -36,11 +36,44 @@ Feature: AdminPanel
     Then valid The complete form
 
 
+  @testAdminUserActions
+  Scenario: Admin Panel - Users - Actions
+    Given I login with Gaston User in production services using cookies
+    And go to Admin Panel Serv
+    When I select Users tab Serv
+    And Select Action button
+    And select Impersonate Button
+    Then I validate action sector in Admin panel - Users
 
+  @testAdminUserSearchFilter
+  Scenario: Admin Panel - Users - Search filter
+    Given I login with Gaston User in production services using cookies
+    And go to Admin Panel Serv
+    When I select Users tab Serv
+    And complete search filter Serv
+    And select Filter button
+    Then I validate Filter sector in Admin panel - Users Serv
 
-
-
-
+    @testAdminPanelSettings
+  Scenario: Admin Panel - Settings
+    Given I login with Gaston User in production services using cookies
+    And go to Admin Panel Serv
+    Then I validate redirection to Site Wording Serv
+    And I validate elements in Site Wording Serv
+    And I validate redirection to Company Info Serv
+    And validate elements in Company Info Serv
+    And I validate redirection to Payment Info Serv
+    And validate elements in Payment Info Serv
+    And I validate redirection to Site MetaTags Serv
+    And validate elements in Site MetaTags Serv
+    And I validate redirection to Requests Setup Serv
+    And validate elements in Requests Setup Serv
+    And I validate redirection to Browse config Serv
+    And validate elements in Browse config Serv
+    And I validate redirection to SMS Settings Serv
+    And validate elements in SMS Settings Serv
+    And I validate redirection to Orders Setup Serv
+    And validate elements in Orders Setup Serv
 
 
 

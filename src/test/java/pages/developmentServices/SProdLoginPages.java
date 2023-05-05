@@ -1,6 +1,7 @@
 package pages.developmentServices;
 
 
+import io.cucumber.java.bs.A;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -419,6 +420,20 @@ public class SProdLoginPages extends BasePage {
     public WebElement softwareField;
     @FindBy(how = How.CSS, using = "#submit-form")
     public WebElement saveBtn;
+
+    @FindBy(how = How.CSS, using = "#search")
+    public WebElement searchUserInput;
+
+    @FindBy(xpath = "/html/body/div[4]/main/div[3]/div/div/div[2]/div[3]/div[1]/div/div[1]/a/div/div/span[1]")
+    public WebElement seenTimesTxt;
+
+    @FindBy(how = How.CSS, using = "#container-block")
+    public WebElement listingValidate;
+
+    public void listingValidation(){
+        fluentWait(getDriver(), listingValidate);
+        Assert.assertTrue(listingValidate.isDisplayed());
+    }
 
     public void hireBoxValidate() {
         wait(4);
@@ -2652,5 +2667,20 @@ public class SProdLoginPages extends BasePage {
             fluentWait(getDriver(), saveBtn);
             waitForWebElementAndClick(saveBtn);
         }
+    }
+
+    public void setUsersBtn() {
+        getDriver().navigate().to(UrlDevServices + "/Admin/User");
+    }
+
+    public void searchUser() {
+        fluentWait(getDriver(), searchUserInput);
+        searchUserInput.sendKeys("gastontrick");
+    }
+
+    public String seenCountText() {
+        fluentWait(getDriver(),seenTimesTxt);
+        String result = seenTimesTxt.getText();
+        return result;
     }
 }

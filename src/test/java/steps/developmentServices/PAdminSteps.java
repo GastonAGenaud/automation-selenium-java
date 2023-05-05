@@ -570,4 +570,118 @@ public class PAdminSteps extends BasePage {
     public void psvcIValidateFilterSectorInAdminPanelUsers() {
         _page.userResult();
     }
+
+    @When("I select Users tab Serv")
+    public void iSelectUsersTabServ() {
+        _page.setUsersBtn();
+        _page.getCloseChat();
+    }
+
+    @And("complete search filter Serv")
+    public void completeSearchFilterServ() {
+        _page.searchUser();
+    }
+
+    @Then("I validate Filter sector in Admin panel - Users Serv")
+    public void iValidateFilterSectorInAdminPanelUsersServ() {
+        _page.userResult();
+    }
+
+
+    @Then("I validate redirection to Site Wording Serv")
+    public void iValidateRedirectionToSiteWordingServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/GlobalSettings");
+        _page.siteWording();
+    }
+
+    @And("I validate elements in Site Wording Serv")
+    public void iValidateElementsInSiteWordingServ() {
+        _page.siteWordingText();
+        _page.searchAndLanguageSection();
+        _page.templateSector();
+    }
+
+    @And("I validate redirection to Company Info Serv")
+    public void iValidateRedirectionToCompanyInfoServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/companyinfo");
+        _page.companyInfo();
+    }
+
+    @And("validate elements in Company Info Serv")
+    public void validateElementsInCompanyInfoServ() {
+        _page.settingsTitleSector();
+        _page.companyInfoSubscriptionSector();
+    }
+
+    @And("I validate redirection to Payment Info Serv")
+    public void iValidateRedirectionToPaymentInfoServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/StripeSettings");
+        _page.paymentInfo();
+    }
+
+    @And("validate elements in Payment Info Serv")
+    public void validateElementsInPaymentInfoServ() {
+        _page.stripeSettingsSector();
+        _page.stripeTemplateSector();
+    }
+
+    @And("I validate redirection to Site MetaTags Serv")
+    public void iValidateRedirectionToSiteMetaTagsServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/MetaTags");
+        _page.siteMetaTags();
+    }
+
+    @And("validate elements in Site MetaTags Serv")
+    public void validateElementsInSiteMetaTagsServ() {
+        _page.seoSetupTxt();
+        _page.tabsSector();
+        _page.siteTagsTemplate();
+    }
+
+    @And("I validate redirection to Requests Setup Serv")
+    public void iValidateRedirectionToRequestsSetupServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/RequestsSetup");
+        _page.requestsSetup();
+    }
+
+    @And("validate elements in Requests Setup Serv")
+    public void validateElementsInRequestsSetupServ() {
+        _page.requestTitleText();
+        _page.requestsTemplateSector();
+    }
+
+    @And("I validate redirection to Browse config Serv")
+    public void iValidateRedirectionToBrowseConfigServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/BrowseConfig");
+        _page.browseConfig();
+    }
+
+    @And("validate elements in Browse config Serv")
+    public void validateElementsInBrowseConfigServ() {
+        _page.BrowseConfigTxt();
+        _page.browseConfigTemplateSector();
+    }
+
+    @And("I validate redirection to SMS Settings Serv")
+    public void iValidateRedirectionToSMSSettingsServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/SmsSettings");
+        _page.smsSettings();
+    }
+
+    @And("validate elements in SMS Settings Serv")
+    public void validateElementsInSMSSettingsServ() {
+        _page.smsTitleText();
+        _page.smsTemplateSector();
+    }
+
+    @And("I validate redirection to Orders Setup Serv")
+    public void iValidateRedirectionToOrdersSetupServ() {
+        getDriver().navigate().to(UrlSVC + "admin/application/OrdersSetup");
+        _page.ordersSetup();
+    }
+
+    @And("validate elements in Orders Setup Serv")
+    public void validateElementsInOrdersSetupServ() {
+        _page.ordersTitleText();
+    }
 }
