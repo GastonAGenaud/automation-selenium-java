@@ -1,5 +1,6 @@
 package steps.developmentServices;
 
+import io.cucumber.java.Before;
 import pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,6 +8,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.developmentServices.SProdLoginPages;
+
+import java.io.IOException;
 
 
 public class SProdLoginSteps extends BasePage {
@@ -253,6 +256,7 @@ public class SProdLoginSteps extends BasePage {
     @And("go to Listing Page Serv")
     public void goToListingPageServ() {
         getDriver().navigate().to(UrlDevServices + "Listing/Browse");
+        _page.listingValidation();
     }
 
     @When("select Graphics & Design")
@@ -727,5 +731,22 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("valid that the Subcategory was erased")
     public void validThatTheSubcategoryWasErased() {
+    }
+
+
+    @Then("I validate Seen count Serv")
+    public void iValidateSeenCountServ() {
+        String expectedText = "Seen 20 times in the last hour";
+        String actualText = _page.seenCountText();
+        String regex = "^Seen \\d+ times in the last hour$";
+        try {
+            Assert.assertTrue(actualText.matches(regex));
+            Assert.assertEquals(expectedText, actualText);
+
+        } catch (Exception e) {
+            wait(4);
+            Assert.assertTrue(actualText.matches(regex));
+            Assert.assertEquals(expectedText, actualText);
+        }
     }
 }
