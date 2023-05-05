@@ -554,4 +554,6 @@ public class PAdminSteps extends BasePage {
     public void PSVCIValidateGraphicAndDesignCheckbox() {
         _page.graphicDesign();
     }
+
+
 }
