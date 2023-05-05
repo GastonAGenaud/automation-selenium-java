@@ -382,6 +382,8 @@ public class SProdLoginPages extends BasePage {
     public WebElement categoriesAndFilter;
     @FindBy(how = How.CSS, using = "#nose > div > a:nth-child(1)")
     public WebElement createCategories;
+    @FindBy(how = How.CSS, using = "#nose > div > a:nth-child(2)")
+    public WebElement createCustomField;
     @FindBy(how = How.CSS, using = "#addCategoryBtn")
     public WebElement addCategories;
     @FindBy(how = How.CSS, using = "#category-name")
@@ -392,8 +394,8 @@ public class SProdLoginPages extends BasePage {
     public WebElement KenpachiCat;
     @FindBy(xpath = "//label[contains(text(),'Kenpachi Edit')]")
     public WebElement EditKenpachiCat;
-    @FindBy(xpath = "//button[contains(text(),'+ Add Subcategory')]")
-    public WebElement addSubCategory;
+    @FindBy(xpath = "//button[contains(text(),'Test Edit')]")
+    public WebElement testEditSubCategory;
     @FindBy(how = How.CSS, using = "body > div.iziToast-wrapper.iziToast-wrapper-topCenter > div > div > div > div.iziToast-buttons > button.btn.mt-2.btn-action.iziToast-buttons-child.revealIn")
     public WebElement confirmDeleteCat;
 
@@ -405,6 +407,18 @@ public class SProdLoginPages extends BasePage {
 
     @FindBy(how = How.CSS, using = "#hire-modal > div > div > div")
     public WebElement validateHireBox;
+    @FindBy(xpath = "/html/body/div[2]/div/main/section/div/div[2]/div/div[2]/div[1]/a")
+    public WebElement createCustomFieldBtn;
+    @FindBy(how = How.CSS, using = "#field-name")
+    public WebElement fieldName;
+    @FindBy(how = How.CSS, using = "#field-description")
+    public WebElement fieldDescription;
+    @FindBy(how = How.CSS, using = "#text-tab")
+    public WebElement textFieldType;
+    @FindBy(how = How.CSS, using = "#checkbox-show-modal-category-756")
+    public WebElement softwareField;
+    @FindBy(how = How.CSS, using = "#submit-form")
+    public WebElement saveBtn;
 
     public void hireBoxValidate() {
         wait(4);
@@ -2244,6 +2258,19 @@ public class SProdLoginPages extends BasePage {
         }
     }
 
+    public void selectCreateCustomFieldsSection() {
+        try {
+            actions.moveToElement(categoriesAndFilter).build().perform();
+            fluentWait(getDriver(), createCustomField);
+            waitForWebElementAndClick(createCustomField);
+        } catch (Exception e) {
+            wait(3);
+            actions.moveToElement(categoriesAndFilter).build().perform();
+            fluentWait(getDriver(), createCustomField);
+            waitForWebElementAndClick(createCustomField);
+        }
+    }
+
     public void addCategory() {
         try {
             fluentWait(getDriver(), addCategories);
@@ -2321,6 +2348,17 @@ public class SProdLoginPages extends BasePage {
         }
     }
 
+    public void selectTestEditSubCat() {
+        try {
+            fluentWait(getDriver(), testEditSubCategory);
+            waitForWebElementAndClick(testEditSubCategory);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), testEditSubCategory);
+            waitForWebElementAndClick(testEditSubCategory);
+        }
+    }
+
     public void selectDeleteKenpachiCat() {
         WebElement subCategoryEdit = null;
         try {
@@ -2348,13 +2386,271 @@ public class SProdLoginPages extends BasePage {
     }
 
     public void addSubcategory() {
+        WebElement subCategoryEdit = null;
         try {
-            fluentWait(getDriver(), addSubCategory);
-            waitForWebElementAndClick(addSubCategory);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Kenpachi Edit')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Kenpachi Edit')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement addBtn = getDriver().findElement(By.xpath(String.format("//button[ @data-id= '%s']", dataId)));
+        WebElement addTextBtn = getDriver().findElement(By.xpath(String.format("//input[ @id= 'category-name-%s']", dataId)));
+
+        try {
+            fluentWait(getDriver(), addBtn);
+            waitForWebElementAndClick(addBtn);
+            fluentWait(getDriver(), addTextBtn);
+            waitForWebElementAndClick(addTextBtn);
+            addTextBtn.sendKeys("Computer");
+            addTextBtn.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
         } catch (Exception e) {
             wait(3);
-            fluentWait(getDriver(), addSubCategory);
-            waitForWebElementAndClick(addSubCategory);
+        }
+    }
+
+    public void enterAddSubcategory() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Kenpachi Edit')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Kenpachi Edit')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement addBtn = getDriver().findElement(By.xpath(String.format("//input[ @id= 'category-name-%s']", dataId)));
+
+        try {
+            fluentWait(getDriver(), addBtn);
+            waitForWebElementAndClick(addBtn);
+            addBtn.sendKeys("Computer");
+            addBtn.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void selectTestSubCat() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void selectDeleteTestSubCat() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer Edit')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer Edit')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//a[ @id= 'delete-%s']", dataId)));
+
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), confirmDeleteCat);
+            waitForWebElementAndClick(confirmDeleteCat);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void addItemSubCat() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer Edit')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Computer Edit')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement addBtn = getDriver().findElement(By.xpath(String.format("//button[ @data-id= '%s']", dataId)));
+        WebElement addTextBtn = getDriver().findElement(By.xpath(String.format("//input[ @id= 'category-name-%s']", dataId)));
+
+        try {
+            fluentWait(getDriver(), addBtn);
+            waitForWebElementAndClick(addBtn);
+            fluentWait(getDriver(), addTextBtn);
+            waitForWebElementAndClick(addTextBtn);
+            addTextBtn.sendKeys("Hello");
+            addTextBtn.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void selectHelloItemSubCat() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Hello')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Hello')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//i[ @id= 'edit-%s']", dataId)));
+        WebElement editField = getDriver().findElement(By.xpath(String.format("//input[ @id= 'name-%s']", dataId)));
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), editField);
+            waitForWebElementAndClick(editField);
+            editField.sendKeys(" Edit");
+            editField.sendKeys(Keys.ENTER);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void selectDeleteHelloItemSubCat() {
+        WebElement subCategoryEdit = null;
+        try {
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Hello Edit')]"));
+            if (subCategoryEdit.isDisplayed()) {
+
+            }
+        } catch (Exception e) {
+            wait(4);
+            subCategoryEdit = getDriver().findElement(By.xpath("//*[contains(text(), 'Hello Edit')]"));
+
+        }
+        String dataId = subCategoryEdit.getAttribute("data-id");
+        WebElement editBtn = getDriver().findElement(By.xpath(String.format("//a[ @id= 'delete-%s']", dataId)));
+
+        try {
+            fluentWait(getDriver(), editBtn);
+            waitForWebElementAndClick(editBtn);
+            fluentWait(getDriver(), confirmDeleteCat);
+            waitForWebElementAndClick(confirmDeleteCat);
+            fluentWait(getDriver(), SuccessSubcategory);
+        } catch (Exception e) {
+            wait(3);
+        }
+    }
+
+    public void selectCreateCustomFields() {
+        try {
+            fluentWait(getDriver(), createCustomFieldBtn);
+            waitForWebElementAndClick(createCustomFieldBtn);
+            //    retryingFindClick(createCustomFieldBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), createCustomFieldBtn);
+            waitForWebElementAndClick(createCustomFieldBtn);
+        } finally {
+            fluentWait(getDriver(), fieldName);
+        }
+    }
+
+    public void enterFieldName() {
+        try {
+            fluentWait(getDriver(), fieldName);
+            waitForWebElementAndClick(fieldName);
+            fieldName.sendKeys("Automation");
+            fieldName.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), fieldName);
+            waitForWebElementAndClick(fieldName);
+            fieldName.sendKeys("Automation");
+            fieldName.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void enterFieldDescription() {
+        try {
+            fluentWait(getDriver(), fieldDescription);
+            waitForWebElementAndClick(fieldDescription);
+            fieldDescription.sendKeys("Automation Test");
+            fieldDescription.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), fieldDescription);
+            waitForWebElementAndClick(fieldDescription);
+            fieldDescription.sendKeys("Automation Test");
+            fieldDescription.sendKeys(Keys.ENTER);
+        }
+    }
+
+    public void fieldType() {
+        try {
+            fluentWait(getDriver(), textFieldType);
+            waitForWebElementAndClick(textFieldType);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), textFieldType);
+            waitForWebElementAndClick(textFieldType);
+        }
+    }
+
+    public void selectFieldCategories() {
+        try {
+            fluentWait(getDriver(), softwareField);
+            waitForWebElementAndClick(softwareField);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), softwareField);
+            waitForWebElementAndClick(softwareField);
+        }
+    }
+
+    public void enterSaveCustomField() {
+        try {
+            fluentWait(getDriver(), saveBtn);
+            waitForWebElementAndClick(saveBtn);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), saveBtn);
+            waitForWebElementAndClick(saveBtn);
         }
     }
 }
