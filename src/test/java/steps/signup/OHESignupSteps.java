@@ -53,5 +53,10 @@ public class OHESignupSteps extends BasePage {
         _page.CreateAnAccountListingDetailsOHE(text);
 //        _page.validateLastError();
     }
+    @And("I Sign in with new account {string}OHE")
+    public void iSignInWithNewAccountEmailOHE(String text) {
+        _page.CreateAnAccountListingDetailsPROD(text);
+        _page.CloseWindow();
+    }
 
 }

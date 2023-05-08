@@ -7,25 +7,26 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.BrowseWantsDevPage;
 
 import java.io.IOException;
 
 public class BrowseWantsDevSteps extends BasePage {
-    private BrowseWantsDevSteps _page;
+    private BrowseWantsDevPage _page;
 
     public BrowseWantsDevSteps() {
 
-        this._page = new BrowseWantsDevSteps();
+        this._page = new BrowseWantsDevPage();
     }
+
 
     @When("go to Browse Request Serv")
     public void goToBrowseRequestServ() {
         _page.goToBrowseRequestServ();
     }
 
-    @And("select Apply ServProd")
-    public void selectApplyServProd() {
+    @And("select Apply Serv")
+    public void selectApplyServ() {
         _page.selectApplyButton();
     }
 

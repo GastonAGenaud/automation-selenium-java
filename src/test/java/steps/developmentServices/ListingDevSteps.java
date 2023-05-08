@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.ListingDevPage;
 
 import java.io.IOException;
 
 public class ListingDevSteps extends BasePage {
-    private ListingDevSteps _page;
+    private ListingDevPage _page;
 
     public ListingDevSteps() {
 
-        this._page = new ListingDevSteps();
+        this._page = new ListingDevPage();
     }
 
     @And("go to Dashboard ServI validate listing name text field Serv")
@@ -95,7 +95,7 @@ public class ListingDevSteps extends BasePage {
 
     @When("select My Listings button Serv")
     public void selectMyListingsButtonServ() {
-        _page.selectMyListingsServProd();
+        _page.selectMyListingsServ();
     }
 
     @And("add New Listing")

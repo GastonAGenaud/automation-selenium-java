@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.CheckoutDevPage;
 
 import java.io.IOException;
 
 public class CheckoutDevSteps extends BasePage {
-    private CheckoutDevSteps _page;
+    private CheckoutDevPage _page;
 
     public CheckoutDevSteps() {
 
-        this._page = new CheckoutDevSteps();
+        this._page = new CheckoutDevPage();
     }
 
     @When("go to Browse Services")

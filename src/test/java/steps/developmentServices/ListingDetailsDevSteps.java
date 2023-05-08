@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.ListingDetailsDevPage;
 
 import java.io.IOException;
 
 public class ListingDetailsDevSteps extends BasePage {
-    private ListingDetailsDevSteps _page;
+    private ListingDetailsDevPage _page;
 
     public ListingDetailsDevSteps() {
 
-        this._page = new ListingDetailsDevSteps();
+        this._page = new ListingDetailsDevPage();
     }
 
     @Then("valid select Block")

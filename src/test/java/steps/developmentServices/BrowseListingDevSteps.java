@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.BrowseListingsDevPage;
 
 import java.io.IOException;
 
 public class BrowseListingDevSteps extends BasePage {
-    private BrowseListingDevSteps _page;
+    private BrowseListingsDevPage _page;
 
     public BrowseListingDevSteps() {
 
-        this._page = new BrowseListingDevSteps();
+        this._page = new BrowseListingsDevPage();
     }
 
     @And("go to Listing Page Serv")

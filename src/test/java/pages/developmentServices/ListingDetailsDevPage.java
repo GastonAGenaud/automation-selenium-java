@@ -1,21 +1,54 @@
 package pages.developmentServices;
 
-import io.cucumber.java.bs.A;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import pages.BasePage;
 
-import java.util.List;
 
-import static java.lang.Math.random;
+public class ListingDetailsDevPage extends BasePage {
+    public ListingDetailsDevPage() {
+        super();
+    }
 
-public class ListingDetailsDevPage extends BasePage{
-    public ListingDetailsDevPage(){super();}
+    @FindBy(how = How.CSS, using = "#block-tab")
+    public WebElement blockFilter;
+    @FindBy(how = How.CSS, using = "#list-tab")
+    public WebElement listFilter;
+    @FindBy(how = How.CSS, using = "#map-tab")
+    public WebElement mapFilter;
+    @FindBy(how = How.CSS, using = "#search")
+    public WebElement searchField;
+    @FindBy(how = How.CSS, using = "#search-button")
+    public WebElement searchBtn;
+
+    public void selectBlock() {
+        fluentWait(getDriver(), blockFilter);
+        waitForWebElementAndClick(blockFilter);
+    }
+
+    public void selectList() {
+        fluentWait(getDriver(), listFilter);
+        waitForWebElementAndClick(listFilter);
+
+    }
+
+    public void selectMap() {
+        fluentWait(getDriver(), mapFilter);
+        waitForWebElementAndClick(mapFilter);
+
+    }
+
+    public void serviceIncome() {
+        fluentWait(getDriver(), searchField);
+        waitForWebElementAndClick(searchField);
+        searchField.sendKeys("Blouse");
+    }
+
+    public void selectSearch() {
+        fluentWait(getDriver(), searchBtn);
+        waitForWebElementAndClick(searchBtn);
+
+    }
 }

@@ -7,20 +7,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.LoginDevPage;
 
 import java.io.IOException;
 
 public class LoginDevSteps extends BasePage {
-    private LoginDevSteps _page;
+    private LoginDevPage _page;
 
     public LoginDevSteps() {
 
-        this._page = new LoginDevSteps();
+        this._page = new LoginDevPage();
     }
 
-    @Given("I go login page PROD")
-    public void iGoLoginPagePROD() {
+    @Given("I go login page Serv")
+    public void iGoLoginPageServ() {
         _page.goToLogin();
     }
 

@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.SettingDevPage;
 
 import java.io.IOException;
 
 public class SettingsDevSteps extends BasePage {
-    private SettingsDevSteps _page;
+    private SettingDevPage _page;
 
     public SettingsDevSteps() {
 
-        this._page = new SettingsDevSteps();
+        this._page = new SettingDevPage();
     }
 
     @When("go to Settings Serv")

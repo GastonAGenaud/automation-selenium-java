@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.SignUpDevPage;
 
 import java.io.IOException;
 
 public class SignUpDevSteps extends BasePage {
-    private SignUpDevSteps _page;
+    private SignUpDevPage _page;
 
     public SignUpDevSteps() {
 
-        this._page = new SignUpDevSteps();
+        this._page = new SignUpDevPage();
     }
 
     @Given("I go to Sign Up")

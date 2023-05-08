@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.AdminPanelDevPage;
 
 import java.io.IOException;
 
 public class AdminPanelDevSteps extends BasePage {
-    private AdminPanelDevSteps _page;
+    private AdminPanelDevPage _page;
 
     public AdminPanelDevSteps() {
 
-        this._page = new AdminPanelDevSteps();
+        this._page = new AdminPanelDevPage();
     }
 
     @And("go to Dashboard Serv")
@@ -195,6 +195,7 @@ public class AdminPanelDevSteps extends BasePage {
         _page.goToAdminPanel();
         _page.getCloseChat();
     }
+
 
     @When("PSVC I validate customize landing page option")
     public void PSVCIValidateCustomizeLandingPageOption() {

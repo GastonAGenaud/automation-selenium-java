@@ -19,7 +19,7 @@ Feature: BrowseWants
     Given I login with Gaston User in production services using cookies
     And go to Browse Request Serv
     When complete price numbers TextFields in Set up Manually ServProd
-    And select Apply ServProd
+    And select Apply Serv
     Then I validate Price filter in section Browse Request ServProd
 
   Scenario: Browse Listings/Browse Request (Location)

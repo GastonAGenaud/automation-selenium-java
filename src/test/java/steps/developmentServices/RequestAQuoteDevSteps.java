@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.RequestAQuoteDevPage;
 
 import java.io.IOException;
 
 public class RequestAQuoteDevSteps extends BasePage {
-    private RequestAQuoteDevSteps _page;
+    private RequestAQuoteDevPage _page;
 
     public RequestAQuoteDevSteps() {
 
-        this._page = new RequestAQuoteDevSteps();
+        this._page = new RequestAQuoteDevPage();
     }
 
     @And("i select the request")

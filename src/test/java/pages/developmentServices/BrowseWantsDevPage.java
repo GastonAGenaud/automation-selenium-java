@@ -1,23 +1,34 @@
 package pages.developmentServices;
 
-import io.cucumber.java.bs.A;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.BasePage;
 
-import java.util.List;
-
-import static java.lang.Math.random;
 
 public class BrowseWantsDevPage extends BasePage {
     public BrowseWantsDevPage() {
         super();
+    }
+
+    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(4) > div.mb-4.mt-3.browse-price-manual-component > div > a")
+    public WebElement applyFilterPriceButton;
+    @FindBy(how = How.CSS, using = "#filters-container > div:nth-child(4)")
+    public WebElement validatePriceSectionRequest;
+
+    public void goToBrowseRequestServ() {
+        getDriver().navigate().to(UrlDevServices + "Want/browse");
+    }
+
+    public void selectApplyButton() {
+        fluentWait(getDriver(), applyFilterPriceButton);
+        waitForWebElementAndClick(applyFilterPriceButton);
+    }
+
+    public void validatePriceFilterSectionRequest() {
+        fluentWait(getDriver(), validatePriceSectionRequest);
+        Assert.assertTrue(validatePriceSectionRequest.isDisplayed());
     }
 }

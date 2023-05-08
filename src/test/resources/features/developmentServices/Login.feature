@@ -2,7 +2,7 @@
 Feature: Login
 
   Scenario: Login
-    Given I go login page PROD
+    Given I go login page Serv
     When Login title valid
     And valid Login with Facebook
     And valid Login with Google
@@ -10,7 +10,7 @@ Feature: Login
     Then valid session login
 
   Scenario: Forgot Password
-    Given I go login page PROD
+    Given I go login page Serv
     When go to forgot your Password
     And enter the e-mail to recover the password
     Then Valid that An email has been sent to reset the password.

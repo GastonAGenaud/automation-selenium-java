@@ -12,9 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.BasePage;
 
-import java.util.List;
 
-import static java.lang.Math.random;
 
 public class DashboardDevPage extends BasePage {
     public DashboardDevPage() {super();}

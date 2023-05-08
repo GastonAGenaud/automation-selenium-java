@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.CategoryDevPage;
 
 import java.io.IOException;
 
 public class CategoryDevSteps extends BasePage {
-    private CategoryDevSteps _page;
+    private CategoryDevPage _page;
 
     public CategoryDevSteps() {
 
-        this._page = new CategoryDevSteps();
+        this._page = new CategoryDevPage();
     }
 
     @And("Step {int}: Create Categories Serv")
@@ -122,6 +122,12 @@ public class CategoryDevSteps extends BasePage {
     @Then("valid that the category was erased")
     public void validThatTheCategoryWasErased() {
         _page.validationSuccesSubcategory().contains("Awesome!");
+    }
+
+    @And("Step {int}: Create custom Field Serv")
+    public void stepCreateCustomFieldServ(int arg0) {
+        _page.selectCreateCustomFieldsSection();
+        _page.selectCreateCustomFields();
     }
 
     @When("create custom Field")

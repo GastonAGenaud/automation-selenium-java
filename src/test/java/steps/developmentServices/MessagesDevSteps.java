@@ -7,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.developmentServices.SProdLoginPages;
+import pages.developmentServices.MessageDevPage;
 
 import java.io.IOException;
 
 public class MessagesDevSteps extends BasePage {
-    private MessagesDevSteps _page;
+    private MessageDevPage _page;
 
     public MessagesDevSteps() {
 
-        this._page = new MessagesDevSteps();
+        this._page = new MessageDevPage();
     }
 
     @When("go to the message section")

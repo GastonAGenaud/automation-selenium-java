@@ -1,5 +1,6 @@
 package pages.signup;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,8 @@ public class OHESignupPage extends BasePage {
 
     Actions actions = new Actions(getDriver());
     String rdm = Long.toString(System.currentTimeMillis());
+    String randomStr = RandomStringUtils.randomAlphabetic(20);
+    String randomEmail = rdm + Long.toString((int) random() * 1200);
 
     @FindBy(xpath = "//button[contains(string(),'%s')]")
     public WebElement buttonWithText;
@@ -32,7 +35,8 @@ public class OHESignupPage extends BasePage {
     public WebElement passwordTextField;
     @FindBy(how = How.CSS, using = "#signup-button")
     public WebElement signupBtn;
-
+    @FindBy(how = How.CSS, using = "#welcome > div > div > div > button > span")
+    public WebElement closeBtnWindow;
     @FindBy(how = How.CSS, using = "#welcome > div > div > div > h4")
     public WebElement welcomeText;
 
@@ -77,17 +81,17 @@ public class OHESignupPage extends BasePage {
     }
 
     public void emailTextField(String text) {
-        String id = rdm + Long.toString((int)random()*1200);
+        String id = rdm + Long.toString((int) random() * 1200);
         fluentWait(getDriver(), emailTextField);
         waitForWebElementAndClick(emailTextField);
         emailTextField.sendKeys(text + id + "@7r1ck.com");
     }
 
     public void userNameTextField(String text) {
-        String id = rdm + Long.toString((int)random()*1200);
+        String id = rdm + Long.toString((int) random() * 1200);
         fluentWait(getDriver(), usernameTextField);
         waitForWebElementAndClick(usernameTextField);
-        usernameTextField.sendKeys(text +"AutomationTest123");
+        usernameTextField.sendKeys(text + "AutomationTest123");
     }
 
     public void passwordTextField() {
@@ -111,18 +115,16 @@ public class OHESignupPage extends BasePage {
         return result;
     }
 
-    public void headerSignUpButton(){
+    public void headerSignUpButton() {
         fluentWait(getDriver(), headerSignUpBtn);
         waitForWebElementAndClick(headerSignUpBtn);
     }
-    public boolean validateTextFirst(){
+
+    public boolean validateTextFirst() {
         fluentWait(getDriver(), validateFirstText);
         boolean result = validateFirstText.isDisplayed();
         return result;
     }
-
-
-
 
 
     public boolean validateLastError() {
@@ -130,7 +132,7 @@ public class OHESignupPage extends BasePage {
             fluentWaitElementDisappears(getDriver(), lastErrorValidate);
             boolean result = lastErrorValidate.isDisplayed();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             wait(4);
 
             boolean result = lastErrorValidate.isDisplayed();
@@ -200,6 +202,65 @@ public class OHESignupPage extends BasePage {
         }
     }
 
+    public void CreateAnAccountListingDetailsPROD(String text) {
+        getDriver().navigate().to(UrlDevServices);
+
+        waitForVisibility(signUpNowBtn);
+        fluentWaitStrict(getDriver(), signUpNowBtn);
+        fluentWait(getDriver(), signUpNowBtn);
+        waitForWebElementAndClick(signUpNowBtn);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        fluentWait(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newEmailBtn);
+        waitForWebElementAndClick(newEmailBtn);
+        newEmailBtn.sendKeys(text + randomEmail + "auto@trick.com");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.clear();
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.click();
+
+        fluentWaitStrict(getDriver(), newPasswordBtn);
+        fluentWait(getDriver(), newPasswordBtn);
+        waitForWebElementAndClick(newPasswordBtn);
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+        newPasswordBtn.clear();
+        newPasswordBtn.sendKeys("asdasdasq21231@A");
+
+        fluentWaitStrict(getDriver(), newUsernameBtn);
+        fluentWait(getDriver(), newUsernameBtn);
+        waitForWebElementAndClick(newUsernameBtn);
+        newUsernameBtn.sendKeys(randomStr);
+
+        fluentWaitStrict(getDriver(), signUpBtn);
+        fluentWait(getDriver(), signUpBtn);
+        waitForWebElementAndClick(signUpBtn);
 
 
+    }
+
+    public void CloseWindow() {
+        try {
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        } catch (Exception e) {
+            wait(3);
+            fluentWait(getDriver(), closeBtnWindow);
+            waitForWebElementAndClick(closeBtnWindow);
+        }
+    }
 }
