@@ -8,7 +8,7 @@ Feature: Settings
     And go to Cashout
     Then valid than connect to Stripe
 
-  @FillProfIleAndSave
+
   Scenario: Settings/ Fill in profile information and save
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -34,7 +34,7 @@ Feature: Settings
     And add New password
     When valid if the password has been changed
 
-  @ActivateOrDeactivateNotifications
+
   Scenario: Settings/ activate or deactivate notifications
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
@@ -45,7 +45,7 @@ Feature: Settings
     And desactive notifications
     And valid to desactive notofications
 
-  @SettingsAddDeleteAddresses
+
   Scenario: Settings/ Add-edit or delete addresses
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv

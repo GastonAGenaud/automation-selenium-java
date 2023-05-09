@@ -1,7 +1,7 @@
 @devServices
 Feature: Messages
 
-  @TestSendMessageMedia
+
   Scenario: Send messages to users, including media (photos)
     Given I login with Gaston10 User Verified in production services using cookies
     And go to Dashboard Serv

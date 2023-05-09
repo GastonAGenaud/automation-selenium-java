@@ -5,7 +5,7 @@ Feature: AdminPanel
 
   Scenario: Create a Want
 
-  @AdminDesignTestProd
+
   Scenario: Admin design page
     Given PSVC I go to Admin design
     When PSVC I validate customize landing page option
@@ -36,7 +36,7 @@ Feature: AdminPanel
     Then valid The complete form
 
 
-  @testAdminUserActions
+
   Scenario: Admin Panel - Users - Actions
     Given I login with Gaston User in production services using cookies
     And go to Admin Panel Serv
@@ -45,7 +45,7 @@ Feature: AdminPanel
     And select Impersonate Button
     Then I validate action sector in Admin panel - Users
 
-  @testAdminUserSearchFilter
+
   Scenario: Admin Panel - Users - Search filter
     Given I login with Gaston User in production services using cookies
     And go to Admin Panel Serv

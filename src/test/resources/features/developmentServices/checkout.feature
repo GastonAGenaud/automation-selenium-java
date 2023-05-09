@@ -1,7 +1,7 @@
 @devServices
 Feature: Checkout
 
-  @DownloadableFiles
+
   Scenario: Hire a Service - With all types of shipments
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv

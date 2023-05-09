@@ -1,7 +1,7 @@
 @devServices
 Feature: Listings
 
-  @CreatingListingDevServices
+
   Scenario: Listing/Service Details
     Given I login with Gaston User in production services using cookies
     And go to Dashboard Serv
