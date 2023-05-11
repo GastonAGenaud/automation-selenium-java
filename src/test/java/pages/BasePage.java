@@ -68,7 +68,7 @@ public class BasePage {
     public String UrlSVC = Environment.getProperty("UrlSVC");
     public String UrlDevProducts = Environment.getProperty("UrlDevProducts");
     public String UrlDevServices = Environment.getProperty("UrlDevServices");
-    public String UrlDevProductsuct = url + "listing/detail/740";
+    public String UrlDevProductsListing = url + "listing/detail/740";
     String randomStr = RandomStringUtils.randomAlphabetic(20);
     public String rdm = Long.toString(System.currentTimeMillis());
     String randomEmail = rdm + Long.toString((int) random() * 1200);

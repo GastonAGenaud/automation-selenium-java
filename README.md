@@ -19,7 +19,7 @@ Para ejecutar el archivo Runner.java y ejecutar los casos de prueba marcados con
 ## Como ejecutar los tests
 Si optaste por la linea de comandos:
 
-    mvn test -Denv=staging
+    mvn clean test "-Dcucumber.filter.tags=@MTR-1297" -Denv=staging -Dsuite=products
 
 ## Stack
 En cuanto a las dependencias del proyecto:

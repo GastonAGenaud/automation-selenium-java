@@ -365,12 +365,12 @@ public class homeSteps extends BasePage {
     }
 
 
-//    @Before
-//    public void test() throws IOException {
-//        loginWithDev();
-//        loginWithMakeAnOffer();
-//        loginWithGastonUser();
-//    }
+    //@Before
+    public void test() throws IOException {
+        //loginWithDev();
+        //loginWithMakeAnOffer();
+        loginWithGastonUser();
+    }
 
     @Given("I login with Make An offer")
     public void loginWithMakeAnOfferSteps() {
@@ -412,12 +412,12 @@ public class homeSteps extends BasePage {
         }
     }
 
-    /*@Before
+    //@Before
     public void dev() throws IOException {
-        _page.generateLoginWithGastonUserVerifyStripe();
+        _page.loginWithDevProd();
     }
 
-     */
+
 
     @Given("I login with Gaston User Stripe")
     public void loginWithGastonUserStripe() {

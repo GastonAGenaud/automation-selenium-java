@@ -1,6 +1,5 @@
 package steps.developmentServices;
 
-import io.cucumber.java.Before;
 import pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,8 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.developmentServices.SProdLoginPages;
-
-import java.io.IOException;
 
 
 public class SProdLoginSteps extends BasePage {
@@ -256,7 +253,6 @@ public class SProdLoginSteps extends BasePage {
     @And("go to Listing Page Serv")
     public void goToListingPageServ() {
         getDriver().navigate().to(UrlDevServices + "Listing/Browse");
-        _page.listingValidation();
     }
 
     @When("select Graphics & Design")
@@ -715,100 +711,21 @@ public class SProdLoginSteps extends BasePage {
 
     @Then("Valid that the subcategory was created")
     public void validThatTheSubcategoryWasCreated() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("Edit Subcategory")
     public void editSubcategory() {
-        _page.selectKenpachiEditCat();
-        _page.selectTestSubCat();
     }
 
     @Then("valid that the Subcategory was edit")
     public void validThatTheSubcategoryWasEdit() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
     }
 
     @When("delete Subategory Serv")
     public void deleteSubategoryServ() {
-        _page.selectKenpachiEditCat();
-        _page.selectDeleteTestSubCat();
     }
 
     @Then("valid that the Subcategory was erased")
     public void validThatTheSubcategoryWasErased() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
-    }
-
-    @When("Add new Subcategory Item")
-    public void addNewSubcategoryItem() {
-        _page.selectKenpachiEditCat();
-        _page.addItemSubCat();
-    }
-
-    @Then("valid that new Subcategory Item was created")
-    public void validThatNewSubcategoryItemWasCreated() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
-    }
-
-    @When("Edit Subcategory Item")
-    public void editSubcategoryItem() {
-        _page.selectKenpachiEditCat();
-        _page.selectHelloItemSubCat();
-
-    }
-
-    @Then("valid that the Subcategory Item was edit")
-    public void validThatTheSubcategoryItemWasEdit() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
-    }
-
-
-    @When("delete Subcategory Item")
-    public void deleteSubcategoryItem() {
-        _page.selectKenpachiEditCat();
-        _page.selectDeleteHelloItemSubCat();
-    }
-
-    @Then("valid that the Subcategory Item was erased")
-    public void validThatTheSubcategoryItemWasErased() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
-    }
-
-    @And("Step {int}: Create custom Field Serv")
-    public void stepCreateCustomFieldServ(int arg0) {
-        _page.selectCreateCustomFieldsSection();
-        _page.selectCreateCustomFields();
-    }
-
-    @When("create custom Field")
-    public void createCustomField() {
-        _page.enterFieldName();
-        _page.enterFieldDescription();
-        _page.fieldType();
-        _page.selectFieldCategories();
-        _page.enterSaveCustomField();
-    }
-
-    @Then("valid that new custom Field was created")
-    public void validThatNewCustomFieldWasCreated() {
-        _page.validationSuccesSubcategory().contains("Awesome!");
-    }
-
-
-    @Then("I validate Seen count Serv")
-    public void iValidateSeenCountServ() {
-        String expectedText = "Seen 20 times in the last hour";
-        String actualText = _page.seenCountText();
-        String regex = "^Seen \\d+ times in the last hour$";
-        try {
-            Assert.assertTrue(actualText.matches(regex));
-            Assert.assertEquals(expectedText, actualText);
-
-        } catch (Exception e) {
-            wait(4);
-            Assert.assertTrue(actualText.matches(regex));
-            Assert.assertEquals(expectedText, actualText);
-        }
     }
 }

@@ -1058,7 +1058,7 @@ public class bugsPage extends BasePage {
 
     public void goToItemBUG() {
         goToListingPage();
-        getDriver().navigate().to(UrlDevProductsuct);
+        getDriver().navigate().to(UrlDevProductsListing);
     }
 
     public void selectAddToCartBUG() {
@@ -1746,7 +1746,7 @@ public class bugsPage extends BasePage {
     String newProductUrl = null;
     String windowHandle = getDriver().getWindowHandle();
 
-    public void saveTheUrlDevProductsuct() {
+    public void saveTheUrlDevProducts() {
         getDriver().getWindowHandles().forEach(tab -> getDriver().switchTo().window(tab));
         newProductUrl = getDriver().getCurrentUrl();
     }

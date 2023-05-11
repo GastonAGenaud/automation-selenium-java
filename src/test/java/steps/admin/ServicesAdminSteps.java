@@ -474,11 +474,11 @@ public class ServicesAdminSteps extends BasePage {
 
     //Add-Ons and extensions
 
- //   @Before
-   // public void test() throws IOException {
-//        loginDevSVC();
-//        loginWithGastonUserSVC();
-//    }
+    //@Before
+    public void generateCookiesForServicesMMRS() throws IOException {
+        loginDevSVC();
+        loginWithGastonUserSVC();
+    }
 
     @Given("SVC I login With Dev User")
     public void SVCIloginWithDevUser() {

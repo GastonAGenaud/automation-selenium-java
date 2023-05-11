@@ -803,7 +803,7 @@ public class bugsSteps extends BasePage {
 
     @When("buy the product")
     public void buyTheProduct() {
-        navigateTo(UrlDevProductsuct);
+        navigateTo(UrlDevProductsListing);
         _page.buyProduct();
     }
 
@@ -844,7 +844,7 @@ public class bugsSteps extends BasePage {
     @And("select my newly created product")
     public void selectMyNewlyCreatedProduct() {
         _page.selectMyNewlyProduct();
-        _page.saveTheUrlDevProductsuct();
+        _page.saveTheUrlDevProducts();
     }
 
 

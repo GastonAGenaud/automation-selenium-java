@@ -1,4 +1,4 @@
-image: atlassian/default-image:2
+image: atlassian/default-image:latest
 
 definitions:
   steps:
@@ -11,35 +11,55 @@ definitions:
         script:
           - export ENVIRONMENT=$(cat ./environment.txt)
           - export SCOPE=$(cat ./testing_scope.txt)
-          - export SITE_TYPE=$(cat ./site_type.txt)
-          - export BITBUCKET_NUMBER=$BITBUCKET_BUILD_NUMBER
+          - export SUITE=$(cat ./suite.txt)
           - echo $ENVIRONMENT
-          - echo $SITE_TYPE
+          - echo $SUITE
           - echo $SCOPE
-          - echo $BITBUCKET_BUILD_NUMBER
-          - sed -i 's/(@MTR)/($SCOPE)/g' ./src/test/java/runner/Runner.java
-          - if [[ $SITETYPE != 'products' ]]; then sed -i 's/products/$SITETYPE/g' ./deploy_to_firebase_products_pre-staging.sh; fi;
           - IMAGE_NAME_MIN=automatedtest
-          # - docker login $AcrName --username $AcrUser --password $AcrPassword
-          # - docker build -t $AcrName/$IMAGE_NAME_MIN:latest --build-arg ENVIRONMENT=$ENVIRONMENT .
-          # - docker push $AcrName/$IMAGE_NAME_MIN:latest
-    - step: &SendSlackMessage
-        name: Send Slack Message
-        clone:
-          enabled: false
+          - docker login $AcrName --username $AcrUser --password $AcrPassword
+          - docker build -t $AcrName/$IMAGE_NAME_MIN:latest --build-arg ARG_ENVIRONMENT=$ENVIRONMENT --build-arg ARG_SCOPE=$SCOPE --build-arg ARG_SUITE=$SUITE .
+          - docker push $AcrName/$IMAGE_NAME_MIN:latest
+    - step: &DeployPod
+        name: 'Deploy to AKS'
         script:
           - export ENVIRONMENT=$(cat ./environment.txt)
-          - echo $(date +%F) 
+          - export SCOPE=$(cat ./testing_scope.txt)
+          - export SUITE=$(cat ./suite.txt)
+          - export PODNAME=$ENVIRONMENT-$SUITE-$BITBUCKET_BUILD_NUMBER
+          - export PODNAME=$(echo $PODNAME | sed 's/@//g')
+          - export PODNAME=$(echo $PODNAME | tr "[:upper:]" "[:lower:]")
           - echo $ENVIRONMENT
-          - export DEPLOYMESSAGE=$(printf "@here The automated test on %s was triggered!. Pls check its result on following link https://mtr-automation.web.app/%s/report_%s_%s/overview-features.html" $ENVIRONMENT $ENVIRONMENT $(date +%F) $BITBUCKET_BUILD_NUMBER)
-          - echo $DEPLOYMESSAGE
-          - pipe: atlassian/slack-notify:2.0.0
-            variables:
-              WEBHOOK_URL: $SLACK_CHANNEL
-              PRETEXT: 'Deployment success'
-              MESSAGE: $DEPLOYMESSAGE 
+          - echo $SUITE
+          - echo $SCOPE
+          - echo $PODNAME
+          - sudo apt-get update
+          - sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+          - curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+          - AZ_REPO=$(lsb_release -cs)
+          - echo "deb [arch=all] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+          - sudo apt-get update
+          - sudo apt-get install azure-cli
+          - sudo az aks install-cli
+          - az login --service-principal -u $AzUser -p $AzPassword --tenant $AcrTenant
+          - az aks get-credentials --resource-group Default-Web-WestUS --name TestingAutomationTest
+          - ./multipod.sh $ENVIRONMENT "$SUITE" "$SCOPE" "$PODNAME"
 pipelines:
   custom:
+    Push-Image:
+      - step:
+          name: Push image
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MMRS
+            - export SUITE=services
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SUITE > suite.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - suite.txt
+      - step: *BuildImage
     PreStaging-Products:
       - step:
           name: Set Testing Scope and Environment
@@ -47,17 +67,16 @@ pipelines:
             enabled: false
           script:
             - export ENVIRONMENT=pre-staging
-            - export SCOPE=@MTR-1436
-            - export SITETYPE=products
+            - export SCOPE=$ProductsScopeSplitted
+            - export SUITE=products
             - echo $ENVIRONMENT > environment.txt
-            - echo $SITETYPE > site_type.txt
+            - echo $SUITE > suite.txt
             - echo $SCOPE > testing_scope.txt
           artifacts:
             - environment.txt
             - testing_scope.txt
-            - site_type.txt
-      - step: *BuildImage
-      - step: *SendSlackMessage
+            - suite.txt
+      - step: *DeployPod
     PreStaging-Services:
       - step:
           name: Set Testing Scope and Environment
@@ -65,17 +84,16 @@ pipelines:
             enabled: false
           script:
             - export ENVIRONMENT=pre-staging
-            - export SCOPE=@OHE-331
-            - export SITETYPE=services
+            - export SCOPE=$ServicesScopeSplitted
+            - export SUITE=services
             - echo $ENVIRONMENT > environment.txt
-            - echo $SITETYPE > site_type.txt
+            - echo $SUITE > suite.txt
             - echo $SCOPE > testing_scope.txt
           artifacts:
             - environment.txt
             - testing_scope.txt
-            - site_type.txt
-      - step: *BuildImage
-      - step: *SendSlackMessage
+            - suite.txt
+      - step: *DeployPod
     Staging-Products:
       - step:
           name: Set Testing Scope and Environment
@@ -83,17 +101,16 @@ pipelines:
             enabled: false
           script:
             - export ENVIRONMENT=staging
-            - export SCOPE=@MTR-1436
-            - export SITETYPE=products
+            - export SCOPE=$ProductsScopeSplitted
+            - export SUITE=products
             - echo $ENVIRONMENT > environment.txt
-            - echo $SITETYPE > site_type.txt
+            - echo $SUITE > suite.txt
             - echo $SCOPE > testing_scope.txt
           artifacts:
             - environment.txt
             - testing_scope.txt
-            - site_type.txt
-      - step: *BuildImage
-      - step: *SendSlackMessage
+            - suite.txt
+      - step: *DeployPod
     Staging-Services:
       - step:
           name: Set Testing Scope and Environment
@@ -101,14 +118,81 @@ pipelines:
             enabled: false
           script:
             - export ENVIRONMENT=staging
-            - export SCOPE=@OHE-392
-            - export SITETYPE=services
+            - export SCOPE=$ServicesScopeSplitted
+            - export SUITE=services
             - echo $ENVIRONMENT > environment.txt
-            - echo $SITETYPE > site_type.txt
+            - echo $SUITE > suite.txt
             - echo $SCOPE > testing_scope.txt
           artifacts:
             - environment.txt
             - testing_scope.txt
-            - site_type.txt
-      - step: *BuildImage
-      - step: *SendSlackMessage
+            - suite.txt
+      - step: *DeployPod
+    Staging-Products-One-Pod:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MTR
+            - export SUITE=products
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SUITE > suite.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - suite.txt
+      - step: *DeployPod
+    Staging-Services-One-Pod:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MMRS
+            - export SUITE=services
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SUITE > suite.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - suite.txt
+      - step: *DeployPod
+    PreStaging-Products-One-Pod:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MTR
+            - export SUITE=products
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SUITE > suite.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - suite.txt
+      - step: *DeployPod
+    PreStaging-Services-One-Pod:
+      - step:
+          name: Set Testing Scope and Environment
+          clone:
+            enabled: false
+          script:
+            - export ENVIRONMENT=staging
+            - export SCOPE=@MMRS
+            - export SUITE=services
+            - echo $ENVIRONMENT > environment.txt
+            - echo $SUITE > suite.txt
+            - echo $SCOPE > testing_scope.txt
+          artifacts:
+            - environment.txt
+            - testing_scope.txt
+            - suite.txt
+      - step: *DeployPod

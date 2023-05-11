@@ -20,11 +20,11 @@ public class SettingsSteps extends BasePage {
 
     }
 
-//    @Before
-//    public void testSignup() throws IOException {
-//      _page.loginWithGastonUserDevProducts();
-//      _page.loginWithDevProd();
-//    }
+    //@Before
+    public void testSignup() throws IOException {
+      _page.loginWithGastonUserDevProducts();
+      _page.loginWithDevProd();
+    }
 
     @And("go to dashboard")
     public void goToDashboard() {

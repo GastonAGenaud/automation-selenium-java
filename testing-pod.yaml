@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+
+  name: testing-staging-sponsoredads
+spec:
+  restartPolicy: Never
+  containers:
+  - name: testing-container
+    image: mmreborn.azurecr.io/automatedtest:latest
+    command: ["bash", "-c", "mvn -e -ntp -f /test-automation/pom.xml clean test -Dcucumber.filter.tags=@sponsoredAds -Denv=staging -Dsuite=products; ./upload_report.sh staging products @sponsoredAds"]

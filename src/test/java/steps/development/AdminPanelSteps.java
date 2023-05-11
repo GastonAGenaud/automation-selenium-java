@@ -25,7 +25,7 @@ public class AdminPanelSteps extends BasePage {
       _page.loginWithGastonUserSVC();
     }
 
-//    @Before
+    //@Before
     public void generateCookiesProducts()  throws IOException {
         loginWithGastonUserDevProducts();
         loginWithDev();
