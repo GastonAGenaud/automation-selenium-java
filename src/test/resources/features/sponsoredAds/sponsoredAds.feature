@@ -1,7 +1,7 @@
 @MTR-2056
 Feature: Sponsored Ads
 
-  @sponsoredAds  @MTR  @MTR-1600
+  @MTR  @MTR-1600
   Scenario: MTR - User able to create an Ad
     Given I login with Gaston User
     And I go to dashboard
@@ -33,7 +33,7 @@ Feature: Sponsored Ads
     And I select the Deactivate option
     Then I validate the change status to Inactive
 
-  @sponsoredAds  @MTR-1603
+  @MTR-1603
   Scenario: MTR - User able to pay an ad
     Given I login with another account
     And I go to dashboard

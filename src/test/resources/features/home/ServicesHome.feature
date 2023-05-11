@@ -20,7 +20,7 @@ Feature: Services Home
 #    And  SVC I select More option
     Then SVC I validate the home menu
 
-  @MMRS-885 @MMRSHome
+  @MMRS-885
   Scenario: SVC - Validate the body without account
     Given SVC I go to owl Svc page
     When SVC I select Provide button

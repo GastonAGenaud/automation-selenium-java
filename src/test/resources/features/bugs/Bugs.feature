@@ -8,7 +8,7 @@ Feature: Bugs
     And I validate send message to seller
     Then I validate the purchased open section
 
-   @MTR-1923 @bugs @CAPTCHA
+  @MTR-1923  @CAPTCHA
   Scenario: MTR - Create my marketplace builder account and go to admin panel
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When I type on name field
@@ -52,7 +52,7 @@ Feature: Bugs
     And I validate step 13 marking tips
     Then I see all the functionalities in the administration panel for the user
 
-  @MTR @MTR-1804 @bugs
+  @MTR @MTR-1804
   Scenario: MTR - Buyer able to click Submit Payment button to complete checkout
     Given I login with another account
     And I add an item to the Shopping Cart BUG
@@ -71,7 +71,7 @@ Feature: Bugs
     Given I go to Browse Page
     Then I validate the Browse Section
 
-  @MTR @MTR-3261 @bugs
+  @MTR @MTR-3261
   Scenario: Create tracking number
     And I login with another account
     And I go to dashboard
@@ -134,7 +134,7 @@ Feature: Bugs
     Then I validate Templates and Edit
 
 
-  @MTR @MTR-1654 @bugs
+  @MTR @MTR-1654
   Scenario: User able to Feature Listing
     Given I login with Gaston User
     And select My Listings button
@@ -155,7 +155,7 @@ Feature: Bugs
     When select Publish button BUG
     Then I validate Publish Listing
 
-  @MTR @MTR-1711 @bugs
+  @MTR @MTR-1711
   Scenario: Download file in Orders Purchased
     Given I login with another account
     And I go to orders page
@@ -248,7 +248,7 @@ Feature: Bugs
 #    And complete Enter a Location TextField
 #    Then I validate the Location sector MAP
 
-    @bugs @MTR  @MTR-1942
+  @bugs @MTR  @MTR-1942
   Scenario: MTR - Item Reviews
     Given I Sign in with new account "email2" and go to the listing page
     When I select an item BUG
@@ -260,13 +260,14 @@ Feature: Bugs
     And I select Reviews sector
     Then I validate Reviews in item page
 
-   @bugs @MTR @MTR-1987
+  @bugs @MTR @MTR-1987
   Scenario: MTR - Browse Listing without Login
     Given I go to listing page
     When I select an item BUG
     Then I validate Browse Listing without Login
 
-  @adminBug  @test @MTR @MTR-2055 @bugs
+
+  @test @MTR @MTR-2055
   Scenario: Admin design page PNG
     Given I login with Gaston User
     And Admin design
@@ -327,7 +328,7 @@ Feature: Bugs
     When select My Listings button BUG
     Then I validate My Listings text
 
-  @bugs @MTR @MTR-1887
+  @MTR @MTR-1887
   Scenario: Validate Social Links
     Given I login with Gaston User
     And Admin design
@@ -380,7 +381,7 @@ Feature: Bugs
     Then I validate create a listing Staging
 
 
-  @bugs @ServicesBug
+  @ServicesBug
   Scenario: Modify the site from services to product
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding"
     When I type on name field
@@ -440,7 +441,7 @@ Feature: Bugs
     When Select Signup With Facebook
     Then I validate Signup With Facebook
 
-  @bugs @MTR @MTR-2651
+  @MTR @MTR-2651
   Scenario: No Payments - "Payment" information still showing
     Given I login with another account
     And go to Dashboard
@@ -474,7 +475,7 @@ Feature: Bugs
     And select Template Tab
     Then I validate that the 404 error does not exist.
 
-  @MTR @MTR-2858 @bugs
+  @MTR @MTR-2858
   Scenario: Unable to download purchased downloadable files - blocked by firewall
     Given I login with another account
     And I go to orders page BUGS
@@ -483,7 +484,7 @@ Feature: Bugs
     Then I validate that I can download the file
 
 
-  @MTR @MTR-2898 @bugs
+  @MTR @MTR-2898
   Scenario: Error when users try to complete connecting to stripe
     Given I login with Gaston User Stripe
     And go to Dashboard
@@ -493,7 +494,7 @@ Feature: Bugs
     Then valid verification form is displayed
 
 
-  @MTR @MTR-2899 @bugs
+  @MTR @MTR-2899
   Scenario: It should redirect on respective page as redirects when clicking from another place
     Given I login with another account
     And I go to orders page BUGS
@@ -503,7 +504,7 @@ Feature: Bugs
     Then valid to redirect to the respective page
 
 
-  @MTR @MTR-3279 @bugs
+  @MTR @MTR-3279
   Scenario: Browse by Seller/Downloadable Files as Products - Not showing any seller profiles
     Given I login with Gaston User
     And I go to dashboard

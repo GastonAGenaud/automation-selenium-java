@@ -3,7 +3,7 @@ Feature: browse
 
   Validate Browse & Browse Requests Pages
 
-  @browse  @MTR-1309
+    @MTR-1309
   Scenario: MTR - Log in and Validate the Browse Section
     Given I login with Gaston User
     And I go to Browse Page

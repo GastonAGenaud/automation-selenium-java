@@ -1,7 +1,7 @@
 @MTR-3194
 Feature: Category
 
-  @MTR-3195 @category @MTR
+  @MTR-3195  @MTR
   Scenario: MTR - valid that you can add a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -9,7 +9,7 @@ Feature: Category
     And Add Subcategory Shoes
     Then Valid that the subcategory Shoes was created
 
-  @MTR-3196 @category @MTR
+  @MTR-3196  @MTR
   Scenario: MTR - valid that you can edit a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -17,7 +17,7 @@ Feature: Category
     And Edit Subcategory Shoes
     Then Valid that the subcategory Shoes was edit
 
-  @MTR-3197 @category @MTR
+  @MTR-3197  @MTR
   Scenario: MTR - valid that you can delete a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -25,7 +25,7 @@ Feature: Category
     And Delete Subcategory Shoes
     Then Valid that the subcategory Shoes was delete
 
-  @MTR-3198 @category
+  @MTR-3198
   Scenario: MTR - valid that you can add a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -33,7 +33,7 @@ Feature: Category
     And Add Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was created
 
-  @MTR-3199 @category
+  @MTR-3199
   Scenario: MTR - valid that you can edit a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -41,7 +41,7 @@ Feature: Category
     And edit Subcategory Outdoor Staff
     Then Valid that the subcategory Outdoor Staff was edit
 
-  @MTR-3200 @category
+  @MTR-3200
   Scenario: MTR - valid that you can delete a subcategory in Outdoor Staff
     Given I login with Gaston User
     And Step 4: Create Categories

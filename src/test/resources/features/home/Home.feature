@@ -82,7 +82,7 @@ Feature: Home
     And I validate the Browse by seller button
     Then I validate the main header
 
-  @home   @MTR-1442 @MTR
+  @MTR-1442 @MTR
   Scenario: MTR - Validate the home Header Section with account
     Given I go to Home With Account
     When I validate the accessories section

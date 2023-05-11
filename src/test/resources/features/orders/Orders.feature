@@ -25,7 +25,7 @@ Feature: Orders
 #    And I validate send message to seller
 #    Then I validate the purchased open section
 
-  @orders  @MTR  @MTR-1449
+  @MTR  @MTR-1449
   Scenario: MTR - Orders - Purchased - shipped orders
     Given I login with another account
     And I go to dashboard
@@ -36,7 +36,7 @@ Feature: Orders
     And I validate the request refund button
     Then I validate the purchased shipped orders section
 
-  @orders  @MTR  @MTR-1450
+  @MTR  @MTR-1450
   Scenario: MTR - Orders - Purchased - pickup orders
     Given I login with another account
     And I go to dashboard
@@ -49,7 +49,7 @@ Feature: Orders
     And I validate the request refund button in complete status
     Then I validate the purchased shipped orders section
 
-  @orders  @MTR  @MTR-1451
+  @MTR  @MTR-1451
   Scenario: MTR - Orders - Show Menu
     Given I login with another account
     And I go to orders page

@@ -50,7 +50,7 @@ Feature: Categorys
     When delete Subategory Serv
     Then valid that the Subcategory was erased
 
-  @MTR-3195 @category @MTR
+  @MTR-3195  @MTR
   Scenario: MTR - valid that you can add a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -58,7 +58,7 @@ Feature: Categorys
     And Add Subcategory Shoes
     Then Valid that the subcategory Shoes was created
 
-  @MTR-3196 @category @MTR
+  @MTR-3196  @MTR
   Scenario: MTR - valid that you can edit a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories
@@ -66,7 +66,7 @@ Feature: Categorys
     And Edit Subcategory Shoes
     Then Valid that the subcategory Shoes was edit
 
-  @MTR-3197 @category @MTR
+  @MTR-3197  @MTR
   Scenario: MTR - valid that you can delete a subcategory in shoes
     Given I login with Gaston User
     And Step 4: Create Categories

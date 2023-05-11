@@ -5,7 +5,7 @@ Feature: Onboarding flow
   I want to be able create my marketplace
   In order to start selling my products
 
-  @onboarding  @pendiente @MTR-1844 @CAPTCHA
+  @pendiente @MTR-1844 @CAPTCHA
   Scenario: MTR - Create my marketplace builder account and go to admin panel
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When I type on name field
@@ -24,7 +24,7 @@ Feature: Onboarding flow
     Then I create my marketplace products page
 
 
-  @onboarding   @MTR-1090 @CAPTCHA
+  @MTR-1090 @CAPTCHA
   Scenario: MTR - Complete a marketplace of products
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding/?TierCode=OPTIMIZE"
     When I type on name field
@@ -43,7 +43,7 @@ Feature: Onboarding flow
     Then I create my marketplace products page
 
 
-  @onboarding   @MTR-1091 #@MTR
+  @MTR-1091 #@MTR
   Scenario: MTR - Complete a marketplace of service
     Given I go to "https://mtreborn-staging-products.azurewebsites.net/application/Onboarding"
     When I type on name field

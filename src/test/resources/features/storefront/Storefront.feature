@@ -28,7 +28,7 @@ Feature: storefront
     And I validate the profile bio text field
     Then I validate user profile info
 
-  @storefront  @MTR  @MTR-1349
+  @MTR  @MTR-1349
   Scenario: MTR - Validate profile social media
     Given I login with Gaston User
     When I select social button

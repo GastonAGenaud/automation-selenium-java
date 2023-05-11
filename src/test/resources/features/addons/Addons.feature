@@ -38,7 +38,7 @@ Feature: addons
     And I select the Submit Payment button
     Then I validate the Submit Payment
 
-  @addons @MTR-1542 @MTR
+  @MTR-1542 @MTR
   Scenario: MTR - Create an Add-On
     Given I login with Dev user
     And Admin Add-ons
@@ -54,7 +54,7 @@ Feature: addons
     Then I validate the created addon
 
 
-  @addons  @MTR-1543 @MTR
+  @MTR-1543 @MTR
   Scenario: Edit an Add-on
     Given I login with Dev user
     And Admin Add-ons
@@ -69,7 +69,7 @@ Feature: addons
     Then I validate the edit
 
 
-  @addons  @MTR-1545 @MTR
+  @MTR-1545 @MTR
   Scenario: Create a second Add-On
     Given I login with Dev user
     And Admin Add-ons
@@ -84,7 +84,7 @@ Feature: addons
     And I select the save button
     Then I validate the created addon
 
-  @addons  @MTR-1546 @MTR
+  @MTR-1546 @MTR
   Scenario: Create a third Add-On
     Given I login with Dev user
     And Admin Add-ons
@@ -100,7 +100,7 @@ Feature: addons
     Then I validate the created addon
 
 
-  @addons @MTR-1544 @MTR
+  @MTR-1544 @MTR
   Scenario: Eliminate an Add-on
     Given I login with Dev user
     And Admin Add-ons

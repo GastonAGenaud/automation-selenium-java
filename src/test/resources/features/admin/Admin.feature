@@ -118,7 +118,7 @@ Feature: Admin
     And I validate the status section
     Then I see that the verify credentials button verify the mail & I see that the next button redirect me to step 7
 
-  @admin  @MTR-1305 @MTR
+  @MTR-1305 @MTR
   Scenario: Admin design page
     Given I login with Gaston User
     And Admin design
@@ -134,7 +134,7 @@ Feature: Admin
     And I validate customize Privacy Policy page option
     Then I validate Admin Design
 
-  @admin  @MTR-1306 @MTR
+  @MTR-1306 @MTR
   Scenario: Validate Admin settings
     Given I login with Gaston User
     And Admin settings
@@ -146,7 +146,7 @@ Feature: Admin
 #    And I validate Discount codes section
     Then I validate Admin Settings
 
-  @admin  @MTR-1307
+  @MTR-1307
   Scenario: Admin panel Reports validate page
     Given I login with Gaston User
     And Admin Reports

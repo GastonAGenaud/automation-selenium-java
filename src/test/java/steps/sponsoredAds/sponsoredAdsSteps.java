@@ -29,12 +29,14 @@ public class sponsoredAdsSteps extends BasePage {
         this._page = new sponsoredAdsPage();
     }
 
-   /* @Before
+ /*  @Before
     public void test () throws IOException {
         loginWithGastonNoBorrar();
     }
 
-    */
+  */
+
+
 
 
     @Given("I login with another account")

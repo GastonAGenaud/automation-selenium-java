@@ -1,7 +1,7 @@
 @MTR-1583
 Feature: Settings
 
-  @settings  @MTR @MTR-1393
+  @MTR @MTR-1393
   Scenario: MTR - Profile page
     Given I login with Dev user
     And I go to dashboard

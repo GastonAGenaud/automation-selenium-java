@@ -79,7 +79,7 @@ Feature: Services Admin
     And SVC I validate the next button smtp
     Then SVC I see that the next button redirect me to step 7
 
-  @AdminDesign @MMRSAdmin
+  @AdminDesign
   Scenario: Admin design page
     Given SVC I go to Admin design
     When SVC I validate customize landing page option
@@ -93,7 +93,7 @@ Feature: Services Admin
     #And SVC I validate customize Privacy Policy page option
     Then SVC I validate Admin Design
 
-  @MMRS-399 @MMRSAdmin
+  @MMRS-399
   Scenario: Validate Admin settings
     Given SVC Admin settings
     When SVC I validate settings Site Wording
@@ -104,7 +104,7 @@ Feature: Services Admin
     #And SVC I validate Discount codes section
     Then SVC I validate Admin Settings
 
-  @MMRS-927 @MMRSAdmin
+  @MMRS-927
   Scenario:SVC Admin panel Reports validate page
     Given SVC Admin Reports
     When SVC I validate Contact Messages
@@ -113,7 +113,7 @@ Feature: Services Admin
     And SVC I validate User Transactions
     Then SVC I validate Admin Reports
 
-  @MMRS-928 @MMRSAdmin
+  @MMRS-928
   Scenario:SVC Admin panel Add-ons validate page
     Given SVC I login With Dev User
     When SVC I validate Add-Ons Section
