@@ -46,7 +46,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=580']")
     public WebElement moreAccessoriesBtn;
     //Clothing
-    @FindBy(xpath = "//a[contains(text(), 'Clothing')]")
+    @FindBy(xpath = "//a[contains(text(), 'More')")
     public WebElement clothingBtn;
 
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=578']")
@@ -65,11 +65,11 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=574']")
     public WebElement moreShoesBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[3]/a")
+    @FindBy(xpath = "//a[contains(text(), 'Outdoor Staff')]")
     public WebElement outdoorStuffBtn;
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=576']")
     public WebElement moreOutdoorStuffBtn;
-    @FindBy(xpath = "/html/body/header/div/ul/li[4]/a")
+    @FindBy(xpath = "//a[contains(text(), 'Art & Collectable')]")
     public WebElement artAndCollectablesBtn;
     @FindBy(xpath = "//a[@class='nav-link more-cat'][@href='/Listing/Browse?CategoryId=316']")
     public WebElement moreArtAndCollectablesBtn;

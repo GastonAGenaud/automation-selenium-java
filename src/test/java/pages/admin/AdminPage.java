@@ -867,7 +867,7 @@ public class AdminPage extends BasePage {
 
     public void customizeLandingPage() {
         //designSection();
-        getDriver().navigate().to("https://mtreborn-automation-products.azurewebsites.net/Admin/application/LandingCustomize#!");
+        getDriver().navigate().to("https://mtreborn-automation-pre-staging-products.azurewebsites.net//Admin/application/LandingCustomize#!");
     }
 
     public void customizeLandingPageHeader() {

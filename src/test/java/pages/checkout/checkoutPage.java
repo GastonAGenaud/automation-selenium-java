@@ -81,7 +81,7 @@ public class checkoutPage extends BasePage {
     public WebElement nameOnCardTextField;
     @FindBy(how = How.CSS, using = "#expiry-date")
     public WebElement expirationDateTextField;
-    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div[2]/div/div[3]/div[3]/div/input")
+    @FindBy(xpath = "/html/body/div[4]/main/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div[3]/div/div[3]/div[2]/div/input")
     public WebElement cvvCodeTextField;
     @FindBy(how = How.CSS, using = "#sub-container-cards > div.card.card-shopping.form-new-card > div > div.d-flex.align-items-center.mt-2 > label.switch.mr-2 > span")
     public WebElement saveCreditCardBtn;

@@ -443,14 +443,13 @@ public class bugsPage extends BasePage {
 
     public boolean validateErrorConsole() {
 
-        boolean result = true;
+        boolean result = false; // inicializar a false
         for (LogEntry entry : logEntries) {
             String errorLogType = entry.getLevel().toString();
             String errorLog = entry.getMessage().toString();
             if (errorLog.contains("404")) {
                 result = true;
-            } else {
-                result = false;
+                break; // Salir del bucle cuando se encuentra un error 404
             }
         }
         return result;

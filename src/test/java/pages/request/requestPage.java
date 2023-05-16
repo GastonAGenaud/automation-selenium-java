@@ -63,8 +63,9 @@ public class requestPage extends BasePage {
     public WebElement filterMorePriceTextField;
     @FindBy(how = How.CSS, using = "#location")
     public WebElement filterLocationTextField;
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.card.border-0.bg-gray.my-4 > div > a")
+    @FindBy(xpath = "//button[contains(text(),'Create a Request')]")
     public WebElement browseCreateRequestBtn;
+
     @FindBy(how = How.CSS, using = "#category-selector")
     public WebElement categoryBtn;
     @FindBy(how = How.CSS, using = "#category-selector > option:nth-child(2)")
@@ -149,7 +150,7 @@ public class requestPage extends BasePage {
     @FindBy(how = How.CSS, using = "#matched-close > div:nth-child(1) > div > div > div.col-7.col-md-8.col-lg-9 > div > div.d-flex.flex-row.align-items-center > div.d-flex.align-items-center.ml-auto.justify-content-end > div > div > a:nth-child(1)")
     public WebElement reOpenBtn;
 
-    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9 > div.card.border-0.bg-gray.my-4 > div > a")
+    @FindBy(how = How.CSS, using = "#whole-container > main > div.bg-white.py-3.py-lg-5.px-lg-5 > div > div > div.col-12.col-sm-8.col-lg-9")
     public WebElement browseRequestValidate;
 
     @FindBy(how = How.CSS, using = "#matched-tab > span > span:nth-child(1)")
@@ -470,13 +471,12 @@ public class requestPage extends BasePage {
         try {
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
-             fluentWait(getDriver(), requestCopyURLBtn);
+            fluentWait(getDriver(), requestCopyURLBtn);
         } catch (Exception e) {
             wait(3);
             fluentWait(getDriver(), publishRequestBtn);
             waitForWebElementAndClick(publishRequestBtn);
-        }
-        finally {
+        } finally {
             fluentWaitStrict(getDriver(), requestCopyURLBtn);
         }
     }

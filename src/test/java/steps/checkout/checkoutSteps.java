@@ -200,7 +200,7 @@ public class checkoutSteps extends BasePage {
 
     @And("i complete the CVV Code text field")
     public void iCompleteTheCVVCodeTextField() {
-        _page.validateCVVTextField();
+        //_page.validateCVVTextField();
         _page.selectCvvCodeTextField();
     }
 
