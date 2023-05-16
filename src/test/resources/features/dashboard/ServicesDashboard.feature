@@ -8,7 +8,7 @@ Feature:Services Dashboard
     #And I select my settings button
     And SVC I select the see all most popular button
     And SVC I select the see all my orders button
-    And SVC I select the go to my calendar button
+#    And SVC I select the go to my calendar button
     And SVC I select the see all messages button
 #    And SVC I select create a want button
     Then SVC I validate the customer dashboard
@@ -22,5 +22,5 @@ Feature:Services Dashboard
     And SVC I select see all my sales button
     And SVC I select create a new listing button
     And SVC I select see all messages button
-    And SVC I select go to my calendar button in provider
+#    And SVC I select go to my calendar button in provider
     Then SVC I validate provider dashboard

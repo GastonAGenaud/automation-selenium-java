@@ -19,11 +19,6 @@ public class AdminPanelSteps extends BasePage {
         this._page = new AdminPanelPage();
     }
 
-   // @Before
-    public void testSignup() throws IOException {
-      _page.loginDevSVC();
-      _page.loginWithGastonUserSVC();
-    }
 
 //    @Before
     public void generateCookiesProducts()  throws IOException {

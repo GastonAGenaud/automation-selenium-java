@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(features = {"classpath:features"}, glue = {"steps", "driver"},
-        tags = "(@testItemApprove)", monochrome = true, dryRun = false,
+        tags = "(@MMRS)", monochrome = true, dryRun = false,
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class Runner extends AbstractTestNGCucumberTests {
 
